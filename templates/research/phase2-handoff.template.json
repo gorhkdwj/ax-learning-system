@@ -1,0 +1,198 @@
+{
+  "schema_version": "1.0.0",
+  "id": "handoff.phase2.wave-00-onboarding",
+  "version": "1.0.0",
+  "title": "Phase 2 Wave 0 Claude to Codex Handoff",
+  "status": "partial",
+  "created_at": "2026-07-26",
+  "created_by": "Claude Code",
+  "source_contract": {
+    "governance_files": [
+      "AGENTS.md",
+      "docs/governance/learning-governance.md",
+      "docs/research/phase2-capability-survey-runbook.md"
+    ],
+    "schema_versions": [
+      {
+        "name": "capability-candidate",
+        "version": "1.0.0"
+      },
+      {
+        "name": "phase2-handoff",
+        "version": "1.0.0"
+      }
+    ],
+    "checkpoint_path": "research/capability-survey/checkpoints/wave-00.md"
+  },
+  "scope": {
+    "requested": [
+      "Phase 2 조사 계약과 첫 시험 배치 승인 준비"
+    ],
+    "completed": [
+      "정본 문서 확인"
+    ],
+    "excluded": [
+      "실제 후보 조사",
+      "정규 Catalog, Set, Signal 승격"
+    ],
+    "started_at": "2026-07-26"
+  },
+  "execution": {
+    "current_wave": "wave-00",
+    "completed_waves": [],
+    "work_packages": [
+      {
+        "id": "wp.ax-strategy-value.pilot",
+        "status": "planned",
+        "path": "research/capability-survey/waves/wave-01/wp.ax-strategy-value.pilot",
+        "candidate_count": 0
+      }
+    ],
+    "counts": {
+      "candidates_total": 0,
+      "proposed": 0,
+      "needs_review": 0,
+      "accepted": 0,
+      "merged": 0,
+      "deferred": 0,
+      "signalized": 0,
+      "excluded": 0
+    }
+  },
+  "coverage": {
+    "domains": [
+      {
+        "id": "ax-strategy-value",
+        "status": "not_started",
+        "note": "첫 시험 배치 승인 대기 중입니다."
+      },
+      {
+        "id": "ai-literacy-trust",
+        "status": "not_started",
+        "note": "조사 렌즈 승인 대기 중입니다."
+      },
+      {
+        "id": "ai-systems-agents",
+        "status": "not_started",
+        "note": "조사 렌즈 승인 대기 중입니다."
+      },
+      {
+        "id": "software-product-engineering",
+        "status": "not_started",
+        "note": "조사 렌즈 승인 대기 중입니다."
+      },
+      {
+        "id": "data-analytics-ml",
+        "status": "not_started",
+        "note": "조사 렌즈 승인 대기 중입니다."
+      },
+      {
+        "id": "integration-automation",
+        "status": "not_started",
+        "note": "조사 렌즈 승인 대기 중입니다."
+      },
+      {
+        "id": "human-ai-experience",
+        "status": "not_started",
+        "note": "조사 렌즈 승인 대기 중입니다."
+      },
+      {
+        "id": "platform-quality-operations",
+        "status": "not_started",
+        "note": "조사 렌즈 승인 대기 중입니다."
+      },
+      {
+        "id": "security-legal-governance",
+        "status": "not_started",
+        "note": "조사 렌즈 승인 대기 중입니다."
+      },
+      {
+        "id": "organization-adoption",
+        "status": "not_started",
+        "note": "조사 렌즈 승인 대기 중입니다."
+      }
+    ],
+    "known_gaps": [
+      "10개 조사 렌즈와 첫 시험 배치 범위가 아직 사용자 승인 전입니다."
+    ]
+  },
+  "artifacts": [
+    {
+      "path": "research/capability-survey/checkpoints/wave-00.md",
+      "role": "checkpoint",
+      "status": "unchanged"
+    }
+  ],
+  "quality": {
+    "catalog_validation": {
+      "command": "python tools/validate_catalog.py",
+      "ran_at": "2026-07-26",
+      "exit_code": 0,
+      "summary": "기존 Catalog와 조사 메타데이터가 유효합니다."
+    },
+    "regression_tests": {
+      "command": "python -m unittest discover -s tests -v",
+      "ran_at": "2026-07-26",
+      "exit_code": 0,
+      "summary": "전체 회귀 테스트가 통과했습니다."
+    },
+    "source_audit": {
+      "sample_rule": "후보 조사가 시작되지 않아 감사 대상이 없습니다.",
+      "reviewed_count": 0,
+      "p0_count": 0,
+      "p1_count": 0,
+      "p2_count": 0,
+      "result": "partial"
+    },
+    "taxonomy_audit": {
+      "result": "partial",
+      "note": "조사 렌즈와 분류 기준이 승인 대기 중입니다."
+    },
+    "practicality_audit": {
+      "result": "partial",
+      "note": "후보 조사가 시작되지 않았습니다."
+    }
+  },
+  "decisions": [],
+  "open_items": {
+    "questions": [
+      "10개 조사 렌즈를 Wave 0 조사 계약으로 승인할지 확인이 필요합니다.",
+      "wp.ax-strategy-value.pilot 시험 배치를 시작할지 확인이 필요합니다."
+    ],
+    "risks": [],
+    "conflicts": [],
+    "unverified_claims": []
+  },
+  "approval": {
+    "status": "pending",
+    "requested_at": "2026-07-26",
+    "note": "Wave 0 조사 렌즈와 첫 시험 배치 승인을 기다리고 있습니다."
+  },
+  "resume": {
+    "read_first": [
+      "CLAUDE.md",
+      "docs/research/phase2-capability-survey-runbook.md",
+      "research/capability-survey/checkpoints/wave-00.md"
+    ],
+    "next_action": "사용자에게 조사 렌즈와 첫 시험 배치 승인을 요청합니다.",
+    "inputs": [
+      "templates/research/capability-candidate.template.json",
+      "templates/research/domain-survey.template.md"
+    ],
+    "expected_outputs": [
+      "research/capability-survey/waves/wave-01/wp.ax-strategy-value.pilot"
+    ],
+    "approval_required": true,
+    "stop_conditions": [
+      "정본 문서 간 충돌이 발견됩니다.",
+      "사용자가 조사 렌즈 또는 시험 배치 범위를 승인하지 않습니다.",
+      "검증 명령이 실패합니다."
+    ]
+  },
+  "attestations": {
+    "no_unauthorized_catalog_promotion": true,
+    "assigned_paths_only": true,
+    "unverified_claims_disclosed": true,
+    "checkpoint_updated": true
+  }
+}

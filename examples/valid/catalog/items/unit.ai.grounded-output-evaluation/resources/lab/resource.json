@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.ai.grounded-output-evaluation.lab",
+  "version": "1.0.0",
+  "title": "근거 기반 출력 평가 실습 예제",
+  "description": "새로운 AI 출력 집합을 동일한 기준으로 평가하는 D2 변형 과제 예제입니다.",
+  "resource_type": "lab",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.ai.grounded-output-evaluation",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "local",
+    "path": "examples/valid/catalog/items/unit.ai.grounded-output-evaluation/resources/lab/content.md"
+  },
+  "learning_outcome_ids": [
+    "outcome.ai.grounded-output-evaluation.guided",
+    "outcome.ai.grounded-output-evaluation.apply"
+  ],
+  "estimated_minutes": 90,
+  "language": "ko",
+  "tags": [
+    "example",
+    "lab",
+    "transfer-task"
+  ],
+  "requirements": {
+    "platforms": [
+      "markdown-reader"
+    ],
+    "network_required": false
+  },
+  "provenance": {
+    "origin": "original",
+    "sources": [
+      {
+        "title": "Evaluate agent workflows",
+        "publisher": "OpenAI",
+        "source_type": "official_docs",
+        "url": "https://developers.openai.com/api/docs/guides/agent-evals",
+        "checked_at": "2026-07-26"
+      },
+      {
+        "title": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile",
+        "publisher": "NIST",
+        "source_type": "official_spec",
+        "url": "https://doi.org/10.6028/NIST.AI.600-1",
+        "source_version": "NIST.AI.600-1",
+        "checked_at": "2026-07-26"
+      }
+    ],
+    "license": "LicenseRef-AX-Internal-Example"
+  },
+  "accessibility": {
+    "status": "partial",
+    "standard": "WCAG 2.2 AA principles",
+    "features": [
+      "semantic_structure",
+      "text_alternative"
+    ],
+    "checked_at": "2026-07-26",
+    "note": "텍스트 기반 실습이며 별도 보조기기 검증은 수행하지 않았습니다."
+  },
+  "verification": {
+    "status": "verified",
+    "checked_at": "2026-07-26",
+    "expected_outputs": [
+      "평가 기준, 개별 판정, 근거와 불확실성을 포함한 평가 기록을 작성합니다."
+    ],
+    "evidence_paths": [
+      "examples/valid/catalog/items/unit.ai.grounded-output-evaluation/resources/lab/content.md"
+    ],
+    "note": "실습 계약과 파일 존재를 확인했습니다. 학습효과 평가는 수행하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-26",
+    "review_due_at": "2026-10-26"
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.ax-strategy-value.benefits-realization",
+  "version": "1.0.0",
+  "title": "AX 편익 실현·운영가치 추적",
+  "canonical_name": "Benefits realization and value tracking",
+  "aliases": [
+    "Value realization management"
+  ],
+  "summary": "도구 출시나 시간절감을 가치로 간주하지 않고 편익 논리·기준선·소유자·측정시점·완전원가를 연결하여 실제값을 추적하고 확대·유지·수정·중단을 판단하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "프로젝트 산출물 전달이나 사용량을 완료로 보고 비용·검토·재작업·장애를 포함한 실제 편익의 실현과 지속 여부를 추적하지 않는 문제를 다룹니다.",
+    "includes": [
+      "재무·비재무 편익 논리, 기준선·목표·소유자·실현 시점",
+      "중복계상 방지와 기술·데이터·검토·재작업·운영 완전원가",
+      "예측 대비 실제값과 확대·유지·수정·중단 검토"
+    ],
+    "excludes": [
+      "전문 회계·재무평가와 공급자 계약 협상",
+      "전사 PMO·FinOps 운영모델과 조직 전체 변화관리"
+    ],
+    "boundary_note": "일반 프로젝트 편익관리와 학습성과가 같다면 공통 프로젝트·제품 Unit으로 병합하고 AX 특화 Resource만 유지해야 합니다."
+  },
+  "discovery": {
+    "lens_id": "ax-strategy-value",
+    "basis": "cross_lens_discovery",
+    "notes": "ax-strategy-value 조사에서 발견했지만 공통 프로젝트·제품 편익관리와의 중복 때문에 정규 소유권을 보류했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "ax-strategy-value",
+    "subdomains": [
+      "benefits-realization",
+      "operational-value"
+    ],
+    "tags": [
+      "benefits-register",
+      "unit-economics",
+      "scale-stop"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "capability",
+    "proposed_destination": "defer",
+    "rationale": "일반 프로젝트 편익관리와 독립적인 AX 고유 학습성과 및 소유 Unit이 확인되지 않았으므로 승격을 보류하고, 향후 공통 편익관리 Unit에는 AX 완전원가·대안별 운영비 비교 Resource만 연결합니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ax-strategy-value.measurement-contract",
+        "version": "1.0.0"
+      },
+      "rationale": "일관된 편익·원가 추적에는 먼저 재현 가능한 지표와 데이터 정의가 필요합니다."
+    },
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ax-strategy-value.pilot-impact-evaluation",
+        "version": "1.0.0"
+      },
+      "rationale": "관측 변화와 개입 효과를 구분한 뒤 실현 편익으로 집계해야 합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "AX 이니셔티브의 편익 등록부와 운영 단위경제를 만들고 예측·실제값, 미실현 원인, 시정조치와 확대·유지·중단 판단을 기록합니다.",
+    "work_contexts": [
+      "부서 문서업무 자동화",
+      "고객 서비스 개선"
+    ],
+    "transferability": "enterprise_cross_functional",
+    "agent_fit": "comparison_required",
+    "agent_fit_rationale": "현행, 결정적 자동화, SaaS, AI 워크플로우와 에이전트의 수용 결과당 완전원가를 비교하되 편익 소유권과 중단 판단은 인간 책임자가 승인합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "산출물·사용량·절감시간·실현 편익과 완전원가를 구분합니다.",
+        "evidence_hypothesis": "편익 중복과 누락 원가가 있는 사례를 판별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "새로운 AX 이니셔티브의 편익·원가 등록부를 운영하고 증거에 따라 확대·유지·수정·중단을 제안합니다.",
+        "evidence_hypothesis": "고정 원자료 fixture에서 두 평가자가 같은 편익·완전원가 값을 재현하고 중복계상·누락비용·미실현 편익을 assertion으로 탐지한 뒤 시정 결정의 추적성을 확인합니다."
+      }
+    ],
+    "depth_boundary": "목표 D2, 상한 D2입니다. 실제 운영 예산·사고 대응·공급자 계약, 회계 정책, 전사 예산 배분과 변화관리 책임은 포함하지 않습니다."
+  },
+  "practicality": {
+    "value_types": [
+      "revenue",
+      "cost",
+      "cycle_time",
+      "throughput",
+      "quality",
+      "risk_reduction",
+      "reuse",
+      "strategic_option"
+    ],
+    "business_hypotheses": [
+      "절감시간이 처리량·서비스 수준·비용 또는 재배치 가치로 전환되지 않은 경우 허위 편익을 차단할 가능성이 있습니다.",
+      "기술비 외 검토·재작업·장애·유지보수 비용을 포함해 지속 가능한 운영가치를 판단할 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "core",
+    "priority_hint": "unassessed",
+    "measurement_hypothesis": "수용 결과당 완전원가, 실현 편익, 검토·재작업·장애비용, 유지보수 시간과 가드레일 추이를 정기 비교합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "cost",
+      "observability",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "시간 절감은 실제 재배치나 처리량·서비스·비용 변화로 전환될 때만 편익으로 집계하며 위험 감소의 금액 환산은 가설로 표시합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.ax-strategy-value.benefits-realization.ipa-guide",
+      "title": "Guide for effective benefits management in major projects",
+      "publisher": "Infrastructure and Projects Authority and Cabinet Office",
+      "source_type": "official_docs",
+      "url": "https://www.gov.uk/government/publications/guide-for-effective-benefits-management-in-major-projects",
+      "published_at": "2017-10-20",
+      "checked_at": "2026-07-26",
+      "claim_scope": "편익의 식별·계획·실현·추적, 역할과 수명주기 관리 범위만 지지하며 AX 고유 효과는 지지하지 않습니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "lifecycle"
+      ]
+    },
+    {
+      "id": "evidence.ax-strategy-value.benefits-realization.digital-data-framework",
+      "title": "Digital and Data Benefits framework",
+      "publisher": "Department for Science, Innovation and Technology and Government Digital Service",
+      "source_type": "official_docs",
+      "url": "https://www.gov.uk/government/publications/digital-and-data-benefits-framework/digital-and-data-benefits-framework",
+      "checked_at": "2026-07-26",
+      "source_version": "2026",
+      "claim_scope": "디지털·데이터 편익의 명료화·정량화·금액화, 기준선과 중복계상 방지 범위만 지지하며 지속적인 운영 추적 방법까지 직접 지지하지 않습니다.",
+      "supports": [
+        "scope",
+        "work_relevance"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "needs_review",
+    "confidence": "medium",
+    "rationale": "실무가치는 확인되었지만 일반 프로젝트 편익관리와 독립적인 AX 학습성과가 확인되지 않아 Unit 승격을 보류합니다.",
+    "review_gate": "taxonomy"
+  },
+  "review": {
+    "wave_id": "wave-01",
+    "work_package_id": "wp.ax-strategy-value.pilot",
+    "author_agent": "codex-main-with-parallel-research",
+    "researched_at": "2026-07-26",
+    "reviewers": [
+      "ax-evidence-auditor",
+      "ax-taxonomy-auditor",
+      "ax-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "일반 프로젝트 편익관리와 동일한 학습성과라면 공통 Unit에 병합해야 합니다.",
+      "위험 감소와 공통비의 금액 환산은 조직별 회계·위험정책 확인이 필요합니다."
+    ],
+    "next_action": "공통 편익관리 Unit이 발견되면 merge_existing으로 전환하고 AX 완전원가·운영비 비교만 Resource로 유지합니다."
+  }
+}

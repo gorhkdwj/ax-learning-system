@@ -1,0 +1,694 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ax-learning.local/schemas/learning-unit.schema.json",
+  "title": "AX Learning Unit",
+  "description": "재사용 가능한 기술·개념 학습 Unit의 메타데이터 스키마입니다.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "version",
+    "title",
+    "summary",
+    "item_type",
+    "taxonomy",
+    "learning",
+    "resource_refs",
+    "validation",
+    "sources",
+    "lifecycle"
+  ],
+  "properties": {
+    "schema_version": {
+      "$ref": "#/$defs/semver"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^unit\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+    },
+    "version": {
+      "$ref": "#/$defs/semver"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "item_type": {
+      "enum": [
+        "concept",
+        "pattern",
+        "practice",
+        "language",
+        "library",
+        "framework",
+        "runtime",
+        "database",
+        "protocol",
+        "platform",
+        "saas",
+        "automation_platform",
+        "product_feature",
+        "tool"
+      ]
+    },
+    "taxonomy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "major_domain",
+        "subdomains"
+      ],
+      "properties": {
+        "major_domain": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+        },
+        "subdomains": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+          }
+        }
+      }
+    },
+    "domain_tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true,
+      "default": []
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true,
+      "default": []
+    },
+    "learning": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "outcomes",
+        "default_target_level",
+        "estimated_minutes"
+      ],
+      "properties": {
+        "outcomes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "statement",
+              "target_level"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^outcome\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+              },
+              "statement": {
+                "type": "string",
+                "minLength": 1
+              },
+              "target_level": {
+                "$ref": "#/$defs/proficiency"
+              }
+            }
+          }
+        },
+        "default_target_level": {
+          "$ref": "#/$defs/proficiency"
+        },
+        "maximum_scope_level": {
+          "$ref": "#/$defs/proficiency"
+        },
+        "estimated_minutes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "scope_expansion_policy": {
+          "type": "string"
+        }
+      }
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "target"
+        ],
+        "properties": {
+          "type": {
+            "enum": [
+              "prerequisite",
+              "recommended_before",
+              "implements",
+              "uses",
+              "integrates_with",
+              "alternative_to",
+              "supersedes",
+              "related_to"
+            ]
+          },
+          "target": {
+            "$ref": "#/$defs/unitRef"
+          },
+          "required_level": {
+            "$ref": "#/$defs/proficiency"
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      },
+      "default": []
+    },
+    "resource_refs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "resource",
+          "role",
+          "required"
+        ],
+        "properties": {
+          "resource": {
+            "$ref": "#/$defs/resourceRef"
+          },
+          "role": {
+            "enum": [
+              "core",
+              "example",
+              "lab",
+              "assessment",
+              "reference",
+              "alternative"
+            ]
+          },
+          "required": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "requirements": {
+      "$ref": "#/$defs/requirements"
+    },
+    "service_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "vendor",
+        "delivery_model",
+        "product_url"
+      ],
+      "properties": {
+        "vendor": {
+          "type": "string",
+          "minLength": 1
+        },
+        "delivery_model": {
+          "enum": [
+            "cloud",
+            "self_hosted",
+            "hybrid",
+            "local"
+          ]
+        },
+        "product_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "pricing_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "free_tier": {
+          "type": "boolean"
+        },
+        "sandbox_available": {
+          "type": "boolean"
+        },
+        "data_residency_note": {
+          "type": "string"
+        },
+        "export_note": {
+          "type": "string"
+        }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "completion",
+        "checks"
+      ],
+      "properties": {
+        "completion": {
+          "enum": [
+            "all",
+            "required",
+            "rubric"
+          ]
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "type",
+              "learning_outcome_ids",
+              "required",
+              "success_criteria"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+              },
+              "type": {
+                "enum": [
+                  "command",
+                  "test",
+                  "rubric",
+                  "manual",
+                  "eval",
+                  "resource"
+                ]
+              },
+              "learning_outcome_ids": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string",
+                  "pattern": "^outcome\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+                },
+                "uniqueItems": true
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "command": {
+                "type": "string"
+              },
+              "resource_ref": {
+                "$ref": "#/$defs/resourceRef"
+              },
+              "success_criteria": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            },
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "command"
+                    }
+                  }
+                },
+                "then": {
+                  "required": [
+                    "command"
+                  ]
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "resource"
+                    }
+                  }
+                },
+                "then": {
+                  "required": [
+                    "resource_ref"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/source"
+      }
+    },
+    "potential_impact_types": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/impactType"
+      },
+      "uniqueItems": true,
+      "default": []
+    },
+    "lifecycle": {
+      "$ref": "#/$defs/lifecycle"
+    },
+    "extensions": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "item_type": {
+            "const": "saas"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "service_profile",
+          "requirements"
+        ]
+      }
+    }
+  ],
+  "$defs": {
+    "semver": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "proficiency": {
+      "enum": [
+        "D0",
+        "D1",
+        "D2",
+        "D3",
+        "D4"
+      ]
+    },
+    "unitRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^unit\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+        },
+        "version": {
+          "$ref": "#/$defs/semver"
+        }
+      }
+    },
+    "resourceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^resource\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+        },
+        "version": {
+          "$ref": "#/$defs/semver"
+        }
+      }
+    },
+    "requirements": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "platforms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "network_required": {
+          "type": "boolean"
+        },
+        "accounts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "provider"
+            ],
+            "properties": {
+              "provider": {
+                "type": "string"
+              },
+              "plan": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "secret_names": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Z0-9_]*$"
+          },
+          "uniqueItems": true
+        },
+        "permissions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "system",
+              "access",
+              "approval_required",
+              "data_class"
+            ],
+            "properties": {
+              "system": {
+                "type": "string"
+              },
+              "access": {
+                "enum": [
+                  "read",
+                  "write",
+                  "delete",
+                  "admin",
+                  "financial"
+                ]
+              },
+              "scopes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              },
+              "approval_required": {
+                "type": "boolean"
+              },
+              "data_class": {
+                "enum": [
+                  "none",
+                  "public",
+                  "internal",
+                  "personal",
+                  "sensitive"
+                ]
+              }
+            }
+          }
+        },
+        "cost": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "model"
+          ],
+          "properties": {
+            "model": {
+              "enum": [
+                "free",
+                "freemium",
+                "fixed",
+                "usage_based",
+                "unknown"
+              ]
+            },
+            "currency": {
+              "type": "string",
+              "pattern": "^[A-Z]{3}$"
+            },
+            "estimated_amount": {
+              "type": "number",
+              "minimum": 0
+            },
+            "basis": {
+              "type": "string"
+            },
+            "pricing_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "checked_at": {
+              "$ref": "#/$defs/date"
+            }
+          }
+        },
+        "technology_versions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "constraint"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "constraint": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "source_type",
+        "url",
+        "checked_at"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "source_type": {
+          "enum": [
+            "standard",
+            "official_spec",
+            "official_docs",
+            "official_source",
+            "primary_research",
+            "secondary_reference"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "source_version": {
+          "type": "string"
+        },
+        "checked_at": {
+          "$ref": "#/$defs/date"
+        }
+      }
+    },
+    "impactType": {
+      "enum": [
+        "revenue",
+        "cost",
+        "time",
+        "throughput",
+        "quality",
+        "experience",
+        "risk_reduction",
+        "capability_unlock",
+        "reuse",
+        "strategic_option"
+      ]
+    },
+    "lifecycle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "last_reviewed_at"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "cataloged",
+            "scheduled",
+            "active",
+            "operational",
+            "reference",
+            "probe",
+            "pilot",
+            "scale",
+            "deprecated",
+            "archived"
+          ]
+        },
+        "owner": {
+          "type": "string"
+        },
+        "last_reviewed_at": {
+          "$ref": "#/$defs/date"
+        },
+        "review_due_at": {
+          "$ref": "#/$defs/date"
+        },
+        "deprecated_at": {
+          "$ref": "#/$defs/date"
+        },
+        "superseded_by": {
+          "$ref": "#/$defs/unitRef"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

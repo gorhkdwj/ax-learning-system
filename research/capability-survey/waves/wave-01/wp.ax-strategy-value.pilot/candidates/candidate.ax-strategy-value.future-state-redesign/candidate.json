@@ -1,0 +1,233 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.ax-strategy-value.future-state-redesign",
+  "version": "1.0.0",
+  "title": "미래 상태 인간-AI 업무흐름 재설계",
+  "canonical_name": "Future-state human-AI work-system design",
+  "aliases": [
+    "AI-enabled workflow redesign",
+    "To-be work-system design"
+  ],
+  "summary": "불필요한 단계를 제거·단순화한 뒤 인간·결정적 자동화·AI 역할, 결정권, 정상·예외·실패·수동 대체 경로를 하나의 미래 업무흐름으로 설계하는 후보입니다.",
+  "research_scope": {
+    "problem_addressed": "기존 절차에 AI 단계를 덧붙여 낭비·인계·형식적 승인과 실패 경로를 그대로 유지하는 문제를 다룹니다.",
+    "includes": [
+      "제거·단순화·표준화 후 역할과 인계 재배치",
+      "결정 요구사항, 인간 승인·거부·override·에스컬레이션",
+      "정상·예외·실패·복구·수동 대체 경로와 수용 기준"
+    ],
+    "excludes": [
+      "제품별 워크플로우 구현과 전체 BPMN·DMN 과정",
+      "조직 전체 변화관리와 고위험 법률 정책 결정"
+    ],
+    "boundary_note": "여러 선행 역량의 조합으로 가치가 발생하므로 독립 Unit보다 Learning Set 후보로 우선 분류합니다."
+  },
+  "discovery": {
+    "lens_id": "ax-strategy-value",
+    "basis": "assigned_lens",
+    "notes": "후보 ID는 최초 발견 렌즈를 보존하며 정규 소유 분야는 taxonomy.major_domain으로 판정합니다."
+  },
+  "taxonomy": {
+    "major_domain": "ax-strategy-value",
+    "subdomains": [
+      "process-redesign",
+      "human-ai-control"
+    ],
+    "tags": [
+      "to-be",
+      "fallback",
+      "decision-rights"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "workflow",
+    "proposed_destination": "set_candidate",
+    "proposed_set_id": "set.deliverable.ax-future-state-work-design",
+    "rationale": "current-state-work-analysis, task-allocation, solution-fit-assessment와 measurement-contract를 함께 적용해야 검증 가능한 미래 상태 산출물이 완성되는 Learning Set 후보입니다."
+  },
+  "relations": [
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ax-strategy-value.opportunity-value-framing",
+        "version": "1.0.0"
+      },
+      "rationale": "미래상태 설계의 목표와 비목표를 고정합니다."
+    },
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ax-strategy-value.current-state-work-analysis",
+        "version": "1.0.0"
+      },
+      "rationale": "현재 흐름·병목·예외를 근거로 제거·단순화 대상을 판단합니다."
+    },
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ax-strategy-value.task-allocation",
+        "version": "1.0.0"
+      },
+      "rationale": "인간·자동화·AI의 과업 책임과 승인 경계를 입력으로 사용합니다."
+    },
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ax-strategy-value.solution-fit-assessment",
+        "version": "1.0.0"
+      },
+      "rationale": "각 단계에 가장 단순하고 검증 가능한 해법을 배치합니다."
+    },
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ax-strategy-value.measurement-contract",
+        "version": "1.0.0"
+      },
+      "rationale": "설계 수용기준과 실제 효과를 구분할 측정계약을 포함합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "현행 업무지도와 가치목표를 입력으로 미래 상태 흐름, 인간·자동화·AI 역할, 결정·승인·예외·복구 지점과 수용 기준을 설계하고 walkthrough로 검증합니다.",
+    "work_contexts": [
+      "내부 결재·보고 업무",
+      "사용자 요청 처리 업무"
+    ],
+    "transferability": "enterprise_cross_functional",
+    "agent_fit": "comparison_required",
+    "agent_fit_rationale": "각 단계에서 제거·인간 수행·결정적 자동화·AI 보조·에이전트의 책임과 fallback을 비교해야 합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "기존 프로세스에 AI를 추가하는 것과 종단 간 미래 업무흐름을 재설계하는 것을 구분합니다.",
+        "evidence_hypothesis": "낭비·예외·fallback이 누락된 설계를 판별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "새로운 저·중위험 업무의 미래 상태 흐름과 인간-AI 결정·승인·복구 경계를 독립적으로 설계합니다.",
+        "evidence_hypothesis": "정상·예외·권한거부·외부서비스 장애·AI 오류 시나리오를 주입한 walkthrough에서 각 경로의 책임자, 중단조건, 수동 대체와 복구 결과가 모두 확인되어야 합니다."
+      }
+    ],
+    "depth_boundary": "Learning Set의 목표 D2, 상한 D2입니다. 실제 운영 권한·보안·배포·관측성 구현을 책임지는 D3와 전사 조직 재설계는 포함하지 않습니다."
+  },
+  "practicality": {
+    "value_types": [
+      "cycle_time",
+      "throughput",
+      "quality",
+      "customer_experience",
+      "employee_experience",
+      "risk_reduction"
+    ],
+    "business_hypotheses": [
+      "자동화 전에 낭비를 제거하고 종단 간 인계·재작업을 줄일 가능성이 있습니다.",
+      "무승인 자율 실행과 모든 결과를 재검토하는 병목 사이의 통제 균형을 개선할 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "material",
+    "operations_relevance": "material",
+    "priority_hint": "unassessed",
+    "measurement_hypothesis": "설계 단계에서는 제거 단계 수, 인계·승인·예외·fallback 누락과 시나리오별 예상 변화를 측정하되 실현 효과로 주장하지 않습니다. 실제 리드타임·재작업·override·복구시간 변화는 pilot-impact-evaluation에서 확인합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "permissions",
+      "cost",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "개인정보·법적 자동결정·고위험 권한통제의 상세는 security-legal-governance 렌즈와 연결하고 이 후보에서 임의 확정하지 않습니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.ax-strategy-value.future-state-redesign.gsa-eoa",
+      "title": "Eliminate, Optimize, Automate",
+      "publisher": "U.S. General Services Administration",
+      "source_type": "official_docs",
+      "url": "https://www.gsa.gov/technology/government-it-initiatives/eliminate-optimize-automate",
+      "checked_at": "2026-07-26",
+      "claim_scope": "불필요한 일을 제거하고 필요한 프로세스를 최적화한 후 반복 업무를 자동화하는 순서를 지지하며 구체 AX 효과는 지지하지 않습니다.",
+      "supports": [
+        "scope",
+        "work_relevance"
+      ]
+    },
+    {
+      "id": "evidence.ax-strategy-value.future-state-redesign.nist-airmf",
+      "title": "AI RMF Core (AI RMF 1.0)",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_docs",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "published_at": "2023-01-26",
+      "checked_at": "2026-07-26",
+      "source_version": "AI RMF 1.0",
+      "claim_scope": "AI 지식한계, 출력의 인간 활용, 인간 감독, 비용·위험과 대상 적용범위를 문서화해야 한다는 범위만 지지합니다.",
+      "supports": [
+        "scope",
+        "risk"
+      ]
+    },
+    {
+      "id": "evidence.ax-strategy-value.future-state-redesign.uk-ai-playbook",
+      "title": "Artificial Intelligence Playbook for the UK Government",
+      "publisher": "Government Digital Service",
+      "source_type": "official_docs",
+      "url": "https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government/artificial-intelligence-playbook-for-the-uk-government-html",
+      "published_at": "2025-02-10",
+      "checked_at": "2026-07-26",
+      "claim_scope": "의미 있는 인간 통제, 올바른 도구 선택과 전체 수명주기 책임을 설계해야 한다는 범위만 지지하며 구체적인 효과 크기는 지지하지 않습니다.",
+      "supports": [
+        "scope",
+        "work_relevance",
+        "risk"
+      ]
+    },
+    {
+      "id": "evidence.ax-strategy-value.future-state-redesign.gao-accountability",
+      "title": "Artificial Intelligence: An Accountability Framework for Federal Agencies and Other Entities",
+      "publisher": "U.S. Government Accountability Office",
+      "source_type": "official_docs",
+      "url": "https://www.gao.gov/products/gao-21-519sp",
+      "published_at": "2021-06-30",
+      "checked_at": "2026-07-26",
+      "claim_scope": "AI 수명주기의 거버넌스·데이터·성능·모니터링 책임과 통제 활동을 문서화하는 범위만 지지합니다.",
+      "supports": [
+        "scope",
+        "risk",
+        "work_relevance"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "proposed",
+    "confidence": "medium",
+    "rationale": "세 독립 감사에서 여러 선행 Unit을 조합하는 산출물형 Learning Set이 적합하다고 판정했으며 상세 통제 구현은 다른 렌즈에 이관했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-01",
+    "work_package_id": "wp.ax-strategy-value.pilot",
+    "author_agent": "codex-main-with-parallel-research",
+    "researched_at": "2026-07-26",
+    "reviewers": [
+      "ax-evidence-auditor",
+      "ax-taxonomy-auditor",
+      "ax-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "독립 Unit과 통합 Learning Set 중 최종 목적지는 파일럿 산출물 검증 후 확정해야 합니다.",
+      "고위험 승인·권한의 상세 소유권은 security-legal-governance 렌즈와 조정해야 합니다."
+    ],
+    "next_action": "선행 후보를 실제 Unit으로 확정한 뒤 Set 구성과 실패 주입 실습을 설계합니다."
+  }
+}

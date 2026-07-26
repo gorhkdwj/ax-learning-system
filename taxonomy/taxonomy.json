@@ -1,0 +1,1432 @@
+{
+  "schema_version": "1.0.0",
+  "id": "taxonomy.ax-capability-map",
+  "version": "0.1.0",
+  "title": "AX 역량 분류 레지스트리",
+  "status": "provisional",
+  "updated_at": "2026-07-27",
+  "nodes": [
+    {
+      "id": "ax-strategy-value",
+      "node_type": "domain",
+      "status": "research_lens",
+      "title_ko": "AX 전략·가치·업무재설계",
+      "title_en": "AX strategy, value and work redesign",
+      "definition": "AX 기회를 사업 문제와 가치가설로 정의하고 업무·의사결정·포트폴리오·로드맵과 성과측정을 설계하는 조사 렌즈입니다.",
+      "includes": [
+        "기회·가치 프레이밍, 업무 재설계, 해법 선택, 포트폴리오, 로드맵과 성과측정"
+      ],
+      "excludes": [
+        "상세 기술 구현, 전문 투자심사, 조직 전체 변화관리"
+      ],
+      "parent_ids": [],
+      "aliases": [
+        "AX strategy and value"
+      ],
+      "related_ids": [
+        "organization-adoption",
+        "data-analytics-ml",
+        "integration-automation"
+      ],
+      "external_mappings": [
+        {
+          "framework_id": "sfia-9",
+          "mapping_type": "partial_overlap",
+          "target": "Digital Transformation skills view and business change skills",
+          "rationale": "전략·변화·디지털 전환 역량의 누락 점검에는 유용하지만 AX 가치실현 전체와 동일하지 않습니다.",
+          "status": "proposed"
+        }
+      ],
+      "provenance": {
+        "basis": "user_governance",
+        "source_refs": [
+          "docs/governance/learning-governance.md",
+          "docs/research/phase2-capability-survey-runbook.md",
+          "research/capability-survey/checkpoints/wave-01.md"
+        ],
+        "rationale": "전사 AX가 기술스택 목록으로 축소되지 않는지 검증하기 위한 첫 시험 조사 렌즈입니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "ai-literacy-trust",
+      "node_type": "domain",
+      "status": "research_lens",
+      "title_ko": "AI 리터러시·검증·신뢰",
+      "title_en": "AI literacy, verification and trust",
+      "definition": "AI의 용도와 한계, 결과 검증, 책임 있는 사용과 인간 판단을 다루는 조사 렌즈입니다.",
+      "includes": [
+        "AI 리터러시, 근거 검증, 책임 있는 사용, 인간 판단과 결과 신뢰"
+      ],
+      "excludes": [
+        "개별 AI 시스템의 상세 구현과 모델 연구"
+      ],
+      "parent_ids": [],
+      "aliases": [
+        "AI literacy and trust"
+      ],
+      "related_ids": [
+        "ai-systems-agents",
+        "security-legal-governance",
+        "human-ai-experience"
+      ],
+      "external_mappings": [
+        {
+          "framework_id": "digcomp-2.2",
+          "mapping_type": "boundary_reference",
+          "target": "Information and data literacy; safety; problem solving; AI-related examples",
+          "rationale": "시민·근로자의 비판적이고 책임 있는 디지털 사용 기준을 제공하지만 전문 AX 수행역량 전체를 대체하지 않습니다.",
+          "status": "proposed"
+        }
+      ],
+      "provenance": {
+        "basis": "user_governance",
+        "source_refs": [
+          "docs/governance/learning-governance.md",
+          "docs/research/phase2-capability-survey-runbook.md"
+        ],
+        "rationale": "모든 역할에 공통인 AI 이해와 결과 검증을 특정 개발 직무에서 분리하기 위한 렌즈입니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "ai-systems-agents",
+      "node_type": "domain",
+      "status": "research_lens",
+      "title_ko": "AI 시스템·에이전트",
+      "title_en": "AI systems and agents",
+      "definition": "LLM, 검색·RAG, 평가, 컨텍스트·도구·메모리와 에이전트 시스템을 다루는 조사 렌즈입니다.",
+      "includes": [
+        "LLM 응용, 검색·RAG, 에이전트, 평가, 컨텍스트·도구·메모리"
+      ],
+      "excludes": [
+        "일반 소프트웨어 구현 전체와 기초 ML 연구 전체"
+      ],
+      "parent_ids": [],
+      "aliases": [
+        "LLM and agent systems"
+      ],
+      "related_ids": [
+        "software-product-engineering",
+        "data-analytics-ml",
+        "integration-automation",
+        "platform-quality-operations"
+      ],
+      "external_mappings": [
+        {
+          "framework_id": "sfia-9",
+          "mapping_type": "boundary_reference",
+          "target": "Applied computing, data science and software engineering skills",
+          "rationale": "전문 디지털 역량과 책임 수준을 비교하는 기준이며 최신 에이전트 패턴의 직접 taxonomy로 사용하지 않습니다.",
+          "status": "proposed"
+        }
+      ],
+      "provenance": {
+        "basis": "user_governance",
+        "source_refs": [
+          "docs/governance/learning-governance.md",
+          "docs/research/phase2-capability-survey-runbook.md",
+          "docs/research/trend-signal-governance.md"
+        ],
+        "rationale": "빠르게 변하는 AI 시스템 구현과 신흥 패턴을 일반 리터러시 및 소프트웨어 코어와 구분하여 조사하기 위한 렌즈입니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "software-product-engineering",
+      "node_type": "domain",
+      "status": "research_lens",
+      "title_ko": "소프트웨어·제품 엔지니어링",
+      "title_en": "Software and product engineering",
+      "definition": "프론트엔드, 백엔드, API, DB, 테스트, 설계와 바이브 코딩의 공학 실천을 조사하는 잠정 렌즈입니다.",
+      "includes": [
+        "프론트엔드, 백엔드, API, 애플리케이션 DB, 테스트, 아키텍처와 바이브 코딩"
+      ],
+      "excludes": [
+        "데이터 플랫폼 전반, 조직변화, 순수 UI·UX 연구"
+      ],
+      "parent_ids": [],
+      "aliases": [
+        "software engineering",
+        "product engineering"
+      ],
+      "related_ids": [
+        "human-ai-experience",
+        "platform-quality-operations",
+        "security-legal-governance",
+        "integration-automation"
+      ],
+      "external_mappings": [
+        {
+          "framework_id": "sfia-9",
+          "mapping_type": "coverage_reference",
+          "target": "Software engineering, digital product development, user-centred design and DevOps skills",
+          "rationale": "직무명보다 전문 기술과 책임 수준을 비교하는 외부 기준으로 사용합니다.",
+          "status": "proposed"
+        },
+        {
+          "framework_id": "swebok-4.0a",
+          "mapping_type": "coverage_reference",
+          "target": "SWEBOK 18 knowledge areas including architecture, operations and software security",
+          "rationale": "소프트웨어 공학의 안정된 지식영역과 경계를 점검하되 제품·AX 업무 전부로 일반화하지 않습니다.",
+          "status": "proposed"
+        }
+      ],
+      "provenance": {
+        "basis": "user_governance",
+        "source_refs": [
+          "docs/governance/learning-governance.md",
+          "docs/research/phase2-capability-survey-runbook.md"
+        ],
+        "rationale": "프론트엔드·백엔드 등을 누락하지 않되 조사 전에 정규 대분류로 고정하지 않기 위한 컨테이너 렌즈입니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "data-analytics-ml",
+      "node_type": "domain",
+      "status": "research_lens",
+      "title_ko": "데이터·분석·ML",
+      "title_en": "Data, analytics and machine learning",
+      "definition": "데이터 수집·모델링·파이프라인·분석·품질·거버넌스와 ML을 조사하는 잠정 렌즈입니다.",
+      "includes": [
+        "데이터 엔지니어링, 분석 엔지니어링, 데이터 품질·거버넌스, 통계와 ML"
+      ],
+      "excludes": [
+        "애플리케이션 DB 사용법 전체와 AI 에이전트 응용 전체"
+      ],
+      "parent_ids": [],
+      "aliases": [
+        "data engineering and analytics",
+        "data and ML"
+      ],
+      "related_ids": [
+        "ai-systems-agents",
+        "software-product-engineering",
+        "platform-quality-operations",
+        "security-legal-governance"
+      ],
+      "external_mappings": [
+        {
+          "framework_id": "sfia-9",
+          "mapping_type": "coverage_reference",
+          "target": "Big data and data science skills view",
+          "rationale": "데이터 전문 기술과 책임 수준의 누락을 점검하는 기준으로 사용합니다.",
+          "status": "proposed"
+        },
+        {
+          "framework_id": "dama-dmbok2r",
+          "mapping_type": "coverage_reference",
+          "target": "Data governance, architecture, modelling, storage, operations, integration, quality and security knowledge areas",
+          "rationale": "데이터 관리의 안정된 지식영역과 경계를 점검하되 데이터 분석·ML 전체와 동일시하지 않습니다.",
+          "status": "proposed"
+        }
+      ],
+      "provenance": {
+        "basis": "user_governance",
+        "source_refs": [
+          "docs/governance/learning-governance.md",
+          "docs/research/phase2-capability-survey-runbook.md"
+        ],
+        "rationale": "데이터 엔지니어링·분석·ML의 경계를 조사 결과로 분리하기 전 누락을 막는 렌즈입니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "integration-automation",
+      "node_type": "domain",
+      "status": "research_lens",
+      "title_ko": "통합·업무자동화",
+      "title_en": "Integration and workflow automation",
+      "definition": "API, MCP, SaaS, 결정적 자동화와 워크플로우 오케스트레이션을 조사하는 렌즈입니다.",
+      "includes": [
+        "API 통합, MCP, SaaS, 결정적 자동화, 워크플로우 오케스트레이션"
+      ],
+      "excludes": [
+        "개별 애플리케이션 구현 전체와 조직변화 프로그램"
+      ],
+      "parent_ids": [],
+      "aliases": [
+        "workflow automation"
+      ],
+      "related_ids": [
+        "ai-systems-agents",
+        "software-product-engineering",
+        "platform-quality-operations"
+      ],
+      "external_mappings": [
+        {
+          "framework_id": "sfia-9",
+          "mapping_type": "boundary_reference",
+          "target": "Systems integration, automation and digital transformation skills",
+          "rationale": "전문 통합 역량과 책임 수준을 비교하되 SaaS별 사용법을 외부 분류로 대체하지 않습니다.",
+          "status": "proposed"
+        }
+      ],
+      "provenance": {
+        "basis": "user_governance",
+        "source_refs": [
+          "docs/governance/learning-governance.md",
+          "docs/research/phase2-capability-survey-runbook.md"
+        ],
+        "rationale": "비개발자 SaaS 자동화와 개발자 통합 구현을 함께 발견한 뒤 목적지 경계를 판정하기 위한 렌즈입니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "human-ai-experience",
+      "node_type": "domain",
+      "status": "research_lens",
+      "title_ko": "Human-AI 경험·접근성",
+      "title_en": "Human-AI experience and accessibility",
+      "definition": "UI·UX, Human-AI Interaction, 접근성, 설명과 승인 경험을 조사하는 렌즈입니다.",
+      "includes": [
+        "UI·UX, Human-AI Interaction, 접근성, 설명·승인·이의제기 경험"
+      ],
+      "excludes": [
+        "프론트엔드 구현 전체와 조직 정책 전체"
+      ],
+      "parent_ids": [],
+      "aliases": [
+        "human AI interaction",
+        "AI UX"
+      ],
+      "related_ids": [
+        "software-product-engineering",
+        "ai-literacy-trust",
+        "security-legal-governance"
+      ],
+      "external_mappings": [
+        {
+          "framework_id": "sfia-9",
+          "mapping_type": "partial_overlap",
+          "target": "User-centred design skills",
+          "rationale": "전문 사용자 중심 설계 기술을 비교하되 AI 특유의 설명·승인 경험 전체와 동일하지 않습니다.",
+          "status": "proposed"
+        },
+        {
+          "framework_id": "digcomp-2.2",
+          "mapping_type": "boundary_reference",
+          "target": "Responsible and accessible engagement with digital technologies",
+          "rationale": "일반 사용자의 안전하고 책임 있는 디지털 경험 경계를 점검하는 참고체계입니다.",
+          "status": "proposed"
+        }
+      ],
+      "provenance": {
+        "basis": "user_governance",
+        "source_refs": [
+          "docs/governance/learning-governance.md",
+          "docs/research/phase2-capability-survey-runbook.md"
+        ],
+        "rationale": "화면 구현과 인간의 이해·통제·접근 경험을 분리하여 누락을 막기 위한 렌즈입니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "platform-quality-operations",
+      "node_type": "domain",
+      "status": "research_lens",
+      "title_ko": "플랫폼·품질·운영",
+      "title_en": "Platform, quality and operations",
+      "definition": "배포, 관측성, 신뢰성, 비용, 장애·복구와 유지보수를 조사하는 렌즈입니다.",
+      "includes": [
+        "배포, 플랫폼, 관측성, 신뢰성, 비용, 장애·복구와 유지보수"
+      ],
+      "excludes": [
+        "애플리케이션 기능개발 전체와 조직 도입 전체"
+      ],
+      "parent_ids": [],
+      "aliases": [
+        "platform operations",
+        "reliability and operations"
+      ],
+      "related_ids": [
+        "software-product-engineering",
+        "ai-systems-agents",
+        "data-analytics-ml",
+        "security-legal-governance"
+      ],
+      "external_mappings": [
+        {
+          "framework_id": "sfia-9",
+          "mapping_type": "coverage_reference",
+          "target": "DevOps and enterprise IT skills views",
+          "rationale": "배포·운영·서비스관리와 책임 수준의 누락을 점검합니다.",
+          "status": "proposed"
+        },
+        {
+          "framework_id": "swebok-4.0a",
+          "mapping_type": "boundary_reference",
+          "target": "Software Engineering Operations knowledge area",
+          "rationale": "소프트웨어 운영 코어를 확인하되 데이터·AI 플랫폼 운영 전체로 일반화하지 않습니다.",
+          "status": "proposed"
+        }
+      ],
+      "provenance": {
+        "basis": "user_governance",
+        "source_refs": [
+          "docs/governance/learning-governance.md",
+          "docs/research/phase2-capability-survey-runbook.md"
+        ],
+        "rationale": "구축 완료가 아니라 운영·복구·비용까지 학습 범위에 포함하기 위한 횡단 렌즈입니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "security-legal-governance",
+      "node_type": "domain",
+      "status": "research_lens",
+      "title_ko": "보안·법무·거버넌스",
+      "title_en": "Security, legal and governance",
+      "definition": "보안, 개인정보, 권한, 감사, 법무, 저작권과 윤리를 조사하는 렌즈입니다.",
+      "includes": [
+        "보안, 개인정보, 권한, 감사, 법무, 저작권, 윤리와 인간 승인"
+      ],
+      "excludes": [
+        "특정 법률 자문과 모든 분야의 구현 상세"
+      ],
+      "parent_ids": [],
+      "aliases": [
+        "AI security and governance"
+      ],
+      "related_ids": [
+        "ai-literacy-trust",
+        "platform-quality-operations",
+        "organization-adoption"
+      ],
+      "external_mappings": [
+        {
+          "framework_id": "nice-framework-2.2.0",
+          "mapping_type": "coverage_reference",
+          "target": "Work Role Categories, Work Roles, Competency Areas and Task-Knowledge-Skill statements",
+          "rationale": "사이버보안 업무와 역량의 공통 언어를 제공하지만 법무·윤리·AI 거버넌스 전체와 동일하지 않습니다.",
+          "status": "proposed"
+        },
+        {
+          "framework_id": "sfia-9",
+          "mapping_type": "coverage_reference",
+          "target": "Information and cyber security skills view",
+          "rationale": "보안 전문 기술과 책임 수준을 점검하는 비교 기준입니다.",
+          "status": "proposed"
+        },
+        {
+          "framework_id": "swebok-4.0a",
+          "mapping_type": "boundary_reference",
+          "target": "Software Security knowledge area",
+          "rationale": "소프트웨어 보안 경계를 확인하되 개인정보·법무·윤리 전체로 확장하지 않습니다.",
+          "status": "proposed"
+        }
+      ],
+      "provenance": {
+        "basis": "user_governance",
+        "source_refs": [
+          "docs/governance/learning-governance.md",
+          "docs/research/phase2-capability-survey-runbook.md"
+        ],
+        "rationale": "고위험 통제를 특정 구현 분야에 종속시키지 않고 전수조사와 모든 후보에 적용하기 위한 렌즈입니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "organization-adoption",
+      "node_type": "domain",
+      "status": "research_lens",
+      "title_ko": "조직 도입·변화·학습운영",
+      "title_en": "Organization adoption, change and learning operations",
+      "definition": "조직변화, 역할·협업, 교육 운영과 AX 도입·성과 확산을 조사하는 렌즈입니다.",
+      "includes": [
+        "조직변화, 역할·협업, 교육 운영, 운영모델과 도입·성과 확산"
+      ],
+      "excludes": [
+        "개별 기술 구현과 전문 인사·노무 자문"
+      ],
+      "parent_ids": [],
+      "aliases": [
+        "AX adoption and change"
+      ],
+      "related_ids": [
+        "ax-strategy-value",
+        "ai-literacy-trust",
+        "security-legal-governance"
+      ],
+      "external_mappings": [
+        {
+          "framework_id": "sfia-9",
+          "mapping_type": "boundary_reference",
+          "target": "Business change, learning and education, human resource and workforce management skills",
+          "rationale": "전문 변화·교육·인력 역량의 누락을 점검하되 조직의 AX 운영모델 전체와 동일시하지 않습니다.",
+          "status": "proposed"
+        }
+      ],
+      "provenance": {
+        "basis": "user_governance",
+        "source_refs": [
+          "docs/governance/learning-governance.md",
+          "docs/research/phase2-capability-survey-runbook.md"
+        ],
+        "rationale": "기술 도입을 교육·역할·협업·성과 확산까지 연결하고 현재 직무 하나에 한정하지 않기 위한 렌즈입니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "benefits-realization",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "편익 실현",
+      "title_en": "Benefits realization",
+      "definition": "실제 편익과 비용을 운영 중 추적하고 유지·확대·중단 판단에 연결하는 잠정 중분류입니다.",
+      "includes": [
+        "편익 추적과 실현 판정"
+      ],
+      "excludes": [
+        "일반 프로젝트 편익관리와의 중복 확정"
+      ],
+      "parent_ids": [
+        "ax-strategy-value"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "operational-value"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-01/wp.ax-strategy-value.pilot/domain-survey.md"
+        ],
+        "rationale": "Wave 1 후보에서 발견했으며 일반 편익관리와의 병합 여부가 남아 있습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "operational-value",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "운영 가치",
+      "title_en": "Operational value",
+      "definition": "운영 중 발생하는 가치·비용·지속성을 다루는 잠정 중분류입니다.",
+      "includes": [
+        "운영 가치와 지속 비용"
+      ],
+      "excludes": [
+        "운영 플랫폼 구현"
+      ],
+      "parent_ids": [
+        "ax-strategy-value"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "benefits-realization"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-01/wp.ax-strategy-value.pilot/domain-survey.md"
+        ],
+        "rationale": "편익실현 후보의 운영 관점을 보존하기 위한 잠정 중분류입니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "process-analysis",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "업무 프로세스 분석",
+      "title_en": "Work process analysis",
+      "definition": "실제 증거로 현행 업무 흐름과 병목을 복원하는 잠정 중분류입니다.",
+      "includes": [
+        "현행 흐름·병목·예외 분석"
+      ],
+      "excludes": [
+        "미래상태 설계"
+      ],
+      "parent_ids": [
+        "ax-strategy-value"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "baseline-discovery",
+        "process-redesign"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-01/wp.ax-strategy-value.pilot/domain-survey.md"
+        ],
+        "rationale": "현행 업무시스템 분석 후보에서 발견했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "baseline-discovery",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "기준선 발견",
+      "title_en": "Baseline discovery",
+      "definition": "현행 수행 증거에서 평가 가능한 기준선을 찾는 잠정 중분류입니다.",
+      "includes": [
+        "관측 기준선과 표본"
+      ],
+      "excludes": [
+        "개입 효과의 인과 추정"
+      ],
+      "parent_ids": [
+        "ax-strategy-value"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "process-analysis",
+        "value-measurement"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-01/wp.ax-strategy-value.pilot/domain-survey.md"
+        ],
+        "rationale": "현행 분석 후보의 기준선 산출물을 분리하여 기록했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "enterprise-roadmap",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "전사 AX 로드맵",
+      "title_en": "Enterprise AX roadmap",
+      "definition": "사업 결과와 공통 기반 역량을 실행 파동과 게이트로 순서화하는 잠정 중분류입니다.",
+      "includes": [
+        "전사 역량 격차와 실행 파동"
+      ],
+      "excludes": [
+        "상세 운영모델과 조직설계"
+      ],
+      "parent_ids": [
+        "ax-strategy-value"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "capability-roadmapping",
+        "portfolio-strategy"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-01/wp.ax-strategy-value.pilot/domain-survey.md"
+        ],
+        "rationale": "전사 AX 역량 로드맵 후보에서 발견했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "capability-roadmapping",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "역량 로드매핑",
+      "title_en": "Capability roadmapping",
+      "definition": "현재·목표 역량 격차와 선행관계를 실행 순서에 연결하는 잠정 중분류입니다.",
+      "includes": [
+        "역량 격차·의존성·게이트 순서화"
+      ],
+      "excludes": [
+        "전문 기술 의존성 자체의 설계"
+      ],
+      "parent_ids": [
+        "ax-strategy-value"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "enterprise-roadmap"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-01/wp.ax-strategy-value.pilot/domain-survey.md"
+        ],
+        "rationale": "로드맵 후보의 재사용 가능한 역량 순서화 실천을 표현합니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "process-redesign",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "업무 프로세스 재설계",
+      "title_en": "Work process redesign",
+      "definition": "인간·자동화·AI가 결합된 미래 업무 흐름을 설계하는 잠정 중분류입니다.",
+      "includes": [
+        "정상·예외·복구 흐름 재설계"
+      ],
+      "excludes": [
+        "조직 전체 변화관리"
+      ],
+      "parent_ids": [
+        "ax-strategy-value"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "process-analysis",
+        "human-ai-control"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-01/wp.ax-strategy-value.pilot/domain-survey.md"
+        ],
+        "rationale": "미래상태 업무시스템 설계 후보에서 발견했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "human-ai-control",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "인간-AI 통제",
+      "title_en": "Human-AI control",
+      "definition": "인간 승인·개입·예외처리와 AI 역할 경계를 설계하는 잠정 중분류입니다.",
+      "includes": [
+        "승인·개입·이의제기·복구 경계"
+      ],
+      "excludes": [
+        "상세 UI와 법률 자문"
+      ],
+      "parent_ids": [
+        "ax-strategy-value"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "process-redesign",
+        "human-ai-work-design"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-01/wp.ax-strategy-value.pilot/domain-survey.md"
+        ],
+        "rationale": "미래상태 후보의 인간 통제 경계를 보존합니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "value-measurement",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "가치·성과 측정",
+      "title_en": "Value and outcome measurement",
+      "definition": "성과지표의 분모·창·출처·가드레일을 재현 가능한 계약으로 만드는 잠정 중분류입니다.",
+      "includes": [
+        "성과 측정계약"
+      ],
+      "excludes": [
+        "전문 인과평가"
+      ],
+      "parent_ids": [
+        "ax-strategy-value"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "evaluation-design",
+        "baseline-discovery"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-01/wp.ax-strategy-value.pilot/domain-survey.md"
+        ],
+        "rationale": "측정계약 후보에서 발견했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "evaluation-design",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "평가 설계",
+      "title_en": "Evaluation design",
+      "definition": "성과 평가 계약과 검증 계획의 구조를 설계하는 잠정 중분류입니다.",
+      "includes": [
+        "측정·평가 설계"
+      ],
+      "excludes": [
+        "전문 통계 추정 전체"
+      ],
+      "parent_ids": [
+        "ax-strategy-value"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "value-measurement",
+        "impact-evaluation"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-01/wp.ax-strategy-value.pilot/domain-survey.md"
+        ],
+        "rationale": "측정계약과 영향평가 사이의 경계를 기록합니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "opportunity-discovery",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "AX 기회 발견",
+      "title_en": "AX opportunity discovery",
+      "definition": "기술보다 업무 문제와 가치 기회를 먼저 식별하는 잠정 중분류입니다.",
+      "includes": [
+        "문제·기회·no-go 조건 발견"
+      ],
+      "excludes": [
+        "상세 해법 선정"
+      ],
+      "parent_ids": [
+        "ax-strategy-value"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "value-framing"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-01/wp.ax-strategy-value.pilot/domain-survey.md"
+        ],
+        "rationale": "기회·가치 프레이밍 후보에서 발견했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "value-framing",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "가치가설 프레이밍",
+      "title_en": "Value-hypothesis framing",
+      "definition": "업무 문제, 기대 결과, 제약과 반증조건을 가치가설로 고정하는 잠정 중분류입니다.",
+      "includes": [
+        "가치가설과 반증조건"
+      ],
+      "excludes": [
+        "상세 재무모델링"
+      ],
+      "parent_ids": [
+        "ax-strategy-value"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "opportunity-discovery"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-01/wp.ax-strategy-value.pilot/domain-survey.md"
+        ],
+        "rationale": "기회·가치 프레이밍 후보의 핵심 산출물을 표현합니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "impact-evaluation",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "개입 영향평가",
+      "title_en": "Intervention impact evaluation",
+      "definition": "반사실과 주장 한계를 포함해 파일럿 개입의 영향을 평가하는 잠정 중분류입니다.",
+      "includes": [
+        "개입 효과와 반사실 평가"
+      ],
+      "excludes": [
+        "측정계약 자체"
+      ],
+      "parent_ids": [
+        "data-analytics-ml"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "test-and-learn",
+        "evaluation-design"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-01/wp.ax-strategy-value.pilot/domain-survey.md"
+        ],
+        "rationale": "전략 렌즈에서 발견했지만 안정 코어의 소유권을 데이터 렌즈로 이관했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "test-and-learn",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "시험·학습",
+      "title_en": "Test and learn",
+      "definition": "제한된 개입과 증거로 다음 결정을 갱신하는 잠정 중분류입니다.",
+      "includes": [
+        "파일럿 평가와 학습 루프"
+      ],
+      "excludes": [
+        "무제한 실험 운영"
+      ],
+      "parent_ids": [
+        "data-analytics-ml"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "impact-evaluation"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-01/wp.ax-strategy-value.pilot/domain-survey.md"
+        ],
+        "rationale": "파일럿 영향평가 후보의 반복 의사결정 맥락을 표현합니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "portfolio-strategy",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "AX 포트폴리오 전략",
+      "title_en": "AX portfolio strategy",
+      "definition": "복수 AX 후보를 가치·위험·역량·의존성으로 비교하고 재균형하는 잠정 중분류입니다.",
+      "includes": [
+        "후보 간 상대 배분과 재균형"
+      ],
+      "excludes": [
+        "단일 후보 평가와 최종 투자 승인"
+      ],
+      "parent_ids": [
+        "ax-strategy-value"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "initiative-prioritization",
+        "enterprise-roadmap"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-01/wp.ax-strategy-value.pilot/domain-survey.md"
+        ],
+        "rationale": "포트폴리오 우선순위 후보에서 발견했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "initiative-prioritization",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "이니셔티브 우선순위",
+      "title_en": "Initiative prioritization",
+      "definition": "제약과 근거를 사용해 AX 이니셔티브의 진행·보류·중단을 결정하는 잠정 중분류입니다.",
+      "includes": [
+        "후보 비교와 우선순위 판정"
+      ],
+      "excludes": [
+        "전문 투자심사"
+      ],
+      "parent_ids": [
+        "ax-strategy-value"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "portfolio-strategy"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-01/wp.ax-strategy-value.pilot/domain-survey.md"
+        ],
+        "rationale": "포트폴리오 후보의 구체적인 결정행동을 표현합니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "solution-selection",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "해법 선택",
+      "title_en": "Solution selection",
+      "definition": "동일한 수용기준으로 현행·SaaS·자동화·AI 대안을 비교하는 잠정 중분류입니다.",
+      "includes": [
+        "기술중립 해법 비교"
+      ],
+      "excludes": [
+        "상세 구현 설계"
+      ],
+      "parent_ids": [
+        "ax-strategy-value"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "automation-fit"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-01/wp.ax-strategy-value.pilot/domain-survey.md"
+        ],
+        "rationale": "기술중립 해법 적합성 후보에서 발견했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "automation-fit",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "자동화 적합성",
+      "title_en": "Automation fit",
+      "definition": "비자동화·결정적 자동화·SaaS·AI·에이전트 방식의 적합성을 비교하는 잠정 중분류입니다.",
+      "includes": [
+        "자동화·AI 방식 적합성"
+      ],
+      "excludes": [
+        "특정 도구 사용법"
+      ],
+      "parent_ids": [
+        "ax-strategy-value"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "solution-selection"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-01/wp.ax-strategy-value.pilot/domain-survey.md"
+        ],
+        "rationale": "에이전트보다 결정적 자동화나 기존 SaaS가 적합한지 먼저 판단하는 원칙을 표현합니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "task-analysis",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "과업 분석",
+      "title_en": "Task analysis",
+      "definition": "업무를 과업 수준으로 분해하고 요구 판단·권한·예외를 분석하는 잠정 중분류입니다.",
+      "includes": [
+        "과업 분해와 책임 분석"
+      ],
+      "excludes": [
+        "전체 프로세스 구현"
+      ],
+      "parent_ids": [
+        "ax-strategy-value"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "human-ai-work-design"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-01/wp.ax-strategy-value.pilot/domain-survey.md"
+        ],
+        "rationale": "과업 분해와 인간-AI 역할 배분 후보에서 발견했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "human-ai-work-design",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "인간-AI 업무설계",
+      "title_en": "Human-AI work design",
+      "definition": "과업별 인간·자동화·AI 역할과 승인·이관 경계를 설계하는 잠정 중분류입니다.",
+      "includes": [
+        "인간·자동화·AI 역할 배분"
+      ],
+      "excludes": [
+        "조직 전체 직무설계"
+      ],
+      "parent_ids": [
+        "ax-strategy-value"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "task-analysis",
+        "human-ai-control"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-01/wp.ax-strategy-value.pilot/domain-survey.md"
+        ],
+        "rationale": "과업 배분 후보의 인간-AI 책임 설계를 표현합니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-26",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "evidence-verification",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "근거·출처 검증",
+      "title_en": "Evidence and source verification",
+      "definition": "주장을 출처와 연결하고 사실·해석·불확실성을 구분하는 잠정 중분류입니다.",
+      "includes": [
+        "주장·근거 연결과 출처 확인"
+      ],
+      "excludes": [
+        "도메인 전문가의 고위험 사실 최종판정"
+      ],
+      "parent_ids": [
+        "ai-literacy-trust"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "grounded-output-evaluation"
+      ],
+      "external_mappings": [
+        {
+          "framework_id": "digcomp-2.2",
+          "mapping_type": "partial_overlap",
+          "target": "Information and data literacy",
+          "rationale": "출처의 관련성과 내용을 판단하는 일반 디지털 역량과 겹치지만 AI 출력 검증 전체는 아닙니다.",
+          "status": "proposed"
+        }
+      ],
+      "provenance": {
+        "basis": "user_governance",
+        "source_refs": [
+          "examples/valid/catalog/items/unit.foundation.evidence-verification/unit.json",
+          "docs/governance/learning-governance.md"
+        ],
+        "rationale": "기존 예제 Unit의 정규 분류 참조를 제공하기 위해 등록했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-27",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "grounded-output-evaluation",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "근거 기반 AI 출력 평가",
+      "title_en": "Grounded AI output evaluation",
+      "definition": "AI 출력의 주장이 제공된 근거로 확인되는지 평가하는 잠정 중분류입니다.",
+      "includes": [
+        "AI 출력의 근거 연결 평가"
+      ],
+      "excludes": [
+        "운영 평가기 교정과 고위험 도메인 평가"
+      ],
+      "parent_ids": [
+        "ai-systems-agents"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "evidence-verification"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "user_governance",
+        "source_refs": [
+          "examples/valid/catalog/items/unit.ai.grounded-output-evaluation/unit.json",
+          "docs/governance/learning-governance.md"
+        ],
+        "rationale": "기존 예제 Unit의 정규 분류 참조를 제공하기 위해 등록했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-27",
+        "last_reviewed_at": "2026-07-27",
+        "review_due_at": "2026-10-27",
+        "superseded_by": null
+      }
+    }
+  ],
+  "external_frameworks": [
+    {
+      "id": "sfia-9",
+      "title": "Skills Framework for the Information Age 9",
+      "publisher": "SFIA Foundation",
+      "version": "SFIA 9, published 2024-10; current standard",
+      "url": "https://sfia-online.org/en/sfia-9/sfia-9",
+      "checked_at": "2026-07-27",
+      "status": "reference_registered",
+      "intended_use": "디지털·데이터·소프트웨어·보안·변화 직무의 전문 기술과 책임 수준을 AX 후보군과 교차검증합니다.",
+      "limitations": "직무·전문기술 프레임워크이며 이 학습공간의 업무 Set, 최신 에이전트 패턴과 전사 AX 가치지도 전체를 대신하지 않습니다."
+    },
+    {
+      "id": "swebok-4.0a",
+      "title": "Guide to the Software Engineering Body of Knowledge",
+      "publisher": "IEEE Computer Society",
+      "version": "SWEBOK Guide V4.0a, updated 2025-09-25",
+      "url": "https://www.computer.org/education/bodies-of-knowledge/software-engineering",
+      "checked_at": "2026-07-27",
+      "status": "reference_registered",
+      "intended_use": "소프트웨어 공학의 안정된 지식영역, 학문 경계와 누락을 검토합니다.",
+      "limitations": "직무 경로나 제품·조직 도입 체계가 아니며 바이브 코딩과 AI 에이전트 실천을 단독으로 충분히 설명하지 않습니다."
+    },
+    {
+      "id": "dama-dmbok2r",
+      "title": "DAMA Guide to the Data Management Body of Knowledge",
+      "publisher": "DAMA International",
+      "version": "DAMA-DMBOK2R, 2nd edition revised, 2024; DMBOK 3.0 in development",
+      "url": "https://dama.org/dmbok2r-infographics/",
+      "checked_at": "2026-07-27",
+      "status": "reference_registered",
+      "intended_use": "데이터 관리·거버넌스·아키텍처·품질·운영 지식영역의 누락과 경계를 검토합니다.",
+      "limitations": "데이터 분석·ML·AI 시스템 전체의 기술스택이나 역할 taxonomy가 아니며 3.0 개발 중이므로 재검토가 필요합니다."
+    },
+    {
+      "id": "nice-framework-2.2.0",
+      "title": "NICE Workforce Framework for Cybersecurity",
+      "publisher": "National Institute of Standards and Technology",
+      "version": "NIST SP 800-181 Rev.1 structure; NICE Framework Components 2.2.0, current page checked 2026-07-27",
+      "url": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/nice-framework-current-versions",
+      "checked_at": "2026-07-27",
+      "status": "reference_registered",
+      "intended_use": "사이버보안 업무 역할, 역량영역과 Task-Knowledge-Skill 문장을 보안 후보와 교차검증합니다.",
+      "limitations": "보안 외 법무·저작권·윤리와 AI 거버넌스 전체를 다루지 않으며 구성요소는 구조 문서와 별도로 갱신됩니다."
+    },
+    {
+      "id": "digcomp-2.2",
+      "title": "Digital Competence Framework for Citizens",
+      "publisher": "European Commission Joint Research Centre",
+      "version": "DigComp 2.2, 2022",
+      "url": "https://joint-research-centre.ec.europa.eu/oldpage-digcomp/digcomp-framework_en",
+      "checked_at": "2026-07-27",
+      "status": "reference_registered",
+      "intended_use": "비전문가의 정보·데이터 리터러시, 안전하고 책임 있는 사용, 문제해결과 AI 관련 지식·기술·태도 누락을 점검합니다.",
+      "limitations": "시민 디지털 역량체계이며 전문 개발·데이터·운영·AX 의사결정 역량의 대체 taxonomy가 아닙니다."
+    }
+  ],
+  "views": [
+    {
+      "id": "view.role.frontend-engineering",
+      "view_type": "role",
+      "status": "planned",
+      "title_ko": "프론트엔드 엔지니어링 보기",
+      "title_en": "Frontend engineering view",
+      "definition": "프론트엔드 업무에 필요한 Unit·Set을 소프트웨어, Human-AI 경험, 운영과 보안 분야에서 조합하는 탐색 보기입니다.",
+      "node_refs": [
+        "software-product-engineering",
+        "human-ai-experience",
+        "platform-quality-operations",
+        "security-legal-governance"
+      ],
+      "notes": "Wave 2·3 후보 조사 전에는 직무 교육과정이나 정규 대분류로 간주하지 않습니다."
+    },
+    {
+      "id": "view.role.backend-engineering",
+      "view_type": "role",
+      "status": "planned",
+      "title_ko": "백엔드 엔지니어링 보기",
+      "title_en": "Backend engineering view",
+      "definition": "백엔드 업무에 필요한 Unit·Set을 소프트웨어, 통합, 데이터, 운영과 보안 분야에서 조합하는 탐색 보기입니다.",
+      "node_refs": [
+        "software-product-engineering",
+        "integration-automation",
+        "data-analytics-ml",
+        "platform-quality-operations",
+        "security-legal-governance"
+      ],
+      "notes": "Wave 2·3 후보 조사 전에는 직무 교육과정이나 정규 대분류로 간주하지 않습니다."
+    },
+    {
+      "id": "view.role.data-engineering",
+      "view_type": "role",
+      "status": "planned",
+      "title_ko": "데이터 엔지니어링 보기",
+      "title_en": "Data engineering view",
+      "definition": "데이터 엔지니어링 업무에 필요한 Unit·Set을 데이터, 소프트웨어, 통합, 운영과 보안 분야에서 조합하는 탐색 보기입니다.",
+      "node_refs": [
+        "data-analytics-ml",
+        "software-product-engineering",
+        "integration-automation",
+        "platform-quality-operations",
+        "security-legal-governance"
+      ],
+      "notes": "Wave 2 조사 결과에 따라 독립 대분류, 중분류 또는 역할 보기 중 적합한 목적지를 판단합니다."
+    }
+  ],
+  "change_policy": {
+    "new_domain_requires_user_approval": true,
+    "rename_merge_requires_user_approval": true,
+    "preserve_discovery_lens": true,
+    "canonical_hierarchy_is_projection": true,
+    "promotion_criteria": [
+      "다른 분야와 구별되는 업무행동과 산출물이 있습니다.",
+      "독립적인 D2 이상 평가가 가능합니다.",
+      "하나의 기술이나 제품이 아니라 재사용 가능한 후보군을 가집니다.",
+      "별도 선행관계와 실무 경계가 반복해서 관찰됩니다.",
+      "기존 대분류에 둘 때 탐색성과 소유권이 더 나빠집니다.",
+      "직무명 자체가 아니라 전사 AX 역량지도에서 독립적으로 존재할 이유가 있습니다."
+    ]
+  }
+}

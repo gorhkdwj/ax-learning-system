@@ -1,0 +1,125 @@
+{
+  "schema_version": "1.0.0",
+  "id": "set.workflow.replace-me",
+  "version": "1.0.0",
+  "title": "교체: 업무·Pipeline·산출물 Learning Set",
+  "summary": "교체: 재사용 가능한 Unit을 실제 목적에 맞게 조합하는 과정입니다.",
+  "set_type": "workflow",
+  "target_roles": [],
+  "business_context": "교체: 대상 사용자, 현재 절차, 문제, 데이터와 권한 경계를 씁니다.",
+  "target_outcome": "교체: 수용 기준을 충족하는 실제 산출물을 만듭니다.",
+  "input_artifacts": [
+    "교체: 입력"
+  ],
+  "output_artifacts": [
+    "교체: 산출물"
+  ],
+  "entry_requirements": [],
+  "priority": {
+    "curriculum_class": "elective",
+    "execution_priority": "watch",
+    "reason": "교체: 현재 업무 필요, 선행역량, 기대효과와 근거 수준을 분리하여 기록합니다."
+  },
+  "business_impact": {
+    "value_hypothesis": "교체: 어떤 변화가 어떤 사용자·업무의 어떤 지표를 왜 개선할 가능성이 있는지 가설로 씁니다. 기준선 측정 전에는 확정 효과로 표현하지 않습니다.",
+    "impact_types": [
+      "time",
+      "quality",
+      "capability_unlock"
+    ],
+    "evidence_confidence": "hypothesis",
+    "baseline_metrics": [
+      {
+        "name": "replace_me_metric",
+        "measurement": "교체: 입력, 시작·종료 시점, 분자·분모, 검토 범위와 관찰 단위를 정의합니다.",
+        "value": "not_measured",
+        "unit": "replace-me"
+      }
+    ],
+    "target_metrics": [
+      {
+        "name": "replace_me_metric",
+        "measurement": "교체: 기준선과 동일한 조건에서 비교하는 파일럿 통과조건을 정의합니다.",
+        "value": "at_or_below_measured_baseline",
+        "unit": "replace-me"
+      }
+    ],
+    "learning_effort_note": "교체: 학습 및 통합 실습 시간을 구분합니다.",
+    "maintenance_cost_note": "교체: 기술 변경, 운영 및 콘텐츠 재검토 비용을 기록합니다."
+  },
+  "steps": [
+    {
+      "id": "replace-me-step",
+      "title": "교체: 단계 제목",
+      "reason": "교체: 이 Unit이 전체 결과에 필요한 이유를 설명합니다.",
+      "unit_ref": {
+        "id": "unit.example.replace-me",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": true,
+      "depends_on": [],
+      "resource_refs": [
+        {
+          "id": "resource.example.replace-me.lab",
+          "version": "1.0.0"
+        }
+      ],
+      "consumes": [
+        "교체: 입력"
+      ],
+      "produces": [
+        "교체: 중간 산출물"
+      ],
+      "validation_gate_ids": [
+        "replace-me-independent-assessment"
+      ],
+      "estimated_minutes": 120
+    }
+  ],
+  "risk_profile": {
+    "level": "low",
+    "data_classes": [
+      "public"
+    ],
+    "human_approval_points": [
+      "교체: 승인 대상 행동, 검토할 증거와 거부 시 처리를 씁니다."
+    ],
+    "stop_conditions": [
+      "교체: 데이터·권한·비용·정확성 한계를 넘으면 중단합니다."
+    ],
+    "rollback_plan": "교체: 원상복구 절차와 복구 불가능한 외부 변경을 명시합니다."
+  },
+  "capstone_resource_refs": [],
+  "acceptance_criteria": [
+    "교체: 산출물의 기능·품질·검증 증거 기준을 씁니다.",
+    "교체: 인간 승인과 중단조건이 지켜집니다."
+  ],
+  "transfer_evaluation": {
+    "check_after_days": 7,
+    "metrics": [
+      "새 문맥의 결과물 수용 기준 충족 여부",
+      "자동검사 또는 루브릭 통과 여부",
+      "사람의 수정량과 검토시간",
+      "Pipeline을 변경한 이유의 설명 가능 여부"
+    ],
+    "different_context_task": "교체: 기존 답안을 복사해서 통과할 수 없는 새 입력·문맥·산출물 과제를 정의합니다."
+  },
+  "sources": [
+    {
+      "title": "교체: Set의 절차와 통제를 뒷받침하는 출처",
+      "publisher": "교체: 발행기관",
+      "source_type": "official_docs",
+      "url": "https://example.com/replace-me",
+      "source_version": "교체: 버전 또는 기준일",
+      "checked_at": "2026-07-26"
+    }
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "교체: 유지관리 책임자",
+    "last_reviewed_at": "2026-07-26",
+    "review_due_at": "2026-10-26",
+    "note": "교체: 업무 우선순위와 효과가 검증되기 전에는 cataloged 상태를 유지합니다."
+  }
+}

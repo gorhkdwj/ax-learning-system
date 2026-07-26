@@ -1,0 +1,195 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.ax-strategy-value.task-allocation",
+  "version": "1.0.0",
+  "title": "업무 분해와 인간-AI 역할 배분",
+  "canonical_name": "Task decomposition and human-AI work allocation",
+  "aliases": [
+    "Task-level augmentation analysis",
+    "Human-AI task allocation"
+  ],
+  "summary": "직무 전체를 자동화 대상으로 보는 대신 실제 업무를 검증 가능한 과업으로 분해하고 변동성·판단·책임·상호작용·위험에 따라 자동화·증강·인간 수행을 배분하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "직무 단위 노출도나 도구 능력을 조직의 실제 자동화 가능성으로 오인하여 인간 입력과 책임을 누락하는 문제를 다룹니다.",
+    "includes": [
+      "업무의 과업 단위 분해와 입력·산출물 정의",
+      "반복성·변동성·판단·상호작용·책임·위험 특성화",
+      "자동화·AI 증강·인간 유지와 승인 역할 판정"
+    ],
+    "excludes": [
+      "직무 소멸 예측과 조직 전체 인력 재편",
+      "개별 국가 노동법 자문과 구현"
+    ],
+    "boundary_note": "일반 직업 노출 연구는 발견 근거일 뿐 조직별 실현 가능성이나 인력 대체 효과로 일반화하지 않습니다. 출력은 과업-역할 행렬이며 워크플로우 전체 해법 선택은 solution-fit-assessment가, 조직·인력 재설계는 organization-adoption이 소유합니다."
+  },
+  "discovery": {
+    "lens_id": "ax-strategy-value",
+    "basis": "assigned_lens",
+    "notes": "후보 ID는 최초 발견 렌즈를 보존하며 정규 소유 분야는 taxonomy.major_domain으로 판정합니다."
+  },
+  "taxonomy": {
+    "major_domain": "ax-strategy-value",
+    "subdomains": [
+      "task-analysis",
+      "human-ai-work-design"
+    ],
+    "tags": [
+      "task-decomposition",
+      "augmentation",
+      "human-oversight"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "capability",
+    "proposed_destination": "unit_candidate",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.ax-strategy-value.task-allocation",
+    "rationale": "여러 직무의 실제 과업 표본에서 역할 배분을 독립적으로 판정하고 산출물로 검증할 수 있습니다."
+  },
+  "relations": [
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ax-strategy-value.current-state-work-analysis",
+        "version": "1.0.0"
+      },
+      "rationale": "실제 현행 업무 증거와 흐름을 먼저 확인해야 과업 분해와 역할 배분이 추측에 머물지 않습니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "실제 업무 표본을 과업으로 분해하고 각 과업의 자동화·AI 지원·인간 수행·승인 역할과 불확실성을 근거로 기록합니다.",
+    "work_contexts": [
+      "문서 검토·작성 업무",
+      "고객지원 사례 처리 업무"
+    ],
+    "transferability": "enterprise_cross_functional",
+    "agent_fit": "comparison_required",
+    "agent_fit_rationale": "과업마다 결정적 자동화, AI 보조, 에이전트와 인간 수행의 책임·검증 가능성을 비교해야 합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "직무 노출도, 과업 자동화 가능성, 실제 조직 도입과 인력 대체를 서로 구분합니다.",
+        "evidence_hypothesis": "과장된 자동화 주장과 정당한 과업 수준 가설을 판별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "새로운 업무를 과업으로 분해하고 인간·결정적 자동화·AI의 역할과 승인 경계를 설계합니다.",
+        "evidence_hypothesis": "두 미지 업무의 실제 표본을 과업으로 분해하고 사전 제공된 책임·가역성·권한 제약을 위반한 역할 배정을 자동 탐지한 뒤 독립 검토자의 판정 일치도를 확인합니다."
+      }
+    ],
+    "depth_boundary": "목표 D2, 상한 D2입니다. 조직 구조·인력 계획, 노사정책, 법률 자문, 해법 아키텍처와 상세 구현은 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "cycle_time",
+      "quality",
+      "employee_experience",
+      "risk_reduction"
+    ],
+    "business_hypotheses": [
+      "직무 단위의 과장된 대체 판단을 줄이고 안전한 증강 후보를 구체화할 가능성이 있습니다.",
+      "인간 검토가 가치 있는 지점과 형식적 승인 병목을 구분할 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "awareness",
+    "operations_relevance": "material",
+    "priority_hint": "unassessed",
+    "measurement_hypothesis": "역할 배분별 완료시간·품질·override·에스컬레이션과 재작업을 실제 표본으로 비교합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "legal",
+      "ethics",
+      "permissions",
+      "human_approval"
+    ],
+    "notes": "고위험 자동결정의 법적·정책적 상세는 security-legal-governance 렌즈가 소유하며 여기서는 업무 역할 경계만 다룹니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.ax-strategy-value.task-allocation.ilo",
+      "title": "Generative AI and Jobs: A Refined Global Index of Occupational Exposure",
+      "publisher": "International Labour Organization",
+      "source_type": "primary_research",
+      "url": "https://researchrepository.ilo.org/esploro/outputs/encyclopediaEntry/995653520102676",
+      "published_at": "2025-05-20",
+      "checked_at": "2026-07-26",
+      "claim_scope": "직업을 과업 수준으로 분석하고 노출도가 자동화 확정이나 일자리 대체 예측이 아니며 인간 입력이 남는다는 연구 범위만 지지합니다.",
+      "supports": [
+        "work_relevance",
+        "risk"
+      ]
+    },
+    {
+      "id": "evidence.ax-strategy-value.task-allocation.nist-airmf",
+      "title": "AI RMF Core (AI RMF 1.0)",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_docs",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "published_at": "2023-01-26",
+      "checked_at": "2026-07-26",
+      "source_version": "AI RMF 1.0",
+      "claim_scope": "MAP 2.1의 과업·방법 정의와 MAP 2.2의 인간 사용·감독 맥락 문서화 범위만 지지합니다.",
+      "supports": [
+        "scope",
+        "risk"
+      ]
+    },
+    {
+      "id": "evidence.ax-strategy-value.task-allocation.nasa-hidh",
+      "title": "Human Integration Design Handbook",
+      "publisher": "National Aeronautics and Space Administration",
+      "source_type": "official_docs",
+      "url": "https://www.nasa.gov/sites/default/files/atoms/files/human_integration_design_handbook_revision_1.pdf",
+      "checked_at": "2026-07-26",
+      "source_version": "Revision 1",
+      "claim_scope": "과업 분석으로 역할·책임·순서·빈도·제약을 기록하고 기능을 인간 또는 시스템에 배분하는 방법 범위만 지지합니다. 우주 시스템 지침이므로 일반 사무 AX의 효과나 보편 임계값은 지지하지 않습니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "learning_outcome",
+        "work_relevance"
+      ]
+    },
+    {
+      "id": "evidence.ax-strategy-value.task-allocation.uk-ai-playbook",
+      "title": "Artificial Intelligence Playbook for the UK Government",
+      "publisher": "Government Digital Service",
+      "source_type": "official_docs",
+      "url": "https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government/artificial-intelligence-playbook-for-the-uk-government-html",
+      "published_at": "2025-02-10",
+      "checked_at": "2026-07-26",
+      "claim_scope": "영향·복잡성·전문성에 맞추어 의미 있는 인간 통제와 검토 수준을 설계해야 한다는 범위만 지지합니다.",
+      "supports": [
+        "scope",
+        "risk",
+        "work_relevance"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "proposed",
+    "confidence": "medium",
+    "rationale": "과업 분석과 인간-시스템 기능배분의 직접 근거 및 세 독립 감사로 D2 학습성과를 유지하되 산업별 위험·책임 경계는 후속 렌즈에서 보정합니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-01",
+    "work_package_id": "wp.ax-strategy-value.pilot",
+    "author_agent": "codex-main-with-parallel-research",
+    "researched_at": "2026-07-26",
+    "reviewers": [
+      "ax-evidence-auditor",
+      "ax-taxonomy-auditor",
+      "ax-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "비생성형 AI까지 포괄하는 공통 과업 속성표의 타당성을 검증해야 합니다.",
+      "산업별 책임 경계의 전이 한계를 후속 렌즈와 조정해야 합니다."
+    ],
+    "next_action": "공통 과업 속성표를 두 산업 맥락의 숨은 평가자료로 검증합니다."
+  }
+}

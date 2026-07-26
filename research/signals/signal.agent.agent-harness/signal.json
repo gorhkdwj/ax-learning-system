@@ -1,0 +1,306 @@
+{
+  "schema_version": "1.0.0",
+  "id": "signal.agent.agent-harness",
+  "version": "1.0.0",
+  "title": "Agent Harness Engineering",
+  "canonical_name": "Agent harness",
+  "aliases": [
+    {
+      "value": "Harness engineering",
+      "kind": "related_term",
+      "language": "en",
+      "note": "실행 기반 구조와 이를 설계하는 공학 실천을 같은 이름으로 부르는 용례가 있어 완전한 동의어로 확정하지 않습니다."
+    },
+    {
+      "value": "에이전트 하네스",
+      "kind": "translation",
+      "language": "ko"
+    }
+  ],
+  "summary": "모델 외부에서 에이전트의 작업 명세, 컨텍스트, 도구, 상태, 권한, 피드백과 완료 증거를 통제하는 실행 기반 구조 및 공학 실천 후보입니다.",
+  "signal_type": "practice",
+  "status": "substantiated",
+  "status_history": [
+    {
+      "status": "captured",
+      "at": "2026-07-26",
+      "reason": "공식 공급자 사례와 1차 연구에서 반복적으로 관찰되어 연구 후보로 수집했습니다."
+    },
+    {
+      "status": "triaged",
+      "at": "2026-07-26",
+      "reason": "에이전트 평가·보안·컨텍스트·도구 설계와 연결되는 전사 AX 후보로 판정했습니다."
+    },
+    {
+      "status": "researching",
+      "at": "2026-07-26",
+      "reason": "용어의 경계와 독립 학습성과 및 공급자 사례의 일반화 가능성을 검토했습니다."
+    },
+    {
+      "status": "substantiated",
+      "at": "2026-07-26",
+      "reason": "정의와 구성요소는 다수의 공식·1차 출처로 확인했으며 효과는 제한된 사례 수준으로 분리했습니다."
+    }
+  ],
+  "definition": {
+    "working_definition": "에이전트가 프로젝트를 관찰하고 도구로 행동하며 피드백을 받고 완료를 증명하는 과정을 모델 외부에서 매개하는 실행환경과 통제 구조입니다.",
+    "problem_addressed": "모델 성능만으로는 실제 소프트웨어 작업의 재현성, 권한 경계, 실패 진단과 검증 가능한 완료를 안정적으로 보장하기 어렵다는 문제를 다룹니다.",
+    "includes": [
+      "작업 명세와 완료조건",
+      "컨텍스트 선택과 프로젝트 지식",
+      "도구 계약과 실행환경",
+      "상태·메모리와 실행 추적",
+      "권한·샌드박스와 인간 개입",
+      "검증·실패 귀속·복구 증거"
+    ],
+    "excludes": [
+      "개별 프롬프트 문구만 최적화하는 작업",
+      "모델 파라미터 학습이나 미세조정",
+      "에이전트 판단과 상태 계약이 없는 일반 CI/CD",
+      "특정 에이전트 SDK의 제품 사용법 전체"
+    ],
+    "underlying_primitives": [
+      "task specification",
+      "context engineering",
+      "tool contracts",
+      "state and memory",
+      "sandbox and permissions",
+      "evaluation and verification",
+      "observability and failure attribution"
+    ],
+    "actual_delta": "분리되어 있던 컨텍스트·도구·권한·검증·관측성 요소를 하나의 모델–하네스–환경 실행 단위로 설계하고 평가한다는 관점입니다.",
+    "definition_disputes": [
+      "일부 문헌은 에이전트 반복 루프까지 harness에 포함하므로 loop engineering과 경계가 완전히 배타적이지 않습니다.",
+      "새로운 독립 분야인지 기존 agent engineering의 실천 묶음인지 아직 고정되지 않았습니다."
+    ]
+  },
+  "claims": [
+    {
+      "id": "claim.harness.definition",
+      "type": "definition",
+      "statement": "Agent harness는 작업 명세, 컨텍스트, 도구, 상태, 관측성, 검증과 권한을 포함하여 에이전트 실행을 매개합니다.",
+      "critical": true,
+      "status": "supported",
+      "evidence_refs": [
+        {
+          "id": "evidence.openai.harness-engineering",
+          "stance": "supports"
+        },
+        {
+          "id": "evidence.research.ai-harness-engineering",
+          "stance": "supports"
+        }
+      ]
+    },
+    {
+      "id": "claim.harness.operational-value",
+      "type": "capability",
+      "statement": "구조화된 하네스는 복잡한 코딩 과제에서 기준선보다 더 검증 가능한 결과를 만들 가능성이 있지만 비용과 모델별 효과를 함께 측정해야 합니다.",
+      "critical": true,
+      "status": "supported",
+      "evidence_refs": [
+        {
+          "id": "evidence.anthropic.harness-design",
+          "stance": "supports"
+        },
+        {
+          "id": "evidence.openai.harness-engineering",
+          "stance": "context"
+        }
+      ]
+    },
+    {
+      "id": "claim.harness.not-standard",
+      "type": "limitation",
+      "statement": "Harness engineering은 2026년 7월 현재 표준화된 직무나 단일한 산업 사양이 아닙니다.",
+      "critical": false,
+      "status": "supported",
+      "evidence_refs": [
+        {
+          "id": "evidence.research.ai-harness-engineering",
+          "stance": "supports"
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evidence.openai.harness-engineering",
+      "title": "Harness engineering: leveraging Codex in an agent-first world",
+      "publisher": "OpenAI",
+      "source_type": "official_source",
+      "url": "https://openai.com/index/harness-engineering/",
+      "published_at": "2026-02-11",
+      "checked_at": "2026-07-26",
+      "claim_scope": "에이전트가 읽을 수 있는 저장소 지식, 구조적 제약, 테스트, 관측성과 지속적인 정리의 실무 사례를 확인합니다."
+    },
+    {
+      "id": "evidence.anthropic.harness-design",
+      "title": "Harness design for long-running application development",
+      "publisher": "Anthropic",
+      "source_type": "official_source",
+      "url": "https://www.anthropic.com/engineering/harness-design-long-running-apps",
+      "published_at": "2026-03-24",
+      "checked_at": "2026-07-26",
+      "claim_scope": "동일 공급자 모델 내 기준선 비교, 생성자·평가자 분리, 비용 증가와 모델 발전에 따른 하네스 단순화 필요성을 확인합니다."
+    },
+    {
+      "id": "evidence.research.ai-harness-engineering",
+      "title": "AI Harness Engineering: A Runtime Substrate for Foundation-Model Software Agents",
+      "publisher": "arXiv",
+      "source_type": "primary_research",
+      "url": "https://arxiv.org/abs/2605.13357",
+      "published_at": "2026-05-13",
+      "checked_at": "2026-07-26",
+      "source_version": "arXiv:2605.13357",
+      "claim_scope": "모델–하네스–환경 시스템과 하네스 구성요소 및 추적 기반 평가를 제안하는 사전출판 연구입니다."
+    }
+  ],
+  "relevance": {
+    "status": "eligible",
+    "criteria": [
+      "work_connection",
+      "prerequisite",
+      "strategic_option"
+    ],
+    "rationale": "코딩 에이전트뿐 아니라 파일·도구·외부 상태를 다루는 AX 에이전트의 검증·보안·운영 역량을 조합하는 기반 후보입니다.",
+    "domain_tags": [
+      "ai-agent",
+      "software-engineering",
+      "evaluation",
+      "security",
+      "operations"
+    ],
+    "business_hypothesis": "동일 모델의 작업환경과 검증 피드백을 개선하면 첫 시도 성공률과 실패 진단 가능성이 높아질 수 있으나 비용과 인간 검토시간을 포함한 비교가 필요합니다."
+  },
+  "maturity": {
+    "terminology": "converging",
+    "definition_confidence": "high",
+    "effect_confidence": "medium",
+    "implementation_stability": "changing",
+    "volatility": "medium",
+    "uncertainty_note": "구성요소는 실무와 연구에서 수렴하지만 어떤 요소가 모델·과제별로 실제 성능을 좌우하는지는 달라지며 단일 공급자 사례를 일반화할 수 없습니다."
+  },
+  "verification": {
+    "confidence": "high",
+    "reviewed_at": "2026-07-26",
+    "reviewer": "AX curriculum research",
+    "known_unknowns": [
+      "코딩 이외 업무로 전이되는 최소 하네스 구성",
+      "모델 발전 후에도 유지할 구성요소와 제거할 보조장치",
+      "복잡성·비용 증가를 포함한 순효과"
+    ]
+  },
+  "disambiguation": {
+    "status": "clear",
+    "interpretations": [
+      {
+        "id": "interpretation.agent-runtime",
+        "label": "에이전트 실행 기반 구조",
+        "description": "모델 외부에서 컨텍스트·도구·상태·권한·검증을 매개하는 구조 및 이를 설계하는 실천입니다.",
+        "evidence_ids": [
+          "evidence.openai.harness-engineering",
+          "evidence.research.ai-harness-engineering"
+        ]
+      }
+    ],
+    "selected_interpretation_id": "interpretation.agent-runtime"
+  },
+  "related_signal_refs": [
+    {
+      "type": "overlaps",
+      "target": {
+        "id": "signal.agent.agent-control-loop",
+        "version": "1.0.0"
+      },
+      "note": "실행 반복과 중단·평가 흐름을 하네스 내부로 보는 정의와 별도 제어층으로 보는 정의가 공존합니다."
+    }
+  ],
+  "deduplication": {
+    "resolution": "canonical",
+    "checked_at": "2026-07-26",
+    "rationale": "Agent harness를 정규명으로 두고 harness engineering은 관련 공학 실천을 가리키는 별칭으로 보존합니다."
+  },
+  "candidate_mapping": {
+    "destination": "probe_set",
+    "proposed_set_id": "set.project.agent-harness-comparison",
+    "rationale": "용어 설명은 작은 개념 Resource로 충분하지만 실무가치는 여러 기반 Unit을 조합하여 동일 과제를 bare agent 기준선과 비교하는 Set에서 검증해야 합니다.",
+    "proposed_target_level": "D2",
+    "outcomes_by_level": [
+      {
+        "level": "D0",
+        "outcome": "하네스와 모델·프롬프트·컨텍스트·프레임워크의 경계를 설명합니다."
+      },
+      {
+        "level": "D1",
+        "outcome": "제공된 명세·도구·검증·권한 구조를 사용하여 에이전트 과제를 실행합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "새 저장소에서 필요한 하네스 구성요소를 선택하고 기준선 대비 효과와 비용을 증거로 판정합니다."
+      }
+    ],
+    "prerequisite_concepts": [
+      "agent execution",
+      "context engineering",
+      "tool contracts",
+      "software testing",
+      "permissions and sandboxing"
+    ],
+    "transfer_task_hypothesis": "서로 다른 두 저장소의 과제에 같은 하네스 원리를 적용하되 저장소별 제약과 검증기를 독립적으로 조정합니다.",
+    "validation_evidence_hypothesis": "첫 시도 성공률, 인간 개입·검토시간, 회귀·재작업, 정책 위반, 작업당 비용과 추적 가능한 완료 증거를 비교합니다."
+  },
+  "probe_plan": {
+    "falsifiable_hypothesis": "동일 모델과 유사 난이도의 과제에서 최소 하네스를 적용하면 bare agent보다 검증된 과제 성공률 또는 실패 진단 가능성이 개선되며 추가 비용이 허용 범위 안에 있습니다.",
+    "comparison_baseline": "명세·권한·독립 검증을 구조화하지 않은 동일 모델의 단일 에이전트 실행입니다.",
+    "test_contexts": [
+      "작은 신규 저장소의 기능 추가",
+      "구조가 다른 기존 저장소의 결함 수정",
+      "권한 오류 또는 실패 주입 과제"
+    ],
+    "exercise": "작업 명세, 컨텍스트 진입점, 허용 도구, 자동검증, 중단조건과 실행 추적을 단계적으로 추가하여 각 구성요소의 효과를 비교합니다.",
+    "metrics": [
+      "검증된 과제 성공률",
+      "첫 시도 성공률",
+      "인간 개입 및 검토시간",
+      "회귀와 재작업 수",
+      "정책 위반 또는 위험한 도구 호출",
+      "작업당 시간과 비용",
+      "실패 원인 귀속 가능 여부"
+    ],
+    "pass_criteria": [
+      "두 개 이상 과제 유형에서 검증 성공률 또는 실패 진단 가능성이 기준선보다 개선됩니다.",
+      "추가 비용과 인간 검토시간을 포함한 순효과가 양수이거나 필수 위험통제를 제공합니다.",
+      "새 저장소에서도 하네스 선택 이유와 완료 증거를 재현합니다."
+    ],
+    "fail_criteria": [
+      "기존 context engineering·evaluation·security Unit과 구별되는 학습성과가 없습니다.",
+      "복잡성과 비용만 증가하고 검증 성공률·복구율·위험통제가 개선되지 않습니다.",
+      "특정 공급자 제품 사용법 없이는 다른 환경으로 전이되지 않습니다."
+    ],
+    "timebox_minutes": 360,
+    "risk_controls": [
+      "합성 데이터와 로컬 저장소만 사용합니다.",
+      "외부 배포·병합·게시 전에는 인간 승인을 요구합니다.",
+      "비용·반복·시간 한도를 초과하면 중단합니다."
+    ]
+  },
+  "review": {
+    "first_observed_at": "2026-02-11",
+    "last_reviewed_at": "2026-07-26",
+    "review_due_at": "2026-10-26",
+    "cadence_days": 90,
+    "change_triggers": [
+      "주요 에이전트 SDK의 하네스 구성 또는 용어 변경",
+      "독립 비교 연구 또는 실패 사례 공개",
+      "모델 발전으로 기존 보조장치의 필요성이 크게 변화"
+    ],
+    "overclaim_warnings": [
+      "모든 팀의 생산성을 10배 높인다고 일반화하지 않습니다.",
+      "에이전트를 결정론적으로 만든다고 표현하지 않습니다.",
+      "프롬프트·컨텍스트 엔지니어링을 대체한다고 표현하지 않습니다.",
+      "2026년에 확립된 표준 직무라고 표현하지 않습니다."
+    ],
+    "note": "정의는 substantiated 상태이나 학습효과와 업무효과는 Probe Set에서 별도로 검증해야 합니다."
+  }
+}

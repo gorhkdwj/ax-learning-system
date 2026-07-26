@@ -1,0 +1,146 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.ai.grounded-output-evaluation",
+  "version": "1.0.0",
+  "title": "근거 기반 AI 출력 평가",
+  "summary": "AI 출력의 핵심 주장이 제공된 근거로 확인되는지 평가하고 실패 유형을 기록하는 방법을 학습합니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "ai-systems-agents",
+    "subdomains": [
+      "grounded-output-evaluation"
+    ]
+  },
+  "domain_tags": [
+    "ai",
+    "evaluation",
+    "grounding"
+  ],
+  "capabilities": [
+    "AI 출력의 근거 연결 상태를 평가합니다.",
+    "검증 실패를 재현 가능한 평가 기록으로 남깁니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.ai.grounded-output-evaluation.explain",
+        "statement": "근거 있음, 근거 부족, 모순과 판단 불가의 차이를 설명합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.ai.grounded-output-evaluation.guided",
+        "statement": "라벨이 있는 표본과 안내 기준을 사용하여 AI 출력의 근거 연결 상태를 분류합니다.",
+        "target_level": "D1"
+      },
+      {
+        "id": "outcome.ai.grounded-output-evaluation.apply",
+        "statement": "새로운 출력 집합을 독립적으로 평가하고 결과를 재현 가능한 형식으로 기록합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "운영 모니터링, 자동 평가기 교정과 고위험 도메인 평가는 별도 D3 Unit에서 다룹니다."
+  },
+  "relations": [
+    {
+      "type": "prerequisite",
+      "target": {
+        "id": "unit.foundation.evidence-verification",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "note": "AI 출력 평가 전에 개별 주장과 출처의 직접 관계를 검증할 수 있어야 합니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.ai.grounded-output-evaluation.guide",
+        "version": "1.0.0"
+      },
+      "role": "core",
+      "required": true
+    },
+    {
+      "resource": {
+        "id": "resource.ai.grounded-output-evaluation.lab",
+        "version": "1.0.0"
+      },
+      "role": "lab",
+      "required": true
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "windows",
+      "markdown-reader"
+    ],
+    "network_required": false,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "로컬 예제 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "grounded-output-rubric",
+        "type": "resource",
+        "learning_outcome_ids": [
+          "outcome.ai.grounded-output-evaluation.explain",
+          "outcome.ai.grounded-output-evaluation.guided",
+          "outcome.ai.grounded-output-evaluation.apply"
+        ],
+        "required": true,
+        "resource_ref": {
+          "id": "resource.ai.grounded-output-evaluation.lab",
+          "version": "1.0.0"
+        },
+        "success_criteria": [
+          "평가 단위와 판단 기준을 사전에 명시합니다.",
+          "각 결과를 근거 있음, 부족, 모순 또는 판단 불가로 기록합니다.",
+          "다른 출력 집합에서도 같은 절차를 재현할 수 있습니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Evaluate agent workflows",
+      "publisher": "OpenAI",
+      "source_type": "official_docs",
+      "url": "https://developers.openai.com/api/docs/guides/agent-evals",
+      "checked_at": "2026-07-26"
+    },
+    {
+      "title": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile",
+      "publisher": "NIST",
+      "source_type": "official_spec",
+      "url": "https://doi.org/10.6028/NIST.AI.600-1",
+      "source_version": "NIST.AI.600-1",
+      "checked_at": "2026-07-26"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "risk_reduction",
+    "capability_unlock",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-26",
+    "review_due_at": "2026-10-26",
+    "note": "Phase 1 참조 및 선행관계 검증을 위한 최소 예제입니다."
+  }
+}

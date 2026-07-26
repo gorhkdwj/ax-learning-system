@@ -1,0 +1,196 @@
+{
+  "schema_version": "1.0.0",
+  "id": "set.workflow.evidence-based-briefing",
+  "version": "1.0.0",
+  "title": "근거 기반 브리핑 작성 예제",
+  "summary": "출처 검증과 AI 출력 평가 Unit을 조합하여 확인 가능한 브리핑 초안을 만드는 중립적 Learning Set 예제입니다.",
+  "set_type": "workflow",
+  "target_roles": [],
+  "business_context": "Phase 1 메타데이터와 검증기 확인을 위한 가상 표본입니다. 공개 또는 합성 문서와 로컬 산출물만 사용하며, 사용자의 실제 업무·우선순위·성과를 나타내지 않습니다.",
+  "target_outcome": "핵심 주장마다 근거 상태와 불확실성이 표시된 브리핑 초안을 생성합니다.",
+  "input_artifacts": [
+    "검토할 주장 목록",
+    "후보 출처",
+    "AI가 생성한 브리핑 초안"
+  ],
+  "output_artifacts": [
+    "근거 기록",
+    "평가 기록",
+    "검증된 브리핑 초안"
+  ],
+  "entry_requirements": [],
+  "priority": {
+    "curriculum_class": "elective",
+    "execution_priority": "watch",
+    "reason": "Phase 1 스키마 검증용 가상 예제입니다. 사용자 업무 기준선과 우선순위 평가를 수행하지 않았으므로 현재 학습에 배정하지 않습니다."
+  },
+  "business_impact": {
+    "value_hypothesis": "공개 또는 합성 문서에서 주요 주장과 근거를 연결한 구조화 초안을 생성하고 검증하는 절차를 연습하면 준비와 검토 흐름을 표준화하고 일부 시간을 줄일 가능성이 있습니다. 실제 시간 및 품질 개선은 기준선 측정과 파일럿 전에는 확인되지 않았습니다.",
+    "impact_types": [
+      "time",
+      "quality",
+      "capability_unlock",
+      "reuse"
+    ],
+    "evidence_confidence": "hypothesis",
+    "baseline_metrics": [
+      {
+        "name": "accepted_output_lead_time",
+        "measurement": "동일한 공개 또는 합성 문서 세트를 사용하여 작업 시작부터 검토자 승인까지 걸린 시간을 측정하며 수정 시간을 포함합니다.",
+        "value": "not_measured",
+        "unit": "minutes/task"
+      },
+      {
+        "name": "human_review_time",
+        "measurement": "검토자가 주요 주장과 출처의 대응 관계를 확인하고 수정하는 데 사용한 시간을 측정합니다.",
+        "value": "not_measured",
+        "unit": "minutes/output"
+      },
+      {
+        "name": "unsupported_key_claim_count",
+        "measurement": "검토자가 핵심 주장으로 분류한 항목 중 인용 출처에서 확인할 수 없는 주장의 수를 계산합니다.",
+        "value": "not_measured",
+        "unit": "count/output"
+      }
+    ],
+    "target_metrics": [
+      {
+        "name": "accepted_output_lead_time",
+        "measurement": "파일럿에서 측정한 수동 기준선과 동일한 문서 수, 완료조건 및 검토범위를 적용합니다.",
+        "value": "at_or_below_measured_baseline",
+        "unit": "minutes/task"
+      },
+      {
+        "name": "human_review_time",
+        "measurement": "자동검사 시간이 아니라 사람이 실제로 출처 확인과 수정에 사용한 시간을 비교합니다.",
+        "value": "at_or_below_measured_baseline",
+        "unit": "minutes/output"
+      },
+      {
+        "name": "unsupported_key_claim_count",
+        "measurement": "핵심 주장별 인용 출처를 직접 확인하며, 출처가 없거나 출처가 주장을 뒷받침하지 않으면 1건으로 계산합니다.",
+        "value": 0,
+        "unit": "count/output"
+      }
+    ],
+    "learning_effort_note": "Phase 1에서는 메타데이터와 최소 실행 예제 검증에 필요한 범위만 작성하며 완전한 교재 제작시간을 추정하지 않습니다.",
+    "maintenance_cost_note": "도구별 사용법보다 근거 연결과 검증 절차를 중심으로 구성합니다. 공급자 API나 모델을 추가하면 별도 갱신비용을 재평가합니다."
+  },
+  "steps": [
+    {
+      "id": "verify-evidence",
+      "title": "주장과 출처 검증",
+      "reason": "AI 출력 평가 전에 개별 주장과 근거의 직접 관계를 확인합니다.",
+      "unit_ref": {
+        "id": "unit.foundation.evidence-verification",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": true,
+      "depends_on": [],
+      "resource_refs": [
+        {
+          "id": "resource.foundation.evidence-verification.lab",
+          "version": "1.0.0"
+        }
+      ],
+      "consumes": [
+        "검토할 주장 목록",
+        "후보 출처"
+      ],
+      "produces": [
+        "근거 기록"
+      ],
+      "validation_gate_ids": [
+        "evidence-record-rubric"
+      ],
+      "estimated_minutes": 90
+    },
+    {
+      "id": "evaluate-grounding",
+      "title": "AI 출력의 근거 연결 평가",
+      "reason": "브리핑 초안의 주장을 근거 있음, 부족, 모순 또는 판단 불가로 구분합니다.",
+      "unit_ref": {
+        "id": "unit.ai.grounded-output-evaluation",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": true,
+      "depends_on": [
+        "verify-evidence"
+      ],
+      "resource_refs": [
+        {
+          "id": "resource.ai.grounded-output-evaluation.lab",
+          "version": "1.0.0"
+        }
+      ],
+      "consumes": [
+        "근거 기록",
+        "AI가 생성한 브리핑 초안"
+      ],
+      "produces": [
+        "평가 기록",
+        "검증된 브리핑 초안"
+      ],
+      "validation_gate_ids": [
+        "grounded-output-rubric"
+      ],
+      "estimated_minutes": 120
+    }
+  ],
+  "risk_profile": {
+    "level": "low",
+    "data_classes": [
+      "public"
+    ],
+    "human_approval_points": [
+      "실행 전에 모든 입력이 공개 또는 합성 데이터이며 비밀정보·개인정보를 포함하지 않는지 확인합니다.",
+      "완료 판정 전에 사람이 핵심 주장과 인용 출처의 대응 관계를 확인합니다.",
+      "향후 외부 전송·게시·저장 기능을 추가하려면 실행 직전에 별도 승인을 받습니다."
+    ],
+    "stop_conditions": [
+      "입력에서 개인정보, 비밀정보 또는 민감정보가 발견됩니다.",
+      "원문 접근 실패로 핵심 주장의 근거를 확인할 수 없습니다.",
+      "에이전트가 정의되지 않은 외부 쓰기 또는 게시 작업을 시도합니다.",
+      "주요 산출물이 지정된 시간 또는 비용 한도를 초과합니다."
+    ],
+    "rollback_plan": "생성된 로컬 산출물을 폐기하고 초기 합성 데이터 상태에서 다시 시작합니다. 본 샘플은 외부 상태를 변경하지 않으므로 외부 롤백은 발생하지 않아야 합니다."
+  },
+  "capstone_resource_refs": [],
+  "acceptance_criteria": [
+    "모든 핵심 주장에 근거 상태가 표시됩니다.",
+    "확인할 수 없는 내용은 확정 사실로 작성되지 않습니다.",
+    "두 Unit의 검증 게이트가 모두 통과합니다.",
+    "실제 외부 배포는 별도 인간 승인 없이 수행하지 않습니다."
+  ],
+  "transfer_evaluation": {
+    "check_after_days": 7,
+    "metrics": [
+      "단계별 해답 없이 새로운 문서 유형의 과제를 완료했는지 여부",
+      "요구된 출력 구조와 수용 기준 충족 여부",
+      "핵심 주장 중 출처에서 확인 가능한 비율",
+      "무근거 핵심 주장 수",
+      "사람의 검토 및 수정 시간",
+      "새 문맥에 맞게 Pipeline을 변경한 이유를 설명할 수 있는지 여부"
+    ],
+    "different_context_task": "기존 요약 예제와 다른 공개 문서 묶음을 사용하여 버전 변경사항 비교 보고서를 작성합니다. 기존 프롬프트나 필드명을 그대로 복사하지 않고 입력·출력 계약과 검증 절차를 새 문맥에 맞게 조정해야 합니다."
+  },
+  "sources": [
+    {
+      "title": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile",
+      "publisher": "NIST",
+      "source_type": "official_spec",
+      "url": "https://doi.org/10.6028/NIST.AI.600-1",
+      "source_version": "NIST.AI.600-1",
+      "checked_at": "2026-07-26"
+    }
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-26",
+    "review_due_at": "2026-10-26",
+    "note": "Phase 1 검증기용 중립 예제입니다."
+  }
+}

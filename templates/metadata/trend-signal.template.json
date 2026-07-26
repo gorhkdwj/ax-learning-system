@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0.0",
+  "id": "signal.domain.emerging-concept",
+  "version": "1.0.0",
+  "title": "조사할 신흥 개념",
+  "canonical_name": "Emerging concept",
+  "aliases": [
+    {
+      "value": "신흥 개념",
+      "kind": "translation",
+      "language": "ko"
+    }
+  ],
+  "summary": "정규 학습 카탈로그에 넣기 전에 정의, 근거, 중복 여부와 실무 가치를 조사합니다.",
+  "signal_type": "concept",
+  "status": "captured",
+  "status_history": [
+    {
+      "status": "captured",
+      "at": "2026-01-01",
+      "reason": "공식 문서, 논문, 실무자 글 또는 커뮤니티에서 반복 관찰되어 수집했습니다."
+    }
+  ],
+  "definition": {
+    "working_definition": "현재 근거로 설명할 수 있는 잠정 정의를 작성합니다.",
+    "problem_addressed": "이 개념이 해결한다고 주장하는 실무 문제를 작성합니다.",
+    "includes": [
+      "정의에 반드시 포함되는 구성요소"
+    ],
+    "excludes": [
+      "비슷하지만 본 개념에 포함하지 않는 요소"
+    ],
+    "underlying_primitives": [
+      "이미 알려진 기반 개념"
+    ],
+    "actual_delta": "기존 개념을 재명명한 것인지, 실제로 새로 추가된 차이가 있는지 기록합니다.",
+    "definition_disputes": [
+      "출처마다 달리 사용하는 경계를 기록합니다."
+    ]
+  },
+  "claims": [
+    {
+      "id": "claim.emerging-concept.definition",
+      "type": "definition",
+      "statement": "현재 확인할 핵심 정의 주장입니다.",
+      "critical": true,
+      "status": "unverified",
+      "evidence_refs": [
+        {
+          "id": "evidence.emerging-concept.discovery",
+          "stance": "context"
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evidence.emerging-concept.discovery",
+      "title": "최초 발견 자료",
+      "publisher": "발행자",
+      "source_type": "community_signal",
+      "url": "https://example.com/discovery-source",
+      "checked_at": "2026-01-01",
+      "claim_scope": "이 자료는 용어의 존재를 발견하는 데만 사용하며 정의나 효과를 확정하지 않습니다."
+    }
+  ],
+  "relevance": {
+    "status": "unassessed",
+    "criteria": [],
+    "rationale": "업무 연결성, 선행지식 가치, 필수 통제 또는 전략적 선택지 여부를 조사해야 합니다.",
+    "domain_tags": [
+      "research-intake"
+    ],
+    "business_hypothesis": "이 개념을 적용했을 때 개선될 업무 결과와 측정 방법을 가설로 작성합니다."
+  },
+  "maturity": {
+    "terminology": "nascent",
+    "definition_confidence": "low",
+    "effect_confidence": "low",
+    "implementation_stability": "unknown",
+    "volatility": "high",
+    "uncertainty_note": "정의와 효과를 독립적으로 검증해야 합니다."
+  },
+  "verification": {
+    "confidence": "low",
+    "reviewed_at": "2026-01-01",
+    "reviewer": "AX curriculum research",
+    "known_unknowns": [
+      "공식 또는 1차 출처가 같은 의미로 용어를 사용하는지 확인해야 합니다."
+    ]
+  },
+  "related_signal_refs": [],
+  "candidate_mapping": {
+    "destination": "observe",
+    "rationale": "정의와 실무 효과가 검증되기 전에는 학습 Unit으로 승격하지 않습니다.",
+    "proposed_target_level": "D1",
+    "outcomes_by_level": [
+      {
+        "level": "D1",
+        "outcome": "개념의 잠정 정의와 미검증 주장을 구분하여 설명합니다."
+      }
+    ],
+    "prerequisite_concepts": [],
+    "transfer_task_hypothesis": "실제 업무 사례에서 이 개념이 필요한 조건과 필요하지 않은 조건을 판별합니다.",
+    "validation_evidence_hypothesis": "공식·1차 출처와 비교 실습 결과를 함께 제시합니다."
+  },
+  "review": {
+    "first_observed_at": "2026-01-01",
+    "last_reviewed_at": "2026-01-01",
+    "review_due_at": "2026-04-01",
+    "cadence_days": 90,
+    "change_triggers": [
+      "공식 문서 또는 독립된 1차 연구가 공개됨"
+    ],
+    "overclaim_warnings": [
+      "발견 자료만으로 정의와 효과를 확정하지 않습니다."
+    ]
+  }
+}

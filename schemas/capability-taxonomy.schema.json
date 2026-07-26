@@ -1,0 +1,424 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ax-learning.local/schemas/capability-taxonomy.schema.json",
+  "title": "AX Capability Taxonomy Registry",
+  "description": "조사 렌즈, 잠정·정규 역량 분류, 외부 교차검증 기준과 탐색 보기를 관리합니다.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "version",
+    "title",
+    "status",
+    "updated_at",
+    "nodes",
+    "external_frameworks",
+    "views",
+    "change_policy"
+  ],
+  "properties": {
+    "schema_version": {
+      "$ref": "#/$defs/semver"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^taxonomy\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+    },
+    "version": {
+      "$ref": "#/$defs/semver"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "provisional",
+        "canonical",
+        "deprecated"
+      ]
+    },
+    "updated_at": {
+      "$ref": "#/$defs/date"
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/node"
+      }
+    },
+    "external_frameworks": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/externalFramework"
+      }
+    },
+    "views": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/view"
+      }
+    },
+    "change_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "new_domain_requires_user_approval",
+        "rename_merge_requires_user_approval",
+        "preserve_discovery_lens",
+        "canonical_hierarchy_is_projection",
+        "promotion_criteria"
+      ],
+      "properties": {
+        "new_domain_requires_user_approval": {
+          "const": true
+        },
+        "rename_merge_requires_user_approval": {
+          "const": true
+        },
+        "preserve_discovery_lens": {
+          "const": true
+        },
+        "canonical_hierarchy_is_projection": {
+          "const": true
+        },
+        "promotion_criteria": {
+          "type": "array",
+          "minItems": 5,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "semver": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "taxonomyId": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+    },
+    "uniqueStrings": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "externalMapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "framework_id",
+        "mapping_type",
+        "target",
+        "rationale",
+        "status"
+      ],
+      "properties": {
+        "framework_id": {
+          "$ref": "#/$defs/taxonomyId"
+        },
+        "mapping_type": {
+          "enum": [
+            "coverage_reference",
+            "boundary_reference",
+            "role_view_reference",
+            "partial_overlap"
+          ]
+        },
+        "target": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "proposed",
+            "verified",
+            "deferred"
+          ]
+        }
+      }
+    },
+    "node": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "node_type",
+        "status",
+        "title_ko",
+        "title_en",
+        "definition",
+        "includes",
+        "excludes",
+        "parent_ids",
+        "aliases",
+        "related_ids",
+        "external_mappings",
+        "provenance",
+        "lifecycle"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/taxonomyId"
+        },
+        "node_type": {
+          "enum": [
+            "domain",
+            "subdomain"
+          ]
+        },
+        "status": {
+          "enum": [
+            "research_lens",
+            "provisional",
+            "canonical",
+            "deprecated"
+          ]
+        },
+        "title_ko": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title_en": {
+          "type": "string",
+          "minLength": 1
+        },
+        "definition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "includes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "excludes": {
+          "$ref": "#/$defs/uniqueStrings"
+        },
+        "parent_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/taxonomyId"
+          }
+        },
+        "aliases": {
+          "$ref": "#/$defs/uniqueStrings"
+        },
+        "related_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/taxonomyId"
+          }
+        },
+        "external_mappings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/externalMapping"
+          }
+        },
+        "provenance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "basis",
+            "source_refs",
+            "rationale"
+          ],
+          "properties": {
+            "basis": {
+              "enum": [
+                "user_governance",
+                "wave_research",
+                "external_framework",
+                "trend_signal"
+              ]
+            },
+            "source_refs": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "rationale": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "lifecycle": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "created_at",
+            "last_reviewed_at",
+            "review_due_at",
+            "superseded_by"
+          ],
+          "properties": {
+            "created_at": {
+              "$ref": "#/$defs/date"
+            },
+            "last_reviewed_at": {
+              "$ref": "#/$defs/date"
+            },
+            "review_due_at": {
+              "$ref": "#/$defs/date"
+            },
+            "superseded_by": {
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/taxonomyId"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "externalFramework": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "publisher",
+        "version",
+        "url",
+        "checked_at",
+        "status",
+        "intended_use",
+        "limitations"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/taxonomyId"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "publisher": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https://"
+        },
+        "checked_at": {
+          "$ref": "#/$defs/date"
+        },
+        "status": {
+          "enum": [
+            "reference_registered",
+            "partially_mapped",
+            "verified",
+            "deprecated"
+          ]
+        },
+        "intended_use": {
+          "type": "string",
+          "minLength": 1
+        },
+        "limitations": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "view": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "view_type",
+        "status",
+        "title_ko",
+        "title_en",
+        "definition",
+        "node_refs",
+        "notes"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^view\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+        },
+        "view_type": {
+          "enum": [
+            "role",
+            "workflow",
+            "pipeline",
+            "deliverable"
+          ]
+        },
+        "status": {
+          "enum": [
+            "planned",
+            "provisional",
+            "active",
+            "deprecated"
+          ]
+        },
+        "title_ko": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title_en": {
+          "type": "string",
+          "minLength": 1
+        },
+        "definition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "node_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/taxonomyId"
+          }
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

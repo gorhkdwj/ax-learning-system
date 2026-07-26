@@ -1,0 +1,126 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.domain.capability-name",
+  "version": "1.0.0",
+  "title": "후보 역량 이름",
+  "canonical_name": "Canonical capability name",
+  "aliases": [
+    "사용되는 다른 명칭"
+  ],
+  "summary": "이 후보가 무엇이며 왜 AX 역량지도에서 검토할 가치가 있는지 요약합니다.",
+  "research_scope": {
+    "problem_addressed": "이 역량이 해결하는 업무·의사결정·통제 문제를 작성합니다.",
+    "includes": [
+      "반드시 포함되는 능력 또는 지식"
+    ],
+    "excludes": [
+      "인접하지만 별도 후보로 다룰 내용"
+    ],
+    "boundary_note": "기술·제품·업무 맥락과 범용 역량의 경계를 설명합니다."
+  },
+  "discovery": {
+    "lens_id": "domain",
+    "basis": "assigned_lens",
+    "notes": "후보 ID는 최초 발견 렌즈를 보존하고 taxonomy.major_domain은 정규 소유 분야를 나타냅니다."
+  },
+  "taxonomy": {
+    "major_domain": "domain",
+    "subdomains": [
+      "subdomain"
+    ],
+    "tags": [
+      "ax",
+      "capability"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "capability",
+    "proposed_destination": "unit_candidate",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.domain.capability-name",
+    "rationale": "둘 이상의 업무 맥락으로 전이 가능한 독립 학습성과가 예상됩니다."
+  },
+  "relations": [],
+  "capability": {
+    "learner_can_do": "학습자가 실제 업무에서 관찰 가능하게 수행할 행동을 작성합니다.",
+    "work_contexts": [
+      "첫 번째 업무 맥락",
+      "다른 부서 또는 산출물의 전이 맥락"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "comparison_required",
+    "agent_fit_rationale": "결정적 자동화·기존 SaaS·에이전트 방식의 적합성을 비교해야 합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "용도, 적용하지 말아야 할 조건과 주요 위험을 설명합니다.",
+        "evidence_hypothesis": "비사례를 포함한 짧은 판별 과제를 통과합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "새로운 소규모 업무 맥락에서 독립적으로 적용하고 결과를 자동검증합니다.",
+        "evidence_hypothesis": "참조 예제와 다른 입력의 전이과제 및 자동검증 결과를 제출합니다."
+      }
+    ],
+    "depth_boundary": "내부 구현 연구가 필요한 D4 내용은 실제 업무 필요가 확인되기 전까지 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "cycle_time",
+      "quality",
+      "prerequisite_value"
+    ],
+    "business_hypotheses": [
+      "처리시간 또는 인간 검토시간을 줄일 가능성이 있습니다.",
+      "후속 고가치 Learning Set의 선수역량이 될 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "material",
+    "operations_relevance": "awareness",
+    "priority_hint": "unassessed",
+    "measurement_hypothesis": "기준선 대비 성공률, 인간 검토시간, 오류와 비용을 비교합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "cost",
+      "observability",
+      "human_approval"
+    ],
+    "notes": "이 후보를 실제 업무에 적용할 때 필요한 횡단 품질축과 제외 가능한 축을 설명합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.domain.capability-name.official",
+      "title": "공식 또는 1차 출처 제목",
+      "publisher": "발행기관",
+      "source_type": "official_docs",
+      "url": "https://example.com/official-source",
+      "checked_at": "2026-07-26",
+      "claim_scope": "정의와 포함 범위를 확인하며 일반적인 업무효과를 확정하지 않습니다.",
+      "supports": [
+        "definition",
+        "scope"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "proposed",
+    "confidence": "low",
+    "rationale": "분야 조사자가 제안했으며 출처·중복·분류 교차검토 전입니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-00",
+    "work_package_id": "wp.domain.discovery",
+    "author_agent": "ax-domain-researcher",
+    "researched_at": "2026-07-26",
+    "reviewers": [],
+    "known_unknowns": [
+      "기존 후보와 중복되는지 교차검토해야 합니다."
+    ],
+    "next_action": "출처 검토와 taxonomy audit를 수행합니다."
+  }
+}

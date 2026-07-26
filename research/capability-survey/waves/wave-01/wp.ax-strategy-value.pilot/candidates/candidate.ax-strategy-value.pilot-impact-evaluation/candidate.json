@@ -1,0 +1,168 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.ax-strategy-value.pilot-impact-evaluation",
+  "version": "1.0.0",
+  "title": "AX 파일럿 실험·영향평가 설계",
+  "canonical_name": "Intervention impact evaluation design",
+  "aliases": [
+    "Test-and-learn evaluation",
+    "AI intervention impact evaluation"
+  ],
+  "summary": "관측된 변화가 AX 개입 때문인지 판단할 수 있도록 평가질문, 비교조건·반사실, 배정단위, 기간, 교란요인, 성공·중단·확대 조건을 사전 설계하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "계절성·업무 난이도·숙련·동시 변경을 AI 효과로 오인하거나 사용량을 인과효과로 주장하는 문제를 다룹니다.",
+    "includes": [
+      "평가질문, Theory of Change와 의도·비의도 결과",
+      "기준선·비교집단·비교기간·단계적 도입과 반사실",
+      "사전 등록한 성공·가드레일·중단·확대 조건과 한계"
+    ],
+    "excludes": [
+      "고급 계량경제학과 범용 통계 전문과정",
+      "모델 단독 벤치마크와 조직 전체 도입 연구"
+    ],
+    "boundary_note": "RCT·준실험이 필요한 고위험·고비용 평가의 분석 실행은 전문 분석가에게 이관하되 의뢰 가능한 설계와 한계 설명까지 학습합니다."
+  },
+  "discovery": {
+    "lens_id": "ax-strategy-value",
+    "basis": "cross_lens_discovery",
+    "notes": "ax-strategy-value 조사에서 발견했지만 안정 코어의 정규 소유 분야는 data-analytics-ml로 이관했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "data-analytics-ml",
+    "subdomains": [
+      "impact-evaluation",
+      "test-and-learn"
+    ],
+    "tags": [
+      "counterfactual",
+      "pilot",
+      "attribution"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "capability",
+    "proposed_destination": "unit_candidate",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.data-analytics-ml.intervention-impact-evaluation",
+    "rationale": "여러 개입과 업무에서 효과 귀속 설계를 작성하고 주장 한계를 설명하는 안정적 핵심은 data-analytics-ml이 소유하며 AI 특유의 변동성과 비의도 결과는 AX Resource로 연결합니다."
+  },
+  "relations": [
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ax-strategy-value.measurement-contract",
+        "version": "1.0.0"
+      },
+      "rationale": "사전 정의된 결과·가드레일과 데이터 계약이 있어야 영향평가 설계와 판정을 재현할 수 있습니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "저·중위험 AX 파일럿에 대해 비교조건, 배정·측정 기간, 데이터, 교란요인, 성공·중단 조건과 인과추론 한계가 있는 평가계획을 작성합니다.",
+    "work_contexts": [
+      "AI 보조 회의록 작성 파일럿",
+      "서비스 요청 분류 보조 파일럿"
+    ],
+    "transferability": "enterprise_cross_functional",
+    "agent_fit": "comparison_required",
+    "agent_fit_rationale": "현행 또는 비AI 비교조건은 필수이며 의사결정에 중요하면 결정적 자동화·SaaS·AI 워크플로우·에이전트를 별도 처리조건으로 비교합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "모니터링한 변화와 개입에 귀속 가능한 영향, 기준선과 반사실을 구분합니다.",
+        "evidence_hypothesis": "비교조건이 없어 인과 주장이 불가능한 평가 사례를 판별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "새로운 저·중위험 AX 파일럿의 비례적인 평가계획과 go·iterate·stop 조건을 독립적으로 설계합니다.",
+        "evidence_hypothesis": "사전등록형 프로토콜을 작성한 뒤 숨은 결과 데이터에서 비교 가능성, 오염·교란, 불확실성과 가드레일을 반영하여 go·iterate·stop을 판정하고 설계가 허용하지 않는 인과 주장을 거부합니다."
+      }
+    ],
+    "depth_boundary": "목표 D2, 상한 D2입니다. 전문가 수준의 RCT·준실험 집행, 고급 통계모형과 고위험 개입의 최종 승인 책임은 포함하지 않습니다."
+  },
+  "practicality": {
+    "value_types": [
+      "cost",
+      "cycle_time",
+      "quality",
+      "risk_reduction",
+      "strategic_option"
+    ],
+    "business_hypotheses": [
+      "다른 변화나 표본 차이를 AX 효과로 오인하는 위험을 줄일 가능성이 있습니다.",
+      "작은 증거로 확대·수정·중단 결정을 내리고 실패 비용을 제한할 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "awareness",
+    "operations_relevance": "material",
+    "priority_hint": "unassessed",
+    "measurement_hypothesis": "처리군과 비교조건의 완료시간·품질·재작업·검토부담·단위비용을 같은 분모와 불확실성으로 보고합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "privacy",
+      "cost",
+      "observability",
+      "reliability",
+      "human_approval"
+    ],
+    "notes": "가드레일 위반은 사전 정의한 조건에 따라 중단하며 평가 데이터의 개인정보와 접근권한을 통제합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.ax-strategy-value.pilot-impact-evaluation.ai-guidance",
+      "title": "Guidance on the Impact Evaluation of AI Interventions",
+      "publisher": "HM Treasury and Evaluation Task Force",
+      "source_type": "official_docs",
+      "url": "https://www.gov.uk/government/publications/the-magenta-book/guidance-on-the-impact-evaluation-of-ai-interventions-html",
+      "checked_at": "2026-07-26",
+      "source_version": "2026 edition; page updated 2026-05-15",
+      "claim_scope": "AI 개입의 영향평가에 기준선·반사실과 의도·비의도 결과가 필요하다는 범위만 지지하며 완전한 프로세스·가치 대비 비용 방법론까지 지지하지 않습니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "risk",
+        "learning_outcome"
+      ]
+    },
+    {
+      "id": "evidence.ax-strategy-value.pilot-impact-evaluation.test-and-learn",
+      "title": "Test and Learn",
+      "publisher": "HM Treasury and Evaluation Task Force",
+      "source_type": "official_docs",
+      "url": "https://www.gov.uk/government/publications/the-magenta-book/test-and-learn-html",
+      "checked_at": "2026-07-26",
+      "source_version": "2026 edition; page updated 2026-05-15",
+      "claim_scope": "중요 가정을 작게 시험하고 피드백·적응을 거쳐 확대 판단 근거를 축적하는 방식을 지지하며 보편적인 효과 크기는 지지하지 않습니다.",
+      "supports": [
+        "scope",
+        "work_relevance",
+        "lifecycle"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "proposed",
+    "confidence": "medium",
+    "rationale": "공식 AI 개입 평가 지침과 세 독립 감사에서 D2 설계 역량이 확인되었고 고급 실행은 전문가에게 이관하도록 경계를 고정했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-01",
+    "work_package_id": "wp.ax-strategy-value.pilot",
+    "author_agent": "codex-main-with-parallel-research",
+    "researched_at": "2026-07-26",
+    "reviewers": [
+      "ax-evidence-auditor",
+      "ax-taxonomy-auditor",
+      "ax-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "업무별 최소 탐지효과와 표본 수는 실제 분산·위험을 확인한 뒤 계산해야 합니다.",
+      "고위험 개입에서 전문 평가자에게 반드시 이관할 기준을 후속 조사해야 합니다."
+    ],
+    "next_action": "data-analytics-ml 렌즈 조사에서 공통 영향평가 Unit과 AX 특화 Resource의 최종 경계를 확인합니다."
+  }
+}

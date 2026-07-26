@@ -1,0 +1,952 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ax-learning.local/schemas/trend-signal.schema.json",
+  "title": "AX Trend Signal",
+  "description": "신흥 용어·개념·패턴을 정규 학습 카탈로그에 넣기 전에 정규화하고 근거·중복·실무가치·승격 목적지를 판정하는 연구 intake 메타데이터입니다.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "version",
+    "title",
+    "canonical_name",
+    "aliases",
+    "summary",
+    "signal_type",
+    "status",
+    "status_history",
+    "definition",
+    "claims",
+    "evidence",
+    "relevance",
+    "maturity",
+    "verification",
+    "candidate_mapping",
+    "review"
+  ],
+  "properties": {
+    "schema_version": {
+      "$ref": "#/$defs/semver"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^signal\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+    },
+    "version": {
+      "$ref": "#/$defs/semver"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "canonical_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/alias"
+      }
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "signal_type": {
+      "enum": [
+        "term",
+        "concept",
+        "pattern",
+        "practice",
+        "technology",
+        "product",
+        "service",
+        "standard",
+        "event",
+        "claim"
+      ]
+    },
+    "status": {
+      "$ref": "#/$defs/status"
+    },
+    "status_history": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "status",
+          "at",
+          "reason"
+        ],
+        "properties": {
+          "status": {
+            "$ref": "#/$defs/status"
+          },
+          "at": {
+            "$ref": "#/$defs/date"
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "definition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "working_definition",
+        "problem_addressed",
+        "includes",
+        "excludes",
+        "underlying_primitives"
+      ],
+      "properties": {
+        "working_definition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "problem_addressed": {
+          "type": "string",
+          "minLength": 1
+        },
+        "includes": {
+          "$ref": "#/$defs/nonEmptyUniqueStrings"
+        },
+        "excludes": {
+          "$ref": "#/$defs/nonEmptyUniqueStrings"
+        },
+        "underlying_primitives": {
+          "$ref": "#/$defs/nonEmptyUniqueStrings"
+        },
+        "actual_delta": {
+          "type": "string"
+        },
+        "definition_disputes": {
+          "$ref": "#/$defs/uniqueStrings"
+        }
+      }
+    },
+    "claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/claim"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/evidence"
+      }
+    },
+    "relevance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "criteria",
+        "rationale",
+        "domain_tags"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "unassessed",
+            "eligible",
+            "not_eligible"
+          ]
+        },
+        "criteria": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "work_connection",
+              "prerequisite",
+              "mandatory_control",
+              "strategic_option"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "domain_tags": {
+          "$ref": "#/$defs/nonEmptyUniqueStrings"
+        },
+        "business_hypothesis": {
+          "type": "string"
+        }
+      }
+    },
+    "maturity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "terminology",
+        "definition_confidence",
+        "effect_confidence",
+        "implementation_stability",
+        "volatility",
+        "uncertainty_note"
+      ],
+      "properties": {
+        "terminology": {
+          "enum": [
+            "nascent",
+            "emerging",
+            "converging",
+            "established",
+            "declining"
+          ]
+        },
+        "definition_confidence": {
+          "$ref": "#/$defs/confidence"
+        },
+        "effect_confidence": {
+          "$ref": "#/$defs/confidence"
+        },
+        "implementation_stability": {
+          "enum": [
+            "unknown",
+            "experimental",
+            "changing",
+            "stable"
+          ]
+        },
+        "volatility": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "uncertainty_note": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "confidence",
+        "reviewed_at",
+        "reviewer",
+        "known_unknowns"
+      ],
+      "properties": {
+        "confidence": {
+          "$ref": "#/$defs/confidence"
+        },
+        "reviewed_at": {
+          "$ref": "#/$defs/date"
+        },
+        "reviewer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "known_unknowns": {
+          "$ref": "#/$defs/nonEmptyUniqueStrings"
+        }
+      }
+    },
+    "disambiguation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "interpretations"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "clear",
+            "ambiguous",
+            "contested"
+          ]
+        },
+        "interpretations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "label",
+              "description",
+              "evidence_ids"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^interpretation\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^evidence\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+                },
+                "uniqueItems": true
+              }
+            }
+          }
+        },
+        "selected_interpretation_id": {
+          "type": "string",
+          "pattern": "^interpretation\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+        }
+      }
+    },
+    "related_signal_refs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "target"
+        ],
+        "properties": {
+          "type": {
+            "enum": [
+              "related_to",
+              "overlaps",
+              "broader_than",
+              "narrower_than",
+              "contrasts_with",
+              "split_into",
+              "derived_from"
+            ]
+          },
+          "target": {
+            "$ref": "#/$defs/signalRef"
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      },
+      "default": []
+    },
+    "duplicate_of": {
+      "$ref": "#/$defs/signalRef"
+    },
+    "deduplication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "resolution",
+        "checked_at",
+        "rationale"
+      ],
+      "properties": {
+        "resolution": {
+          "enum": [
+            "canonical",
+            "distinct",
+            "duplicate",
+            "unresolved"
+          ]
+        },
+        "checked_at": {
+          "$ref": "#/$defs/date"
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "candidate_mapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "destination",
+        "rationale",
+        "proposed_target_level",
+        "outcomes_by_level",
+        "prerequisite_concepts",
+        "transfer_task_hypothesis",
+        "validation_evidence_hypothesis"
+      ],
+      "properties": {
+        "destination": {
+          "enum": [
+            "observe",
+            "merge_existing",
+            "resource_only",
+            "technology_adapter",
+            "probe_set",
+            "promote_unit",
+            "promote_set",
+            "reject",
+            "archive"
+          ]
+        },
+        "proposed_item_type": {
+          "enum": [
+            "concept",
+            "pattern",
+            "practice",
+            "language",
+            "library",
+            "framework",
+            "runtime",
+            "database",
+            "protocol",
+            "platform",
+            "saas",
+            "automation_platform",
+            "product_feature",
+            "tool"
+          ]
+        },
+        "proposed_unit_id": {
+          "type": "string",
+          "pattern": "^unit\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+        },
+        "proposed_set_id": {
+          "type": "string",
+          "pattern": "^set\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "proposed_target_level": {
+          "$ref": "#/$defs/proficiency"
+        },
+        "outcomes_by_level": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "level",
+              "outcome"
+            ],
+            "properties": {
+              "level": {
+                "$ref": "#/$defs/proficiency"
+              },
+              "outcome": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "prerequisite_concepts": {
+          "$ref": "#/$defs/uniqueStrings"
+        },
+        "transfer_task_hypothesis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "validation_evidence_hypothesis": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "destination": {
+                "const": "promote_unit"
+              }
+            },
+            "required": [
+              "destination"
+            ]
+          },
+          "then": {
+            "required": [
+              "proposed_item_type",
+              "proposed_unit_id"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "destination": {
+                "enum": [
+                  "probe_set",
+                  "promote_set"
+                ]
+              }
+            },
+            "required": [
+              "destination"
+            ]
+          },
+          "then": {
+            "required": [
+              "proposed_set_id"
+            ]
+          }
+        }
+      ]
+    },
+    "probe_plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "falsifiable_hypothesis",
+        "comparison_baseline",
+        "test_contexts",
+        "exercise",
+        "metrics",
+        "pass_criteria",
+        "fail_criteria",
+        "timebox_minutes",
+        "risk_controls"
+      ],
+      "properties": {
+        "falsifiable_hypothesis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "comparison_baseline": {
+          "type": "string",
+          "minLength": 1
+        },
+        "test_contexts": {
+          "$ref": "#/$defs/nonEmptyUniqueStrings"
+        },
+        "exercise": {
+          "type": "string",
+          "minLength": 1
+        },
+        "metrics": {
+          "$ref": "#/$defs/nonEmptyUniqueStrings"
+        },
+        "pass_criteria": {
+          "$ref": "#/$defs/nonEmptyUniqueStrings"
+        },
+        "fail_criteria": {
+          "$ref": "#/$defs/nonEmptyUniqueStrings"
+        },
+        "timebox_minutes": {
+          "type": "integer",
+          "minimum": 30
+        },
+        "risk_controls": {
+          "$ref": "#/$defs/nonEmptyUniqueStrings"
+        }
+      }
+    },
+    "promotion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "decided_at",
+        "rationale",
+        "targets"
+      ],
+      "properties": {
+        "decided_at": {
+          "$ref": "#/$defs/date"
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "targets": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/catalogRef"
+          }
+        }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "first_observed_at",
+        "last_reviewed_at",
+        "review_due_at",
+        "cadence_days",
+        "change_triggers",
+        "overclaim_warnings"
+      ],
+      "properties": {
+        "first_observed_at": {
+          "$ref": "#/$defs/date"
+        },
+        "last_reviewed_at": {
+          "$ref": "#/$defs/date"
+        },
+        "review_due_at": {
+          "$ref": "#/$defs/date"
+        },
+        "cadence_days": {
+          "type": "integer",
+          "minimum": 7,
+          "maximum": 365
+        },
+        "change_triggers": {
+          "$ref": "#/$defs/nonEmptyUniqueStrings"
+        },
+        "overclaim_warnings": {
+          "$ref": "#/$defs/nonEmptyUniqueStrings"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "duplicate"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "required": [
+          "duplicate_of",
+          "deduplication"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "promoted"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "required": [
+          "promotion"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "candidate_mapping": {
+            "properties": {
+              "destination": {
+                "const": "probe_set"
+              }
+            },
+            "required": [
+              "destination"
+            ]
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "probe_plan"
+        ]
+      }
+    }
+  ],
+  "$defs": {
+    "semver": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "enum": [
+        "captured",
+        "triaged",
+        "researching",
+        "substantiated",
+        "watching",
+        "promoted",
+        "duplicate",
+        "rejected",
+        "archived"
+      ]
+    },
+    "confidence": {
+      "enum": [
+        "unverified",
+        "low",
+        "medium",
+        "high",
+        "contested"
+      ]
+    },
+    "proficiency": {
+      "enum": [
+        "D0",
+        "D1",
+        "D2",
+        "D3",
+        "D4"
+      ]
+    },
+    "uniqueStrings": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "nonEmptyUniqueStrings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "alias": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "kind",
+        "language"
+      ],
+      "properties": {
+        "value": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "enum": [
+            "synonym",
+            "translation",
+            "abbreviation",
+            "spelling",
+            "former_name",
+            "related_term",
+            "ambiguous_term"
+          ]
+        },
+        "language": {
+          "type": "string",
+          "minLength": 2
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "type",
+        "statement",
+        "critical",
+        "status",
+        "evidence_refs"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^claim\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+        },
+        "type": {
+          "enum": [
+            "identity",
+            "definition",
+            "capability",
+            "adoption",
+            "relationship",
+            "limitation",
+            "risk",
+            "lifecycle"
+          ]
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "critical": {
+          "type": "boolean"
+        },
+        "status": {
+          "enum": [
+            "unverified",
+            "supported",
+            "contested",
+            "rejected"
+          ]
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "stance"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^evidence\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+              },
+              "stance": {
+                "enum": [
+                  "supports",
+                  "contradicts",
+                  "context"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "publisher",
+        "source_type",
+        "url",
+        "checked_at",
+        "claim_scope"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^evidence\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "publisher": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_type": {
+          "enum": [
+            "standard",
+            "official_spec",
+            "official_docs",
+            "official_source",
+            "primary_research",
+            "practitioner_primary",
+            "repository",
+            "secondary_reference",
+            "community_signal"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https://"
+        },
+        "published_at": {
+          "$ref": "#/$defs/date"
+        },
+        "source_version": {
+          "type": "string"
+        },
+        "checked_at": {
+          "$ref": "#/$defs/date"
+        },
+        "claim_scope": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "signalRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^signal\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+        },
+        "version": {
+          "$ref": "#/$defs/semver"
+        }
+      }
+    },
+    "catalogRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "id",
+        "version",
+        "action"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "unit",
+            "set",
+            "resource"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^(?:unit|set|resource)\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+        },
+        "version": {
+          "$ref": "#/$defs/semver"
+        },
+        "action": {
+          "enum": [
+            "created",
+            "updated",
+            "linked"
+          ]
+        }
+      }
+    }
+  }
+}

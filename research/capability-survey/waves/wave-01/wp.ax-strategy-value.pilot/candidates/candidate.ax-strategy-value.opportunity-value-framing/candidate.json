@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.ax-strategy-value.opportunity-value-framing",
+  "version": "1.0.0",
+  "title": "AX 기회·가치가설 프레이밍",
+  "canonical_name": "AX opportunity and value-hypothesis framing",
+  "aliases": [
+    "AI use-case framing",
+    "AX 가치 사례 프레이밍"
+  ],
+  "summary": "AI 도구가 아니라 업무 문제와 기대 결과에서 출발하여 현재 대안, 인과가정, 비용·위험과 no-go 조건이 연결된 검증 가능한 AX 기회를 정의하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "기술 도입 자체가 목표가 되어 해결할 업무 문제와 기대 가치, 비AI 대안 및 실패 조건이 연결되지 않는 문제를 다룹니다.",
+    "includes": [
+      "사용자·업무 필요와 현 상태 정의",
+      "기대 결과와 가치전환 인과가정",
+      "현행 접근과 제약, 비용·위험 가설과 no-go 조건"
+    ],
+    "excludes": [
+      "전문 재무모델링과 조달",
+      "해법 유형별 상세 점수화와 최종 해법 결정",
+      "상세 구현과 조직 전체 변화관리"
+    ],
+    "boundary_note": "Theory of Change는 이 역량의 실습 도구로 포함하되 독립 Unit으로 확정하지 않습니다. 현행 접근과 비AI 가능성은 후보 선별 수준에서만 확인하며 상세 대안 점수와 최종 해법 결정은 solution-fit-assessment가 소유합니다."
+  },
+  "discovery": {
+    "lens_id": "ax-strategy-value",
+    "basis": "assigned_lens",
+    "notes": "후보 ID는 최초 발견 렌즈를 보존하며 정규 소유 분야는 taxonomy.major_domain으로 판정합니다."
+  },
+  "taxonomy": {
+    "major_domain": "ax-strategy-value",
+    "subdomains": [
+      "opportunity-discovery",
+      "value-framing"
+    ],
+    "tags": [
+      "problem-framing",
+      "value-hypothesis",
+      "no-go"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "capability",
+    "proposed_destination": "unit_candidate",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.ax-strategy-value.opportunity-value-framing",
+    "rationale": "여러 업무 맥락에서 독립적으로 적용하고 결정 패킷으로 검증할 수 있는 전이 가능한 실천입니다."
+  },
+  "relations": [],
+  "capability": {
+    "learner_can_do": "새로운 업무 문제에 대해 대상, 현 상태, 기대 결과, 인과가정, 비목표, 대안과 no-go 조건이 포함된 한 장의 기회 정의서를 작성하고 근거 수준을 표시합니다.",
+    "work_contexts": [
+      "고객문의 처리 개선 기회",
+      "내부 보고·의사결정 지원 기회"
+    ],
+    "transferability": "enterprise_cross_functional",
+    "agent_fit": "comparison_required",
+    "agent_fit_rationale": "현행 유지, 프로세스 단순화, 결정적 자동화, 기존 SaaS와 AI·에이전트 개입을 함께 비교해야 합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "AX 기회와 기술 중심 아이디어를 구분하고 가치가설을 사실로 표현하면 안 되는 이유를 설명합니다.",
+        "evidence_hypothesis": "기회·해법·효과 주장이 혼합된 사례를 분류합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "새로운 업무에서 증거와 미확인을 구분한 기회·가치가설 정의서를 독립적으로 작성합니다.",
+        "evidence_hypothesis": "서로 다른 두 미지 업무에 대해 필수필드, 근거 링크, 반증 가능한 가정, 현행·비AI 가능성과 no-go 조건을 검사하는 체크리스트를 통과하고 누락 필드는 스키마 검사로 탐지합니다."
+      }
+    ],
+    "depth_boundary": "목표 D2, 상한 D2입니다. 전문 투자심사, 회계처리, 공급자 선정과 전사 전략 로드맵은 포함하지 않습니다."
+  },
+  "practicality": {
+    "value_types": [
+      "cost",
+      "risk_reduction",
+      "prerequisite_value",
+      "strategic_option"
+    ],
+    "business_hypotheses": [
+      "측정 불가능하거나 AI가 불필요한 파일럿을 조기에 차단할 가능성이 있습니다.",
+      "후속 업무재설계와 평가 설계에 재사용할 공통 입력을 제공할 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "awareness",
+    "operations_relevance": "awareness",
+    "priority_hint": "unassessed",
+    "measurement_hypothesis": "측정 가능한 결과가 정의된 후보 비율, 비AI 대안으로 전환된 후보 수와 파일럿 후 최초 판정의 변경 사유를 추적합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "cost",
+      "human_approval"
+    ],
+    "notes": "가치·비용·위험은 확인된 성과가 아니라 검증할 가설로 기록하고 진행 결정은 인간이 승인합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.ax-strategy-value.opportunity-value-framing.nist-airmf",
+      "title": "Artificial Intelligence Risk Management Framework Core",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_docs",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "published_at": "2023-01-26",
+      "checked_at": "2026-07-26",
+      "source_version": "AI RMF 1.0",
+      "claim_scope": "MAP 1과 MAP 3이 업무 맥락·목표·사업가치, 기대 편익·비용과 적절한 기준의 문서화를 요구한다는 범위만 지지합니다.",
+      "supports": [
+        "scope",
+        "work_relevance",
+        "risk"
+      ]
+    },
+    {
+      "id": "evidence.ax-strategy-value.opportunity-value-framing.green-book",
+      "title": "The Green Book (2026)",
+      "publisher": "HM Treasury",
+      "source_type": "official_docs",
+      "url": "https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government/the-green-book-2026",
+      "checked_at": "2026-07-26",
+      "source_version": "2026 edition; page updated 2026-02-05",
+      "claim_scope": "Case for change, BAU, Theory of Change, 목표와 대안별 비용·편익·위험을 연결하는 공공부문 평가 구조를 지지하며 일반적인 AX 효과 크기는 지지하지 않습니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "learning_outcome"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "proposed",
+    "confidence": "medium",
+    "rationale": "세 독립 조사와 근거·분류·실무성 감사에서 문제·가치가설 프레이밍의 독립 학습성과가 확인되었고 상세 해법 결정 책임은 분리했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-01",
+    "work_package_id": "wp.ax-strategy-value.pilot",
+    "author_agent": "codex-main-with-parallel-research",
+    "researched_at": "2026-07-26",
+    "reviewers": [
+      "ax-evidence-auditor",
+      "ax-taxonomy-auditor",
+      "ax-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "민간·비영리 맥락에서 필요한 최소 산출물 크기를 파일럿으로 보정해야 합니다.",
+      "정량 가치평가를 별도 전문 Unit으로 분리할지는 후속 조사가 필요합니다."
+    ],
+    "next_action": "시험 배치 전체의 교정 후 사용자 검토에서 유지·재분류 여부를 판단합니다."
+  }
+}

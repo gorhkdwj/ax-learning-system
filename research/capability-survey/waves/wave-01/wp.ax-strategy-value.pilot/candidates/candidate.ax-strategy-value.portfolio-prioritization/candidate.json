@@ -1,0 +1,237 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.ax-strategy-value.portfolio-prioritization",
+  "version": "1.0.0",
+  "title": "AX 후보 포트폴리오 우선순위·재균형",
+  "canonical_name": "AX initiative portfolio prioritization and rebalancing",
+  "aliases": [
+    "AI use-case portfolio prioritization",
+    "AX 이니셔티브 포트폴리오 재균형"
+  ],
+  "summary": "여러 AX 후보를 전략 정합성, 기대 가치와 근거 수준, 위험선호, 실행 가능성·가용 역량, 의존성과 학습 옵션으로 비교하여 진행·보류·중단 결정을 기록하고 조건 변화에 따라 재균형하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "개별 아이디어가 각각 매력적으로 보이더라도 제한된 예산·인력·시간 안에서 어떤 조합을 먼저 검증하고 무엇을 중단할지 일관되게 결정하지 못하는 문제를 다룹니다.",
+    "includes": [
+      "후보별 전략 정합성·가치·근거·위험·실행 가능성 비교",
+      "가용 역량과 후보 간 의존성을 반영한 포트폴리오 시나리오",
+      "예상 운영·유지보수 부담과 인간 검토 비용의 개략 비교",
+      "진행·보류·중단 결정 원장과 재검토 조건",
+      "조건 변화에 따른 정기·이벤트 기반 재균형"
+    ],
+    "excludes": [
+      "경영진의 최종 투자 승인과 예산 배정 권한",
+      "상세 회계·재무모델링, 조달 및 공급자 선정",
+      "개별 후보의 상세 해법 적합성 평가",
+      "전사 공통 기반 역량의 다기간 실행 파동 순서화와 로드맵 진입·종료 게이트 설계",
+      "전사 운영모델과 조직구조 설계"
+    ],
+    "boundary_note": "실제 조직 포트폴리오가 없으면 서로 다른 부서·제약·의존성을 가진 합성 사례로 훈련합니다. 가용 역량과 후보 간 의존성은 실행 가능성 판정 입력으로만 사용하며 다기간 순서화 산출물은 소유하지 않습니다. 점수 합계는 의사결정의 대체물이 아니라 비교와 이견 추적을 위한 입력입니다. 근거 기반은 영국 공공부문 지침 비중이 높으므로 민간·비영리 전이는 파일럿에서 검증할 가설로 둡니다."
+  },
+  "discovery": {
+    "lens_id": "ax-strategy-value",
+    "basis": "assigned_lens",
+    "notes": "후속 자체 검토에서 실제 의사결정자가 없다는 이전 제외 사유를 전사 학습범위와 혼동한 판정으로 교정하는 과정에서 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "ax-strategy-value",
+    "subdomains": [
+      "portfolio-strategy",
+      "initiative-prioritization"
+    ],
+    "tags": [
+      "portfolio",
+      "prioritization",
+      "rebalancing",
+      "decision-ledger"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "capability",
+    "proposed_destination": "unit_candidate",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.ax-strategy-value.portfolio-prioritization",
+    "rationale": "복수 후보의 비교·선택·재균형은 개별 기회 프레이밍이나 해법 적합성 평가와 다른 산출물·판정 기준을 가지며 여러 조직 맥락에 전이할 수 있습니다. 특히 근거 신뢰도가 낮고 빠르게 변하는 AI 후보, 시간 제한형 probe의 옵션가치, 에이전트·결정적 자동화·기존 SaaS 대안 간 자원 경쟁을 함께 다룬다는 점에서 일반 포트폴리오관리와 구별되는 AX 실천입니다."
+  },
+  "relations": [
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ax-strategy-value.opportunity-value-framing",
+        "version": "1.0.0"
+      },
+      "rationale": "비교 대상 후보마다 문제, 기대 결과, 제약과 no-go 조건이 먼저 정의되어야 합니다."
+    },
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ax-strategy-value.measurement-contract",
+        "version": "1.0.0"
+      },
+      "rationale": "공통 측정 언어가 있으면 후보별 가치 주장과 근거 수준을 더 일관되게 비교할 수 있습니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ax-strategy-value.pilot-impact-evaluation",
+        "version": "1.0.0"
+      },
+      "rationale": "포트폴리오 판정은 후보 간 상대 배분을 소유하고, 단일 파일럿의 인과 증거 기반 go·iterate·stop 판정은 영향평가가 소유합니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ax-strategy-value.benefits-realization",
+        "version": "1.0.0"
+      },
+      "rationale": "포트폴리오 판정은 후보 간 상대 배분을 소유하고, 운영 중 실현 편익·완전원가 기반 판정은 편익관리 역량이 소유합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "최소 5개의 이질적인 AX 후보에 대해 공통 기준, 가중치, 제약, 의존성, 근거 신뢰도와 불확실성을 표시한 포트폴리오 결정 원장을 만들고 조건 변화에 따라 진행·보류·중단 조합을 재설계합니다.",
+    "work_contexts": [
+      "한 팀의 자동화·AI 개선 백로그 우선순위 결정",
+      "분기별 자동화·AI 개선 백로그 재균형",
+      "예산·인력 축소 시 투자 후보 재선정"
+    ],
+    "transferability": "enterprise_cross_functional",
+    "agent_fit": "comparison_required",
+    "agent_fit_rationale": "동일 판단을 결정적 가중점수 모형이나 기존 PPM SaaS로 수행할 수 있는지 먼저 비교해야 합니다. 에이전트는 근거 수집·시나리오 비교·일관성 검사 보조에 한정하고 전략 가중치, 위험선호와 최종 자원 배분은 인간 의사결정권자가 승인합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "개별 후보 평가와 포트폴리오 최적화의 차이, 단일 점수 순위가 의존성·위험·학습 옵션을 놓치는 이유를 설명합니다.",
+        "evidence_hypothesis": "점수는 높지만 필수 역량이 없거나 위험한 후보가 섞인 사례에서 단순 순위의 오류를 식별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "서로 다른 부서의 후보 5개 이상을 대상으로 제약과 의존성을 포함한 결정 원장을 작성하고 변경된 조건에서 포트폴리오를 일관되게 재균형합니다.",
+        "evidence_hypothesis": "후보 5~7개와 고정 근거 신뢰도 척도를 제공하는 합성 fixture에서 초기 결정 뒤 숨겨진 예산·역량·위험 조건을 변경합니다. assertion으로 가용 역량 초과 승인 0건, 선행 후보 미승인 상태의 후속 후보 승인 0건, 필수 통제 후보의 근거 없는 강등 0건, 모든 결정의 사유·근거 링크·재검토 트리거 존재, 뒤집힌 결정의 변경 입력 인용을 검사하고 독립 평가자 2인의 진행·보류·중단 판정 일치도를 확인합니다."
+      }
+    ],
+    "depth_boundary": "목표 D2, 상한 D2입니다. 전문 투자심사, 자본예산 편성, 할인율·NPV·BCR·낙관편향 보정 같은 Green Book 정량 감정 기법, 최적화 알고리즘 개발과 경영진의 최종 승인 권한은 포함하지 않습니다."
+  },
+  "practicality": {
+    "value_types": [
+      "cost",
+      "risk_reduction",
+      "prerequisite_value",
+      "strategic_option"
+    ],
+    "business_hypotheses": [
+      "제한된 실행 역량을 전략·가치·위험이 더 균형 잡힌 후보 조합에 배분할 가능성이 있습니다.",
+      "근거가 약한 파일럿의 무분별한 누적과 이미 타당성을 잃은 후보의 지속을 줄일 가능성이 있습니다.",
+      "조건 변화와 결정 사유를 원장으로 남겨 포트폴리오 재검토의 속도와 설명 가능성을 높일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "material",
+    "operations_relevance": "material",
+    "priority_hint": "unassessed",
+    "measurement_hypothesis": "중단·보류 기준 충족 후 실제 결정까지의 시간, 재검토 시 근거 없는 순위 변경 수, 가용 역량을 초과한 승인 후보 수, 결정 사유 누락률, 승인 포트폴리오의 사후 중단률과 역량 초과로 인한 지연·재계획 건수를 추적합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "legal",
+      "ethics",
+      "cost",
+      "reliability",
+      "human_approval"
+    ],
+    "notes": "법적·안전상 필수 통제와 전략적 위험선호는 일반 가치점수에 묻히지 않도록 제약 또는 별도 판정축으로 두고, 최종 자원 배분은 인간이 승인합니다. 위험선호는 이 Unit에서 정의하지 않고 승인된 조직 입력으로 받습니다. 상세 보안·법무 통제는 security-legal-governance, 운영모델은 organization-adoption이 소유하며 전문 투자심사·조달·공급자 선정은 현재 승인 렌즈에 소유자가 없는 공백으로 기록합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.ax-strategy-value.portfolio-prioritization.green-book",
+      "title": "The Green Book (2026)",
+      "publisher": "HM Treasury; Government Finance Function",
+      "source_type": "official_docs",
+      "url": "https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government/the-green-book-2026",
+      "checked_at": "2026-07-26",
+      "source_version": "2026 edition; page updated 2026-02-05",
+      "claim_scope": "단일 제안 내부의 longlist 생성, critical success factor와 낙관편의 보정을 포함하여 목표 대비 선택지를 비용·편익·위험·불확실성과 함께 평가해야 한다는 범위만 지지합니다. 복수 후보 간 포트폴리오 비교·재균형이나 AX 포트폴리오의 특정 점수모형은 지지하지 않습니다.",
+      "supports": [
+        "scope",
+        "risk"
+      ]
+    },
+    {
+      "id": "evidence.ax-strategy-value.portfolio-prioritization.portfolio-risk-annex",
+      "title": "Portfolio Risk Management Guidance — Orange Book Annex",
+      "publisher": "HM Treasury; Government Finance Function",
+      "source_type": "official_docs",
+      "url": "https://assets.publishing.service.gov.uk/media/6453b363c33b460012f5e6bf/Portfolio_Risk_Management_Guidance_Orange_Book_Annex.pdf",
+      "checked_at": "2026-07-27",
+      "source_version": "May 2023 annex; GOV.UK publication collection records addition on 2023-05-04",
+      "claim_scope": "공공부문 포트폴리오에서 위험·수익, 위험선호, 프로그램 간 상호의존성, 가용 자원과 불완전한 정보 아래 우선순위·재균형 결정을 다루는 범위를 지지합니다. 민간 AX 포트폴리오의 효과 크기나 전문 투자 최적화는 지지하지 않습니다.",
+      "supports": [
+        "scope",
+        "learning_outcome",
+        "risk",
+        "lifecycle"
+      ]
+    },
+    {
+      "id": "evidence.ax-strategy-value.portfolio-prioritization.apm",
+      "title": "What is portfolio management?",
+      "publisher": "Association for Project Management",
+      "source_type": "practitioner_primary",
+      "url": "https://www.apm.org.uk/resources/what-is-project-management/what-is-portfolio-management/",
+      "checked_at": "2026-07-26",
+      "source_version": "APM Body of Knowledge 8th edition 기반 정의 페이지; 페이지 자체 발행일 표기 없음",
+      "claim_scope": "프로젝트·프로그램의 선택, 우선순위 설정과 통제를 전략 목표 및 실행 역량에 맞추는 포트폴리오 관리의 실무 범위를 지지합니다.",
+      "supports": [
+        "definition",
+        "work_relevance",
+        "lifecycle"
+      ]
+    },
+    {
+      "id": "evidence.ax-strategy-value.portfolio-prioritization.ai-playbook",
+      "title": "Artificial Intelligence Playbook for the UK Government",
+      "publisher": "Government Digital Service",
+      "source_type": "official_docs",
+      "url": "https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government/artificial-intelligence-playbook-for-the-uk-government-html",
+      "published_at": "2025-02-10",
+      "checked_at": "2026-07-27",
+      "source_version": "AI Playbook published 2025-02-10; update log records expansion of the 2024 Generative AI Framework",
+      "claim_scope": "AI 사용사례가 적절한 도구·사업사례·거버넌스·위험과 편익을 함께 검토해야 한다는 AI 특화 판정 관점을 지지하며 일반 기업 투자수익을 지지하지 않습니다.",
+      "supports": [
+        "scope",
+        "work_relevance",
+        "risk"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "proposed",
+    "confidence": "medium",
+    "rationale": "Orca로 조정한 독립 근거·분류·실무성 감사에서 독립 학습성과와 실습 가능성이 확인되었고, 판본·주장범위·D2 객관평가·일반 포트폴리오관리 경계의 P0·P1을 교정했습니다. 정규 Unit 승격은 하지 않습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-01",
+    "work_package_id": "wp.ax-strategy-value.pilot",
+    "author_agent": "codex-self-review",
+    "researched_at": "2026-07-27",
+    "reviewers": [
+      "codex-self-review",
+      "orca-claude-evidence-auditor",
+      "orca-claude-taxonomy-auditor",
+      "orca-claude-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "공공부문 평가·위험관리 지침을 민간·비영리 AX 포트폴리오에 옮길 때 조정할 최소 기준을 검증해야 합니다.",
+      "재무 전문성 없이 학습 가능한 가치 비교와 전문 투자심사 사이의 경계를 파일럿 실습으로 보정해야 합니다.",
+      "공통 포트폴리오관리 Unit이 발견되면 AX 특화 실천을 Resource·Adapter로 분리하고 merge_existing 목적지를 재검토합니다.",
+      "후보 5~7개·재균형 2회 fixture 기준 120~180분이라는 학습량 상한 가설을 파일럿에서 검증해야 합니다."
+    ],
+    "next_action": "사용자 검토에서 Unit 후보 유지 여부를 판단하고, 유지 시 고정 fixture·assertion과 민간·비영리 전이를 파일럿으로 검증합니다."
+  }
+}

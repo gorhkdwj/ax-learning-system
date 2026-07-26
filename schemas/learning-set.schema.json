@@ -1,0 +1,685 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ax-learning.local/schemas/learning-set.schema.json",
+  "title": "AX Learning Set",
+  "description": "업무·파이프라인·산출물 목적에 따라 Unit을 참조·조합하는 Learning Set 스키마입니다.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "version",
+    "title",
+    "summary",
+    "set_type",
+    "target_outcome",
+    "priority",
+    "business_impact",
+    "steps",
+    "acceptance_criteria",
+    "lifecycle"
+  ],
+  "properties": {
+    "schema_version": {
+      "$ref": "#/$defs/semver"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^set\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+    },
+    "version": {
+      "$ref": "#/$defs/semver"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "set_type": {
+      "enum": [
+        "workflow",
+        "pipeline",
+        "deliverable",
+        "course",
+        "project"
+      ]
+    },
+    "target_roles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true,
+      "default": []
+    },
+    "business_context": {
+      "type": "string"
+    },
+    "target_outcome": {
+      "type": "string",
+      "minLength": 1
+    },
+    "input_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "output_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "entry_requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "unit",
+          "required_level"
+        ],
+        "properties": {
+          "unit": {
+            "$ref": "#/$defs/unitRef"
+          },
+          "required_level": {
+            "$ref": "#/$defs/proficiency"
+          }
+        }
+      },
+      "default": []
+    },
+    "priority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "curriculum_class",
+        "execution_priority"
+      ],
+      "properties": {
+        "curriculum_class": {
+          "enum": [
+            "common_core",
+            "role_core",
+            "elective",
+            "reference",
+            "mandatory_control"
+          ]
+        },
+        "execution_priority": {
+          "enum": [
+            "now",
+            "next",
+            "later",
+            "watch"
+          ]
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "business_impact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value_hypothesis",
+        "impact_types",
+        "evidence_confidence"
+      ],
+      "properties": {
+        "value_hypothesis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "impact_types": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/impactType"
+          },
+          "uniqueItems": true
+        },
+        "evidence_confidence": {
+          "enum": [
+            "hypothesis",
+            "case_or_expert",
+            "internal_baseline",
+            "pilot_verified"
+          ]
+        },
+        "baseline_metrics": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/metric"
+          }
+        },
+        "target_metrics": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/metric"
+          }
+        },
+        "learning_effort_note": {
+          "type": "string"
+        },
+        "maintenance_cost_note": {
+          "type": "string"
+        }
+      }
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "reason",
+          "unit_ref",
+          "required_level",
+          "required",
+          "depends_on"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "unit_ref": {
+            "$ref": "#/$defs/unitRef"
+          },
+          "required_level": {
+            "$ref": "#/$defs/proficiency"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "depends_on": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+            },
+            "uniqueItems": true
+          },
+          "resource_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/resourceRef"
+            }
+          },
+          "consumes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "produces": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "validation_gate_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+            },
+            "uniqueItems": true
+          },
+          "context": {
+            "type": "string"
+          },
+          "estimated_minutes": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      }
+    },
+    "risk_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "level": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "critical"
+          ]
+        },
+        "data_classes": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "none",
+              "public",
+              "internal",
+              "personal",
+              "sensitive"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "human_approval_points": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "stop_conditions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "rollback_plan": {
+          "type": "string"
+        }
+      }
+    },
+    "requirements": {
+      "$ref": "#/$defs/requirements"
+    },
+    "capstone_resource_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/resourceRef"
+      },
+      "default": []
+    },
+    "acceptance_criteria": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "transfer_evaluation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "check_after_days": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "metrics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "different_context_task": {
+          "type": "string"
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/source"
+      },
+      "default": []
+    },
+    "lifecycle": {
+      "$ref": "#/$defs/lifecycle"
+    },
+    "extensions": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "semver": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "proficiency": {
+      "enum": [
+        "D0",
+        "D1",
+        "D2",
+        "D3",
+        "D4"
+      ]
+    },
+    "unitRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^unit\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+        },
+        "version": {
+          "$ref": "#/$defs/semver"
+        }
+      }
+    },
+    "resourceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^resource\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+        },
+        "version": {
+          "$ref": "#/$defs/semver"
+        }
+      }
+    },
+    "setRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^set\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+        },
+        "version": {
+          "$ref": "#/$defs/semver"
+        }
+      }
+    },
+    "impactType": {
+      "enum": [
+        "revenue",
+        "cost",
+        "time",
+        "throughput",
+        "quality",
+        "experience",
+        "risk_reduction",
+        "capability_unlock",
+        "reuse",
+        "strategic_option"
+      ]
+    },
+    "metric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "measurement"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "measurement": {
+          "type": "string"
+        },
+        "value": {
+          "type": [
+            "number",
+            "string"
+          ]
+        },
+        "unit": {
+          "type": "string"
+        }
+      }
+    },
+    "requirements": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "platforms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "network_required": {
+          "type": "boolean"
+        },
+        "accounts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "provider"
+            ],
+            "properties": {
+              "provider": {
+                "type": "string"
+              },
+              "plan": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "secret_names": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Z0-9_]*$"
+          },
+          "uniqueItems": true
+        },
+        "permissions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "system",
+              "access",
+              "approval_required",
+              "data_class"
+            ],
+            "properties": {
+              "system": {
+                "type": "string"
+              },
+              "access": {
+                "enum": [
+                  "read",
+                  "write",
+                  "delete",
+                  "admin",
+                  "financial"
+                ]
+              },
+              "scopes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              },
+              "approval_required": {
+                "type": "boolean"
+              },
+              "data_class": {
+                "enum": [
+                  "none",
+                  "public",
+                  "internal",
+                  "personal",
+                  "sensitive"
+                ]
+              }
+            }
+          }
+        },
+        "cost": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "model"
+          ],
+          "properties": {
+            "model": {
+              "enum": [
+                "free",
+                "freemium",
+                "fixed",
+                "usage_based",
+                "unknown"
+              ]
+            },
+            "currency": {
+              "type": "string",
+              "pattern": "^[A-Z]{3}$"
+            },
+            "estimated_amount": {
+              "type": "number",
+              "minimum": 0
+            },
+            "basis": {
+              "type": "string"
+            },
+            "pricing_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "checked_at": {
+              "$ref": "#/$defs/date"
+            }
+          }
+        },
+        "technology_versions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "constraint"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "constraint": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "source_type",
+        "url",
+        "checked_at"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "source_type": {
+          "enum": [
+            "standard",
+            "official_spec",
+            "official_docs",
+            "official_source",
+            "primary_research",
+            "secondary_reference"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "source_version": {
+          "type": "string"
+        },
+        "checked_at": {
+          "$ref": "#/$defs/date"
+        }
+      }
+    },
+    "lifecycle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "last_reviewed_at"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "cataloged",
+            "scheduled",
+            "active",
+            "operational",
+            "reference",
+            "probe",
+            "pilot",
+            "scale",
+            "deprecated",
+            "archived"
+          ]
+        },
+        "owner": {
+          "type": "string"
+        },
+        "last_reviewed_at": {
+          "$ref": "#/$defs/date"
+        },
+        "review_due_at": {
+          "$ref": "#/$defs/date"
+        },
+        "deprecated_at": {
+          "$ref": "#/$defs/date"
+        },
+        "superseded_by": {
+          "$ref": "#/$defs/setRef"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,296 @@
+{
+  "schema_version": "1.0.0",
+  "id": "signal.agent.agent-control-loop",
+  "version": "1.0.0",
+  "title": "Loop Engineering과 Agent Execution Control Loop",
+  "canonical_name": "Agent execution control loop",
+  "aliases": [
+    {
+      "value": "Loop engineering",
+      "kind": "related_term",
+      "language": "en",
+      "note": "2026년에 등장한 넓은 공학 실천 명칭으로, 정규명인 실행 제어 루프보다 넓거나 harness engineering과 겹칠 수 있습니다."
+    },
+    {
+      "value": "에이전트 제어 루프",
+      "kind": "translation",
+      "language": "ko"
+    },
+    {
+      "value": "Agent loop",
+      "kind": "related_term",
+      "language": "en",
+      "note": "프레임워크 내부의 모델·도구 반복 실행을 가리킬 때 사용되며 업무 발견·스케줄·승인까지 포함하지 않을 수 있습니다."
+    }
+  ],
+  "summary": "에이전트의 목표·행동·환경 관찰·평가·조정·종료를 반복 가능한 상태와 통제로 설계하는 패턴과, 이를 더 넓은 자동 업무 주기로 확장하는 신흥 용어를 조사합니다.",
+  "signal_type": "term",
+  "status": "researching",
+  "status_history": [
+    {
+      "status": "captured",
+      "at": "2026-07-26",
+      "reason": "바이브 코딩 커뮤니티와 기술 아티클에서 loop engineering이라는 명칭이 빠르게 등장하여 수집했습니다."
+    },
+    {
+      "status": "triaged",
+      "at": "2026-07-26",
+      "reason": "에이전트 실행 안전성·비용·중단·복구와 관련된 실무 후보로 판정했습니다."
+    },
+    {
+      "status": "researching",
+      "at": "2026-07-26",
+      "reason": "기존 agent loop·orchestration·evaluator-optimizer 및 harness engineering과 구별되는 독립 학습성과가 있는지 조사 중입니다."
+    }
+  ],
+  "definition": {
+    "working_definition": "에이전트가 목표를 향해 행동하고 환경 피드백을 관찰하며 결과를 평가·조정하다가 성공·실패·예산·승인 조건에 따라 중단하도록 설계한 실행 제어 흐름입니다.",
+    "problem_addressed": "반복 작업에서 사람이 매번 프롬프트를 공급하거나 에이전트가 무제한 반복·목표 드리프트·중복 부작용을 일으키는 문제를 다룹니다.",
+    "includes": [
+      "명시적인 목표와 상태",
+      "모델·도구·환경 피드백의 반복",
+      "평가자와 성공·실패 판정",
+      "반복·시간·비용 한도",
+      "재시도·복구와 최종 상태 확인",
+      "비가역 행동 전 인간 승인"
+    ],
+    "excludes": [
+      "사람이 프롬프트를 여러 번 입력하는 행위",
+      "관찰·평가·중단조건이 없는 고정 프롬프트 체인",
+      "일반 프로그래밍 event loop",
+      "강화학습의 학습 루프 전체",
+      "검증과 한도가 없는 무제한 autonomous run"
+    ],
+    "underlying_primitives": [
+      "agent loop",
+      "state machine",
+      "tool execution",
+      "evaluator-optimizer",
+      "retry and idempotency",
+      "budgets and stop conditions",
+      "human approval gates",
+      "observability"
+    ],
+    "actual_delta": "기존 agent loop 구성요소를 반복 업무 발견·상태·비용·독립 검증·인간 승인과 결합해 사람이 프롬프트를 계속 공급하지 않는 제어 시스템으로 확장한다는 주장입니다.",
+    "definition_disputes": [
+      "Loop engineering이라는 이름이 기존 agent loop·workflow orchestration과 별도 공학분야를 뜻하는지 합의되지 않았습니다.",
+      "일부 정의는 한 번의 agent runner 내부 루프를, 다른 정의는 스케줄된 장기 업무 주기 전체를 가리킵니다."
+    ]
+  },
+  "claims": [
+    {
+      "id": "claim.loop.agent-loop-exists",
+      "type": "definition",
+      "statement": "에이전트 실행은 모델 호출, 도구 또는 handoff 실행, 관찰과 종료조건을 반복하는 제어 루프로 구현할 수 있습니다.",
+      "critical": true,
+      "status": "supported",
+      "evidence_refs": [
+        {
+          "id": "evidence.openai.running-agents",
+          "stance": "supports"
+        },
+        {
+          "id": "evidence.anthropic.effective-agents",
+          "stance": "supports"
+        }
+      ]
+    },
+    {
+      "id": "claim.loop.distinct-discipline",
+      "type": "identity",
+      "statement": "Loop engineering은 agent loop나 harness engineering과 구별되는 독립된 공학 실천입니다.",
+      "critical": true,
+      "status": "unverified",
+      "evidence_refs": [
+        {
+          "id": "evidence.practitioner.loop-engineering",
+          "stance": "supports"
+        },
+        {
+          "id": "evidence.ibm.loop-engineering",
+          "stance": "context"
+        }
+      ]
+    },
+    {
+      "id": "claim.loop.safety",
+      "type": "risk",
+      "statement": "반복 에이전트 업무에는 명시적 종료조건, 반복·비용 한도, 독립 검증과 비가역 행동 전 승인점이 필요합니다.",
+      "critical": true,
+      "status": "supported",
+      "evidence_refs": [
+        {
+          "id": "evidence.openai.running-agents",
+          "stance": "supports"
+        },
+        {
+          "id": "evidence.anthropic.effective-agents",
+          "stance": "supports"
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evidence.openai.running-agents",
+      "title": "Running agents",
+      "publisher": "OpenAI Agents SDK",
+      "source_type": "official_docs",
+      "url": "https://openai.github.io/openai-agents-python/running_agents/",
+      "checked_at": "2026-07-26",
+      "claim_scope": "모델 응답, 도구, handoff, 최종 출력과 최대 turn 제한을 포함하는 SDK 실행 루프를 확인합니다."
+    },
+    {
+      "id": "evidence.anthropic.effective-agents",
+      "title": "Building effective agents",
+      "publisher": "Anthropic",
+      "source_type": "official_source",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "published_at": "2024-12-19",
+      "checked_at": "2026-07-26",
+      "claim_scope": "단순하고 조합 가능한 agent workflow, 환경 피드백, evaluator-optimizer와 복잡성 최소화 원칙을 확인합니다."
+    },
+    {
+      "id": "evidence.practitioner.loop-engineering",
+      "title": "What Is Loop Engineering? A Practical Guide to Agent Loops",
+      "publisher": "Loop Engineering",
+      "source_type": "practitioner_primary",
+      "url": "https://loopengineering.run/blog/what-is-loop-engineering",
+      "published_at": "2026-06-21",
+      "checked_at": "2026-07-26",
+      "claim_scope": "업무 발견·handoff·검증·상태·스케줄·인간 gate를 포함하는 용어 제안자의 실무 정의를 확인합니다."
+    },
+    {
+      "id": "evidence.ibm.loop-engineering",
+      "title": "What is loop engineering?",
+      "publisher": "IBM",
+      "source_type": "secondary_reference",
+      "url": "https://www.ibm.com/think/topics/loop-engineering",
+      "published_at": "2026-07-17",
+      "checked_at": "2026-07-26",
+      "claim_scope": "2026년 7월 시점의 신흥 용어 사용과 목표·행동·관찰·조정의 일반적 설명을 확인합니다."
+    }
+  ],
+  "relevance": {
+    "status": "eligible",
+    "criteria": [
+      "work_connection",
+      "prerequisite",
+      "mandatory_control",
+      "strategic_option"
+    ],
+    "rationale": "반복되는 코딩·리서치·운영 업무를 자동화할 때 종료조건, 중복 부작용, 비용 폭주와 승인 우회를 통제하는 역량은 필요하지만 별도 용어 승격 여부는 미확정입니다.",
+    "domain_tags": [
+      "ai-agent",
+      "workflow-orchestration",
+      "automation",
+      "evaluation",
+      "operations"
+    ],
+    "business_hypothesis": "반복 작업의 발견·handoff·검증·상태를 구조화하면 사람의 반복 프롬프팅을 줄일 수 있으나 선형 workflow 대비 성공률·복구율·비용의 순효과를 검증해야 합니다."
+  },
+  "maturity": {
+    "terminology": "nascent",
+    "definition_confidence": "medium",
+    "effect_confidence": "low",
+    "implementation_stability": "experimental",
+    "volatility": "high",
+    "uncertainty_note": "제어 루프의 구성원리는 기존 공식 자료로 지지되지만 Loop Engineering이라는 독립 명칭과 범위는 2026년 7월 현재 수렴하지 않았습니다."
+  },
+  "verification": {
+    "confidence": "medium",
+    "reviewed_at": "2026-07-26",
+    "reviewer": "AX curriculum research",
+    "known_unknowns": [
+      "Harness engineering의 하위 패턴인지 별도 운영층인지 여부",
+      "기존 agent orchestration과 구별되는 학습성과",
+      "선형 workflow 대비 반복의 순효과",
+      "코딩 이외 업무에서의 재현 가능한 사례"
+    ]
+  },
+  "disambiguation": {
+    "status": "contested",
+    "interpretations": [
+      {
+        "id": "interpretation.agent-runner-loop",
+        "label": "에이전트 Runner 내부 제어 루프",
+        "description": "모델 호출, 도구 실행, handoff와 최종 출력을 반복하는 프레임워크 내부 구조입니다.",
+        "evidence_ids": [
+          "evidence.openai.running-agents"
+        ]
+      },
+      {
+        "id": "interpretation.repeated-work-loop",
+        "label": "반복 에이전트 업무 운영 루프",
+        "description": "업무 발견, handoff, 격리 실행, 검증, 상태와 인간 승인을 포함하는 상위 업무 주기입니다.",
+        "evidence_ids": [
+          "evidence.practitioner.loop-engineering",
+          "evidence.ibm.loop-engineering"
+        ]
+      }
+    ],
+    "selected_interpretation_id": "interpretation.repeated-work-loop"
+  },
+  "related_signal_refs": [
+    {
+      "type": "overlaps",
+      "target": {
+        "id": "signal.agent.agent-harness",
+        "version": "1.0.0"
+      },
+      "note": "하네스 내부 실행 루프와 반복 업무를 재호출하는 상위 루프의 경계를 추가 검토해야 합니다."
+    }
+  ],
+  "deduplication": {
+    "resolution": "unresolved",
+    "checked_at": "2026-07-26",
+    "rationale": "Agent execution control loop라는 안정된 메커니즘과 Loop Engineering이라는 신흥 명칭을 한 Signal에서 비교하되 독립 Unit 여부는 확정하지 않습니다."
+  },
+  "candidate_mapping": {
+    "destination": "observe",
+    "rationale": "제어 루프의 기반 지식은 향후 Unit 후보가 될 수 있지만 Loop Engineering이라는 명칭의 독립성, 범위와 전이 가능한 학습성과가 아직 충분히 확정되지 않았습니다.",
+    "proposed_target_level": "D2",
+    "outcomes_by_level": [
+      {
+        "level": "D0",
+        "outcome": "에이전트 실행 루프와 일반 반복문·선형 workflow·무제한 autonomous run을 구분합니다."
+      },
+      {
+        "level": "D1",
+        "outcome": "최대 turn, 오류 처리와 종료조건이 있는 참조 실행 루프를 사용합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "새 도구 작업에서 상태, 재시도, idempotency, 비용 한도, 승인과 최종 상태 검증을 독립 설계합니다."
+      }
+    ],
+    "prerequisite_concepts": [
+      "agent execution",
+      "state machine",
+      "tool calling",
+      "evaluation",
+      "idempotency",
+      "human approval"
+    ],
+    "transfer_task_hypothesis": "코딩 결함 수정과 문서 최신성 점검이라는 서로 다른 반복 업무에 동일한 제어 원리를 적용하고 각 업무의 종료조건을 다르게 설계합니다.",
+    "validation_evidence_hypothesis": "무한 호출, 잘못된 종료, 중복 부작용, 재시도 폭주, 컨텍스트 증가와 승인 거절을 실패주입하여 루프가 안전하게 중단·복구되는지 확인합니다."
+  },
+  "review": {
+    "first_observed_at": "2026-06-21",
+    "last_reviewed_at": "2026-07-26",
+    "review_due_at": "2026-08-26",
+    "cadence_days": 30,
+    "change_triggers": [
+      "두 개 이상의 독립 공식·1차 출처가 유사한 용어 경계를 사용",
+      "NIST 또는 에이전트 SDK가 종료·반복 통제를 새로 표준화",
+      "선형 workflow 대비 반복 루프 비교 결과 공개"
+    ],
+    "overclaim_warnings": [
+      "프롬프트 엔지니어링의 다음 세대로 확정하지 않습니다.",
+      "반복하면 결국 정답에 도달한다고 표현하지 않습니다.",
+      "에이전트의 자기평가만으로 인간 검토를 대체하지 않습니다.",
+      "새로운 공학분야로 이미 정착했다고 표현하지 않습니다."
+    ],
+    "note": "용어는 researching 상태입니다. Agent execution control loop의 안정된 원리와 Loop Engineering이라는 신흥 명칭을 분리하여 재검토합니다."
+  }
+}
