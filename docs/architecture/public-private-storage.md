@@ -109,3 +109,30 @@ HUB는 두 실행 모드를 가집니다.
 ```
 
 검증은 공개 경계, 카탈로그와 단위 테스트를 순서대로 확인합니다.
+
+## 9. 새 컴퓨터 부트스트랩
+
+Public 저장소를 먼저 복제하면 Vault가 없는 상태에서도 작업공간 경계와 검증
+도구를 확보할 수 있습니다. Public 저장소의 스크립트는 현재 셸 위치가 아니라
+스크립트 경로를 기준으로 상위 작업공간을 계산합니다.
+
+```powershell
+New-Item -ItemType Directory -Path AX
+Set-Location ./AX
+git clone https://github.com/gorhkdwj/ax-learning-system.git
+./ax-learning-system/tools/bootstrap-workspace.ps1
+```
+
+`templates/workspace-root/`가 상위 `AGENTS.md`, `CLAUDE.md`, `README.md`의
+배포 정본입니다. 대상이 없으면 만들고, 템플릿과 같으면 no-op으로 처리합니다.
+대상 내용이 다르거나 상위에 `.git`이 있거나 기존 Vault 폴더·`origin`이 예상과
+다르면 자동 수정·덮어쓰기·삭제 없이 중단합니다. `-PlanOnly`는 변경 없이 예정
+작업과 충돌을 점검하며, `-SkipVaultClone`은 상위 파일만 배치합니다. 따라서
+정상 완료 후 같은 명령을 반복 실행해도 추가 변경이 없습니다.
+
+Private 저장소 인증이 필요하면 사용자의 Git 자격 증명 구성을 마친 뒤 명령을 다시
+실행합니다. 토큰이나 인증정보를 스크립트 인자 또는 파일에 기록하지 않습니다.
+
+Vault를 clone해도 Git에서 제외된 원문 PDF·아티클, 개인 진행 자료, 임베딩과 검색
+인덱스는 복원되지 않습니다. 원문은 별도의 개인 백업에서 복원하고, 파생 임베딩과
+인덱스는 복원된 원문을 바탕으로 로컬에서 재생성해야 합니다.

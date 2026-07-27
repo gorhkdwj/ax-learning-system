@@ -6,6 +6,28 @@ AI Agent와 바이브 코딩을 포함한 전사적 AI Transformation 역량을
 현재 단계는 커리큘럼 콘텐츠를 대량 제작하기 전, 학습 범위·메타데이터·검증과
 탐색 구조를 확립하는 기반 단계입니다.
 
+## 새 컴퓨터에서 작업공간 구성
+
+Public 저장소에는 작업공간 구조, 경계 규칙과 부트스트랩 도구가 있으므로 먼저
+복제합니다. 그다음 스크립트가 상위 진입점 파일을 정본 템플릿에서 만들고 Private
+Vault를 형제 디렉터리에 복제합니다.
+
+```powershell
+New-Item -ItemType Directory -Path AX
+Set-Location ./AX
+git clone https://github.com/gorhkdwj/ax-learning-system.git
+./ax-learning-system/tools/bootstrap-workspace.ps1
+```
+
+반복 실행 시 템플릿과 같은 파일 및 올바른 Vault는 변경하지 않습니다. 상위
+진입점의 내용이 템플릿과 다르거나 Vault 폴더·원격이 예상과 다르면 기존 항목을
+덮어쓰거나 삭제하지 않고 중단합니다. 변경 없이 점검하려면 `-PlanOnly`, Vault
+복제를 생략하려면 `-SkipVaultClone`을 사용합니다.
+
+Vault Git 저장소를 복제해도 Git에서 제외되는 원문 PDF·아티클, 개인 진행 자료,
+임베딩과 검색 인덱스는 복원되지 않습니다. 원문은 별도의 개인 백업에서 복원하고
+임베딩과 인덱스는 로컬에서 다시 생성해야 합니다.
+
 ## 문서
 
 - [에이전트 작업 지침](AGENTS.md)
