@@ -1,0 +1,230 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.software-product-engineering.ai-assisted-change-delivery",
+  "version": "1.0.0",
+  "title": "AI 보조 소프트웨어 변경 전달",
+  "canonical_name": "AI-assisted software change delivery",
+  "aliases": [],
+  "summary": "AI가 제안·수정한 코드 변경을 요구·diff·테스트·정적검사·인간 리뷰·추적 Gate로 전달하고 수동 기준선과 비교하는 Set 후보입니다.",
+  "research_scope": {
+    "problem_addressed": "AI 생성 속도를 완료로 오인해 이해하지 못한 코드, 과도한 변경, 누락 테스트·취약 의존성과 검증비용이 통합되는 문제를 다룹니다.",
+    "includes": [
+      "작은 변경 계약",
+      "AI 제안의 diff·테스트·정적검사",
+      "인간 이해·거부·재작업",
+      "수동 또는 비AI 기준선 비교"
+    ],
+    "excludes": [
+      "특정 Copilot·IDE 사용법",
+      "AI 코딩 생산성의 보편적 효과 주장",
+      "자동 merge·배포",
+      "bare agent 대비 harness 구성요소의 효과 비교"
+    ],
+    "boundary_note": "여러 소프트웨어 Unit을 조합해 일반 AI 보조 여부의 전달 효과를 판정하는 업무 Set 후보입니다. Agent harness 구성효과 비교는 signal.agent.agent-harness와 그 Probe Set이 소유합니다."
+  },
+  "discovery": {
+    "lens_id": "software-product-engineering",
+    "basis": "assigned_lens",
+    "notes": "SWEBOK V4.0a와 관련 공식 사양·문서의 안정된 공학 행동을 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "software-product-engineering",
+    "subdomains": [
+      "software-requirements-acceptance",
+      "modular-software-design",
+      "version-control-change-integration",
+      "software-verification-testing"
+    ],
+    "tags": [
+      "ai-assisted-development",
+      "code-review",
+      "change-delivery"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "workflow",
+    "proposed_destination": "set_candidate",
+    "rationale": "AI 코딩을 독립 기술 Unit으로 과대승격하지 않고 기존 공학 Unit을 조합하고 기준선 비교가 필요한 Set 후보로 둡니다.",
+    "proposed_set_id": "set.workflow.ai-assisted-software-change-delivery"
+  },
+  "relations": [
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.software-product-engineering.requirements-acceptance-traceability",
+        "version": "1.0.0"
+      },
+      "rationale": "AI 보조 변경도 고정된 요구·인수기준과 추적을 사용해야 합니다."
+    },
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.software-product-engineering.version-control-change-integration",
+        "version": "1.0.0"
+      },
+      "rationale": "AI 변경을 검토 가능한 diff와 작은 이력으로 통합해야 합니다."
+    },
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.software-product-engineering.layered-software-verification",
+        "version": "1.0.0"
+      },
+      "rationale": "AI 생성 여부와 무관하게 결정적 검증·회귀 Gate를 통과해야 합니다."
+    },
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ai-literacy-trust.responsible-use-boundaries",
+        "version": "1.0.0"
+      },
+      "rationale": "비밀정보·개인정보·저작권·권한·외부 부작용의 금지·중단·이관 경계를 먼저 적용해야 합니다."
+    },
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.software-product-engineering.modular-design-dependency-boundaries",
+        "version": "1.0.0"
+      },
+      "rationale": "변경 범위와 구조 품질을 설명하려면 모듈 경계 이해가 도움이 됩니다."
+    },
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.software-product-engineering.build-dependency-reproducibility",
+        "version": "1.0.0"
+      },
+      "rationale": "AI 보조 여부만 비교하려면 두 조건의 source·dependency·build 환경을 재현 가능하게 고정하는 편이 좋습니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "난이도가 보정된 짝과제를 AI 보조와 사전 고정한 기준선 조건에 무작위 또는 교차 배정하여 수행하고, 같은 요구·테스트·리뷰 Gate에서 품질·시간·재작업·총비용을 비교해 채택·제한·거부를 결정합니다.",
+    "work_contexts": [
+      "기능 추가",
+      "버그 수정",
+      "리팩터링",
+      "테스트·문서 보강"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "comparison_required",
+    "agent_fit_rationale": "도구 효과는 개인·과제·코드베이스에 따라 달라 수동 또는 제한 보조 기준선 비교가 필요합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "AI 제안 속도와 검증된 변경 전달의 품질·책임·비용을 구분합니다.",
+        "evidence_hypothesis": "동작 시연만으로 완료 처리한 비사례를 판별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "새 변경을 고정 요구·테스트·리뷰 Gate로 전달하고 기준선과 품질·시간·재작업·비용을 비교합니다.",
+        "evidence_hypothesis": "clean branch와 결과 비노출 조건의 짝과제에서 두 조건 모두 치명 요구·보안·비밀정보·불필요 변경 위반 0건을 충족하고, AI 조건이 품질 비열등성과 사전 정의한 시간·총비용·품질 중 최소 한 축의 순효과를 충족할 때만 채택합니다."
+      }
+    ],
+    "depth_boundary": "조직 rollout·라이선스·감사·enterprise policy와 자동 배포는 별도 도입·보안·운영 영역으로 분리합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "cycle_time",
+      "quality",
+      "employee_experience",
+      "risk_reduction",
+      "strategic_option"
+    ],
+    "business_hypotheses": [
+      "강한 기존 공학 Gate가 있을 때 AI 보조가 일부 과제의 cycle time을 줄일 가능성이 있으나 효과는 과제·팀별로 측정해야 합니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "next",
+    "measurement_hypothesis": "순서 무작위화 또는 교차 배정한 짝과제에서 prompt·대기·테스트를 포함한 lead time, 요구·결함 탐지, 인간 검토·재작업시간, 도구비용을 합친 총비용, rollback 수와 품질 비열등성을 비교합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "permissions",
+      "copyright",
+      "cost",
+      "observability",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "AI 제안은 신뢰 경계를 넘는 입력으로 취급하며 실제 권한·외부 변경·비밀정보는 승인된 sandbox와 정책 안에서만 다룹니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.software-product-engineering.ai-change.dora-2025",
+      "title": "State of AI-assisted Software Development 2025",
+      "publisher": "DORA / Google Cloud",
+      "source_type": "primary_research",
+      "url": "https://dora.dev/research/2025/dora-report/",
+      "source_version": "2025",
+      "checked_at": "2026-07-28",
+      "claim_scope": "AI 보조 개발 효과가 도구 단독이 아니라 기존 조직·공학 시스템을 증폭한다는 2025 조사 해석을 제공하며 개인 과제 효과를 확정하지 않습니다.",
+      "supports": [
+        "work_relevance",
+        "risk"
+      ]
+    },
+    {
+      "id": "evidence.software-product-engineering.ai-change.github-best-practices",
+      "title": "Best practices for using GitHub Copilot",
+      "publisher": "GitHub",
+      "source_type": "official_docs",
+      "url": "https://docs.github.com/en/copilot/get-started/best-practices",
+      "checked_at": "2026-07-28",
+      "claim_scope": "AI 제안을 이해·검토하고 자동 테스트·lint·보안 검사를 적용하라는 공급자 책임사용 지침을 지지합니다.",
+      "supports": [
+        "scope",
+        "risk",
+        "learning_outcome"
+      ]
+    },
+    {
+      "id": "evidence.software-product-engineering.ai-change.nist-verification",
+      "title": "Guidelines on Minimum Standards for Developer Verification of Software",
+      "publisher": "NIST",
+      "source_type": "official_source",
+      "url": "https://doi.org/10.6028/NIST.IR.8397",
+      "source_version": "NISTIR 8397",
+      "checked_at": "2026-07-28",
+      "claim_scope": "코드 출처와 무관하게 자동·정적·구조·과거결함 등 여러 검증 기법을 적용하는 Gate를 지지합니다.",
+      "supports": [
+        "scope",
+        "risk"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "AI 코딩을 독립 기술 Unit으로 과대승격하지 않고 기존 공학 Unit을 조합하고 기준선 비교가 필요한 Set 후보로 둡니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.software-product-engineering.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-28",
+    "reviewers": [
+      "read-only-evidence-auditor",
+      "read-only-taxonomy-auditor",
+      "read-only-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "도구·모델 효과는 변경이 빠르므로 고정 효과값 대신 반복 가능한 기준선·품질·비용 측정계약을 유지합니다.",
+      "bare agent 대비 harness 구성요소의 효과는 이 Set에서 재평가하지 않고 signal.agent.agent-harness의 Probe 결과를 참조합니다."
+    ],
+    "next_action": "승인된 Candidate로 유지합니다. 정규 Set set.workflow.ai-assisted-software-change-delivery@1.0.0 승격은 별도 Gate에서 수행하며 상세 교재·학습효과는 아직 검증되지 않았습니다."
+  }
+}

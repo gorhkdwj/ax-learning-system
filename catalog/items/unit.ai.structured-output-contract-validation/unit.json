@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.ai.structured-output-contract-validation",
+  "version": "1.0.0",
+  "title": "구조화 출력 계약·검증 설계",
+  "summary": "JSON 구문, 스키마 구조와 업무 의미를 구분하고 모델 출력의 스키마·검증·거부·잘림·복구·중단 경로를 설계하는 후보 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "ai-systems-agents",
+    "subdomains": [
+      "structured-output-and-tool-contracts"
+    ]
+  },
+  "domain_tags": [
+    "structured-output",
+    "json-schema",
+    "validation"
+  ],
+  "capabilities": [
+    "새 추출 과제의 구조화 출력 스키마와 validator를 만들고 누락·초과·거부·잘림·미지원 상황에서 repair 또는 명시적 실패를 검증합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.ai.structured-output-contract-validation.d0",
+        "statement": "JSON 구문 유효성, 스키마 구조 유효성과 업무 의미의 정확성을 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.ai.structured-output-contract-validation.d2-2",
+        "statement": "새 과제의 출력 계약을 구현하고 누락·초과·거부·잘림·미지원 실패를 주입해 repair 또는 중단을 자동검증합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "N/N-1 schema 호환과 공급자 변경 회귀는 D2에 포함합니다. constrained decoding 내부 구현과 복잡한 스키마 최적화는 Adapter 또는 D3로 분리합니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.ai.llm-application-architecture-contract",
+        "version": "1.0.0"
+      },
+      "note": "구조화 출력은 명시된 모델 호출 경계의 출력 계약으로 적용됩니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.ai.structured-output-contract-validation.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "ai-structured-output-contract-validation-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.ai.structured-output-contract-validation.d0",
+          "outcome.ai.structured-output-contract-validation.d2-2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "스키마는 통과하지만 의미가 틀린 사례를 구조 오류와 구분합니다.",
+          "유효하지 않은 결과가 후속 단계에 전달되지 않고 실패 이유가 재현 가능하게 기록됩니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "JSON Schema Draft 2020-12",
+      "publisher": "JSON Schema",
+      "source_type": "official_spec",
+      "url": "https://json-schema.org/draft/2020-12",
+      "source_version": "Draft 2020-12",
+      "checked_at": "2026-07-28"
+    },
+    {
+      "title": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile",
+      "publisher": "NIST",
+      "source_type": "official_source",
+      "url": "https://doi.org/10.6028/NIST.AI.600-1",
+      "source_version": "NIST AI 600-1",
+      "checked_at": "2026-07-28"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "time",
+    "risk_reduction",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-28",
+    "review_due_at": "2026-10-28",
+    "note": "candidate.ai-systems-agents.structured-output-contract-validation@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.ai-systems-agents.structured-output-contract-validation",
+      "version": "1.0.0"
+    }
+  }
+}

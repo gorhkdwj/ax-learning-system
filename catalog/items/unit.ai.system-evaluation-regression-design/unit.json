@@ -1,0 +1,125 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.ai.system-evaluation-regression-design",
+  "version": "1.0.0",
+  "title": "AI 시스템 평가·회귀 설계",
+  "summary": "대표 과제·환경·실패 taxonomy·결정적 검사·사람 rubric·교정된 grader·trajectory·반복 표본을 조합해 버전 있는 기준선과 release gate를 설계하는 후보 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "ai-systems-agents",
+    "subdomains": [
+      "ai-system-evaluation-regression"
+    ]
+  },
+  "domain_tags": [
+    "evaluation",
+    "regression",
+    "trajectory",
+    "release-gate"
+  ],
+  "capabilities": [
+    "새 AI workflow에 정상·경계·실패 scenario, 버전 있는 실패 분류, 결정적 검사·사람 rubric·교정된 grader와 반복 회귀 gate를 설계합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.ai.system-evaluation-regression-design.d0",
+        "statement": "모델 benchmark, 애플리케이션 과제 성공, 출력·trajectory 평가와 현장 업무효과를 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.ai.system-evaluation-regression-design.d2-2",
+        "statement": "새 workflow의 정상·경계·실패 scenario와 grader·반복·기준선·회귀 gate를 만들고 모델·프롬프트·검색·도구 변경을 검증합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "대규모 평가 플랫폼 운영, 자동 grader 연구·교정, 현장 인과평가와 운영 SLO는 별도 D3 영역입니다."
+  },
+  "relations": [],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.ai.system-evaluation-regression-design.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "ai-system-evaluation-regression-design-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.ai.system-evaluation-regression-design.d0",
+          "outcome.ai.system-evaluation-regression-design.d2-2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "하나의 benchmark 상승을 release 근거로 일반화한 사례를 판별합니다.",
+          "숨은 holdout과 실패 주입에서 회귀가 탐지되고 자동 grader와 사람 판단의 불일치가 기록됩니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Practices for Automated Benchmark Evaluations of Language Models",
+      "publisher": "NIST",
+      "source_type": "official_source",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.800-2.ipd.pdf",
+      "source_version": "NIST AI 800-2 Initial Public Draft",
+      "checked_at": "2026-07-28"
+    },
+    {
+      "title": "Demystifying evals for AI agents",
+      "publisher": "Anthropic",
+      "source_type": "official_source",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+      "checked_at": "2026-07-28"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "risk_reduction",
+    "cost",
+    "reuse",
+    "strategic_option"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-28",
+    "review_due_at": "2026-10-28",
+    "note": "candidate.ai-systems-agents.ai-system-evaluation-regression-design@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.ai-systems-agents.ai-system-evaluation-regression-design",
+      "version": "1.0.0"
+    }
+  }
+}

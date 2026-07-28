@@ -1,0 +1,194 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.software-product-engineering.version-control-change-integration",
+  "version": "1.0.0",
+  "title": "버전관리·변경 통합",
+  "canonical_name": "Version control and change integration",
+  "aliases": [],
+  "summary": "변경을 작은 검토 단위로 기록하고 branch·merge·충돌 해결·검증 증거를 사용해 정본 이력을 안전하게 통합하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "큰 불투명 변경, 정본 혼동과 충돌 오해로 검토·복구·병렬 작업이 어려워지는 문제를 다룹니다.",
+    "includes": [
+      "작은 원자적 변경과 메시지",
+      "branch·merge·rebase의 이력 의미",
+      "충돌 해결",
+      "검증 후 통합과 복구 가능한 이력"
+    ],
+    "excludes": [
+      "특정 호스팅 서비스 UI",
+      "조직별 단일 branching 정책 강제",
+      "배포 승인"
+    ],
+    "boundary_note": "Git을 대표 fixture로 사용하되 학습성과는 정본·변경·통합·복구 계약에 둡니다."
+  },
+  "discovery": {
+    "lens_id": "software-product-engineering",
+    "basis": "assigned_lens",
+    "notes": "SWEBOK V4.0a와 관련 공식 사양·문서의 안정된 공학 행동을 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "software-product-engineering",
+    "subdomains": [
+      "version-control-change-integration"
+    ],
+    "tags": [
+      "version-control",
+      "git",
+      "change-integration"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "특정 호스팅 제품이 아니라 변경 이력·통합·복구의 전이 가능한 D2 실천으로 범위를 제한했습니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.software.version-control-change-integration"
+  },
+  "relations": [],
+  "capability": {
+    "learner_can_do": "동시 변경을 분리해 기록하고 충돌의 의미를 확인한 뒤 테스트 증거와 함께 정본 branch에 통합하며 이전 상태를 복원합니다.",
+    "work_contexts": [
+      "개인 코드 변경",
+      "팀 pull request",
+      "문서·메타데이터 변경",
+      "AI 보조 코드 변경"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "deterministic_automation_preferred",
+    "agent_fit_rationale": "이력·diff·충돌은 결정적 도구로 검사하고 의미 충돌의 선택은 인간이 확인합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "commit·branch·merge와 working tree·index·remote 정본의 차이를 설명합니다.",
+        "evidence_hypothesis": "정본 혼동과 이력 손상 위험이 있는 명령 순서를 판별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "동시 변경 fixture를 작은 commit으로 분리하고 의미 충돌을 해결해 검증 후 통합·복구합니다.",
+        "evidence_hypothesis": "의도하지 않은 파일 변경 0건, 테스트 통과와 이전 revision 복원 가능성을 검사합니다."
+      }
+    ],
+    "depth_boundary": "서버 관리자 권한·대규모 monorepo 전략·release engineering은 별도 운영 영역으로 분리합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "cycle_time",
+      "risk_reduction",
+      "prerequisite_value",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "작고 검증 가능한 변경 이력은 검토·병렬 작업·복구를 더 재현 가능하게 할 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "now",
+    "measurement_hypothesis": "의도하지 않은 변경 수, 충돌 해결 오류, 통합 후 회귀와 복구 성공시간을 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "permissions",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "비밀정보와 권한이 이력에 들어가지 않도록 하지만 조직의 repository 보안정책 설계는 인접 렌즈로 넘깁니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.software-product-engineering.version-control.git-workflows",
+      "title": "Distributed Git — Distributed Workflows",
+      "publisher": "Git project",
+      "source_type": "official_docs",
+      "url": "https://git-scm.com/book/en/v2/Distributed-Git-Distributed-Workflows",
+      "source_version": "Pro Git 2nd Edition",
+      "checked_at": "2026-07-28",
+      "claim_scope": "분산 저장소의 contributor·integrator 흐름과 branch 기반 병렬 통합 사례를 지지합니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "work_relevance"
+      ]
+    },
+    {
+      "id": "evidence.software-product-engineering.version-control.swebok",
+      "title": "Software Engineering Body of Knowledge: SWEBOK Guide V4.0 Topics",
+      "publisher": "IEEE Computer Society",
+      "source_type": "official_source",
+      "url": "https://www.computer.org/education/bodies-of-knowledge/software-engineering/topics",
+      "source_version": "SWEBOK Guide V4.0a",
+      "checked_at": "2026-07-28",
+      "claim_scope": "형상관리·구축·통합을 일반 소프트웨어 공학 지식영역으로 제시합니다.",
+      "supports": [
+        "scope",
+        "learning_outcome"
+      ]
+    },
+    {
+      "id": "evidence.software-product-engineering.version-control.git-add",
+      "title": "Git Documentation: git-add",
+      "publisher": "Git project",
+      "source_type": "official_docs",
+      "url": "https://git-scm.com/docs/git-add",
+      "checked_at": "2026-07-28",
+      "claim_scope": "working tree의 변경 중 선택한 파일·hunk를 index에 준비해 다음 commit 범위를 통제하는 공식 동작을 지지합니다.",
+      "supports": [
+        "learning_outcome",
+        "risk"
+      ]
+    },
+    {
+      "id": "evidence.software-product-engineering.version-control.git-merge",
+      "title": "Git Documentation: git-merge",
+      "publisher": "Git project",
+      "source_type": "official_docs",
+      "url": "https://git-scm.com/docs/git-merge",
+      "checked_at": "2026-07-28",
+      "claim_scope": "분기 이력 통합, 충돌 상태·해결과 merge 중단·복구의 공식 동작을 지지합니다.",
+      "supports": [
+        "learning_outcome",
+        "risk"
+      ]
+    },
+    {
+      "id": "evidence.software-product-engineering.version-control.git-restore",
+      "title": "Git Documentation: git-restore",
+      "publisher": "Git project",
+      "source_type": "official_docs",
+      "url": "https://git-scm.com/docs/git-restore",
+      "checked_at": "2026-07-28",
+      "claim_scope": "index와 working tree를 지정 source에 맞게 복원하는 공식 동작과 unmerged 경계를 지지합니다.",
+      "supports": [
+        "learning_outcome",
+        "risk"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "특정 호스팅 제품이 아니라 변경 이력·통합·복구의 전이 가능한 D2 실천으로 범위를 제한했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.software-product-engineering.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-28",
+    "reviewers": [
+      "read-only-evidence-auditor",
+      "read-only-taxonomy-auditor",
+      "read-only-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "merge·rebase 선택은 단일 정답으로 평가하지 않고 정본 정책·검토 가능성·복구성 충족 여부로 판정합니다."
+    ],
+    "next_action": "승인된 Candidate로 유지합니다. 정규 Unit unit.software.version-control-change-integration@1.0.0 승격은 별도 Gate에서 수행하며 상세 교재·학습효과는 아직 검증되지 않았습니다."
+  }
+}

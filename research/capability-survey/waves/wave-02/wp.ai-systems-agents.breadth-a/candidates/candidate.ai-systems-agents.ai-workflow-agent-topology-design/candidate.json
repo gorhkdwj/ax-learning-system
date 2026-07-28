@@ -1,0 +1,214 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.ai-systems-agents.ai-workflow-agent-topology-design",
+  "version": "1.0.0",
+  "title": "AI 워크플로·에이전트 토폴로지 설계",
+  "canonical_name": "AI workflow and agent topology design",
+  "aliases": [
+    "AI 응용 실행 방식 선택"
+  ],
+  "summary": "AI 시스템 구축이 결정된 뒤 같은 과제에 단일 호출, 고정 workflow, 모델 주도 agent와 위임 토폴로지를 비교하고 제어 gate 배치를 설계해 필요한 최소 복잡도를 선택하는 Set 후보입니다.",
+  "research_scope": {
+    "problem_addressed": "과업 특성과 실패·비용·복구 요구를 비교하지 않고 모든 AI 기능을 agent 또는 다중 agent로 구현해 복잡성과 장애면을 늘리는 문제를 다룹니다.",
+    "includes": [
+      "단일 호출·고정 workflow·agent 구분",
+      "routing·parallelization·orchestrator-worker·evaluator 패턴",
+      "상태·종료·한도·인간 승인 gate의 토폴로지별 배치 기준",
+      "같은 수용 기준의 품질·지연·비용·복구성 비교"
+    ],
+    "excludes": [
+      "사업 수준의 AI 채택·해법 적합성 판단",
+      "일반 결정적 자동화 전체",
+      "runner 내부 반복·재시도·멱등성·예산 집행·중단·복구 구현",
+      "다중 agent의 우월성 가정",
+      "Loop Engineering의 독립 분야 확정"
+    ],
+    "boundary_note": "구축 후 기술 토폴로지 선택과 gate 배치를 소유합니다. runner 내부 실행 제어는 기존 signal.agent.agent-control-loop, 사업 해법은 Wave 1, 일반 자동화는 통합 렌즈에 남깁니다."
+  },
+  "discovery": {
+    "lens_id": "ai-systems-agents",
+    "basis": "assigned_lens",
+    "notes": "workflow와 agent를 구분한 실무 자료 및 ReAct의 제한된 환경 연구를 안정된 기술 선택 행동으로 정규화했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "ai-systems-agents",
+    "subdomains": [
+      "agent-workflow-orchestration"
+    ],
+    "tags": [
+      "workflow",
+      "agent-topology",
+      "orchestration",
+      "complexity"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "workflow",
+    "proposed_destination": "set_candidate",
+    "proposed_set_id": "set.project.ai-workflow-agent-topology-comparison",
+    "rationale": "도구·상태·인계·평가 역량을 조합해 동일 과제를 둘 이상의 실행 방식으로 비교해야 D2 결과가 성립하므로 독립 Unit보다 Set이 적합합니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ai-systems-agents.llm-application-architecture-contract",
+        "version": "1.0.0"
+      },
+      "rationale": "토폴로지 비교 전에 각 모델 호출의 버전·입출력·실패 계약이 고정되어야 합니다."
+    },
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ai-systems-agents.ai-tool-function-contract-design",
+        "version": "1.0.0"
+      },
+      "rationale": "도구 사용 agent를 비교하려면 입력·출력·오류·부작용 계약이 필요합니다."
+    },
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ai-systems-agents.agent-state-memory-handoff-design",
+        "version": "1.0.0"
+      },
+      "rationale": "장기·위임 토폴로지는 상태·메모리·인계의 소유권과 복구 계약이 필요합니다."
+    },
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ai-systems-agents.ai-system-evaluation-regression-design",
+        "version": "1.0.0"
+      },
+      "rationale": "둘 이상의 실행 방식 비교는 고정 scenario·실패 주입·반복·비용·회귀 gate를 가진 평가 역량을 조합해야 합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "같은 입출력·상태·업무 완료조건으로 단일 호출·고정 workflow·agent 중 실행 가능한 두 방식 또는 재생 가능한 trace harness를 구성하고 품질·지연·비용·실패·복구성을 비교해 가장 단순한 적합 구조를 선택합니다.",
+    "work_contexts": [
+      "문서 요약·분류",
+      "고객지원 조사·승인",
+      "운영 이상 분류",
+      "장기 리서치 갱신"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "comparison_required",
+    "agent_fit_rationale": "agent 사용 자체가 목표가 아니며 결정적 workflow와 비교해 순효과를 입증해야 합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "단일 모델 호출, 고정 workflow, 모델 주도 agent와 위임 토폴로지의 제어·상태·실패 차이를 설명합니다.",
+        "evidence_hypothesis": "결정 가능한 단계와 모델 판단이 필요한 단계를 과제에서 구분합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "같은 새 과제에 실행 가능한 두 방식 또는 재생 가능한 trace harness를 비교하고 종료·한도·승인·복구 gate 배치를 검증해 최소 복잡도 구조를 선택합니다.",
+        "evidence_hypothesis": "고정 수용 기준과 숨은 실패 주입에서 사전 정의한 복잡도·비용 상한과 비열등성 기준을 충족하고 runner 내부 제어 구현은 기존 Signal 범위로 남습니다."
+      }
+    ],
+    "depth_boundary": "토폴로지 선택과 gate 배치 비교만 소유합니다. runner 내부 반복·재시도·멱등성·예산 집행·중단·복구 구현, 대규모 분산 orchestration, 운영 스케줄링과 Loop Engineering 정규화는 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "cost",
+      "cycle_time",
+      "quality",
+      "risk_reduction",
+      "strategic_option"
+    ],
+    "business_hypotheses": [
+      "가장 단순한 적합 구조 선택은 불필요한 agent 비용과 장애면을 줄일 가능성이 있습니다.",
+      "비교 가능한 종료·복구 계약은 잘못된 완료와 무한 반복을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "core",
+    "priority_hint": "next",
+    "measurement_hypothesis": "방식별 업무 성공률·지연·비용·실패 복구율·인간 개입시간과 불필요한 agent 단계 수를 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "permissions",
+      "cost",
+      "observability",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "외부 변경·권한·승인·복구 경로는 동일 fixture에서 비교하고 전문 정책·운영 인프라 설계는 인접 렌즈로 넘깁니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.ai-systems-agents.topology.anthropic-effective-agents",
+      "title": "Building effective agents",
+      "publisher": "Anthropic",
+      "source_type": "practitioner_primary",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "published_at": "2024-12-19",
+      "checked_at": "2026-07-28",
+      "claim_scope": "workflow와 agent 구분 및 routing·parallelization·orchestrator-worker 등 조합 가능한 패턴을 보여주는 한 공급자의 실무 자료이며 보편적 효과를 증명하지 않습니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "work_relevance"
+      ]
+    },
+    {
+      "id": "evidence.ai-systems-agents.topology.react",
+      "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+      "publisher": "ICLR",
+      "source_type": "primary_research",
+      "url": "https://openreview.net/forum?id=WE_vluYUL-X",
+      "checked_at": "2026-07-28",
+      "claim_scope": "제한된 질의응답·의사결정 환경에서 추론과 행동을 교차하는 방법의 실험 결과를 지지하며 모든 업무나 다중 agent의 우월성을 입증하지 않습니다.",
+      "supports": [
+        "definition",
+        "scope"
+      ]
+    },
+    {
+      "id": "evidence.ai-systems-agents.topology.nist-ai-800-2",
+      "title": "Practices for Automated Benchmark Evaluations of Language Models",
+      "publisher": "NIST",
+      "source_type": "official_source",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.800-2.ipd.pdf",
+      "checked_at": "2026-07-28",
+      "source_version": "NIST AI 800-2 Initial Public Draft",
+      "claim_scope": "측정 대상·실행 환경·분석·보고를 고정해 언어모델과 AI agent system을 비교 평가하는 초기 공개초안으로, 토폴로지의 보편적 우월성이나 최종 표준을 뜻하지 않습니다.",
+      "supports": [
+        "learning_outcome",
+        "risk",
+        "lifecycle"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "기반 Unit을 조합해 둘 이상의 실행 구조를 비교하는 Set으로 승인했으며 다중 agent의 우월성은 가정하지 않습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.ai-systems-agents.breadth-a",
+    "author_agent": "codex-main-with-read-only-research",
+    "researched_at": "2026-07-28",
+    "reviewers": [
+      "read-only-discovery-researcher",
+      "read-only-boundary-researcher",
+      "read-only-practicality-researcher"
+    ],
+    "known_unknowns": [
+      "기존 signal.agent.agent-harness의 Probe Set에서 코딩 외 전이성과 추가 비용을 검증해야 합니다.",
+      "signal.agent.agent-control-loop의 신흥 명칭과 상태는 변경하지 않습니다."
+    ],
+    "next_action": "정규 Set set.project.ai-workflow-agent-topology-comparison@1.0.0로 승격했습니다. cataloged 상태이므로 파일럿과 업무효과는 아직 검증되지 않았습니다."
+  }
+}

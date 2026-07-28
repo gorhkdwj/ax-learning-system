@@ -60,6 +60,14 @@
       },
       "role": "lab",
       "required": true
+    },
+    {
+      "resource": {
+        "id": "resource.foundation.evidence-verification.content-provenance-reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
     }
   ],
   "requirements": {

@@ -1,0 +1,173 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.software-product-engineering.reproducible-debugging-fault-isolation",
+  "version": "1.0.0",
+  "title": "재현 가능한 디버깅·결함 격리",
+  "canonical_name": "Reproducible debugging and fault isolation",
+  "aliases": [],
+  "summary": "실패 조건을 고정하고 최소 재현·관찰 증거·가설·이분 탐색으로 원인을 격리한 뒤 수정 회귀를 검증하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "증상만 보고 무작위 수정을 반복하거나 재현되지 않는 상태에서 원인을 확정해 새 결함을 만드는 문제를 다룹니다.",
+    "includes": [
+      "재현 조건·환경 고정",
+      "최소 실패 사례",
+      "로그·stack·diff 기반 가설",
+      "이분 탐색·수정 전후 회귀"
+    ],
+    "excludes": [
+      "운영 incident command",
+      "분산 tracing 플랫폼",
+      "성능 용량 계획"
+    ],
+    "boundary_note": "개발·테스트 환경의 결함 격리를 소유하고 운영 incident·관측성 시스템은 인접 렌즈로 넘깁니다."
+  },
+  "discovery": {
+    "lens_id": "software-product-engineering",
+    "basis": "assigned_lens",
+    "notes": "SWEBOK V4.0a와 관련 공식 사양·문서의 안정된 공학 행동을 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "software-product-engineering",
+    "subdomains": [
+      "debugging-fault-isolation"
+    ],
+    "tags": [
+      "debugging",
+      "fault-isolation",
+      "reproduction",
+      "bisect"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "운영 incident와 분리된 개발환경 D2 행동이며 언어·프레임워크가 달라도 재현·가설·격리 절차가 전이됩니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.software.reproducible-debugging-fault-isolation"
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.software-product-engineering.layered-software-verification",
+        "version": "1.0.0"
+      },
+      "rationale": "재현 fixture와 수정 회귀는 검증·테스트 원리를 사용합니다."
+    },
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.software-product-engineering.version-control-change-integration",
+        "version": "1.0.0"
+      },
+      "rationale": "revision 이분 탐색과 원인 변경 추적에는 정확한 이력이 필요합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "새 실패에서 환경·입력·revision을 고정하고 최소 재현과 가설 검사를 통해 최초 원인 변경을 격리하며 수정 회귀를 추가합니다.",
+    "work_contexts": [
+      "로컬 애플리케이션",
+      "CI 실패",
+      "API·DB 통합",
+      "프론트엔드 상태 오류"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "agent_assisted",
+    "agent_fit_rationale": "가설 후보는 보조할 수 있지만 재현 증거와 반증 가능한 실험이 최종 판정 기준입니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "증상·상관·근본 원인과 재현·격리·수정 검증 단계를 구분합니다.",
+        "evidence_hypothesis": "증거 없이 원인을 확정하거나 여러 변수를 동시에 바꾸는 비사례를 판별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "새 실패를 최소 재현하고 관찰 증거·가설·이분 탐색으로 원인을 격리해 수정 회귀를 남깁니다.",
+        "evidence_hypothesis": "숨은 원인 fixture에서 최초 실패 revision·조건을 찾고 수정 전 실패·후 통과를 재현합니다."
+      }
+    ],
+    "depth_boundary": "운영 incident·분산 시스템 causal tracing·성능 프로파일링은 별도 D3 영역으로 분리합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "cycle_time",
+      "risk_reduction",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "재현·가설·격리 절차는 무작위 수정과 재발을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "next",
+    "measurement_hypothesis": "재현 성공률, 원인 격리시간, 잘못된 가설 수, 수정 회귀와 재발 수를 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "observability",
+      "reliability",
+      "recovery"
+    ],
+    "notes": "민감 로그를 복사하지 않고 최소 공개·합성 fixture로 재현하며 운영 telemetry 정책은 인접 렌즈로 넘깁니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.software-product-engineering.debugging.swebok-v4",
+      "title": "Guide to the Software Engineering Body of Knowledge, Version 4.0a",
+      "publisher": "IEEE Computer Society",
+      "source_type": "official_source",
+      "url": "https://ieeecs-media.computer.org/media/education/swebok/swebok-v4.pdf",
+      "source_version": "V4.0a",
+      "checked_at": "2026-07-28",
+      "claim_scope": "소프트웨어 구축의 debugging methods·tools·techniques와 유지보수·결함관리 범위를 지지합니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "learning_outcome"
+      ]
+    },
+    {
+      "id": "evidence.software-product-engineering.debugging.git-bisect",
+      "title": "git-bisect Documentation",
+      "publisher": "Git project",
+      "source_type": "official_docs",
+      "url": "https://git-scm.com/docs/git-bisect",
+      "checked_at": "2026-07-28",
+      "claim_scope": "known good·bad revision 사이를 이분 탐색하여 버그를 도입한 commit을 찾는 결정적 절차를 지지합니다.",
+      "supports": [
+        "scope",
+        "work_relevance",
+        "learning_outcome"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "운영 incident와 분리된 개발환경 D2 행동이며 언어·프레임워크가 달라도 재현·가설·격리 절차가 전이됩니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.software-product-engineering.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-28",
+    "reviewers": [
+      "read-only-evidence-auditor",
+      "read-only-taxonomy-auditor",
+      "read-only-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "원인 격리시간은 과제 복잡도와 별도로 정규화하고 빠른 추측 자체를 숙련도로 보지 않습니다."
+    ],
+    "next_action": "승인된 Candidate로 유지합니다. 정규 Unit unit.software.reproducible-debugging-fault-isolation@1.0.0 승격은 별도 Gate에서 수행하며 상세 교재·학습효과는 아직 검증되지 않았습니다."
+  }
+}

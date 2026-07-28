@@ -1,0 +1,173 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.ai-literacy-trust.affected-person-impact-awareness",
+  "version": "1.0.0",
+  "title": "영향받는 사람·유해 편향 인식",
+  "canonical_name": "Affected-person and harmful-bias awareness",
+  "aliases": [
+    "AI 영향 인식",
+    "AI 편향 리터러시"
+  ],
+  "summary": "AI 사용으로 영향받는 사람·집단과 불균등 오류·차별·접근성·인권 위험을 사례에서 식별하고 전문 검토로 이관하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "평균 정확도나 직접 사용자만 보고 간접 대상자와 특정 집단에 집중되는 오류·배제·권리 영향을 놓치는 문제를 다룹니다.",
+    "includes": [
+      "직접·간접 영향받는 사람과 집단 식별",
+      "불균등 오류와 유해 편향·차별·접근성·인권 위험의 초기 판별",
+      "장애 유형·보조기술 사용자·저자원 언어·교차집단 관점 확인",
+      "누락 관점 질문과 전문 검토 이관"
+    ],
+    "excludes": [
+      "공정성 지표 개발과 모델 완화",
+      "법적 차별 판정과 규제 영향평가",
+      "접근성 UI 구현"
+    ],
+    "boundary_note": "일반 사용자의 영향 인식에 한정하고 전문 측정·법적 판정·설계는 인접 렌즈로 보냅니다."
+  },
+  "discovery": {
+    "lens_id": "ai-literacy-trust",
+    "basis": "assigned_lens",
+    "notes": "NIST AI RMF의 affected communities와 UNESCO 인간 중심·윤리 역량을 교차검증했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "ai-literacy-trust",
+    "subdomains": [
+      "ai-impact-awareness"
+    ],
+    "tags": [
+      "affected-persons",
+      "harmful-bias",
+      "inclusion"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "capability",
+    "proposed_destination": "unit_candidate",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.foundation.ai-impact-awareness",
+    "rationale": "여러 분야 사례에서 대상자·집단·영향 경로를 찾아내고 이관 기준을 적용하는 독립 전이과제가 가능합니다."
+  },
+  "relations": [
+    {
+      "type": "related_to",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ai-literacy-trust.risk-proportional-reliance",
+        "version": "1.0.0"
+      },
+      "rationale": "영향받는 사람과 불균등 피해는 검증·승인 강도를 결정하는 위험 입력입니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "새 AI 사용 사례에서 직접 사용자 외 영향받는 사람·집단과 잠재적 불균등 오류를 식별하고 필요한 질문·증거·전문 검토 경로를 기록합니다.",
+    "work_contexts": [
+      "채용·인사 보조",
+      "고객 분류·추천",
+      "공공·금융 안내",
+      "교육·접근성 지원",
+      "저자원 언어·보조기술·교차집단 사례"
+    ],
+    "transferability": "enterprise_cross_functional",
+    "agent_fit": "not_applicable",
+    "agent_fit_rationale": "영향 식별은 다양한 관점과 인간 책임이 필요한 검토 역량입니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "평균 성능과 별개로 불균등 오류·편향·접근성·인권 영향을 검토해야 하는 이유를 설명합니다.",
+        "evidence_hypothesis": "직접 사용자만 고려한 불완전 사례를 판별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "새 사례의 영향 대상·경로·누락 증거와 전문 이관 조건을 구조화합니다.",
+        "evidence_hypothesis": "표본마다 사전에 심은 필수 간접 대상자·취약집단 탐지를 검사하고 추가 발견은 근거의 질로 평가합니다."
+      }
+    ],
+    "depth_boundary": "공정성 수학, 모델 완화, 법적 영향평가와 접근성 구현은 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "risk_reduction",
+      "quality",
+      "customer_experience",
+      "employee_experience",
+      "mandatory_control"
+    ],
+    "business_hypotheses": [
+      "간접·불균등 영향을 조기에 발견하여 배포 후 피해와 재작업을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "material",
+    "operations_relevance": "material",
+    "priority_hint": "next",
+    "measurement_hypothesis": "사전에 심은 필수 간접 대상자·취약집단의 탐지율, 불균등 오류 질문의 적용률과 전문 이관 누락을 측정하고 추가 발견은 근거의 질로 평가합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "privacy",
+      "legal",
+      "ethics",
+      "accessibility",
+      "reliability",
+      "human_approval"
+    ],
+    "notes": "영향받는 사람의 관점과 접근성·인권·차별 위험을 공통 검토축으로 사용합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.ai-literacy-trust.impact-awareness.nist-ai-rmf-core",
+      "title": "AI Risk Management Framework Core",
+      "publisher": "NIST",
+      "source_type": "official_spec",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "published_at": "2023-01-26",
+      "checked_at": "2026-07-27",
+      "source_version": "AI RMF 1.0",
+      "claim_scope": "개인·집단·공동체·조직·사회 영향과 외부 관점, 공정성·편향·접근성 고려 범위를 지지합니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "risk",
+        "work_relevance"
+      ]
+    },
+    {
+      "id": "evidence.ai-literacy-trust.impact-awareness.unesco-students",
+      "title": "AI Competency Framework for Students",
+      "publisher": "UNESCO",
+      "source_type": "official_docs",
+      "url": "https://www.unesco.org/en/articles/ai-competency-framework-students",
+      "published_at": "2024-08-08",
+      "checked_at": "2026-07-27",
+      "source_version": "2024",
+      "claim_scope": "인간 중심 사고·AI 윤리·비판적 판단의 범위를 교차검증합니다. 학생 프레임워크이므로 성인 업무 숙련도와 직접 동등시하지 않습니다.",
+      "supports": [
+        "scope",
+        "learning_outcome"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "공식 위험·교육 프레임워크가 영향 관점을 지지하며 전문 공정성·법적 평가를 제외했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.ai-literacy-trust.breadth-a",
+    "author_agent": "codex-main-with-read-only-research",
+    "researched_at": "2026-07-27",
+    "reviewers": [
+      "read-only-evidence-auditor",
+      "read-only-taxonomy-auditor",
+      "read-only-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "산업별 보호집단과 법적 기준은 전문 Overlay가 필요합니다.",
+      "학생 프레임워크의 성인 업무 전이성은 직접 검증되지 않았습니다."
+    ],
+    "next_action": "정규 Unit unit.foundation.ai-impact-awareness@1.0.0로 승격했습니다. cataloged 상태이므로 상세 교재와 학습효과는 아직 검증되지 않았습니다."
+  }
+}

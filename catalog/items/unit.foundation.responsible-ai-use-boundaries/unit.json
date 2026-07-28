@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.foundation.responsible-ai-use-boundaries",
+  "version": "1.0.0",
+  "title": "책임 있는 AI 사용 경계 적용",
+  "summary": "조직 정책과 데이터 민감도·권한·기밀성·개인정보·지식재산 경계를 실제 AI 사용 사례에 적용하고 중단·승인·전문가 이관을 선택하는 후보 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "ai-literacy-trust",
+    "subdomains": [
+      "responsible-use-boundaries"
+    ]
+  },
+  "domain_tags": [
+    "responsible-use",
+    "data-handling",
+    "escalation"
+  ],
+  "capabilities": [
+    "제공된 조직 정책·데이터 분류표·승인 규칙 안에서 새 AI 사용 사례의 입력·처리·출력·대상자를 검토하여 허용·금지·승인 필요·전문가 이관으로 분류하고 민감정보 없이 판단 근거를 기록합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.foundation.responsible-ai-use-boundaries.d0",
+        "statement": "데이터·권한·기밀성·개인정보·지식재산·책임의 주요 AI 사용 경계를 설명합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.foundation.responsible-ai-use-boundaries.d2-2",
+        "statement": "제공된 조직 정책·데이터 분류표·승인 규칙 안에서 새 사용 사례를 허용·금지·승인 필요·전문가 이관으로 분류하고 안전한 대안을 제시합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "법률 해석, 통제 아키텍처와 조직 정책 작성은 별도 전문 Unit으로 둡니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.foundation.ai-foundations-limitations",
+        "version": "1.0.0"
+      },
+      "note": "AI의 데이터 처리와 출력 한계를 이해해야 경계 위반 가능성을 판별할 수 있습니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.foundation.risk-proportional-ai-reliance",
+        "version": "1.0.0"
+      },
+      "note": "사용 경계는 위험 비례 승인·중단 판단의 입력이지만 정책·통제 설계와는 다릅니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.foundation.responsible-ai-use-boundaries.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "foundation-responsible-ai-use-boundaries-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.foundation.responsible-ai-use-boundaries.d0",
+          "outcome.foundation.responsible-ai-use-boundaries.d2-2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "경계 위반과 전문 판단 필요 사례를 구분합니다.",
+          "제공된 정책 정답표를 기준으로 금지 사례 허용 0건, 민감정보 재노출 0건과 에스컬레이션 근거를 검사하며 법률 추론을 평가하지 않습니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Training and Employment Notice No. 07-25: U.S. Department of Labor's AI Literacy Framework",
+      "publisher": "U.S. Department of Labor",
+      "source_type": "official_docs",
+      "url": "https://www.dol.gov/agencies/eta/advisories/ten-07-25",
+      "source_version": "TEN 07-25",
+      "checked_at": "2026-07-27"
+    },
+    {
+      "title": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile",
+      "publisher": "NIST",
+      "source_type": "official_spec",
+      "url": "https://doi.org/10.6028/NIST.AI.600-1",
+      "source_version": "NIST AI 600-1",
+      "checked_at": "2026-07-27"
+    }
+  ],
+  "potential_impact_types": [
+    "risk_reduction",
+    "quality",
+    "capability_unlock"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-28",
+    "review_due_at": "2026-10-28",
+    "note": "candidate.ai-literacy-trust.responsible-use-boundaries@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.ai-literacy-trust.responsible-use-boundaries",
+      "version": "1.0.0"
+    }
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.ai-literacy-trust.risk-proportional-reliance",
+  "version": "1.0.0",
+  "title": "위험 비례 검증과 결정 의존",
+  "canonical_name": "Risk-proportional verification and decision reliance",
+  "aliases": [
+    "위험 기반 AI 의존 판단"
+  ],
+  "summary": "오류의 영향·가역성·불확실성과 대상자를 기준으로 검증 강도를 정하고 AI 출력을 수용·수정·거부·에스컬레이션하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "낮은 위험과 고위험 업무에 같은 검토 수준을 적용하거나 AI 조언을 책임 이전 수단으로 사용하는 문제를 다룹니다.",
+    "includes": [
+      "영향·가역성·불확실성·대상자 기반 위험 등급",
+      "위험 비례 검증 강도와 승인자 선택",
+      "수용·수정·거부·에스컬레이션과 사용 중단"
+    ],
+    "excludes": [
+      "조직 전체 위험분류 정책 설계",
+      "고위험 시스템 법적 분류",
+      "인간 감독 UI와 워크플로우 구현"
+    ],
+    "boundary_note": "정해진 정책 안에서 사용자가 수행하는 판단이며 감독 구조 설계는 human-ai-control이 소유합니다."
+  },
+  "discovery": {
+    "lens_id": "ai-literacy-trust",
+    "basis": "assigned_lens",
+    "notes": "NIST 맥락 기반 위험관리와 최신 EU의 맥락별 AI 리터러시 지원 의무를 구분하여 반영했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "ai-literacy-trust",
+    "subdomains": [
+      "output-appraisal-and-decision-reliance"
+    ],
+    "tags": [
+      "risk-based-review",
+      "decision-reliance",
+      "escalation"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "capability",
+    "proposed_destination": "unit_candidate",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.foundation.risk-proportional-ai-reliance",
+    "rationale": "여러 의사결정 맥락에서 위험 등급과 검증·승인 행동을 연결하는 독립 D2 평가가 가능합니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ai-literacy-trust.output-fitness-appraisal",
+        "version": "1.0.0"
+      },
+      "rationale": "출력 평가는 의존 결정을 돕지만 용도·대상자·가역성만으로도 사전 금지·승인을 결정할 수 있습니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "제공된 조직 위험 허용도·승인·에스컬레이션 규칙 안에서 서로 다른 위험의 AI 보조 업무를 분류하고 독립 검증·전문가 검토·승인·중단 수준을 선택하여 결정 기록을 남깁니다.",
+    "work_contexts": [
+      "내부 초안과 외부 공개물 비교",
+      "고객지원 안내와 권리·안전 관련 안내 비교",
+      "가역적 운영 제안과 비가역 의사결정 비교",
+      "취약집단·언어·접근성 영향이 다른 사례 비교"
+    ],
+    "transferability": "enterprise_cross_functional",
+    "agent_fit": "comparison_required",
+    "agent_fit_rationale": "낮은 위험은 자동화할 수 있지만 위험 분류와 고위험 승인·중단은 인간 책임이 필요합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "오류 영향·가역성·불확실성·대상자에 따라 검증 강도가 달라지는 이유를 설명합니다.",
+        "evidence_hypothesis": "동일 출력의 맥락별 위험 차이를 판별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "제공된 조직 위험 허용도·승인·에스컬레이션 규칙 안에서 새 사례의 검증·승인·중단 수준을 선택하고 근거를 기록합니다.",
+        "evidence_hypothesis": "필수 최소검증을 고정한 뒤 고위험 무승인 채택 0건, 저위험 과잉검토와 에스컬레이션 누락을 함께 검사합니다."
+      }
+    ],
+    "depth_boundary": "법적 고위험 시스템 분류와 조직 위험관리 체계 설계는 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "risk_reduction",
+      "quality",
+      "cycle_time",
+      "mandatory_control"
+    ],
+    "business_hypotheses": [
+      "위험에 맞춘 검증은 고위험 오류 유출과 저위험 업무의 불필요한 검토를 함께 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "material",
+    "operations_relevance": "core",
+    "priority_hint": "now",
+    "measurement_hypothesis": "제공된 위험 매트릭스의 필수 최소검증을 고정하고 고위험 무승인 채택, 에스컬레이션 누락, 저위험 과잉검토시간과 결정 기록 완전성을 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "permissions",
+      "legal",
+      "ethics",
+      "cost",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "위험축과 대상자에 따라 검증·승인·중단 수준을 명시해야 합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.ai-literacy-trust.risk-reliance.nist-ai-rmf-core",
+      "title": "AI Risk Management Framework Core",
+      "publisher": "NIST",
+      "source_type": "official_spec",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "published_at": "2023-01-26",
+      "checked_at": "2026-07-27",
+      "source_version": "AI RMF 1.0",
+      "claim_scope": "맥락·영향·위험 허용도에 따라 측정·대응·중단·override·incident 경로를 정하는 범위를 지지합니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "risk",
+        "work_relevance"
+      ]
+    },
+    {
+      "id": "evidence.ai-literacy-trust.risk-reliance.eu-2026-1744",
+      "title": "Regulation (EU) 2026/1744 amending the Artificial Intelligence Act",
+      "publisher": "European Parliament and Council of the European Union",
+      "source_type": "official_source",
+      "url": "https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng",
+      "published_at": "2026-07-24",
+      "checked_at": "2026-07-27",
+      "source_version": "Regulation (EU) 2026/1744",
+      "claim_scope": "개정 Article 4는 providers와 deployers가 기술지식·경험·교육·훈련, 사용 맥락과 대상자를 고려하여 관련 인력의 AI 리터러시 개선을 지원할 조치를 취하도록 합니다. 특정 개인의 일정 수준 달성을 보장하는 의무나 위험 비례 의존 결정을 직접 규정하지 않습니다.",
+      "supports": [
+        "scope",
+        "work_relevance",
+        "lifecycle"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "NIST가 맥락·영향 기반 위험 대응을 지지하며 EU 근거는 관할권별 의무로 제한했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.ai-literacy-trust.breadth-a",
+    "author_agent": "codex-main-with-read-only-research",
+    "researched_at": "2026-07-27",
+    "reviewers": [
+      "read-only-evidence-auditor",
+      "read-only-taxonomy-auditor",
+      "read-only-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "산업별 위험 등급은 Overlay로 분리하며 등급별 평가 타당성은 파일럿에서 추적합니다.",
+      "EU 개정 후 집행기관 지침은 후속 확인이 필요합니다."
+    ],
+    "next_action": "정규 Unit unit.foundation.risk-proportional-ai-reliance@1.0.0로 승격했습니다. cataloged 상태이므로 상세 교재와 학습효과는 아직 검증되지 않았습니다."
+  }
+}

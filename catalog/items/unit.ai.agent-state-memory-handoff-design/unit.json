@@ -1,0 +1,134 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.ai.agent-state-memory-handoff-design",
+  "version": "1.0.0",
+  "title": "에이전트 상태·메모리·인계 설계",
+  "summary": "현재 실행 상태, 대화 컨텍스트와 영속 메모리를 구분하고 출처·범위·만료·정정·삭제·checkpoint·소유권이 명시된 인계 계약을 설계하는 후보 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "ai-systems-agents",
+    "subdomains": [
+      "agent-state-memory-handoff"
+    ]
+  },
+  "domain_tags": [
+    "agent-state",
+    "memory-lifecycle",
+    "handoff",
+    "checkpoint"
+  ],
+  "capabilities": [
+    "새 다회차 과제에 상태·checkpoint·메모리 수명주기와 인계 envelope를 설계하고 오래됨·충돌·누락·취소·중복 실행 후 정확한 재개와 소유권을 검증합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.ai.agent-state-memory-handoff-design.d0",
+        "statement": "현재 실행 상태, 대화 컨텍스트, 영속 메모리와 모델 지식을 구분하고 인계의 상태·소유권·artifact를 설명합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.ai.agent-state-memory-handoff-design.d2-2",
+        "statement": "새 다회차 과제의 상태·메모리·인계 계약을 구현하고 stale·충돌·누락·취소·중복 실행 후 재개·삭제·소유권을 검증합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "D2는 제공된 정책과 소규모 로컬 상태 저장소, 버전 있는 checkpoint schema와 재생·마이그레이션 시험으로 제한합니다. 분산 일관성·기업 보존정책·운영 IAM·A2A 전체 구현은 D3·Overlay·Adapter로 분리합니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.ai.system-context-design",
+        "version": "1.0.0"
+      },
+      "note": "메모리와 인계 산출물은 다음 추론의 컨텍스트로 들어가기 전에 신뢰·선택·격리되어야 합니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.ai.agent-state-memory-handoff-design.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "ai-agent-state-memory-handoff-design-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.ai.agent-state-memory-handoff-design.d0",
+          "outcome.ai.agent-state-memory-handoff-design.d2-2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "오래된 기억과 현재 과업 상태를 혼동한 사례를 판별합니다.",
+          "출처 없는 기억이 채택되지 않고 인계 실패 후에도 단일 소유자와 최종 artifact 상태가 보존됩니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "MemGPT: Towards LLMs as Operating Systems",
+      "publisher": "arXiv",
+      "source_type": "primary_research",
+      "url": "https://arxiv.org/abs/2310.08560",
+      "source_version": "arXiv:2310.08560v2",
+      "checked_at": "2026-07-28"
+    },
+    {
+      "title": "A2A Protocol Specification",
+      "publisher": "A2A Project",
+      "source_type": "official_spec",
+      "url": "https://a2a-protocol.org/v1.0.0/specification/",
+      "source_version": "1.0.0",
+      "checked_at": "2026-07-28"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "time",
+    "experience",
+    "risk_reduction"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-28",
+    "review_due_at": "2026-10-28",
+    "note": "candidate.ai-systems-agents.agent-state-memory-handoff-design@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.ai-systems-agents.agent-state-memory-handoff-design",
+      "version": "1.0.0"
+    }
+  }
+}

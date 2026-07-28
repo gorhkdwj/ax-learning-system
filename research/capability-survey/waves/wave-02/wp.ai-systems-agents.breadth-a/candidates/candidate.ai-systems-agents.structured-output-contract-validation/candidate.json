@@ -1,0 +1,170 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.ai-systems-agents.structured-output-contract-validation",
+  "version": "1.0.0",
+  "title": "구조화 출력 계약·검증 설계",
+  "canonical_name": "Structured output contract and validation design",
+  "aliases": [
+    "스키마 기반 AI 출력 계약"
+  ],
+  "summary": "JSON 구문, 스키마 구조와 업무 의미를 구분하고 모델 출력의 스키마·검증·거부·잘림·복구·중단 경로를 설계하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "형식이 그럴듯한 모델 출력을 검증 없이 후속 시스템에 전달하거나 스키마 유효성을 업무 정확성으로 오해하는 문제를 다룹니다.",
+    "includes": [
+      "출력 스키마와 validator",
+      "필수 필드·자료형·enum·추가 속성 제한",
+      "refusal·partial output·schema 미지원 탐지",
+      "repair·fallback·명시적 실패"
+    ],
+    "excludes": [
+      "결과의 사실성·업무 적합성 전체",
+      "도구 실행과 외부 부작용",
+      "특정 공급자의 스키마 부분집합 암기"
+    ],
+    "boundary_note": "일반 JSON Schema 문법이 아니라 비결정적 모델 출력이 계약을 위반할 때 검증·복구·중단하는 시스템 행동을 소유합니다."
+  },
+  "discovery": {
+    "lens_id": "ai-systems-agents",
+    "basis": "assigned_lens",
+    "notes": "공식 JSON Schema와 여러 공급자의 제한된 구조화 출력 구현을 비교해 공급자 중립적 계약 코어를 추출했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "ai-systems-agents",
+    "subdomains": [
+      "structured-output-and-tool-contracts"
+    ],
+    "tags": [
+      "structured-output",
+      "json-schema",
+      "validation"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.ai.structured-output-contract-validation",
+    "rationale": "누락·초과·거부·잘림을 주입하고 repair 또는 실패 경로를 자동검증하는 독립 D2 행동이 있습니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ai-systems-agents.llm-application-architecture-contract",
+        "version": "1.0.0"
+      },
+      "rationale": "구조화 출력은 명시된 모델 호출 경계의 출력 계약으로 적용됩니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "새 추출 과제의 구조화 출력 스키마와 validator를 만들고 누락·초과·거부·잘림·미지원 상황에서 repair 또는 명시적 실패를 검증합니다.",
+    "work_contexts": [
+      "문서 메타데이터 추출",
+      "고객 요청 분류",
+      "표·양식 변환",
+      "후속 자동화 입력 생성"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "deterministic_automation_preferred",
+    "agent_fit_rationale": "출력 검증과 실패 판정은 결정적 validator가 우선이며 모델 기반 repair는 제한적으로 사용합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "JSON 구문 유효성, 스키마 구조 유효성과 업무 의미의 정확성을 구분합니다.",
+        "evidence_hypothesis": "스키마는 통과하지만 의미가 틀린 사례를 구조 오류와 구분합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "새 과제의 출력 계약을 구현하고 누락·초과·거부·잘림·미지원 실패를 주입해 repair 또는 중단을 자동검증합니다.",
+        "evidence_hypothesis": "유효하지 않은 결과가 후속 단계에 전달되지 않고 실패 이유가 재현 가능하게 기록됩니다."
+      }
+    ],
+    "depth_boundary": "N/N-1 schema 호환과 공급자 변경 회귀는 D2에 포함합니다. constrained decoding 내부 구현과 복잡한 스키마 최적화는 Adapter 또는 D3로 분리합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "cycle_time",
+      "risk_reduction",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "후속 자동화의 형식 오류와 수동 보정을 줄일 가능성이 있습니다.",
+      "스키마 유효성과 의미 정확성을 분리하면 잘못된 성공 판정을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "now",
+    "measurement_hypothesis": "스키마 위반 탐지율, 유효하지 않은 결과 전파 수, repair 후 의미 오류, 명시적 실패율, repair 호출 수와 실패당 비용을 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "accessibility",
+      "cost",
+      "observability",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "repair 반복·비용 상한과 원출력 보존을 확인하고 구조는 유효하지만 의미가 불확실하면 인간에게 이관합니다. 다국어 enum·날짜·숫자·Unicode와 화면낭독 가능한 오류 텍스트를 시험하며 비밀·개인정보를 불필요하게 포함하지 않습니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.ai-systems-agents.structured-output.json-schema",
+      "title": "JSON Schema Draft 2020-12",
+      "publisher": "JSON Schema",
+      "source_type": "official_spec",
+      "url": "https://json-schema.org/draft/2020-12",
+      "published_at": "2022-06-16",
+      "checked_at": "2026-07-28",
+      "source_version": "Draft 2020-12",
+      "claim_scope": "JSON 문서 구조와 validation assertion의 표준 기반을 제공하지만 출력의 의미·사실·업무 정확성을 보장하지 않습니다.",
+      "supports": [
+        "definition",
+        "scope"
+      ]
+    },
+    {
+      "id": "evidence.ai-systems-agents.structured-output.nist-genai-profile",
+      "title": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile",
+      "publisher": "NIST",
+      "source_type": "official_source",
+      "url": "https://doi.org/10.6028/NIST.AI.600-1",
+      "published_at": "2024-07-26",
+      "checked_at": "2026-07-28",
+      "source_version": "NIST AI 600-1",
+      "claim_scope": "생성형 AI 출력의 측정·검증과 실패 위험을 지지하지만 특정 구조화 출력 API나 스키마 기능을 규정하지 않습니다.",
+      "supports": [
+        "risk",
+        "work_relevance"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "공급자 중립 스키마·검증·복구·중단 계약을 Unit 코어로 유지하고 구현 차이는 Adapter로 분리하도록 승인했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.ai-systems-agents.breadth-a",
+    "author_agent": "codex-main-with-read-only-research",
+    "researched_at": "2026-07-28",
+    "reviewers": [
+      "read-only-discovery-researcher",
+      "read-only-boundary-researcher",
+      "read-only-practicality-researcher"
+    ],
+    "known_unknowns": [
+      "공급자별 JSON Schema 부분집합과 refusal·partial output 표현은 Adapter에서 버전별로 확인해야 합니다."
+    ],
+    "next_action": "정규 Unit unit.ai.structured-output-contract-validation@1.0.0로 승격했습니다. cataloged 상태이므로 상세 교재와 학습효과는 아직 검증되지 않았습니다."
+  }
+}

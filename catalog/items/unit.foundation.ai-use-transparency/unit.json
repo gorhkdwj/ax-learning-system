@@ -1,0 +1,148 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.foundation.ai-use-transparency",
+  "version": "1.0.0",
+  "title": "AI 사용·검토·불확실성의 투명한 전달",
+  "summary": "AI 사용 사실과 역할, 인간 검토 범위, 근거 상태, 한계·불확실성과 책임 주체를 이해관계자에게 맥락에 맞게 전달하는 후보 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "ai-literacy-trust",
+    "subdomains": [
+      "ai-use-transparency"
+    ]
+  },
+  "domain_tags": [
+    "transparency",
+    "disclosure",
+    "uncertainty-communication"
+  ],
+  "capabilities": [
+    "새 AI 보조 산출물에서 수신자의 의사결정에 필요한 AI 역할·인간 검토·근거 상태·한계·책임·교정 경로를 선택해 짧고 검증 가능한 고지를 작성합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.foundation.ai-use-transparency.d0",
+        "statement": "AI 사용 사실만이 아니라 역할·검토·근거·한계·책임을 전달해야 하는 이유를 설명합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.foundation.ai-use-transparency.d2-2",
+        "statement": "새 산출물과 대상자에 맞는 접근 가능한 투명성 고지를 작성하고 각 문장을 검토 기록과 연결합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "법률 자문, 고지 정책과 인터페이스·Content Credentials 구현은 제외합니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.foundation.ai-output-fitness-appraisal",
+        "version": "1.0.0"
+      },
+      "note": "출력 평가 기록은 검토 범위 전달을 돕지만 단순 AI 상호작용 공개의 필수조건은 아닙니다."
+    },
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.foundation.evidence-verification",
+        "version": "1.0.0"
+      },
+      "note": "근거 있음·미확인을 주장하려면 주장–출처 검증 기록이 필요합니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.foundation.ai-use-transparency.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "foundation-ai-use-transparency-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.foundation.ai-use-transparency.d0",
+          "outcome.foundation.ai-use-transparency.d2-2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "과도하게 안심시키거나 책임을 회피하는 고지를 판별합니다.",
+          "필수 요소 누락·확인되지 않은 보증·책임 주체 모호성을 검사하고 수신자가 AI 역할·검토 범위·불확실성·교정 경로를 이해하는지 확인합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "AI Risk Management Framework Core",
+      "publisher": "NIST",
+      "source_type": "official_spec",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "source_version": "AI RMF 1.0",
+      "checked_at": "2026-07-27"
+    },
+    {
+      "title": "OECD AI Principle 1.3: Transparency and explainability",
+      "publisher": "OECD.AI",
+      "source_type": "official_source",
+      "url": "https://oecd.ai/en/dashboards/ai-principles/P7",
+      "source_version": "OECD AI Principle 1.3",
+      "checked_at": "2026-07-27"
+    },
+    {
+      "title": "C2PA Specifications 2.4",
+      "publisher": "Coalition for Content Provenance and Authenticity",
+      "source_type": "official_spec",
+      "url": "https://spec.c2pa.org/specifications/specifications/2.4/index.html",
+      "source_version": "C2PA Specifications 2.4",
+      "checked_at": "2026-07-27"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "risk_reduction",
+    "experience"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-28",
+    "review_due_at": "2026-10-28",
+    "note": "candidate.ai-literacy-trust.ai-use-transparency@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.ai-literacy-trust.ai-use-transparency",
+      "version": "1.0.0"
+    }
+  }
+}

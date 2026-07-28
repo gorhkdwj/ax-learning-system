@@ -1,0 +1,169 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.ai-literacy-trust.ai-task-framing-use",
+  "version": "1.0.0",
+  "title": "AI 과업 프레이밍과 반복 사용",
+  "canonical_name": "AI task framing and iterative use",
+  "aliases": [
+    "AI 지시 역량"
+  ],
+  "summary": "업무 목적·맥락·입력·제약·완료조건을 상호작용형·생성형 AI가 처리할 수 있는 과업으로 표현하고 출력 비교를 통해 요청을 교정하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "모호한 요청과 누락된 제약 때문에 겉보기에는 유창하지만 업무에 맞지 않는 결과가 반복되는 문제를 다룹니다.",
+    "includes": [
+      "업무 목적·맥락·입력·제약·완료조건 명시",
+      "예시와 비사례 제공",
+      "출력 비교에 따른 요청 교정과 중단 판단"
+    ],
+    "excludes": [
+      "특정 제품 프롬프트 문법",
+      "시스템 프롬프트와 컨텍스트 아키텍처",
+      "AI 도입 해법 포트폴리오 선택",
+      "비대화형 분류·추천·예측 시스템의 운영 설정"
+    ],
+    "boundary_note": "일반 사용자의 상호작용형·생성형 AI 과업 표현에 한정하며 시스템 수준 컨텍스트 엔지니어링은 ai-systems-agents로 보냅니다."
+  },
+  "discovery": {
+    "lens_id": "ai-literacy-trust",
+    "basis": "assigned_lens",
+    "notes": "공식 노동 AI 리터러시 프레임워크의 Direct AI Effectively와 OECD의 create·engage 범위를 대조했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "ai-literacy-trust",
+    "subdomains": [
+      "ai-task-framing-and-use"
+    ],
+    "tags": [
+      "task-framing",
+      "iteration",
+      "ai-use"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "capability",
+    "proposed_destination": "unit_candidate",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.foundation.ai-task-framing-use",
+    "rationale": "문서·분석·고객지원 등 여러 업무로 전이되며 새로운 과업에서 제약 충족률로 객관 평가할 수 있습니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ai-literacy-trust.ai-foundations-limitations",
+        "version": "1.0.0"
+      },
+      "rationale": "AI의 한계를 이해하면 과업을 더 작게 나누고 판단 불가 조건을 명시할 수 있습니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "새로운 업무를 목적·입력·제약·완료조건이 있는 상호작용형·생성형 AI 과업으로 표현하고 후보 출력의 차이를 근거로 요청을 교정하거나 사용을 중단합니다.",
+    "work_contexts": [
+      "보고서 초안과 요약",
+      "고객지원 답변 후보 작성",
+      "비정형 자료의 구조화",
+      "다국어·쉬운 언어 출력 요청"
+    ],
+    "transferability": "enterprise_cross_functional",
+    "agent_fit": "agent_assisted",
+    "agent_fit_rationale": "AI가 후보를 생성할 수 있지만 과업 계약과 완료조건은 인간이 소유합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "좋은 AI 과업 설명의 목적·맥락·입력·제약·완료조건 요소를 설명합니다.",
+        "evidence_hypothesis": "모호한 요청의 누락 요소를 판별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "새 과업을 구조화하고 사전에 정한 반복·시간 한도 안에서 필수 제약을 충족하거나 충족 불가·부적합 근거를 기록하고 중단합니다.",
+        "evidence_hypothesis": "숨겨진 제약이 있는 전이과제에서 필수 제약 충족, 교정 근거의 질과 안전한 중단 판단을 검사합니다."
+      }
+    ],
+    "depth_boundary": "재사용 시스템 프롬프트, 검색·메모리·도구 컨텍스트 설계는 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "cycle_time",
+      "quality",
+      "employee_experience",
+      "prerequisite_value"
+    ],
+    "business_hypotheses": [
+      "명확한 과업 계약은 무의미한 반복과 인간 재작업을 줄일 가능성이 있습니다.",
+      "결과 검증과 책임 있는 사용을 적용할 관찰 가능한 단위를 제공합니다."
+    ],
+    "maintenance_relevance": "awareness",
+    "operations_relevance": "awareness",
+    "priority_hint": "next",
+    "measurement_hypothesis": "사전에 심은 필수 제약의 충족률, 안전한 중단조건 누락, 교정 근거의 질과 인간 재작업시간을 비교합니다. 반복 횟수만으로 숙련도를 판정하지 않습니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "privacy",
+      "permissions",
+      "copyright",
+      "cost",
+      "reliability",
+      "human_approval"
+    ],
+    "notes": "입력에 포함할 수 없는 데이터와 인간 승인 조건을 과업 계약에 포함해야 합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.ai-literacy-trust.task-framing.dol-ten-07-25",
+      "title": "Training and Employment Notice No. 07-25: U.S. Department of Labor's AI Literacy Framework",
+      "publisher": "U.S. Department of Labor",
+      "source_type": "official_docs",
+      "url": "https://www.dol.gov/agencies/eta/advisories/ten-07-25",
+      "published_at": "2026-02-13",
+      "checked_at": "2026-07-27",
+      "source_version": "TEN 07-25",
+      "claim_scope": "맥락 제공과 명확한 지시를 AI 리터러시 기초 영역으로 제시하지만 특정 프롬프트 방식의 효과를 보장하지 않습니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "learning_outcome"
+      ]
+    },
+    {
+      "id": "evidence.ai-literacy-trust.task-framing.oecd-ailit-2026",
+      "title": "Empowering Learners for the Age of AI: An AI Literacy Framework for Primary and Secondary Education",
+      "publisher": "OECD and European Commission",
+      "source_type": "official_docs",
+      "url": "https://doi.org/10.1787/65cd27d4-en",
+      "published_at": "2026-06-18",
+      "checked_at": "2026-07-27",
+      "source_version": "2026",
+      "claim_scope": "AI와의 의미 있는 상호작용·창작·관리 역량의 폭을 교차검증합니다. 학교 학습자 대상이므로 성인 업무성과로 일반화하지 않습니다.",
+      "supports": [
+        "scope",
+        "learning_outcome"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "두 공식 프레임워크가 과업·맥락 표현과 반복적 AI 사용을 지지하며 시스템 프롬프트 구현과 구분했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.ai-literacy-trust.breadth-a",
+    "author_agent": "codex-main-with-read-only-research",
+    "researched_at": "2026-07-27",
+    "reviewers": [
+      "read-only-evidence-auditor",
+      "read-only-taxonomy-auditor",
+      "read-only-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "생성형 AI 이외 분류·추천 시스템에서 직접 지시가 없는 사례의 적용 범위를 보정해야 합니다."
+    ],
+    "next_action": "정규 Unit unit.foundation.ai-task-framing-use@1.0.0로 승격했습니다. cataloged 상태이므로 상세 교재와 학습효과는 아직 검증되지 않았습니다."
+  }
+}

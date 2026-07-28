@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.foundation.ai-foundations-limitations",
+  "version": "1.0.0",
+  "title": "AI 기초·역량·한계 이해",
+  "summary": "AI 시스템의 기본 동작과 맥락별 역량·한계를 설명하고 마케팅 주장이나 단일 시연을 일반 성능으로 오인하지 않는 후보 역량입니다.",
+  "item_type": "concept",
+  "taxonomy": {
+    "major_domain": "ai-literacy-trust",
+    "subdomains": [
+      "ai-foundations-and-limitations"
+    ]
+  },
+  "domain_tags": [
+    "ai-literacy",
+    "capabilities",
+    "limitations"
+  ],
+  "capabilities": [
+    "서로 다른 AI 시스템 사례에서 입력·출력·학습 데이터 의존성·지식 한계·실패 가능성을 설명하고 주장된 역량의 적용 범위를 판정합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.foundation.ai-foundations-limitations.d0",
+        "statement": "AI 시스템의 기본 동작, 용도와 주요 한계를 제품 독립적으로 설명합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.foundation.ai-foundations-limitations.d1-2",
+        "statement": "안내된 체크리스트로 AI 성능 주장의 적용 맥락과 확인되지 않은 한계를 표시합니다.",
+        "target_level": "D1"
+      },
+      {
+        "id": "outcome.foundation.ai-foundations-limitations.d2-3",
+        "statement": "새로운 AI 성능 주장을 맥락·데이터·평가조건과 대조하여 적용 가능·부적합·판단 불가로 분류합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "모델 내부 수학, 학습 파이프라인과 공급자별 구현은 제외합니다."
+  },
+  "relations": [],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.foundation.ai-foundations-limitations.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "foundation-ai-foundations-limitations-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.foundation.ai-foundations-limitations.d0",
+          "outcome.foundation.ai-foundations-limitations.d1-2",
+          "outcome.foundation.ai-foundations-limitations.d2-3"
+        ],
+        "required": true,
+        "success_criteria": [
+          "생성·분류·추천·예측 사례의 용도와 비사례를 구분합니다.",
+          "전 직원 공통 안내형 사례에서 언어·집단·접근 방식에 따른 성능 차이 가능성을 포함해 적용·부적합·미확인을 구분합니다.",
+          "숨겨진 배포조건이 있는 사례에서 범위 밖 일반화와 확인되지 않은 주장을 탐지합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Training and Employment Notice No. 07-25: U.S. Department of Labor's AI Literacy Framework",
+      "publisher": "U.S. Department of Labor",
+      "source_type": "official_docs",
+      "url": "https://www.dol.gov/agencies/eta/advisories/ten-07-25",
+      "source_version": "TEN 07-25",
+      "checked_at": "2026-07-27"
+    },
+    {
+      "title": "Artificial Intelligence Risk Management Framework (AI RMF 1.0)",
+      "publisher": "NIST",
+      "source_type": "official_spec",
+      "url": "https://doi.org/10.6028/NIST.AI.100-1",
+      "source_version": "NIST AI 100-1",
+      "checked_at": "2026-07-27"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "risk_reduction",
+    "capability_unlock",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-28",
+    "review_due_at": "2026-10-28",
+    "note": "candidate.ai-literacy-trust.ai-foundations-limitations@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.ai-literacy-trust.ai-foundations-limitations",
+      "version": "1.0.0"
+    }
+  }
+}

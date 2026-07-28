@@ -1,0 +1,165 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.ai-literacy-trust.ai-foundations-limitations",
+  "version": "1.0.0",
+  "title": "AI 기초·역량·한계 이해",
+  "canonical_name": "AI foundations, capabilities and limitations",
+  "aliases": [
+    "AI 개념 리터러시"
+  ],
+  "summary": "AI 시스템의 기본 동작과 맥락별 역량·한계를 설명하고 마케팅 주장이나 단일 시연을 일반 성능으로 오인하지 않는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "AI를 만능 지능이나 단순 자동화로 오해하여 부적합한 사용과 검증 누락이 발생하는 문제를 다룹니다.",
+    "includes": [
+      "AI 유형과 데이터·패턴 기반 동작의 기초",
+      "성능·지식·일반화·비결정성 한계",
+      "언어·방언·집단·접근 방식에 따른 성능 차이 가능성",
+      "벤치마크·시연과 실제 맥락 성능의 차이"
+    ],
+    "excludes": [
+      "모델 수학과 학습·추론 구현",
+      "특정 공급자 모델의 상세 기능",
+      "평가 하네스 구현"
+    ],
+    "boundary_note": "모든 역할에 필요한 제품 독립적 이해만 포함하며 전문 시스템 구현은 ai-systems-agents로 보냅니다."
+  },
+  "discovery": {
+    "lens_id": "ai-literacy-trust",
+    "basis": "assigned_lens",
+    "notes": "공식 AI 리터러시 프레임워크와 NIST 위험관리 문서의 공통 기초 영역에서 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "ai-literacy-trust",
+    "subdomains": [
+      "ai-foundations-and-limitations"
+    ],
+    "tags": [
+      "ai-literacy",
+      "capabilities",
+      "limitations"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "capability",
+    "proposed_destination": "unit_candidate",
+    "proposed_item_type": "concept",
+    "proposed_unit_id": "unit.foundation.ai-foundations-limitations",
+    "rationale": "여러 산업·역할에서 재사용되며 새로운 사례에서 적용 가능·부적합·판단 불가를 구분하는 독립 평가가 가능합니다."
+  },
+  "relations": [],
+  "capability": {
+    "learner_can_do": "서로 다른 AI 시스템 사례에서 입력·출력·학습 데이터 의존성·지식 한계·실패 가능성을 설명하고 주장된 역량의 적용 범위를 판정합니다.",
+    "work_contexts": [
+      "현업 담당자의 내장형 AI 기능 검토",
+      "관리자의 AI 보조 의사결정 검토",
+      "조달 담당자의 공급자 성능 주장 검토",
+      "언어·방언·접근 방식이 다른 사용자 사례"
+    ],
+    "transferability": "enterprise_cross_functional",
+    "agent_fit": "not_applicable",
+    "agent_fit_rationale": "AI 사용을 자동화하는 역량이 아니라 인간이 AI의 성격과 한계를 판별하는 선수역량입니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "AI 시스템의 기본 동작, 용도와 주요 한계를 제품 독립적으로 설명합니다.",
+        "evidence_hypothesis": "생성·분류·추천·예측 사례의 용도와 비사례를 구분합니다."
+      },
+      {
+        "level": "D1",
+        "outcome": "안내된 체크리스트로 AI 성능 주장의 적용 맥락과 확인되지 않은 한계를 표시합니다.",
+        "evidence_hypothesis": "전 직원 공통 안내형 사례에서 언어·집단·접근 방식에 따른 성능 차이 가능성을 포함해 적용·부적합·미확인을 구분합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "새로운 AI 성능 주장을 맥락·데이터·평가조건과 대조하여 적용 가능·부적합·판단 불가로 분류합니다.",
+        "evidence_hypothesis": "숨겨진 배포조건이 있는 사례에서 범위 밖 일반화와 확인되지 않은 주장을 탐지합니다."
+      }
+    ],
+    "depth_boundary": "모델 내부 수학, 학습 파이프라인과 공급자별 구현은 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "risk_reduction",
+      "prerequisite_value",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "AI의 적용 범위를 과대평가하여 발생하는 재작업과 위험한 사용을 줄일 가능성이 있습니다.",
+      "후속 검증·책임 있는 사용 역량의 공통 선수역량입니다."
+    ],
+    "maintenance_relevance": "material",
+    "operations_relevance": "awareness",
+    "priority_hint": "next",
+    "measurement_hypothesis": "새 사례에서 한계 누락률, 범위 밖 일반화 수와 판정 근거 완전성을 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "ethics",
+      "cost",
+      "reliability",
+      "human_approval"
+    ],
+    "notes": "시스템 특성에 따라 위험축의 중요도가 달라지므로 한계를 맥락과 분리하지 않습니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.ai-literacy-trust.foundations.dol-ten-07-25",
+      "title": "Training and Employment Notice No. 07-25: U.S. Department of Labor's AI Literacy Framework",
+      "publisher": "U.S. Department of Labor",
+      "source_type": "official_docs",
+      "url": "https://www.dol.gov/agencies/eta/advisories/ten-07-25",
+      "published_at": "2026-02-13",
+      "checked_at": "2026-07-27",
+      "source_version": "TEN 07-25",
+      "claim_scope": "AI 원리·역량·한계 이해를 미국 노동·교육용 AI 리터러시의 기초 영역으로 제시합니다. 전사 교육 효과를 확정하지 않습니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "learning_outcome"
+      ]
+    },
+    {
+      "id": "evidence.ai-literacy-trust.foundations.nist-ai-rmf",
+      "title": "Artificial Intelligence Risk Management Framework (AI RMF 1.0)",
+      "publisher": "NIST",
+      "source_type": "official_spec",
+      "url": "https://doi.org/10.6028/NIST.AI.100-1",
+      "published_at": "2023-01-26",
+      "checked_at": "2026-07-27",
+      "source_version": "NIST AI 100-1",
+      "claim_scope": "AI 시스템의 맥락·유효성·신뢰성·일반화 한계를 이해하고 문서화해야 하는 범위를 지지합니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "risk"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "공식 노동 역량 프레임워크와 NIST 위험관리 문서가 독립적인 기초 이해 범위를 지지하며 제품별 사용법은 제외했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.ai-literacy-trust.breadth-a",
+    "author_agent": "codex-main-with-read-only-research",
+    "researched_at": "2026-07-27",
+    "reviewers": [
+      "read-only-evidence-auditor",
+      "read-only-taxonomy-auditor",
+      "read-only-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "전 직원 공통은 D0·안내형 D1, 실제 사용자·검토자는 D2, 승인자·고위험 담당자는 역할별 Overlay로 분리하는 기준을 파일럿에서 보정해야 합니다."
+    ],
+    "next_action": "정규 Unit unit.foundation.ai-foundations-limitations@1.0.0로 승격했습니다. cataloged 상태이므로 상세 교재와 학습효과는 아직 검증되지 않았습니다."
+  }
+}

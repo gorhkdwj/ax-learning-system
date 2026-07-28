@@ -1,0 +1,222 @@
+{
+  "schema_version": "1.0.0",
+  "id": "set.project.ai-workflow-agent-topology-comparison",
+  "version": "1.0.0",
+  "title": "AI 워크플로·에이전트 토폴로지 비교",
+  "summary": "같은 과제에 단일 호출·고정 workflow·모델 주도 agent 또는 위임 구조를 비교하여 필요한 최소 복잡도와 제어 gate를 선택합니다.",
+  "set_type": "project",
+  "target_roles": [],
+  "business_context": "AI 시스템 구축이 이미 결정된 공개 또는 합성 과제를 대상으로 합니다. runner 내부 Loop 구현, 대규모 분산 orchestration과 운영 스케줄링은 제외합니다.",
+  "target_outcome": "같은 과제의 두 실행 방식 또는 재생 가능한 trace를 고정 수용 기준으로 비교하고 종료·한도·승인·복구 gate를 배치하여 최소 복잡도 구조를 선택합니다.",
+  "input_artifacts": [
+    "공개 또는 합성 과제",
+    "고정 수용 기준과 실패 시나리오",
+    "두 실행 방식 또는 재생 가능한 trace",
+    "호출·토큰·시간·비용 한도"
+  ],
+  "output_artifacts": [
+    "방식별 실행 계약",
+    "도구·상태·인계 계약",
+    "반복 실행 평가 기록",
+    "최소 복잡도 선택 보고서"
+  ],
+  "entry_requirements": [],
+  "priority": {
+    "curriculum_class": "role_core",
+    "execution_priority": "next",
+    "reason": "불필요한 agent 복잡도를 피하는 비교 설계 역량으로 등록하되 실제 업무 적용 순서는 파일럿과 개인 우선순위 평가 뒤 결정합니다."
+  },
+  "business_impact": {
+    "value_hypothesis": "같은 과제에서 품질·비용·지연·복구를 함께 비교하면 과도한 agent 구조와 통제 누락을 줄일 가능성이 있습니다.",
+    "impact_types": [
+      "cost",
+      "time",
+      "quality",
+      "risk_reduction",
+      "strategic_option"
+    ],
+    "evidence_confidence": "hypothesis",
+    "learning_effort_note": "개별 Unit 학습시간과 두 방식 통합·반복 비교시간을 분리합니다.",
+    "maintenance_cost_note": "모델·프롬프트·도구·상태 schema가 바뀌면 같은 고정 fixture로 비교를 다시 수행해야 합니다."
+  },
+  "steps": [
+    {
+      "id": "fix-execution-contract",
+      "title": "공통 실행 계약 고정",
+      "reason": "두 방식이 같은 입력·출력·오류·외부 변경 경계에서 비교되도록 합니다.",
+      "unit_ref": {
+        "id": "unit.ai.llm-application-architecture-contract",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": true,
+      "depends_on": [],
+      "resource_refs": [],
+      "consumes": [
+        "공개 또는 합성 과제",
+        "호출·토큰·시간·비용 한도"
+      ],
+      "produces": [
+        "방식별 실행 계약"
+      ],
+      "validation_gate_ids": [
+        "ai-llm-application-architecture-contract-catalog-assessment"
+      ],
+      "estimated_minutes": 120
+    },
+    {
+      "id": "fix-tool-contracts",
+      "title": "도구 계약과 부작용 경계 고정",
+      "reason": "도구 선택·인자·오류·중복 호출이 방식별 비교를 왜곡하지 않도록 공통 계약을 적용합니다.",
+      "unit_ref": {
+        "id": "unit.ai.tool-function-contract-design",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": true,
+      "depends_on": [
+        "fix-execution-contract"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "방식별 실행 계약"
+      ],
+      "produces": [
+        "도구·오류·부작용 계약"
+      ],
+      "validation_gate_ids": [
+        "ai-tool-function-contract-design-catalog-assessment"
+      ],
+      "estimated_minutes": 120
+    },
+    {
+      "id": "fix-state-and-handoff",
+      "title": "상태·메모리·인계 계약 고정",
+      "reason": "재개·위임 구조의 소유권·중복 실행·stale memory 차이를 재현 가능하게 비교합니다.",
+      "unit_ref": {
+        "id": "unit.ai.agent-state-memory-handoff-design",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": true,
+      "depends_on": [
+        "fix-tool-contracts"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "방식별 실행 계약",
+        "도구·오류·부작용 계약"
+      ],
+      "produces": [
+        "도구·상태·인계 계약"
+      ],
+      "validation_gate_ids": [
+        "ai-agent-state-memory-handoff-design-catalog-assessment"
+      ],
+      "estimated_minutes": 120
+    },
+    {
+      "id": "compare-topologies",
+      "title": "반복 실행과 실패 주입 비교",
+      "reason": "품질·비용·지연·복구·인간 개입을 같은 fixture와 release gate로 비교합니다.",
+      "unit_ref": {
+        "id": "unit.ai.system-evaluation-regression-design",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": true,
+      "depends_on": [
+        "fix-state-and-handoff"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "고정 수용 기준과 실패 시나리오",
+        "두 실행 방식 또는 재생 가능한 trace",
+        "도구·상태·인계 계약"
+      ],
+      "produces": [
+        "반복 실행 평가 기록",
+        "최소 복잡도 선택 보고서"
+      ],
+      "validation_gate_ids": [
+        "ai-system-evaluation-regression-design-catalog-assessment"
+      ],
+      "estimated_minutes": 180
+    }
+  ],
+  "risk_profile": {
+    "level": "medium",
+    "data_classes": [
+      "public"
+    ],
+    "human_approval_points": [
+      "두 방식이 같은 공개 또는 합성 입력과 동일 수용 기준을 사용하는지 실행 전에 확인합니다.",
+      "도구의 외부 쓰기·삭제·관리·재무 부작용은 fake adapter로 대체하며 실제 권한 추가는 별도 승인을 받습니다.",
+      "최종 구조 선택은 품질뿐 아니라 비용·지연·복구·인간 개입 증거를 함께 검토합니다."
+    ],
+    "stop_conditions": [
+      "실제 민감정보나 운영 자격증명이 입력됩니다.",
+      "승인되지 않은 외부 부작용이 실행됩니다.",
+      "종료·재시도·호출·토큰·시간·비용 한도가 집행되지 않습니다.",
+      "두 방식의 입력·수용 기준 또는 평가 반복 수가 달라 공정한 비교가 불가능합니다."
+    ],
+    "rollback_plan": "fake adapter와 로컬 fixture 상태를 초기 snapshot으로 복원하고 실행 산출물을 폐기합니다. 실제 외부 상태는 변경하지 않습니다."
+  },
+  "capstone_resource_refs": [],
+  "acceptance_criteria": [
+    "같은 과제와 실패 시나리오에서 두 실행 방식 또는 재생 가능한 trace를 비교합니다.",
+    "각 시나리오를 독립적으로 10회 실행하여 치명 실패가 0건이고 결정적 검사는 10회 모두 통과합니다.",
+    "전체 과업 성공률이 80% 이상이며 모든 실행이 사전 정의한 시간·비용 한도를 지킵니다.",
+    "성공률이 80~89%이거나 실패 유형이 불안정하면 30회로 확대해 재평가합니다.",
+    "선택한 구조가 다른 방식보다 복잡도 상한을 넘지 않으면서 품질·복구의 비열등성 기준을 충족합니다."
+  ],
+  "transfer_evaluation": {
+    "check_after_days": 7,
+    "metrics": [
+      "방식별 업무 성공률과 치명 실패 수",
+      "호출·토큰·시간·비용",
+      "실패 복구율과 중복 부작용 수",
+      "인간 개입시간",
+      "불필요한 agent 단계 수"
+    ],
+    "different_context_task": "기존과 다른 도구 조합과 실패 분포를 가진 새 공개 또는 합성 과제에서 두 방식을 다시 비교하고 같은 최소 복잡도 선택 절차를 재현합니다."
+  },
+  "sources": [
+    {
+      "title": "Building effective agents",
+      "publisher": "Anthropic",
+      "source_type": "official_source",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "checked_at": "2026-07-28"
+    },
+    {
+      "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+      "publisher": "ICLR",
+      "source_type": "primary_research",
+      "url": "https://openreview.net/forum?id=WE_vluYUL-X",
+      "checked_at": "2026-07-28"
+    },
+    {
+      "title": "Practices for Automated Benchmark Evaluations of Language Models",
+      "publisher": "NIST",
+      "source_type": "official_source",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.800-2.ipd.pdf",
+      "source_version": "NIST AI 800-2 Initial Public Draft",
+      "checked_at": "2026-07-28"
+    }
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-28",
+    "review_due_at": "2026-10-28",
+    "note": "candidate.ai-systems-agents.ai-workflow-agent-topology-design@1.0.0의 승인 결과를 정규 Set 메타데이터로 등록했습니다. 파일럿과 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.ai-systems-agents.ai-workflow-agent-topology-design",
+      "version": "1.0.0"
+    }
+  }
+}

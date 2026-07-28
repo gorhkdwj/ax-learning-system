@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.foundation.ai-trust-calibration.reference",
+  "version": "1.0.0",
+  "title": "AI 신뢰와 의존 수준 보정 공식·1차 출처 Reference",
+  "description": "정규 Unit의 정의·범위와 판정 기준을 뒷받침하는 공개 Reference입니다. 상세 교재나 독립 평가자료를 대신하지 않습니다.",
+  "resource_type": "external_reference",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.foundation.ai-trust-calibration",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "external",
+    "url": "https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/"
+  },
+  "learning_outcome_ids": [
+    "outcome.foundation.ai-trust-calibration.d0",
+    "outcome.foundation.ai-trust-calibration.d2-2"
+  ],
+  "estimated_minutes": 30,
+  "language": "ko",
+  "tags": [
+    "reference",
+    "promotion-evidence"
+  ],
+  "requirements": {
+    "platforms": [
+      "web-browser"
+    ],
+    "network_required": true
+  },
+  "provenance": {
+    "origin": "external",
+    "sources": [
+      {
+        "title": "AI Risk Management and Human-AI Interaction",
+        "publisher": "NIST",
+        "source_type": "official_spec",
+        "url": "https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/",
+        "source_version": "AI RMF 1.0 Appendix C",
+        "checked_at": "2026-07-27"
+      },
+      {
+        "title": "From Trust to Appropriate Reliance: Measurement Constructs in Human-AI Decision-Making",
+        "publisher": "arXiv",
+        "source_type": "secondary_reference",
+        "url": "https://arxiv.org/abs/2604.23896",
+        "checked_at": "2026-07-27"
+      },
+      {
+        "title": "The impact of AI errors in a human-in-the-loop process",
+        "publisher": "Cognitive Research: Principles and Implications",
+        "source_type": "primary_research",
+        "url": "https://doi.org/10.1186/s41235-023-00529-3",
+        "source_version": "9:1",
+        "checked_at": "2026-07-27"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "unverified",
+    "standard": "WCAG 2.2 AA",
+    "features": [],
+    "alternative_resource_refs": [],
+    "note": "외부 출처의 접근성은 재검토가 필요합니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-07-28",
+    "commands": [],
+    "expected_outputs": [
+      "출처가 Unit의 정의·범위·판정 기준을 뒷받침하는지 확인한 기록"
+    ],
+    "evidence_paths": [],
+    "note": "URL·근거 범위만 검토했으며 학습자료로서의 완전성과 평가 타당성은 아직 검증하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-28",
+    "review_due_at": "2026-10-28",
+    "note": "Candidate 승격 시 등록한 공개 Reference입니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.ai-literacy-trust.trust-calibration",
+      "version": "1.0.0"
+    }
+  }
+}

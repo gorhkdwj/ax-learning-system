@@ -7,7 +7,7 @@ import unittest
 from pathlib import Path
 from typing import Any, Callable
 
-from tools.validate_catalog import CatalogValidator
+from tools.validate_catalog import CatalogValidator, build_parser
 
 
 class CatalogValidatorTest(unittest.TestCase):
@@ -25,6 +25,26 @@ class CatalogValidatorTest(unittest.TestCase):
             self.workspace_root / "examples" / "valid",
             self.fixture_root,
         )
+        promoted_reference_source = (
+            self.workspace_root
+            / "catalog"
+            / "items"
+            / "unit.foundation.evidence-verification"
+            / "resources"
+            / "content-provenance-reference"
+            / "resource.json"
+        )
+        promoted_reference_target = (
+            self.fixture_root
+            / "catalog"
+            / "items"
+            / "unit.foundation.evidence-verification"
+            / "resources"
+            / "content-provenance-reference"
+            / "resource.json"
+        )
+        promoted_reference_target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(promoted_reference_source, promoted_reference_target)
         self.signal_root = Path(self.temporary_directory.name) / "signals"
         shutil.copytree(
             self.workspace_root / "research" / "signals",
@@ -159,6 +179,12 @@ class CatalogValidatorTest(unittest.TestCase):
     def codes(report) -> set[str]:
         return {issue.code for issue in report.issues}
 
+    def test_default_roots_include_regular_catalog_and_sets(self) -> None:
+        args = build_parser().parse_args([])
+
+        self.assertIn("catalog", args.roots)
+        self.assertIn("sets", args.roots)
+
     def test_valid_examples_pass(self) -> None:
         report = self.validate()
 
@@ -169,7 +195,7 @@ class CatalogValidatorTest(unittest.TestCase):
             report.counts,
             {
                 "unit": 2,
-                "resource": 4,
+                "resource": 5,
                 "set": 1,
                 "signal": 3,
                 "candidate": 1,

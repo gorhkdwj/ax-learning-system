@@ -1,0 +1,168 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.software-product-engineering.layered-software-verification",
+  "version": "1.0.0",
+  "title": "계층형 소프트웨어 검증·테스트",
+  "canonical_name": "Layered software verification and testing",
+  "aliases": [],
+  "summary": "요구·위험·변경 범위에 맞춰 단위·통합·계약·종단 간·정적 검사를 조합하고 실패 재현과 회귀 Gate를 설계하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "테스트 수나 coverage만 늘리고 중요한 경계·실패·통합 계약을 검증하지 못하는 문제를 다룹니다.",
+    "includes": [
+      "위험 기반 테스트 전략",
+      "단위·통합·계약·종단 간 검사",
+      "정적 검사·과거 결함 회귀",
+      "fixture·oracle·coverage 해석"
+    ],
+    "excludes": [
+      "AI 확률 시스템 전용 반복평가",
+      "운영 SLO·관측 플랫폼",
+      "침투시험 전문 수행"
+    ],
+    "boundary_note": "결정적 소프트웨어 변경 검증을 소유하고 stochastic AI 평가와 운영 품질은 인접 Unit이 소유합니다."
+  },
+  "discovery": {
+    "lens_id": "software-product-engineering",
+    "basis": "assigned_lens",
+    "notes": "SWEBOK V4.0a와 관련 공식 사양·문서의 안정된 공학 행동을 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "software-product-engineering",
+    "subdomains": [
+      "software-verification-testing"
+    ],
+    "tags": [
+      "testing",
+      "verification",
+      "regression",
+      "contract-test"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "특정 테스트 프레임워크가 아니라 위험·경계·oracle·회귀 Gate 설계가 전이되므로 Unit 후보로 둡니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.software.layered-verification-testing"
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.software-product-engineering.requirements-acceptance-traceability",
+        "version": "1.0.0"
+      },
+      "rationale": "검증 대상과 oracle은 요구·인수기준에서 파생되어야 합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "새 변경의 요구·위험·경계를 분석해 최소 검증 계층과 실패 fixture를 설계하고 결함을 탐지하는 release Gate를 구현합니다.",
+    "work_contexts": [
+      "프론트엔드",
+      "백엔드 API",
+      "데이터 migration",
+      "CLI·라이브러리"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "deterministic_automation_preferred",
+    "agent_fit_rationale": "테스트 생성 보조보다 독립 실행 가능한 결정적 oracle과 실패 주입이 정본입니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "단위·통합·계약·종단 간·정적 검사의 발견 범위와 한계를 구분합니다.",
+        "evidence_hypothesis": "높은 coverage지만 핵심 실패를 놓치는 비사례를 판별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "새 변경의 위험·경계에 맞는 검증 계층과 실패 fixture를 구현해 의도한 결함과 회귀를 탐지합니다.",
+        "evidence_hypothesis": "숨은 mutation·경계·과거 결함 fixture를 모두 탐지하고 flaky 결과 0건을 검사합니다."
+      }
+    ],
+    "depth_boundary": "대규모 테스트 플랫폼·성능·chaos·운영 SLO와 전문 보안시험은 별도 D3 영역으로 분리합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "risk_reduction",
+      "cycle_time",
+      "reuse",
+      "mandatory_control"
+    ],
+    "business_hypotheses": [
+      "위험과 경계에 맞춘 검증 계층은 결함 탐지와 release 판단의 재현성을 높일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "core",
+    "priority_hint": "now",
+    "measurement_hypothesis": "숨은 결함 탐지율, flaky test 수, 경계·과거 결함 회귀와 검사 실행시간을 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "accessibility",
+      "cost",
+      "observability",
+      "reliability",
+      "recovery"
+    ],
+    "notes": "전문 보안·접근성 시험은 각 렌즈가 기준을 제공하고 이 Unit은 변경 Gate에 적절히 조합합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.software-product-engineering.testing.swebok",
+      "title": "Software Engineering Body of Knowledge: SWEBOK Guide V4.0 Topics",
+      "publisher": "IEEE Computer Society",
+      "source_type": "official_source",
+      "url": "https://www.computer.org/education/bodies-of-knowledge/software-engineering/topics",
+      "source_version": "SWEBOK Guide V4.0a",
+      "checked_at": "2026-07-28",
+      "claim_scope": "위험 기반 테스트·비기능 검사·completion assessment·coverage·테스트 자산을 일반 지식범위로 제시합니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "learning_outcome"
+      ]
+    },
+    {
+      "id": "evidence.software-product-engineering.testing.nistir-8397",
+      "title": "Guidelines on Minimum Standards for Developer Verification of Software",
+      "publisher": "NIST",
+      "source_type": "official_source",
+      "url": "https://doi.org/10.6028/NIST.IR.8397",
+      "source_version": "NISTIR 8397",
+      "checked_at": "2026-07-28",
+      "claim_scope": "자동화·정적·black-box·구조·과거 결함·fuzzing 등 여러 검증 기법의 조합을 최소 권고로 제시합니다.",
+      "supports": [
+        "scope",
+        "risk",
+        "work_relevance"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "특정 테스트 프레임워크가 아니라 위험·경계·oracle·회귀 Gate 설계가 전이되므로 Unit 후보로 둡니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.software-product-engineering.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-28",
+    "reviewers": [
+      "read-only-evidence-auditor",
+      "read-only-taxonomy-auditor",
+      "read-only-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "coverage 목표는 고정 백분율이 아니라 위험·변경 범위와 숨은 결함 탐지 증거로 보정합니다."
+    ],
+    "next_action": "승인된 Candidate로 유지합니다. 정규 Unit unit.software.layered-verification-testing@1.0.0 승격은 별도 Gate에서 수행하며 상세 교재·학습효과는 아직 검증되지 않았습니다."
+  }
+}

@@ -22,6 +22,8 @@ Breadth 조사 결과도 Capability Candidate 메타데이터로 staging한 뒤 
   규칙을 검사합니다.
 - `templates/metadata/*.template.json`: 새 항목을 작성할 때 복제하는 시작점입니다.
 - `examples/valid`: 검증기 정상 동작과 테스트에 사용하는 최소 참조 구현입니다.
+- `catalog/items`: 승인된 정규 Unit과 그 Unit이 소유하는 Resource를 관리합니다.
+- `sets`: 승인된 정규 Learning Set을 관리합니다.
 - `research/signals`: 검증 전 신흥 개념의 정의, 주장·근거와 승격 판정을 보존합니다.
 - `research/capability-survey`: Phase 2 후보, 분야 보고서와 Wave Checkpoint를 보존합니다.
 - `taxonomy/taxonomy.json`: 조사 렌즈, 잠정·정규 분류 node, 외부 참고체계와
@@ -75,6 +77,10 @@ owner도 함께 검토합니다. 검증기는 다른 버전의 Resource를 자�
 ```powershell
 python tools/validate_catalog.py
 ```
+
+기본 검증 범위는 `examples/valid`, `catalog`, `sets`, `research/signals`,
+`research/capability-survey`, `taxonomy`입니다. 따라서 정규 승격 파일도 별도
+인자 없이 교차 참조와 Taxonomy 검증을 받습니다.
 
 전체 자동 회귀검사는 다음과 같습니다.
 

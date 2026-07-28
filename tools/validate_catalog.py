@@ -3021,13 +3021,16 @@ def build_parser() -> argparse.ArgumentParser:
         nargs="*",
         default=[
             "examples/valid",
+            "catalog",
+            "sets",
             "research/signals",
             "research/capability-survey",
             "taxonomy",
         ],
         help=(
             "검증할 파일 또는 디렉터리입니다. 기본값: "
-            "examples/valid research/signals research/capability-survey taxonomy"
+            "examples/valid catalog sets research/signals "
+            "research/capability-survey taxonomy"
         ),
     )
     parser.add_argument(

@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.foundation.evidence-verification.content-provenance-reference",
+  "version": "1.0.0",
+  "title": "합성 콘텐츠 provenance 해석 Reference",
+  "description": "C2PA Content Credentials의 출처·변경 이력 정보를 해석하되 이를 콘텐츠 진실성의 보증으로 오인하지 않도록 돕는 공개 Reference입니다.",
+  "resource_type": "external_reference",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.foundation.evidence-verification",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "external",
+    "url": "https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html"
+  },
+  "learning_outcome_ids": [
+    "outcome.foundation.evidence-verification.explain",
+    "outcome.foundation.evidence-verification.guided"
+  ],
+  "estimated_minutes": 30,
+  "language": "ko",
+  "tags": [
+    "content-provenance",
+    "content-credentials",
+    "reference"
+  ],
+  "requirements": {
+    "platforms": [
+      "web-browser"
+    ],
+    "network_required": true
+  },
+  "provenance": {
+    "origin": "external",
+    "sources": [
+      {
+        "title": "C2PA Specifications 2.4",
+        "publisher": "Coalition for Content Provenance and Authenticity",
+        "source_type": "official_spec",
+        "url": "https://spec.c2pa.org/specifications/specifications/2.4/index.html",
+        "source_version": "C2PA Specifications 2.4",
+        "checked_at": "2026-07-27"
+      },
+      {
+        "title": "C2PA and Content Credentials Explainer",
+        "publisher": "Coalition for Content Provenance and Authenticity",
+        "source_type": "official_docs",
+        "url": "https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html",
+        "source_version": "C2PA Specifications 2.4",
+        "checked_at": "2026-07-27"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "unverified",
+    "standard": "WCAG 2.2 AA",
+    "features": [],
+    "alternative_resource_refs": [],
+    "note": "외부 출처의 접근성은 재검토가 필요합니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-07-28",
+    "commands": [],
+    "expected_outputs": [
+      "provenance·서명·AI 생성 표시와 콘텐츠 진실성의 차이를 설명합니다.",
+      "유효·손상·없음·미지원 상태와 별도 사실 검증 필요를 구분합니다."
+    ],
+    "evidence_paths": [],
+    "note": "공식 사양의 보장 범위와 해석 경계만 검토했으며 도구별 지원 범위와 독립 평가 타당성은 아직 검증하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-28",
+    "review_due_at": "2026-10-28",
+    "note": "candidate.ai-literacy-trust.content-provenance-interpretation@1.0.0의 승인 결과를 Resource로 승격했습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.ai-literacy-trust.content-provenance-interpretation",
+      "version": "1.0.0"
+    }
+  }
+}

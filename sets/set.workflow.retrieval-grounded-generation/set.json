@@ -1,0 +1,220 @@
+{
+  "schema_version": "1.0.0",
+  "id": "set.workflow.retrieval-grounded-generation",
+  "version": "1.0.0",
+  "title": "검색·근거 연결 생성 시스템 설계",
+  "summary": "모델 호출·컨텍스트 조립·근거 평가·회귀 평가 Unit을 조합하여 검색과 생성 실패를 분리하는 최소 RAG 시스템을 설계합니다.",
+  "set_type": "workflow",
+  "target_roles": [],
+  "business_context": "공개 또는 합성 corpus와 사전 구축된 두 index snapshot을 사용합니다. 원문 수집·대규모 재색인·임베딩 학습·운영 권한관리는 이 Set의 범위가 아닙니다.",
+  "target_outcome": "source ID와 검색 trace를 보존하고 답변 보류·삭제·갱신·권한 제한 조건을 검증할 수 있는 최소 검색·근거 연결 생성 시스템을 만듭니다.",
+  "input_artifacts": [
+    "공개 또는 합성 corpus 두 버전",
+    "사전 구축 index snapshot 두 버전",
+    "정상·경계·실패 질문군",
+    "시간·비용·권한 한도"
+  ],
+  "output_artifacts": [
+    "모델 호출·컨텍스트 계약",
+    "검색·생성 trace",
+    "근거 및 답변 보류 평가 기록",
+    "snapshot 회귀 보고서"
+  ],
+  "entry_requirements": [
+    {
+      "unit": {
+        "id": "unit.foundation.evidence-verification",
+        "version": "1.0.0"
+      },
+      "required_level": "D2"
+    }
+  ],
+  "priority": {
+    "curriculum_class": "role_core",
+    "execution_priority": "now",
+    "reason": "검색·생성·근거 평가를 분리해 재현하는 D2 시스템 설계 역량으로 등록하되 실제 업무 우선순위와 효과는 파일럿 전까지 확정하지 않습니다."
+  },
+  "business_impact": {
+    "value_hypothesis": "검색과 생성 실패를 분리하고 오래되거나 권한 밖인 근거를 차단하면 근거 없는 답변의 전파와 진단 시간을 줄일 가능성이 있습니다.",
+    "impact_types": [
+      "quality",
+      "time",
+      "risk_reduction",
+      "reuse"
+    ],
+    "evidence_confidence": "hypothesis",
+    "learning_effort_note": "등록된 Unit 학습과 Set 통합 실습 시간을 분리하여 측정해야 합니다.",
+    "maintenance_cost_note": "corpus·index snapshot, 모델·프롬프트와 평가 질문군의 버전을 함께 재검토해야 합니다."
+  },
+  "steps": [
+    {
+      "id": "define-inference-boundary",
+      "title": "모델 호출과 실패 계약 정의",
+      "reason": "검색 결과가 모델 입력과 외부 출력으로 이어지는 경계를 명시합니다.",
+      "unit_ref": {
+        "id": "unit.ai.llm-application-architecture-contract",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": true,
+      "depends_on": [],
+      "resource_refs": [],
+      "consumes": [
+        "시간·비용·권한 한도"
+      ],
+      "produces": [
+        "모델 호출·실패 계약"
+      ],
+      "validation_gate_ids": [
+        "ai-llm-application-architecture-contract-catalog-assessment"
+      ],
+      "estimated_minutes": 120
+    },
+    {
+      "id": "assemble-grounded-context",
+      "title": "검색 근거 컨텍스트 조립",
+      "reason": "source ID·신뢰 경계·예산을 보존하면서 검색 결과를 모델 컨텍스트로 조립합니다.",
+      "unit_ref": {
+        "id": "unit.ai.system-context-design",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": true,
+      "depends_on": [
+        "define-inference-boundary"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "공개 또는 합성 corpus 두 버전",
+        "사전 구축 index snapshot 두 버전",
+        "모델 호출·실패 계약"
+      ],
+      "produces": [
+        "모델 호출·컨텍스트 계약",
+        "검색·생성 trace"
+      ],
+      "validation_gate_ids": [
+        "ai-system-context-design-catalog-assessment"
+      ],
+      "estimated_minutes": 120
+    },
+    {
+      "id": "evaluate-grounding-and-abstention",
+      "title": "근거 연결과 답변 보류 평가",
+      "reason": "검색 누락과 제공된 근거를 무시한 생성을 서로 다른 실패로 판정합니다.",
+      "unit_ref": {
+        "id": "unit.ai.grounded-output-evaluation",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": true,
+      "depends_on": [
+        "assemble-grounded-context"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "정상·경계·실패 질문군",
+        "검색·생성 trace"
+      ],
+      "produces": [
+        "근거 및 답변 보류 평가 기록"
+      ],
+      "validation_gate_ids": [
+        "grounded-output-rubric"
+      ],
+      "estimated_minutes": 120
+    },
+    {
+      "id": "run-snapshot-regression",
+      "title": "snapshot 변경 회귀 검증",
+      "reason": "삭제·갱신·권한 제한 문서와 답이 없는 질문이 변경 뒤에도 올바르게 처리되는지 검증합니다.",
+      "unit_ref": {
+        "id": "unit.ai.system-evaluation-regression-design",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": true,
+      "depends_on": [
+        "evaluate-grounding-and-abstention"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "사전 구축 index snapshot 두 버전",
+        "근거 및 답변 보류 평가 기록"
+      ],
+      "produces": [
+        "snapshot 회귀 보고서"
+      ],
+      "validation_gate_ids": [
+        "ai-system-evaluation-regression-design-catalog-assessment"
+      ],
+      "estimated_minutes": 120
+    }
+  ],
+  "risk_profile": {
+    "level": "medium",
+    "data_classes": [
+      "public"
+    ],
+    "human_approval_points": [
+      "입력이 공개 또는 합성 데이터이며 삭제·권한 제한 fixture가 실제 민감정보를 포함하지 않는지 확인합니다.",
+      "외부 게시·전송·저장 기능은 이 Set에 추가하지 않으며 추가 시 별도 승인을 받습니다."
+    ],
+    "stop_conditions": [
+      "실제 개인정보·비밀정보·권한 제한 원문이 입력에 포함됩니다.",
+      "삭제·갱신·권한 제한 문서가 차단되지 않습니다.",
+      "답이 없는 질문에서 보류하지 않고 핵심 주장을 생성합니다.",
+      "사전에 정한 호출·토큰·시간·비용 한도를 넘습니다."
+    ],
+    "rollback_plan": "생성한 로컬 산출물과 임시 index를 폐기하고 읽기 전용 snapshot에서 다시 시작합니다. 실제 원천과 외부 상태는 변경하지 않습니다."
+  },
+  "capstone_resource_refs": [],
+  "acceptance_criteria": [
+    "각 시나리오를 독립적으로 10회 실행하여 치명 실패가 0건이고 결정적 검사는 10회 모두 통과합니다.",
+    "전체 과업 성공률이 80% 이상이며 모든 실행이 사전 정의한 시간·비용 한도를 지킵니다.",
+    "성공률이 80~89%이거나 실패 유형이 불안정하면 30회로 확대해 재평가합니다.",
+    "검색 누락과 제공 근거를 무시한 생성이 별도 실패로 기록됩니다.",
+    "삭제·갱신·권한 제한 문서가 결과에 남지 않고 답이 없는 질문은 보류됩니다."
+  ],
+  "transfer_evaluation": {
+    "check_after_days": 7,
+    "metrics": [
+      "숨은 질문군의 과업 성공률과 치명 실패 수",
+      "검색 실패·생성 실패·최신성 실패별 회귀율",
+      "source ID 보존과 답변 보류 적중률",
+      "질의당 호출·토큰·시간·비용",
+      "snapshot 복구시간"
+    ],
+    "different_context_task": "기존과 다른 공개 문서 유형과 질문 분포를 사용하고 삭제·갱신·권한 제한 조건을 바꾼 두 번째 corpus·index snapshot에서 같은 수용 기준을 충족합니다."
+  },
+  "sources": [
+    {
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "publisher": "NeurIPS",
+      "source_type": "primary_research",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2020/hash/6b493230205f780e1bc26945df7481e5-Abstract.html",
+      "checked_at": "2026-07-28"
+    },
+    {
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "publisher": "Association for Computational Linguistics",
+      "source_type": "primary_research",
+      "url": "https://aclanthology.org/2024.naacl-long.20/",
+      "checked_at": "2026-07-28"
+    }
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-28",
+    "review_due_at": "2026-10-28",
+    "note": "candidate.ai-systems-agents.retrieval-grounded-generation-design@1.0.0의 승인 결과를 정규 Set 메타데이터로 등록했습니다. 파일럿과 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.ai-systems-agents.retrieval-grounded-generation-design",
+      "version": "1.0.0"
+    }
+  }
+}

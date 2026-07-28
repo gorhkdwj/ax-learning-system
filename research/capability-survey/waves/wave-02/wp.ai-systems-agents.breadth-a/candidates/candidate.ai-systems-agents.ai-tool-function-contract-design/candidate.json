@@ -1,0 +1,172 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.ai-systems-agents.ai-tool-function-contract-design",
+  "version": "1.0.0",
+  "title": "AI 도구·함수 계약 설계",
+  "canonical_name": "AI tool and function contract design",
+  "aliases": [
+    "LLM 도구 입출력·오류 계약"
+  ],
+  "summary": "모델이 사용할 도구의 이름·설명·입출력 스키마·오류·부작용을 명시하고 잘못된 선택·인자·결과 해석·중복 호출을 실패 주입으로 검증하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "모델의 도구 선택·인자 생성·실행·결과 해석을 하나의 성공으로 간주해 오류나 외부 부작용을 감추는 문제를 다룹니다.",
+    "includes": [
+      "모델향 도구 이름·설명과 선택 기준",
+      "입력·출력 스키마와 양방향 검증",
+      "오류 taxonomy와 결과 상관관계",
+      "부작용 등급·멱등성 요구·오류 의미 선언과 fake adapter 계약 검증"
+    ],
+    "excludes": [
+      "일반 API·MCP 서버 구현",
+      "인증·권한정책·sandbox 전문 설계",
+      "특정 SDK 전체 사용법"
+    ],
+    "boundary_note": "AI 시스템은 부작용 등급·멱등성 요구·오류 의미를 선언하고 fake adapter로 검증합니다. 실제 재시도·deduplication·전송 수명주기와 최종 상태 확인 구현은 통합 렌즈, 권한정책은 보안 렌즈가 소유합니다."
+  },
+  "discovery": {
+    "lens_id": "ai-systems-agents",
+    "basis": "assigned_lens",
+    "notes": "OpenAPI와 MCP 도구 사양에서 입력·출력·오류 계약을 확인하고 모델 특유의 선택·해석 실패 경계를 분리했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "ai-systems-agents",
+    "subdomains": [
+      "structured-output-and-tool-contracts"
+    ],
+    "tags": [
+      "tool-contract",
+      "function-calling",
+      "error-contract"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.ai.tool-function-contract-design",
+    "rationale": "새 도구 환경에서 의미 계약을 설계하고 잘못된 선택·인자·오류·중복 호출을 독립 검증하는 D2 행동이 있습니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ai-systems-agents.structured-output-contract-validation",
+        "version": "1.0.0"
+      },
+      "rationale": "도구 인자와 결과의 구조 검증은 모델 출력 스키마 계약의 원리를 재사용합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "새 도구의 모델향 설명·입출력·오류·부작용·멱등성 요구를 정의하고 fake adapter에 잘못된 인자·오류·시간초과·중복 호출·부분 결과를 주입해 계약을 검증합니다.",
+    "work_contexts": [
+      "고객정보 읽기 전용 조회",
+      "티켓 상태 변경",
+      "문서 검색과 게시",
+      "캘린더·업무 시스템 연동"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "agent_assisted",
+    "agent_fit_rationale": "도구 선택은 모델이 보조할 수 있지만 인자·권한·부작용·최종 상태는 결정적으로 검증해야 합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "도구 선택, 인자 생성, 실제 실행과 결과 해석의 실패 경계를 구분합니다.",
+        "evidence_hypothesis": "실패 사례를 올바른 경계와 재시도 가능성으로 분류합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "새 도구의 의미 계약과 fake adapter를 만들고 잘못된 인자·도구 오류·시간초과·중복 호출·부분 결과에서 안전한 실패를 검증합니다.",
+        "evidence_hypothesis": "승인 거부·사용자 취소·재시도 한도 소진·부분 성공을 재생하며 부작용 등급·멱등성 요구·오류 의미가 일관되게 전달됩니다."
+      }
+    ],
+    "depth_boundary": "일상적인 도구 schema 버전 변경과 하위호환 회귀는 D2에 포함합니다. 인증 서버, 기업 IAM, sandbox 설계와 프로토콜별 연결 수명주기는 전문 통합·보안 D3 또는 Adapter로 분리합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "cycle_time",
+      "risk_reduction",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "명시적 도구 계약은 잘못된 인자와 결과 해석으로 인한 통합 실패를 줄일 가능성이 있습니다.",
+      "부작용·멱등성 명시는 중복 외부 변경을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "core",
+    "priority_hint": "now",
+    "measurement_hypothesis": "잘못된 도구 선택·인자 탐지율, 오류 전달 정확도, 중복 부작용 수, 최종 상태 불일치와 호출·재시도·시간·토큰 비용을 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "permissions",
+      "legal",
+      "cost",
+      "observability",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "외부 변경 도구는 제공된 최소권한·승인·취소 정책을 적용합니다. 다국어 인자·날짜·주소·Unicode와 화면낭독 가능한 오류·승인 메시지를 시험하고 전문 위협모델과 권한정책 설계는 보안 렌즈로 넘깁니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.ai-systems-agents.tool-contract.openapi",
+      "title": "OpenAPI Specification 3.2.0",
+      "publisher": "OpenAPI Initiative",
+      "source_type": "official_spec",
+      "url": "https://spec.openapis.org/oas/v3.2.0.html",
+      "published_at": "2025-09-19",
+      "checked_at": "2026-07-28",
+      "source_version": "3.2.0",
+      "claim_scope": "언어 독립적 HTTP API 입력·출력·오류 계약의 기반을 제공하지만 LLM의 도구 선택·인자 생성 품질을 규정하지 않습니다.",
+      "supports": [
+        "definition",
+        "scope"
+      ]
+    },
+    {
+      "id": "evidence.ai-systems-agents.tool-contract.mcp-tools",
+      "title": "Model Context Protocol: Tools",
+      "publisher": "Model Context Protocol",
+      "source_type": "official_spec",
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+      "published_at": "2025-11-25",
+      "checked_at": "2026-07-28",
+      "source_version": "2025-11-25",
+      "claim_scope": "입출력 스키마, 구조화 결과, 오류와 client validation의 현재 프로토콜 사례를 지지합니다. 이 revision은 current이지만 final 표준으로 간주하지 않으며 일반 도구 계약 전체와 동일하지 않습니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "risk"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "프로토콜 독립 의미 계약을 Unit 코어로, 전송·인증·SDK 세부를 Adapter로 분리하도록 승인했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.ai-systems-agents.breadth-a",
+    "author_agent": "codex-main-with-read-only-research",
+    "researched_at": "2026-07-28",
+    "reviewers": [
+      "read-only-discovery-researcher",
+      "read-only-boundary-researcher",
+      "read-only-practicality-researcher"
+    ],
+    "known_unknowns": [
+      "공급자별 병렬 호출·오류 표현·schema 지원 차이는 버전별 Adapter 호환표로 계속 추적해야 합니다."
+    ],
+    "next_action": "정규 Unit unit.ai.tool-function-contract-design@1.0.0로 승격했습니다. cataloged 상태이므로 상세 교재와 학습효과는 아직 검증되지 않았습니다."
+  }
+}

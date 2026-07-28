@@ -1,0 +1,180 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.ai-systems-agents.retrieval-grounded-generation-design",
+  "version": "1.0.0",
+  "title": "검색·근거 연결 생성 시스템 설계",
+  "canonical_name": "Retrieval-grounded generation system design",
+  "aliases": [
+    "RAG 시스템 설계"
+  ],
+  "summary": "질의 변환·검색·재정렬·컨텍스트 조립·생성을 연결하고 검색 실패와 생성 실패를 분리하여 인용·답변 보류·최신성을 평가하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "RAG를 단일 기능처럼 취급해 검색 실패와 생성 실패를 구분하지 못하고 오래되거나 권한 밖인 근거로 답하는 문제를 다룹니다.",
+    "includes": [
+      "질의 변환·검색·재정렬",
+      "근거 컨텍스트 조립과 source ID 보존",
+      "인용·답변 보류·최신성",
+      "사전 구축 corpus·index snapshot 사이의 query-time invalidation·refresh",
+      "검색과 생성 단계별 실패 진단·회귀"
+    ],
+    "excludes": [
+      "corpus ETL·저장·색인 운영",
+      "임베딩 모델 학습",
+      "제공 근거에 대한 개별 출력 판정 재교육",
+      "대규모 vector DB 운영"
+    ],
+    "boundary_note": "두 개의 사전 구축 corpus·index snapshot을 제공하고 학습자는 query-time invalidation·refresh만 검증합니다. corpus 파이프라인은 데이터 렌즈, 개별 근거 판정은 기존 Unit이 소유합니다."
+  },
+  "discovery": {
+    "lens_id": "ai-systems-agents",
+    "basis": "assigned_lens",
+    "notes": "RAG 원 논문과 구성요소별 평가 연구에서 검색·생성 결합과 실패 분해를 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "ai-systems-agents",
+    "subdomains": [
+      "retrieval-grounding-systems"
+    ],
+    "tags": [
+      "retrieval",
+      "rag",
+      "grounding",
+      "abstention"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "workflow",
+    "proposed_destination": "set_candidate",
+    "proposed_set_id": "set.workflow.retrieval-grounded-generation",
+    "rationale": "검색·재정렬·컨텍스트 조립·생성·근거 평가를 조합해야 종단 간 가치와 D2 결과가 성립하므로 독립 Unit보다 Set이 적합합니다."
+  },
+  "relations": [
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ai-systems-agents.system-context-design",
+        "version": "1.0.0"
+      },
+      "rationale": "검색 결과를 근거 컨텍스트로 안전하게 조립하려면 컨텍스트 선택·격리·예산 계약이 필요합니다."
+    },
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ai-systems-agents.ai-system-evaluation-regression-design",
+        "version": "1.0.0"
+      },
+      "rationale": "종단 간 Set은 검색·생성 실패를 분리하고 snapshot 변경 회귀를 검증하는 평가 역량을 조합해야 합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "새 corpus와 질문군에서 검색·재정렬·근거 조립·생성을 연결하고 held-out 표본으로 검색 실패와 생성 실패를 분리해 평가합니다.",
+    "work_contexts": [
+      "정책·기술 문서 질의응답",
+      "지식관리 검색",
+      "고객지원 지식 답변",
+      "장기 리서치 갱신"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "deterministic_automation_preferred",
+    "agent_fit_rationale": "검색·평가 파이프라인은 결정적 orchestration을 우선하고 agent는 필요할 때만 보조합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "질의–검색–재정렬–컨텍스트–생성–근거 연결 흐름과 단계별 실패를 구분합니다.",
+        "evidence_hypothesis": "검색 누락과 제공 근거를 무시한 생성을 서로 다른 실패로 분류합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "사전 구축한 두 corpus·index snapshot에서 source ID와 검색 trace를 보존하는 최소 시스템을 만들고 query-time invalidation·refresh 및 검색·생성·최신성 회귀를 분리 평가합니다.",
+        "evidence_hypothesis": "답이 없는 질문에서는 보류하고 삭제·갱신·권한 제한 문서가 결과에 잘못 남지 않습니다."
+      }
+    ],
+    "depth_boundary": "소규모 corpus 버전·snapshot 호환과 query-time refresh는 D2에 포함합니다. 대규모 수집·재색인 인프라, 임베딩 학습과 자동 평가기 교정은 별도 D3 영역입니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "cycle_time",
+      "risk_reduction",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "최신 근거 연결과 답변 보류는 오래되거나 근거 없는 답변 전파를 줄일 가능성이 있습니다.",
+      "단계별 진단은 검색·생성 개선 대상을 더 빨리 찾게 할 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "core",
+    "priority_hint": "now",
+    "measurement_hypothesis": "held-out 검색 품질, 답변 보류 적중, source ID 보존, 검색·생성 실패별 회귀율, 질의당 호출·토큰 비용과 snapshot 복구 시간을 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "permissions",
+      "copyright",
+      "accessibility",
+      "cost",
+      "observability",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "검색원 접근 불가·stale index·snapshot 복구, 권한 제한·삭제·갱신 문서와 민감 corpus를 시험합니다. 고영향 답변은 인간 승인 또는 보류로 보내고 접근 가능한 근거·오류 표시를 제공합니다. 전문 저장·권한 통제는 인접 렌즈로 넘깁니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.ai-systems-agents.rag.original-paper",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "publisher": "NeurIPS",
+      "source_type": "primary_research",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2020/hash/6b493230205f780e1bc26945df7481e5-Abstract.html",
+      "checked_at": "2026-07-28",
+      "claim_scope": "parametric generator와 외부 dense index를 결합한 원형과 제한된 과제의 실험 결과를 지지하며 현대 기업 RAG 전체의 효과를 확정하지 않습니다.",
+      "supports": [
+        "definition",
+        "scope"
+      ]
+    },
+    {
+      "id": "evidence.ai-systems-agents.rag.ares",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "publisher": "Association for Computational Linguistics",
+      "source_type": "primary_research",
+      "url": "https://aclanthology.org/2024.naacl-long.20/",
+      "checked_at": "2026-07-28",
+      "claim_scope": "제한된 과제에서 context relevance·answer faithfulness·answer relevance를 분해해 평가한 연구로 단계별 진단을 지지하지만 자동 평가의 보편적 타당성을 보장하지 않습니다.",
+      "supports": [
+        "scope",
+        "work_relevance",
+        "risk"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "검색·컨텍스트·생성·근거 판정·회귀를 조합하는 Set 후보로 승인하고 retrieval 코어의 별도 Unit은 만들지 않습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.ai-systems-agents.breadth-a",
+    "author_agent": "codex-main-with-read-only-research",
+    "researched_at": "2026-07-28",
+    "reviewers": [
+      "read-only-discovery-researcher",
+      "read-only-boundary-researcher",
+      "read-only-practicality-researcher"
+    ],
+    "known_unknowns": [
+      "retrieval metric과 실제 업무 성공의 상관은 corpus·질문군별 파일럿에서 계속 측정해야 합니다."
+    ],
+    "next_action": "정규 Set set.workflow.retrieval-grounded-generation@1.0.0로 승격했습니다. cataloged 상태이므로 파일럿과 업무효과는 아직 검증되지 않았습니다."
+  }
+}

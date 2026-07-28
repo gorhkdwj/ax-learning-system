@@ -1,0 +1,166 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.software-product-engineering.build-dependency-reproducibility",
+  "version": "1.0.0",
+  "title": "빌드·의존성 재현성",
+  "canonical_name": "Build and dependency reproducibility",
+  "aliases": [],
+  "summary": "소스 revision·의존성·환경·빌드 명령을 고정하고 독립 환경에서 평가대상 artifact를 비트 단위로 동일하게 재현하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "개발자 로컬에서는 동작하지만 의존성·환경·시간·경로 차이로 CI나 다른 컴퓨터에서 빌드·테스트가 달라지는 문제를 다룹니다.",
+    "includes": [
+      "dependency lock·version",
+      "build environment·instructions",
+      "volatile input 통제",
+      "독립 환경 artifact·test 재현"
+    ],
+    "excludes": [
+      "CI/CD 플랫폼 운영",
+      "공급망 위협 모델 전체",
+      "release 서명·배포"
+    ],
+    "boundary_note": "재현 가능한 입력·환경·산출물 계약을 소유하고 공급망 보안 통제와 배포 운영은 인접 렌즈가 소유합니다."
+  },
+  "discovery": {
+    "lens_id": "software-product-engineering",
+    "basis": "assigned_lens",
+    "notes": "SWEBOK V4.0a와 관련 공식 사양·문서의 안정된 공학 행동을 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "software-product-engineering",
+    "subdomains": [
+      "build-dependency-reproducibility"
+    ],
+    "tags": [
+      "build",
+      "dependencies",
+      "reproducibility",
+      "lockfile"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "보안 공급망 전체와 분리해도 독립 환경의 build·test 재현이라는 검증 가능한 전이 성과가 있어 Unit 후보로 둡니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.software.build-dependency-reproducibility"
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.software-product-engineering.version-control-change-integration",
+        "version": "1.0.0"
+      },
+      "rationale": "재현 build의 소스 입력은 정확한 revision과 추적 가능한 변경 이력을 사용해야 합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "새 프로젝트의 소스·의존성·환경·빌드 명령과 평가대상 artifact를 명시하고 깨끗한 두 환경에서 artifact를 비트 단위로 재현하며 차이를 격리합니다.",
+    "work_contexts": [
+      "CLI·라이브러리",
+      "웹 애플리케이션",
+      "컨테이너 빌드",
+      "CI fixture"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "deterministic_automation_preferred",
+    "agent_fit_rationale": "환경 생성·hash·test 비교는 결정적 자동화가 적합하고 불일치 원인은 인간이 분석합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "소스·의존성·환경·명령·artifact가 재현성에 미치는 영향을 설명합니다.",
+        "evidence_hypothesis": "floating dependency·시간·locale·경로 의존 비사례를 판별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "새 프로젝트를 깨끗한 두 환경에서 재빌드하고 평가대상 artifact의 비트 차이를 자동검출·격리합니다.",
+        "evidence_hypothesis": "고정 revision에서 테스트 결과가 같고 평가대상 artifact hash 차이가 0건인지 검사합니다."
+      }
+    ],
+    "depth_boundary": "평가에서 지정한 두 깨끗한 환경과 artifact에 bit-for-bit 재현을 요구합니다. 모든 지원 플랫폼의 재현 인증과 공급망 서명·attestation·release 운영은 D3·보안 영역으로 분리합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "cycle_time",
+      "risk_reduction",
+      "reuse",
+      "mandatory_control"
+    ],
+    "business_hypotheses": [
+      "명시적 build·dependency 계약은 환경 차이 재작업과 검증 불일치를 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "core",
+    "priority_hint": "next",
+    "measurement_hypothesis": "깨끗한 환경 build 성공률, test 차이, 평가대상 artifact hash 차이와 환경 복원시간을 측정하며 hash 차이는 0건이어야 합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "cost",
+      "observability",
+      "reliability",
+      "recovery"
+    ],
+    "notes": "의존성 provenance·취약점·서명은 보안 렌즈가 추가하며 이 Unit은 재현 가능한 입력과 결과에 집중합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.software-product-engineering.build.reproducible-builds",
+      "title": "Reproducible Builds: Definitions",
+      "publisher": "Reproducible Builds project",
+      "source_type": "official_docs",
+      "url": "https://reproducible-builds.org/docs/definition/",
+      "checked_at": "2026-07-28",
+      "claim_scope": "동일 소스·환경·명령으로 지정 artifact를 bit-for-bit 재현한다는 정의와 환경 요소 범위를 지지합니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "learning_outcome"
+      ]
+    },
+    {
+      "id": "evidence.software-product-engineering.build.nist-ssdf",
+      "title": "Secure Software Development Framework (SSDF) Version 1.1",
+      "publisher": "NIST",
+      "source_type": "official_source",
+      "url": "https://doi.org/10.6028/NIST.SP.800-218",
+      "source_version": "NIST SP 800-218",
+      "checked_at": "2026-07-28",
+      "claim_scope": "release 구성요소의 provenance와 안전한 개발환경·변경 추적을 포함한 생명주기 통제 경계를 지지합니다.",
+      "supports": [
+        "scope",
+        "risk",
+        "lifecycle"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "보안 공급망 전체와 분리해도 독립 환경의 build·test 재현이라는 검증 가능한 전이 성과가 있어 Unit 후보로 둡니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.software-product-engineering.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-28",
+    "reviewers": [
+      "read-only-evidence-auditor",
+      "read-only-taxonomy-auditor",
+      "read-only-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "평가 fixture는 bit-for-bit 재현 가능한 지정 artifact만 사용합니다. 서명 등 변동 외피가 있으면 이를 평가대상에서 명시적으로 제외하고 unsigned inner artifact의 hash 일치를 요구하며, hash 차이가 남으면 기능·테스트가 같아도 불합격입니다."
+    ],
+    "next_action": "승인된 Candidate로 유지합니다. 정규 Unit unit.software.build-dependency-reproducibility@1.0.0 승격은 별도 Gate에서 수행하며 상세 교재·학습효과는 아직 검증되지 않았습니다."
+  }
+}

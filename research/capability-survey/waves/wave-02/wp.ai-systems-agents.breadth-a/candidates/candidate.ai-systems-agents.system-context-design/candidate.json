@@ -1,0 +1,171 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.ai-systems-agents.system-context-design",
+  "version": "1.0.0",
+  "title": "시스템 컨텍스트 설계",
+  "canonical_name": "System context design",
+  "aliases": [
+    "컨텍스트 엔지니어링"
+  ],
+  "summary": "시스템 지시, 과업 상태, 검색 근거, 도구 결과와 대화 이력을 신뢰 수준·우선순위·예산에 따라 선택·정렬·격리·압축하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "관련 정보가 누락·오염·충돌하거나 컨텍스트 한도를 초과해 모델이 잘못된 상태와 지시를 따르는 문제를 다룹니다.",
+    "includes": [
+      "컨텍스트 원천과 신뢰 수준 분류",
+      "선택·순서·격리·압축",
+      "컨텍스트 예산과 초과 처리",
+      "위치·누락·상충·stale 정보 시험"
+    ],
+    "excludes": [
+      "일반 사용자의 개별 과업 요청 작성",
+      "검색기·색인 구현",
+      "장기 메모리 영속화",
+      "모델 내부 attention 연구"
+    ],
+    "boundary_note": "사용자 과업 프레이밍이 아니라 시스템이 매 추론에 제공할 전체 상태와 신뢰 경계를 설계합니다."
+  },
+  "discovery": {
+    "lens_id": "ai-systems-agents",
+    "basis": "assigned_lens",
+    "notes": "장문 입력에서 정보 위치가 성능에 영향을 준 1차 연구와 시스템 컨텍스트 구성요소를 분리한 실무 문서를 확인했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "ai-systems-agents",
+    "subdomains": [
+      "context-engineering"
+    ],
+    "tags": [
+      "context",
+      "context-budget",
+      "instruction-boundary"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.ai.system-context-design",
+    "rationale": "과업·모델·공급자가 달라도 컨텍스트 선택 기록과 오염·누락 시험으로 독립 평가할 수 있습니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ai-systems-agents.llm-application-architecture-contract",
+        "version": "1.0.0"
+      },
+      "rationale": "컨텍스트는 명시된 모델 호출 경계와 입출력 계약 안에서 조립해야 합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "새 장문 과제에서 필요한 컨텍스트를 신뢰 수준과 예산에 따라 조립하고 누락·상충·오염·초과 시 안전한 중단 또는 대안을 검증합니다.",
+    "work_contexts": [
+      "다중 문서 정책 비교",
+      "장기 리서치 갱신",
+      "고객지원 대화 요약",
+      "다국어 자료 합성"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "agent_assisted",
+    "agent_fit_rationale": "선택·압축은 자동화할 수 있지만 신뢰 경계와 누락 허용도는 인간이 고정해야 합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "시스템 지시, 과업 상태, 검색 근거, 도구 결과와 대화 이력의 역할과 신뢰 경계를 설명합니다.",
+        "evidence_hypothesis": "상충하는 원천이 있을 때 우선순위와 격리 필요성을 판별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "새 과제의 컨텍스트를 선택·정렬·격리·압축하고 위치·누락·오염·예산 초과 시험을 통과시킵니다.",
+        "evidence_hypothesis": "숨은 fixture manifest의 필수·금지 source ID, 신뢰 등급, 토큰 상한과 기대 중단 상태를 충족하고 선택 로그가 재현 가능합니다."
+      }
+    ],
+    "depth_boundary": "모델 내부 최적화, 대규모 검색 플랫폼과 영속 메모리 구현은 별도 D3 영역입니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "cost",
+      "cycle_time",
+      "risk_reduction"
+    ],
+    "business_hypotheses": [
+      "관련 컨텍스트 선택은 품질을 높이고 불필요한 토큰 비용을 줄일 가능성이 있습니다.",
+      "오염·상충 격리는 잘못된 지시 수용 위험을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "now",
+    "measurement_hypothesis": "필수 근거 회수율, 오염 지시 수용률, 컨텍스트당 토큰과 장문 위치별 성공률을 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "copyright",
+      "accessibility",
+      "cost",
+      "observability",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "외부 문서는 신뢰되지 않은 데이터로 취급합니다. 원천 접근 불가·압축 손실·모델 버전 변경 뒤 재구성, 저자원·혼합언어와 접근 가능한 장문 구조 보존, 승인자에게 누락·불확실성을 표시하는 fixture를 포함합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.ai-systems-agents.context.lost-in-middle",
+      "title": "Lost in the Middle: How Language Models Use Long Contexts",
+      "publisher": "Transactions of the Association for Computational Linguistics",
+      "source_type": "primary_research",
+      "url": "https://aclanthology.org/2024.tacl-1.9/",
+      "published_at": "2024-02-23",
+      "checked_at": "2026-07-28",
+      "claim_scope": "당시 여러 모델과 제한된 과제에서 관련 정보 위치에 따른 성능 차이를 보였으며 모든 최신 모델과 장문 과제에 일반화하지 않습니다.",
+      "supports": [
+        "definition",
+        "risk"
+      ]
+    },
+    {
+      "id": "evidence.ai-systems-agents.context.anthropic-context-engineering",
+      "title": "Effective context engineering for AI agents",
+      "publisher": "Anthropic",
+      "source_type": "practitioner_primary",
+      "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "published_at": "2025-09-29",
+      "checked_at": "2026-07-28",
+      "claim_scope": "지시·도구·외부자료·기록·압축·메모리를 컨텍스트 구성요소로 구분하는 공급자 실무 관점을 지지하며 특정 기법의 보편적 우월성을 증명하지 않습니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "work_relevance"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "컨텍스트 선택·신뢰·격리·예산 계약을 Unit 코어로 유지하고 모델별 최적 기법은 회귀 대상으로 분리하도록 승인했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.ai-systems-agents.breadth-a",
+    "author_agent": "codex-main-with-read-only-research",
+    "researched_at": "2026-07-28",
+    "reviewers": [
+      "read-only-discovery-researcher",
+      "read-only-boundary-researcher",
+      "read-only-practicality-researcher"
+    ],
+    "known_unknowns": [
+      "모델별 긴 컨텍스트 민감도와 최적 압축 방식은 회귀 세트에서 계속 재평가해야 합니다."
+    ],
+    "next_action": "정규 Unit unit.ai.system-context-design@1.0.0로 승격했습니다. cataloged 상태이므로 상세 교재와 학습효과는 아직 검증되지 않았습니다."
+  }
+}

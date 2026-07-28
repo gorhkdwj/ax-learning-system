@@ -1,0 +1,201 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.ai-literacy-trust.trust-calibration",
+  "version": "1.0.0",
+  "title": "AI 신뢰와 의존 수준 보정",
+  "canonical_name": "AI trust and reliance calibration",
+  "aliases": [
+    "Appropriate reliance",
+    "AI 과신·과소신뢰 교정"
+  ],
+  "summary": "AI 조언의 정답 여부를 알기 전에도 자동화 편향·앵커링·과신·과소신뢰 신호를 인식하고 독립 판단과 비교 검토로 의존 수준을 조정하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "AI의 자신감·유창성·권위 신호 때문에 틀린 조언을 따르거나 유용한 조언을 일관성 없이 거부하는 문제를 다룹니다.",
+    "includes": [
+      "자동화 편향·앵커링·과신·과소신뢰 인식",
+      "AI 조언 전 독립 판단과 반대 근거 탐색",
+      "수용·거부의 적절성 사후 검토"
+    ],
+    "excludes": [
+      "설명 UI와 신뢰 인터페이스 설계",
+      "조직 감독 정책",
+      "특정 교육 개입이 편향을 제거한다는 주장"
+    ],
+    "boundary_note": "출력 자체의 품질 평가와 구분되는 인간의 의존 행동을 다룹니다."
+  },
+  "discovery": {
+    "lens_id": "ai-literacy-trust",
+    "basis": "assigned_lens",
+    "notes": "NIST Human-AI Interaction 부록과 적절한 의존 측정 1차 연구에서 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "ai-literacy-trust",
+    "subdomains": [
+      "trust-calibration"
+    ],
+    "tags": [
+      "appropriate-reliance",
+      "automation-bias",
+      "human-judgment"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "capability",
+    "proposed_destination": "unit_candidate",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.foundation.ai-trust-calibration",
+    "rationale": "여러 의사결정 맥락에서 올바른 수용과 올바른 거부를 함께 측정하는 독립 전이과제를 설계할 수 있습니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ai-literacy-trust.ai-foundations-limitations",
+        "version": "1.0.0"
+      },
+      "rationale": "AI의 한계를 이해해야 유창성이나 권위 신호와 실제 역량을 분리할 수 있습니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ai-literacy-trust.risk-proportional-reliance",
+        "version": "1.0.0"
+      },
+      "rationale": "신뢰 보정은 위험 비례 의존 결정을 지원하지만 같은 학습성과는 아닙니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ai-literacy-trust.output-fitness-appraisal",
+        "version": "1.0.0"
+      },
+      "rationale": "출력 품질 판정은 의존 보정의 근거지만 인간의 인지적 의존 행동과는 다릅니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "정답을 맞히고 틀리는 AI 조언이 섞인 새로운 과제에서 독립 초기판단을 기록하고 근거에 따라 조언을 수용·거부하여 과신과 과소신뢰를 모두 설명합니다.",
+    "work_contexts": [
+      "분석 추천 검토",
+      "채용·상담 보조 판단",
+      "운영 이상 원인 후보 검토",
+      "언어·설명 형식·접근성이 다른 조언 비교"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "not_applicable",
+    "agent_fit_rationale": "자동화 대상이 아니라 인간의 판단 습관과 의존 행동을 교정하는 역량입니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "신뢰, 단순 의존과 적절한 의존의 차이 및 과신·과소신뢰 위험을 설명합니다.",
+        "evidence_hypothesis": "수용률만 높거나 낮은 사례가 적절한 의존이 아님을 판별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "정답·오답과 오류 기저율이 사전에 확정된 혼합 정확도 조언 과제에서 독립 판단과 검증근거로 수용·거부를 보정합니다.",
+        "evidence_hypothesis": "AI 정확도·역할 전문성을 고정하고 올바른 수용률과 올바른 거부율을 별도로 측정하며 독립 초기판단과 결정 변경 근거를 검사합니다."
+      }
+    ],
+    "depth_boundary": "인지과학 연구와 인터페이스 개입 설계는 별도 Human-AI Experience 심화 범위로 둡니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "risk_reduction",
+      "employee_experience",
+      "prerequisite_value"
+    ],
+    "business_hypotheses": [
+      "틀린 AI 조언의 무비판적 채택과 유용한 조언의 일관성 없는 거부를 함께 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "awareness",
+    "operations_relevance": "material",
+    "priority_hint": "next",
+    "measurement_hypothesis": "AI 정확도·오류 기저율·역할 전문성을 고정한 충분한 정답·오답 표본에서 올바른 수용률, 올바른 거부율, 독립 초기판단 기록률과 근거 없는 결정 변경을 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "ethics",
+      "accessibility",
+      "reliability",
+      "human_approval"
+    ],
+    "notes": "전문성·접근성·표현 방식에 따른 의존 차이를 고려하되 특정 개입 효과를 확정하지 않습니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.ai-literacy-trust.trust-calibration.nist-hai",
+      "title": "AI Risk Management and Human-AI Interaction",
+      "publisher": "NIST",
+      "source_type": "official_spec",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/",
+      "published_at": "2023-01-26",
+      "checked_at": "2026-07-27",
+      "source_version": "AI RMF 1.0 Appendix C",
+      "claim_scope": "인간 역할과 인지편향 위험을 확인하며 효과적인 감독과 인간의 과신·거부에는 추가 연구가 필요하다는 한계를 함께 지지합니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "risk"
+      ]
+    },
+    {
+      "id": "evidence.ai-literacy-trust.trust-calibration.raees-2026",
+      "title": "From Trust to Appropriate Reliance: Measurement Constructs in Human-AI Decision-Making",
+      "publisher": "arXiv",
+      "source_type": "secondary_reference",
+      "url": "https://arxiv.org/abs/2604.23896",
+      "published_at": "2026-04-26",
+      "checked_at": "2026-07-27",
+      "claim_scope": "신뢰·단순 의존과 적절한 의존의 측정 구분 및 현재 측정 구성의 파편화를 검토합니다. 교육 개입 효과는 확정하지 않습니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "learning_outcome"
+      ]
+    },
+    {
+      "id": "evidence.ai-literacy-trust.trust-calibration.agudo-2024",
+      "title": "The impact of AI errors in a human-in-the-loop process",
+      "publisher": "Cognitive Research: Principles and Implications",
+      "source_type": "primary_research",
+      "url": "https://doi.org/10.1186/s41235-023-00529-3",
+      "published_at": "2024-01-07",
+      "checked_at": "2026-07-27",
+      "source_version": "9:1",
+      "claim_scope": "모의 법적 판단의 두 실험에서 잘못된 AI 지원이 정확도를 낮췄고 AI 조언이 초기 판단 전에 제시될 때 영향이 더 컸다는 제한된 맥락의 근거입니다. 모든 업무나 교육 개입 효과로 일반화하지 않습니다.",
+      "supports": [
+        "risk",
+        "learning_outcome",
+        "work_relevance"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "공식 위험 문서와 최신 연구가 의존 보정의 독립 문제를 지지하지만 측정 합의가 진행 중임을 불확실성으로 남겼습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.ai-literacy-trust.breadth-a",
+    "author_agent": "codex-main-with-read-only-research",
+    "researched_at": "2026-07-27",
+    "reviewers": [
+      "read-only-evidence-auditor",
+      "read-only-taxonomy-auditor",
+      "read-only-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "적절한 의존의 객관 지표에 아직 단일 합의가 없습니다.",
+      "도메인 전문성에 따른 과신·과소신뢰 기준을 보정해야 합니다."
+    ],
+    "next_action": "정규 Unit unit.foundation.ai-trust-calibration@1.0.0로 승격했습니다. cataloged 상태이므로 상세 교재와 학습효과는 아직 검증되지 않았습니다."
+  }
+}

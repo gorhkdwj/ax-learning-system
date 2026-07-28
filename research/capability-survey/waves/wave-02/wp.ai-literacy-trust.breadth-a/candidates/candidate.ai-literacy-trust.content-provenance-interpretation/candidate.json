@@ -1,0 +1,173 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.ai-literacy-trust.content-provenance-interpretation",
+  "version": "1.0.0",
+  "title": "합성 콘텐츠 provenance 해석",
+  "canonical_name": "Synthetic-content provenance interpretation",
+  "aliases": [
+    "Content Credentials 리터러시"
+  ],
+  "summary": "콘텐츠의 출처·변경 이력과 자격 증명을 해석하되 provenance를 진실성·정확성의 보증으로 오인하지 않는 후보입니다.",
+  "research_scope": {
+    "problem_addressed": "AI 생성 라벨이나 Content Credentials가 있거나 없다는 사실을 콘텐츠의 진실·거짓 판정으로 과대해석하는 문제를 다룹니다.",
+    "includes": [
+      "출처·변경 이력과 assertion 해석",
+      "서명·provenance와 내용 진실성의 구분",
+      "누락·손상·미지원 상태에서 추가 검증 선택"
+    ],
+    "excludes": [
+      "C2PA 서명·manifest 구현",
+      "암호학 검증기 개발",
+      "콘텐츠 사실의 최종 판정"
+    ],
+    "boundary_note": "독립 Unit보다 기존 unit.foundation.evidence-verification@1.0.0의 Resource 사례가 적합하며 AI 사용 투명성은 관련 후보로만 연결합니다."
+  },
+  "discovery": {
+    "lens_id": "ai-literacy-trust",
+    "basis": "assigned_lens",
+    "notes": "콘텐츠 진위 누락 레드팀에서 발견하고 C2PA 공식 사양의 보장 범위와 대조했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "ai-literacy-trust",
+    "subdomains": [
+      "evidence-verification",
+      "ai-use-transparency"
+    ],
+    "tags": [
+      "content-provenance",
+      "content-credentials",
+      "synthetic-media"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "concept",
+    "proposed_destination": "resource_only",
+    "rationale": "provenance 해석은 중요하지만 unit.foundation.evidence-verification@1.0.0의 특정 표준 사례이며 독립된 전이 학습성과로 분리할 필요가 부족합니다."
+  },
+  "relations": [
+    {
+      "type": "related_to",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ai-literacy-trust.ai-use-transparency",
+        "version": "1.0.0"
+      },
+      "rationale": "Content Credentials는 AI 사용과 편집 이력을 전달하는 한 방식입니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ai-literacy-trust.evidence-source-verification",
+        "version": "1.0.0"
+      },
+      "rationale": "provenance는 출처 검증의 한 입력이지만 사실 주장 자체를 증명하지 않습니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "새 콘텐츠의 provenance 정보를 읽고 확인 가능한 출처·변경 이력, 확인 불가 요소와 내용 사실성에 필요한 추가 검증을 구분합니다.",
+    "work_contexts": [
+      "홍보 이미지·영상 검토",
+      "외부 콘텐츠 재사용",
+      "언론·브리핑 자료 확인",
+      "오프라인·저대역폭 또는 접근 불가능한 검증 UI"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "deterministic_automation_preferred",
+    "agent_fit_rationale": "서명 검증은 결정적 도구가 적합하고 인간은 의미와 한계를 해석합니다."
+  },
+  "outcomes": {
+    "target_level": "D1",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "provenance·서명·AI 생성 표시와 콘텐츠 진실성의 차이를 설명합니다.",
+        "evidence_hypothesis": "유효한 자격 증명이 거짓 주장을 포함할 수 있는 사례를 판별합니다."
+      },
+      {
+        "level": "D1",
+        "outcome": "안내된 도구로 Content Credentials를 확인하고 추가 검증 필요사항을 기록합니다.",
+        "evidence_hypothesis": "자격 증명 없음·메타데이터 제거·미지원 형식·오프라인·접근 불가 사례에서 유효·손상·없음·미지원 상태와 사실 검증 필요를 구분합니다."
+      }
+    ],
+    "depth_boundary": "C2PA manifest 작성, 서명 인프라와 검증기 구현은 Adapter 또는 전문 Unit으로 분리합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "risk_reduction",
+      "prerequisite_value"
+    ],
+    "business_hypotheses": [
+      "provenance 신호의 과대해석과 무시를 줄여 콘텐츠 검증 경로를 더 정확히 선택할 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "material",
+    "operations_relevance": "awareness",
+    "priority_hint": "observe",
+    "measurement_hypothesis": "특정 도구 조작 속도보다 유효·손상·없음·미지원 상태 판정과 별도 사실 검증 선택의 정확도, 진실성 과대보증 수를 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "legal",
+      "copyright",
+      "accessibility",
+      "observability",
+      "reliability"
+    ],
+    "notes": "자격 증명 유무만으로 진실성·저작권·적법성을 확정하지 않습니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.ai-literacy-trust.content-provenance.c2pa-spec-2-4",
+      "title": "C2PA Specifications 2.4",
+      "publisher": "Coalition for Content Provenance and Authenticity",
+      "source_type": "official_spec",
+      "url": "https://spec.c2pa.org/specifications/specifications/2.4/index.html",
+      "checked_at": "2026-07-27",
+      "source_version": "C2PA Specifications 2.4",
+      "claim_scope": "C2PA가 디지털 콘텐츠의 출처와 변경 이력 표현을 위한 기술표준이라는 범위를 지지합니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "lifecycle"
+      ]
+    },
+    {
+      "id": "evidence.ai-literacy-trust.content-provenance.c2pa-explainer",
+      "title": "C2PA and Content Credentials Explainer",
+      "publisher": "Coalition for Content Provenance and Authenticity",
+      "source_type": "official_docs",
+      "url": "https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html",
+      "checked_at": "2026-07-27",
+      "source_version": "C2PA Specifications 2.4",
+      "claim_scope": "Content Credentials가 provenance 정보를 제공하지만 콘텐츠의 진실성을 판정하는 체계가 아니라는 해석 경계를 지지합니다.",
+      "supports": [
+        "scope",
+        "risk",
+        "learning_outcome"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "공식 사양이 개념과 한계를 지지하지만 unit.foundation.evidence-verification@1.0.0의 Resource로 충분하며 AI 사용 투명성은 관련 후보로 남깁니다.",
+    "review_gate": "taxonomy"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.ai-literacy-trust.breadth-a",
+    "author_agent": "codex-main-with-read-only-research",
+    "researched_at": "2026-07-27",
+    "reviewers": [
+      "read-only-evidence-auditor",
+      "read-only-taxonomy-auditor",
+      "read-only-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "도구별 C2PA 지원 범위와 최신 사양은 Resource 검증 시 다시 확인해야 합니다."
+    ],
+    "next_action": "정규 Resource resource.foundation.evidence-verification.content-provenance-reference@1.0.0로 승격했습니다."
+  }
+}

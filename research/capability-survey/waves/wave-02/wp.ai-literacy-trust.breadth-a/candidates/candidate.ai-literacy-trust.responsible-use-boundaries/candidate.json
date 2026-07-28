@@ -1,0 +1,181 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.ai-literacy-trust.responsible-use-boundaries",
+  "version": "1.0.0",
+  "title": "책임 있는 AI 사용 경계 적용",
+  "canonical_name": "Responsible AI use boundary application",
+  "aliases": [
+    "AI 허용·금지 사용 판단"
+  ],
+  "summary": "조직 정책과 데이터 민감도·권한·기밀성·개인정보·지식재산 경계를 실제 AI 사용 사례에 적용하고 중단·승인·전문가 이관을 선택하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "편리한 AI 사용을 이유로 입력하면 안 되는 정보나 검토 없이 배포하면 안 되는 생성물을 처리하는 문제를 다룹니다.",
+    "includes": [
+      "입력 데이터의 민감도·권한·기밀성 판별",
+      "생성물의 개인정보·저작권·보안·책임 경계 확인",
+      "허용·금지·승인 필요·전문가 이관 판단"
+    ],
+    "excludes": [
+      "법률 자문과 최종 적법성 판단",
+      "조직 정책·접근통제·DLP·개인정보 엔지니어링 설계",
+      "특정 제품 보안설정"
+    ],
+    "boundary_note": "일반 사용자의 경계 적용만 소유하며 전문 통제와 법적 해석은 security-legal-governance로 보냅니다."
+  },
+  "discovery": {
+    "lens_id": "ai-literacy-trust",
+    "basis": "assigned_lens",
+    "notes": "DOL Responsible Use와 NIST GenAI 위험 범주를 사용자 행동으로 제한했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "ai-literacy-trust",
+    "subdomains": [
+      "responsible-use-boundaries"
+    ],
+    "tags": [
+      "responsible-use",
+      "data-handling",
+      "escalation"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "capability",
+    "proposed_destination": "unit_candidate",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.foundation.responsible-ai-use-boundaries",
+    "rationale": "모든 역할에서 필요한 공통 통제 행동이며 새로운 사례를 허용·금지·승인·이관으로 분류하는 독립 평가가 가능합니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ai-literacy-trust.ai-foundations-limitations",
+        "version": "1.0.0"
+      },
+      "rationale": "AI의 데이터 처리와 출력 한계를 이해해야 경계 위반 가능성을 판별할 수 있습니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ai-literacy-trust.risk-proportional-reliance",
+        "version": "1.0.0"
+      },
+      "rationale": "사용 경계는 위험 비례 승인·중단 판단의 입력이지만 정책·통제 설계와는 다릅니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "제공된 조직 정책·데이터 분류표·승인 규칙 안에서 새 AI 사용 사례의 입력·처리·출력·대상자를 검토하여 허용·금지·승인 필요·전문가 이관으로 분류하고 민감정보 없이 판단 근거를 기록합니다.",
+    "work_contexts": [
+      "내부 문서 요약",
+      "고객 데이터가 포함된 분석 보조",
+      "외부 공개 콘텐츠 생성",
+      "코드·계약 자료 검토",
+      "쉬운 언어·다국어·접근 가능한 정책을 사용하는 현장 업무"
+    ],
+    "transferability": "enterprise_cross_functional",
+    "agent_fit": "deterministic_automation_preferred",
+    "agent_fit_rationale": "정책 검사는 결정적 통제로 보조할 수 있지만 맥락 해석과 예외 승인은 인간이 담당합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "데이터·권한·기밀성·개인정보·지식재산·책임의 주요 AI 사용 경계를 설명합니다.",
+        "evidence_hypothesis": "경계 위반과 전문 판단 필요 사례를 구분합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "제공된 조직 정책·데이터 분류표·승인 규칙 안에서 새 사용 사례를 허용·금지·승인 필요·전문가 이관으로 분류하고 안전한 대안을 제시합니다.",
+        "evidence_hypothesis": "제공된 정책 정답표를 기준으로 금지 사례 허용 0건, 민감정보 재노출 0건과 에스컬레이션 근거를 검사하며 법률 추론을 평가하지 않습니다."
+      }
+    ],
+    "depth_boundary": "법률 해석, 통제 아키텍처와 조직 정책 작성은 별도 전문 Unit으로 둡니다."
+  },
+  "practicality": {
+    "value_types": [
+      "mandatory_control",
+      "risk_reduction",
+      "quality",
+      "prerequisite_value"
+    ],
+    "business_hypotheses": [
+      "민감정보·권리·책임 경계 위반을 사용 시점에 조기 차단할 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "core",
+    "priority_hint": "now",
+    "measurement_hypothesis": "금지 사례 허용률, 에스컬레이션 누락, 안전한 대안 제시율과 민감정보 재노출을 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "permissions",
+      "legal",
+      "ethics",
+      "copyright",
+      "cost",
+      "human_approval"
+    ],
+    "notes": "법률을 일반화하지 않고 적용 조직의 정책과 관할권별 전문가 판단으로 연결합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.ai-literacy-trust.responsible-use.dol-ten-07-25",
+      "title": "Training and Employment Notice No. 07-25: U.S. Department of Labor's AI Literacy Framework",
+      "publisher": "U.S. Department of Labor",
+      "source_type": "official_docs",
+      "url": "https://www.dol.gov/agencies/eta/advisories/ten-07-25",
+      "published_at": "2026-02-13",
+      "checked_at": "2026-07-27",
+      "source_version": "TEN 07-25",
+      "claim_scope": "윤리적·안전한 사용, 중요정보 보호와 결과 책임을 AI 리터러시의 기초 영역으로 제시합니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "learning_outcome"
+      ]
+    },
+    {
+      "id": "evidence.ai-literacy-trust.responsible-use.nist-genai-profile",
+      "title": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile",
+      "publisher": "NIST",
+      "source_type": "official_spec",
+      "url": "https://doi.org/10.6028/NIST.AI.600-1",
+      "published_at": "2024-07-26",
+      "checked_at": "2026-07-27",
+      "source_version": "NIST AI 600-1",
+      "claim_scope": "privacy, information security, intellectual property와 human-AI configuration 위험 범위를 확인합니다.",
+      "supports": [
+        "scope",
+        "risk",
+        "work_relevance"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "공식 노동·위험 프레임워크가 공통 사용자 경계를 지지하며 법률·보안 통제 설계를 명시적으로 제외했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.ai-literacy-trust.breadth-a",
+    "author_agent": "codex-main-with-read-only-research",
+    "researched_at": "2026-07-27",
+    "reviewers": [
+      "read-only-evidence-auditor",
+      "read-only-taxonomy-auditor",
+      "read-only-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "관할권·조직별 정책 차이는 업무 Overlay가 필요합니다.",
+      "기술 변화에 따른 금지·허용 예시는 정기 갱신이 필요합니다."
+    ],
+    "next_action": "정규 Unit unit.foundation.responsible-ai-use-boundaries@1.0.0로 승격했습니다. cataloged 상태이므로 상세 교재와 학습효과는 아직 검증되지 않았습니다."
+  }
+}

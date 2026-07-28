@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.foundation.ai-output-fitness-appraisal",
+  "version": "1.0.0",
+  "title": "AI 출력의 업무 적합성 평가",
+  "summary": "AI 출력이 제공된 입력·참조 사실·업무계약, 대상 독자의 언어·읽기 수준·문화·접근성 요구와 완료조건에 맞는지 평가하고 수정·재생성·폐기를 선택하는 후보 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "ai-literacy-trust",
+    "subdomains": [
+      "output-appraisal-and-decision-reliance"
+    ]
+  },
+  "domain_tags": [
+    "output-evaluation",
+    "fitness-for-purpose",
+    "critical-review"
+  ],
+  "capabilities": [
+    "새로운 AI 출력과 과업 계약을 대조하여 충족·부분충족·불충족·판단 불가를 기록하고 수정·재생성·폐기를 선택합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.foundation.ai-output-fitness-appraisal.d0",
+        "statement": "주장–출처의 직접 사실 검증과 별개로 업무 적합성의 일치성·관련성·완전성·일관성·제약 충족을 평가해야 하는 이유를 설명합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.foundation.ai-output-fitness-appraisal.d2-2",
+        "statement": "새 출력 집합을 사전 기준으로 평가하고 수정·재생성·폐기 결정을 재현 가능하게 기록합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "모델 벤치마크, 자동 채점기 교정과 운영 평가 파이프라인은 제외합니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.foundation.ai-task-framing-use",
+        "version": "1.0.0"
+      },
+      "note": "과업 프레이밍은 평가 기준 작성을 돕지만 외부에서 제공된 업무계약을 읽어 평가할 수도 있습니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.foundation.ai-output-fitness-appraisal.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "foundation-ai-output-fitness-appraisal-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.foundation.ai-output-fitness-appraisal.d0",
+          "outcome.foundation.ai-output-fitness-appraisal.d2-2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "유창하지만 제공된 입력·업무계약·대상 독자 요구에 부적합한 비사례를 분류합니다.",
+          "사전에 심은 핵심 결함과 유해한 잘못된 채택을 심각도별로 검사하고 판단 불가는 정답 선택으로 인정합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Training and Employment Notice No. 07-25: U.S. Department of Labor's AI Literacy Framework",
+      "publisher": "U.S. Department of Labor",
+      "source_type": "official_docs",
+      "url": "https://www.dol.gov/agencies/eta/advisories/ten-07-25",
+      "source_version": "TEN 07-25",
+      "checked_at": "2026-07-27"
+    },
+    {
+      "title": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile",
+      "publisher": "NIST",
+      "source_type": "official_spec",
+      "url": "https://doi.org/10.6028/NIST.AI.600-1",
+      "source_version": "NIST AI 600-1",
+      "checked_at": "2026-07-27"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "time",
+    "risk_reduction",
+    "capability_unlock"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-28",
+    "review_due_at": "2026-10-28",
+    "note": "candidate.ai-literacy-trust.output-fitness-appraisal@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.ai-literacy-trust.output-fitness-appraisal",
+      "version": "1.0.0"
+    }
+  }
+}

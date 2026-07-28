@@ -1,0 +1,176 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.software-product-engineering.accessible-ui-state-interaction",
+  "version": "1.0.0",
+  "title": "접근 가능한 UI 상태·상호작용 구현",
+  "canonical_name": "Accessible UI state and interaction implementation",
+  "aliases": [],
+  "summary": "사용자 입력·상태·오류·포커스와 접근성 의미를 명시하고 키보드·화면낭독·확대·오류 회복 조건에서 검증하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "시각적 정상 경로만 동작하고 오류·비동기 상태·키보드·보조기술에서 의미와 조작 가능성이 깨지는 문제를 다룹니다.",
+    "includes": [
+      "semantic structure와 이름·역할·상태",
+      "입력·검증·오류 회복",
+      "keyboard·focus",
+      "loading·empty·error·success 상태"
+    ],
+    "excludes": [
+      "사용자 연구·정보구조 전략",
+      "시각 디자인 시스템 전체",
+      "법적 적합성 선언"
+    ],
+    "boundary_note": "프론트엔드 구현의 상태·상호작용·접근성 계약을 소유하고 UX 연구와 조직 적합성 책임은 인접 렌즈로 넘깁니다."
+  },
+  "discovery": {
+    "lens_id": "software-product-engineering",
+    "basis": "assigned_lens",
+    "notes": "SWEBOK V4.0a와 관련 공식 사양·문서의 안정된 공학 행동을 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "software-product-engineering",
+    "subdomains": [
+      "accessible-ui-state-interaction"
+    ],
+    "tags": [
+      "frontend",
+      "accessibility",
+      "ui-state",
+      "forms"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "순수 UX 연구와 분리된 구현·검증 행동이 있고 여러 프론트엔드 문맥에 전이되므로 Unit 후보로 둡니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.software.accessible-ui-state-interaction"
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.software-product-engineering.requirements-acceptance-traceability",
+        "version": "1.0.0"
+      },
+      "rationale": "접근성·오류·상태 요구를 인수기준으로 먼저 고정해야 합니다."
+    },
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.software-product-engineering.layered-software-verification",
+        "version": "1.0.0"
+      },
+      "rationale": "자동·수동 접근성 검사와 일반 회귀 Gate를 함께 구성하려면 계층형 검증 전략이 도움이 됩니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "새 UI 흐름의 상태·입력·오류·포커스 계약을 구현하고 keyboard·screen reader·zoom fixture에서 핵심 과업을 검증합니다.",
+    "work_contexts": [
+      "웹 form",
+      "대시보드",
+      "내부 업무도구",
+      "AI 보조 인터페이스"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "agent_assisted",
+    "agent_fit_rationale": "markup·검사 초안은 보조할 수 있지만 실제 상호작용과 보조기술 검증은 인간·결정적 도구가 필요합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "시각적 표현과 프로그램적으로 노출되는 이름·역할·상태·오류·포커스를 구분합니다.",
+        "evidence_hypothesis": "마우스·색상·placeholder에만 의존한 비사례를 판별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "새 UI 흐름을 semantic control과 명시적 상태계약으로 구현하고 키보드·보조기술·확대 조건에서 검증합니다.",
+        "evidence_hypothesis": "핵심 과업 keyboard 완료, focus 손실 0건, 오류 식별·회복과 상태 전달을 검사합니다."
+      }
+    ],
+    "depth_boundary": "정식 적합성 감사·법률 판단·광범위 사용자 연구는 별도 전문 영역으로 분리합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "customer_experience",
+      "employee_experience",
+      "risk_reduction",
+      "mandatory_control"
+    ],
+    "business_hypotheses": [
+      "상태와 접근성 의미를 구현 계약으로 다루면 배제와 오류 회복 실패를 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "now",
+    "measurement_hypothesis": "keyboard 과업 성공률, focus 손실, 이름·역할·상태 오류, 오류 회복 성공과 확대·화면낭독 조건 결함을 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "accessibility",
+      "privacy",
+      "security",
+      "reliability",
+      "human_approval"
+    ],
+    "notes": "WCAG를 최소 기술 기준으로 사용하되 실제 사용자 요구를 완전히 대체하거나 법적 적합성을 선언하지 않습니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.software-product-engineering.ui.wcag-2-2",
+      "title": "Web Content Accessibility Guidelines (WCAG) 2.2",
+      "publisher": "W3C",
+      "source_type": "official_spec",
+      "url": "https://www.w3.org/TR/WCAG22/",
+      "source_version": "W3C Recommendation 2024-12-12",
+      "checked_at": "2026-07-28",
+      "claim_scope": "인지 가능·운용 가능·이해 가능·견고한 웹 콘텐츠와 이름·역할·상태·상태 메시지 요구를 지지합니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "risk",
+        "learning_outcome"
+      ]
+    },
+    {
+      "id": "evidence.software-product-engineering.ui.html-forms",
+      "title": "HTML Living Standard: Forms and constraint validation",
+      "publisher": "WHATWG",
+      "source_type": "official_spec",
+      "url": "https://html.spec.whatwg.org/multipage/form-control-infrastructure.html",
+      "source_version": "Living Standard 2026-07",
+      "checked_at": "2026-07-28",
+      "claim_scope": "form control의 constraint validation·오류 상태와 사용자 에이전트 동작의 표준 계약을 지지합니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "learning_outcome"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "순수 UX 연구와 분리된 구현·검증 행동이 있고 여러 프론트엔드 문맥에 전이되므로 Unit 후보로 둡니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.software-product-engineering.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-28",
+    "reviewers": [
+      "read-only-evidence-auditor",
+      "read-only-taxonomy-auditor",
+      "read-only-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "자동 접근성 검사는 부분 증거로만 사용하고 keyboard·화면낭독 수동 과업을 필수로 둡니다."
+    ],
+    "next_action": "승인된 Candidate로 유지합니다. 정규 Unit unit.software.accessible-ui-state-interaction@1.0.0 승격은 별도 Gate에서 수행하며 상세 교재·학습효과는 아직 검증되지 않았습니다."
+  }
+}

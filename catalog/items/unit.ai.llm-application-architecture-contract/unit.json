@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.ai.llm-application-architecture-contract",
+  "version": "1.0.0",
+  "title": "LLM 응용 아키텍처·추론 계약 설계",
+  "summary": "확률적 모델 호출과 결정적 애플리케이션 로직·외부 상태 변경을 구분하고 모델·설정·입출력·오류·대체 경로가 명시된 실행 경계를 설계하는 후보 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "ai-systems-agents",
+    "subdomains": [
+      "llm-application-architecture"
+    ]
+  },
+  "domain_tags": [
+    "llm-application",
+    "inference-contract",
+    "fallback"
+  ],
+  "capabilities": [
+    "새 LLM 응용 과제에 모델 호출 경계와 버전·입출력·오류 계약을 정의하고 잘못된 출력·모델 변경을 주입해 명시적 실패와 외부 변경 전 검증을 확인합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.ai.llm-application-architecture-contract.d0",
+        "statement": "확률적 모델 호출, 결정적 로직과 외부 상태 변경의 실패 경계를 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.ai.llm-application-architecture-contract.d2-2",
+        "statement": "새 과제의 모델·설정·입출력·오류 계약을 구현하고 잘못된 출력·모델 변경 주입으로 검증합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "일상적인 모델·프롬프트·설정 버전 변경 회귀는 D2에 포함합니다. 대규모 routing 플랫폼, 배포·용량·SLO와 공급자별 SDK 세부는 D3 또는 Adapter로 분리합니다."
+  },
+  "relations": [],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.ai.llm-application-architecture-contract.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "ai-llm-application-architecture-contract-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.ai.llm-application-architecture-contract.d0",
+          "outcome.ai.llm-application-architecture-contract.d2-2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "같은 실패가 어느 경계에서 처리되어야 하는지 사례별로 분류합니다.",
+          "실패가 명시적으로 반환되고 검증되지 않은 출력이 외부 상태를 변경하지 않습니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile",
+      "publisher": "NIST",
+      "source_type": "official_source",
+      "url": "https://doi.org/10.6028/NIST.AI.600-1",
+      "source_version": "NIST AI 600-1",
+      "checked_at": "2026-07-28"
+    },
+    {
+      "title": "Building effective agents",
+      "publisher": "Anthropic",
+      "source_type": "official_source",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "checked_at": "2026-07-28"
+    },
+    {
+      "title": "Model Context Protocol: Tools",
+      "publisher": "Model Context Protocol",
+      "source_type": "official_spec",
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+      "source_version": "2025-11-25",
+      "checked_at": "2026-07-28"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "cost",
+    "risk_reduction",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-28",
+    "review_due_at": "2026-10-28",
+    "note": "candidate.ai-systems-agents.llm-application-architecture-contract@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.ai-systems-agents.llm-application-architecture-contract",
+      "version": "1.0.0"
+    }
+  }
+}

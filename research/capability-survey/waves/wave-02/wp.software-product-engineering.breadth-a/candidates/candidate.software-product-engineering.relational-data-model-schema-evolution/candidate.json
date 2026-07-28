@@ -1,0 +1,204 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.software-product-engineering.relational-data-model-schema-evolution",
+  "version": "1.0.0",
+  "title": "관계형 데이터 모델·스키마 진화",
+  "canonical_name": "Relational data model and schema evolution",
+  "aliases": [],
+  "summary": "식별자·관계·무결성 제약을 갖춘 관계형 모델과 기존 데이터를 보존하는 단계적 스키마 변경·검증·rollback을 설계하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "애플리케이션 코드에만 데이터 규칙을 두거나 파괴적 스키마 변경으로 기존 데이터와 소비자를 깨뜨리는 문제를 다룹니다.",
+    "includes": [
+      "키·관계·무결성 제약",
+      "단계적 migration",
+      "이전·이후 호환·rollback 검사"
+    ],
+    "excludes": [
+      "분석용 차원 모델",
+      "대규모 DB 운영·튜닝",
+      "특정 ORM 사용법"
+    ],
+    "boundary_note": "애플리케이션 관계형 모델과 schema evolution을 소유하며 분석 모델링과 운영 DBA 책임은 인접 렌즈로 넘깁니다."
+  },
+  "discovery": {
+    "lens_id": "software-product-engineering",
+    "basis": "assigned_lens",
+    "notes": "SWEBOK V4.0a와 관련 공식 사양·문서의 안정된 공학 행동을 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "software-product-engineering",
+    "subdomains": [
+      "relational-data-modeling-schema-evolution"
+    ],
+    "tags": [
+      "relational-model",
+      "constraints",
+      "schema-migration"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "PostgreSQL은 fixture이지만 키·관계·제약·migration 검증은 관계형 시스템 전반에 전이되므로 Unit 후보로 둡니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.software.relational-data-model-schema-evolution"
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.software-product-engineering.requirements-acceptance-traceability",
+        "version": "1.0.0"
+      },
+      "rationale": "데이터 규칙과 보존·호환 요구를 먼저 검증 가능한 기준으로 고정해야 합니다."
+    },
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.software-product-engineering.modular-design-dependency-boundaries",
+        "version": "1.0.0"
+      },
+      "rationale": "DB schema와 애플리케이션 모델의 책임·의존성 경계를 분리해야 합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "새 업무 규칙을 키·관계·제약으로 모델링하고 기존 데이터가 있는 두 schema version 사이를 단계적으로 이행·검증·복구합니다.",
+    "work_contexts": [
+      "업무 트랜잭션 DB",
+      "웹 애플리케이션",
+      "내부 서비스",
+      "레거시 schema 변경"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "deterministic_automation_preferred",
+    "agent_fit_rationale": "migration과 무결성은 실제 DB fixture에서 결정적으로 검증해야 합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "키·관계·무결성 제약과 애플리케이션 검사의 책임 차이를 설명합니다.",
+        "evidence_hypothesis": "중복·고아·null·교차 행 규칙 오류가 있는 모델을 판별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "새 요구의 관계형 schema와 단계적 migration을 구현하고 이전·이후 데이터 무결성과 rollback을 검증합니다.",
+        "evidence_hypothesis": "fixture 데이터 손실 0건, 제약 위반 차단과 양방향 또는 명시적 비가역 경계를 검사합니다."
+      }
+    ],
+    "depth_boundary": "대규모 online migration·복제·파티셔닝·성능 튜닝은 별도 D3 운영 영역으로 분리합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "risk_reduction",
+      "reuse",
+      "prerequisite_value"
+    ],
+    "business_hypotheses": [
+      "명시적 무결성 제약과 단계적 migration은 데이터 손상과 배포 회귀를 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "core",
+    "priority_hint": "next",
+    "measurement_hypothesis": "무결성 위반 차단율, fixture 데이터 손실, 이전·이후 호환 실패와 rollback 성공시간을 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "permissions",
+      "cost",
+      "observability",
+      "reliability",
+      "recovery"
+    ],
+    "notes": "개인정보 보존·삭제 정책은 제공된 요구로 적용하고 법률·운영 정책 설계는 인접 렌즈로 넘깁니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.software-product-engineering.database.postgresql-ddl",
+      "title": "PostgreSQL 18 Documentation: Data Definition",
+      "publisher": "PostgreSQL Global Development Group",
+      "source_type": "official_docs",
+      "url": "https://www.postgresql.org/docs/18/ddl.html",
+      "source_version": "18",
+      "checked_at": "2026-07-28",
+      "claim_scope": "관계형 테이블·키·foreign key·check 등 데이터 구조와 무결성 제약의 공식 구현 범위를 지지합니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "learning_outcome"
+      ]
+    },
+    {
+      "id": "evidence.software-product-engineering.database.postgresql-alter",
+      "title": "PostgreSQL 18 Documentation: Modifying Tables",
+      "publisher": "PostgreSQL Global Development Group",
+      "source_type": "official_docs",
+      "url": "https://www.postgresql.org/docs/18/ddl-alter.html",
+      "source_version": "18",
+      "checked_at": "2026-07-28",
+      "claim_scope": "기존 데이터와 의존 객체가 있는 테이블 정의를 변경하는 단계와 위험을 지지합니다.",
+      "supports": [
+        "scope",
+        "risk",
+        "work_relevance"
+      ]
+    },
+    {
+      "id": "evidence.software-product-engineering.database.postgresql-constraints",
+      "title": "PostgreSQL 18 Documentation: Constraints",
+      "publisher": "PostgreSQL Global Development Group",
+      "source_type": "official_docs",
+      "url": "https://www.postgresql.org/docs/18/ddl-constraints.html",
+      "source_version": "18",
+      "checked_at": "2026-07-28",
+      "claim_scope": "check·not-null·unique·primary key·foreign key의 무결성 책임과 한계를 구체적으로 지지하며 다른 DBMS의 구문까지 일반화하지 않습니다.",
+      "supports": [
+        "definition",
+        "learning_outcome",
+        "risk"
+      ]
+    },
+    {
+      "id": "evidence.software-product-engineering.database.prism",
+      "title": "PRISM: Graceful Database Schema Evolution",
+      "publisher": "Proceedings of the VLDB Endowment",
+      "source_type": "primary_research",
+      "url": "https://www.vldb.org/pvldb/vol1/1453939.pdf",
+      "source_version": "PVLDB 1(1), 2008",
+      "checked_at": "2026-07-28",
+      "claim_scope": "관계형 schema modification operation, 데이터 migration, 이전 schema version을 위한 backward view라는 일반 schema evolution 문제와 접근을 지지합니다. 특정 도구 구현을 학습성과로 요구하지 않습니다.",
+      "supports": [
+        "definition",
+        "learning_outcome",
+        "risk"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "PostgreSQL은 fixture이지만 키·관계·제약·migration 검증은 관계형 시스템 전반에 전이되므로 Unit 후보로 둡니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.software-product-engineering.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-28",
+    "reviewers": [
+      "read-only-evidence-auditor",
+      "read-only-taxonomy-auditor",
+      "read-only-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "DB별 DDL·transaction 차이는 Adapter fixture로 분리하고 공통 평가는 데이터 보존·제약·호환성에 둡니다."
+    ],
+    "next_action": "승인된 Candidate로 유지합니다. 정규 Unit unit.software.relational-data-model-schema-evolution@1.0.0 승격은 별도 Gate에서 수행하며 상세 교재·학습효과는 아직 검증되지 않았습니다."
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.foundation.risk-proportional-ai-reliance",
+  "version": "1.0.0",
+  "title": "위험 비례 검증과 결정 의존",
+  "summary": "오류의 영향·가역성·불확실성과 대상자를 기준으로 검증 강도를 정하고 AI 출력을 수용·수정·거부·에스컬레이션하는 후보 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "ai-literacy-trust",
+    "subdomains": [
+      "output-appraisal-and-decision-reliance"
+    ]
+  },
+  "domain_tags": [
+    "risk-based-review",
+    "decision-reliance",
+    "escalation"
+  ],
+  "capabilities": [
+    "제공된 조직 위험 허용도·승인·에스컬레이션 규칙 안에서 서로 다른 위험의 AI 보조 업무를 분류하고 독립 검증·전문가 검토·승인·중단 수준을 선택하여 결정 기록을 남깁니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.foundation.risk-proportional-ai-reliance.d0",
+        "statement": "오류 영향·가역성·불확실성·대상자에 따라 검증 강도가 달라지는 이유를 설명합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.foundation.risk-proportional-ai-reliance.d2-2",
+        "statement": "제공된 조직 위험 허용도·승인·에스컬레이션 규칙 안에서 새 사례의 검증·승인·중단 수준을 선택하고 근거를 기록합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "법적 고위험 시스템 분류와 조직 위험관리 체계 설계는 제외합니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.foundation.ai-output-fitness-appraisal",
+        "version": "1.0.0"
+      },
+      "note": "출력 평가는 의존 결정을 돕지만 용도·대상자·가역성만으로도 사전 금지·승인을 결정할 수 있습니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.foundation.risk-proportional-ai-reliance.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "foundation-risk-proportional-ai-reliance-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.foundation.risk-proportional-ai-reliance.d0",
+          "outcome.foundation.risk-proportional-ai-reliance.d2-2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "동일 출력의 맥락별 위험 차이를 판별합니다.",
+          "필수 최소검증을 고정한 뒤 고위험 무승인 채택 0건, 저위험 과잉검토와 에스컬레이션 누락을 함께 검사합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "AI Risk Management Framework Core",
+      "publisher": "NIST",
+      "source_type": "official_spec",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "source_version": "AI RMF 1.0",
+      "checked_at": "2026-07-27"
+    },
+    {
+      "title": "Regulation (EU) 2026/1744 amending the Artificial Intelligence Act",
+      "publisher": "European Parliament and Council of the European Union",
+      "source_type": "official_source",
+      "url": "https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng",
+      "source_version": "Regulation (EU) 2026/1744",
+      "checked_at": "2026-07-27"
+    }
+  ],
+  "potential_impact_types": [
+    "risk_reduction",
+    "quality",
+    "time"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-28",
+    "review_due_at": "2026-10-28",
+    "note": "candidate.ai-literacy-trust.risk-proportional-reliance@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.ai-literacy-trust.risk-proportional-reliance",
+      "version": "1.0.0"
+    }
+  }
+}

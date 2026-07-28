@@ -1,0 +1,177 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.ai-systems-agents.agent-state-memory-handoff-design",
+  "version": "1.0.0",
+  "title": "에이전트 상태·메모리·인계 설계",
+  "canonical_name": "Agent state, memory and handoff design",
+  "aliases": [
+    "Agent state, memory and handoff"
+  ],
+  "summary": "현재 실행 상태, 대화 컨텍스트와 영속 메모리를 구분하고 출처·범위·만료·정정·삭제·checkpoint·소유권이 명시된 인계 계약을 설계하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "장기·다회차 작업에서 오래되거나 출처 없는 기억, 상태 유실, 중복 실행과 인계 후 소유권·완료조건 누락이 발생하는 문제를 다룹니다.",
+    "includes": [
+      "실행 상태와 checkpoint·재개",
+      "메모리 저장·조회·갱신·삭제와 provenance·TTL",
+      "충돌·stale·잘못된 회상 시험",
+      "typed handoff payload·상태·artifact·소유권"
+    ],
+    "excludes": [
+      "일반 DB 엔지니어링",
+      "모델 가중치 학습",
+      "개인 지식관리",
+      "조직 업무 인계 일반론",
+      "개인정보 보존정책 전문 설계"
+    ],
+    "boundary_note": "AI 실행 연속성과 인계 계약을 소유하며 저장소 구현과 조직 프로세스·법적 보존정책은 인접 렌즈가 소유합니다."
+  },
+  "discovery": {
+    "lens_id": "ai-systems-agents",
+    "basis": "assigned_lens",
+    "notes": "메모리 연구와 A2A task·status·artifact 사양에서 상태 수명주기와 인계 계약을 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "ai-systems-agents",
+    "subdomains": [
+      "agent-state-memory-handoff"
+    ],
+    "tags": [
+      "agent-state",
+      "memory-lifecycle",
+      "handoff",
+      "checkpoint"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.ai.agent-state-memory-handoff-design",
+    "rationale": "새 다회차 과제에서 상태·메모리·인계 실패를 주입하고 재개·삭제·소유권·산출물 보존을 독립 검증할 수 있습니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ai-systems-agents.system-context-design",
+        "version": "1.0.0"
+      },
+      "rationale": "메모리와 인계 산출물은 다음 추론의 컨텍스트로 들어가기 전에 신뢰·선택·격리되어야 합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "새 다회차 과제에 상태·checkpoint·메모리 수명주기와 인계 envelope를 설계하고 오래됨·충돌·누락·취소·중복 실행 후 정확한 재개와 소유권을 검증합니다.",
+    "work_contexts": [
+      "다회차 고객지원",
+      "장기 리서치 갱신",
+      "여러 담당자의 문서 검토",
+      "중단 후 운영 사건 분류 재개"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "agent_primary",
+    "agent_fit_rationale": "장기·다회차 agent 실행의 연속성을 직접 다루지만 단일 호출 과제에는 불필요할 수 있습니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "현재 실행 상태, 대화 컨텍스트, 영속 메모리와 모델 지식을 구분하고 인계의 상태·소유권·artifact를 설명합니다.",
+        "evidence_hypothesis": "오래된 기억과 현재 과업 상태를 혼동한 사례를 판별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "새 다회차 과제의 상태·메모리·인계 계약을 구현하고 stale·충돌·누락·취소·중복 실행 후 재개·삭제·소유권을 검증합니다.",
+        "evidence_hypothesis": "출처 없는 기억이 채택되지 않고 인계 실패 후에도 단일 소유자와 최종 artifact 상태가 보존됩니다."
+      }
+    ],
+    "depth_boundary": "D2는 제공된 정책과 소규모 로컬 상태 저장소, 버전 있는 checkpoint schema와 재생·마이그레이션 시험으로 제한합니다. 분산 일관성·기업 보존정책·운영 IAM·A2A 전체 구현은 D3·Overlay·Adapter로 분리합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "cycle_time",
+      "employee_experience",
+      "risk_reduction"
+    ],
+    "business_hypotheses": [
+      "상태와 인계 계약은 장기 작업의 재작업과 소유권 누락을 줄일 가능성이 있습니다.",
+      "메모리 provenance·만료·삭제는 잘못된 기억의 반복 전파를 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "core",
+    "priority_hint": "next",
+    "measurement_hypothesis": "재개 성공률, stale·충돌 기억 채택률, 삭제 반영률, 인계 후 소유권·artifact 누락, 중복 실행 수, 상태·메모리 크기와 호출·토큰 한도 준수를 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "permissions",
+      "legal",
+      "ethics",
+      "cost",
+      "observability",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "개인정보·동의·목적·보존·삭제 정책은 제공된 규칙을 적용합니다. 삭제·소유권 이전 승인 거부와 취소 뒤 최종 상태를 확인하고 다국어 인계 및 화면낭독 가능한 상태·오류·소유자 표시를 시험합니다. 전문 법무·보안 설계는 별도 검토로 보냅니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.ai-systems-agents.state-memory.memgpt",
+      "title": "MemGPT: Towards LLMs as Operating Systems",
+      "publisher": "arXiv",
+      "source_type": "primary_research",
+      "url": "https://arxiv.org/abs/2310.08560",
+      "published_at": "2024-02-12",
+      "checked_at": "2026-07-28",
+      "source_version": "arXiv:2310.08560v2",
+      "claim_scope": "계층적 외부 메모리와 컨텍스트 이동을 구현한 특정 연구 시스템을 지지하며 보편적 메모리 구조나 업무효과를 증명하지 않습니다.",
+      "supports": [
+        "definition",
+        "scope"
+      ]
+    },
+    {
+      "id": "evidence.ai-systems-agents.state-memory.a2a-spec",
+      "title": "A2A Protocol Specification",
+      "publisher": "A2A Project",
+      "source_type": "official_spec",
+      "url": "https://a2a-protocol.org/v1.0.0/specification/",
+      "published_at": "2026-03-12",
+      "checked_at": "2026-07-28",
+      "source_version": "1.0.0",
+      "claim_scope": "독립 agent 간 message·task·status·artifact·context와 취소·오류의 상호운용 계약 사례를 지지하며 다중 agent의 업무효과를 입증하지 않습니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "lifecycle",
+        "risk"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "상태·checkpoint·메모리·handoff를 중단·재개·위임 뒤 과업 연속성을 보존하는 하나의 계약으로 평가하도록 승인했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.ai-systems-agents.breadth-a",
+    "author_agent": "codex-main-with-read-only-research",
+    "researched_at": "2026-07-28",
+    "reviewers": [
+      "read-only-discovery-researcher",
+      "read-only-boundary-researcher",
+      "read-only-practicality-researcher"
+    ],
+    "known_unknowns": [
+      "도메인별 개인정보 보존·삭제 정책과 실제 상태 규모가 연속성 계약의 난이도에 미치는 영향은 Overlay 파일럿에서 측정해야 합니다."
+    ],
+    "next_action": "정규 Unit unit.ai.agent-state-memory-handoff-design@1.0.0로 승격했습니다. cataloged 상태이므로 상세 교재와 학습효과는 아직 검증되지 않았습니다."
+  }
+}

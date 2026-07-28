@@ -1,0 +1,176 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.ai-systems-agents.llm-application-architecture-contract",
+  "version": "1.0.0",
+  "title": "LLM 응용 아키텍처·추론 계약 설계",
+  "canonical_name": "LLM application architecture and inference contract design",
+  "aliases": [
+    "LLM 응용 실행 경계 설계"
+  ],
+  "summary": "확률적 모델 호출과 결정적 애플리케이션 로직·외부 상태 변경을 구분하고 모델·설정·입출력·오류·대체 경로가 명시된 실행 경계를 설계하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "모델 호출의 비결정성과 버전 변화를 일반 함수 호출처럼 취급하여 실패·비용·외부 부작용이 통제되지 않는 문제를 다룹니다.",
+    "includes": [
+      "모델 호출 경계와 입력·출력 계약",
+      "모델·프롬프트·설정 버전 기록",
+      "잘못된 출력·모델 변경의 실패 반환",
+      "외부 상태 변경 전 검증"
+    ],
+    "excludes": [
+      "일반 API 클라이언트와 백엔드 구현 전체",
+      "배포·SRE·운영 비용관리",
+      "사업 수준의 AI 도입 해법 선택"
+    ],
+    "boundary_note": "AI 시스템 구축이 결정된 뒤 LLM 특유의 비결정성·버전·출력 불확실성을 다루며 일반 소프트웨어 회복탄력성은 인접 렌즈가 소유합니다."
+  },
+  "discovery": {
+    "lens_id": "ai-systems-agents",
+    "basis": "assigned_lens",
+    "notes": "공식 위험 문서와 공급자 실무 문서에서 모델 호출 계약과 단순한 실행 구조 우선 원칙을 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "ai-systems-agents",
+    "subdomains": [
+      "llm-application-architecture"
+    ],
+    "tags": [
+      "llm-application",
+      "inference-contract",
+      "fallback"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.ai.llm-application-architecture-contract",
+    "rationale": "공급자와 과업이 바뀌어도 관찰 가능한 호출·버전·실패 계약을 독립적으로 설계하고 검증할 수 있습니다."
+  },
+  "relations": [],
+  "capability": {
+    "learner_can_do": "새 LLM 응용 과제에 모델 호출 경계와 버전·입출력·오류 계약을 정의하고 잘못된 출력·모델 변경을 주입해 명시적 실패와 외부 변경 전 검증을 확인합니다.",
+    "work_contexts": [
+      "문서 요약 서비스",
+      "고객지원 답변 초안",
+      "운영 분류 보조",
+      "다국어 콘텐츠 변환"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "comparison_required",
+    "agent_fit_rationale": "단일 호출·결정적 workflow·agent 중 가장 단순한 실행 구조를 먼저 비교해야 합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "확률적 모델 호출, 결정적 로직과 외부 상태 변경의 실패 경계를 구분합니다.",
+        "evidence_hypothesis": "같은 실패가 어느 경계에서 처리되어야 하는지 사례별로 분류합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "새 과제의 모델·설정·입출력·오류 계약을 구현하고 잘못된 출력·모델 변경 주입으로 검증합니다.",
+        "evidence_hypothesis": "실패가 명시적으로 반환되고 검증되지 않은 출력이 외부 상태를 변경하지 않습니다."
+      }
+    ],
+    "depth_boundary": "일상적인 모델·프롬프트·설정 버전 변경 회귀는 D2에 포함합니다. 대규모 routing 플랫폼, 배포·용량·SLO와 공급자별 SDK 세부는 D3 또는 Adapter로 분리합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "cost",
+      "risk_reduction",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "불필요한 agent 복잡성과 모델 변경 시 숨은 회귀를 줄일 가능성이 있습니다.",
+      "외부 변경 전 검증으로 잘못된 부작용 전파를 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "now",
+    "measurement_hypothesis": "실패 주입 통과율, 검증되지 않은 외부 변경 수, 방식별 품질·지연·비용을 비교합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "permissions",
+      "cost",
+      "observability",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "민감 입력·권한·외부 변경은 제공된 정책과 승인 경로를 적용하며 전문 통제 설계는 보안·운영 렌즈로 넘깁니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.ai-systems-agents.llm-architecture.nist-genai-profile",
+      "title": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile",
+      "publisher": "NIST",
+      "source_type": "official_source",
+      "url": "https://doi.org/10.6028/NIST.AI.600-1",
+      "published_at": "2024-07-26",
+      "checked_at": "2026-07-28",
+      "source_version": "NIST AI 600-1",
+      "claim_scope": "사용 맥락·가정·한계·모델과 RAG 세부사항의 문서화 및 배포 조건에 가까운 평가 필요성을 지지하며 특정 구조의 우월성을 규정하지 않습니다.",
+      "supports": [
+        "scope",
+        "risk",
+        "lifecycle"
+      ]
+    },
+    {
+      "id": "evidence.ai-systems-agents.llm-architecture.anthropic-effective-agents",
+      "title": "Building effective agents",
+      "publisher": "Anthropic",
+      "source_type": "practitioner_primary",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "published_at": "2024-12-19",
+      "checked_at": "2026-07-28",
+      "claim_scope": "workflow와 agent를 구분하고 단순한 구성에서 필요한 만큼 복잡도를 늘리는 한 공급자의 실무 패턴을 지지하며 보편적 효과를 증명하지 않습니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "work_relevance"
+      ]
+    },
+    {
+      "id": "evidence.ai-systems-agents.llm-architecture.mcp-tools",
+      "title": "Model Context Protocol: Tools",
+      "publisher": "Model Context Protocol",
+      "source_type": "official_spec",
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+      "published_at": "2025-11-25",
+      "checked_at": "2026-07-28",
+      "source_version": "2025-11-25",
+      "claim_scope": "도구 입력 검증과 인간의 호출 거부·확인 가능성을 요구하는 현재 프로토콜 사례로, 검증되지 않은 모델 출력이 외부 변경으로 직결되지 않게 하는 한 경계를 지지하며 final 표준이나 전체 아키텍처로 일반화하지 않습니다.",
+      "supports": [
+        "learning_outcome",
+        "risk"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "LLM 특유의 호출·버전·입출력·실패 계약을 일반 서비스 구현과 분리한 Unit 후보로 승인했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.ai-systems-agents.breadth-a",
+    "author_agent": "codex-main-with-read-only-research",
+    "researched_at": "2026-07-28",
+    "reviewers": [
+      "read-only-discovery-researcher",
+      "read-only-boundary-researcher",
+      "read-only-practicality-researcher"
+    ],
+    "known_unknowns": [
+      "LLM 특화 호출·버전·출력 계약의 공급자 간 전이성은 두 Adapter fixture에서 계속 측정합니다."
+    ],
+    "next_action": "정규 Unit unit.ai.llm-application-architecture-contract@1.0.0로 승격했습니다. cataloged 상태이므로 상세 교재와 학습효과는 아직 검증되지 않았습니다."
+  }
+}
