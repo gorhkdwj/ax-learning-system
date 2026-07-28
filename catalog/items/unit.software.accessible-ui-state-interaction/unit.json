@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.software.accessible-ui-state-interaction",
+  "version": "1.0.0",
+  "title": "접근 가능한 UI 상태·상호작용 구현",
+  "summary": "사용자 입력·상태·오류·포커스와 접근성 의미를 명시하고 키보드·화면낭독·확대·오류 회복 조건에서 검증하는 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "software-product-engineering",
+    "subdomains": [
+      "accessible-ui-state-interaction"
+    ]
+  },
+  "domain_tags": [
+    "frontend",
+    "accessibility",
+    "ui-state",
+    "forms"
+  ],
+  "capabilities": [
+    "새 UI 흐름의 상태·입력·오류·포커스 계약을 구현하고 keyboard·screen reader·zoom fixture에서 핵심 과업을 검증합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.software.accessible-ui-state-interaction.d0",
+        "statement": "시각적 표현과 프로그램적으로 노출되는 이름·역할·상태·오류·포커스를 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.software.accessible-ui-state-interaction.d2",
+        "statement": "새 UI 흐름을 semantic control과 명시적 상태계약으로 구현하고 키보드·보조기술·확대 조건에서 검증합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "정식 적합성 감사·법률 판단·광범위 사용자 연구는 별도 전문 영역으로 분리합니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.software.requirements-acceptance-traceability",
+        "version": "1.0.0"
+      },
+      "note": "접근성·오류·상태 요구를 인수기준으로 먼저 고정해야 합니다."
+    },
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.software.layered-verification-testing",
+        "version": "1.0.0"
+      },
+      "note": "자동·수동 접근성 검사와 일반 회귀 Gate를 함께 구성하려면 계층형 검증 전략이 도움이 됩니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.software.accessible-ui-state-interaction.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "software-accessible-ui-state-interaction-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.software.accessible-ui-state-interaction.d0",
+          "outcome.software.accessible-ui-state-interaction.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "마우스·색상·placeholder에만 의존한 비사례를 판별합니다.",
+          "핵심 과업 keyboard 완료, focus 손실 0건, 오류 식별·회복과 상태 전달을 검사합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Web Content Accessibility Guidelines (WCAG) 2.2",
+      "publisher": "W3C",
+      "source_type": "official_spec",
+      "url": "https://www.w3.org/TR/WCAG22/",
+      "source_version": "W3C Recommendation 2024-12-12",
+      "checked_at": "2026-07-28"
+    },
+    {
+      "title": "HTML Living Standard: Forms and constraint validation",
+      "publisher": "WHATWG",
+      "source_type": "official_spec",
+      "url": "https://html.spec.whatwg.org/multipage/form-control-infrastructure.html",
+      "source_version": "Living Standard 2026-07",
+      "checked_at": "2026-07-28"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "experience",
+    "risk_reduction"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-28",
+    "review_due_at": "2026-10-28",
+    "note": "candidate.software-product-engineering.accessible-ui-state-interaction@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.software-product-engineering.accessible-ui-state-interaction",
+      "version": "1.0.0"
+    }
+  }
+}

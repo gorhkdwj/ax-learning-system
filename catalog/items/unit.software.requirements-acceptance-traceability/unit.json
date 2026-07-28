@@ -1,0 +1,125 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.software.requirements-acceptance-traceability",
+  "version": "1.0.0",
+  "title": "요구사항·인수기준·추적 설계",
+  "summary": "업무 요구를 모호성 없이 검증 가능한 동작·품질 제약·인수기준으로 표현하고 변경이 코드·테스트·문서에 미치는 영향을 추적하는 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "software-product-engineering",
+    "subdomains": [
+      "software-requirements-acceptance"
+    ]
+  },
+  "domain_tags": [
+    "requirements",
+    "acceptance-criteria",
+    "traceability"
+  ],
+  "capabilities": [
+    "새 변경 요청을 기능·품질 제약·비사례·인수기준으로 구조화하고 구현·테스트와의 추적표를 갱신합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.software.requirements-acceptance-traceability.d0",
+        "statement": "요구사항·설계·구현·테스트와 인수기준의 역할을 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.software.requirements-acceptance-traceability.d2",
+        "statement": "새 변경 요청을 검증 가능한 요구·인수기준·비사례로 만들고 변경 추적을 갱신합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "제품 전략·포트폴리오와 규제 해석은 제외하고 단일 제품 변경의 D2 계약으로 제한합니다."
+  },
+  "relations": [],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.software.requirements-acceptance-traceability.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "software-requirements-acceptance-traceability-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.software.requirements-acceptance-traceability.d0",
+          "outcome.software.requirements-acceptance-traceability.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "모호하거나 검증 불가능한 요구와 추적 단절을 판별합니다.",
+          "입력 자료에 분산되어 있고 정답 목록만 숨긴 필수 요구·제약을 모두 찾거나 근거 부족을 올바르게 질문·이관하며, 입력에 없는 요구 추가 0건과 고아 필수 요구·고아 테스트 0건을 검사합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Software Engineering Body of Knowledge: SWEBOK Guide V4.0 Topics",
+      "publisher": "IEEE Computer Society",
+      "source_type": "official_source",
+      "url": "https://www.computer.org/education/bodies-of-knowledge/software-engineering/topics",
+      "source_version": "SWEBOK Guide V4.0a",
+      "checked_at": "2026-07-28"
+    },
+    {
+      "title": "ISO/IEC/IEEE 29148:2018 Systems and software engineering — Requirements engineering",
+      "publisher": "ISO",
+      "source_type": "official_spec",
+      "url": "https://www.iso.org/standard/72089.html",
+      "source_version": "ISO/IEC/IEEE 29148:2018",
+      "checked_at": "2026-07-28"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "time",
+    "risk_reduction",
+    "capability_unlock",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-28",
+    "review_due_at": "2026-10-28",
+    "note": "candidate.software-product-engineering.requirements-acceptance-traceability@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.software-product-engineering.requirements-acceptance-traceability",
+      "version": "1.0.0"
+    }
+  }
+}

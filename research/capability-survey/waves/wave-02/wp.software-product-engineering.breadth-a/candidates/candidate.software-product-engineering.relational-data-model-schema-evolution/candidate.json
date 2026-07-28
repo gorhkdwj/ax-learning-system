@@ -199,6 +199,6 @@
     "known_unknowns": [
       "DB별 DDL·transaction 차이는 Adapter fixture로 분리하고 공통 평가는 데이터 보존·제약·호환성에 둡니다."
     ],
-    "next_action": "승인된 Candidate로 유지합니다. 정규 Unit unit.software.relational-data-model-schema-evolution@1.0.0 승격은 별도 Gate에서 수행하며 상세 교재·학습효과는 아직 검증되지 않았습니다."
+    "next_action": "정규 Unit unit.software.relational-data-model-schema-evolution@1.0.0로 승격했습니다. cataloged 상태이므로 상세 교재와 학습효과는 아직 검증되지 않았습니다."
   }
 }

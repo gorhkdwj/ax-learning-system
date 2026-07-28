@@ -1,0 +1,157 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.software.relational-data-model-schema-evolution",
+  "version": "1.0.0",
+  "title": "관계형 데이터 모델·스키마 진화",
+  "summary": "식별자·관계·무결성 제약을 갖춘 관계형 모델과 기존 데이터를 보존하는 단계적 스키마 변경·검증·rollback을 설계하는 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "software-product-engineering",
+    "subdomains": [
+      "relational-data-modeling-schema-evolution"
+    ]
+  },
+  "domain_tags": [
+    "relational-model",
+    "constraints",
+    "schema-migration"
+  ],
+  "capabilities": [
+    "새 업무 규칙을 키·관계·제약으로 모델링하고 기존 데이터가 있는 두 schema version 사이를 단계적으로 이행·검증·복구합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.software.relational-data-model-schema-evolution.d0",
+        "statement": "키·관계·무결성 제약과 애플리케이션 검사의 책임 차이를 설명합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.software.relational-data-model-schema-evolution.d2",
+        "statement": "새 요구의 관계형 schema와 단계적 migration을 구현하고 이전·이후 데이터 무결성과 rollback을 검증합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "대규모 online migration·복제·파티셔닝·성능 튜닝은 별도 D3 운영 영역으로 분리합니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.software.requirements-acceptance-traceability",
+        "version": "1.0.0"
+      },
+      "note": "데이터 규칙과 보존·호환 요구를 먼저 검증 가능한 기준으로 고정해야 합니다."
+    },
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.software.modular-design-dependency-boundaries",
+        "version": "1.0.0"
+      },
+      "note": "DB schema와 애플리케이션 모델의 책임·의존성 경계를 분리해야 합니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.software.relational-data-model-schema-evolution.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "software-relational-data-model-schema-evolution-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.software.relational-data-model-schema-evolution.d0",
+          "outcome.software.relational-data-model-schema-evolution.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "중복·고아·null·교차 행 규칙 오류가 있는 모델을 판별합니다.",
+          "fixture 데이터 손실 0건, 제약 위반 차단과 양방향 또는 명시적 비가역 경계를 검사합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "PostgreSQL 18 Documentation: Data Definition",
+      "publisher": "PostgreSQL Global Development Group",
+      "source_type": "official_docs",
+      "url": "https://www.postgresql.org/docs/18/ddl.html",
+      "source_version": "18",
+      "checked_at": "2026-07-28"
+    },
+    {
+      "title": "PostgreSQL 18 Documentation: Modifying Tables",
+      "publisher": "PostgreSQL Global Development Group",
+      "source_type": "official_docs",
+      "url": "https://www.postgresql.org/docs/18/ddl-alter.html",
+      "source_version": "18",
+      "checked_at": "2026-07-28"
+    },
+    {
+      "title": "PostgreSQL 18 Documentation: Constraints",
+      "publisher": "PostgreSQL Global Development Group",
+      "source_type": "official_docs",
+      "url": "https://www.postgresql.org/docs/18/ddl-constraints.html",
+      "source_version": "18",
+      "checked_at": "2026-07-28"
+    },
+    {
+      "title": "PRISM: Graceful Database Schema Evolution",
+      "publisher": "Proceedings of the VLDB Endowment",
+      "source_type": "primary_research",
+      "url": "https://www.vldb.org/pvldb/vol1/1453939.pdf",
+      "source_version": "PVLDB 1(1), 2008",
+      "checked_at": "2026-07-28"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "risk_reduction",
+    "reuse",
+    "capability_unlock"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-28",
+    "review_due_at": "2026-10-28",
+    "note": "candidate.software-product-engineering.relational-data-model-schema-evolution@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.software-product-engineering.relational-data-model-schema-evolution",
+      "version": "1.0.0"
+    }
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "schema_version": "1.0.0",
+  "id": "set.workflow.ai-assisted-software-change-delivery",
+  "version": "1.0.0",
+  "title": "AI 보조 소프트웨어 변경 전달",
+  "summary": "요구·버전관리·검증·책임사용 Unit을 조합해 AI 보조와 사전 고정한 기준선을 공정하게 비교하고 채택·제한·거부를 결정합니다.",
+  "set_type": "workflow",
+  "target_roles": [],
+  "business_context": "난이도와 변경 유형을 보정한 최소 2개 짝과제를 동일 시작 revision의 분리된 clean branch에서 수행합니다. 특정 제품 도입, 자동 merge·배포와 Agent Harness 구성요소 효과 비교는 범위가 아닙니다.",
+  "target_outcome": "난이도가 보정된 짝과제를 AI 보조와 사전 고정한 기준선 조건에 무작위 또는 교차 배정하여 수행하고, 같은 요구·테스트·리뷰 Gate에서 품질·시간·재작업·총비용을 비교해 채택·제한·거부를 결정합니다.",
+  "input_artifacts": [
+    "난이도·변경 유형을 보정한 최소 2개 짝과제",
+    "고정된 요구·인수기준과 숨은 검증 fixture",
+    "동일 시작 revision과 clean branch",
+    "사전 고정한 기준선·허용 도구·시간·비용 규칙"
+  ],
+  "output_artifacts": [
+    "요구–변경–테스트 추적 기록",
+    "조건별 검증·인간 리뷰·재작업 기록",
+    "lead time·총비용·품질 비교표",
+    "채택·제한·거부 결정과 근거"
+  ],
+  "entry_requirements": [
+    {
+      "unit": {
+        "id": "unit.foundation.responsible-ai-use-boundaries",
+        "version": "1.0.0"
+      },
+      "required_level": "D2"
+    }
+  ],
+  "priority": {
+    "curriculum_class": "role_core",
+    "execution_priority": "next",
+    "reason": "AI 보조 개발의 속도를 완료로 오인하지 않고 동일 공학 Gate와 기준선 비교로 실제 순효과를 판단하는 업무 조합입니다."
+  },
+  "business_impact": {
+    "value_hypothesis": "강한 기존 공학 Gate가 있을 때 AI 보조가 일부 과제의 cycle time을 줄일 가능성이 있으나 효과는 과제·팀별로 측정해야 합니다.",
+    "impact_types": [
+      "time",
+      "quality",
+      "experience",
+      "risk_reduction",
+      "strategic_option"
+    ],
+    "evidence_confidence": "hypothesis",
+    "learning_effort_note": "Unit 학습시간과 AI 보조·기준선 짝과제 수행시간을 분리해 측정합니다.",
+    "maintenance_cost_note": "모델·도구·코드베이스·과제 난이도 변화 시 기준선과 측정 결과를 다시 검토해야 합니다."
+  },
+  "steps": [
+    {
+      "id": "define-change-contract",
+      "title": "변경 요구·인수기준 고정",
+      "reason": "두 조건에 같은 완료조건과 추적 기준을 적용합니다.",
+      "unit_ref": {
+        "id": "unit.software.requirements-acceptance-traceability",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": true,
+      "depends_on": [],
+      "resource_refs": [],
+      "consumes": [
+        "난이도·변경 유형을 보정한 최소 2개 짝과제"
+      ],
+      "produces": [
+        "고정된 요구·인수기준과 추적표"
+      ],
+      "validation_gate_ids": [
+        "software-requirements-acceptance-traceability-catalog-assessment"
+      ],
+      "estimated_minutes": 120
+    },
+    {
+      "id": "isolate-paired-changes",
+      "title": "조건별 변경 이력 격리",
+      "reason": "결과 노출과 이력 혼합 없이 AI 보조·기준선 조건을 비교합니다.",
+      "unit_ref": {
+        "id": "unit.software.version-control-change-integration",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": true,
+      "depends_on": [
+        "define-change-contract"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "동일 시작 revision과 clean branch",
+        "고정된 요구·인수기준과 추적표"
+      ],
+      "produces": [
+        "조건별 작은 commit과 diff"
+      ],
+      "validation_gate_ids": [
+        "software-version-control-change-integration-catalog-assessment"
+      ],
+      "estimated_minutes": 120
+    },
+    {
+      "id": "check-modular-boundaries",
+      "title": "변경 범위·모듈 경계 검토",
+      "reason": "속도 이점이 과도한 결합·불필요 변경을 숨기지 않는지 확인합니다.",
+      "unit_ref": {
+        "id": "unit.software.modular-design-dependency-boundaries",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": false,
+      "depends_on": [
+        "isolate-paired-changes"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "조건별 작은 commit과 diff"
+      ],
+      "produces": [
+        "구조 품질·변경 범위 검토 기록"
+      ],
+      "validation_gate_ids": [
+        "software-modular-design-dependency-boundaries-catalog-assessment"
+      ],
+      "estimated_minutes": 120
+    },
+    {
+      "id": "run-layered-verification",
+      "title": "동일 검증·리뷰 Gate 실행",
+      "reason": "AI 생성 여부와 무관하게 같은 결정적 검사와 인간 리뷰를 적용합니다.",
+      "unit_ref": {
+        "id": "unit.software.layered-verification-testing",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": true,
+      "depends_on": [
+        "isolate-paired-changes"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "조건별 작은 commit과 diff",
+        "고정된 요구·인수기준과 숨은 검증 fixture"
+      ],
+      "produces": [
+        "조건별 검증·인간 리뷰·재작업 기록"
+      ],
+      "validation_gate_ids": [
+        "software-layered-verification-testing-catalog-assessment"
+      ],
+      "estimated_minutes": 120
+    },
+    {
+      "id": "verify-reproducible-build",
+      "title": "비교 환경 재현성 확인",
+      "reason": "AI 보조 여부 이외의 의존성·환경 차이가 결과를 왜곡하지 않게 합니다.",
+      "unit_ref": {
+        "id": "unit.software.build-dependency-reproducibility",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": false,
+      "depends_on": [
+        "isolate-paired-changes"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "사전 고정한 기준선·허용 도구·시간·비용 규칙"
+      ],
+      "produces": [
+        "조건별 build·artifact 재현성 기록"
+      ],
+      "validation_gate_ids": [
+        "software-build-dependency-reproducibility-catalog-assessment"
+      ],
+      "estimated_minutes": 120
+    }
+  ],
+  "risk_profile": {
+    "level": "medium",
+    "data_classes": [
+      "public"
+    ],
+    "human_approval_points": [
+      "입력이 공개·합성 코드와 자료이며 비밀정보·개인정보·권한 밖 원문을 포함하지 않는지 확인합니다.",
+      "AI 제안을 이해하고 검증하기 전에는 merge·배포·외부 쓰기를 승인하지 않습니다."
+    ],
+    "stop_conditions": [
+      "미이해 코드, 비밀정보, 불필요 변경 또는 승인되지 않은 외부 부작용이 발견됩니다.",
+      "두 조건 중 하나가 치명 요구·보안 Gate를 위반합니다.",
+      "조건 간 결과가 노출되거나 시작 revision·허용 도구·검증 규칙이 달라집니다.",
+      "사전 정의한 시간·비용 한도를 넘습니다."
+    ],
+    "rollback_plan": "조건별 clean branch의 로컬 변경을 폐기하고 동일 시작 revision에서 다시 수행합니다. 외부 시스템과 운영 환경은 변경하지 않습니다."
+  },
+  "capstone_resource_refs": [],
+  "acceptance_criteria": [
+    "난이도와 변경 유형을 보정한 최소 2개 짝과제를 무작위화 또는 교차 배정하고 한 조건의 결과를 다른 조건에 노출하지 않습니다.",
+    "두 조건 모두 치명 요구·보안·비밀정보·불필요 변경·승인되지 않은 외부 부작용 위반이 0건입니다.",
+    "AI 조건은 사전 정의한 품질 비열등성을 충족하고 시간·총비용·품질 중 최소 한 축에서 순효과를 보이며 다른 치명 축을 악화시키지 않습니다.",
+    "순효과가 없거나 불확실하면 제한 또는 거부를 올바른 결과로 기록합니다.",
+    "lead time은 prompt 작성·대기·테스트·검토·재작업을 포함하고 도구비용을 포함한 총비용을 비교합니다."
+  ],
+  "transfer_evaluation": {
+    "check_after_days": 7,
+    "metrics": [
+      "수용된 변경 lead time",
+      "요구 충족과 숨은 결함 탐지",
+      "인간 검토·재작업시간",
+      "도구비용을 포함한 총비용",
+      "rollback 수와 치명 위반 수"
+    ],
+    "different_context_task": "기존과 다른 코드베이스와 변경 유형의 보정된 짝과제에서 같은 기준선·검증·비용 Gate로 채택·제한·거부 결정을 재현합니다."
+  },
+  "sources": [
+    {
+      "title": "State of AI-assisted Software Development 2025",
+      "publisher": "DORA / Google Cloud",
+      "source_type": "primary_research",
+      "url": "https://dora.dev/research/2025/dora-report/",
+      "source_version": "2025",
+      "checked_at": "2026-07-28"
+    },
+    {
+      "title": "Best practices for using GitHub Copilot",
+      "publisher": "GitHub",
+      "source_type": "official_docs",
+      "url": "https://docs.github.com/en/copilot/get-started/best-practices",
+      "checked_at": "2026-07-28"
+    },
+    {
+      "title": "Guidelines on Minimum Standards for Developer Verification of Software",
+      "publisher": "NIST",
+      "source_type": "official_source",
+      "url": "https://doi.org/10.6028/NIST.IR.8397",
+      "source_version": "NISTIR 8397",
+      "checked_at": "2026-07-28"
+    }
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-28",
+    "review_due_at": "2026-10-28",
+    "note": "candidate.software-product-engineering.ai-assisted-change-delivery@1.0.0의 승인 결과를 정규 Set 메타데이터로 등록했습니다. 파일럿과 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.software-product-engineering.ai-assisted-change-delivery",
+      "version": "1.0.0"
+    },
+    "boundary": {
+      "excludes_signal": "signal.agent.agent-harness@1.0.0",
+      "note": "bare agent 대비 harness 구성요소 효과는 기존 Signal·Probe Set이 소유하며 이 Set은 일반 AI 보조 여부만 비교합니다."
+    }
+  }
+}

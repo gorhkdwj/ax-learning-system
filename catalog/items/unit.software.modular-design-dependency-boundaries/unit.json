@@ -1,0 +1,134 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.software.modular-design-dependency-boundaries",
+  "version": "1.0.0",
+  "title": "모듈형 설계·의존성 경계",
+  "summary": "책임·응집도·결합도·인터페이스와 변경 이유를 기준으로 모듈 경계를 설계하고 안전하게 리팩터링하는 정규 카탈로그 역량입니다.",
+  "item_type": "pattern",
+  "taxonomy": {
+    "major_domain": "software-product-engineering",
+    "subdomains": [
+      "modular-software-design"
+    ]
+  },
+  "domain_tags": [
+    "modularity",
+    "coupling",
+    "cohesion",
+    "refactoring"
+  ],
+  "capabilities": [
+    "새 코드베이스의 변경 이유와 의존성 그래프를 분석해 모듈 경계를 제안하고 특성화 테스트를 유지하며 단계적으로 리팩터링합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.software.modular-design-dependency-boundaries.d0",
+        "statement": "응집도·결합도·책임·의존성 방향이 변경 비용에 미치는 영향을 설명합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.software.modular-design-dependency-boundaries.d2",
+        "statement": "새 코드베이스에서 변경 축을 기준으로 경계를 재설계하고 동작을 보존하는 단계적 리팩터링을 수행합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "분산 아키텍처·용량·운영 SLO와 특정 프레임워크 내부구조는 별도 D3·Adapter로 분리합니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.software.requirements-acceptance-traceability",
+        "version": "1.0.0"
+      },
+      "note": "변경 이유와 유지해야 할 인수기준이 모듈 경계 판단의 입력입니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.software.modular-design-dependency-boundaries.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "software-modular-design-dependency-boundaries-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.software.modular-design-dependency-boundaries.d0",
+          "outcome.software.modular-design-dependency-boundaries.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "순환 의존·중복 책임·누수 인터페이스가 있는 구조를 판별합니다.",
+          "기존 특성화 테스트를 모두 통과하고 숨은 후속 변경 2건이 허용된 모듈 경계 안에 머물며, 새 순환·금지 방향 의존 0건과 공개 인터페이스 allowlist를 지킵니다. 최소 두 경계 대안을 변경 국소성·책임 중복·회귀·통제 누수로 비교합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Software Engineering Body of Knowledge: SWEBOK Guide V4.0 Topics",
+      "publisher": "IEEE Computer Society",
+      "source_type": "official_source",
+      "url": "https://www.computer.org/education/bodies-of-knowledge/software-engineering/topics",
+      "source_version": "SWEBOK Guide V4.0a",
+      "checked_at": "2026-07-28"
+    },
+    {
+      "title": "Guide to the Software Engineering Body of Knowledge, Version 4.0a",
+      "publisher": "IEEE Computer Society",
+      "source_type": "official_source",
+      "url": "https://ieeecs-media.computer.org/media/education/swebok/swebok-v4.pdf",
+      "source_version": "V4.0a",
+      "checked_at": "2026-07-28"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "time",
+    "reuse",
+    "risk_reduction"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-28",
+    "review_due_at": "2026-10-28",
+    "note": "candidate.software-product-engineering.modular-design-dependency-boundaries@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.software-product-engineering.modular-design-dependency-boundaries",
+      "version": "1.0.0"
+    }
+  }
+}

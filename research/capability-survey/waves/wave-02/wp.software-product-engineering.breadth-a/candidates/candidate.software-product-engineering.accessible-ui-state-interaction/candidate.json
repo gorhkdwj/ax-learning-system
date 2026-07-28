@@ -171,6 +171,6 @@
     "known_unknowns": [
       "자동 접근성 검사는 부분 증거로만 사용하고 keyboard·화면낭독 수동 과업을 필수로 둡니다."
     ],
-    "next_action": "승인된 Candidate로 유지합니다. 정규 Unit unit.software.accessible-ui-state-interaction@1.0.0 승격은 별도 Gate에서 수행하며 상세 교재·학습효과는 아직 검증되지 않았습니다."
+    "next_action": "정규 Unit unit.software.accessible-ui-state-interaction@1.0.0로 승격했습니다. cataloged 상태이므로 상세 교재와 학습효과는 아직 검증되지 않았습니다."
   }
 }

@@ -1,0 +1,146 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.software.version-control-change-integration",
+  "version": "1.0.0",
+  "title": "버전관리·변경 통합",
+  "summary": "변경을 작은 검토 단위로 기록하고 branch·merge·충돌 해결·검증 증거를 사용해 정본 이력을 안전하게 통합하는 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "software-product-engineering",
+    "subdomains": [
+      "version-control-change-integration"
+    ]
+  },
+  "domain_tags": [
+    "version-control",
+    "git",
+    "change-integration"
+  ],
+  "capabilities": [
+    "동시 변경을 분리해 기록하고 충돌의 의미를 확인한 뒤 테스트 증거와 함께 정본 branch에 통합하며 이전 상태를 복원합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.software.version-control-change-integration.d0",
+        "statement": "commit·branch·merge와 working tree·index·remote 정본의 차이를 설명합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.software.version-control-change-integration.d2",
+        "statement": "동시 변경 fixture를 작은 commit으로 분리하고 의미 충돌을 해결해 검증 후 통합·복구합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "서버 관리자 권한·대규모 monorepo 전략·release engineering은 별도 운영 영역으로 분리합니다."
+  },
+  "relations": [],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.software.version-control-change-integration.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "software-version-control-change-integration-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.software.version-control-change-integration.d0",
+          "outcome.software.version-control-change-integration.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "정본 혼동과 이력 손상 위험이 있는 명령 순서를 판별합니다.",
+          "의도하지 않은 파일 변경 0건, 테스트 통과와 이전 revision 복원 가능성을 검사합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Distributed Git — Distributed Workflows",
+      "publisher": "Git project",
+      "source_type": "official_docs",
+      "url": "https://git-scm.com/book/en/v2/Distributed-Git-Distributed-Workflows",
+      "source_version": "Pro Git 2nd Edition",
+      "checked_at": "2026-07-28"
+    },
+    {
+      "title": "Software Engineering Body of Knowledge: SWEBOK Guide V4.0 Topics",
+      "publisher": "IEEE Computer Society",
+      "source_type": "official_source",
+      "url": "https://www.computer.org/education/bodies-of-knowledge/software-engineering/topics",
+      "source_version": "SWEBOK Guide V4.0a",
+      "checked_at": "2026-07-28"
+    },
+    {
+      "title": "Git Documentation: git-add",
+      "publisher": "Git project",
+      "source_type": "official_docs",
+      "url": "https://git-scm.com/docs/git-add",
+      "checked_at": "2026-07-28"
+    },
+    {
+      "title": "Git Documentation: git-merge",
+      "publisher": "Git project",
+      "source_type": "official_docs",
+      "url": "https://git-scm.com/docs/git-merge",
+      "checked_at": "2026-07-28"
+    },
+    {
+      "title": "Git Documentation: git-restore",
+      "publisher": "Git project",
+      "source_type": "official_docs",
+      "url": "https://git-scm.com/docs/git-restore",
+      "checked_at": "2026-07-28"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "time",
+    "risk_reduction",
+    "capability_unlock",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-28",
+    "review_due_at": "2026-10-28",
+    "note": "candidate.software-product-engineering.version-control-change-integration@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.software-product-engineering.version-control-change-integration",
+      "version": "1.0.0"
+    }
+  }
+}

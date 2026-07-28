@@ -160,6 +160,6 @@
     "known_unknowns": [
       "복잡도 수치는 단독 합격기준으로 쓰지 않고 변경 영향과 테스트 증거를 함께 봅니다."
     ],
-    "next_action": "승인된 Candidate로 유지합니다. 정규 Unit unit.software.modular-design-dependency-boundaries@1.0.0 승격은 별도 Gate에서 수행하며 상세 교재·학습효과는 아직 검증되지 않았습니다."
+    "next_action": "정규 Unit unit.software.modular-design-dependency-boundaries@1.0.0로 승격했습니다. cataloged 상태이므로 상세 교재와 학습효과는 아직 검증되지 않았습니다."
   }
 }

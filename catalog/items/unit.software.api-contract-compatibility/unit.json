@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.software.api-contract-compatibility",
+  "version": "1.0.0",
+  "title": "API 계약·호환성 설계",
+  "summary": "HTTP API의 자원·동작·입출력·오류·상태·버전 계약을 명시하고 소비자 관점의 호환성 회귀를 검증하는 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "software-product-engineering",
+    "subdomains": [
+      "api-contracts-compatibility"
+    ]
+  },
+  "domain_tags": [
+    "api",
+    "openapi",
+    "compatibility",
+    "error-contract"
+  ],
+  "capabilities": [
+    "새 서비스의 HTTP API 계약과 오류·버전 정책을 작성하고 두 소비자 fixture에서 이전·이후 호환성을 자동검증합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.software.api-contract-compatibility.d0",
+        "statement": "API 구현과 소비자에게 공개된 요청·응답·오류·호환성 계약을 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.software.api-contract-compatibility.d2",
+        "statement": "새 API 계약을 작성하고 이전·이후 두 소비자 fixture로 호환성과 실패 의미를 검증합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "인증 서버·기업 IAM·gateway 운영·프로토콜별 transport 최적화는 D3·Adapter로 분리합니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.software.requirements-acceptance-traceability",
+        "version": "1.0.0"
+      },
+      "note": "API의 기능·품질·오류 요구가 계약과 인수기준의 입력입니다."
+    },
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.software.modular-design-dependency-boundaries",
+        "version": "1.0.0"
+      },
+      "note": "API는 모듈 경계를 외부 소비자에게 공개하는 인터페이스입니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.software.api-contract-compatibility.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "software-api-contract-compatibility-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.software.api-contract-compatibility.d0",
+          "outcome.software.api-contract-compatibility.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "성공 응답만 있고 오류·버전 의미가 누락된 명세를 판별합니다.",
+          "계약 위반·호환성 파괴·명시되지 않은 오류 전파를 자동검출합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "OpenAPI Specification v3.2.0",
+      "publisher": "OpenAPI Initiative",
+      "source_type": "official_spec",
+      "url": "https://spec.openapis.org/oas/v3.2.0.html",
+      "source_version": "3.2.0",
+      "checked_at": "2026-07-28"
+    },
+    {
+      "title": "Software Engineering Body of Knowledge: SWEBOK Guide V4.0 Topics",
+      "publisher": "IEEE Computer Society",
+      "source_type": "official_source",
+      "url": "https://www.computer.org/education/bodies-of-knowledge/software-engineering/topics",
+      "source_version": "SWEBOK Guide V4.0a",
+      "checked_at": "2026-07-28"
+    },
+    {
+      "title": "AIP-180: Backwards compatibility",
+      "publisher": "Google",
+      "source_type": "official_source",
+      "url": "https://google.aip.dev/180",
+      "source_version": "AIP-180",
+      "checked_at": "2026-07-28"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "time",
+    "reuse",
+    "risk_reduction"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-28",
+    "review_due_at": "2026-10-28",
+    "note": "candidate.software-product-engineering.api-contract-compatibility@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.software-product-engineering.api-contract-compatibility",
+      "version": "1.0.0"
+    }
+  }
+}

@@ -225,6 +225,6 @@
       "도구·모델 효과는 변경이 빠르므로 고정 효과값 대신 반복 가능한 기준선·품질·비용 측정계약을 유지합니다.",
       "bare agent 대비 harness 구성요소의 효과는 이 Set에서 재평가하지 않고 signal.agent.agent-harness의 Probe 결과를 참조합니다."
     ],
-    "next_action": "승인된 Candidate로 유지합니다. 정규 Set set.workflow.ai-assisted-software-change-delivery@1.0.0 승격은 별도 Gate에서 수행하며 상세 교재·학습효과는 아직 검증되지 않았습니다."
+    "next_action": "정규 Set set.workflow.ai-assisted-software-change-delivery@1.0.0로 승격했습니다. cataloged 상태이므로 상세 교재와 학습효과는 아직 검증되지 않았습니다."
   }
 }

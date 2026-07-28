@@ -168,6 +168,6 @@
     "known_unknowns": [
       "원인 격리시간은 과제 복잡도와 별도로 정규화하고 빠른 추측 자체를 숙련도로 보지 않습니다."
     ],
-    "next_action": "승인된 Candidate로 유지합니다. 정규 Unit unit.software.reproducible-debugging-fault-isolation@1.0.0 승격은 별도 Gate에서 수행하며 상세 교재·학습효과는 아직 검증되지 않았습니다."
+    "next_action": "정규 Unit unit.software.reproducible-debugging-fault-isolation@1.0.0로 승격했습니다. cataloged 상태이므로 상세 교재와 학습효과는 아직 검증되지 않았습니다."
   }
 }

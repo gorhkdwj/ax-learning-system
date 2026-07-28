@@ -161,6 +161,6 @@
     "known_unknowns": [
       "평가 fixture는 bit-for-bit 재현 가능한 지정 artifact만 사용합니다. 서명 등 변동 외피가 있으면 이를 평가대상에서 명시적으로 제외하고 unsigned inner artifact의 hash 일치를 요구하며, hash 차이가 남으면 기능·테스트가 같아도 불합격입니다."
     ],
-    "next_action": "승인된 Candidate로 유지합니다. 정규 Unit unit.software.build-dependency-reproducibility@1.0.0 승격은 별도 Gate에서 수행하며 상세 교재·학습효과는 아직 검증되지 않았습니다."
+    "next_action": "정규 Unit unit.software.build-dependency-reproducibility@1.0.0로 승격했습니다. cataloged 상태이므로 상세 교재와 학습효과는 아직 검증되지 않았습니다."
   }
 }

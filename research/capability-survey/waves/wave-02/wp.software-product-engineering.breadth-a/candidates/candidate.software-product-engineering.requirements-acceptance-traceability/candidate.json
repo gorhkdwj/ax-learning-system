@@ -153,6 +153,6 @@
     "known_unknowns": [
       "조직별 산출물 형식은 Adapter로 분리하고 핵심 평가는 요구의 검증 가능성과 추적 완전성에 둡니다."
     ],
-    "next_action": "승인된 Candidate로 유지합니다. 정규 Unit unit.software.requirements-acceptance-traceability@1.0.0 승격은 별도 Gate에서 수행하며 상세 교재·학습효과는 아직 검증되지 않았습니다."
+    "next_action": "정규 Unit unit.software.requirements-acceptance-traceability@1.0.0로 승격했습니다. cataloged 상태이므로 상세 교재와 학습효과는 아직 검증되지 않았습니다."
   }
 }

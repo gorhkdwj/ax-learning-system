@@ -163,6 +163,6 @@
     "known_unknowns": [
       "coverage 목표는 고정 백분율이 아니라 위험·변경 범위와 숨은 결함 탐지 증거로 보정합니다."
     ],
-    "next_action": "승인된 Candidate로 유지합니다. 정규 Unit unit.software.layered-verification-testing@1.0.0 승격은 별도 Gate에서 수행하며 상세 교재·학습효과는 아직 검증되지 않았습니다."
+    "next_action": "정규 Unit unit.software.layered-verification-testing@1.0.0로 승격했습니다. cataloged 상태이므로 상세 교재와 학습효과는 아직 검증되지 않았습니다."
   }
 }

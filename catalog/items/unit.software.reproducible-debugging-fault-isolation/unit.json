@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.software.reproducible-debugging-fault-isolation",
+  "version": "1.0.0",
+  "title": "재현 가능한 디버깅·결함 격리",
+  "summary": "실패 조건을 고정하고 최소 재현·관찰 증거·가설·이분 탐색으로 원인을 격리한 뒤 수정 회귀를 검증하는 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "software-product-engineering",
+    "subdomains": [
+      "debugging-fault-isolation"
+    ]
+  },
+  "domain_tags": [
+    "debugging",
+    "fault-isolation",
+    "reproduction",
+    "bisect"
+  ],
+  "capabilities": [
+    "새 실패에서 환경·입력·revision을 고정하고 최소 재현과 가설 검사를 통해 최초 원인 변경을 격리하며 수정 회귀를 추가합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.software.reproducible-debugging-fault-isolation.d0",
+        "statement": "증상·상관·근본 원인과 재현·격리·수정 검증 단계를 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.software.reproducible-debugging-fault-isolation.d2",
+        "statement": "새 실패를 최소 재현하고 관찰 증거·가설·이분 탐색으로 원인을 격리해 수정 회귀를 남깁니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "운영 incident·분산 시스템 causal tracing·성능 프로파일링은 별도 D3 영역으로 분리합니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.software.layered-verification-testing",
+        "version": "1.0.0"
+      },
+      "note": "재현 fixture와 수정 회귀는 검증·테스트 원리를 사용합니다."
+    },
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.software.version-control-change-integration",
+        "version": "1.0.0"
+      },
+      "note": "revision 이분 탐색과 원인 변경 추적에는 정확한 이력이 필요합니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.software.reproducible-debugging-fault-isolation.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "software-reproducible-debugging-fault-isolation-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.software.reproducible-debugging-fault-isolation.d0",
+          "outcome.software.reproducible-debugging-fault-isolation.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "증거 없이 원인을 확정하거나 여러 변수를 동시에 바꾸는 비사례를 판별합니다.",
+          "숨은 원인 fixture에서 최초 실패 revision·조건을 찾고 수정 전 실패·후 통과를 재현합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Guide to the Software Engineering Body of Knowledge, Version 4.0a",
+      "publisher": "IEEE Computer Society",
+      "source_type": "official_source",
+      "url": "https://ieeecs-media.computer.org/media/education/swebok/swebok-v4.pdf",
+      "source_version": "V4.0a",
+      "checked_at": "2026-07-28"
+    },
+    {
+      "title": "git-bisect Documentation",
+      "publisher": "Git project",
+      "source_type": "official_docs",
+      "url": "https://git-scm.com/docs/git-bisect",
+      "checked_at": "2026-07-28"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "time",
+    "risk_reduction",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-28",
+    "review_due_at": "2026-10-28",
+    "note": "candidate.software-product-engineering.reproducible-debugging-fault-isolation@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.software-product-engineering.reproducible-debugging-fault-isolation",
+      "version": "1.0.0"
+    }
+  }
+}

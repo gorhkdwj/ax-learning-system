@@ -189,6 +189,6 @@
     "known_unknowns": [
       "merge·rebase 선택은 단일 정답으로 평가하지 않고 정본 정책·검토 가능성·복구성 충족 여부로 판정합니다."
     ],
-    "next_action": "승인된 Candidate로 유지합니다. 정규 Unit unit.software.version-control-change-integration@1.0.0 승격은 별도 Gate에서 수행하며 상세 교재·학습효과는 아직 검증되지 않았습니다."
+    "next_action": "정규 Unit unit.software.version-control-change-integration@1.0.0로 승격했습니다. cataloged 상태이므로 상세 교재와 학습효과는 아직 검증되지 않았습니다."
   }
 }

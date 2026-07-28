@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.software.reproducible-debugging-fault-isolation.reference",
+  "version": "1.0.0",
+  "title": "재현 가능한 디버깅·결함 격리 공식·1차 출처 Reference",
+  "description": "정규 Unit의 정의·범위와 판정 기준을 뒷받침하는 공개 Reference입니다. 상세 교재나 독립 평가자료를 대신하지 않습니다.",
+  "resource_type": "external_reference",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.software.reproducible-debugging-fault-isolation",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "external",
+    "url": "https://ieeecs-media.computer.org/media/education/swebok/swebok-v4.pdf"
+  },
+  "learning_outcome_ids": [
+    "outcome.software.reproducible-debugging-fault-isolation.d0",
+    "outcome.software.reproducible-debugging-fault-isolation.d2"
+  ],
+  "estimated_minutes": 30,
+  "language": "ko",
+  "tags": [
+    "reference",
+    "promotion-evidence"
+  ],
+  "requirements": {
+    "platforms": [
+      "web-browser"
+    ],
+    "network_required": true
+  },
+  "provenance": {
+    "origin": "external",
+    "sources": [
+      {
+        "title": "Guide to the Software Engineering Body of Knowledge, Version 4.0a",
+        "publisher": "IEEE Computer Society",
+        "source_type": "official_source",
+        "url": "https://ieeecs-media.computer.org/media/education/swebok/swebok-v4.pdf",
+        "source_version": "V4.0a",
+        "checked_at": "2026-07-28"
+      },
+      {
+        "title": "git-bisect Documentation",
+        "publisher": "Git project",
+        "source_type": "official_docs",
+        "url": "https://git-scm.com/docs/git-bisect",
+        "checked_at": "2026-07-28"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "unverified",
+    "standard": "WCAG 2.2 AA",
+    "features": [],
+    "alternative_resource_refs": [],
+    "note": "외부 출처의 접근성은 재검토가 필요합니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-07-28",
+    "commands": [],
+    "expected_outputs": [
+      "출처가 Unit의 정의·범위·판정 기준을 뒷받침하는지 확인한 기록"
+    ],
+    "evidence_paths": [],
+    "note": "URL·근거 범위만 검토했으며 학습자료로서의 완전성과 평가 타당성은 아직 검증하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-28",
+    "review_due_at": "2026-10-28",
+    "note": "Candidate 승격 시 등록한 공개 Reference입니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.software-product-engineering.reproducible-debugging-fault-isolation",
+      "version": "1.0.0"
+    }
+  }
+}
