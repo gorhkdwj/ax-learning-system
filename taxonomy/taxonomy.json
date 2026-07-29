@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "id": "taxonomy.ax-capability-map",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "title": "AX 역량 분류 레지스트리",
   "status": "provisional",
   "updated_at": "2026-07-29",
@@ -2652,6 +2652,327 @@
           "research/capability-survey/waves/wave-02/wp.data-analytics-ml.breadth-a/domain-survey.md"
         ],
         "rationale": "ML 고유 버전·재현·변화 판정과 실제 플랫폼 배포·incident 실행을 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-29",
+        "last_reviewed_at": "2026-07-29",
+        "review_due_at": "2026-10-29",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "external-api-consumer-integration",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "외부 API 소비자 통합",
+      "title_en": "External API consumer integration",
+      "definition": "기존 API 계약을 소비해 pagination·quota·timeout·오류·호환성 변화에 제한적으로 대응하고 안전하게 실패하는 잠정 중분류입니다.",
+      "includes": [
+        "API 소비자 실행·복구 실천",
+        "pagination·rate limit·timeout",
+        "응답·오류·호환성 이상 처리"
+      ],
+      "excludes": [
+        "API 제공자 계약 설계",
+        "기업 gateway·IAM 운영",
+        "고용량 connection tuning"
+      ],
+      "parent_ids": [
+        "integration-automation"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "api-contracts-compatibility",
+        "platform-quality-operations"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-02/wp.integration-automation.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 2 통합·업무자동화 조사에서 안정 코어와 인접 렌즈·제품 Adapter의 소유권을 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-29",
+        "last_reviewed_at": "2026-07-29",
+        "review_due_at": "2026-10-29",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "event-webhook-integration",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "이벤트·웹훅 통합",
+      "title_en": "Event and webhook integration",
+      "definition": "이벤트 envelope·구독·callback·전달 확인과 중복·지연·역순·재전송·서명 실패를 검증하는 잠정 중분류입니다.",
+      "includes": [
+        "event·webhook 계약",
+        "subscription·callback",
+        "중복·지연·역순·재전송"
+      ],
+      "excludes": [
+        "broker HA·event mesh",
+        "기업 PKI 운영",
+        "exactly-once 보장"
+      ],
+      "parent_ids": [
+        "integration-automation"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "api-contracts-compatibility",
+        "platform-quality-operations"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-02/wp.integration-automation.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 2 통합·업무자동화 조사에서 안정 코어와 인접 렌즈·제품 Adapter의 소유권을 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-29",
+        "last_reviewed_at": "2026-07-29",
+        "review_due_at": "2026-10-29",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "deterministic-workflow-orchestration",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "결정적 워크플로 오케스트레이션",
+      "title_en": "Deterministic workflow orchestration",
+      "definition": "명시적 상태·분기·timer·병렬·join·승인 대기·오류·중단·재개·종료조건으로 장기 실행 업무를 제어하는 잠정 중분류입니다.",
+      "includes": [
+        "상태·전이·종료조건",
+        "분기·병렬·join·timer",
+        "승인 대기·crash 후 재개"
+      ],
+      "excludes": [
+        "데이터 변환 DAG",
+        "모델 주도 agent loop",
+        "분산 engine HA·SLO"
+      ],
+      "parent_ids": [
+        "integration-automation"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "agent-workflow-orchestration",
+        "data-transformation-pipelines",
+        "platform-quality-operations"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-02/wp.integration-automation.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 2 통합·업무자동화 조사에서 안정 코어와 인접 렌즈·제품 Adapter의 소유권을 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-29",
+        "last_reviewed_at": "2026-07-29",
+        "review_due_at": "2026-10-29",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "side-effect-safety-recovery",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "부작용 안전성·복구",
+      "title_en": "Side-effect safety and recovery",
+      "definition": "상태 재조회·불일치 판정 결과를 입력받아 idempotency·deduplication·제한된 retry·backoff·compensation·수동복구로 외부 변경을 안전하게 다루는 잠정 중분류입니다.",
+      "includes": [
+        "idempotency·deduplication",
+        "retry·backoff·timeout",
+        "compensation·수동복구 실행"
+      ],
+      "excludes": [
+        "분산 transaction 전문설계",
+        "고위험 실거래",
+        "무제한 자동 재시도"
+      ],
+      "parent_ids": [
+        "integration-automation"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "platform-quality-operations",
+        "structured-output-and-tool-contracts"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-02/wp.integration-automation.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 2 통합·업무자동화 조사에서 안정 코어와 인접 렌즈·제품 Adapter의 소유권을 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-29",
+        "last_reviewed_at": "2026-07-29",
+        "review_due_at": "2026-10-29",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "business-rule-decision-automation",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "비즈니스 규칙·의사결정 자동화",
+      "title_en": "Business rule and decision automation",
+      "definition": "입력·출력·규칙 우선순위·decision table hit policy·누락·충돌·version과 설명 가능한 결정 trace를 만드는 잠정 중분류입니다.",
+      "includes": [
+        "decision table·hit policy",
+        "규칙 충돌·미일치·경계값",
+        "versioned decision trace"
+      ],
+      "excludes": [
+        "예측 ML·LLM 판단",
+        "법률·정책 타당성 확정",
+        "기업 rule platform 운영"
+      ],
+      "parent_ids": [
+        "integration-automation"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "predictive-ml-problem-framing-baselines",
+        "security-legal-governance"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-02/wp.integration-automation.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 2 통합·업무자동화 조사에서 안정 코어와 인접 렌즈·제품 Adapter의 소유권을 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-29",
+        "last_reviewed_at": "2026-07-29",
+        "review_due_at": "2026-10-29",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "automation-outcome-verification",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "자동화 결과검증·상태조정",
+      "title_en": "Automation outcome verification and reconciliation",
+      "definition": "execution·correlation trace와 의도·관찰 postcondition, 외부 상태 재조회·비교·불일치 판정으로 업무 결과와 조정 필요성을 확인하는 잠정 중분류입니다.",
+      "includes": [
+        "execution·step·attempt ID",
+        "intended·observed postcondition",
+        "외부 상태 재조회·비교·불일치 판정"
+      ],
+      "excludes": [
+        "중앙 logging·SIEM",
+        "전사 SLO·incident",
+        "법적 감사정책"
+      ],
+      "parent_ids": [
+        "integration-automation"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "platform-quality-operations",
+        "data-catalog-lineage-ownership-metadata"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-02/wp.integration-automation.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 2 통합·업무자동화 조사에서 안정 코어와 인접 렌즈·제품 Adapter의 소유권을 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-29",
+        "last_reviewed_at": "2026-07-29",
+        "review_due_at": "2026-10-29",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "ui-driven-task-automation",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "UI 구동 업무자동화",
+      "title_en": "UI-driven task automation",
+      "definition": "안정적 API가 없을 때 DOM 기반 selector·wait·dialog·증거·postcondition·변경 감지·수동 이관을 설계하는 잠정 중분류입니다.",
+      "includes": [
+        "DOM selector·명시적 wait",
+        "dialog·session 오류",
+        "postcondition·변경 감지·handoff"
+      ],
+      "excludes": [
+        "desktop vision RPA",
+        "CAPTCHA 우회",
+        "실운영 자격증명·무인 대량실행"
+      ],
+      "parent_ids": [
+        "integration-automation"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "accessible-ui-state-interaction",
+        "platform-quality-operations"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-02/wp.integration-automation.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 2 통합·업무자동화 조사에서 안정 코어와 인접 렌즈·제품 Adapter의 소유권을 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-29",
+        "last_reviewed_at": "2026-07-29",
+        "review_due_at": "2026-10-29",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "integration-protocol-adapters",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "통합 프로토콜 Adapter",
+      "title_en": "Integration protocol adapters",
+      "definition": "빠르게 변하는 통합 프로토콜의 특정 revision·capability·lifecycle·transport를 안정 코어와 분리해 검증하는 잠정 중분류입니다.",
+      "includes": [
+        "protocol revision",
+        "capability negotiation",
+        "client·server lifecycle·transport"
+      ],
+      "excludes": [
+        "업무 부작용 의미",
+        "모델 도구 선택 정책",
+        "특정 SDK 전체 사용법"
+      ],
+      "parent_ids": [
+        "integration-automation"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "api-contracts-compatibility",
+        "structured-output-and-tool-contracts"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-02/wp.integration-automation.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 2 통합·업무자동화 조사에서 안정 코어와 인접 렌즈·제품 Adapter의 소유권을 분리하기 위해 제안했습니다."
       },
       "lifecycle": {
         "created_at": "2026-07-29",

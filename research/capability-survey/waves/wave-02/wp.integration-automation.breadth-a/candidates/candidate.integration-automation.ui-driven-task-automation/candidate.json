@@ -1,0 +1,201 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.integration-automation.ui-driven-task-automation",
+  "version": "1.0.0",
+  "title": "UI 구동 업무자동화·변경내성",
+  "canonical_name": "UI-driven task automation and change resilience",
+  "aliases": [],
+  "summary": "안정적 API가 없을 때 로컬 웹 UI의 selector·wait·dialog·증거·postcondition·변경 감지·수동 이관을 설계하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "UI 자동화를 고정 좌표와 성공 메시지에 의존시켜 지연 렌더링·selector 변경·modal·session 만료 뒤 잘못된 중복 제출을 만드는 문제를 다룹니다.",
+    "includes": [
+      "DOM 기반 selector·명시적 wait",
+      "prompt·dialog·session 만료",
+      "screenshot·DOM·postcondition 증거",
+      "UI 변경 감지·안전 중단·수동 handoff"
+    ],
+    "excludes": [
+      "Citrix·VDI·desktop vision RPA",
+      "CAPTCHA 우회",
+      "실운영 자격증명",
+      "무인 대량 실행"
+    ],
+    "boundary_note": "API·공식 SaaS connector가 적합하면 그것을 우선하며 UI 자동화는 로컬 검증 가능한 fallback으로 제한합니다."
+  },
+  "discovery": {
+    "lens_id": "integration-automation",
+    "basis": "assigned_lens",
+    "notes": "읽기 전용 발견 조사와 공식 사양·표준·공식 실무 문서를 기존 Candidate·Unit·Set·Signal과 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "integration-automation",
+    "subdomains": [
+      "ui-driven-task-automation"
+    ],
+    "tags": [
+      "ui-automation",
+      "webdriver",
+      "selector",
+      "change-detection"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "API가 없는 맥락에서 전이 가능한 UI 상호작용·검증·중단 행동을 독립 평가할 수 있어 Unit 후보로 둡니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.integration-automation.ui-driven-task-automation"
+  },
+  "relations": [
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.integration-automation.deterministic-workflow-orchestration",
+        "version": "1.0.0"
+      },
+      "rationale": "UI 단계의 상태·중단·재개를 명시적으로 관리해야 합니다."
+    },
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.integration-automation.side-effect-idempotency-retry-compensation",
+        "version": "1.0.0"
+      },
+      "rationale": "중복 제출과 timeout 뒤 부작용을 안전하게 판정해야 합니다."
+    },
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.integration-automation.automation-outcome-observability-reconciliation",
+        "version": "1.0.0"
+      },
+      "rationale": "화면 메시지가 아니라 실제 postcondition을 확인해야 합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "로컬 테스트 UI에서 지연·selector 변경·modal·중복 제출·session 만료를 처리하고 실제 postcondition과 증거를 검증합니다.",
+    "work_contexts": [
+      "레거시 웹 업무",
+      "관리 UI 반복작업",
+      "브라우저 기반 데이터 입력"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "not_applicable",
+    "agent_fit_rationale": "UI 경로는 결정적 브라우저 자동화를 우선하며 모델 기반 vision 제어는 이번 D2 범위에서 제외합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "API 우선 통합과 UI fallback 자동화의 안정성·권한·검증 차이를 설명합니다.",
+        "evidence_hypothesis": "API·공식 connector가 있는 과제를 근거 없이 UI로 자동화하거나 화면 메시지를 업무 완료로 오인하지 않습니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "로컬 테스트 UI에서 delayed render, selector change, modal, duplicate submit과 session expiry를 주입해 안전하게 중단·복구합니다.",
+        "evidence_hypothesis": "실제 postcondition과 증거가 정답 manifest와 일치하고 중복 제출·승인 우회·실운영 접근 0건, 변경 감지 실패 0건이어야 합니다."
+      }
+    ],
+    "depth_boundary": "D2 로컬 웹 UI로 제한하며 desktop vision RPA, CAPTCHA, 실운영 자격증명과 무인 대량운영은 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "cycle_time",
+      "quality",
+      "risk_reduction",
+      "prerequisite_value",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "변경 감지와 실제 결과 검증이 있는 UI 자동화는 취약한 반복 수작업의 오류를 제한할 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "now",
+    "measurement_hypothesis": "selector·session·modal 오류 검출, 중복 제출, postcondition 확인과 안전한 수동 이관시간을 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "permissions",
+      "cost",
+      "observability",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "전문 정책의 내용은 인접 렌즈가 제공하며 이 후보는 제공된 권한·비용·승인·복구 제약을 실행계약과 검증 Gate에 반영합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.integration-automation.ui.webdriver",
+      "title": "WebDriver",
+      "publisher": "World Wide Web Consortium",
+      "source_type": "official_spec",
+      "url": "https://www.w3.org/TR/2026/WD-webdriver2-20260702/",
+      "checked_at": "2026-07-29",
+      "claim_scope": "브라우저의 플랫폼·언어 중립 원격 제어, element·command·error 처리 범위를 지지하는 현행 Working Draft입니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "learning_outcome"
+      ],
+      "source_version": "W3C Working Draft 2026-07-02"
+    },
+    {
+      "id": "evidence.integration-automation.ui.wai-aria-1-2",
+      "title": "Accessible Rich Internet Applications (WAI-ARIA) 1.2",
+      "publisher": "World Wide Web Consortium",
+      "source_type": "standard",
+      "url": "https://www.w3.org/TR/wai-aria-1.2/",
+      "checked_at": "2026-07-29",
+      "claim_scope": "UI element의 semantic role·state·property 계약을 지지합니다. 실제 role·label locator API는 선택한 자동화 Adapter가 제공해야 합니다.",
+      "supports": [
+        "scope",
+        "learning_outcome",
+        "risk"
+      ],
+      "source_version": "W3C Recommendation 2023-06-06"
+    },
+    {
+      "id": "evidence.integration-automation.ui.gsa-rpa",
+      "title": "RPA Program Playbook",
+      "publisher": "U.S. General Services Administration",
+      "source_type": "official_source",
+      "url": "https://www.gsa.gov/cdnstatic/rpa-playbook.pdf",
+      "checked_at": "2026-07-29",
+      "claim_scope": "RPA 후보 선택·개발·시험·운영·변경 감시의 공공부문 실무 경계를 지지합니다.",
+      "supports": [
+        "scope",
+        "work_relevance",
+        "risk"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "dated WebDriver·WAI-ARIA와 Adapter locator 경계를 보강했으며 독립 근거·taxonomy·실용성 재감사에서 P0·P1 0건을 확인했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.integration-automation.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-29",
+    "reviewers": [
+      "codex-evidence-auditor",
+      "codex-taxonomy-auditor",
+      "codex-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "제품·조직별 수치 기준은 정규 승격 이후 로컬 fixture와 Adapter 파일럿에서 고정해야 합니다."
+    ],
+    "next_action": "정규 Unit 승격은 별도 사용자 지시 뒤 수행하고 상세 fixture 수치 상한은 평가 구현 전에 고정합니다."
+  }
+}

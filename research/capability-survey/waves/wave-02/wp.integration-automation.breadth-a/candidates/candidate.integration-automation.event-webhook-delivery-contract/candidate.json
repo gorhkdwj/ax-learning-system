@@ -1,0 +1,190 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.integration-automation.event-webhook-delivery-contract",
+  "version": "1.0.0",
+  "title": "이벤트·웹훅 전달계약 검증",
+  "canonical_name": "Event and webhook delivery contract validation",
+  "aliases": [],
+  "summary": "이벤트 envelope·구독·callback·전달 확인과 중복·지연·역순·재전송·서명 실패를 검증하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "비동기 전달을 동기 요청처럼 취급해 수신 확인과 업무 완료를 혼동하고 중복·역순·재전송으로 상태를 훼손하는 문제를 다룹니다.",
+    "includes": [
+      "event envelope·subscription·callback",
+      "전달 확인과 서명 검증 지점",
+      "중복·지연·순서 역전·재전송",
+      "poison event 격리"
+    ],
+    "excludes": [
+      "broker HA·대규모 event mesh",
+      "기업 PKI 운영",
+      "공급자별 서명 알고리즘 확정",
+      "exactly-once 보장"
+    ],
+    "boundary_note": "이 후보는 소비자 관점의 이벤트 전달 의미를 소유하며 broker 운영과 공급자별 보안정책은 인접 영역으로 이관합니다."
+  },
+  "discovery": {
+    "lens_id": "integration-automation",
+    "basis": "assigned_lens",
+    "notes": "읽기 전용 발견 조사와 공식 사양·표준·공식 실무 문서를 기존 Candidate·Unit·Set·Signal과 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "integration-automation",
+    "subdomains": [
+      "event-webhook-integration"
+    ],
+    "tags": [
+      "event",
+      "webhook",
+      "delivery",
+      "replay"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "제품과 무관한 비동기 전달 실패를 독립 fixture로 검증할 수 있어 Unit 후보로 둡니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.integration-automation.event-webhook-delivery-contract"
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.integration-automation.side-effect-idempotency-retry-compensation",
+        "version": "1.0.0"
+      },
+      "rationale": "재전송·중복 이벤트를 안전하게 처리할 부작용 계약이 필요합니다."
+    },
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.integration-automation.automation-outcome-observability-reconciliation",
+        "version": "1.0.0"
+      },
+      "rationale": "전달 확인과 실제 외부 상태를 correlation ID로 조정해야 합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "로컬 publisher·hub·receiver에서 서명·중복·역순·timeout 재전송과 poison event를 검증합니다.",
+    "work_contexts": [
+      "SaaS webhook",
+      "내부 event notification",
+      "pubsub callback"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "deterministic_automation_preferred",
+    "agent_fit_rationale": "반복 가능한 규칙과 상태 전이는 결정적 자동화를 우선하고, 인간 판단이나 AI는 명시된 승인·보조 지점에서만 사용합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "요청 수락, 이벤트 전달 확인과 최종 업무처리가 서로 다른 성공 상태임을 설명합니다.",
+        "evidence_hypothesis": "2xx 수신만으로 exactly-once와 최종 업무상태를 주장하지 않고 중복·역순 가능성을 구분합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "로컬 이벤트 fixture에서 서명 실패, duplicate ID, out-of-order, timeout 재전송과 poison event를 격리·재처리합니다.",
+        "evidence_hypothesis": "제공된 키와 정책으로 서명을 검증하고 중복 부작용 0건, 유실·격리·재처리 결과와 실행 ledger가 정답과 일치해야 합니다."
+      }
+    ],
+    "depth_boundary": "D2 로컬 전달계약으로 제한하며 multi-region broker, PKI와 대규모 event mesh 운영은 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "cycle_time",
+      "quality",
+      "risk_reduction",
+      "prerequisite_value",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "명시적인 전달·중복·재처리 계약은 이벤트 누락과 중복 부작용을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "now",
+    "measurement_hypothesis": "서명·중복·역순 검출률, 재전송 후 중복 부작용, poison event 격리와 최종 조정률을 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "permissions",
+      "cost",
+      "observability",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "전문 정책의 내용은 인접 렌즈가 제공하며 이 후보는 제공된 권한·비용·승인·복구 제약을 실행계약과 검증 Gate에 반영합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.integration-automation.event-webhook.cloudevents",
+      "title": "CloudEvents Specification",
+      "publisher": "Cloud Native Computing Foundation",
+      "source_type": "official_spec",
+      "url": "https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md",
+      "checked_at": "2026-07-29",
+      "claim_scope": "서비스·플랫폼 간 공통 이벤트 구조와 필수 context attribute를 지지하며 전달 보장은 규정하지 않습니다.",
+      "supports": [
+        "definition",
+        "scope"
+      ],
+      "source_version": "1.0.2"
+    },
+    {
+      "id": "evidence.integration-automation.event-webhook.websub",
+      "title": "WebSub",
+      "publisher": "World Wide Web Consortium",
+      "source_type": "official_spec",
+      "url": "https://www.w3.org/TR/websub/",
+      "checked_at": "2026-07-29",
+      "claim_scope": "publisher·hub·subscriber 구독, callback 검증, 배포와 authenticated content distribution의 범위를 지지합니다.",
+      "supports": [
+        "scope",
+        "learning_outcome",
+        "risk"
+      ],
+      "source_version": "W3C Recommendation 2026-06-02"
+    },
+    {
+      "id": "evidence.integration-automation.event-webhook.openapi-3-2",
+      "title": "OpenAPI Specification v3.2.0",
+      "publisher": "OpenAPI Initiative",
+      "source_type": "official_spec",
+      "url": "https://spec.openapis.org/oas/v3.2.0.html",
+      "checked_at": "2026-07-29",
+      "claim_scope": "HTTP callback·webhook 계약을 기계 판독 형식으로 표현하는 범위를 보조합니다.",
+      "supports": [
+        "scope"
+      ],
+      "source_version": "3.2.0"
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "표준 보장과 local 격리·순서정책의 경계를 유지했으며 독립 근거·taxonomy·실용성 재감사에서 P0·P1 0건을 확인했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.integration-automation.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-29",
+    "reviewers": [
+      "codex-evidence-auditor",
+      "codex-taxonomy-auditor",
+      "codex-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "제품·조직별 수치 기준은 정규 승격 이후 로컬 fixture와 Adapter 파일럿에서 고정해야 합니다."
+    ],
+    "next_action": "정규 Unit 승격은 별도 사용자 지시 뒤 수행하고 상세 fixture 수치 상한은 평가 구현 전에 고정합니다."
+  }
+}

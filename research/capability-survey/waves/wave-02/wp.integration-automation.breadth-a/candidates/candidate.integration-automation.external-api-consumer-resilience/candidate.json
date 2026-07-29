@@ -1,0 +1,216 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.integration-automation.external-api-consumer-resilience",
+  "version": "1.0.0",
+  "title": "외부 API 소비자 통합·복원력",
+  "canonical_name": "External API consumer integration and resilience",
+  "aliases": [],
+  "summary": "기존 API 계약을 소비해 pagination·rate limit·timeout·오류·호환성 변화에 제한적으로 대응하고 안전하게 실패하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "제공자 API 명세만 믿고 무제한 재시도하거나 pagination·오류·quota를 잘못 해석해 중복 부작용과 데이터 누락을 만드는 문제를 다룹니다.",
+    "includes": [
+      "API 소비자 실행·복구 실천",
+      "pagination·cursor 처리",
+      "rate limit·timeout·오류 해석",
+      "조건부 요청·호환성 이상 감지"
+    ],
+    "excludes": [
+      "API 제공자 계약 설계",
+      "기업 gateway·IAM 운영",
+      "고용량 connection tuning",
+      "실운영 공급자 자격증명"
+    ],
+    "boundary_note": "API 표면과 하위호환 정책은 software Unit이 소유하고, 이 후보는 소비자 실행·제한·복구 계약을 소유합니다. pagination·cursor 의미는 범용 표준으로 추정하지 않고 제공자 계약별로 입력받습니다."
+  },
+  "discovery": {
+    "lens_id": "integration-automation",
+    "basis": "assigned_lens",
+    "notes": "읽기 전용 발견 조사와 공식 사양·표준·공식 실무 문서를 기존 Candidate·Unit·Set·Signal과 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "integration-automation",
+    "subdomains": [
+      "external-api-consumer-integration"
+    ],
+    "tags": [
+      "api-consumer",
+      "pagination",
+      "rate-limit",
+      "resilience"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "기존 API 계약을 입력으로 받아 독립적인 소비자 실행과 실패 Gate를 평가할 수 있어 Unit 후보로 둡니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.integration-automation.external-api-consumer-resilience"
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.software-product-engineering.api-contract-compatibility",
+        "version": "1.0.0"
+      },
+      "rationale": "소비자 실행 전에 제공된 API의 operation·parameter·response·호환성 계약을 읽고 검증해야 합니다."
+    },
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.integration-automation.side-effect-idempotency-retry-compensation",
+        "version": "1.0.0"
+      },
+      "rationale": "재시도 전에 업무 부작용의 중복 안전성과 불확실 상태 복구계약이 필요합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "fake 외부 API의 pagination·429·5xx·timeout·오류·비호환 응답을 처리하고 제한된 재시도와 안전한 중단을 검증합니다.",
+    "work_contexts": [
+      "외부 SaaS API",
+      "파트너 API",
+      "내부 서비스 연동"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "deterministic_automation_preferred",
+    "agent_fit_rationale": "반복 가능한 규칙과 상태 전이는 결정적 자동화를 우선하고, 인간 판단이나 AI는 명시된 승인·보조 지점에서만 사용합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "제공자 API 계약과 소비자 실행·복구 정책을 구분합니다.",
+        "evidence_hypothesis": "OpenAPI가 있어도 quota·pagination·재시도·업무 부작용 안전성이 자동 보장되지 않는 사례를 구분합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "fake API에서 pagination, Retry-After, timeout, malformed error와 비호환 응답을 주입해 제한된 재시도와 최종 상태를 검증합니다.",
+        "evidence_hypothesis": "호출·재시도·대기 한도 안에서 누락·중복 외부 변경 0건, 오류 분류와 중단·이관 결과가 정답 manifest와 일치해야 합니다."
+      }
+    ],
+    "depth_boundary": "D2 소비자 실행·복구 실천으로 제한하며 제공자 API 설계, 기업 gateway·IAM과 고용량 운영은 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "cycle_time",
+      "quality",
+      "risk_reduction",
+      "prerequisite_value",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "제한된 소비자 복원력은 외부 API 장애의 전파와 반복 수작업을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "now",
+    "measurement_hypothesis": "페이지 누락·중복, retry 횟수·대기, quota 위반, 잘못된 성공 판정과 안전한 중단률을 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "permissions",
+      "cost",
+      "observability",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "전문 정책의 내용은 인접 렌즈가 제공하며 이 후보는 제공된 권한·비용·승인·복구 제약을 실행계약과 검증 Gate에 반영합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.integration-automation.api-consumer.openapi-3-2",
+      "title": "OpenAPI Specification v3.2.0",
+      "publisher": "OpenAPI Initiative",
+      "source_type": "official_spec",
+      "url": "https://spec.openapis.org/oas/v3.2.0.html",
+      "checked_at": "2026-07-29",
+      "claim_scope": "언어 중립 HTTP API 계약의 operation·parameter·response·error 기술 범위를 지지하지만 pagination·cursor 소비 의미와 소비자 복원력은 제공자 계약별 검증이 필요합니다.",
+      "supports": [
+        "definition",
+        "scope"
+      ],
+      "source_version": "3.2.0"
+    },
+    {
+      "id": "evidence.integration-automation.api-consumer.rfc-9110",
+      "title": "HTTP Semantics",
+      "publisher": "RFC Editor",
+      "source_type": "standard",
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "checked_at": "2026-07-29",
+      "claim_scope": "HTTP method·상태코드·조건부 요청과 idempotent method에 대한 제한된 자동 재시도 의미를 지지합니다.",
+      "supports": [
+        "scope",
+        "learning_outcome",
+        "risk"
+      ],
+      "source_version": "RFC 9110"
+    },
+    {
+      "id": "evidence.integration-automation.api-consumer.rfc-6585",
+      "title": "Additional HTTP Status Codes",
+      "publisher": "RFC Editor",
+      "source_type": "standard",
+      "url": "https://www.rfc-editor.org/rfc/rfc6585.html",
+      "checked_at": "2026-07-29",
+      "claim_scope": "429 Too Many Requests와 선택적인 Retry-After 응답 의미를 직접 지지하며 rate-limit 식별·계수 정책은 규정하지 않습니다.",
+      "supports": [
+        "scope",
+        "learning_outcome",
+        "risk"
+      ],
+      "source_version": "RFC 6585"
+    },
+    {
+      "id": "evidence.integration-automation.api-consumer.rfc-9457",
+      "title": "Problem Details for HTTP APIs",
+      "publisher": "RFC Editor",
+      "source_type": "standard",
+      "url": "https://www.rfc-editor.org/rfc/rfc9457.html",
+      "checked_at": "2026-07-29",
+      "claim_scope": "기계 판독 가능한 HTTP 오류 응답의 표준 표현 범위를 지지합니다.",
+      "supports": [
+        "scope",
+        "learning_outcome"
+      ],
+      "source_version": "RFC 9457"
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "직접 근거와 제공자 계약별 경계를 보강했으며 독립 근거·taxonomy·실용성 재감사에서 P0·P1 0건을 확인했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.integration-automation.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-29",
+    "reviewers": [
+      "codex-evidence-auditor",
+      "codex-taxonomy-auditor",
+      "codex-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "제품·조직별 수치 기준은 정규 승격 이후 로컬 fixture와 Adapter 파일럿에서 고정해야 합니다."
+    ],
+    "next_action": "정규 Unit 승격은 별도 사용자 지시 뒤 수행하고 상세 fixture 수치 상한은 평가 구현 전에 고정합니다."
+  },
+  "extensions": {
+    "existing_catalog_relations": [
+      {
+        "type": "requires",
+        "kind": "unit",
+        "id": "unit.software.api-contract-compatibility",
+        "version": "1.0.0"
+      }
+    ]
+  }
+}

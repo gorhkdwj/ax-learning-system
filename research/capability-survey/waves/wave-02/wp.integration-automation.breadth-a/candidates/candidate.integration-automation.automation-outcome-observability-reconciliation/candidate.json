@@ -1,0 +1,213 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.integration-automation.automation-outcome-observability-reconciliation",
+  "version": "1.0.0",
+  "title": "자동화 결과관측·상태조정",
+  "canonical_name": "Automation outcome observability and reconciliation",
+  "aliases": [],
+  "summary": "execution·step·attempt ID와 의도·관찰 postcondition, 외부 상태 재조회·불일치 분류·재생 가능한 증거로 업무 결과를 검증하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "호출 2xx·워크플로 종료·업무 완료를 같은 성공으로 취급해 늦은 반영·로그 유실·out-of-band 변경 뒤 실제 상태를 확인하지 못하는 문제를 다룹니다.",
+    "includes": [
+      "execution·step·attempt·correlation ID",
+      "발생·관찰 시각과 상태 trace",
+      "intended·observed postcondition",
+      "외부 상태 재조회·비교·불일치 판정"
+    ],
+    "excludes": [
+      "중앙 logging·SIEM",
+      "전사 SLO·incident 운영",
+      "법적 감사정책",
+      "인프라 trace backend 운영"
+    ],
+    "boundary_note": "이 후보는 업무 transaction의 실행증거, 외부 상태 재조회·비교와 불일치 판정을 소유합니다. 판정 뒤 retry·보상·수동복구 실행은 부작용 안전성 후보가, 인프라 운영 관측성은 platform 렌즈가 소유합니다."
+  },
+  "discovery": {
+    "lens_id": "integration-automation",
+    "basis": "assigned_lens",
+    "notes": "읽기 전용 발견 조사와 공식 사양·표준·공식 실무 문서를 기존 Candidate·Unit·Set·Signal과 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "integration-automation",
+    "subdomains": [
+      "automation-outcome-verification"
+    ],
+    "tags": [
+      "automation-observability",
+      "correlation",
+      "postcondition",
+      "reconciliation"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "호출·workflow·업무 결과를 분리하는 독립 D2 산출물과 조정 Gate가 있어 Unit 후보로 둡니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.integration-automation.automation-outcome-observability-reconciliation"
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.integration-automation.side-effect-idempotency-retry-compensation",
+        "version": "1.0.0"
+      },
+      "rationale": "불일치가 확인됐을 때 안전한 재시도·보상·미결 이관 계약이 필요합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "fake 외부 시스템에서 비동기 수락·늦은 반영·로그 유실·외부 변경을 주입하고 의도 상태와 실제 상태를 비교해 불일치와 조정 필요성을 판정합니다.",
+    "work_contexts": [
+      "API 자동화",
+      "SaaS connector",
+      "승인 workflow",
+      "UI task automation"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "deterministic_automation_preferred",
+    "agent_fit_rationale": "반복 가능한 규칙과 상태 전이는 결정적 자동화를 우선하고, 인간 판단이나 AI는 명시된 승인·보조 지점에서만 사용합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "호출 성공, workflow 종료와 실제 업무 postcondition 확인을 구분합니다.",
+        "evidence_hypothesis": "202 Accepted·로그 완료만으로 외부 업무상태를 확정하지 않고 관찰시각·재조회·불일치를 식별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "fake 외부 시스템에서 late apply, log loss와 out-of-band change를 주입해 correlation trace와 reconciliation 판정을 만듭니다.",
+        "evidence_hypothesis": "봉인된 실제 상태와 intended state를 비교해 허위 성공 0건, 미결·불일치 전수 분류와 replay 가능한 증거를 확인합니다."
+      }
+    ],
+    "depth_boundary": "D2 transaction 결과검증으로 제한하며 중앙 telemetry backend, 전사 SLO·incident와 법적 감사정책은 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "cycle_time",
+      "quality",
+      "risk_reduction",
+      "prerequisite_value",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "외부 결과 재조회·비교와 불일치 판정은 허위 성공·조용한 불일치와 수동 조사시간을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "now",
+    "measurement_hypothesis": "허위 성공, trace 누락, 불일치 탐지·판정률, 미결 이관과 원인격리 시간을 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "permissions",
+      "cost",
+      "observability",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "전문 정책의 내용은 인접 렌즈가 제공하며 이 후보는 제공된 권한·비용·승인·복구 제약을 실행계약과 검증 Gate에 반영합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.integration-automation.outcome.otel-logs",
+      "title": "OpenTelemetry Logs Data Model",
+      "publisher": "OpenTelemetry",
+      "source_type": "official_spec",
+      "url": "https://opentelemetry.io/docs/specs/otel/logs/data-model/",
+      "checked_at": "2026-07-29",
+      "claim_scope": "timestamp·observed timestamp·trace/span ID와 구조화 event attribute 범위를 지지합니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "learning_outcome"
+      ],
+      "source_version": "OpenTelemetry Specification 1.59.0"
+    },
+    {
+      "id": "evidence.integration-automation.outcome.nist-800-92",
+      "title": "Guide to Computer Security Log Management",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_source",
+      "url": "https://csrc.nist.gov/pubs/sp/800/92/final",
+      "checked_at": "2026-07-29",
+      "claim_scope": "건전한 log 관리와 accountability 필요성을 지지하지만 업무 postcondition 자체를 보장하지 않습니다.",
+      "supports": [
+        "scope",
+        "risk",
+        "lifecycle"
+      ],
+      "source_version": "NIST SP 800-92"
+    },
+    {
+      "id": "evidence.integration-automation.outcome.gsa-rpa",
+      "title": "RPA Program Playbook",
+      "publisher": "U.S. General Services Administration",
+      "source_type": "official_source",
+      "url": "https://www.gsa.gov/cdnstatic/rpa-playbook.pdf",
+      "checked_at": "2026-07-29",
+      "claim_scope": "자동화 변경 감시·품질관리·내부통제 시험과 성과 측정의 공공부문 실무 범위를 지지합니다.",
+      "supports": [
+        "work_relevance",
+        "risk",
+        "lifecycle"
+      ]
+    },
+    {
+      "id": "evidence.integration-automation.outcome.rfc-9110-202",
+      "title": "HTTP Semantics: 202 Accepted",
+      "publisher": "RFC Editor",
+      "source_type": "standard",
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html#section-15.3.3",
+      "checked_at": "2026-07-29",
+      "claim_scope": "202 Accepted가 처리를 완료했거나 성공을 보장하는 응답이 아니며 상태를 관찰할 표현을 제공해야 한다는 범위를 직접 지지합니다.",
+      "supports": [
+        "scope",
+        "learning_outcome",
+        "risk"
+      ],
+      "source_version": "RFC 9110 section 15.3.3"
+    },
+    {
+      "id": "evidence.integration-automation.outcome.arazzo-1-1",
+      "title": "The Arazzo Specification",
+      "publisher": "OpenAPI Initiative",
+      "source_type": "official_spec",
+      "url": "https://spec.openapis.org/arazzo/1.1.0.html",
+      "checked_at": "2026-07-29",
+      "claim_scope": "workflow step의 success criteria와 output을 명시해 단순 호출 응답과 완료조건을 분리하는 계약 범위를 보조합니다.",
+      "supports": [
+        "scope",
+        "learning_outcome"
+      ],
+      "source_version": "1.1.0"
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "202 Accepted·success criteria 근거와 결과판정 소유권을 보강했으며 독립 근거·taxonomy·실용성 재감사에서 P0·P1 0건을 확인했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.integration-automation.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-29",
+    "reviewers": [
+      "codex-evidence-auditor",
+      "codex-taxonomy-auditor",
+      "codex-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "제품·조직별 수치 기준은 정규 승격 이후 로컬 fixture와 Adapter 파일럿에서 고정해야 합니다."
+    ],
+    "next_action": "정규 Unit 승격은 별도 사용자 지시 뒤 수행하고 상세 fixture 수치 상한은 평가 구현 전에 고정합니다."
+  }
+}

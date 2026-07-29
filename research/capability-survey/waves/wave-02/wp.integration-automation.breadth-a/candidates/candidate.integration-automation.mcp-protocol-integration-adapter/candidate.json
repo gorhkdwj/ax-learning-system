@@ -1,0 +1,204 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.integration-automation.mcp-protocol-integration-adapter",
+  "version": "1.0.0",
+  "title": "MCP 프로토콜 연결 Adapter",
+  "canonical_name": "Model Context Protocol integration adapter",
+  "aliases": [],
+  "summary": "MCP 2025-11-25의 initialization·version·capability negotiation·client/server lifecycle·tools·resources·transport 오류를 검증하는 기술 Adapter 후보입니다.",
+  "research_scope": {
+    "problem_addressed": "MCP의 프로토콜 수명주기와 capability를 일반 API 또는 AI 도구 의미계약과 혼동해 version mismatch·미지원 capability·연결 해제 뒤 격리 경계를 잃는 문제를 다룹니다.",
+    "includes": [
+      "initialization·protocol version",
+      "capability negotiation",
+      "client·server lifecycle",
+      "tools·resources·transport 오류 mapping"
+    ],
+    "excludes": [
+      "tool 이름·부작용 의미 설계",
+      "모델 도구 선택 정책",
+      "기업 인증 인프라",
+      "특정 SDK 전체 사용법"
+    ],
+    "boundary_note": "MCP 고유 lifecycle·capability·transport만 Adapter가 소유하고 일반 API 계약과 모델향 도구 의미는 기존 Unit을 재사용합니다."
+  },
+  "discovery": {
+    "lens_id": "integration-automation",
+    "basis": "assigned_lens",
+    "notes": "읽기 전용 발견 조사와 공식 사양·표준·공식 실무 문서를 기존 Candidate·Unit·Set·Signal과 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "integration-automation",
+    "subdomains": [
+      "integration-protocol-adapters"
+    ],
+    "tags": [
+      "mcp",
+      "protocol",
+      "capability-negotiation",
+      "adapter"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "technology",
+    "proposed_destination": "technology_adapter",
+    "rationale": "빠르게 변하는 MCP revision과 SDK 차이는 안정 코어 Unit이 아니라 버전 고정 Adapter로 관리합니다.",
+    "proposed_item_type": "protocol",
+    "proposed_unit_id": "unit.integration-automation.mcp-protocol-integration-adapter"
+  },
+  "relations": [],
+  "capability": {
+    "learner_can_do": "로컬 fake MCP client/server에서 initialization·capability·version·schema·disconnect·timeout 오류를 검증하고 격리된 연결 상태를 복원합니다.",
+    "work_contexts": [
+      "AI 도구 서버 연결",
+      "resource provider 연결",
+      "로컬 MCP 테스트"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "deterministic_automation_preferred",
+    "agent_fit_rationale": "반복 가능한 규칙과 상태 전이는 결정적 자동화를 우선하고, 인간 판단이나 AI는 명시된 승인·보조 지점에서만 사용합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "MCP host·client·server 역할과 initialization·operation·shutdown 수명주기를 구분합니다.",
+        "evidence_hypothesis": "일반 API 호출 또는 모델의 tool 선택 의미를 MCP protocol lifecycle과 혼동하지 않고 capability 미지원 사례를 판별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "fake MCP client/server에서 version·capability mismatch, invalid schema, disconnect와 timeout을 주입해 protocol 오류·중단·재연결을 검증합니다.",
+        "evidence_hypothesis": "협상되지 않은 capability 호출 0건, server 간 상태·권한 누출 0건, 모든 실패가 제한 시간 안에 명시 오류·중단·재연결 판정으로 끝나야 합니다."
+      }
+    ],
+    "depth_boundary": "MCP 2025-11-25와 로컬 fake transport의 D2 Adapter로 제한하며 기업 auth·원격 운영과 SDK별 전문 구현은 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "cycle_time",
+      "quality",
+      "risk_reduction",
+      "prerequisite_value",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "버전 고정 MCP Adapter는 protocol mismatch와 server 간 격리 오류를 조기에 발견할 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "now",
+    "measurement_hypothesis": "초기화·capability·version 오류 검출, 미협상 호출, 상태 격리, disconnect 복구와 실행 한도를 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "permissions",
+      "cost",
+      "observability",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "전문 정책의 내용은 인접 렌즈가 제공하며 이 후보는 제공된 권한·비용·승인·복구 제약을 실행계약과 검증 Gate에 반영합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.integration-automation.mcp.architecture",
+      "title": "Model Context Protocol: Architecture",
+      "publisher": "Model Context Protocol",
+      "source_type": "official_spec",
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/architecture",
+      "checked_at": "2026-07-29",
+      "claim_scope": "host·client·server 구조, server별 격리와 capability negotiation의 프로토콜 경계를 지지합니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "risk"
+      ],
+      "source_version": "2025-11-25"
+    },
+    {
+      "id": "evidence.integration-automation.mcp.lifecycle",
+      "title": "Model Context Protocol: Lifecycle",
+      "publisher": "Model Context Protocol",
+      "source_type": "official_spec",
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle",
+      "checked_at": "2026-07-29",
+      "claim_scope": "initialization·operation·shutdown과 version·capability 협상 범위를 지지합니다.",
+      "supports": [
+        "scope",
+        "learning_outcome",
+        "lifecycle"
+      ],
+      "source_version": "2025-11-25"
+    },
+    {
+      "id": "evidence.integration-automation.mcp.tools",
+      "title": "Model Context Protocol: Tools",
+      "publisher": "Model Context Protocol",
+      "source_type": "official_spec",
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+      "checked_at": "2026-07-29",
+      "claim_scope": "server가 제공하는 tool capability와 input·output·error protocol 범위를 지지하며 업무 부작용 의미는 보장하지 않습니다.",
+      "supports": [
+        "scope",
+        "learning_outcome"
+      ],
+      "source_version": "2025-11-25"
+    },
+    {
+      "id": "evidence.integration-automation.mcp.resources",
+      "title": "Model Context Protocol: Resources",
+      "publisher": "Model Context Protocol",
+      "source_type": "official_spec",
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/resources",
+      "checked_at": "2026-07-29",
+      "claim_scope": "server가 제공하는 resource capability와 URI·read·subscription protocol 범위를 지지합니다.",
+      "supports": [
+        "scope",
+        "learning_outcome"
+      ],
+      "source_version": "2025-11-25"
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "versioned protocol 근거와 두 server 격리 fixture를 보강했으며 독립 근거·taxonomy·실용성 재감사에서 P0·P1 0건을 확인했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.integration-automation.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-29",
+    "reviewers": [
+      "codex-evidence-auditor",
+      "codex-taxonomy-auditor",
+      "codex-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "제품·조직별 수치 기준은 정규 승격 이후 로컬 fixture와 Adapter 파일럿에서 고정해야 합니다."
+    ],
+    "next_action": "technology Adapter 승격은 별도 사용자 지시 뒤 수행하고 상세 fixture 수치 상한은 평가 구현 전에 고정합니다."
+  },
+  "extensions": {
+    "adapter_version": "MCP 2025-11-25",
+    "existing_catalog_relations": [
+      {
+        "type": "requires",
+        "kind": "unit",
+        "id": "unit.software.api-contract-compatibility",
+        "version": "1.0.0"
+      },
+      {
+        "type": "requires",
+        "kind": "unit",
+        "id": "unit.ai.tool-function-contract-design",
+        "version": "1.0.0"
+      }
+    ]
+  }
+}

@@ -10,7 +10,7 @@
 | 마지막 갱신일 | `2026-07-29` |
 | 총괄·유일 작성자 | Codex 메인 세션 |
 | 후보 스키마 | `capability-candidate 1.1.0` |
-| 분류 Registry | `taxonomy.ax-capability-map@0.5.0` (`provisional`) |
+| 분류 Registry | `taxonomy.ax-capability-map@0.6.0` (`provisional`) |
 | 동시 작업 패키지 | `1` |
 | 작업 패키지별 후보 상한 | `10` |
 
@@ -19,8 +19,8 @@
 ### 목표
 
 - 기술·데이터 중심 Breadth 조사 A의 `ai-literacy-trust`,
-  `ai-systems-agents`, `software-product-engineering`, `data-analytics-ml`
-  순차 조사
+  `ai-systems-agents`, `software-product-engineering`, `data-analytics-ml`,
+  `integration-automation` 순차 조사
 - 후보 최대 10개 범위의 발견·중복 제거·목적지 라우팅
 - 공식·표준·1차 근거와 역할·품질축 기반 커버리지 확인
 - 신규 후보의 evidence·taxonomy·practicality 독립 전수감사
@@ -41,6 +41,7 @@
 | `wp.ai-systems-agents.breadth-a` | Codex 메인 + 읽기 전용 조사·감사자 | approved | 8/10 | `research/capability-survey/waves/wave-02/wp.ai-systems-agents.breadth-a/` | 2026-07-28 전문판정 위임 반영·감사·전체 검증 통과 |
 | `wp.software-product-engineering.breadth-a` | Codex 메인 + 읽기 전용 감사자 | approved | 10/10 | `research/capability-survey/waves/wave-02/wp.software-product-engineering.breadth-a/` | 2026-07-28 P1 반영·독립 재감사 통과 |
 | `wp.data-analytics-ml.breadth-a` | Codex 메인 + 읽기 전용 조사·감사자 | approved | 10/10 | `research/capability-survey/waves/wave-02/wp.data-analytics-ml.breadth-a/` | 2026-07-29 P1 반영·독립 재감사 통과 |
+| `wp.integration-automation.breadth-a` | Codex 메인 + 읽기 전용 조사·감사자 | approved | 10/10 | `research/capability-survey/waves/wave-02/wp.integration-automation.breadth-a/` | 2026-07-29 P1 반영·잔여 권고 기록·독립 재감사 통과 |
 
 ## 4. 승인된 실행 조건
 
@@ -110,13 +111,32 @@ ML 생명주기의 신규 Unit 후보 9개와 기존 영향평가 Candidate 재�
 않은 `measurement-contract`와 `solution-fit-assessment` Candidate 관계는
 Unit 확정 전까지 `pending_candidate_relations`에 보존했습니다.
 
+`integration-automation` 아래 다음 잠정 subdomain 8개를 추가했습니다.
+
+- `external-api-consumer-integration`
+- `event-webhook-integration`
+- `deterministic-workflow-orchestration`
+- `side-effect-safety-recovery`
+- `business-rule-decision-automation`
+- `automation-outcome-verification`
+- `ui-driven-task-automation`
+- `integration-protocol-adapters`
+
+후보 결과는 외부 API 소비, 이벤트·웹훅, 결정적 workflow, 부작용 안전성,
+비즈니스 규칙, 자동화 결과판정과 UI 구동 자동화의 Unit 후보 7개, SaaS
+커넥터 동기화 Set 후보 1개, MCP technology Adapter 후보 1개와 기존
+해법 적합성 Candidate·AI topology Set·Signal을 잇는 D0 Resource 후보
+1개입니다. 근거·taxonomy·실용성 감사의 P1을 반영하고 잔여 유지관리 권고를
+기록한 뒤 10개 모두 `accepted`로 승인했습니다. 이 패키지는 아직 정규
+Unit·Set·Resource·Adapter로 승격하지 않았습니다.
+
 ## 6. 중단조건 확인
 
 - [x] 승인된 Manifest와 출력 경로를 만들었습니다.
 - [x] 후보 상한과 병렬 규모를 고정했습니다.
 - [x] 정규 승격은 승인된 네 패키지로 제한했고 Signal은 수정하지 않았습니다.
-- [x] 첫 패키지 후보 10개, 둘째 8개, 셋째 10개와 넷째 10개 조사를 완료했습니다.
-- [x] 네 패키지의 근거·taxonomy·실용성 독립 감사를 완료했습니다.
+- [x] 첫 패키지 후보 10개, 둘째 8개, 셋째 10개, 넷째 10개와 다섯째 10개 조사를 완료했습니다.
+- [x] 다섯 패키지의 근거·taxonomy·실용성 독립 감사를 완료했습니다.
 - [x] 최초 감사 P0는 0건이며 P1을 반영한 후 독립 재확인에서 P0·P1 0건을 확인했습니다.
 - [x] 승인된 네 패키지의 정규 Unit·Resource·Set 메타데이터 승격을 완료했습니다.
 - [x] 카탈로그 검증은 오류·경고 없이 통과했습니다.
@@ -126,7 +146,8 @@ Unit 확정 전까지 `pending_candidate_relations`에 보존했습니다.
 
 ## 7. 다음 한 단계
 
-네 Wave 2 패키지의 조사와 정규 메타데이터 승격을 완료했습니다. 다음 순차
-패키지 `integration-automation`의 조사·감사를 진행합니다. 상세 콘텐츠 제작,
-파일럿·학습효과 검증과 새 후보의 정규 승격은 별도 후속 지시 전에는 자동
-수행하지 않습니다.
+Wave 2 Breadth 조사 A의 다섯 패키지 조사·감사를 완료했고 앞선 네 패키지는
+정규 메타데이터 승격까지 완료했습니다. `integration-automation`의 새 후보는
+승인 상태이지만 아직 승격하지 않았습니다. 다음 단계는 Wave 2 checkpoint
+검토와 `integration-automation` 승격 여부 결정입니다. Wave 3의
+`human-ai-experience` 조사는 별도 후속 지시 전에는 자동 시작하지 않습니다.

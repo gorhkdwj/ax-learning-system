@@ -1,0 +1,201 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.integration-automation.deterministic-agentic-boundary-guide",
+  "version": "1.0.0",
+  "title": "결정적 워크플로·에이전트 경계 가이드",
+  "canonical_name": "Deterministic workflow and agentic execution boundary guide",
+  "aliases": [],
+  "summary": "고정 workflow·model-routed workflow·agent loop·위임 토폴로지의 제어 주체와 책임 경계를 구분하는 D0 Resource 후보입니다.",
+  "research_scope": {
+    "problem_addressed": "모든 자동화를 agent로 부르거나 반대로 모델이 다음 행동을 선택하는 구조를 결정적 workflow로 취급해 통제·비용·재현성 경계를 잃는 문제를 다룹니다.",
+    "includes": [
+      "고정·model-routed workflow·agent loop 구분",
+      "결정 가능성·오류비용·승인",
+      "stop condition·budget·replay",
+      "기존 해법 적합성·AI topology 평가로의 라우팅표"
+    ],
+    "excludes": [
+      "새 agent Unit",
+      "runner 내부 loop 구현",
+      "harness 효과 확정",
+      "업무효과 보편 주장"
+    ],
+    "boundary_note": "기존 해법 적합성 Candidate, AI topology Set과 Signal을 연결하는 D0 해석 Resource이며 새 과제의 구조 선택·구현을 평가하거나 독립 Unit·node를 만들지 않습니다."
+  },
+  "discovery": {
+    "lens_id": "integration-automation",
+    "basis": "assigned_lens",
+    "notes": "읽기 전용 발견 조사와 공식 사양·표준·공식 실무 문서를 기존 Candidate·Unit·Set·Signal과 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "integration-automation",
+    "subdomains": [
+      "deterministic-workflow-orchestration"
+    ],
+    "tags": [
+      "workflow",
+      "agent",
+      "boundary",
+      "selection-guide"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "concept",
+    "proposed_destination": "resource_only",
+    "rationale": "기존 결정적 workflow와 AI topology·Signal 사이의 중복 방지 가이드이므로 Resource만 제안합니다."
+  },
+  "relations": [
+    {
+      "type": "related_to",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ax-strategy-value.solution-fit-assessment",
+        "version": "1.0.0"
+      },
+      "rationale": "새 과제의 기술중립 해법 선택은 이 Resource가 아니라 기존 해법 적합성 Candidate로 라우팅합니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.integration-automation.deterministic-workflow-orchestration",
+        "version": "1.0.0"
+      },
+      "rationale": "결정적 실행 구조의 책임 범위를 선택표의 기준선으로 사용합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "고정 workflow·model-routed workflow·agent loop·위임 토폴로지의 제어 주체와 책임 경계를 설명하고 실제 선택 평가는 기존 Candidate·Set으로 라우팅합니다.",
+    "work_contexts": [
+      "자동화 아키텍처 검토",
+      "AI 도입 경계",
+      "workflow 설계 리뷰"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "comparison_required",
+    "agent_fit_rationale": "구조의 제어 주체·책임 차이를 설명하고 실제 선택 과제를 기존 solution-fit-assessment Candidate와 AI topology Set으로 올바르게 라우팅하기 위한 Resource입니다."
+  },
+  "outcomes": {
+    "target_level": "D0",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "고정 workflow, model-routed workflow, agent loop와 delegated topology의 제어 주체를 구분합니다.",
+        "evidence_hypothesis": "공급자마다 다른 명칭을 독립 역량으로 오인하지 않고 기존 Unit·Set·Signal의 책임 경계를 설명합니다."
+      }
+    ],
+    "depth_boundary": "D0 용어·책임 경계 가이드로 제한합니다. D2 해법 선택은 solution-fit-assessment Candidate가, AI 구조 비교·구현은 기존 topology Set이 소유하고 runner·harness 검증은 기존 Signal에 남깁니다."
+  },
+  "practicality": {
+    "value_types": [
+      "cycle_time",
+      "quality",
+      "risk_reduction",
+      "prerequisite_value",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "명시적 경계 가이드는 불필요한 agent 복잡도와 통제 누락을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "next",
+    "measurement_hypothesis": "workflow·agent·harness의 제어 주체와 기존 Candidate·Set·Signal 라우팅 설명 오류를 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "permissions",
+      "cost",
+      "observability",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "전문 정책의 내용은 인접 렌즈가 제공하며 이 후보는 제공된 권한·비용·승인·복구 제약을 실행계약과 검증 Gate에 반영합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.integration-automation.boundary.anthropic-agents",
+      "title": "Building effective agents",
+      "publisher": "Anthropic",
+      "source_type": "official_docs",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "checked_at": "2026-07-29",
+      "claim_scope": "사전 정의 code path의 workflow와 모델이 동적으로 절차를 지휘하는 agent의 공급자 실무 구분을 지지합니다.",
+      "supports": [
+        "definition",
+        "scope"
+      ]
+    },
+    {
+      "id": "evidence.integration-automation.boundary.openai-running-agents",
+      "title": "Running agents",
+      "publisher": "OpenAI",
+      "source_type": "official_docs",
+      "url": "https://openai.github.io/openai-agents-python/running_agents/",
+      "checked_at": "2026-07-29",
+      "claim_scope": "agent loop·max turns·lifecycle·guardrail 실행의 한 공식 SDK 경계를 지지합니다.",
+      "supports": [
+        "scope",
+        "risk",
+        "lifecycle"
+      ]
+    },
+    {
+      "id": "evidence.integration-automation.boundary.openai-harness",
+      "title": "Harness engineering",
+      "publisher": "OpenAI",
+      "source_type": "practitioner_primary",
+      "url": "https://openai.com/index/harness-engineering/",
+      "checked_at": "2026-07-29",
+      "claim_scope": "실행 환경·도구·검증 feedback을 모델 자체와 분리하는 실무 관점을 보완하며 보편적 효과는 지지하지 않습니다.",
+      "supports": [
+        "scope",
+        "work_relevance"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "D0 설명·라우팅 Resource로 중복을 제거했으며 독립 근거·taxonomy·실용성 재감사에서 P0·P1 0건을 확인했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.integration-automation.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-29",
+    "reviewers": [
+      "codex-evidence-auditor",
+      "codex-taxonomy-auditor",
+      "codex-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "공급자별 workflow·agent·harness 용어 변화와 연결한 기존 Candidate·Set·Signal의 version·상태를 정기 재검토해야 합니다."
+    ],
+    "next_action": "정규 Resource 승격은 별도 사용자 지시 뒤 수행하고 연결한 Candidate·Set·Signal의 version·상태를 정기 재검토합니다."
+  },
+  "extensions": {
+    "proposed_resource_id": "resource.integration-automation.deterministic-agentic-boundary-reference",
+    "existing_catalog_relations": [
+      {
+        "kind": "set",
+        "id": "set.project.ai-workflow-agent-topology-comparison",
+        "version": "1.0.0"
+      },
+      {
+        "kind": "signal",
+        "id": "signal.agent.agent-control-loop",
+        "version": "1.0.0"
+      },
+      {
+        "kind": "signal",
+        "id": "signal.agent.agent-harness",
+        "version": "1.0.0"
+      }
+    ]
+  }
+}

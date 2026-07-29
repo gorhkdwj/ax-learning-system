@@ -1,0 +1,221 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.integration-automation.deterministic-workflow-orchestration",
+  "version": "1.0.0",
+  "title": "결정적 워크플로 상태·오케스트레이션",
+  "canonical_name": "Deterministic workflow state and orchestration",
+  "aliases": [],
+  "summary": "명시적 상태·분기·timer·병렬·join·승인 대기·오류·중단·재개·종료조건을 갖춘 결정적 업무흐름을 설계하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "업무흐름을 순서도나 성공 경로로만 표현해 crash·timeout·승인 거절·중복 신호 뒤 현재 상태와 재개 지점을 복원하지 못하는 문제를 다룹니다.",
+    "includes": [
+      "명시적 상태·전이·종료조건",
+      "분기·병렬·join·timer",
+      "승인 대기·거절·timeout",
+      "crash 후 재개·중단·보상 경로"
+    ],
+    "excludes": [
+      "데이터 변환 DAG",
+      "모델 주도 agent loop",
+      "workflow engine HA·capacity·SLO",
+      "조직 업무재설계 전체"
+    ],
+    "boundary_note": "이 후보는 코드·상태표로 결정되는 실행 상태를 소유하며 데이터 pipeline, agent topology와 플랫폼 운영을 분리합니다. durable persistence·checkpoint 구현은 선택한 Adapter별 계약으로 명시하며 BPMN·SCXML 표기 자체의 보장으로 간주하지 않습니다."
+  },
+  "discovery": {
+    "lens_id": "integration-automation",
+    "basis": "assigned_lens",
+    "notes": "읽기 전용 발견 조사와 공식 사양·표준·공식 실무 문서를 기존 Candidate·Unit·Set·Signal과 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "integration-automation",
+    "subdomains": [
+      "deterministic-workflow-orchestration"
+    ],
+    "tags": [
+      "workflow",
+      "state-machine",
+      "orchestration",
+      "durable-execution"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "새 장기 실행 업무의 상태·중단·재개를 독립적으로 평가할 수 있어 Unit 후보로 둡니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.integration-automation.deterministic-workflow-orchestration"
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.integration-automation.side-effect-idempotency-retry-compensation",
+        "version": "1.0.0"
+      },
+      "rationale": "workflow 재개·재시도 전에 단계 부작용의 중복 안전성이 필요합니다."
+    },
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.integration-automation.automation-outcome-observability-reconciliation",
+        "version": "1.0.0"
+      },
+      "rationale": "실행 상태와 실제 외부 상태를 분리해 완료를 검증해야 합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "소규모 장기 실행 업무를 상태 전이표로 구현하고 crash·timeout·거절·중복 신호 뒤 재개와 종료를 검증합니다.",
+    "work_contexts": [
+      "승인 기반 요청 처리",
+      "다단계 문서 처리",
+      "정기 업무 자동화"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "deterministic_automation_preferred",
+    "agent_fit_rationale": "반복 가능한 규칙과 상태 전이는 결정적 자동화를 우선하고, 인간 판단이나 AI는 명시된 승인·보조 지점에서만 사용합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "sequence·state machine·데이터 pipeline·agent loop의 제어 주체와 상태 의미를 구분합니다.",
+        "evidence_hypothesis": "같은 단계 목록이라도 명시적 상태와 재개 의미가 없는 흐름을 구분하고 agent 선택을 결정적 흐름으로 오인하지 않습니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "새 업무의 상태표와 workflow를 만들고 crash, timeout, 승인 거절, duplicate signal과 보상 경로를 검증합니다.",
+        "evidence_hypothesis": "모든 fixture에서 허용 전이만 발생하고 crash 후 정확한 지점에서 재개하며 무한 실행·중복 부작용·승인 우회가 0건이어야 합니다."
+      }
+    ],
+    "depth_boundary": "D2 상태·오케스트레이션과 local checkpoint 재개로 제한합니다. durable persistence 방식은 Adapter별 계약이며 분산 engine의 HA·capacity·SLO와 모델 주도 loop는 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "cycle_time",
+      "quality",
+      "risk_reduction",
+      "prerequisite_value",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "복원 가능한 상태계약은 장기 실행 업무의 누락·중복과 수동 복구시간을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "now",
+    "measurement_hypothesis": "잘못된 전이·승인 우회·중복 단계, crash 후 복원 정확도, timeout·거절 종료와 수동 복구시간을 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "permissions",
+      "cost",
+      "observability",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "전문 정책의 내용은 인접 렌즈가 제공하며 이 후보는 제공된 권한·비용·승인·복구 제약을 실행계약과 검증 Gate에 반영합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.integration-automation.workflow.bpmn-2-0-2",
+      "title": "Business Process Model and Notation Version 2.0.2",
+      "publisher": "Object Management Group",
+      "source_type": "official_spec",
+      "url": "https://www.omg.org/spec/BPMN/2.0.2/",
+      "checked_at": "2026-07-29",
+      "claim_scope": "업무흐름의 event·gateway·transaction·compensation 표현 범위를 지지하지만 엔진 내구성은 보장하지 않습니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "learning_outcome"
+      ],
+      "source_version": "2.0.2"
+    },
+    {
+      "id": "evidence.integration-automation.workflow.scxml-1-0",
+      "title": "State Chart XML (SCXML): State Machine Notation for Control Abstraction",
+      "publisher": "World Wide Web Consortium",
+      "source_type": "official_spec",
+      "url": "https://www.w3.org/TR/scxml/",
+      "checked_at": "2026-07-29",
+      "claim_scope": "실행 가능한 상태기계의 state configuration과 event-driven transition 범위를 지지합니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "learning_outcome"
+      ],
+      "source_version": "W3C Recommendation 2015-09-01"
+    },
+    {
+      "id": "evidence.integration-automation.workflow.arazzo-1-1",
+      "title": "The Arazzo Specification",
+      "publisher": "OpenAPI Initiative",
+      "source_type": "official_spec",
+      "url": "https://spec.openapis.org/arazzo/1.1.0.html",
+      "checked_at": "2026-07-29",
+      "claim_scope": "API 호출 sequence·dependency·success criteria를 outcome 중심 workflow로 표현하는 범위를 보조합니다.",
+      "supports": [
+        "scope",
+        "work_relevance"
+      ],
+      "source_version": "1.1.0"
+    },
+    {
+      "id": "evidence.integration-automation.workflow.durable-functions-overview",
+      "title": "Durable Functions overview",
+      "publisher": "Microsoft",
+      "source_type": "official_docs",
+      "url": "https://learn.microsoft.com/en-us/azure/durable-task/durable-functions/durable-functions-overview",
+      "checked_at": "2026-07-29",
+      "claim_scope": "상태·checkpoint·retry·recovery를 관리하는 durable workflow 구현 사례를 지지합니다. 이는 특정 구현의 보장이며 BPMN·SCXML 일반 보장으로 확장하지 않습니다.",
+      "supports": [
+        "learning_outcome",
+        "work_relevance",
+        "risk"
+      ],
+      "source_version": "checked 2026-07-29"
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "durable 구현과 Adapter별 persistence 경계를 보강했으며 독립 근거·taxonomy·실용성 재감사에서 P0·P1 0건을 확인했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.integration-automation.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-29",
+    "reviewers": [
+      "codex-evidence-auditor",
+      "codex-taxonomy-auditor",
+      "codex-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "제품·조직별 수치 기준은 정규 승격 이후 로컬 fixture와 Adapter 파일럿에서 고정해야 합니다."
+    ],
+    "next_action": "정규 Unit 승격은 별도 사용자 지시 뒤 수행하고 상세 fixture 수치 상한은 평가 구현 전에 고정합니다."
+  },
+  "extensions": {
+    "boundary_refs": [
+      {
+        "kind": "unit",
+        "id": "unit.data-analytics-ml.reproducible-data-transformation-pipelines",
+        "version": "1.0.0"
+      },
+      {
+        "kind": "set",
+        "id": "set.project.ai-workflow-agent-topology-comparison",
+        "version": "1.0.0"
+      }
+    ]
+  }
+}

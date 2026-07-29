@@ -1,0 +1,169 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.integration-automation.business-rule-decision-automation",
+  "version": "1.0.0",
+  "title": "비즈니스 규칙·의사결정표 자동화",
+  "canonical_name": "Business rule and decision table automation",
+  "aliases": [],
+  "summary": "입력·출력·규칙 우선순위·decision table hit policy·누락·충돌·버전과 설명 가능한 결정 trace를 만드는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "정책을 분기 코드에 흩어 놓아 경계값·충돌·미일치·규칙 순서 변경이 설명되지 않고 통계 예측이나 인간 재량과 혼동되는 문제를 다룹니다.",
+    "includes": [
+      "입력·출력·규칙 우선순위",
+      "decision table·hit policy",
+      "누락·충돌·경계값",
+      "versioned rule·decision trace"
+    ],
+    "excludes": [
+      "예측 ML·LLM 판단",
+      "법률·정책 타당성 확정",
+      "고위험 자동 의사결정 승인",
+      "기업 rule platform 운영"
+    ],
+    "boundary_note": "이 후보는 제공된 승인 규칙을 결정적으로 실행·설명하며 규칙의 정책적 정당성은 인간·전문 렌즈가 소유합니다."
+  },
+  "discovery": {
+    "lens_id": "integration-automation",
+    "basis": "assigned_lens",
+    "notes": "읽기 전용 발견 조사와 공식 사양·표준·공식 실무 문서를 기존 Candidate·Unit·Set·Signal과 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "integration-automation",
+    "subdomains": [
+      "business-rule-decision-automation"
+    ],
+    "tags": [
+      "business-rule",
+      "decision-table",
+      "dmn",
+      "explainability"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "워크플로와 분리된 규칙 산출물·충돌 Gate를 여러 맥락에서 평가할 수 있어 Unit 후보로 둡니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.integration-automation.business-rule-decision-automation"
+  },
+  "relations": [
+    {
+      "type": "related_to",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.integration-automation.deterministic-workflow-orchestration",
+        "version": "1.0.0"
+      },
+      "rationale": "workflow 단계가 결정표를 호출할 수 있지만 상태 오케스트레이션과 규칙 판정은 별도 산출물입니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "새 규칙 집합을 decision table로 만들고 경계값·충돌·미일치·순서 변경 fixture에서 결과와 trace를 검증합니다.",
+    "work_contexts": [
+      "요청 분류",
+      "승인 조건",
+      "요금·할인 모사",
+      "업무 라우팅"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "deterministic_automation_preferred",
+    "agent_fit_rationale": "반복 가능한 규칙과 상태 전이는 결정적 자동화를 우선하고, 인간 판단이나 AI는 명시된 승인·보조 지점에서만 사용합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "결정적 규칙, 통계적 예측과 인간 재량 판단을 구분합니다.",
+        "evidence_hypothesis": "같은 입력에서 재현되지 않거나 정책 근거 없이 추론하는 결정을 규칙 자동화로 인정하지 않습니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "제공된 승인 규칙을 decision table로 구현하고 봉인된 경계·충돌·미일치·순서 변경 사례를 판정합니다.",
+        "evidence_hypothesis": "모든 규칙은 원문 요구로 추적되고 충돌·미일치가 숨지 않으며 봉인 case 결과·적용 규칙·version trace가 정답과 일치해야 합니다."
+      }
+    ],
+    "depth_boundary": "D2 제공 규칙 구현으로 제한하며 예측 모델, 법률 해석, 고위험 정책 확정과 기업 rule engine 운영은 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "cycle_time",
+      "quality",
+      "risk_reduction",
+      "prerequisite_value",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "명시적 decision table과 trace는 규칙 변경 누락과 설명 불가능한 분기 오류를 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "now",
+    "measurement_hypothesis": "경계·충돌·미일치 검출, 정답 case 정확도, 규칙 변경 영향과 결정 trace 완전성을 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "permissions",
+      "cost",
+      "observability",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "전문 정책의 내용은 인접 렌즈가 제공하며 이 후보는 제공된 권한·비용·승인·복구 제약을 실행계약과 검증 Gate에 반영합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.integration-automation.business-rule.dmn-1-5",
+      "title": "Decision Model and Notation Version 1.5",
+      "publisher": "Object Management Group",
+      "source_type": "official_spec",
+      "url": "https://www.omg.org/spec/DMN/1.5/",
+      "checked_at": "2026-07-29",
+      "claim_scope": "business decision·decision table·hit policy와 검증 가능한 규칙 표현 범위를 지지합니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "learning_outcome"
+      ],
+      "source_version": "1.5"
+    },
+    {
+      "id": "evidence.integration-automation.business-rule.rif-core",
+      "title": "RIF Core Dialect (Second Edition)",
+      "publisher": "World Wide Web Consortium",
+      "source_type": "official_spec",
+      "url": "https://www.w3.org/TR/rif-core/",
+      "checked_at": "2026-07-29",
+      "claim_scope": "서로 다른 rule system 간 정밀한 규칙 교환의 안정 코어를 지지하되 현재 제품 채택은 보장하지 않습니다.",
+      "supports": [
+        "definition",
+        "scope"
+      ],
+      "source_version": "W3C Recommendation 2013-02-05"
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "명시적 규칙과 ML·LLM·전문정책 경계를 확인했으며 독립 근거·taxonomy·실용성 재감사에서 P0·P1 0건을 확인했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.integration-automation.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-29",
+    "reviewers": [
+      "codex-evidence-auditor",
+      "codex-taxonomy-auditor",
+      "codex-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "제품·조직별 수치 기준은 정규 승격 이후 로컬 fixture와 Adapter 파일럿에서 고정해야 합니다."
+    ],
+    "next_action": "정규 Unit 승격은 별도 사용자 지시 뒤 수행하고 상세 fixture 수치 상한은 평가 구현 전에 고정합니다."
+  }
+}

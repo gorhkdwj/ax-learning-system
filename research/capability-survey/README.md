@@ -42,10 +42,11 @@ Resource 전용 1개입니다. 읽기 전용 감사자가 근거·분류·실무
 최초 P0는 0건이며 P1은 교정했습니다. 과목·후보 표시명은 한국어를 우선하고 node
 ID와 영문 병기는 허용한다는 명명 원칙도 승인되었습니다.
 
-`taxonomy.ax-capability-map@0.5.0`에는 기존 조사 렌즈와 Wave 1 node에 더해
+`taxonomy.ax-capability-map@0.6.0`에는 기존 조사 렌즈와 Wave 1 node에 더해
 `ai-literacy-trust` 잠정 subdomain 7개와 `ai-systems-agents` 잠정 subdomain
 7개, `software-product-engineering` 잠정 subdomain 9개,
-`data-analytics-ml` 잠정 subdomain 9개가 등록되었습니다.
+`data-analytics-ml` 잠정 subdomain 9개와 `integration-automation` 잠정
+subdomain 8개가 등록되었습니다.
 
 두 번째 작업 패키지 `wp.ai-systems-agents.breadth-a`는 한국어 우선 표시명의
 Candidate 8개로 조사·감사를 완료한 `approved` 상태입니다. 전문 판단이 필요한
@@ -84,3 +85,14 @@ Signal은 수정하지 않았습니다.
 교정한 뒤 P0·P1 0건을 재확인했습니다. 후속 사용자 승인에 따라 신규 후보 9개와
 기존 영향평가 재사용 1개를 공개 Reference와 함께 정규 `cataloged` Unit으로
 승격했습니다. 상세 교재·파일럿과 학습효과는 아직 검증하지 않았습니다.
+
+다섯 번째 작업 패키지 `wp.integration-automation.breadth-a`는 한국어 우선
+표시명의 Candidate 10개로 조사·감사를 완료한 `approved` 상태입니다. 구성은
+외부 API 소비, 이벤트·웹훅, 결정적 workflow, 부작용 안전성, 비즈니스 규칙,
+자동화 결과판정과 UI 구동 자동화의 Unit 후보 7개, SaaS 커넥터 동기화 Set
+후보 1개, MCP technology Adapter 후보 1개와 결정적 workflow·agent 경계를
+설명하는 D0 Resource 후보 1개입니다. 독립 근거·taxonomy·실용성 감사의 P1을
+교정하고 잔여 유지관리 권고를 기록한 뒤 P0·P1 0건을 재확인했습니다. 이
+패키지는 아직 정규
+Unit·Set·Resource·Adapter로 승격하지 않았고 상세 fixture·교재·파일럿과
+학습효과도 검증하지 않았습니다.
