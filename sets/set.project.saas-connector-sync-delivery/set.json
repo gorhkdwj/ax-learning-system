@@ -1,0 +1,274 @@
+{
+  "schema_version": "1.0.0",
+  "id": "set.project.saas-connector-sync-delivery",
+  "version": "1.0.0",
+  "title": "SaaS 커넥터 동기화 전달",
+  "summary": "API·webhook·OAuth scope·cursor·증분 동기화·upsert·삭제·충돌·조정을 결합해 검증 가능한 SaaS 커넥터를 만드는 정규 프로젝트 Set입니다.",
+  "set_type": "project",
+  "target_roles": [],
+  "business_context": "공통 Unit을 실제 커넥터 산출물로 조합하는 업무 Set이며 Slack·Google·Microsoft별 연결은 Adapter로 분리합니다.",
+  "target_outcome": "두 fake SaaS 사이의 initial·incremental sync와 token·cursor·삭제·충돌 실패를 처리해 최종 상태를 조정합니다.",
+  "input_artifacts": [
+    "두 fake SaaS의 공개 계약과 합성 데이터",
+    "권한·삭제·충돌·중단 정책",
+    "호출·재시도·대기·비용 한도",
+    "initial·incremental sync 정답 manifest"
+  ],
+  "output_artifacts": [
+    "동기화 상태·권한·부작용 계약",
+    "initial·incremental sync 구현",
+    "실패 주입 실행 기록",
+    "최종 상태 reconciliation 보고서"
+  ],
+  "entry_requirements": [
+    {
+      "unit": {
+        "id": "unit.software.api-contract-compatibility",
+        "version": "1.0.0"
+      },
+      "required_level": "D2"
+    }
+  ],
+  "priority": {
+    "curriculum_class": "role_core",
+    "execution_priority": "next",
+    "reason": "여러 통합 역량을 장기 실행 동기화 과제로 결합하되 실제 업무 적용 순서는 파일럿과 개인 우선순위 평가 뒤 결정합니다."
+  },
+  "business_impact": {
+    "value_hypothesis": "검증 가능한 동기화 Set은 수동 이중 입력과 조용한 시스템 간 불일치를 줄일 가능성이 있습니다.",
+    "impact_types": [
+      "time",
+      "quality",
+      "risk_reduction",
+      "reuse"
+    ],
+    "evidence_confidence": "hypothesis",
+    "learning_effort_note": "개별 Unit 학습시간과 두 fake SaaS 통합·실패 주입·조정 시간을 분리합니다.",
+    "maintenance_cost_note": "공급자 API·권한·cursor·삭제 의미가 바뀌면 Adapter와 고정 fixture를 다시 검증해야 합니다."
+  },
+  "steps": [
+    {
+      "id": "fix-side-effect-contract",
+      "title": "부작용 안전·복구 계약 고정",
+      "reason": "동기화 쓰기·삭제의 중복·부분 성공·불확실 상태를 먼저 통제합니다.",
+      "unit_ref": {
+        "id": "unit.integration-automation.side-effect-idempotency-retry-compensation",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": true,
+      "depends_on": [],
+      "resource_refs": [],
+      "consumes": [
+        "권한·삭제·충돌·중단 정책"
+      ],
+      "produces": [
+        "동기화 부작용·복구 계약"
+      ],
+      "validation_gate_ids": [
+        "integration-automation-side-effect-idempotency-retry-compensation-catalog-assessment"
+      ],
+      "estimated_minutes": 120
+    },
+    {
+      "id": "fix-outcome-reconciliation",
+      "title": "결과판정·상태조정 계약 고정",
+      "reason": "요청 성공과 실제 SaaS 상태 일치를 분리해 최종 완료 기준을 고정합니다.",
+      "unit_ref": {
+        "id": "unit.integration-automation.automation-outcome-observability-reconciliation",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": true,
+      "depends_on": [
+        "fix-side-effect-contract"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "동기화 부작용·복구 계약",
+        "정답 manifest"
+      ],
+      "produces": [
+        "correlation·postcondition·reconciliation 계약"
+      ],
+      "validation_gate_ids": [
+        "integration-automation-automation-outcome-observability-reconciliation-catalog-assessment"
+      ],
+      "estimated_minutes": 120
+    },
+    {
+      "id": "implement-api-consumption",
+      "title": "외부 API 소비·복구 구현",
+      "reason": "pagination·quota·timeout·오류와 호환성 이상을 제한된 정책으로 처리합니다.",
+      "unit_ref": {
+        "id": "unit.integration-automation.external-api-consumer-resilience",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": true,
+      "depends_on": [
+        "fix-side-effect-contract"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "두 fake SaaS의 공개 계약과 합성 데이터",
+        "호출·재시도·대기·비용 한도"
+      ],
+      "produces": [
+        "API 소비·복구 구현"
+      ],
+      "validation_gate_ids": [
+        "integration-automation-external-api-consumer-resilience-catalog-assessment"
+      ],
+      "estimated_minutes": 120
+    },
+    {
+      "id": "verify-event-delivery",
+      "title": "이벤트·웹훅 전달 검증",
+      "reason": "중복·순서 역전·재전송·poison event를 동기화 상태와 분리해 판정합니다.",
+      "unit_ref": {
+        "id": "unit.integration-automation.event-webhook-delivery-contract",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": true,
+      "depends_on": [
+        "fix-outcome-reconciliation"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "두 fake SaaS의 이벤트 계약",
+        "동기화 부작용·복구 계약"
+      ],
+      "produces": [
+        "이벤트 전달·격리·재처리 기록"
+      ],
+      "validation_gate_ids": [
+        "integration-automation-event-webhook-delivery-contract-catalog-assessment"
+      ],
+      "estimated_minutes": 120
+    },
+    {
+      "id": "orchestrate-and-reconcile-sync",
+      "title": "동기화 workflow 통합·조정",
+      "reason": "initial·incremental 상태와 실패 복구 경로를 하나의 명시적 workflow로 통합합니다.",
+      "unit_ref": {
+        "id": "unit.integration-automation.deterministic-workflow-orchestration",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": true,
+      "depends_on": [
+        "fix-outcome-reconciliation",
+        "implement-api-consumption",
+        "verify-event-delivery"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "API 소비·복구 구현",
+        "이벤트 전달·격리·재처리 기록",
+        "correlation·postcondition·reconciliation 계약"
+      ],
+      "produces": [
+        "initial·incremental sync 구현",
+        "실패 주입 실행 기록",
+        "최종 상태 reconciliation 보고서"
+      ],
+      "validation_gate_ids": [
+        "integration-automation-deterministic-workflow-orchestration-catalog-assessment"
+      ],
+      "estimated_minutes": 120
+    }
+  ],
+  "risk_profile": {
+    "level": "medium",
+    "data_classes": [
+      "public"
+    ],
+    "human_approval_points": [
+      "두 fake SaaS와 합성 데이터만 사용하는지 실행 전에 확인합니다.",
+      "실제 계정·token·개인정보·결제·삭제 권한은 추가하지 않습니다.",
+      "최종 완료는 호출 응답이 아니라 양쪽 상태와 정답 manifest의 일치로 승인합니다."
+    ],
+    "stop_conditions": [
+      "실제 SaaS 계정·token·개인정보·결제 또는 고위험 권한이 필요합니다.",
+      "호출·재시도·대기·시간·비용 한도가 집행되지 않습니다.",
+      "불확실한 쓰기·삭제 상태를 재시도 전에 조회·조정할 수 없습니다.",
+      "원본 fixture나 다른 파일을 덮어쓰거나 삭제해야 합니다."
+    ],
+    "rollback_plan": "fake SaaS와 로컬 fixture를 초기 snapshot으로 복원하고 생성한 동기화 상태와 실행 산출물만 폐기합니다. 실제 외부 상태는 변경하지 않습니다."
+  },
+  "capstone_resource_refs": [],
+  "acceptance_criteria": [
+    "initial·incremental sync, token 만료, cursor 유실, 중복·충돌과 삭제 tombstone 시나리오를 두 fake SaaS에서 재현합니다.",
+    "호출·재시도·대기 한도 안에서 누락·중복 외부 변경 0건이며 불확실한 부작용은 조회·조정 후에만 재시도합니다.",
+    "각 시나리오의 최종 상태가 정답 manifest와 일치하고 poison event·영구 실패는 격리·이관됩니다.",
+    "실제 계정·token·개인정보·결제·고위험 권한과 원본 파일 변경이 0건임을 확인합니다."
+  ],
+  "transfer_evaluation": {
+    "check_after_days": 7,
+    "metrics": [
+      "페이지·이벤트·레코드 누락·중복 수",
+      "재시도·대기·호출 횟수와 중단률",
+      "충돌·삭제·불확실 상태의 자동·수동 조정률",
+      "최종 상태와 정답 manifest 불일치 수"
+    ],
+    "different_context_task": "다른 cursor·삭제·충돌 의미를 가진 새 fake SaaS 조합에서 같은 계약·한도·실패 주입·조정 절차를 재현합니다."
+  },
+  "sources": [
+    {
+      "title": "Best Current Practice for OAuth 2.0 Security",
+      "publisher": "RFC Editor",
+      "source_type": "standard",
+      "url": "https://www.rfc-editor.org/rfc/rfc9700.html",
+      "source_version": "RFC 9700 / BCP 240",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "System for Cross-domain Identity Management: Protocol",
+      "publisher": "RFC Editor",
+      "source_type": "standard",
+      "url": "https://www.rfc-editor.org/rfc/rfc7644.html",
+      "source_version": "RFC 7644",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "OpenAPI Specification v3.2.0",
+      "publisher": "OpenAPI Initiative",
+      "source_type": "official_spec",
+      "url": "https://spec.openapis.org/oas/v3.2.0.html",
+      "source_version": "3.2.0",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "Use delta query to track changes in Microsoft Graph data",
+      "publisher": "Microsoft",
+      "source_type": "official_docs",
+      "url": "https://learn.microsoft.com/en-us/graph/delta-query-overview",
+      "source_version": "checked 2026-07-29",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "Synchronize resources efficiently",
+      "publisher": "Google for Developers",
+      "source_type": "official_docs",
+      "url": "https://developers.google.com/workspace/calendar/api/guides/sync",
+      "source_version": "checked 2026-07-29",
+      "checked_at": "2026-07-29"
+    }
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-29",
+    "review_due_at": "2026-10-29",
+    "note": "candidate.integration-automation.saas-connector-sync-delivery@1.0.0의 승인 결과를 정규 Set 메타데이터로 등록했습니다. 상세 fixture·파일럿과 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.integration-automation.saas-connector-sync-delivery",
+      "version": "1.0.0"
+    }
+  }
+}

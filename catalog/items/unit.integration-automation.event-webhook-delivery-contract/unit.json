@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.integration-automation.event-webhook-delivery-contract",
+  "version": "1.0.0",
+  "title": "이벤트·웹훅 전달계약 검증",
+  "summary": "이벤트 envelope·구독·callback·전달 확인과 중복·지연·역순·재전송·서명 실패를 검증하는 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "integration-automation",
+    "subdomains": [
+      "event-webhook-integration"
+    ]
+  },
+  "domain_tags": [
+    "event",
+    "webhook",
+    "delivery",
+    "replay"
+  ],
+  "capabilities": [
+    "로컬 publisher·hub·receiver에서 서명·중복·역순·timeout 재전송과 poison event를 검증합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.integration-automation.event-webhook-delivery-contract.d0",
+        "statement": "요청 수락, 이벤트 전달 확인과 최종 업무처리가 서로 다른 성공 상태임을 설명합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.integration-automation.event-webhook-delivery-contract.d2",
+        "statement": "로컬 이벤트 fixture에서 서명 실패, duplicate ID, out-of-order, timeout 재전송과 poison event를 격리·재처리합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "D2 로컬 전달계약으로 제한하며 multi-region broker, PKI와 대규모 event mesh 운영은 제외합니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.integration-automation.side-effect-idempotency-retry-compensation",
+        "version": "1.0.0"
+      },
+      "note": "재전송·중복 이벤트를 안전하게 처리할 부작용 계약이 필요합니다."
+    },
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.integration-automation.automation-outcome-observability-reconciliation",
+        "version": "1.0.0"
+      },
+      "note": "전달 확인과 실제 외부 상태를 correlation ID로 조정해야 합니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.integration-automation.event-webhook-delivery-contract.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토와 로컬 fake fixture 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "integration-automation-event-webhook-delivery-contract-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.integration-automation.event-webhook-delivery-contract.d0",
+          "outcome.integration-automation.event-webhook-delivery-contract.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "2xx 수신만으로 exactly-once와 최종 업무상태를 주장하지 않고 중복·역순 가능성을 구분합니다.",
+          "제공된 키와 정책으로 서명을 검증하고 중복 부작용 0건, 유실·격리·재처리 결과와 실행 ledger가 정답과 일치해야 합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "CloudEvents Specification",
+      "publisher": "Cloud Native Computing Foundation",
+      "source_type": "official_spec",
+      "url": "https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md",
+      "source_version": "1.0.2",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "WebSub",
+      "publisher": "World Wide Web Consortium",
+      "source_type": "official_spec",
+      "url": "https://www.w3.org/TR/websub/",
+      "source_version": "W3C Recommendation 2026-06-02",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "OpenAPI Specification v3.2.0",
+      "publisher": "OpenAPI Initiative",
+      "source_type": "official_spec",
+      "url": "https://spec.openapis.org/oas/v3.2.0.html",
+      "source_version": "3.2.0",
+      "checked_at": "2026-07-29"
+    }
+  ],
+  "potential_impact_types": [
+    "time",
+    "quality",
+    "risk_reduction",
+    "capability_unlock",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-29",
+    "review_due_at": "2026-10-29",
+    "note": "candidate.integration-automation.event-webhook-delivery-contract@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.integration-automation.event-webhook-delivery-contract",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.integration-automation.breadth-a",
+      "promoted_at": "2026-07-29"
+    }
+  }
+}

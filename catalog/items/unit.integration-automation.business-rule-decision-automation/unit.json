@@ -1,0 +1,139 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.integration-automation.business-rule-decision-automation",
+  "version": "1.0.0",
+  "title": "비즈니스 규칙·의사결정표 자동화",
+  "summary": "입력·출력·규칙 우선순위·decision table hit policy·누락·충돌·버전과 설명 가능한 결정 trace를 만드는 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "integration-automation",
+    "subdomains": [
+      "business-rule-decision-automation"
+    ]
+  },
+  "domain_tags": [
+    "business-rule",
+    "decision-table",
+    "dmn",
+    "explainability"
+  ],
+  "capabilities": [
+    "새 규칙 집합을 decision table로 만들고 경계값·충돌·미일치·순서 변경 fixture에서 결과와 trace를 검증합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.integration-automation.business-rule-decision-automation.d0",
+        "statement": "결정적 규칙, 통계적 예측과 인간 재량 판단을 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.integration-automation.business-rule-decision-automation.d2",
+        "statement": "제공된 승인 규칙을 decision table로 구현하고 봉인된 경계·충돌·미일치·순서 변경 사례를 판정합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "D2 제공 규칙 구현으로 제한하며 예측 모델, 법률 해석, 고위험 정책 확정과 기업 rule engine 운영은 제외합니다."
+  },
+  "relations": [
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.integration-automation.deterministic-workflow-orchestration",
+        "version": "1.0.0"
+      },
+      "note": "workflow 단계가 결정표를 호출할 수 있지만 상태 오케스트레이션과 규칙 판정은 별도 산출물입니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.integration-automation.business-rule-decision-automation.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토와 로컬 fake fixture 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "integration-automation-business-rule-decision-automation-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.integration-automation.business-rule-decision-automation.d0",
+          "outcome.integration-automation.business-rule-decision-automation.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "같은 입력에서 재현되지 않거나 정책 근거 없이 추론하는 결정을 규칙 자동화로 인정하지 않습니다.",
+          "모든 규칙은 원문 요구로 추적되고 충돌·미일치가 숨지 않으며 봉인 case 결과·적용 규칙·version trace가 정답과 일치해야 합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Decision Model and Notation Version 1.5",
+      "publisher": "Object Management Group",
+      "source_type": "official_spec",
+      "url": "https://www.omg.org/spec/DMN/1.5/",
+      "source_version": "1.5",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "RIF Core Dialect (Second Edition)",
+      "publisher": "World Wide Web Consortium",
+      "source_type": "official_spec",
+      "url": "https://www.w3.org/TR/rif-core/",
+      "source_version": "W3C Recommendation 2013-02-05",
+      "checked_at": "2026-07-29"
+    }
+  ],
+  "potential_impact_types": [
+    "time",
+    "quality",
+    "risk_reduction",
+    "capability_unlock",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-29",
+    "review_due_at": "2026-10-29",
+    "note": "candidate.integration-automation.business-rule-decision-automation@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.integration-automation.business-rule-decision-automation",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.integration-automation.breadth-a",
+      "promoted_at": "2026-07-29"
+    }
+  }
+}

@@ -127,18 +127,25 @@ Unit 확정 전까지 `pending_candidate_relations`에 보존했습니다.
 커넥터 동기화 Set 후보 1개, MCP technology Adapter 후보 1개와 기존
 해법 적합성 Candidate·AI topology Set·Signal을 잇는 D0 Resource 후보
 1개입니다. 근거·taxonomy·실용성 감사의 P1을 반영하고 잔여 유지관리 권고를
-기록한 뒤 10개 모두 `accepted`로 승인했습니다. 이 패키지는 아직 정규
-Unit·Set·Resource·Adapter로 승격하지 않았습니다.
+기록한 뒤 10개 모두 `accepted`로 승인했습니다.
+
+후속 사용자 승인에 따라 핵심 Unit 7개와 MCP technology Adapter 역할의
+`protocol` Unit 1개, 각 Unit의 공개 Reference 8개, 결정적 workflow Unit이
+소유하는 D0 경계 Resource 1개와 SaaS 동기화 프로젝트 Set 1개를 정규
+`cataloged` 메타데이터로 승격했습니다. `requires`는 `prerequisite`,
+`recommended_prerequisite`는 `recommended_before`로 변환했으며 아직
+정규화되지 않은 `solution-fit-assessment` Candidate 관계와 기존 AI topology
+Set·Signal 연결은 확장 메타데이터에 보존했습니다.
 
 ## 6. 중단조건 확인
 
 - [x] 승인된 Manifest와 출력 경로를 만들었습니다.
 - [x] 후보 상한과 병렬 규모를 고정했습니다.
-- [x] 정규 승격은 승인된 네 패키지로 제한했고 Signal은 수정하지 않았습니다.
+- [x] 정규 승격은 승인된 다섯 패키지로 제한했고 Signal은 수정하지 않았습니다.
 - [x] 첫 패키지 후보 10개, 둘째 8개, 셋째 10개, 넷째 10개와 다섯째 10개 조사를 완료했습니다.
 - [x] 다섯 패키지의 근거·taxonomy·실용성 독립 감사를 완료했습니다.
 - [x] 최초 감사 P0는 0건이며 P1을 반영한 후 독립 재확인에서 P0·P1 0건을 확인했습니다.
-- [x] 승인된 네 패키지의 정규 Unit·Resource·Set 메타데이터 승격을 완료했습니다.
+- [x] 승인된 다섯 패키지의 정규 Unit·Resource·Set·Adapter 메타데이터 승격을 완료했습니다.
 - [x] 카탈로그 검증은 오류·경고 없이 통과했습니다.
 - [x] 공개 경계 검사는 오류 없이 통과했습니다.
 - [x] 단위 테스트 33개가 모두 통과했습니다.
@@ -146,8 +153,7 @@ Unit·Set·Resource·Adapter로 승격하지 않았습니다.
 
 ## 7. 다음 한 단계
 
-Wave 2 Breadth 조사 A의 다섯 패키지 조사·감사를 완료했고 앞선 네 패키지는
-정규 메타데이터 승격까지 완료했습니다. `integration-automation`의 새 후보는
-승인 상태이지만 아직 승격하지 않았습니다. 다음 단계는 Wave 2 checkpoint
-검토와 `integration-automation` 승격 여부 결정입니다. Wave 3의
-`human-ai-experience` 조사는 별도 후속 지시 전에는 자동 시작하지 않습니다.
+Wave 2 Breadth 조사 A의 다섯 패키지 조사·감사와 정규 메타데이터 승격을
+완료했습니다. 상세 콘텐츠 제작, 파일럿·학습효과 검증은 아직 수행하지
+않았습니다. 다음 순차 패키지는 Wave 3의 `human-ai-experience`이며 별도
+Checkpoint와 작업 패키지에서 조사·감사를 진행합니다.

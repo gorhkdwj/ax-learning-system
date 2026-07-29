@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.integration-automation.automation-outcome-observability-reconciliation.reference",
+  "version": "1.0.0",
+  "title": "자동화 결과관측·상태조정 공식·1차 출처 Reference",
+  "description": "정규 Unit의 정의·범위와 판정 기준을 뒷받침하는 공개 Reference입니다. 상세 교재나 독립 평가자료를 대신하지 않습니다.",
+  "resource_type": "external_reference",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.integration-automation.automation-outcome-observability-reconciliation",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "external",
+    "url": "https://opentelemetry.io/docs/specs/otel/logs/data-model/"
+  },
+  "learning_outcome_ids": [
+    "outcome.integration-automation.automation-outcome-observability-reconciliation.d0",
+    "outcome.integration-automation.automation-outcome-observability-reconciliation.d2"
+  ],
+  "estimated_minutes": 30,
+  "language": "ko",
+  "tags": [
+    "reference",
+    "promotion-evidence"
+  ],
+  "requirements": {
+    "platforms": [
+      "web-browser"
+    ],
+    "network_required": true
+  },
+  "provenance": {
+    "origin": "external",
+    "sources": [
+      {
+        "title": "OpenTelemetry Logs Data Model",
+        "publisher": "OpenTelemetry",
+        "source_type": "official_spec",
+        "url": "https://opentelemetry.io/docs/specs/otel/logs/data-model/",
+        "source_version": "OpenTelemetry Specification 1.59.0",
+        "checked_at": "2026-07-29"
+      },
+      {
+        "title": "Guide to Computer Security Log Management",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "official_source",
+        "url": "https://csrc.nist.gov/pubs/sp/800/92/final",
+        "source_version": "NIST SP 800-92",
+        "checked_at": "2026-07-29"
+      },
+      {
+        "title": "RPA Program Playbook",
+        "publisher": "U.S. General Services Administration",
+        "source_type": "official_source",
+        "url": "https://www.gsa.gov/cdnstatic/rpa-playbook.pdf",
+        "checked_at": "2026-07-29"
+      },
+      {
+        "title": "HTTP Semantics: 202 Accepted",
+        "publisher": "RFC Editor",
+        "source_type": "standard",
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.html#section-15.3.3",
+        "source_version": "RFC 9110 section 15.3.3",
+        "checked_at": "2026-07-29"
+      },
+      {
+        "title": "The Arazzo Specification",
+        "publisher": "OpenAPI Initiative",
+        "source_type": "official_spec",
+        "url": "https://spec.openapis.org/arazzo/1.1.0.html",
+        "source_version": "1.1.0",
+        "checked_at": "2026-07-29"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "unverified",
+    "standard": "WCAG 2.2 AA",
+    "features": [],
+    "alternative_resource_refs": [],
+    "note": "외부 출처의 접근성은 재검토가 필요합니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-07-29",
+    "commands": [],
+    "expected_outputs": [
+      "출처가 Unit의 정의·범위·판정 기준을 뒷받침하는지 확인한 기록"
+    ],
+    "evidence_paths": [],
+    "note": "URL·근거 범위만 검토했으며 학습자료로서의 완전성과 평가 타당성은 아직 검증하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-29",
+    "review_due_at": "2026-10-29",
+    "note": "Candidate 승격 시 등록한 공개 Reference입니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.integration-automation.automation-outcome-observability-reconciliation",
+      "version": "1.0.0"
+    }
+  }
+}

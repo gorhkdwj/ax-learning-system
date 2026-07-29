@@ -1,0 +1,126 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.integration-automation.deterministic-agentic-boundary-reference",
+  "version": "1.0.0",
+  "title": "결정적 워크플로·에이전트 경계 가이드",
+  "description": "고정 workflow·model-routed workflow·agent loop·위임 토폴로지의 제어 주체와 책임 경계를 구분하는 정규 D0 Resource입니다.",
+  "resource_type": "external_reference",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.integration-automation.deterministic-workflow-orchestration",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "external",
+    "url": "https://www.anthropic.com/engineering/building-effective-agents"
+  },
+  "learning_outcome_ids": [
+    "outcome.integration-automation.deterministic-workflow-orchestration.d0"
+  ],
+  "estimated_minutes": 25,
+  "language": "ko",
+  "tags": [
+    "workflow",
+    "agent",
+    "boundary",
+    "selection-guide"
+  ],
+  "requirements": {
+    "platforms": [
+      "web-browser"
+    ],
+    "network_required": true
+  },
+  "provenance": {
+    "origin": "external",
+    "sources": [
+      {
+        "title": "Building effective agents",
+        "publisher": "Anthropic",
+        "source_type": "official_docs",
+        "url": "https://www.anthropic.com/engineering/building-effective-agents",
+        "checked_at": "2026-07-29"
+      },
+      {
+        "title": "Running agents",
+        "publisher": "OpenAI",
+        "source_type": "official_docs",
+        "url": "https://openai.github.io/openai-agents-python/running_agents/",
+        "checked_at": "2026-07-29"
+      },
+      {
+        "title": "Harness engineering",
+        "publisher": "OpenAI",
+        "source_type": "official_source",
+        "url": "https://openai.com/index/harness-engineering/",
+        "checked_at": "2026-07-29"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "unverified",
+    "standard": "WCAG 2.2 AA",
+    "features": [],
+    "alternative_resource_refs": [],
+    "note": "외부 출처의 접근성은 재검토가 필요합니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-07-29",
+    "commands": [],
+    "expected_outputs": [
+      "고정 workflow·model-routed workflow·agent loop·위임 토폴로지의 제어 주체와 라우팅 경계를 구분한 기록"
+    ],
+    "evidence_paths": [],
+    "note": "D0 경계와 라우팅만 검토했으며 실제 구조 선택·구현·학습효과는 검증하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-29",
+    "review_due_at": "2026-10-29",
+    "note": "독립 Unit을 만들지 않고 결정적 workflow Unit의 D0 경계 Reference로 등록했습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.integration-automation.deterministic-agentic-boundary-guide",
+      "version": "1.0.0"
+    },
+    "pending_candidate_relations": [
+      {
+        "type": "related_to",
+        "target": {
+          "kind": "candidate",
+          "id": "candidate.ax-strategy-value.solution-fit-assessment",
+          "version": "1.0.0"
+        },
+        "rationale": "새 과제의 기술중립 해법 선택은 이 Resource가 아니라 기존 해법 적합성 Candidate로 라우팅합니다."
+      }
+    ],
+    "related_catalog_artifacts": [
+      {
+        "kind": "set",
+        "id": "set.project.ai-workflow-agent-topology-comparison",
+        "version": "1.0.0"
+      },
+      {
+        "kind": "signal",
+        "id": "signal.agent.agent-control-loop",
+        "version": "1.0.0"
+      },
+      {
+        "kind": "signal",
+        "id": "signal.agent.agent-harness",
+        "version": "1.0.0"
+      }
+    ],
+    "source_type_normalizations": [
+      {
+        "from": "practitioner_primary",
+        "to": "official_source",
+        "reason": "정규 Resource 스키마의 공개 출처 유형에 맞추되 제목·발행자·URL·확인일은 보존했습니다."
+      }
+    ]
+  }
+}

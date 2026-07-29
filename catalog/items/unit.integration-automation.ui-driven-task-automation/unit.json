@@ -1,0 +1,165 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.integration-automation.ui-driven-task-automation",
+  "version": "1.0.0",
+  "title": "UI 구동 업무자동화·변경내성",
+  "summary": "안정적 API가 없을 때 로컬 웹 UI의 selector·wait·dialog·증거·postcondition·변경 감지·수동 이관을 설계하는 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "integration-automation",
+    "subdomains": [
+      "ui-driven-task-automation"
+    ]
+  },
+  "domain_tags": [
+    "ui-automation",
+    "webdriver",
+    "selector",
+    "change-detection"
+  ],
+  "capabilities": [
+    "로컬 테스트 UI에서 지연·selector 변경·modal·중복 제출·session 만료를 처리하고 실제 postcondition과 증거를 검증합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.integration-automation.ui-driven-task-automation.d0",
+        "statement": "API 우선 통합과 UI fallback 자동화의 안정성·권한·검증 차이를 설명합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.integration-automation.ui-driven-task-automation.d2",
+        "statement": "로컬 테스트 UI에서 delayed render, selector change, modal, duplicate submit과 session expiry를 주입해 안전하게 중단·복구합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "D2 로컬 웹 UI로 제한하며 desktop vision RPA, CAPTCHA, 실운영 자격증명과 무인 대량운영은 제외합니다."
+  },
+  "relations": [
+    {
+      "type": "prerequisite",
+      "target": {
+        "id": "unit.integration-automation.deterministic-workflow-orchestration",
+        "version": "1.0.0"
+      },
+      "note": "UI 단계의 상태·중단·재개를 명시적으로 관리해야 합니다.",
+      "required_level": "D2"
+    },
+    {
+      "type": "prerequisite",
+      "target": {
+        "id": "unit.integration-automation.side-effect-idempotency-retry-compensation",
+        "version": "1.0.0"
+      },
+      "note": "중복 제출과 timeout 뒤 부작용을 안전하게 판정해야 합니다.",
+      "required_level": "D2"
+    },
+    {
+      "type": "prerequisite",
+      "target": {
+        "id": "unit.integration-automation.automation-outcome-observability-reconciliation",
+        "version": "1.0.0"
+      },
+      "note": "화면 메시지가 아니라 실제 postcondition을 확인해야 합니다.",
+      "required_level": "D2"
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.integration-automation.ui-driven-task-automation.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토와 로컬 fake fixture 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "integration-automation-ui-driven-task-automation-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.integration-automation.ui-driven-task-automation.d0",
+          "outcome.integration-automation.ui-driven-task-automation.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "API·공식 connector가 있는 과제를 근거 없이 UI로 자동화하거나 화면 메시지를 업무 완료로 오인하지 않습니다.",
+          "실제 postcondition과 증거가 정답 manifest와 일치하고 중복 제출·승인 우회·실운영 접근 0건, 변경 감지 실패 0건이어야 합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "WebDriver",
+      "publisher": "World Wide Web Consortium",
+      "source_type": "official_spec",
+      "url": "https://www.w3.org/TR/2026/WD-webdriver2-20260702/",
+      "source_version": "W3C Working Draft 2026-07-02",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "Accessible Rich Internet Applications (WAI-ARIA) 1.2",
+      "publisher": "World Wide Web Consortium",
+      "source_type": "standard",
+      "url": "https://www.w3.org/TR/wai-aria-1.2/",
+      "source_version": "W3C Recommendation 2023-06-06",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "RPA Program Playbook",
+      "publisher": "U.S. General Services Administration",
+      "source_type": "official_source",
+      "url": "https://www.gsa.gov/cdnstatic/rpa-playbook.pdf",
+      "checked_at": "2026-07-29"
+    }
+  ],
+  "potential_impact_types": [
+    "time",
+    "quality",
+    "risk_reduction",
+    "capability_unlock",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-29",
+    "review_due_at": "2026-10-29",
+    "note": "candidate.integration-automation.ui-driven-task-automation@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.integration-automation.ui-driven-task-automation",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.integration-automation.breadth-a",
+      "promoted_at": "2026-07-29"
+    }
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.integration-automation.side-effect-idempotency-retry-compensation",
+  "version": "1.0.0",
+  "title": "부작용 안전성·멱등성·재시도·보상",
+  "summary": "상태 재조회·불일치 판정 결과를 받아 idempotency key·deduplication·제한된 retry·backoff·compensation·수동복구로 외부 부작용을 안전하게 다루는 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "integration-automation",
+    "subdomains": [
+      "side-effect-safety-recovery"
+    ]
+  },
+  "domain_tags": [
+    "idempotency",
+    "retry",
+    "compensation",
+    "reconciliation"
+  ],
+  "capabilities": [
+    "fake side-effect ledger에서 응답 유실·부분 성공·중복 명령·늦은 완료를 처리하고 중복 없는 최종 상태와 복구 증거를 만듭니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.integration-automation.side-effect-idempotency-retry-compensation.d0",
+        "statement": "재시도 가능·중복 안전·취소 가능·보상 가능과 최종 상태 확인을 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.integration-automation.side-effect-idempotency-retry-compensation.d2",
+        "statement": "fake ledger의 불일치 판정 결과를 받아 response loss, partial success, duplicate command, concurrency와 late completion에 대한 retry·보상·수동복구를 수행합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "D2 합성 부작용 ledger로 제한하며 분산 transaction·고위험 실거래와 강한 일관성 전문설계는 제외합니다."
+  },
+  "relations": [],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.integration-automation.side-effect-idempotency-retry-compensation.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토와 로컬 fake fixture 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "integration-automation-side-effect-idempotency-retry-compensation-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.integration-automation.side-effect-idempotency-retry-compensation.d0",
+          "outcome.integration-automation.side-effect-idempotency-retry-compensation.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "idempotent HTTP method가 application-level 부작용 중복을 자동 방지하지 않고 compensation이 rollback과 다름을 설명합니다.",
+          "정해진 실행·대기 한도 안에서 중복 부작용 0건, 유실 0건 또는 명시적 미결 이관, 원본 ledger 보존과 감사 trace를 확인합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "HTTP Semantics",
+      "publisher": "RFC Editor",
+      "source_type": "standard",
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "source_version": "RFC 9110",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "Business Process Model and Notation Version 2.0.2",
+      "publisher": "Object Management Group",
+      "source_type": "official_spec",
+      "url": "https://www.omg.org/spec/BPMN/2.0.2/",
+      "source_version": "2.0.2",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "Timeouts, retries, and backoff with jitter",
+      "publisher": "Amazon Web Services",
+      "source_type": "official_source",
+      "url": "https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/",
+      "checked_at": "2026-07-29"
+    }
+  ],
+  "potential_impact_types": [
+    "time",
+    "quality",
+    "risk_reduction",
+    "capability_unlock",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-29",
+    "review_due_at": "2026-10-29",
+    "note": "candidate.integration-automation.side-effect-idempotency-retry-compensation@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.integration-automation.side-effect-idempotency-retry-compensation",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.integration-automation.breadth-a",
+      "promoted_at": "2026-07-29"
+    },
+    "source_type_normalizations": [
+      {
+        "from": "practitioner_primary",
+        "to": "official_source",
+        "reason": "정규 Unit·Resource 스키마의 공개 출처 유형에 맞추되 제목·발행자·URL·버전·확인일은 보존했습니다."
+      }
+    ]
+  }
+}

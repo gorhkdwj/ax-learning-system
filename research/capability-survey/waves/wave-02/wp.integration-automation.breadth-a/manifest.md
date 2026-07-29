@@ -100,5 +100,8 @@
   잔여 유지관리 권고를 기록한 뒤 재감사에서 P0·P1 0건을 확인했습니다.
 - 경계 Resource는 기존 D2 해법 적합성 Candidate와 AI topology Set을
   중복하지 않도록 용어·책임·라우팅을 설명하는 D0로 제한했습니다.
-- 상세 fixture·교재·파일럿·학습효과는 검증하지 않았으며 정규 승격은
-  별도 사용자 지시 전에는 수행하지 않습니다.
+- 후속 사용자 승인에 따라 핵심 Unit 7개, MCP technology Adapter 역할의
+  `protocol` Unit 1개, 공개 Reference 8개, 결정적 workflow Unit 소유의 D0
+  경계 Resource 1개와 SaaS 프로젝트 Set 1개를 정규 `cataloged`
+  메타데이터로 승격했습니다.
+- 상세 fixture·교재·파일럿·학습효과는 아직 검증하지 않았습니다.

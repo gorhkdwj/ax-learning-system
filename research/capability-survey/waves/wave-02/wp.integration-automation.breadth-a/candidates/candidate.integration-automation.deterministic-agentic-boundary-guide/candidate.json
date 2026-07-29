@@ -176,7 +176,7 @@
     "known_unknowns": [
       "공급자별 workflow·agent·harness 용어 변화와 연결한 기존 Candidate·Set·Signal의 version·상태를 정기 재검토해야 합니다."
     ],
-    "next_action": "정규 Resource 승격은 별도 사용자 지시 뒤 수행하고 연결한 Candidate·Set·Signal의 version·상태를 정기 재검토합니다."
+    "next_action": "resource.integration-automation.deterministic-agentic-boundary-reference@1.0.0 D0 Resource로 승격했습니다. cataloged 상태이므로 상세 교재·fixture·파일럿과 학습효과는 아직 검증되지 않았습니다."
   },
   "extensions": {
     "proposed_resource_id": "resource.integration-automation.deterministic-agentic-boundary-reference",

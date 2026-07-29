@@ -92,7 +92,8 @@ Signal은 수정하지 않았습니다.
 자동화 결과판정과 UI 구동 자동화의 Unit 후보 7개, SaaS 커넥터 동기화 Set
 후보 1개, MCP technology Adapter 후보 1개와 결정적 workflow·agent 경계를
 설명하는 D0 Resource 후보 1개입니다. 독립 근거·taxonomy·실용성 감사의 P1을
-교정하고 잔여 유지관리 권고를 기록한 뒤 P0·P1 0건을 재확인했습니다. 이
-패키지는 아직 정규
-Unit·Set·Resource·Adapter로 승격하지 않았고 상세 fixture·교재·파일럿과
-학습효과도 검증하지 않았습니다.
+교정하고 잔여 유지관리 권고를 기록한 뒤 P0·P1 0건을 재확인했습니다. 후속
+사용자 승인에 따라 핵심 Unit 7개, `protocol` Unit으로 등록한 MCP technology
+Adapter 1개, SaaS 프로젝트 Set 1개와 결정적 workflow Unit 소유의 D0 경계
+Resource 1개를 공개 Reference와 함께 정규 `cataloged` 메타데이터로
+승격했습니다. 상세 fixture·교재·파일럿과 학습효과는 아직 검증하지 않았습니다.

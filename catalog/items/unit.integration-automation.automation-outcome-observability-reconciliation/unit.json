@@ -1,0 +1,162 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.integration-automation.automation-outcome-observability-reconciliation",
+  "version": "1.0.0",
+  "title": "자동화 결과관측·상태조정",
+  "summary": "execution·step·attempt ID와 의도·관찰 postcondition, 외부 상태 재조회·불일치 분류·재생 가능한 증거로 업무 결과를 검증하는 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "integration-automation",
+    "subdomains": [
+      "automation-outcome-verification"
+    ]
+  },
+  "domain_tags": [
+    "automation-observability",
+    "correlation",
+    "postcondition",
+    "reconciliation"
+  ],
+  "capabilities": [
+    "fake 외부 시스템에서 비동기 수락·늦은 반영·로그 유실·외부 변경을 주입하고 의도 상태와 실제 상태를 비교해 불일치와 조정 필요성을 판정합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.integration-automation.automation-outcome-observability-reconciliation.d0",
+        "statement": "호출 성공, workflow 종료와 실제 업무 postcondition 확인을 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.integration-automation.automation-outcome-observability-reconciliation.d2",
+        "statement": "fake 외부 시스템에서 late apply, log loss와 out-of-band change를 주입해 correlation trace와 reconciliation 판정을 만듭니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "D2 transaction 결과검증으로 제한하며 중앙 telemetry backend, 전사 SLO·incident와 법적 감사정책은 제외합니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.integration-automation.side-effect-idempotency-retry-compensation",
+        "version": "1.0.0"
+      },
+      "note": "불일치가 확인됐을 때 안전한 재시도·보상·미결 이관 계약이 필요합니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.integration-automation.automation-outcome-observability-reconciliation.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토와 로컬 fake fixture 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "integration-automation-automation-outcome-observability-reconciliation-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.integration-automation.automation-outcome-observability-reconciliation.d0",
+          "outcome.integration-automation.automation-outcome-observability-reconciliation.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "202 Accepted·로그 완료만으로 외부 업무상태를 확정하지 않고 관찰시각·재조회·불일치를 식별합니다.",
+          "봉인된 실제 상태와 intended state를 비교해 허위 성공 0건, 미결·불일치 전수 분류와 replay 가능한 증거를 확인합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "OpenTelemetry Logs Data Model",
+      "publisher": "OpenTelemetry",
+      "source_type": "official_spec",
+      "url": "https://opentelemetry.io/docs/specs/otel/logs/data-model/",
+      "source_version": "OpenTelemetry Specification 1.59.0",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "Guide to Computer Security Log Management",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_source",
+      "url": "https://csrc.nist.gov/pubs/sp/800/92/final",
+      "source_version": "NIST SP 800-92",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "RPA Program Playbook",
+      "publisher": "U.S. General Services Administration",
+      "source_type": "official_source",
+      "url": "https://www.gsa.gov/cdnstatic/rpa-playbook.pdf",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "HTTP Semantics: 202 Accepted",
+      "publisher": "RFC Editor",
+      "source_type": "standard",
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html#section-15.3.3",
+      "source_version": "RFC 9110 section 15.3.3",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "The Arazzo Specification",
+      "publisher": "OpenAPI Initiative",
+      "source_type": "official_spec",
+      "url": "https://spec.openapis.org/arazzo/1.1.0.html",
+      "source_version": "1.1.0",
+      "checked_at": "2026-07-29"
+    }
+  ],
+  "potential_impact_types": [
+    "time",
+    "quality",
+    "risk_reduction",
+    "capability_unlock",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-29",
+    "review_due_at": "2026-10-29",
+    "note": "candidate.integration-automation.automation-outcome-observability-reconciliation@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.integration-automation.automation-outcome-observability-reconciliation",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.integration-automation.breadth-a",
+      "promoted_at": "2026-07-29"
+    }
+  }
+}

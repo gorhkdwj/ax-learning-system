@@ -1,0 +1,172 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.integration-automation.mcp-protocol-integration-adapter",
+  "version": "1.0.0",
+  "title": "MCP 프로토콜 연결 Adapter",
+  "summary": "MCP 2025-11-25의 initialization·version·capability negotiation·client/server lifecycle·tools·resources·transport 오류를 검증하는 기술 Adapter 정규 카탈로그 항목입니다.",
+  "item_type": "protocol",
+  "taxonomy": {
+    "major_domain": "integration-automation",
+    "subdomains": [
+      "integration-protocol-adapters"
+    ]
+  },
+  "domain_tags": [
+    "mcp",
+    "protocol",
+    "capability-negotiation",
+    "adapter"
+  ],
+  "capabilities": [
+    "로컬 fake MCP client/server에서 initialization·capability·version·schema·disconnect·timeout 오류를 검증하고 격리된 연결 상태를 복원합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.integration-automation.mcp-protocol-integration-adapter.d0",
+        "statement": "MCP host·client·server 역할과 initialization·operation·shutdown 수명주기를 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.integration-automation.mcp-protocol-integration-adapter.d2",
+        "statement": "fake MCP client/server에서 version·capability mismatch, invalid schema, disconnect와 timeout을 주입해 protocol 오류·중단·재연결을 검증합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "MCP 2025-11-25와 로컬 fake transport의 D2 Adapter로 제한하며 기업 auth·원격 운영과 SDK별 전문 구현은 제외합니다."
+  },
+  "relations": [
+    {
+      "type": "prerequisite",
+      "target": {
+        "id": "unit.software.api-contract-compatibility",
+        "version": "1.0.0"
+      },
+      "note": "승격 전 Candidate가 명시한 기존 정규 카탈로그 관계입니다.",
+      "required_level": "D2"
+    },
+    {
+      "type": "prerequisite",
+      "target": {
+        "id": "unit.ai.tool-function-contract-design",
+        "version": "1.0.0"
+      },
+      "note": "승격 전 Candidate가 명시한 기존 정규 카탈로그 관계입니다.",
+      "required_level": "D2"
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.integration-automation.mcp-protocol-integration-adapter.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토와 로컬 fake fixture 1회"
+    },
+    "technology_versions": [
+      {
+        "name": "Model Context Protocol",
+        "constraint": "2025-11-25"
+      }
+    ]
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "integration-automation-mcp-protocol-integration-adapter-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.integration-automation.mcp-protocol-integration-adapter.d0",
+          "outcome.integration-automation.mcp-protocol-integration-adapter.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "일반 API 호출 또는 모델의 tool 선택 의미를 MCP protocol lifecycle과 혼동하지 않고 capability 미지원 사례를 판별합니다.",
+          "협상되지 않은 capability 호출 0건, server 간 상태·권한 누출 0건, 모든 실패가 제한 시간 안에 명시 오류·중단·재연결 판정으로 끝나야 합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Model Context Protocol: Architecture",
+      "publisher": "Model Context Protocol",
+      "source_type": "official_spec",
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/architecture",
+      "source_version": "2025-11-25",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "Model Context Protocol: Lifecycle",
+      "publisher": "Model Context Protocol",
+      "source_type": "official_spec",
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle",
+      "source_version": "2025-11-25",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "Model Context Protocol: Tools",
+      "publisher": "Model Context Protocol",
+      "source_type": "official_spec",
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+      "source_version": "2025-11-25",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "Model Context Protocol: Resources",
+      "publisher": "Model Context Protocol",
+      "source_type": "official_spec",
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/resources",
+      "source_version": "2025-11-25",
+      "checked_at": "2026-07-29"
+    }
+  ],
+  "potential_impact_types": [
+    "time",
+    "quality",
+    "risk_reduction",
+    "capability_unlock",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-29",
+    "review_due_at": "2026-10-29",
+    "note": "candidate.integration-automation.mcp-protocol-integration-adapter@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.integration-automation.mcp-protocol-integration-adapter",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.integration-automation.breadth-a",
+      "promoted_at": "2026-07-29"
+    },
+    "artifact_role": "technology_adapter",
+    "version_bound": true
+  }
+}

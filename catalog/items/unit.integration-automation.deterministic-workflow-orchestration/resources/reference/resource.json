@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.integration-automation.deterministic-workflow-orchestration.reference",
+  "version": "1.0.0",
+  "title": "결정적 워크플로 상태·오케스트레이션 공식·1차 출처 Reference",
+  "description": "정규 Unit의 정의·범위와 판정 기준을 뒷받침하는 공개 Reference입니다. 상세 교재나 독립 평가자료를 대신하지 않습니다.",
+  "resource_type": "external_reference",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.integration-automation.deterministic-workflow-orchestration",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "external",
+    "url": "https://www.omg.org/spec/BPMN/2.0.2/"
+  },
+  "learning_outcome_ids": [
+    "outcome.integration-automation.deterministic-workflow-orchestration.d0",
+    "outcome.integration-automation.deterministic-workflow-orchestration.d2"
+  ],
+  "estimated_minutes": 30,
+  "language": "ko",
+  "tags": [
+    "reference",
+    "promotion-evidence"
+  ],
+  "requirements": {
+    "platforms": [
+      "web-browser"
+    ],
+    "network_required": true
+  },
+  "provenance": {
+    "origin": "external",
+    "sources": [
+      {
+        "title": "Business Process Model and Notation Version 2.0.2",
+        "publisher": "Object Management Group",
+        "source_type": "official_spec",
+        "url": "https://www.omg.org/spec/BPMN/2.0.2/",
+        "source_version": "2.0.2",
+        "checked_at": "2026-07-29"
+      },
+      {
+        "title": "State Chart XML (SCXML): State Machine Notation for Control Abstraction",
+        "publisher": "World Wide Web Consortium",
+        "source_type": "official_spec",
+        "url": "https://www.w3.org/TR/scxml/",
+        "source_version": "W3C Recommendation 2015-09-01",
+        "checked_at": "2026-07-29"
+      },
+      {
+        "title": "The Arazzo Specification",
+        "publisher": "OpenAPI Initiative",
+        "source_type": "official_spec",
+        "url": "https://spec.openapis.org/arazzo/1.1.0.html",
+        "source_version": "1.1.0",
+        "checked_at": "2026-07-29"
+      },
+      {
+        "title": "Durable Functions overview",
+        "publisher": "Microsoft",
+        "source_type": "official_docs",
+        "url": "https://learn.microsoft.com/en-us/azure/durable-task/durable-functions/durable-functions-overview",
+        "source_version": "checked 2026-07-29",
+        "checked_at": "2026-07-29"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "unverified",
+    "standard": "WCAG 2.2 AA",
+    "features": [],
+    "alternative_resource_refs": [],
+    "note": "외부 출처의 접근성은 재검토가 필요합니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-07-29",
+    "commands": [],
+    "expected_outputs": [
+      "출처가 Unit의 정의·범위·판정 기준을 뒷받침하는지 확인한 기록"
+    ],
+    "evidence_paths": [],
+    "note": "URL·근거 범위만 검토했으며 학습자료로서의 완전성과 평가 타당성은 아직 검증하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-29",
+    "review_due_at": "2026-10-29",
+    "note": "Candidate 승격 시 등록한 공개 Reference입니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.integration-automation.deterministic-workflow-orchestration",
+      "version": "1.0.0"
+    }
+  }
+}

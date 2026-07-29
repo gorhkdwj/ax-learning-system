@@ -101,5 +101,7 @@ version이 고정된 protocol Adapter로 `integration-protocol-adapters`에
 Candidate 10개와 잠정 subdomain 8개의 근거·taxonomy·실용성 독립 감사를
 완료했습니다. 최초 P0는 모두 0건이었고 P1을 교정하고 잔여 유지관리 권고를
 기록한 뒤 재감사에서 P0·P1 0건을 확인해 10개 모두 `accepted`로 승인했습니다. 상세
-교재·fixture·파일럿·학습효과는 아직 검증하지 않았고 정규 승격도 수행하지
-않았습니다.
+교재·fixture·파일럿·학습효과는 아직 검증하지 않았습니다. 후속 사용자 승인에
+따라 핵심 Unit 7개, MCP technology Adapter 역할의 `protocol` Unit 1개,
+공개 Reference 8개, 결정적 workflow Unit 소유의 D0 경계 Resource 1개와
+SaaS 프로젝트 Set 1개를 정규 `cataloged` 메타데이터로 승격했습니다.

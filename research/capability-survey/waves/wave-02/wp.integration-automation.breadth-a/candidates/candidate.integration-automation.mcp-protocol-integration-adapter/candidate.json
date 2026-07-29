@@ -182,7 +182,7 @@
     "known_unknowns": [
       "제품·조직별 수치 기준은 정규 승격 이후 로컬 fixture와 Adapter 파일럿에서 고정해야 합니다."
     ],
-    "next_action": "technology Adapter 승격은 별도 사용자 지시 뒤 수행하고 상세 fixture 수치 상한은 평가 구현 전에 고정합니다."
+    "next_action": "unit.integration-automation.mcp-protocol-integration-adapter@1.0.0 정규 Unit (technology Adapter 역할)로 승격했습니다. cataloged 상태이므로 상세 교재·fixture·파일럿과 학습효과는 아직 검증되지 않았습니다."
   },
   "extensions": {
     "adapter_version": "MCP 2025-11-25",
