@@ -1,0 +1,226 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.data-analytics-ml.predictive-ml-problem-framing-baselines",
+  "version": "1.0.0",
+  "title": "예측 ML 문제정의·비ML 기준선",
+  "canonical_name": "Predictive ML problem framing and non-ML baselines",
+  "aliases": [],
+  "summary": "비ML 업무목표·결정·행동을 target·label·prediction unit·prediction time으로 변환하고 heuristic·단순모델 기준선과 go/no-go 조건을 만드는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "예측 가능성·ML 필요성·업무가치를 구분하지 않고 label·prediction time·action이 불명확한 모델을 먼저 만드는 문제를 다룹니다.",
+    "includes": [
+      "비ML 업무목표·결정·행동 정의",
+      "ML 적합성·target·label·prediction unit·time",
+      "feature 가용성과 비용행렬",
+      "heuristic·규칙·단순모델 기준선과 go/no-go"
+    ],
+    "excludes": [
+      "특정 알고리즘·framework 학습",
+      "LLM prompting·fine-tuning",
+      "조직 투자 우선순위",
+      "production serving"
+    ],
+    "boundary_note": "업무문제를 지도학습 가능한 계약과 단순 기준선으로 바꾸는 D2 설계를 소유합니다. 전략적 solution fit과 투자 판단은 전략 렌즈가 소유합니다."
+  },
+  "discovery": {
+    "lens_id": "data-analytics-ml",
+    "basis": "assigned_lens",
+    "notes": "읽기 전용 발견 조사와 W3C·NIST·SDMX·ASA 및 공식 구현 문서·1차 연구를 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "data-analytics-ml",
+    "subdomains": [
+      "predictive-ml-problem-framing-baselines"
+    ],
+    "tags": [
+      "machine-learning",
+      "problem-framing",
+      "baseline",
+      "label"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "특정 제품과 무관하게 새 데이터·분석·ML 과제에서 독립적인 D2 산출물과 실패 Gate를 평가할 수 있어 Unit 후보로 둡니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.data-analytics-ml.predictive-ml-problem-framing-baselines"
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ax-strategy-value.solution-fit-assessment",
+        "version": "1.0.0"
+      },
+      "rationale": "업무·비ML·ML 해법의 적합성 경계가 ML 문제계약의 상위 입력입니다."
+    },
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.data-analytics-ml.data-source-acquisition-contract-design",
+        "version": "1.0.0"
+      },
+      "rationale": "prediction time의 feature 가용성과 label·원천 계약이 문제정의의 실행 가능성을 제한합니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ax-strategy-value.measurement-contract",
+        "version": "1.0.0"
+      },
+      "rationale": "사업 성공지표와 모델 평가 metric을 구분하되 서로 연결해야 합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "새 업무를 target·label·입출력·결정·비용행렬로 변환하고 비ML·단순모델 기준선과 go/no-go 조건을 만듭니다.",
+    "work_contexts": [
+      "분류",
+      "회귀",
+      "랭킹",
+      "예측 기반 업무 의사결정"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "agent_assisted",
+    "agent_fit_rationale": "초안·검사 자동화는 보조할 수 있지만 데이터 의미, 허용 한계와 최종 판정은 인간이 책임집니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "예측할 수 있음, ML이 필요함, 업무가치가 있음이 서로 다른 주장임을 설명합니다.",
+        "evidence_hypothesis": "prediction time 이후 feature, proxy label, action 불가능한 예측과 비ML 해법보다 못한 모델을 판별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "업무목표를 target·label·prediction unit·time·비용행렬로 명세하고 heuristic·단순모델 기준선과 go/no-go를 만듭니다.",
+        "evidence_hypothesis": "정답 manifest의 label 지연·feature 가용성·비용비대칭을 반영하고 입력에 없는 가치 주장 0건과 명시적 no-go 판정을 확인합니다."
+      }
+    ],
+    "depth_boundary": "D2 지도학습 문제정의와 기준선으로 제한하며 LLM 응용, 특정 알고리즘 연구, 투자 우선순위와 production serving은 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "cycle_time",
+      "risk_reduction",
+      "prerequisite_value",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "비ML 기준선과 명시적 no-go는 불필요한 ML 구축과 잘못된 label·feature로 인한 재작업을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "now",
+    "measurement_hypothesis": "prediction-time 누수, proxy label, action 불가, 기준선 미달과 no-go 적중 건수를 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "cost",
+      "reliability",
+      "human_approval"
+    ],
+    "notes": "전문 통제의 내용은 인접 렌즈가 제공하며 이 후보는 제공된 정책·제약이 데이터 계약과 검증 Gate에 반영되는지만 다룹니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.data-analytics-ml.ml-framing.google-overview",
+      "title": "Overview",
+      "publisher": "Google for Developers",
+      "source_type": "official_docs",
+      "url": "https://developers.google.com/machine-learning/problem-framing/problem-framing",
+      "checked_at": "2026-07-29",
+      "claim_scope": "ML 접근의 적합성을 먼저 판단하고 목표·출력·성공기준으로 문제를 표현하는 범위를 지지합니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "learning_outcome"
+      ]
+    },
+    {
+      "id": "evidence.data-analytics-ml.ml-framing.google-understand-problem",
+      "title": "Understand the problem",
+      "publisher": "Google for Developers",
+      "source_type": "official_docs",
+      "url": "https://developers.google.com/machine-learning/problem-framing/problem",
+      "checked_at": "2026-07-29",
+      "claim_scope": "비ML·heuristic benchmark, prediction time feature 가용성·대표성·actionability 경계를 지지합니다.",
+      "supports": [
+        "scope",
+        "risk",
+        "learning_outcome"
+      ]
+    },
+    {
+      "id": "evidence.data-analytics-ml.ml-framing.nist-ai-rmf-core",
+      "title": "AI RMF Core",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_source",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "checked_at": "2026-07-29",
+      "claim_scope": "MAP 단계의 맥락·목적·영향·제약과 초기 go·no-go 판단 범위를 지지합니다.",
+      "supports": [
+        "scope",
+        "risk",
+        "lifecycle"
+      ],
+      "source_version": "AI RMF 1.0"
+    },
+    {
+      "id": "evidence.data-analytics-ml.ml-framing.google-simple-model",
+      "title": "Implementing a model",
+      "publisher": "Google for Developers",
+      "source_type": "official_docs",
+      "url": "https://developers.google.com/machine-learning/problem-framing/implement-model",
+      "checked_at": "2026-07-29",
+      "claim_scope": "복잡한 모델 전에 단순모델과 데이터 pipeline을 구현하고 단순모델을 기준선으로 사용해 복잡성의 필요성을 판정하는 범위를 지지합니다.",
+      "supports": [
+        "scope",
+        "learning_outcome",
+        "work_relevance"
+      ]
+    },
+    {
+      "id": "evidence.data-analytics-ml.ml-framing.google-threshold-costs",
+      "title": "Thresholds and the confusion matrix",
+      "publisher": "Google for Developers",
+      "source_type": "official_docs",
+      "url": "https://developers.google.com/machine-learning/crash-course/classification/thresholding",
+      "checked_at": "2026-07-29",
+      "claim_scope": "false positive·false negative 비용과 class imbalance에 따라 classification threshold의 결과가 달라지는 오류비용 trade-off 범위를 지지합니다.",
+      "supports": [
+        "definition",
+        "risk",
+        "learning_outcome"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "high",
+    "rationale": "공식·1차 근거, 예측 ML로 좁힌 범위와 D0·D2 평가계약을 확인했고 독립 근거·taxonomy·실용성 감사의 P0·P1을 모두 해소했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.data-analytics-ml.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-29",
+    "reviewers": [
+      "read-only-evidence-auditor",
+      "read-only-taxonomy-auditor",
+      "read-only-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "희귀 사건·label 지연과 도메인 비용행렬은 제공된 업무 입력으로 평가하며 범용 정답을 고정하지 않습니다."
+    ],
+    "next_action": "승인된 Breadth 후보로 유지하며 정규 Unit 승격은 별도 사용자 지시에서 수행합니다."
+  }
+}

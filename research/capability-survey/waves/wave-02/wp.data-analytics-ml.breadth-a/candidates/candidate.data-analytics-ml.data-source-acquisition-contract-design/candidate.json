@@ -1,0 +1,172 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.data-analytics-ml.data-source-acquisition-contract-design",
+  "version": "1.0.0",
+  "title": "데이터 원천 수집·계약 설계",
+  "canonical_name": "Data source acquisition and contract design",
+  "aliases": [],
+  "summary": "원천·관찰단위·수집시점과 필드 의미·형식·단위·키·결측·갱신 조건을 기계 판독 계약과 인수 fixture로 만드는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "원천 데이터가 형식만 맞고 의미·시점·키·단위가 불명확해 후속 분석과 ML이 조용히 잘못되는 문제를 다룹니다.",
+    "includes": [
+      "원천·관찰단위·수집시점·표본틀 기록",
+      "필드 의미·형식·단위·결측·키 계약",
+      "갱신·지연·허용오차와 인수검사",
+      "원천 수정·중복·late data fixture"
+    ],
+    "excludes": [
+      "일반 HTTP API 설계",
+      "커넥터 인증·MCP·SaaS 연결",
+      "개인정보·동의 정책 결정",
+      "센서 교정 전문영역"
+    ],
+    "boundary_note": "데이터 소비자가 믿고 처리할 입력 의미계약을 소유합니다. 전송 API는 software, 연결 운영은 integration, 적법성 판단은 security·legal 렌즈가 소유합니다."
+  },
+  "discovery": {
+    "lens_id": "data-analytics-ml",
+    "basis": "assigned_lens",
+    "notes": "읽기 전용 발견 조사와 W3C·NIST·SDMX·ASA 및 공식 구현 문서·1차 연구를 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "data-analytics-ml",
+    "subdomains": [
+      "data-source-acquisition-contracts"
+    ],
+    "tags": [
+      "data-source",
+      "data-contract",
+      "schema",
+      "acquisition"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "특정 제품과 무관하게 새 데이터·분석·ML 과제에서 독립적인 D2 산출물과 실패 Gate를 평가할 수 있어 Unit 후보로 둡니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.data-analytics-ml.data-source-acquisition-contract-design"
+  },
+  "relations": [],
+  "capability": {
+    "learner_can_do": "새 원천의 관찰단위·수집시점·필드 의미·형식·단위·키·결측과 갱신 조건을 기계 판독 계약과 fixture로 만듭니다.",
+    "work_contexts": [
+      "파일 수집",
+      "이벤트 데이터",
+      "외부 데이터 수신",
+      "분석·ML 입력"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "agent_assisted",
+    "agent_fit_rationale": "초안·검사 자동화는 보조할 수 있지만 데이터 의미, 허용 한계와 최종 판정은 인간이 책임집니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "구문 스키마 적합성과 의미·대표성·적법성이 서로 다른 계약임을 설명합니다.",
+        "evidence_hypothesis": "형식은 맞지만 단위·시점·표본틀이 틀린 사례를 구분하고 스키마 통과만으로 대표성을 주장하지 않습니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "새 원천에 대해 기계 판독 계약과 fixture를 만들고 형식·필수값·키·범위·시점 위반을 자동검출합니다.",
+        "evidence_hypothesis": "학습자에게 제공된 요구·schema·원천 설명의 필수 필드·키·단위·시간대·허용 지연을 계약으로 옮기고, 평가자 manifest에만 숨긴 위반 위치의 치명 오류를 모두 검출하며 정상 입력 거부, 임의 계약 추가와 입력에 없는 대표성·적법성 주장은 각각 0건이어야 합니다."
+      }
+    ],
+    "depth_boundary": "원천 의미·인수검사의 D2 설계로 제한하며 API·커넥터 구현, 법적 판단과 전문 측정기 교정은 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "cycle_time",
+      "risk_reduction",
+      "prerequisite_value",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "명시적인 입력 계약과 인수검사는 단위·시점·키 오류의 후속 확산과 재작업을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "now",
+    "measurement_hypothesis": "필수 계약 누락, late·duplicate·단위·시간대 오류 검출률, 오탐과 후속 재작업시간을 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "cost",
+      "reliability",
+      "human_approval"
+    ],
+    "notes": "전문 통제의 내용은 인접 렌즈가 제공하며 이 후보는 제공된 정책·제약이 데이터 계약과 검증 Gate에 반영되는지만 다룹니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.data-analytics-ml.source-contract.tabular-metadata",
+      "title": "Metadata Vocabulary for Tabular Data",
+      "publisher": "World Wide Web Consortium",
+      "source_type": "official_spec",
+      "url": "https://www.w3.org/TR/tabular-metadata/",
+      "checked_at": "2026-07-29",
+      "claim_scope": "열·자료형·형식·필수값·키와 검증 가능한 표 메타데이터 범위를 지지하며 표본 대표성이나 적법성을 보증하지 않습니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "learning_outcome"
+      ],
+      "source_version": "W3C Recommendation 2015-12-17"
+    },
+    {
+      "id": "evidence.data-analytics-ml.source-contract.rdaf-2",
+      "title": "NIST Research Data Framework (RDaF): Version 2.0",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_source",
+      "url": "https://www.nist.gov/publications/nist-research-data-framework-rdaf-version-20",
+      "checked_at": "2026-07-29",
+      "claim_scope": "계획–생성·획득–처리·분석 생명주기와 획득·형식·공유 조건의 사전 관리 범위를 지지합니다.",
+      "supports": [
+        "scope",
+        "lifecycle",
+        "work_relevance"
+      ],
+      "source_version": "RDaF 2.0"
+    },
+    {
+      "id": "evidence.data-analytics-ml.source-contract.dwbp",
+      "title": "Data on the Web Best Practices",
+      "publisher": "World Wide Web Consortium",
+      "source_type": "official_spec",
+      "url": "https://www.w3.org/TR/dwbp/",
+      "checked_at": "2026-07-29",
+      "claim_scope": "소비자가 데이터를 이해·처리·재사용하도록 구조·품질·provenance·version·format metadata와 게시자–소비자 공통 이해를 제공하는 범위를 지지하며 개별 도메인의 대표성·적법성 정답은 규정하지 않습니다.",
+      "supports": [
+        "scope",
+        "work_relevance",
+        "lifecycle"
+      ],
+      "source_version": "W3C Recommendation 2017-01-31"
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "high",
+    "rationale": "공식·1차 근거, 공개 요구와 봉인 정답을 분리한 D0·D2 평가계약을 확인했고 독립 근거·taxonomy·실용성 감사의 P0·P1을 모두 해소했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.data-analytics-ml.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-29",
+    "reviewers": [
+      "read-only-evidence-auditor",
+      "read-only-taxonomy-auditor",
+      "read-only-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "도메인별 표본 대표성과 센서 정확도 기준은 범용 계약으로 고정하지 않고 전문 입력으로 받습니다."
+    ],
+    "next_action": "승인된 Breadth 후보로 유지하며 정규 Unit 승격은 별도 사용자 지시에서 수행합니다."
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.data-analytics-ml.predictive-ml-model-validation-decision-thresholds",
+  "version": "1.0.0",
+  "title": "예측 ML 모델 검증·의사결정 임계값",
+  "canonical_name": "Predictive ML model validation and decision thresholds",
+  "aliases": [],
+  "summary": "누수 없는 train·validation·test 분할과 업무비용에 맞춘 metric·baseline·calibration·threshold·slice 오류분석을 설계하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "전체 정확도나 test set 반복 최적화로 일반화 성능을 과대평가하고 확률·임계값·업무비용을 같은 것으로 취급하는 문제를 다룹니다.",
+    "includes": [
+      "시간·집단·identity를 반영한 데이터 분할",
+      "preprocessing·feature·label leakage 방지",
+      "업무비용에 맞춘 metric·baseline·calibration",
+      "threshold·slice별 성능·불확실성·오류분석"
+    ],
+    "excludes": [
+      "LLM·agent trajectory·grader 평가",
+      "모델 내부 알고리즘 연구",
+      "production drift monitoring",
+      "전문 fairness·adversarial red-team"
+    ],
+    "boundary_note": "지도학습 모델의 분할·누수·metric·calibration·threshold와 오류분석을 소유합니다. LLM·agent 반복평가는 AI 시스템 렌즈가 소유합니다."
+  },
+  "discovery": {
+    "lens_id": "data-analytics-ml",
+    "basis": "assigned_lens",
+    "notes": "읽기 전용 발견 조사와 W3C·NIST·SDMX·ASA 및 공식 구현 문서·1차 연구를 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "data-analytics-ml",
+    "subdomains": [
+      "predictive-ml-model-evaluation-validation"
+    ],
+    "tags": [
+      "machine-learning",
+      "model-evaluation",
+      "data-leakage",
+      "threshold"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "특정 제품과 무관하게 새 데이터·분석·ML 과제에서 독립적인 D2 산출물과 실패 Gate를 평가할 수 있어 Unit 후보로 둡니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.data-analytics-ml.predictive-ml-model-validation-decision-thresholds"
+  },
+  "relations": [
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.data-analytics-ml.predictive-ml-problem-framing-baselines",
+        "version": "1.0.0"
+      },
+      "rationale": "target·prediction unit·비용행렬과 기준선이 평가 metric·threshold의 입력입니다."
+    },
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.data-analytics-ml.exploratory-statistical-analysis",
+        "version": "1.0.0"
+      },
+      "rationale": "표본 구조·불확실성·slice 해석이 모델 점수 과대해석을 막습니다."
+    },
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.data-analytics-ml.data-quality-validation-observability",
+        "version": "1.0.0"
+      },
+      "rationale": "학습·평가 데이터의 품질 결함과 분포를 먼저 검증해야 합니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ai-systems-agents.ai-system-evaluation-regression-design",
+        "version": "1.0.0"
+      },
+      "rationale": "두 후보 모두 평가계약을 다루지만 이 후보는 지도학습 모델, 기존 후보는 LLM·agent 시스템을 평가합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "새 지도학습 과제에서 누수 없는 평가계약을 구현하고 baseline·slice·calibration·threshold 결과와 잔여 한계를 재현합니다.",
+    "work_contexts": [
+      "분류 모델",
+      "회귀 모델",
+      "랭킹 모델",
+      "위험 기반 의사결정"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "agent_assisted",
+    "agent_fit_rationale": "초안·검사 자동화는 보조할 수 있지만 데이터 의미, 허용 한계와 최종 판정은 인간이 책임집니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "accuracy·ranking·probability calibration·decision threshold와 업무비용의 차이를 설명합니다.",
+        "evidence_hypothesis": "time·identity·preprocessing 누수, 불균형 class와 작은 slice의 불안정성을 판별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "목적에 맞는 분할·metric·baseline·calibration·threshold와 slice 오류분석을 구현하고 재현합니다.",
+        "evidence_hypothesis": "preprocessing·feature·calibration·threshold를 validation에서 고정하고 평가자 봉인 test를 한 번만 실행하며 dataset hash·접근·설정 이력, validation·test fit 사용 0건, 필수 slice·calibration·비용 결과와 사전 정의한 baseline 대비 go·no-go를 확인합니다."
+      }
+    ],
+    "depth_boundary": "지도학습 D2 검증·의사결정 계약으로 제한하며 LLM·agent stochastic 평가, 전문 fairness와 production drift는 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "cycle_time",
+      "risk_reduction",
+      "prerequisite_value",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "누수 없는 평가와 비용 기반 threshold는 배포 전 과대평가와 잘못된 의사결정 임계로 인한 손실을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "now",
+    "measurement_hypothesis": "봉인 test 접근 횟수, preprocessing 누수, baseline 대비 개선·비열등성, calibration·slice 오류, threshold 비용과 재현 실패를 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "cost",
+      "reliability",
+      "human_approval"
+    ],
+    "notes": "전문 통제의 내용은 인접 렌즈가 제공하며 이 후보는 제공된 정책·제약이 데이터 계약과 검증 Gate에 반영되는지만 다룹니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.data-analytics-ml.ml-validation.sklearn-cross-validation",
+      "title": "Cross-validation: evaluating estimator performance",
+      "publisher": "scikit-learn developers",
+      "source_type": "official_docs",
+      "url": "https://scikit-learn.org/stable/modules/cross_validation.html",
+      "checked_at": "2026-07-29",
+      "claim_scope": "보지 않은 데이터에 대한 평가, holdout·cross-validation과 데이터 분할의 구체적 범위를 지지합니다.",
+      "supports": [
+        "scope",
+        "learning_outcome",
+        "risk"
+      ]
+    },
+    {
+      "id": "evidence.data-analytics-ml.ml-validation.sklearn-common-pitfalls",
+      "title": "Common pitfalls and recommended practices",
+      "publisher": "scikit-learn developers",
+      "source_type": "official_docs",
+      "url": "https://scikit-learn.org/stable/common_pitfalls.html",
+      "checked_at": "2026-07-29",
+      "claim_scope": "test 정보 누출과 preprocessing 분리 실패의 구체적 경계를 지지하며 특정 API 사용을 학습성과로 삼지 않습니다.",
+      "supports": [
+        "risk",
+        "learning_outcome"
+      ]
+    },
+    {
+      "id": "evidence.data-analytics-ml.ml-validation.sklearn-model-evaluation",
+      "title": "Metrics and scoring: quantifying the quality of predictions",
+      "publisher": "scikit-learn developers",
+      "source_type": "official_docs",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "checked_at": "2026-07-29",
+      "claim_scope": "예측 과제와 목적에 맞춘 scoring, baseline과 여러 평가 metric 범위를 지지합니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "learning_outcome"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "high",
+    "rationale": "공식·1차 근거, 봉인 test와 누수 방지를 포함한 D0·D2 평가계약을 확인했고 독립 근거·taxonomy·실용성 감사의 P0·P1을 모두 해소했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.data-analytics-ml.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-29",
+    "reviewers": [
+      "read-only-evidence-auditor",
+      "read-only-taxonomy-auditor",
+      "read-only-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "전문 fairness·안전·규제 threshold는 횡단 전문 검토를 요구하며 이 후보가 범용 정답을 선언하지 않습니다."
+    ],
+    "next_action": "승인된 Breadth 후보로 유지하며 정규 Unit 승격은 별도 사용자 지시에서 수행합니다."
+  }
+}

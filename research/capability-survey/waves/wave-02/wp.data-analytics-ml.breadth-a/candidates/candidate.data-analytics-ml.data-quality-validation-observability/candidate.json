@@ -1,0 +1,181 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.data-analytics-ml.data-quality-validation-observability",
+  "version": "1.0.0",
+  "title": "데이터 품질 검증·관측",
+  "canonical_name": "Data quality validation and observability",
+  "aliases": [],
+  "summary": "사용목적별 품질 dimension·metric·threshold와 schema·완전성·유일성·일관성·적시성·분포 검사를 설계해 격리·triage하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "스키마 통과나 전체 평균만으로 품질을 선언해 지연·누락·소수 slice 오류와 정상 계절 변화를 구분하지 못하는 문제를 다룹니다.",
+    "includes": [
+      "사용목적별 품질 dimension·metric",
+      "schema·완전성·유일성·일관성·적시성 검사",
+      "volume·freshness·distribution signal",
+      "격리·triage·수용 Gate"
+    ],
+    "excludes": [
+      "인프라 uptime·trace·SLO 전체",
+      "일반 incident 운영",
+      "보안·개인정보 정책 설계",
+      "모든 용도에 고품질이라는 선언"
+    ],
+    "boundary_note": "데이터가 특정 사용목적에 적합한지 측정·검증하는 Gate를 소유합니다. 인프라 SLO는 platform, 법적·보안 통제는 security 렌즈가 소유합니다."
+  },
+  "discovery": {
+    "lens_id": "data-analytics-ml",
+    "basis": "assigned_lens",
+    "notes": "읽기 전용 발견 조사와 W3C·NIST·SDMX·ASA 및 공식 구현 문서·1차 연구를 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "data-analytics-ml",
+    "subdomains": [
+      "data-quality-validation-observability"
+    ],
+    "tags": [
+      "data-quality",
+      "validation",
+      "freshness",
+      "distribution"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "특정 제품과 무관하게 새 데이터·분석·ML 과제에서 독립적인 D2 산출물과 실패 Gate를 평가할 수 있어 Unit 후보로 둡니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.data-analytics-ml.data-quality-validation-observability"
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.data-analytics-ml.data-source-acquisition-contract-design",
+        "version": "1.0.0"
+      },
+      "rationale": "검증할 품질 metric은 원천의 의미·키·시점·허용오차 계약을 입력으로 사용합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "새 dataset의 품질 metric과 임계·격리 규칙을 설계하고 정상·결측·지연·분포 이동 fixture에서 검출률과 오탐을 검증합니다.",
+    "work_contexts": [
+      "수집 품질",
+      "변환 품질",
+      "분석 입력",
+      "ML training·serving data"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "agent_assisted",
+    "agent_fit_rationale": "초안·검사 자동화는 보조할 수 있지만 데이터 의미, 허용 한계와 최종 판정은 인간이 책임집니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "품질이 사용목적과 이해관계자에 의존하며 schema 적합성만으로 충분하지 않음을 설명합니다.",
+        "evidence_hypothesis": "정상 계절성·실제 결함·upstream 장애·현상 변화를 구분하고 절대적 품질 선언을 거부합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "품질 dimension·metric·threshold·격리 규칙을 만들고 결측·지연·중복·분포·slice 오류의 검출률과 오탐을 검증합니다.",
+        "evidence_hypothesis": "공개 calibration 구간에서 metric·threshold·격리 규칙을 고정한 뒤 봉인된 holdout에서 사전 정의한 치명 오류 최소 검출률과 정상 변화 최대 오탐률을 충족하고, label·허용한계가 없으면 임의 threshold 대신 판단 불가·인간 승인을 선택합니다."
+      }
+    ],
+    "depth_boundary": "D2 데이터 품질 측정·검증·triage로 제한하며 인프라 incident, 개인정보·보안 정책과 전문 도메인 정답은 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "cycle_time",
+      "risk_reduction",
+      "prerequisite_value",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "사용목적별 자동 품질 Gate는 결함 데이터의 하류 확산과 수동 탐지시간을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "core",
+    "priority_hint": "now",
+    "measurement_hypothesis": "봉인된 holdout의 오류 유형별 검출률·오탐률, 미검출, threshold 조정·holdout 접근 횟수, 격리시간과 하류 결함 확산 건수를 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "cost",
+      "reliability",
+      "human_approval"
+    ],
+    "notes": "전문 통제의 내용은 인접 렌즈가 제공하며 이 후보는 제공된 정책·제약이 데이터 계약과 검증 Gate에 반영되는지만 다룹니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.data-analytics-ml.data-quality.dqv",
+      "title": "Data on the Web Best Practices: Data Quality Vocabulary",
+      "publisher": "World Wide Web Consortium",
+      "source_type": "official_source",
+      "url": "https://www.w3.org/TR/vocab-dqv/",
+      "checked_at": "2026-07-29",
+      "claim_scope": "품질 dimension·metric·measurement·policy와 provenance 표현모델을 지지합니다. W3C Recommendation이 아닌 Working Group Note입니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "learning_outcome"
+      ],
+      "source_version": "W3C Working Group Note 2016-12-15"
+    },
+    {
+      "id": "evidence.data-analytics-ml.data-quality.data-validation-ml",
+      "title": "Data Validation for Machine Learning",
+      "publisher": "Google Research",
+      "source_type": "primary_research",
+      "url": "https://research.google/pubs/data-validation-for-machine-learning/",
+      "checked_at": "2026-07-29",
+      "claim_scope": "schema·분포와 training·serving 데이터 이상 탐지의 ML 생산 사례를 지지하며 일반 데이터 품질 전체를 대표하지 않습니다.",
+      "supports": [
+        "work_relevance",
+        "risk",
+        "learning_outcome"
+      ]
+    },
+    {
+      "id": "evidence.data-analytics-ml.data-quality.iso-25012",
+      "title": "ISO/IEC 25012:2008 Software engineering — Software product Quality Requirements and Evaluation (SQuaRE) — Data quality model",
+      "publisher": "International Organization for Standardization",
+      "source_type": "standard",
+      "url": "https://www.iso.org/standard/35736.html",
+      "checked_at": "2026-07-29",
+      "claim_scope": "구조화 데이터의 inherent·system-dependent 품질 특성과 획득·처리·통합 과정의 요구·측정·평가 모델 범위를 지지합니다. 구체 임계값과 격리정책은 사용목적별로 별도 정의해야 합니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "learning_outcome"
+      ],
+      "source_version": "ISO/IEC 25012:2008, confirmed current 2025"
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "high",
+    "rationale": "공식·1차 근거, 봉인 holdout을 포함한 D0·D2 평가계약을 확인했고 독립 근거·taxonomy·실용성 감사의 P0·P1을 모두 해소했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.data-analytics-ml.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-29",
+    "reviewers": [
+      "read-only-evidence-auditor",
+      "read-only-taxonomy-auditor",
+      "read-only-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "정답 label이 없는 품질과 도메인별 허용 임계는 인간 승인·전문 입력을 요구합니다."
+    ],
+    "next_action": "승인된 Breadth 후보로 유지하며 정규 Unit 승격은 별도 사용자 지시에서 수행합니다."
+  }
+}

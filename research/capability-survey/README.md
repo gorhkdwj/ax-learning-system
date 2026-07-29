@@ -42,9 +42,10 @@ Resource 전용 1개입니다. 읽기 전용 감사자가 근거·분류·실무
 최초 P0는 0건이며 P1은 교정했습니다. 과목·후보 표시명은 한국어를 우선하고 node
 ID와 영문 병기는 허용한다는 명명 원칙도 승인되었습니다.
 
-`taxonomy.ax-capability-map@0.4.0`에는 기존 조사 렌즈와 Wave 1 node에 더해
+`taxonomy.ax-capability-map@0.5.0`에는 기존 조사 렌즈와 Wave 1 node에 더해
 `ai-literacy-trust` 잠정 subdomain 7개와 `ai-systems-agents` 잠정 subdomain
-7개, `software-product-engineering` 잠정 subdomain 9개가 등록되었습니다.
+7개, `software-product-engineering` 잠정 subdomain 9개,
+`data-analytics-ml` 잠정 subdomain 9개가 등록되었습니다.
 
 두 번째 작업 패키지 `wp.ai-systems-agents.breadth-a`는 한국어 우선 표시명의
 Candidate 8개로 조사·감사를 완료한 `approved` 상태입니다. 전문 판단이 필요한
@@ -72,3 +73,13 @@ Signal은 수정하지 않았습니다.
 패키지의 후속 승인에 따라 Unit 후보 9개는 공개 Reference와 함께 정규
 `cataloged` Unit으로, AI 보조 변경 전달 후보는 정규 `cataloged` Set으로
 승격했습니다. 상세 교재·파일럿·학습효과는 아직 검증하지 않았습니다.
+
+네 번째 작업 패키지 `wp.data-analytics-ml.breadth-a`는 한국어 우선 표시명의
+신규 Candidate 9개와 기존 영향평가 Candidate 재사용 1개로 조사·감사를 완료한
+`approved` 상태입니다. 구성은 데이터 원천계약, 변환 pipeline, 분석 지표
+의미계약, 탐색·통계 분석, 데이터 품질, 카탈로그·계보·책임 메타데이터,
+예측 ML 문제정의·기준선, 예측 ML 모델 검증, ML 생명주기의 Unit 후보입니다.
+기존 `candidate.ax-strategy-value.pilot-impact-evaluation@1.0.0`은 새 ID로
+복제하지 않고 열 번째 결과로 재사용했습니다. 독립 감사에서 발견한 P1을
+교정한 뒤 P0·P1 0건을 재확인했으며, 후보 정규 Unit 승격과 상세 교재·파일럿은
+아직 수행하지 않았습니다.

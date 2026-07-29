@@ -1,0 +1,214 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.data-analytics-ml.analytical-model-metric-semantics",
+  "version": "1.0.0",
+  "title": "분석 모델·지표 의미계약",
+  "canonical_name": "Analytical model and metric semantics",
+  "aliases": [],
+  "summary": "관찰 grain, dimension·measure·attribute와 분자·분모·단위·시간창·집계 가능성을 명시해 일관된 지표 계산을 만드는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "같은 지표 이름이 서로 다른 grain·분모·시간창으로 계산되고 join·집계에서 중복되어 의사결정 수치가 불일치하는 문제를 다룹니다.",
+    "includes": [
+      "관찰 grain과 dimension·measure·attribute",
+      "분자·분모·단위·시간창",
+      "가산·반가산·비가산 집계 가능성",
+      "코드목록·정의 재사용과 지표 reconciliation"
+    ],
+    "excludes": [
+      "조직 KPI 우선순위 결정",
+      "애플리케이션 관계형 schema·migration",
+      "특정 BI·semantic-layer 제품 사용법",
+      "차트 UI 구현"
+    ],
+    "boundary_note": "선택된 지표를 어떻게 일관되게 계산할지 소유합니다. 무엇을 성공지표로 선택할지는 전략 렌즈가, transaction schema는 software 렌즈가 소유합니다."
+  },
+  "discovery": {
+    "lens_id": "data-analytics-ml",
+    "basis": "assigned_lens",
+    "notes": "읽기 전용 발견 조사와 W3C·NIST·SDMX·ASA 및 공식 구현 문서·1차 연구를 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "data-analytics-ml",
+    "subdomains": [
+      "analytical-modeling-metric-semantics"
+    ],
+    "tags": [
+      "analytical-model",
+      "metric",
+      "grain",
+      "aggregation"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "특정 제품과 무관하게 새 데이터·분석·ML 과제에서 독립적인 D2 산출물과 실패 Gate를 평가할 수 있어 Unit 후보로 둡니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.data-analytics-ml.analytical-model-metric-semantics"
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.data-analytics-ml.data-source-acquisition-contract-design",
+        "version": "1.0.0"
+      },
+      "rationale": "원천의 관찰단위·키·단위·시점 계약이 분석 grain 설계의 입력입니다."
+    },
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.data-analytics-ml.reproducible-data-transformation-pipelines",
+        "version": "1.0.0"
+      },
+      "rationale": "분석 의미계약은 재현 가능한 변환으로 구현·검증됩니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ax-strategy-value.measurement-contract",
+        "version": "1.0.0"
+      },
+      "rationale": "전략 후보가 지표 선택을 소유하고 이 후보가 선택된 지표의 계산 의미를 소유합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "새 지표의 grain·차원·측정값·단위·시간창 계약을 만들고 중복집계·누락 차원·단위 불일치를 fixture로 검증합니다.",
+    "work_contexts": [
+      "분석 mart",
+      "운영 보고",
+      "실험 지표",
+      "ML feature·label 집계"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "agent_assisted",
+    "agent_fit_rationale": "초안·검사 자동화는 보조할 수 있지만 데이터 의미, 허용 한계와 최종 판정은 인간이 책임집니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "transaction schema와 분석 grain, measure와 dimension, 지표 선택과 계산 의미계약의 차이를 설명합니다.",
+        "evidence_hypothesis": "평균의 평균·비가산 measure·동일 이름 다른 분모·timezone·단위 오류를 판별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "지표의 grain·dimension·measure·단위·시간창·집계 규칙을 설계하고 계산 결과를 reconciliation합니다.",
+        "evidence_hypothesis": "중복 join·누락 차원·단위·시간창 fixture의 기대값과 일치하고 정의되지 않은 집계 추가 0건을 확인합니다."
+      }
+    ],
+    "depth_boundary": "지표 계산 의미의 D2 계약으로 제한하며 사업 KPI 선택, transaction DB migration과 제품별 semantic layer는 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "cycle_time",
+      "risk_reduction",
+      "prerequisite_value",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "명시적인 grain·분모·단위·시간창 계약은 보고서 간 지표 불일치와 reconciliation 비용을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "now",
+    "measurement_hypothesis": "중복집계·누락 차원·단위·시간창 오류, 지표 불일치 건수와 reconciliation 시간을 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "cost",
+      "reliability",
+      "human_approval"
+    ],
+    "notes": "전문 통제의 내용은 인접 렌즈가 제공하며 이 후보는 제공된 정책·제약이 데이터 계약과 검증 Gate에 반영되는지만 다룹니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.data-analytics-ml.analytical-model.rdf-data-cube",
+      "title": "The RDF Data Cube Vocabulary",
+      "publisher": "World Wide Web Consortium",
+      "source_type": "official_spec",
+      "url": "https://www.w3.org/TR/vocab-data-cube/",
+      "checked_at": "2026-07-29",
+      "claim_scope": "관찰·dimension·measure·attribute·Data Structure Definition과 무결성 제약의 기술중립 모델을 지지합니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "learning_outcome"
+      ],
+      "source_version": "W3C Recommendation 2014-01-16"
+    },
+    {
+      "id": "evidence.data-analytics-ml.analytical-model.sdmx-information-model",
+      "title": "SDMX 3.1 Technical Specifications",
+      "publisher": "SDMX Sponsors",
+      "source_type": "official_spec",
+      "url": "https://sdmx.org/standards-2/",
+      "checked_at": "2026-07-29",
+      "claim_scope": "통계 데이터의 구조 정의, dimension·measure·attribute와 code list의 의미 범위를 지지합니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "work_relevance"
+      ],
+      "source_version": "SDMX 3.1, 2025-05"
+    },
+    {
+      "id": "evidence.data-analytics-ml.analytical-model.iso-11179-4",
+      "title": "ISO/IEC 11179-4:2004 Information technology — Metadata registries — Part 4: Formulation of data definitions",
+      "publisher": "International Organization for Standardization",
+      "source_type": "standard",
+      "url": "https://www.iso.org/standard/35346.html",
+      "checked_at": "2026-07-29",
+      "claim_scope": "data element·entity·relationship·attribute·composite·code 등 데이터·metadata 정의의 의미 명료성과 일관성 원칙을 지지하며 계산 정확도나 특정 모델 형식은 규정하지 않습니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "work_relevance"
+      ],
+      "source_version": "ISO/IEC 11179-4:2004, confirmed current 2015"
+    },
+    {
+      "id": "evidence.data-analytics-ml.analytical-model.dbt-measures",
+      "title": "Measures",
+      "publisher": "dbt Labs",
+      "source_type": "official_docs",
+      "url": "https://docs.getdbt.com/docs/build/measures",
+      "checked_at": "2026-07-29",
+      "claim_scope": "measure의 계산식·aggregation·time grain과 특정 dimension에서의 비가산성을 명시하고 잘못된 집계를 방지하는 한 공식 구현 사례를 지지합니다. dbt 설정법을 보편 역량으로 일반화하지 않습니다.",
+      "supports": [
+        "work_relevance",
+        "learning_outcome",
+        "risk"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "high",
+    "rationale": "공식·1차 근거, 중복 경계와 D0·D2 평가계약을 확인했고 독립 근거·taxonomy·실용성 감사의 P0·P1을 모두 해소했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.data-analytics-ml.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-29",
+    "reviewers": [
+      "read-only-evidence-auditor",
+      "read-only-taxonomy-auditor",
+      "read-only-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "조직별 지표명과 semantic layer 구현은 Adapter로 분리하고 코어 평가는 grain·measure 의미의 일관성에 둡니다."
+    ],
+    "next_action": "승인된 Breadth 후보로 유지하며 정규 Unit 승격은 별도 사용자 지시에서 수행합니다."
+  }
+}

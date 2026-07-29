@@ -1,0 +1,223 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.data-analytics-ml.ml-lifecycle-reproducibility-monitoring",
+  "version": "1.0.0",
+  "title": "ML 생명주기 재현성·모니터링",
+  "canonical_name": "ML lifecycle reproducibility and monitoring",
+  "aliases": [],
+  "summary": "data·feature·label·code·config·model 버전을 고정해 학습을 재현하고 skew·drift·성능 악화 신호로 유지·재학습·중단·rollback을 판정하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "model artifact만 관리하고 데이터·feature·label·config 변화와 feedback loop를 추적하지 않아 재현·원인격리·안전한 변경 판정이 불가능한 문제를 다룹니다.",
+    "includes": [
+      "data·feature·label·code·config·model 버전",
+      "학습 재현성과 training·serving skew",
+      "input·performance drift와 feedback loop",
+      "재학습·유지·중단·rollback 판정계약"
+    ],
+    "excludes": [
+      "serving infrastructure·Kubernetes·CI/CD",
+      "일반 SLO·incident 대응",
+      "IAM·보안·비용 운영",
+      "foundation model·agent stochastic 평가"
+    ],
+    "boundary_note": "versioned fixture에서 ML 변화 신호와 의사결정 Gate를 소유합니다. 실제 rollout·serving·incident·권한·복구 실행은 D3 platform overlay가 소유합니다."
+  },
+  "discovery": {
+    "lens_id": "data-analytics-ml",
+    "basis": "assigned_lens",
+    "notes": "읽기 전용 발견 조사와 W3C·NIST·SDMX·ASA 및 공식 구현 문서·1차 연구를 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "data-analytics-ml",
+    "subdomains": [
+      "ml-lifecycle-reproducibility-monitoring"
+    ],
+    "tags": [
+      "ml-lifecycle",
+      "reproducibility",
+      "drift",
+      "monitoring"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "선수 후보들은 versioned 입력·품질 signal·catalog·승인된 모델 평가계약을 제공하고, 이 후보는 그 산출물을 소비해 reference–current 비교와 drift·성능 변화의 유지·재학습·중단·rollback 판정계약을 독립적으로 평가합니다. 선수 학습성과를 종단 실행하는 workflow Set이 아니라 별도 의사결정 코어이므로 Unit 후보로 둡니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.data-analytics-ml.ml-lifecycle-reproducibility-monitoring"
+  },
+  "relations": [
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.data-analytics-ml.reproducible-data-transformation-pipelines",
+        "version": "1.0.0"
+      },
+      "rationale": "ML 재현성과 skew 분석은 versioned 입력·feature 변환의 재현성을 전제로 합니다."
+    },
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.data-analytics-ml.data-quality-validation-observability",
+        "version": "1.0.0"
+      },
+      "rationale": "운영 입력·feature의 schema·freshness·분포 signal이 monitoring의 입력입니다."
+    },
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.data-analytics-ml.data-catalog-lineage-ownership-metadata",
+        "version": "1.0.0"
+      },
+      "rationale": "data·feature·model 버전과 파생관계가 원인격리와 rollback 호환성 판단을 지원합니다."
+    },
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.data-analytics-ml.predictive-ml-model-validation-decision-thresholds",
+        "version": "1.0.0"
+      },
+      "rationale": "운영 성능과 변경 Gate는 승인된 baseline·metric·slice·threshold 계약을 재사용합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "versioned fixture에서 학습을 재현하고 skew·drift·성능 악화 신호를 계산해 재학습·유지·중단·rollback Gate와 인간 승인점을 만듭니다.",
+    "work_contexts": [
+      "batch ML",
+      "online inference",
+      "정기 재학습",
+      "모델 변경 검토"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "agent_assisted",
+    "agent_fit_rationale": "초안·검사 자동화는 보조할 수 있지만 데이터 의미, 허용 한계와 최종 판정은 인간이 책임집니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "model artifact 배포와 ML 시스템 운영, drift와 성능저하, 재학습과 개선이 각각 동치가 아님을 설명합니다.",
+        "evidence_hypothesis": "drift 없는 성능악화, drift가 있어도 유지되는 성능, label 지연과 feedback loop를 서로 다른 사례로 구분합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "data·code·config·model 버전으로 학습을 재현하고 skew·drift·성능 signal을 기준선과 비교해 변경 Gate를 만듭니다.",
+        "evidence_hypothesis": "허용오차 내 재현, 숨은 skew·drift·label 지연 fixture 판정과 유지·재학습·중단·rollback·인간승인 결과가 정답 manifest와 일치합니다."
+      }
+    ],
+    "depth_boundary": "versioned fixture의 D2 ML 재현·monitoring·판정으로 제한하며 실제 production rollout·serving·incident·권한·복구는 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "cycle_time",
+      "risk_reduction",
+      "prerequisite_value",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "버전·재현·monitoring Gate는 성능 저하의 원인격리와 안전한 재학습·중단 결정을 빠르게 할 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "core",
+    "priority_hint": "now",
+    "measurement_hypothesis": "학습 재현 오차, skew·drift 검출, label 지연, 잘못된 자동 재학습과 rollback 호환성 오류를 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "cost",
+      "reliability",
+      "human_approval"
+    ],
+    "notes": "전문 통제의 내용은 인접 렌즈가 제공하며 이 후보는 제공된 정책·제약이 데이터 계약과 검증 Gate에 반영되는지만 다룹니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.data-analytics-ml.ml-lifecycle.ml-test-score",
+      "title": "The ML Test Score: A Rubric for ML Production Readiness and Technical Debt Reduction",
+      "publisher": "Google Research",
+      "source_type": "primary_research",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "checked_at": "2026-07-29",
+      "claim_scope": "ML 고유 데이터·모델·pipeline test와 monitoring 필요를 다수 생산 사례에서 도출하며 보편적 효과크기는 지지하지 않습니다.",
+      "supports": [
+        "scope",
+        "work_relevance",
+        "risk"
+      ],
+      "source_version": "IEEE Big Data 2017"
+    },
+    {
+      "id": "evidence.data-analytics-ml.ml-lifecycle.hidden-technical-debt",
+      "title": "Hidden Technical Debt in Machine Learning Systems",
+      "publisher": "NeurIPS",
+      "source_type": "primary_research",
+      "url": "https://papers.nips.cc/paper/2015/hash/86df7dcfd896fcaf2674f757a2463eba-Abstract.html",
+      "checked_at": "2026-07-29",
+      "claim_scope": "data dependency, feedback loop, undeclared consumer와 외부 변화 등 ML 고유 유지보수 위험을 지지합니다.",
+      "supports": [
+        "risk",
+        "work_relevance",
+        "lifecycle"
+      ],
+      "source_version": "NeurIPS 2015"
+    },
+    {
+      "id": "evidence.data-analytics-ml.ml-lifecycle.google-monitoring",
+      "title": "Production ML systems: Monitoring pipelines",
+      "publisher": "Google for Developers",
+      "source_type": "official_docs",
+      "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+      "checked_at": "2026-07-29",
+      "claim_scope": "data·feature 검증, training·serving skew, slice metric, model age와 live quality monitoring의 실무 범위를 지지합니다.",
+      "supports": [
+        "scope",
+        "learning_outcome",
+        "lifecycle"
+      ]
+    },
+    {
+      "id": "evidence.data-analytics-ml.ml-lifecycle.nist-ai-rmf-measure",
+      "title": "NIST AI RMF Playbook: Measure",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_source",
+      "url": "https://airc.nist.gov/airmf-resources/playbook/measure/",
+      "checked_at": "2026-07-29",
+      "claim_scope": "baseline 대비 drift 허용범위, 정기 monitoring과 필요한 시스템 개입 범위를 지지합니다.",
+      "supports": [
+        "risk",
+        "lifecycle",
+        "work_relevance"
+      ],
+      "source_version": "AI RMF 1.0 Playbook"
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "high",
+    "rationale": "공식·1차 근거, 독립적인 ML 변경 판정 코어와 D0·D2 평가계약을 확인했고 독립 근거·taxonomy·실용성 감사의 P0·P1을 모두 해소했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.data-analytics-ml.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-29",
+    "reviewers": [
+      "read-only-evidence-auditor",
+      "read-only-taxonomy-auditor",
+      "read-only-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "production label 확보 지연과 drift threshold는 맥락별이므로 제공된 비용·위험 계약과 인간 승인점을 요구합니다."
+    ],
+    "next_action": "승인된 Breadth 후보로 유지하며 정규 Unit 승격은 별도 사용자 지시에서 수행합니다."
+  }
+}

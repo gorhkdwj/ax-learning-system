@@ -1,0 +1,195 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.data-analytics-ml.reproducible-data-transformation-pipelines",
+  "version": "1.0.0",
+  "title": "재현 가능한 데이터 변환·파이프라인",
+  "canonical_name": "Reproducible data transformation pipelines",
+  "aliases": [],
+  "summary": "입력–변환–출력 DAG와 코드·데이터·환경 버전을 고정하고 멱등 재실행·부분 실패 복구·backfill을 검증하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "변환이 수동 순서와 숨은 상태에 의존해 같은 입력의 재실행 결과가 달라지고 부분 실패·backfill이 중복을 만드는 문제를 다룹니다.",
+    "includes": [
+      "입력–변환–출력 DAG와 결정적 변환",
+      "멱등성·checkpoint·부분 실패 재실행",
+      "backfill·중복 방지",
+      "데이터·코드·환경 버전 고정"
+    ],
+    "excludes": [
+      "클러스터·엔진 성능 튜닝",
+      "scheduler 제품 UI",
+      "CI/CD·배포 운영",
+      "범용 SaaS 업무 orchestration"
+    ],
+    "boundary_note": "데이터 변환의 재현성과 상태·재실행 의미를 소유합니다. 제품 운영은 platform, 일반 업무 orchestration은 integration 렌즈가 소유합니다."
+  },
+  "discovery": {
+    "lens_id": "data-analytics-ml",
+    "basis": "assigned_lens",
+    "notes": "읽기 전용 발견 조사와 W3C·NIST·SDMX·ASA 및 공식 구현 문서·1차 연구를 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "data-analytics-ml",
+    "subdomains": [
+      "data-transformation-pipelines"
+    ],
+    "tags": [
+      "data-pipeline",
+      "transformation",
+      "idempotency",
+      "backfill"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "특정 제품과 무관하게 새 데이터·분석·ML 과제에서 독립적인 D2 산출물과 실패 Gate를 평가할 수 있어 Unit 후보로 둡니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.data-analytics-ml.reproducible-data-transformation-pipelines"
+  },
+  "relations": [
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.data-analytics-ml.data-source-acquisition-contract-design",
+        "version": "1.0.0"
+      },
+      "rationale": "재현 가능한 변환은 입력의 관찰단위·형식·키·시점 계약을 전제로 합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "소규모 데이터 파이프라인을 구현하고 같은 입력의 재실행 동일성, 중복 방지, 실패 후 복구와 backfill 결과를 자동검증합니다.",
+    "work_contexts": [
+      "배치 변환",
+      "이벤트 변환",
+      "분석 데이터 준비",
+      "ML feature 준비"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "agent_assisted",
+    "agent_fit_rationale": "초안·검사 자동화는 보조할 수 있지만 데이터 의미, 허용 한계와 최종 판정은 인간이 책임집니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "변환 논리, 실행 순서, 상태·재실행 의미와 배치·스트림의 차이를 설명합니다.",
+        "evidence_hypothesis": "단순 재실행 성공과 동일하고 올바른 결과를 구분하고 late·부분 출력·backfill 충돌을 식별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "버전 고정 파이프라인을 만들고 멱등 재실행·부분 실패 복구·중복 방지·backfill을 검증합니다.",
+        "evidence_hypothesis": "같은 입력의 허용 범위 밖 출력 차이 0건, 중복·누락 0건이며 실패 checkpoint와 backfill 결과가 정답 manifest와 일치합니다."
+      }
+    ],
+    "depth_boundary": "소규모 D2 변환과 복구 계약으로 제한하며 대규모 플랫폼 운영·성능 최적화와 배포는 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "cycle_time",
+      "risk_reduction",
+      "prerequisite_value",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "멱등 재실행과 실패 복구 계약은 수동 재처리와 중복·누락 데이터의 비용을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "core",
+    "priority_hint": "now",
+    "measurement_hypothesis": "동일 입력 재실행 차이, 중복·누락, 부분 실패 복구시간과 backfill 오류를 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "cost",
+      "reliability",
+      "human_approval"
+    ],
+    "notes": "전문 통제의 내용은 인접 렌즈가 제공하며 이 후보는 제공된 정책·제약이 데이터 계약과 검증 Gate에 반영되는지만 다룹니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.data-analytics-ml.pipeline.nist-big-data-reference",
+      "title": "NIST Big Data Interoperability Framework: Volume 6, Reference Architecture",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_source",
+      "url": "https://doi.org/10.6028/NIST.SP.1500-6r2",
+      "checked_at": "2026-07-29",
+      "claim_scope": "데이터 공급자·처리·소비자와 관리 fabric의 기술중립 구성 경계를 지지합니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "lifecycle"
+      ],
+      "source_version": "NIST SP 1500-6r2, Version 3"
+    },
+    {
+      "id": "evidence.data-analytics-ml.pipeline.rap-strategy",
+      "title": "Reproducible Analytical Pipelines strategy",
+      "publisher": "UK Government Analysis Function",
+      "source_type": "official_source",
+      "url": "https://analysisfunction.civilservice.gov.uk/policy-store/reproducible-analytical-pipelines-strategy/",
+      "checked_at": "2026-07-29",
+      "claim_scope": "코드·동료검토·품질보증·재사용 가능한 분석 파이프라인을 통한 재현성 실천을 지지합니다.",
+      "supports": [
+        "scope",
+        "work_relevance",
+        "learning_outcome"
+      ]
+    },
+    {
+      "id": "evidence.data-analytics-ml.pipeline.airflow-best-practices",
+      "title": "Apache Airflow Best Practices",
+      "publisher": "Apache Software Foundation",
+      "source_type": "official_docs",
+      "url": "https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html",
+      "checked_at": "2026-07-29",
+      "claim_scope": "재시도 가능한 task가 불완전 출력을 남기지 않고 재실행마다 같은 결과를 내며 partition·입출력·환경 의존성을 명시하는 한 공식 구현 사례를 지지합니다. Airflow 사용법을 보편 역량으로 일반화하지 않습니다.",
+      "supports": [
+        "work_relevance",
+        "learning_outcome",
+        "risk"
+      ]
+    },
+    {
+      "id": "evidence.data-analytics-ml.pipeline.dataflow-model",
+      "title": "The Dataflow Model: A Practical Approach to Balancing Correctness, Latency, and Cost in Massive-Scale, Unbounded, Out-of-Order Data Processing",
+      "publisher": "Google Research",
+      "source_type": "primary_research",
+      "url": "https://research.google/pubs/the-dataflow-model-a-practical-approach-to-balancing-correctness-latency-and-cost-in-massive-scale-unbounded-out-of-order-data-processing/",
+      "checked_at": "2026-07-29",
+      "claim_scope": "unbounded·out-of-order 입력, event time, 갱신·철회와 correctness·latency·cost trade-off를 다루는 1차 연구로 late data와 결과 정정 경계를 지지합니다.",
+      "supports": [
+        "scope",
+        "risk",
+        "work_relevance"
+      ],
+      "source_version": "PVLDB 2015"
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "high",
+    "rationale": "공식·1차 근거, 멱등 재실행·복구를 포함한 D0·D2 평가계약을 확인했고 독립 근거·taxonomy·실용성 감사의 P0·P1을 모두 해소했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.data-analytics-ml.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-29",
+    "reviewers": [
+      "read-only-evidence-auditor",
+      "read-only-taxonomy-auditor",
+      "read-only-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "대규모 스트림의 exactly-once 보장은 제품·아키텍처별 제약이 커 D2 코어에서는 관찰 가능한 효과와 보상 규칙으로 평가합니다."
+    ],
+    "next_action": "승인된 Breadth 후보로 유지하며 정규 Unit 승격은 별도 사용자 지시에서 수행합니다."
+  }
+}

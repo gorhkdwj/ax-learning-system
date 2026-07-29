@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0.0",
   "id": "taxonomy.ax-capability-map",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "title": "AX 역량 분류 레지스트리",
   "status": "provisional",
-  "updated_at": "2026-07-28",
+  "updated_at": "2026-07-29",
   "nodes": [
     {
       "id": "ax-strategy-value",
@@ -2279,6 +2279,384 @@
         "created_at": "2026-07-28",
         "last_reviewed_at": "2026-07-28",
         "review_due_at": "2026-10-28",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "data-source-acquisition-contracts",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "데이터 원천 수집·계약",
+      "title_en": "Data source acquisition contracts",
+      "definition": "원천·관찰단위·수집시점과 필드 의미·형식·단위·키·결측·갱신 조건을 기계 판독 계약과 인수검사로 만드는 잠정 중분류입니다.",
+      "includes": [
+        "원천·관찰단위·수집시점·표본틀",
+        "필드 의미·형식·단위·키·결측",
+        "갱신·지연·허용오차와 인수검사"
+      ],
+      "excludes": [
+        "일반 HTTP API·커넥터 구현",
+        "개인정보·동의 정책 결정",
+        "전문 측정기 교정"
+      ],
+      "parent_ids": [
+        "data-analytics-ml"
+      ],
+      "aliases": [
+        "Data source contracts"
+      ],
+      "related_ids": [
+        "integration-automation",
+        "security-legal-governance"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-02/wp.data-analytics-ml.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 2 데이터·분석·ML 조사에서 일반 전송 API와 데이터 소비 의미계약을 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-29",
+        "last_reviewed_at": "2026-07-29",
+        "review_due_at": "2026-10-29",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "data-transformation-pipelines",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "데이터 변환·파이프라인",
+      "title_en": "Data transformation pipelines",
+      "definition": "입력–변환–출력 DAG와 코드·데이터·환경 버전을 고정하고 멱등 재실행·부분 실패 복구·backfill을 검증하는 잠정 중분류입니다.",
+      "includes": [
+        "결정적 변환과 DAG",
+        "멱등성·checkpoint·부분 실패 복구",
+        "backfill·중복 방지와 버전 고정"
+      ],
+      "excludes": [
+        "제품별 scheduler 사용법",
+        "클러스터 성능 튜닝",
+        "범용 업무 orchestration"
+      ],
+      "parent_ids": [
+        "data-analytics-ml"
+      ],
+      "aliases": [
+        "Data pipelines"
+      ],
+      "related_ids": [
+        "software-product-engineering",
+        "integration-automation",
+        "platform-quality-operations"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-02/wp.data-analytics-ml.breadth-a/domain-survey.md"
+        ],
+        "rationale": "도구별 파이프라인 사용법과 전이 가능한 변환·재실행·복구 계약을 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-29",
+        "last_reviewed_at": "2026-07-29",
+        "review_due_at": "2026-10-29",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "analytical-modeling-metric-semantics",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "분석 모델·지표 의미계약",
+      "title_en": "Analytical modeling and metric semantics",
+      "definition": "관찰 grain, dimension·measure·attribute와 분자·분모·단위·시간창·집계 가능성을 명시해 일관된 지표 계산을 만드는 잠정 중분류입니다.",
+      "includes": [
+        "분석 grain과 dimension·measure·attribute",
+        "분자·분모·단위·시간창",
+        "집계 가능성과 지표 reconciliation"
+      ],
+      "excludes": [
+        "사업 KPI 우선순위 결정",
+        "애플리케이션 관계형 schema·migration",
+        "특정 BI 제품 사용법"
+      ],
+      "parent_ids": [
+        "data-analytics-ml"
+      ],
+      "aliases": [
+        "Analytical data modeling"
+      ],
+      "related_ids": [
+        "value-measurement",
+        "relational-data-modeling-schema-evolution"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-02/wp.data-analytics-ml.breadth-a/domain-survey.md"
+        ],
+        "rationale": "무엇을 측정할지와 선택된 지표를 어떤 grain·계산 의미로 산출할지를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-29",
+        "last_reviewed_at": "2026-07-29",
+        "review_due_at": "2026-10-29",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "exploratory-statistical-analysis",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "탐색적·통계적 분석",
+      "title_en": "Exploratory and statistical analysis",
+      "definition": "분석질문·표본·결측·가정을 점검하고 분포·관계·효과크기·구간·민감도와 한계를 재현 가능한 결론으로 만드는 잠정 중분류입니다.",
+      "includes": [
+        "탐색적 데이터 분석",
+        "기초 통계 추론과 효과크기·구간",
+        "가정·민감도·불확실성 해석"
+      ],
+      "excludes": [
+        "개입의 인과 귀속",
+        "고급 전문 통계과정",
+        "도메인 의사결정권"
+      ],
+      "parent_ids": [
+        "data-analytics-ml"
+      ],
+      "aliases": [
+        "Exploratory statistical analysis"
+      ],
+      "related_ids": [
+        "impact-evaluation",
+        "test-and-learn"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-02/wp.data-analytics-ml.breadth-a/domain-survey.md"
+        ],
+        "rationale": "관측 데이터의 탐색·불확실성 해석과 개입의 반사실·인과 평가를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-29",
+        "last_reviewed_at": "2026-07-29",
+        "review_due_at": "2026-10-29",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "data-quality-validation-observability",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "데이터 품질 검증·관측",
+      "title_en": "Data quality validation and observability",
+      "definition": "사용목적별 품질 dimension·metric·threshold와 schema·완전성·유일성·일관성·적시성·분포 검사를 설계하는 잠정 중분류입니다.",
+      "includes": [
+        "사용목적별 품질 dimension·metric",
+        "schema·완전성·유일성·일관성·적시성",
+        "freshness·distribution signal과 격리·triage"
+      ],
+      "excludes": [
+        "인프라 SLO·incident 운영",
+        "보안·개인정보 정책 설계",
+        "모든 용도에 고품질이라는 선언"
+      ],
+      "parent_ids": [
+        "data-analytics-ml"
+      ],
+      "aliases": [
+        "Data quality observability"
+      ],
+      "related_ids": [
+        "platform-quality-operations"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-02/wp.data-analytics-ml.breadth-a/domain-survey.md"
+        ],
+        "rationale": "데이터 사용목적별 품질 Gate와 인프라 서비스 관측성을 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-29",
+        "last_reviewed_at": "2026-07-29",
+        "review_due_at": "2026-10-29",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "data-catalog-lineage-ownership-metadata",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "데이터 카탈로그·계보·책임 메타데이터",
+      "title_en": "Data catalog, lineage and ownership metadata",
+      "definition": "dataset 식별·버전·설명과 제공된 owner·steward 메타데이터, source–activity–output 계보를 기록해 원천·변환·책임 대상을 역추적하는 잠정 중분류입니다.",
+      "includes": [
+        "dataset catalog·version·distribution",
+        "owner·steward와 catalog record",
+        "source–activity–output lineage"
+      ],
+      "excludes": [
+        "법적 보존기간 결정",
+        "IAM·DLP 구현",
+        "기업 거버넌스 운영모델 전체"
+      ],
+      "parent_ids": [
+        "data-analytics-ml"
+      ],
+      "aliases": [
+        "Data catalog and lineage"
+      ],
+      "related_ids": [
+        "security-legal-governance",
+        "platform-quality-operations"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-02/wp.data-analytics-ml.breadth-a/domain-survey.md"
+        ],
+        "rationale": "추적 가능한 데이터 자산·파생·책임 기록과 전문 정책·플랫폼 운영을 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-29",
+        "last_reviewed_at": "2026-07-29",
+        "review_due_at": "2026-10-29",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "predictive-ml-problem-framing-baselines",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "예측 ML 문제정의·비ML 기준선",
+      "title_en": "Predictive ML problem framing and non-ML baselines",
+      "definition": "비ML 업무목표·결정·행동을 예측 target·label·prediction unit·time으로 변환하고 heuristic·단순모델 기준선과 go·no-go를 만드는 잠정 중분류입니다.",
+      "includes": [
+        "ML 적합성과 비ML 기준선",
+        "target·label·prediction unit·time",
+        "feature 가용성·비용행렬과 go·no-go"
+      ],
+      "excludes": [
+        "특정 알고리즘·framework",
+        "LLM prompting·fine-tuning",
+        "조직 투자 우선순위"
+      ],
+      "parent_ids": [
+        "data-analytics-ml"
+      ],
+      "aliases": [
+        "Machine learning problem framing"
+      ],
+      "related_ids": [
+        "ax-strategy-value",
+        "ai-systems-agents"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-02/wp.data-analytics-ml.breadth-a/domain-survey.md"
+        ],
+        "rationale": "전략적 해법 선택과 지도학습 가능한 target·label·baseline 계약을 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-29",
+        "last_reviewed_at": "2026-07-29",
+        "review_due_at": "2026-10-29",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "predictive-ml-model-evaluation-validation",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "예측 ML 모델 평가·검증",
+      "title_en": "Predictive ML model evaluation and validation",
+      "definition": "누수 없는 데이터 분할과 업무비용에 맞춘 metric·baseline·calibration·threshold·slice 오류분석을 설계하는 잠정 중분류입니다.",
+      "includes": [
+        "train·validation·test 분할과 leakage 방지",
+        "metric·baseline·calibration·threshold",
+        "slice 성능·불확실성·오류분석"
+      ],
+      "excludes": [
+        "LLM·agent trajectory·grader 평가",
+        "production drift monitoring",
+        "전문 fairness·adversarial red-team"
+      ],
+      "parent_ids": [
+        "data-analytics-ml"
+      ],
+      "aliases": [
+        "ML model validation"
+      ],
+      "related_ids": [
+        "ai-system-evaluation-regression",
+        "exploratory-statistical-analysis"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-02/wp.data-analytics-ml.breadth-a/domain-survey.md"
+        ],
+        "rationale": "지도학습 모델의 분할·누수·calibration·threshold 평가와 LLM·agent stochastic 평가를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-29",
+        "last_reviewed_at": "2026-07-29",
+        "review_due_at": "2026-10-29",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "ml-lifecycle-reproducibility-monitoring",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "ML 생명주기 재현성·모니터링",
+      "title_en": "ML lifecycle reproducibility and monitoring",
+      "definition": "data·feature·label·code·config·model 버전을 고정해 학습을 재현하고 skew·drift·성능 악화로 변경 Gate를 판정하는 잠정 중분류입니다.",
+      "includes": [
+        "ML 입력·코드·config·artifact 버전",
+        "학습 재현성과 training·serving skew",
+        "drift·성능 신호와 재학습·중단·rollback Gate"
+      ],
+      "excludes": [
+        "실제 production rollout·serving",
+        "일반 SLO·incident·권한 운영",
+        "foundation model·agent stochastic 평가"
+      ],
+      "parent_ids": [
+        "data-analytics-ml"
+      ],
+      "aliases": [
+        "ML lifecycle monitoring"
+      ],
+      "related_ids": [
+        "platform-quality-operations",
+        "ai-system-evaluation-regression"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-02/wp.data-analytics-ml.breadth-a/domain-survey.md"
+        ],
+        "rationale": "ML 고유 버전·재현·변화 판정과 실제 플랫폼 배포·incident 실행을 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-29",
+        "last_reviewed_at": "2026-07-29",
+        "review_due_at": "2026-10-29",
         "superseded_by": null
       }
     }

@@ -1,0 +1,175 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.data-analytics-ml.exploratory-statistical-analysis",
+  "version": "1.0.0",
+  "title": "탐색적·통계적 분석과 불확실성 해석",
+  "canonical_name": "Exploratory and statistical analysis with uncertainty",
+  "aliases": [],
+  "summary": "분석질문·표본·결측·가정을 점검하고 분포·관계·효과크기·구간·민감도와 한계를 재현 가능한 결론으로 만드는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "평균·상관·p-value 하나로 데이터의 구조와 불확실성을 숨기고 관측 결과를 인과·실무 중요성으로 과대해석하는 문제를 다룹니다.",
+    "includes": [
+      "질문·표본·결측·가정 점검",
+      "분포·이상치·관계의 탐색적 분석",
+      "효과크기·구간·불확실성",
+      "민감도 검사와 재현 가능한 결론"
+    ],
+    "excludes": [
+      "개입의 인과 귀속",
+      "고급 계량·베이지안 전문과정",
+      "도메인 의사결정권",
+      "차트 UI 구현"
+    ],
+    "boundary_note": "관측 데이터의 구조·가정·불확실성을 해석하는 D2 분석을 소유합니다. 개입의 반사실·인과 귀속은 기존 영향평가 후보가 소유합니다."
+  },
+  "discovery": {
+    "lens_id": "data-analytics-ml",
+    "basis": "assigned_lens",
+    "notes": "읽기 전용 발견 조사와 W3C·NIST·SDMX·ASA 및 공식 구현 문서·1차 연구를 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "data-analytics-ml",
+    "subdomains": [
+      "exploratory-statistical-analysis"
+    ],
+    "tags": [
+      "eda",
+      "statistics",
+      "uncertainty",
+      "effect-size"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "특정 제품과 무관하게 새 데이터·분석·ML 과제에서 독립적인 D2 산출물과 실패 Gate를 평가할 수 있어 Unit 후보로 둡니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.data-analytics-ml.exploratory-statistical-analysis"
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.data-analytics-ml.analytical-model-metric-semantics",
+        "version": "1.0.0"
+      },
+      "rationale": "분석의 관찰단위·지표·단위·집계 의미가 먼저 고정되어야 합니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.ax-strategy-value.pilot-impact-evaluation",
+        "version": "1.0.0"
+      },
+      "rationale": "이 후보는 관측 분석과 불확실성을, 기존 후보는 개입의 반사실·인과 평가를 소유합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "새 데이터에서 질문–가정–탐색–분석–민감도 검사를 재현하고 효과크기·구간·한계를 포함한 결론을 만듭니다.",
+    "work_contexts": [
+      "운영 분석",
+      "제품 분석",
+      "실험 사전분석",
+      "ML 데이터 탐색"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "agent_assisted",
+    "agent_fit_rationale": "초안·검사 자동화는 보조할 수 있지만 데이터 의미, 허용 한계와 최종 판정은 인간이 책임집니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "기술통계·EDA·추론·인과 주장을 구분하고 p-value·상관·평균의 해석 한계를 설명합니다.",
+        "evidence_hypothesis": "불확실성·효과크기·표본 구조가 숨은 결론과 인과 과대주장을 판별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "표본·결측·가정을 점검하고 탐색·추론·민감도 분석을 재현해 효과크기·구간·한계를 보고합니다.",
+        "evidence_hypothesis": "숨은 결측·작은 표본·다중 비교·군집·시계열·Simpson fixture를 식별하고 정답 manifest 밖 인과 주장 0건을 확인합니다."
+      }
+    ],
+    "depth_boundary": "새 데이터에 대한 D2 탐색·기초 추론과 불확실성 전달로 제한하며 고급 전문 통계와 인과 귀속은 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "cycle_time",
+      "risk_reduction",
+      "prerequisite_value",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "가정·효과크기·불확실성을 포함한 재현 분석은 잘못된 확신과 후속 의사결정 재작업을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "now",
+    "measurement_hypothesis": "숨은 가정·결측·다중비교 탐지, 과대주장, 재현 실패와 결론 수정 건수를 측정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "cost",
+      "reliability",
+      "human_approval"
+    ],
+    "notes": "전문 통제의 내용은 인접 렌즈가 제공하며 이 후보는 제공된 정책·제약이 데이터 계약과 검증 Gate에 반영되는지만 다룹니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.data-analytics-ml.statistics.nist-handbook",
+      "title": "NIST/SEMATECH e-Handbook of Statistical Methods",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_source",
+      "url": "https://www.itl.nist.gov/div898/handbook/",
+      "checked_at": "2026-07-29",
+      "claim_scope": "탐색적 분석, 분포·가정·비교와 통계적 추론의 공학·과학 적용 범위를 지지합니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "learning_outcome"
+      ],
+      "source_version": "DOI 10.18434/M32189"
+    },
+    {
+      "id": "evidence.data-analytics-ml.statistics.asa-p-values",
+      "title": "American Statistical Association Releases Statement on Statistical Significance and P-Values",
+      "publisher": "American Statistical Association",
+      "source_type": "official_source",
+      "url": "https://www.amstat.org/asa/files/pdfs/p-valuestatement.pdf",
+      "checked_at": "2026-07-29",
+      "claim_scope": "p-value 단독 의사결정, 효과크기·중요성 오인과 선택적 보고의 위험 경계를 지지합니다.",
+      "supports": [
+        "scope",
+        "risk",
+        "learning_outcome"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "high",
+    "rationale": "공식·1차 근거, 인과 귀속과 분리된 D0·D2 평가계약을 확인했고 독립 근거·taxonomy·실용성 감사의 P0·P1을 모두 해소했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-02",
+    "work_package_id": "wp.data-analytics-ml.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-29",
+    "reviewers": [
+      "read-only-evidence-auditor",
+      "read-only-taxonomy-auditor",
+      "read-only-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "도메인별 표본설계와 고급 분석기법은 별도 심화·전문가 검토로 이관합니다."
+    ],
+    "next_action": "승인된 Breadth 후보로 유지하며 정규 Unit 승격은 별도 사용자 지시에서 수행합니다."
+  }
+}
