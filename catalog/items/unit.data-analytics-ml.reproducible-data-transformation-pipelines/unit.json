@@ -1,0 +1,154 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.data-analytics-ml.reproducible-data-transformation-pipelines",
+  "version": "1.0.0",
+  "title": "재현 가능한 데이터 변환·파이프라인",
+  "summary": "입력–변환–출력 DAG와 코드·데이터·환경 버전을 고정하고 멱등 재실행·부분 실패 복구·backfill을 검증하는 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "data-analytics-ml",
+    "subdomains": [
+      "data-transformation-pipelines"
+    ]
+  },
+  "domain_tags": [
+    "data-pipeline",
+    "transformation",
+    "idempotency",
+    "backfill"
+  ],
+  "capabilities": [
+    "소규모 데이터 파이프라인을 구현하고 같은 입력의 재실행 동일성, 중복 방지, 실패 후 복구와 backfill 결과를 자동검증합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.data-analytics-ml.reproducible-data-transformation-pipelines.d0",
+        "statement": "변환 논리, 실행 순서, 상태·재실행 의미와 배치·스트림의 차이를 설명합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.data-analytics-ml.reproducible-data-transformation-pipelines.d2",
+        "statement": "버전 고정 파이프라인을 만들고 멱등 재실행·부분 실패 복구·중복 방지·backfill을 검증합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "소규모 D2 변환과 복구 계약으로 제한하며 대규모 플랫폼 운영·성능 최적화와 배포는 제외합니다."
+  },
+  "relations": [
+    {
+      "type": "prerequisite",
+      "target": {
+        "id": "unit.data-analytics-ml.data-source-acquisition-contract-design",
+        "version": "1.0.0"
+      },
+      "note": "재현 가능한 변환은 입력의 관찰단위·형식·키·시점 계약을 전제로 합니다.",
+      "required_level": "D2"
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.data-analytics-ml.reproducible-data-transformation-pipelines.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "data-analytics-ml-reproducible-data-transformation-pipelines-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.data-analytics-ml.reproducible-data-transformation-pipelines.d0",
+          "outcome.data-analytics-ml.reproducible-data-transformation-pipelines.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "단순 재실행 성공과 동일하고 올바른 결과를 구분하고 late·부분 출력·backfill 충돌을 식별합니다.",
+          "같은 입력의 허용 범위 밖 출력 차이 0건, 중복·누락 0건이며 실패 checkpoint와 backfill 결과가 정답 manifest와 일치합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "NIST Big Data Interoperability Framework: Volume 6, Reference Architecture",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_source",
+      "url": "https://doi.org/10.6028/NIST.SP.1500-6r2",
+      "source_version": "NIST SP 1500-6r2, Version 3",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "Reproducible Analytical Pipelines strategy",
+      "publisher": "UK Government Analysis Function",
+      "source_type": "official_source",
+      "url": "https://analysisfunction.civilservice.gov.uk/policy-store/reproducible-analytical-pipelines-strategy/",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "Apache Airflow Best Practices",
+      "publisher": "Apache Software Foundation",
+      "source_type": "official_docs",
+      "url": "https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "The Dataflow Model: A Practical Approach to Balancing Correctness, Latency, and Cost in Massive-Scale, Unbounded, Out-of-Order Data Processing",
+      "publisher": "Google Research",
+      "source_type": "primary_research",
+      "url": "https://research.google/pubs/the-dataflow-model-a-practical-approach-to-balancing-correctness-latency-and-cost-in-massive-scale-unbounded-out-of-order-data-processing/",
+      "source_version": "PVLDB 2015",
+      "checked_at": "2026-07-29"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "time",
+    "risk_reduction",
+    "capability_unlock",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-29",
+    "review_due_at": "2026-10-29",
+    "note": "candidate.data-analytics-ml.reproducible-data-transformation-pipelines@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.data-analytics-ml.reproducible-data-transformation-pipelines",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.data-analytics-ml.breadth-a",
+      "promoted_at": "2026-07-29"
+    }
+  }
+}

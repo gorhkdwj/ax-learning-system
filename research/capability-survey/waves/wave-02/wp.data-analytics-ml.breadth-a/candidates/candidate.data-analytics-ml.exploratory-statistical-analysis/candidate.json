@@ -170,6 +170,6 @@
     "known_unknowns": [
       "도메인별 표본설계와 고급 분석기법은 별도 심화·전문가 검토로 이관합니다."
     ],
-    "next_action": "승인된 Breadth 후보로 유지하며 정규 Unit 승격은 별도 사용자 지시에서 수행합니다."
+    "next_action": "정규 Unit unit.data-analytics-ml.exploratory-statistical-analysis@1.0.0로 승격했습니다. cataloged 상태이므로 상세 교재와 학습효과는 아직 검증되지 않았습니다."
   }
 }

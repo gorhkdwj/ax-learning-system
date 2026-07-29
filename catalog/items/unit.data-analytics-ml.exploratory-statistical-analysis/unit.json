@@ -1,0 +1,146 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.data-analytics-ml.exploratory-statistical-analysis",
+  "version": "1.0.0",
+  "title": "탐색적·통계적 분석과 불확실성 해석",
+  "summary": "분석질문·표본·결측·가정을 점검하고 분포·관계·효과크기·구간·민감도와 한계를 재현 가능한 결론으로 만드는 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "data-analytics-ml",
+    "subdomains": [
+      "exploratory-statistical-analysis"
+    ]
+  },
+  "domain_tags": [
+    "eda",
+    "statistics",
+    "uncertainty",
+    "effect-size"
+  ],
+  "capabilities": [
+    "새 데이터에서 질문–가정–탐색–분석–민감도 검사를 재현하고 효과크기·구간·한계를 포함한 결론을 만듭니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.data-analytics-ml.exploratory-statistical-analysis.d0",
+        "statement": "기술통계·EDA·추론·인과 주장을 구분하고 p-value·상관·평균의 해석 한계를 설명합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.data-analytics-ml.exploratory-statistical-analysis.d2",
+        "statement": "표본·결측·가정을 점검하고 탐색·추론·민감도 분석을 재현해 효과크기·구간·한계를 보고합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "새 데이터에 대한 D2 탐색·기초 추론과 불확실성 전달로 제한하며 고급 전문 통계와 인과 귀속은 제외합니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.data-analytics-ml.analytical-model-metric-semantics",
+        "version": "1.0.0"
+      },
+      "note": "분석의 관찰단위·지표·단위·집계 의미가 먼저 고정되어야 합니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.data-analytics-ml.intervention-impact-evaluation",
+        "version": "1.0.0"
+      },
+      "note": "이 후보는 관측 분석과 불확실성을, 기존 후보는 개입의 반사실·인과 평가를 소유합니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.data-analytics-ml.exploratory-statistical-analysis.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "data-analytics-ml-exploratory-statistical-analysis-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.data-analytics-ml.exploratory-statistical-analysis.d0",
+          "outcome.data-analytics-ml.exploratory-statistical-analysis.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "불확실성·효과크기·표본 구조가 숨은 결론과 인과 과대주장을 판별합니다.",
+          "숨은 결측·작은 표본·다중 비교·군집·시계열·Simpson fixture를 식별하고 정답 manifest 밖 인과 주장 0건을 확인합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "NIST/SEMATECH e-Handbook of Statistical Methods",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_source",
+      "url": "https://www.itl.nist.gov/div898/handbook/",
+      "source_version": "DOI 10.18434/M32189",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "American Statistical Association Releases Statement on Statistical Significance and P-Values",
+      "publisher": "American Statistical Association",
+      "source_type": "official_source",
+      "url": "https://www.amstat.org/asa/files/pdfs/p-valuestatement.pdf",
+      "checked_at": "2026-07-29"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "time",
+    "risk_reduction",
+    "capability_unlock",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-29",
+    "review_due_at": "2026-10-29",
+    "note": "candidate.data-analytics-ml.exploratory-statistical-analysis@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.data-analytics-ml.exploratory-statistical-analysis",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.data-analytics-ml.breadth-a",
+      "promoted_at": "2026-07-29"
+    }
+  }
+}

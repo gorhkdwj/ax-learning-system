@@ -190,6 +190,6 @@
     "known_unknowns": [
       "대규모 스트림의 exactly-once 보장은 제품·아키텍처별 제약이 커 D2 코어에서는 관찰 가능한 효과와 보상 규칙으로 평가합니다."
     ],
-    "next_action": "승인된 Breadth 후보로 유지하며 정규 Unit 승격은 별도 사용자 지시에서 수행합니다."
+    "next_action": "정규 Unit unit.data-analytics-ml.reproducible-data-transformation-pipelines@1.0.0로 승격했습니다. cataloged 상태이므로 상세 교재와 학습효과는 아직 검증되지 않았습니다."
   }
 }

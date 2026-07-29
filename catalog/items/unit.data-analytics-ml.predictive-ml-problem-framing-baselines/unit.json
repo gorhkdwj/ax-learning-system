@@ -1,0 +1,179 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.data-analytics-ml.predictive-ml-problem-framing-baselines",
+  "version": "1.0.0",
+  "title": "예측 ML 문제정의·비ML 기준선",
+  "summary": "비ML 업무목표·결정·행동을 target·label·prediction unit·prediction time으로 변환하고 heuristic·단순모델 기준선과 go/no-go 조건을 만드는 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "data-analytics-ml",
+    "subdomains": [
+      "predictive-ml-problem-framing-baselines"
+    ]
+  },
+  "domain_tags": [
+    "machine-learning",
+    "problem-framing",
+    "baseline",
+    "label"
+  ],
+  "capabilities": [
+    "새 업무를 target·label·입출력·결정·비용행렬로 변환하고 비ML·단순모델 기준선과 go/no-go 조건을 만듭니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.data-analytics-ml.predictive-ml-problem-framing-baselines.d0",
+        "statement": "예측할 수 있음, ML이 필요함, 업무가치가 있음이 서로 다른 주장임을 설명합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.data-analytics-ml.predictive-ml-problem-framing-baselines.d2",
+        "statement": "업무목표를 target·label·prediction unit·time·비용행렬로 명세하고 heuristic·단순모델 기준선과 go/no-go를 만듭니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "D2 지도학습 문제정의와 기준선으로 제한하며 LLM 응용, 특정 알고리즘 연구, 투자 우선순위와 production serving은 제외합니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.data-analytics-ml.data-source-acquisition-contract-design",
+        "version": "1.0.0"
+      },
+      "note": "prediction time의 feature 가용성과 label·원천 계약이 문제정의의 실행 가능성을 제한합니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.data-analytics-ml.predictive-ml-problem-framing-baselines.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "data-analytics-ml-predictive-ml-problem-framing-baselines-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.data-analytics-ml.predictive-ml-problem-framing-baselines.d0",
+          "outcome.data-analytics-ml.predictive-ml-problem-framing-baselines.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "prediction time 이후 feature, proxy label, action 불가능한 예측과 비ML 해법보다 못한 모델을 판별합니다.",
+          "정답 manifest의 label 지연·feature 가용성·비용비대칭을 반영하고 입력에 없는 가치 주장 0건과 명시적 no-go 판정을 확인합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Overview",
+      "publisher": "Google for Developers",
+      "source_type": "official_docs",
+      "url": "https://developers.google.com/machine-learning/problem-framing/problem-framing",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "Understand the problem",
+      "publisher": "Google for Developers",
+      "source_type": "official_docs",
+      "url": "https://developers.google.com/machine-learning/problem-framing/problem",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "AI RMF Core",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_source",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "source_version": "AI RMF 1.0",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "Implementing a model",
+      "publisher": "Google for Developers",
+      "source_type": "official_docs",
+      "url": "https://developers.google.com/machine-learning/problem-framing/implement-model",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "Thresholds and the confusion matrix",
+      "publisher": "Google for Developers",
+      "source_type": "official_docs",
+      "url": "https://developers.google.com/machine-learning/crash-course/classification/thresholding",
+      "checked_at": "2026-07-29"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "time",
+    "risk_reduction",
+    "capability_unlock",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-29",
+    "review_due_at": "2026-10-29",
+    "note": "candidate.data-analytics-ml.predictive-ml-problem-framing-baselines@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.data-analytics-ml.predictive-ml-problem-framing-baselines",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.data-analytics-ml.breadth-a",
+      "promoted_at": "2026-07-29"
+    },
+    "pending_candidate_relations": [
+      {
+        "type": "recommended_prerequisite",
+        "target": {
+          "kind": "candidate",
+          "id": "candidate.ax-strategy-value.solution-fit-assessment",
+          "version": "1.0.0"
+        },
+        "rationale": "업무·비ML·ML 해법의 적합성 경계가 ML 문제계약의 상위 입력입니다."
+      },
+      {
+        "type": "related_to",
+        "target": {
+          "kind": "candidate",
+          "id": "candidate.ax-strategy-value.measurement-contract",
+          "version": "1.0.0"
+        },
+        "rationale": "사업 성공지표와 모델 평가 metric을 구분하되 서로 연결해야 합니다."
+      }
+    ]
+  }
+}

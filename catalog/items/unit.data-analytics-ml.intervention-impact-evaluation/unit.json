@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.data-analytics-ml.intervention-impact-evaluation",
+  "version": "1.0.0",
+  "title": "AX 파일럿 실험·영향평가 설계",
+  "summary": "관측된 변화가 AX 개입 때문인지 판단할 수 있도록 평가질문, 비교조건·반사실, 배정단위, 기간, 교란요인, 성공·중단·확대 조건을 사전 설계하는 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "data-analytics-ml",
+    "subdomains": [
+      "impact-evaluation",
+      "test-and-learn"
+    ]
+  },
+  "domain_tags": [
+    "counterfactual",
+    "pilot",
+    "attribution"
+  ],
+  "capabilities": [
+    "저·중위험 AX 파일럿에 대해 비교조건, 배정·측정 기간, 데이터, 교란요인, 성공·중단 조건과 인과추론 한계가 있는 평가계획을 작성합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.data-analytics-ml.intervention-impact-evaluation.d0",
+        "statement": "모니터링한 변화와 개입에 귀속 가능한 영향, 기준선과 반사실을 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.data-analytics-ml.intervention-impact-evaluation.d2",
+        "statement": "새로운 저·중위험 AX 파일럿의 비례적인 평가계획과 go·iterate·stop 조건을 독립적으로 설계합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "목표 D2, 상한 D2입니다. 전문가 수준의 RCT·준실험 집행, 고급 통계모형과 고위험 개입의 최종 승인 책임은 포함하지 않습니다."
+  },
+  "relations": [],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.data-analytics-ml.intervention-impact-evaluation.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "data-analytics-ml-intervention-impact-evaluation-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.data-analytics-ml.intervention-impact-evaluation.d0",
+          "outcome.data-analytics-ml.intervention-impact-evaluation.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "비교조건이 없어 인과 주장이 불가능한 평가 사례를 판별합니다.",
+          "사전등록형 프로토콜을 작성한 뒤 숨은 결과 데이터에서 비교 가능성, 오염·교란, 불확실성과 가드레일을 반영하여 go·iterate·stop을 판정하고 설계가 허용하지 않는 인과 주장을 거부합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Guidance on the Impact Evaluation of AI Interventions",
+      "publisher": "HM Treasury and Evaluation Task Force",
+      "source_type": "official_docs",
+      "url": "https://www.gov.uk/government/publications/the-magenta-book/guidance-on-the-impact-evaluation-of-ai-interventions-html",
+      "source_version": "2026 edition; page updated 2026-05-15",
+      "checked_at": "2026-07-26"
+    },
+    {
+      "title": "Test and Learn",
+      "publisher": "HM Treasury and Evaluation Task Force",
+      "source_type": "official_docs",
+      "url": "https://www.gov.uk/government/publications/the-magenta-book/test-and-learn-html",
+      "source_version": "2026 edition; page updated 2026-05-15",
+      "checked_at": "2026-07-26"
+    }
+  ],
+  "potential_impact_types": [
+    "cost",
+    "time",
+    "quality",
+    "risk_reduction",
+    "strategic_option"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-29",
+    "review_due_at": "2026-10-29",
+    "note": "candidate.ax-strategy-value.pilot-impact-evaluation@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.ax-strategy-value.pilot-impact-evaluation",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.data-analytics-ml.breadth-a",
+      "promoted_at": "2026-07-29"
+    },
+    "pending_candidate_relations": [
+      {
+        "type": "requires",
+        "target": {
+          "kind": "candidate",
+          "id": "candidate.ax-strategy-value.measurement-contract",
+          "version": "1.0.0"
+        },
+        "rationale": "사전 정의된 결과·가드레일과 데이터 계약이 있어야 영향평가 설계와 판정을 재현할 수 있습니다."
+      }
+    ]
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.data-analytics-ml.ml-lifecycle-reproducibility-monitoring",
+  "version": "1.0.0",
+  "title": "ML 생명주기 재현성·모니터링",
+  "summary": "data·feature·label·code·config·model 버전을 고정해 학습을 재현하고 skew·drift·성능 악화 신호로 유지·재학습·중단·rollback을 판정하는 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "data-analytics-ml",
+    "subdomains": [
+      "ml-lifecycle-reproducibility-monitoring"
+    ]
+  },
+  "domain_tags": [
+    "ml-lifecycle",
+    "reproducibility",
+    "drift",
+    "monitoring"
+  ],
+  "capabilities": [
+    "versioned fixture에서 학습을 재현하고 skew·drift·성능 악화 신호를 계산해 재학습·유지·중단·rollback Gate와 인간 승인점을 만듭니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.data-analytics-ml.ml-lifecycle-reproducibility-monitoring.d0",
+        "statement": "model artifact 배포와 ML 시스템 운영, drift와 성능저하, 재학습과 개선이 각각 동치가 아님을 설명합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.data-analytics-ml.ml-lifecycle-reproducibility-monitoring.d2",
+        "statement": "data·code·config·model 버전으로 학습을 재현하고 skew·drift·성능 signal을 기준선과 비교해 변경 Gate를 만듭니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "versioned fixture의 D2 ML 재현·monitoring·판정으로 제한하며 실제 production rollout·serving·incident·권한·복구는 제외합니다."
+  },
+  "relations": [
+    {
+      "type": "prerequisite",
+      "target": {
+        "id": "unit.data-analytics-ml.reproducible-data-transformation-pipelines",
+        "version": "1.0.0"
+      },
+      "note": "ML 재현성과 skew 분석은 versioned 입력·feature 변환의 재현성을 전제로 합니다.",
+      "required_level": "D2"
+    },
+    {
+      "type": "prerequisite",
+      "target": {
+        "id": "unit.data-analytics-ml.data-quality-validation-observability",
+        "version": "1.0.0"
+      },
+      "note": "운영 입력·feature의 schema·freshness·분포 signal이 monitoring의 입력입니다.",
+      "required_level": "D2"
+    },
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.data-analytics-ml.data-catalog-lineage-ownership-metadata",
+        "version": "1.0.0"
+      },
+      "note": "data·feature·model 버전과 파생관계가 원인격리와 rollback 호환성 판단을 지원합니다."
+    },
+    {
+      "type": "prerequisite",
+      "target": {
+        "id": "unit.data-analytics-ml.predictive-ml-model-validation-decision-thresholds",
+        "version": "1.0.0"
+      },
+      "note": "운영 성능과 변경 Gate는 승인된 baseline·metric·slice·threshold 계약을 재사용합니다.",
+      "required_level": "D2"
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.data-analytics-ml.ml-lifecycle-reproducibility-monitoring.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "data-analytics-ml-ml-lifecycle-reproducibility-monitoring-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.data-analytics-ml.ml-lifecycle-reproducibility-monitoring.d0",
+          "outcome.data-analytics-ml.ml-lifecycle-reproducibility-monitoring.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "drift 없는 성능악화, drift가 있어도 유지되는 성능, label 지연과 feedback loop를 서로 다른 사례로 구분합니다.",
+          "허용오차 내 재현, 숨은 skew·drift·label 지연 fixture 판정과 유지·재학습·중단·rollback·인간승인 결과가 정답 manifest와 일치합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness and Technical Debt Reduction",
+      "publisher": "Google Research",
+      "source_type": "primary_research",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "source_version": "IEEE Big Data 2017",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "Hidden Technical Debt in Machine Learning Systems",
+      "publisher": "NeurIPS",
+      "source_type": "primary_research",
+      "url": "https://papers.nips.cc/paper/2015/hash/86df7dcfd896fcaf2674f757a2463eba-Abstract.html",
+      "source_version": "NeurIPS 2015",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "Production ML systems: Monitoring pipelines",
+      "publisher": "Google for Developers",
+      "source_type": "official_docs",
+      "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "NIST AI RMF Playbook: Measure",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_source",
+      "url": "https://airc.nist.gov/airmf-resources/playbook/measure/",
+      "source_version": "AI RMF 1.0 Playbook",
+      "checked_at": "2026-07-29"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "time",
+    "risk_reduction",
+    "capability_unlock",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-29",
+    "review_due_at": "2026-10-29",
+    "note": "candidate.data-analytics-ml.ml-lifecycle-reproducibility-monitoring@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.data-analytics-ml.ml-lifecycle-reproducibility-monitoring",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.data-analytics-ml.breadth-a",
+      "promoted_at": "2026-07-29"
+    }
+  }
+}

@@ -209,6 +209,6 @@
     "known_unknowns": [
       "조직별 지표명과 semantic layer 구현은 Adapter로 분리하고 코어 평가는 grain·measure 의미의 일관성에 둡니다."
     ],
-    "next_action": "승인된 Breadth 후보로 유지하며 정규 Unit 승격은 별도 사용자 지시에서 수행합니다."
+    "next_action": "정규 Unit unit.data-analytics-ml.analytical-model-metric-semantics@1.0.0로 승격했습니다. cataloged 상태이므로 상세 교재와 학습효과는 아직 검증되지 않았습니다."
   }
 }

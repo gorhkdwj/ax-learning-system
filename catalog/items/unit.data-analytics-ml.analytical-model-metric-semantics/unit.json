@@ -1,0 +1,173 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.data-analytics-ml.analytical-model-metric-semantics",
+  "version": "1.0.0",
+  "title": "분석 모델·지표 의미계약",
+  "summary": "관찰 grain, dimension·measure·attribute와 분자·분모·단위·시간창·집계 가능성을 명시해 일관된 지표 계산을 만드는 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "data-analytics-ml",
+    "subdomains": [
+      "analytical-modeling-metric-semantics"
+    ]
+  },
+  "domain_tags": [
+    "analytical-model",
+    "metric",
+    "grain",
+    "aggregation"
+  ],
+  "capabilities": [
+    "새 지표의 grain·차원·측정값·단위·시간창 계약을 만들고 중복집계·누락 차원·단위 불일치를 fixture로 검증합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.data-analytics-ml.analytical-model-metric-semantics.d0",
+        "statement": "transaction schema와 분석 grain, measure와 dimension, 지표 선택과 계산 의미계약의 차이를 설명합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.data-analytics-ml.analytical-model-metric-semantics.d2",
+        "statement": "지표의 grain·dimension·measure·단위·시간창·집계 규칙을 설계하고 계산 결과를 reconciliation합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "지표 계산 의미의 D2 계약으로 제한하며 사업 KPI 선택, transaction DB migration과 제품별 semantic layer는 제외합니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.data-analytics-ml.data-source-acquisition-contract-design",
+        "version": "1.0.0"
+      },
+      "note": "원천의 관찰단위·키·단위·시점 계약이 분석 grain 설계의 입력입니다."
+    },
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.data-analytics-ml.reproducible-data-transformation-pipelines",
+        "version": "1.0.0"
+      },
+      "note": "분석 의미계약은 재현 가능한 변환으로 구현·검증됩니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.data-analytics-ml.analytical-model-metric-semantics.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "data-analytics-ml-analytical-model-metric-semantics-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.data-analytics-ml.analytical-model-metric-semantics.d0",
+          "outcome.data-analytics-ml.analytical-model-metric-semantics.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "평균의 평균·비가산 measure·동일 이름 다른 분모·timezone·단위 오류를 판별합니다.",
+          "중복 join·누락 차원·단위·시간창 fixture의 기대값과 일치하고 정의되지 않은 집계 추가 0건을 확인합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "The RDF Data Cube Vocabulary",
+      "publisher": "World Wide Web Consortium",
+      "source_type": "official_spec",
+      "url": "https://www.w3.org/TR/vocab-data-cube/",
+      "source_version": "W3C Recommendation 2014-01-16",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "SDMX 3.1 Technical Specifications",
+      "publisher": "SDMX Sponsors",
+      "source_type": "official_spec",
+      "url": "https://sdmx.org/standards-2/",
+      "source_version": "SDMX 3.1, 2025-05",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "ISO/IEC 11179-4:2004 Information technology — Metadata registries — Part 4: Formulation of data definitions",
+      "publisher": "International Organization for Standardization",
+      "source_type": "standard",
+      "url": "https://www.iso.org/standard/35346.html",
+      "source_version": "ISO/IEC 11179-4:2004, confirmed current 2015",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "Measures",
+      "publisher": "dbt Labs",
+      "source_type": "official_docs",
+      "url": "https://docs.getdbt.com/docs/build/measures",
+      "checked_at": "2026-07-29"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "time",
+    "risk_reduction",
+    "capability_unlock",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-29",
+    "review_due_at": "2026-10-29",
+    "note": "candidate.data-analytics-ml.analytical-model-metric-semantics@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.data-analytics-ml.analytical-model-metric-semantics",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.data-analytics-ml.breadth-a",
+      "promoted_at": "2026-07-29"
+    },
+    "pending_candidate_relations": [
+      {
+        "type": "related_to",
+        "target": {
+          "kind": "candidate",
+          "id": "candidate.ax-strategy-value.measurement-contract",
+          "version": "1.0.0"
+        },
+        "rationale": "전략 후보가 지표 선택을 소유하고 이 후보가 선택된 지표의 계산 의미를 소유합니다."
+      }
+    ]
+  }
+}

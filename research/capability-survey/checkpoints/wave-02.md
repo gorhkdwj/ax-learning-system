@@ -30,7 +30,7 @@
 
 - 나머지 Wave 2 렌즈의 동시 조사
 - 상세 교재·실습·HUB 구축과 개인 학습 우선순위
-- 새 `data-analytics-ml` Candidate의 정규 Unit 승격
+- 새 `integration-automation` Candidate의 정규 Unit·Set 승격
 - 새 대분류 또는 기존 분류 ID 변경
 
 ## 3. 작업 패키지 현황
@@ -59,6 +59,8 @@
   진행을 지시해 `software-product-engineering` 패키지를 조사·감사했습니다.
 - 사용자가 후속으로 다음 작업 진행을 지시해 `data-analytics-ml` 패키지를
   후보 상한 10개와 동일한 독립 감사 Gate로 조사·감사했습니다.
+- 사용자가 `2026-07-29`에 데이터·분석·ML 패키지 커밋, 현재 패키지의 정규
+  Unit 승격과 다음 `integration-automation` 패키지 진행을 승인했습니다.
 
 ## 5. 잠정 분류와 후보 결과
 
@@ -103,18 +105,20 @@ Unit 9개는 공개 Reference와 함께, Set 1개는 승인된 Unit 조합과 �
 카탈로그·계보·책임 메타데이터, 예측 ML 문제정의·기준선, 예측 ML 모델 검증,
 ML 생명주기의 신규 Unit 후보 9개와 기존 영향평가 Candidate 재사용 1개입니다.
 기존 `impact-evaluation`과 `test-and-learn` node 및 최초 발견 Candidate ID는
-유지했습니다. 이번 패키지는 후보 승인까지만 수행했으며 정규 Unit 승격은
-별도 후속 작업입니다.
+유지했습니다. 후속 승인에 따라 신규 후보 9개와 기존 영향평가 재사용 1개를
+공개 Reference와 함께 정규 `cataloged` Unit으로 승격했습니다. 아직 정규화되지
+않은 `measurement-contract`와 `solution-fit-assessment` Candidate 관계는
+Unit 확정 전까지 `pending_candidate_relations`에 보존했습니다.
 
 ## 6. 중단조건 확인
 
 - [x] 승인된 Manifest와 출력 경로를 만들었습니다.
 - [x] 후보 상한과 병렬 규모를 고정했습니다.
-- [x] 정규 승격은 승인된 앞선 세 패키지로 제한했고 Signal은 수정하지 않았습니다.
+- [x] 정규 승격은 승인된 네 패키지로 제한했고 Signal은 수정하지 않았습니다.
 - [x] 첫 패키지 후보 10개, 둘째 8개, 셋째 10개와 넷째 10개 조사를 완료했습니다.
 - [x] 네 패키지의 근거·taxonomy·실용성 독립 감사를 완료했습니다.
 - [x] 최초 감사 P0는 0건이며 P1을 반영한 후 독립 재확인에서 P0·P1 0건을 확인했습니다.
-- [x] 승인된 세 패키지의 정규 Unit·Resource·Set 메타데이터 승격을 완료했습니다.
+- [x] 승인된 네 패키지의 정규 Unit·Resource·Set 메타데이터 승격을 완료했습니다.
 - [x] 카탈로그 검증은 오류·경고 없이 통과했습니다.
 - [x] 공개 경계 검사는 오류 없이 통과했습니다.
 - [x] 단위 테스트 33개가 모두 통과했습니다.
@@ -122,7 +126,7 @@ ML 생명주기의 신규 Unit 후보 9개와 기존 영향평가 Candidate 재�
 
 ## 7. 다음 한 단계
 
-네 Wave 2 패키지의 조사를 완료했습니다. 앞선 세 패키지는 정규 메타데이터
-승격까지, `data-analytics-ml` 패키지는 후보 승인까지 완료했습니다. 다음 순차
-패키지는 `integration-automation`이며, 상세 콘텐츠 제작·파일럿·학습효과
-검증·정규 승격과 함께 별도 후속 지시 전에는 자동 수행하지 않습니다.
+네 Wave 2 패키지의 조사와 정규 메타데이터 승격을 완료했습니다. 다음 순차
+패키지 `integration-automation`의 조사·감사를 진행합니다. 상세 콘텐츠 제작,
+파일럿·학습효과 검증과 새 후보의 정규 승격은 별도 후속 지시 전에는 자동
+수행하지 않습니다.

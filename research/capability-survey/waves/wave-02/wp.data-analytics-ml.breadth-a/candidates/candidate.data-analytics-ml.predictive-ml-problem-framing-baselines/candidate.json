@@ -221,6 +221,6 @@
     "known_unknowns": [
       "희귀 사건·label 지연과 도메인 비용행렬은 제공된 업무 입력으로 평가하며 범용 정답을 고정하지 않습니다."
     ],
-    "next_action": "승인된 Breadth 후보로 유지하며 정규 Unit 승격은 별도 사용자 지시에서 수행합니다."
+    "next_action": "정규 Unit unit.data-analytics-ml.predictive-ml-problem-framing-baselines@1.0.0로 승격했습니다. cataloged 상태이므로 상세 교재와 학습효과는 아직 검증되지 않았습니다."
   }
 }

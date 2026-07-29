@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.data-analytics-ml.data-catalog-lineage-ownership-metadata",
+  "version": "1.0.0",
+  "title": "데이터 카탈로그·계보·책임 메타데이터",
+  "summary": "dataset 식별·버전·설명·소유자·책임자와 source–activity–output 계보를 기록해 원천·변환·책임을 역추적하는 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "data-analytics-ml",
+    "subdomains": [
+      "data-catalog-lineage-ownership-metadata"
+    ]
+  },
+  "domain_tags": [
+    "data-catalog",
+    "lineage",
+    "provenance",
+    "stewardship"
+  ],
+  "capabilities": [
+    "소규모 pipeline의 dataset catalog와 field·dataset-level lineage를 만들고 원천–변환–출력–책임자를 역추적합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.data-analytics-ml.data-catalog-lineage-ownership-metadata.d0",
+        "statement": "catalog metadata, provenance·lineage, ownership와 정책 결정의 차이를 설명합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.data-analytics-ml.data-catalog-lineage-ownership-metadata.d2",
+        "statement": "dataset ID·version·owner·distribution과 source–activity–output 계보를 기록하고 임의 출력에서 원천·변환·책임자를 역추적합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "소규모 D2 catalog·lineage·책임 메타데이터 기록으로 제한하며 조직 stewardship·거버넌스 모델, IAM과 법적 보존 판단은 제외합니다."
+  },
+  "relations": [
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.data-analytics-ml.data-source-acquisition-contract-design",
+        "version": "1.0.0"
+      },
+      "note": "원천 계약의 식별자·버전·책임자 정보가 catalog record의 입력입니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.data-analytics-ml.reproducible-data-transformation-pipelines",
+        "version": "1.0.0"
+      },
+      "note": "변환 활동과 입력·출력 버전은 lineage의 핵심 경로입니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.data-analytics-ml.data-catalog-lineage-ownership-metadata.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "data-analytics-ml-data-catalog-lineage-ownership-metadata-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.data-analytics-ml.data-catalog-lineage-ownership-metadata.d0",
+          "outcome.data-analytics-ml.data-catalog-lineage-ownership-metadata.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "lineage 존재를 정확성 보증으로 오인하지 않고 수동 export·잘못된 owner·삭제 원천의 공백을 판별합니다.",
+          "정답 manifest의 자동·수동 경로를 모두 추적하거나 미포착을 명시하며 허위 provenance 0건을 확인합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Data Catalog Vocabulary (DCAT) - Version 3",
+      "publisher": "World Wide Web Consortium",
+      "source_type": "official_spec",
+      "url": "https://www.w3.org/TR/vocab-dcat-3/",
+      "source_version": "W3C Recommendation 2024-08-22",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "PROV-O: The PROV Ontology",
+      "publisher": "World Wide Web Consortium",
+      "source_type": "official_spec",
+      "url": "https://www.w3.org/TR/prov-o/",
+      "source_version": "W3C Recommendation 2013-04-30",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "NIST Research Data Framework (RDaF): Version 2.0",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_source",
+      "url": "https://www.nist.gov/publications/nist-research-data-framework-rdaf-version-20",
+      "source_version": "RDaF 2.0",
+      "checked_at": "2026-07-29"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "time",
+    "risk_reduction",
+    "capability_unlock",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-29",
+    "review_due_at": "2026-10-29",
+    "note": "candidate.data-analytics-ml.data-catalog-lineage-ownership-metadata@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.data-analytics-ml.data-catalog-lineage-ownership-metadata",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.data-analytics-ml.breadth-a",
+      "promoted_at": "2026-07-29"
+    }
+  }
+}

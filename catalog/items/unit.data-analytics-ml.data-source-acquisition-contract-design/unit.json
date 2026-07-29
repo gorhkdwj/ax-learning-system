@@ -1,0 +1,138 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.data-analytics-ml.data-source-acquisition-contract-design",
+  "version": "1.0.0",
+  "title": "데이터 원천 수집·계약 설계",
+  "summary": "원천·관찰단위·수집시점과 필드 의미·형식·단위·키·결측·갱신 조건을 기계 판독 계약과 인수 fixture로 만드는 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "data-analytics-ml",
+    "subdomains": [
+      "data-source-acquisition-contracts"
+    ]
+  },
+  "domain_tags": [
+    "data-source",
+    "data-contract",
+    "schema",
+    "acquisition"
+  ],
+  "capabilities": [
+    "새 원천의 관찰단위·수집시점·필드 의미·형식·단위·키·결측과 갱신 조건을 기계 판독 계약과 fixture로 만듭니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.data-analytics-ml.data-source-acquisition-contract-design.d0",
+        "statement": "구문 스키마 적합성과 의미·대표성·적법성이 서로 다른 계약임을 설명합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.data-analytics-ml.data-source-acquisition-contract-design.d2",
+        "statement": "새 원천에 대해 기계 판독 계약과 fixture를 만들고 형식·필수값·키·범위·시점 위반을 자동검출합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "원천 의미·인수검사의 D2 설계로 제한하며 API·커넥터 구현, 법적 판단과 전문 측정기 교정은 제외합니다."
+  },
+  "relations": [],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.data-analytics-ml.data-source-acquisition-contract-design.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "data-analytics-ml-data-source-acquisition-contract-design-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.data-analytics-ml.data-source-acquisition-contract-design.d0",
+          "outcome.data-analytics-ml.data-source-acquisition-contract-design.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "형식은 맞지만 단위·시점·표본틀이 틀린 사례를 구분하고 스키마 통과만으로 대표성을 주장하지 않습니다.",
+          "학습자에게 제공된 요구·schema·원천 설명의 필수 필드·키·단위·시간대·허용 지연을 계약으로 옮기고, 평가자 manifest에만 숨긴 위반 위치의 치명 오류를 모두 검출하며 정상 입력 거부, 임의 계약 추가와 입력에 없는 대표성·적법성 주장은 각각 0건이어야 합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Metadata Vocabulary for Tabular Data",
+      "publisher": "World Wide Web Consortium",
+      "source_type": "official_spec",
+      "url": "https://www.w3.org/TR/tabular-metadata/",
+      "source_version": "W3C Recommendation 2015-12-17",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "NIST Research Data Framework (RDaF): Version 2.0",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_source",
+      "url": "https://www.nist.gov/publications/nist-research-data-framework-rdaf-version-20",
+      "source_version": "RDaF 2.0",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "Data on the Web Best Practices",
+      "publisher": "World Wide Web Consortium",
+      "source_type": "official_spec",
+      "url": "https://www.w3.org/TR/dwbp/",
+      "source_version": "W3C Recommendation 2017-01-31",
+      "checked_at": "2026-07-29"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "time",
+    "risk_reduction",
+    "capability_unlock",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-29",
+    "review_due_at": "2026-10-29",
+    "note": "candidate.data-analytics-ml.data-source-acquisition-contract-design@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.data-analytics-ml.data-source-acquisition-contract-design",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.data-analytics-ml.breadth-a",
+      "promoted_at": "2026-07-29"
+    }
+  }
+}

@@ -200,6 +200,6 @@
     "known_unknowns": [
       "전문 fairness·안전·규제 threshold는 횡단 전문 검토를 요구하며 이 후보가 범용 정답을 선언하지 않습니다."
     ],
-    "next_action": "승인된 Breadth 후보로 유지하며 정규 Unit 승격은 별도 사용자 지시에서 수행합니다."
+    "next_action": "정규 Unit unit.data-analytics-ml.predictive-ml-model-validation-decision-thresholds@1.0.0로 승격했습니다. cataloged 상태이므로 상세 교재와 학습효과는 아직 검증되지 않았습니다."
   }
 }

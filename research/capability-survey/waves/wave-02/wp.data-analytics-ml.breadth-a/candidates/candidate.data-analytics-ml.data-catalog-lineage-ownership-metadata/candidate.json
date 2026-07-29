@@ -186,6 +186,6 @@
     "known_unknowns": [
       "field-level lineage의 자동 수집 범위와 보존정책은 도구·조직별이므로 미포착 경로의 명시를 코어 Gate로 둡니다."
     ],
-    "next_action": "승인된 Breadth 후보로 유지하며 정규 Unit 승격은 별도 사용자 지시에서 수행합니다."
+    "next_action": "정규 Unit unit.data-analytics-ml.data-catalog-lineage-ownership-metadata@1.0.0로 승격했습니다. cataloged 상태이므로 상세 교재와 학습효과는 아직 검증되지 않았습니다."
   }
 }

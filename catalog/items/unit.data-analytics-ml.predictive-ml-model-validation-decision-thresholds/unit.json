@@ -1,0 +1,169 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.data-analytics-ml.predictive-ml-model-validation-decision-thresholds",
+  "version": "1.0.0",
+  "title": "예측 ML 모델 검증·의사결정 임계값",
+  "summary": "누수 없는 train·validation·test 분할과 업무비용에 맞춘 metric·baseline·calibration·threshold·slice 오류분석을 설계하는 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "data-analytics-ml",
+    "subdomains": [
+      "predictive-ml-model-evaluation-validation"
+    ]
+  },
+  "domain_tags": [
+    "machine-learning",
+    "model-evaluation",
+    "data-leakage",
+    "threshold"
+  ],
+  "capabilities": [
+    "새 지도학습 과제에서 누수 없는 평가계약을 구현하고 baseline·slice·calibration·threshold 결과와 잔여 한계를 재현합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.data-analytics-ml.predictive-ml-model-validation-decision-thresholds.d0",
+        "statement": "accuracy·ranking·probability calibration·decision threshold와 업무비용의 차이를 설명합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.data-analytics-ml.predictive-ml-model-validation-decision-thresholds.d2",
+        "statement": "목적에 맞는 분할·metric·baseline·calibration·threshold와 slice 오류분석을 구현하고 재현합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "지도학습 D2 검증·의사결정 계약으로 제한하며 LLM·agent stochastic 평가, 전문 fairness와 production drift는 제외합니다."
+  },
+  "relations": [
+    {
+      "type": "prerequisite",
+      "target": {
+        "id": "unit.data-analytics-ml.predictive-ml-problem-framing-baselines",
+        "version": "1.0.0"
+      },
+      "note": "target·prediction unit·비용행렬과 기준선이 평가 metric·threshold의 입력입니다.",
+      "required_level": "D2"
+    },
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.data-analytics-ml.exploratory-statistical-analysis",
+        "version": "1.0.0"
+      },
+      "note": "표본 구조·불확실성·slice 해석이 모델 점수 과대해석을 막습니다."
+    },
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.data-analytics-ml.data-quality-validation-observability",
+        "version": "1.0.0"
+      },
+      "note": "학습·평가 데이터의 품질 결함과 분포를 먼저 검증해야 합니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.ai.system-evaluation-regression-design",
+        "version": "1.0.0"
+      },
+      "note": "두 후보 모두 평가계약을 다루지만 이 후보는 지도학습 모델, 기존 후보는 LLM·agent 시스템을 평가합니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.data-analytics-ml.predictive-ml-model-validation-decision-thresholds.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference 검토 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "data-analytics-ml-predictive-ml-model-validation-decision-thresholds-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.data-analytics-ml.predictive-ml-model-validation-decision-thresholds.d0",
+          "outcome.data-analytics-ml.predictive-ml-model-validation-decision-thresholds.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "time·identity·preprocessing 누수, 불균형 class와 작은 slice의 불안정성을 판별합니다.",
+          "preprocessing·feature·calibration·threshold를 validation에서 고정하고 평가자 봉인 test를 한 번만 실행하며 dataset hash·접근·설정 이력, validation·test fit 사용 0건, 필수 slice·calibration·비용 결과와 사전 정의한 baseline 대비 go·no-go를 확인합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Cross-validation: evaluating estimator performance",
+      "publisher": "scikit-learn developers",
+      "source_type": "official_docs",
+      "url": "https://scikit-learn.org/stable/modules/cross_validation.html",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "Common pitfalls and recommended practices",
+      "publisher": "scikit-learn developers",
+      "source_type": "official_docs",
+      "url": "https://scikit-learn.org/stable/common_pitfalls.html",
+      "checked_at": "2026-07-29"
+    },
+    {
+      "title": "Metrics and scoring: quantifying the quality of predictions",
+      "publisher": "scikit-learn developers",
+      "source_type": "official_docs",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "checked_at": "2026-07-29"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "time",
+    "risk_reduction",
+    "capability_unlock",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-29",
+    "review_due_at": "2026-10-29",
+    "note": "candidate.data-analytics-ml.predictive-ml-model-validation-decision-thresholds@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.data-analytics-ml.predictive-ml-model-validation-decision-thresholds",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.data-analytics-ml.breadth-a",
+      "promoted_at": "2026-07-29"
+    }
+  }
+}
