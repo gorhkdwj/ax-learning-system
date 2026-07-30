@@ -15,7 +15,7 @@ staging 영역입니다. Candidate는 학습 Unit이나 현재 학습 배정이 
 - Checkpoint 템플릿: `templates/research/wave-checkpoint.template.md`
 - Claude→Codex 인계 계약: `research/capability-survey/handoffs/README.md`
 - 인계 스키마: `schemas/phase2-handoff.schema.json`
-- 현재 상태: `research/capability-survey/checkpoints/wave-02.md`
+- 현재 상태: `research/capability-survey/checkpoints/wave-03.md`
 
 ## 쓰기 규칙
 
@@ -42,11 +42,12 @@ Resource 전용 1개입니다. 읽기 전용 감사자가 근거·분류·실무
 최초 P0는 0건이며 P1은 교정했습니다. 과목·후보 표시명은 한국어를 우선하고 node
 ID와 영문 병기는 허용한다는 명명 원칙도 승인되었습니다.
 
-`taxonomy.ax-capability-map@0.7.0`에는 기존 조사 렌즈와 Wave 1 node에 더해
+`taxonomy.ax-capability-map@0.8.0`에는 기존 조사 렌즈와 Wave 1 node에 더해
 `ai-literacy-trust` 잠정 subdomain 7개와 `ai-systems-agents` 잠정 subdomain
 7개, `software-product-engineering` 잠정 subdomain 9개,
 `data-analytics-ml` 잠정 subdomain 9개와 `integration-automation` 잠정
-subdomain 8개, `human-ai-experience` 잠정 subdomain 8개가 등록되었습니다.
+subdomain 8개, `human-ai-experience` 잠정 subdomain 8개와
+`platform-quality-operations` 잠정 subdomain 10개가 등록되었습니다.
 
 두 번째 작업 패키지 `wp.ai-systems-agents.breadth-a`는 한국어 우선 표시명의
 Candidate 8개로 조사·감사를 완료한 `approved` 상태입니다. 전문 판단이 필요한
@@ -110,3 +111,13 @@ P1을 교정하고 P0·P1 0건을 재확인했으며 정규 승격, 상세 proto
 `cataloged` Unit으로, D0 Resource 후보 2개는 기존 접근 가능한 UI Unit과
 신규 기대형성·온보딩 Unit이 소유하는 정규 Resource로 승격했습니다. 개인화·
 기억 후보와 provisional node는 조사 공백 추적을 위해 그대로 유지했습니다.
+
+Wave 3 두 번째 작업 패키지 `wp.platform-quality-operations.breadth-a`는
+안전한 릴리스, 선언적 환경, 서비스 telemetry, SLI·SLO, 사고대응, 백업·복원,
+성능·용량, 기술비용과 복원력의 Unit 후보 9개, 서비스 운영준비·수명주기
+Set 후보 1개를 조사했습니다. 내부 플랫폼 독립 Unit은 실제 내부 사용자 조사와
+operating model 근거가 필요해 `organization-adoption` 후속 범위로 유보했습니다.
+승격 전·후 독립 근거·taxonomy·실용성 전수검수에서 P0·P1 0건을 확인한 뒤
+9개 Unit·9개 공개 Reference·1개 Set을 정규 `cataloged` 메타데이터로
+승격했습니다. 실제 production 적합성, 상세 simulator·교재·파일럿과
+학습효과는 아직 검증하지 않았습니다.

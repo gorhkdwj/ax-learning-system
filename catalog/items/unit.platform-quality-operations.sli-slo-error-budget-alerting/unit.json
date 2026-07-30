@@ -1,0 +1,216 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.platform-quality-operations.sli-slo-error-budget-alerting",
+  "version": "1.0.0",
+  "title": "SLI·SLO·오류예산·알림 설계",
+  "summary": "가용성 평균이나 infrastructure metric을 사용자 경험과 혼동해 목표·허용 위험·alert가 행동과 연결되지 않는 문제를 다룹니다. 해결을 위한 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "platform-quality-operations",
+    "subdomains": [
+      "service-level-objectives-reliability"
+    ]
+  },
+  "domain_tags": [
+    "sli",
+    "slo",
+    "error",
+    "budget",
+    "alerting",
+    "operations"
+  ],
+  "capabilities": [
+    "합성 사용자 event fixture로 SLI·SLO·error budget을 계산하고 빠른·느린 burn과 무영향 noise를 구분하는 alert policy를 검증합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.platform-quality-operations.sli-slo-error-budget-alerting.d0",
+        "statement": "SLI·SLO·SLA·error budget·alert의 역할과 책임을 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.platform-quality-operations.sli-slo-error-budget-alerting.d2",
+        "statement": "합성 사용자 event fixture로 SLI·SLO·error budget을 계산하고 빠른·느린 burn과 무영향 noise를 구분하는 alert policy를 검증합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "local simulator·synthetic telemetry·sealed fixture·bounded load와 삭제 가능한 sandbox로 제한하며 실제 production·cloud 권한·고객·개인정보·결제·외부 장애·법적 통제는 제외합니다. 평가별 봉인 safety manifest에 wall_clock_timeout_seconds≤300, max_requests≤10000, max_concurrency≤16, max_retries_per_request≤2, max_fault_injections≤10, max_fixture_bytes≤10485760, record형 입력은 추가로 max_records≤10000, actual_spend=0, allowed_targets=loopback·새 임시 sandbox, abort trigger와 rollback·restore·cleanup invariant를 기록하고 runner가 위반 즉시 중단해야 합니다. 실제 업무의 risk tolerance·SLA·조직 error budget policy는 별도 합의가 필요합니다."
+  },
+  "relations": [
+    {
+      "type": "prerequisite",
+      "target": {
+        "id": "unit.platform-quality-operations.service-observability-telemetry-contract",
+        "version": "1.0.0"
+      },
+      "note": "이 후보의 필수 산출물·판정 Gate를 직접 입력으로 사용합니다.",
+      "required_level": "D0"
+    },
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.data-analytics-ml.analytical-model-metric-semantics",
+        "version": "1.0.0"
+      },
+      "note": "기존 정규 Unit의 공통 구현·검증 primitive를 재사용하고 플랫폼 운영 소유 경계를 중복하지 않습니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.platform-quality-operations.sli-slo-error-budget-alerting.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": false,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference와 prebuilt local simulator·합성 fixture 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "platform-quality-operations-sli-slo-error-budget-alerting-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.platform-quality-operations.sli-slo-error-budget-alerting.d0",
+          "outcome.platform-quality-operations.sli-slo-error-budget-alerting.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "사용자 여정 분모·성공조건·window와 risk tolerance의 관계를 설명합니다. 봉인된 사례 분류표를 answer key와 대조해 핵심 오개념이 0건이어야 합니다.",
+          "봉인 event의 numerator·denominator·window·missing-data 규칙과 SLI·budget 계산이 정답과 일치하고 빠른·느린 burn과 무영향 noise에서 영향 누락·무행동 alert·duplicate·flapping이 봉인 상한을 넘지 않아야 합니다. 평가별 봉인 safety manifest에 wall_clock_timeout_seconds≤300, max_requests≤10000, max_concurrency≤16, max_retries_per_request≤2, max_fault_injections≤10, max_fixture_bytes≤10485760, record형 입력은 추가로 max_records≤10000, actual_spend=0, allowed_targets=loopback·새 임시 sandbox, abort trigger와 rollback·restore·cleanup invariant를 기록하고 runner가 위반 즉시 중단해야 합니다.",
+          "실제 production·운영계정·개인정보·결제·외부 변경 없이 local·합성 fixture에서 평가하며 보안·법무·재무 전문판정은 소유하지 않습니다.",
+          "실행 전에 봉인 safety manifest와 answer key를 고정하고 실제 실행 기록·최종 상태·cleanup 결과를 대조합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Implementing SLOs",
+      "publisher": "Google Site Reliability Engineering",
+      "source_type": "official_source",
+      "url": "https://sre.google/workbook/implementing-slos/",
+      "source_version": "The Site Reliability Workbook (2018), Chapter 2",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "Alerting on SLOs",
+      "publisher": "Google Site Reliability Engineering",
+      "source_type": "official_source",
+      "url": "https://sre.google/workbook/alerting-on-slos/",
+      "source_version": "The Site Reliability Workbook (2018), Chapter 5",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "Monitoring Systems with Advanced Analytics",
+      "publisher": "Google Site Reliability Engineering",
+      "source_type": "official_source",
+      "url": "https://sre.google/workbook/monitoring/",
+      "source_version": "The Site Reliability Workbook (2018), Chapter 4",
+      "checked_at": "2026-07-30"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "risk_reduction",
+    "capability_unlock",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "candidate.platform-quality-operations.sli-slo-error-budget-alerting@1.0.0의 승인 결과를 정규 Unit 메타데이터로 등록했습니다. 예상 시간은 prebuilt local fixture 가설이며 실제 production 적합성·상세 교재·파일럿과 학습효과는 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.platform-quality-operations.sli-slo-error-budget-alerting",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.platform-quality-operations.breadth-a",
+      "promoted_at": "2026-07-30"
+    },
+    "evidence_claims": [
+      {
+        "id": "evidence.platform-quality-operations.shared.sre-slo",
+        "title": "Implementing SLOs",
+        "publisher": "Google Site Reliability Engineering",
+        "source_type": "practitioner_primary",
+        "url": "https://sre.google/workbook/implementing-slos/",
+        "source_version": "The Site Reliability Workbook (2018), Chapter 2",
+        "checked_at": "2026-07-30",
+        "claim_scope": "사용자 여정에서 SLI·SLO·error budget을 정의하고 검토하는 실무 범위를 지지하며 특정 수치 목표를 보편화하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ],
+        "published_at": "2018-07-23"
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.sre-alerting",
+        "title": "Alerting on SLOs",
+        "publisher": "Google Site Reliability Engineering",
+        "source_type": "practitioner_primary",
+        "url": "https://sre.google/workbook/alerting-on-slos/",
+        "source_version": "The Site Reliability Workbook (2018), Chapter 5",
+        "checked_at": "2026-07-30",
+        "claim_scope": "error budget burn과 행동 가능한 alert의 관계를 지지하며 예시 임계값은 학습 fixture 밖으로 일반화하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ],
+        "published_at": "2018-07-23"
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.sre-monitoring",
+        "title": "Monitoring Systems with Advanced Analytics",
+        "publisher": "Google Site Reliability Engineering",
+        "source_type": "practitioner_primary",
+        "url": "https://sre.google/workbook/monitoring/",
+        "source_version": "The Site Reliability Workbook (2018), Chapter 4",
+        "checked_at": "2026-07-30",
+        "claim_scope": "metrics·structured logs·traces와 사용자 영향 SLI를 연결하는 monitoring 설계 사례를 지지하며 Google 운영규모나 수치를 보편 기준으로 일반화하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ],
+        "published_at": "2018-07-23"
+      }
+    ],
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.data-analytics-ml.analytical-model-metric-semantics",
+        "version": "1.0.0"
+      }
+    ]
+  }
+}

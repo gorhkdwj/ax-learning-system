@@ -1,0 +1,207 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.platform-quality-operations.performance-capacity-overload-protection",
+  "version": "1.0.0",
+  "title": "성능·용량·과부하 보호 검증",
+  "canonical_name": "Performance, capacity and overload protection verification",
+  "aliases": [],
+  "summary": "평균값과 정상 부하만 확인해 burst·요청당 자원비용·retry amplification, saturation과 overload protection의 부하 한계를 검증하지 못하는 문제를 다룹니다. 해결을 위한 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "평균값과 정상 부하만 확인해 burst·요청당 자원비용·retry amplification, saturation과 overload protection의 부하 한계를 검증하지 못하는 문제를 다룹니다.",
+    "includes": [
+      "workload model·latency 분포·throughput·saturation 측정",
+      "capacity envelope와 고정 seed 기반 부하·stress 비교",
+      "admission control·throttling·load shedding의 부하 한계와 정상 복구"
+    ],
+    "excludes": [
+      "무제한·production 부하",
+      "특정 autoscaler 문법",
+      "비즈니스 우선순위 정책 확정",
+      "dependency 장애 전파와 다중 service fault experiment",
+      "정상 부하 용량 산정을 벗어난 chaos experiment"
+    ],
+    "boundary_note": "실제 production·운영계정·개인정보·결제·외부 변경 없이 local·합성 fixture에서 평가하며 보안·법무·재무 전문판정은 소유하지 않습니다."
+  },
+  "discovery": {
+    "lens_id": "platform-quality-operations",
+    "basis": "assigned_lens",
+    "notes": "공식·표준·1차 근거와 기존 Candidate·Unit·Set을 교차검토하고 역할 반전·인접 경계·누락 패스를 수행했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "platform-quality-operations",
+    "subdomains": [
+      "performance-capacity-overload-protection"
+    ],
+    "tags": [
+      "performance",
+      "capacity",
+      "overload",
+      "protection",
+      "operations"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "둘 이상의 기술·업무 맥락으로 전이되는 관찰 가능한 D3 산출물과 검증 Gate가 있습니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.platform-quality-operations.performance-capacity-overload-protection"
+  },
+  "relations": [
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.platform-quality-operations.service-observability-telemetry-contract",
+        "version": "1.0.0"
+      },
+      "rationale": "이 후보의 필수 산출물·판정 Gate를 직접 입력으로 사용합니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.platform-quality-operations.sli-slo-error-budget-alerting",
+        "version": "1.0.0"
+      },
+      "rationale": "산출물의 신뢰성·성능·비용 trade-off를 함께 검토하지만 서로의 소유 경계를 대신하지 않습니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "local service에 고정 seed·bounded workload를 실행해 latency 분포·throughput·saturation·capacity envelope와 admission·throttling·load-shedding의 부하 한계 및 정상 복구를 검증합니다.",
+    "work_contexts": [
+      "서비스·플랫폼 운영",
+      "배포·관측·신뢰성 개선",
+      "운영 품질 검증"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "comparison_required",
+    "agent_fit_rationale": "AI는 초안·분류·비교를 보조할 수 있지만 권한·최종 상태·사용자 영향·복구·비용 evidence는 결정적 검사와 인간 책임으로 검증해야 합니다."
+  },
+  "outcomes": {
+    "target_level": "D3",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "성능, 용량, 확장성, 부하·stress와 과부하 보호를 구분합니다.",
+        "evidence_hypothesis": "평균·percentile·resource·queue·request cost와 capacity headroom의 관계를 설명합니다. 봉인된 사례 분류표를 answer key와 대조해 핵심 오개념이 0건이어야 합니다."
+      },
+      {
+        "level": "D3",
+        "outcome": "local service에 고정 seed·bounded workload를 실행해 latency 분포·throughput·saturation·capacity envelope와 admission·throttling·load-shedding의 부하 한계 및 정상 복구를 검증합니다.",
+        "evidence_hypothesis": "고정 workload seed·warm-up·반복 횟수와 요청·동시성·시간 상한을 사용하고 절대 수치가 아니라 봉인 범위·순서·불변조건으로 판정합니다. retry amplification 상한, 우선순위별 shed·reject invariant를 지키고 종료 뒤 queue·retry·잔여 fault가 0이며 정상 상태로 복구되어야 합니다. 평가별 봉인 safety manifest에 wall_clock_timeout_seconds≤300, max_requests≤10000, max_concurrency≤16, max_retries_per_request≤2, max_fault_injections≤10, max_fixture_bytes≤10485760, record형 입력은 추가로 max_records≤10000, actual_spend=0, allowed_targets=loopback·새 임시 sandbox, abort trigger와 rollback·restore·cleanup invariant를 기록하고 runner가 위반 즉시 중단해야 합니다."
+      }
+    ],
+    "depth_boundary": "local simulator·synthetic telemetry·sealed fixture·bounded load와 삭제 가능한 sandbox로 제한하며 실제 production·cloud 권한·고객·개인정보·결제·외부 장애·법적 통제는 제외합니다. 평가별 봉인 safety manifest에 wall_clock_timeout_seconds≤300, max_requests≤10000, max_concurrency≤16, max_retries_per_request≤2, max_fault_injections≤10, max_fixture_bytes≤10485760, record형 입력은 추가로 max_records≤10000, actual_spend=0, allowed_targets=loopback·새 임시 sandbox, abort trigger와 rollback·restore·cleanup invariant를 기록하고 runner가 위반 즉시 중단해야 합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "throughput",
+      "quality",
+      "risk_reduction",
+      "cost"
+    ],
+    "business_hypotheses": [
+      "bounded 부하의 범위·불변조건 검사는 retry 증폭과 과부하 crash를 줄이고 우선순위 traffic을 보호할 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "core",
+    "priority_hint": "next",
+    "measurement_hypothesis": "고정 workload seed·warm-up·반복 횟수와 요청·동시성·시간 상한을 사용하고 절대 수치가 아니라 봉인 범위·순서·불변조건으로 판정합니다. retry amplification 상한, 우선순위별 shed·reject invariant를 지키고 종료 뒤 queue·retry·잔여 fault가 0이며 정상 상태로 복구되어야 합니다. 평가별 봉인 safety manifest에 wall_clock_timeout_seconds≤300, max_requests≤10000, max_concurrency≤16, max_retries_per_request≤2, max_fault_injections≤10, max_fixture_bytes≤10485760, record형 입력은 추가로 max_records≤10000, actual_spend=0, allowed_targets=loopback·새 임시 sandbox, abort trigger와 rollback·restore·cleanup invariant를 기록하고 runner가 위반 즉시 중단해야 합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "permissions",
+      "cost",
+      "accessibility",
+      "observability",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "실제 보안·개인정보·법률·재무·고위험 승인 내용은 다음 전문 package와 조직 정책이 소유하며 이번 후보는 주어진 계약을 local fixture에 적용합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.platform-quality-operations.shared.sre-overload",
+      "title": "Handling Overload",
+      "publisher": "Google Site Reliability Engineering",
+      "source_type": "practitioner_primary",
+      "url": "https://sre.google/sre-book/handling-overload/",
+      "source_version": "Site Reliability Engineering (2016), Chapter 21",
+      "checked_at": "2026-07-30",
+      "claim_scope": "resource 기반 용량, quota·throttling·load shedding·bounded retry와 graceful degradation 범위를 지지하며 예시 수치를 보편 임계값으로 사용하지 않습니다.",
+      "supports": [
+        "definition",
+        "learning_outcome",
+        "work_relevance"
+      ],
+      "published_at": "2016-03-23"
+    },
+    {
+      "id": "evidence.platform-quality-operations.shared.sre-reliability-test",
+      "title": "Testing for Reliability",
+      "publisher": "Google Site Reliability Engineering",
+      "source_type": "practitioner_primary",
+      "url": "https://sre.google/sre-book/testing-reliability/",
+      "source_version": "Site Reliability Engineering (2016), Chapter 17",
+      "checked_at": "2026-07-30",
+      "claim_scope": "전통적·production reliability test, stress·canary·통계적 장애시험과 재현성 한계를 지지합니다. 이번 평가는 local bounded subset에 한정하며 실제 production readiness를 입증하지 않습니다.",
+      "supports": [
+        "definition",
+        "learning_outcome",
+        "work_relevance"
+      ],
+      "published_at": "2016-03-23"
+    },
+    {
+      "id": "evidence.platform-quality-operations.shared.sre-monitoring",
+      "title": "Monitoring Systems with Advanced Analytics",
+      "publisher": "Google Site Reliability Engineering",
+      "source_type": "practitioner_primary",
+      "url": "https://sre.google/workbook/monitoring/",
+      "source_version": "The Site Reliability Workbook (2018), Chapter 4",
+      "checked_at": "2026-07-30",
+      "claim_scope": "metrics·structured logs·traces와 사용자 영향 SLI를 연결하는 monitoring 설계 사례를 지지하며 Google 운영규모나 수치를 보편 기준으로 일반화하지 않습니다.",
+      "supports": [
+        "definition",
+        "learning_outcome",
+        "work_relevance"
+      ],
+      "published_at": "2018-07-23"
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "high",
+    "rationale": "독립 근거·taxonomy·실용성 전수감사와 교정 후 재감사에서 P0·P1 0건을 확인해 정규 승격 대상으로 승인했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-03",
+    "work_package_id": "wp.platform-quality-operations.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-30",
+    "reviewers": [
+      "codex-platform-evidence-audit",
+      "codex-platform-taxonomy-audit",
+      "codex-platform-practicality-audit",
+      "codex-main-review"
+    ],
+    "known_unknowns": [
+      "실제 traffic mix·hardware·multi-region dependency와 capacity cost는 검증하지 않았습니다."
+    ],
+    "next_action": "unit.platform-quality-operations.performance-capacity-overload-protection@1.0.0으로 승격하고 정규 산출물의 독립 재검수를 완료했습니다. cataloged는 상세 교재·fixture·파일럿·학습효과 검증 완료를 뜻하지 않으며 후속 구현·검증이 필요합니다."
+  },
+  "extensions": {
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.software.layered-verification-testing",
+        "version": "1.0.0"
+      }
+    ]
+  }
+}

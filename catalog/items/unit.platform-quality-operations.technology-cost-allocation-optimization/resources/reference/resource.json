@@ -1,0 +1,212 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.platform-quality-operations.technology-cost-allocation-optimization.reference",
+  "version": "1.0.0",
+  "title": "기술비용 할당·이상·최적화 공식·표준·1차 출처 Reference",
+  "description": "정규 Unit의 정의·범위와 판정 기준을 뒷받침하는 공개 Reference입니다. 상세 교재나 독립 평가자료를 대신하지 않습니다.",
+  "resource_type": "external_reference",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.platform-quality-operations.technology-cost-allocation-optimization",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "external",
+    "url": "https://www.finops.org/framework/"
+  },
+  "learning_outcome_ids": [
+    "outcome.platform-quality-operations.technology-cost-allocation-optimization.d0",
+    "outcome.platform-quality-operations.technology-cost-allocation-optimization.d2"
+  ],
+  "estimated_minutes": 30,
+  "language": "en",
+  "tags": [
+    "reference",
+    "promotion-evidence",
+    "platform-quality-operations"
+  ],
+  "requirements": {
+    "platforms": [
+      "web-browser"
+    ],
+    "network_required": true
+  },
+  "provenance": {
+    "origin": "external",
+    "sources": [
+      {
+        "title": "FinOps Framework",
+        "publisher": "FinOps Foundation",
+        "source_type": "official_docs",
+        "url": "https://www.finops.org/framework/",
+        "source_version": "FinOps Framework 2026",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "Allocation",
+        "publisher": "FinOps Foundation",
+        "source_type": "official_docs",
+        "url": "https://www.finops.org/framework/capabilities/allocation/",
+        "source_version": "FinOps Framework 2026",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "Usage Optimization",
+        "publisher": "FinOps Foundation",
+        "source_type": "official_docs",
+        "url": "https://www.finops.org/framework/capabilities/usage-optimization/",
+        "source_version": "FinOps Framework 2026",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "Forecasting",
+        "publisher": "FinOps Foundation",
+        "source_type": "official_docs",
+        "url": "https://www.finops.org/framework/capabilities/forecasting/",
+        "source_version": "FinOps Framework 2026",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "Anomaly Management",
+        "publisher": "FinOps Foundation",
+        "source_type": "official_docs",
+        "url": "https://www.finops.org/framework/capabilities/anomaly-management/",
+        "source_version": "FinOps Framework 2026",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "FinOps Open Cost and Usage Specification",
+        "publisher": "FOCUS Project, Joint Development Foundation",
+        "source_type": "official_spec",
+        "url": "https://focus.finops.org/focus-specification/",
+        "source_version": "FOCUS 1.4, ratified 2026-06-04",
+        "checked_at": "2026-07-30"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "unverified",
+    "standard": "WCAG 2.2 AA",
+    "features": [],
+    "alternative_resource_refs": [],
+    "note": "외부 출처의 접근성은 재검토가 필요합니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-07-30",
+    "commands": [],
+    "expected_outputs": [
+      "출처가 Unit의 정의·범위·판정 기준과 일반화 제한을 뒷받침하는지 확인한 기록"
+    ],
+    "evidence_paths": [],
+    "note": "URL·버전·근거 범위를 독립 재검토했으며 상세 학습자료의 완전성·접근성·평가 타당성과 학습효과는 검증하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "Candidate 승격 시 등록한 공개 Reference입니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.platform-quality-operations.technology-cost-allocation-optimization",
+      "version": "1.0.0"
+    },
+    "promotion_reviewed_at": "2026-07-30",
+    "evidence_claims": [
+      {
+        "id": "evidence.platform-quality-operations.shared.finops",
+        "title": "FinOps Framework",
+        "publisher": "FinOps Foundation",
+        "source_type": "official_docs",
+        "url": "https://www.finops.org/framework/",
+        "source_version": "FinOps Framework 2026",
+        "checked_at": "2026-07-30",
+        "claim_scope": "기술 사용량·비용·업무가치를 engineering·finance·business가 협업해 이해·정량화·최적화·운영하는 범위를 지지합니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.finops-allocation",
+        "title": "Allocation",
+        "publisher": "FinOps Foundation",
+        "source_type": "official_docs",
+        "url": "https://www.finops.org/framework/capabilities/allocation/",
+        "source_version": "FinOps Framework 2026",
+        "checked_at": "2026-07-30",
+        "claim_scope": "account·tag·label·derived metadata로 비용과 사용량을 책임 단위에 배분하고 shared cost를 문서화·검증하는 범위를 지지합니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.finops-optimization",
+        "title": "Usage Optimization",
+        "publisher": "FinOps Foundation",
+        "source_type": "official_docs",
+        "url": "https://www.finops.org/framework/capabilities/usage-optimization/",
+        "source_version": "FinOps Framework 2026",
+        "checked_at": "2026-07-30",
+        "claim_scope": "수요·사용량·비용 데이터를 바탕으로 낭비·이상·최적화 후보와 실행 전후 효과를 검토하는 범위를 지지하며 구매·예약 변경을 요구하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.finops-forecasting",
+        "title": "Forecasting",
+        "publisher": "FinOps Foundation",
+        "source_type": "official_docs",
+        "url": "https://www.finops.org/framework/capabilities/forecasting/",
+        "source_version": "FinOps Framework 2026",
+        "checked_at": "2026-07-30",
+        "claim_scope": "과거 사용·비용과 계획된 변화를 바탕으로 예측을 만들고 실제와 비교·교정하는 범위를 지지하며 실제 예산 승인을 대신하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.finops-anomaly",
+        "title": "Anomaly Management",
+        "publisher": "FinOps Foundation",
+        "source_type": "official_docs",
+        "url": "https://www.finops.org/framework/capabilities/anomaly-management/",
+        "source_version": "FinOps Framework 2026",
+        "checked_at": "2026-07-30",
+        "claim_scope": "예상 사용·비용과 다른 이상을 탐지·분류·대응하는 범위를 지지하며 특정 임계값을 보편 기준으로 만들지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.focus",
+        "title": "FinOps Open Cost and Usage Specification",
+        "publisher": "FOCUS Project, Joint Development Foundation",
+        "source_type": "official_spec",
+        "url": "https://focus.finops.org/focus-specification/",
+        "source_version": "FOCUS 1.4, ratified 2026-06-04",
+        "checked_at": "2026-07-30",
+        "claim_scope": "vendor-neutral 기술비용·사용량·청구 데이터의 필드와 합계 조정 계약을 지지하며 공급자별 회계정책을 대신하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ],
+        "published_at": "2026-06-04"
+      }
+    ]
+  }
+}

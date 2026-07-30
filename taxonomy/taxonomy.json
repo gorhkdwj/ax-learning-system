@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0.0",
   "id": "taxonomy.ax-capability-map",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "title": "AX 역량 분류 레지스트리",
   "status": "provisional",
-  "updated_at": "2026-07-29",
+  "updated_at": "2026-07-30",
   "nodes": [
     {
       "id": "ax-strategy-value",
@@ -3303,6 +3303,430 @@
         "created_at": "2026-07-29",
         "last_reviewed_at": "2026-07-29",
         "review_due_at": "2026-10-29",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "release-deployment-safety",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "안전한 릴리스·배포·롤백 검증",
+      "title_en": "Safe release, deployment and rollback verification",
+      "definition": "검증된 source·build와 실제 배포 artifact·configuration·rollout 상태가 분리되어 변경 누락, 잘못된 version, 사용자 영향과 rollback 실패가 생기는 문제를 다룹니다.",
+      "includes": [
+        "artifact provenance와 승격",
+        "canary·단계 rollout·중단·rollback",
+        "배포 후 사용자 영향·최종 상태 재검증"
+      ],
+      "excludes": [
+        "build 도구 구현",
+        "실제 production 배포",
+        "조직 승인권·보안정책 확정"
+      ],
+      "parent_ids": [
+        "platform-quality-operations"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "software-product-engineering",
+        "data-analytics-ml",
+        "integration-automation",
+        "security-legal-governance"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.platform-quality-operations.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 플랫폼·품질·운영 조사에서 기존 기능개발·데이터·자동화·보안 책임과 중복되지 않는 운영 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "declarative-environment-configuration",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "선언적 환경·구성 드리프트 조정",
+      "title_en": "Declarative environment configuration and drift reconciliation",
+      "definition": "환경과 configuration의 desired state가 version·review·actual state와 분리되어 수동 변경, drift, 잘못된 reconciliation과 복구 불능이 생기는 문제를 다룹니다.",
+      "includes": [
+        "declarative desired state",
+        "versioned configuration·change review",
+        "drift detection·bounded reconciliation·rollback"
+      ],
+      "excludes": [
+        "특정 IaC·cloud 문법",
+        "secret 값 저장",
+        "기업 IAM·보안 baseline 확정"
+      ],
+      "parent_ids": [
+        "platform-quality-operations"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "software-product-engineering",
+        "data-analytics-ml",
+        "integration-automation",
+        "security-legal-governance"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.platform-quality-operations.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 플랫폼·품질·운영 조사에서 기존 기능개발·데이터·자동화·보안 책임과 중복되지 않는 운영 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "service-observability-telemetry",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "서비스 관측성·텔레메트리 계약",
+      "title_en": "Service observability and telemetry contract engineering",
+      "definition": "logs·metrics·traces가 생성되어도 identity·time·correlation·semantic contract가 없어 사용자 영향과 원인을 연결하지 못하는 문제를 다룹니다.",
+      "includes": [
+        "logs·metrics·traces·events 계약",
+        "resource·service·deployment identity와 correlation",
+        "telemetry 품질·누락·cardinality·민감정보 경계"
+      ],
+      "excludes": [
+        "특정 monitoring 제품 운영",
+        "데이터 품질 관측 반복",
+        "보안 로그 보유정책 확정"
+      ],
+      "parent_ids": [
+        "platform-quality-operations"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "software-product-engineering",
+        "data-analytics-ml",
+        "integration-automation",
+        "security-legal-governance"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.platform-quality-operations.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 플랫폼·품질·운영 조사에서 기존 기능개발·데이터·자동화·보안 책임과 중복되지 않는 운영 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "service-level-objectives-reliability",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "SLI·SLO·오류예산·알림 설계",
+      "title_en": "SLI, SLO, error budget and actionable alert design",
+      "definition": "가용성 평균이나 infrastructure metric을 사용자 경험과 혼동해 목표·허용 위험·alert가 행동과 연결되지 않는 문제를 다룹니다.",
+      "includes": [
+        "사용자 여정·critical path 기반 SLI",
+        "window·target·error budget",
+        "burn·행동 가능성 기반 alert와 정책"
+      ],
+      "excludes": [
+        "SLA 법적 약속",
+        "보편 SLO 수치",
+        "특정 monitoring query 언어"
+      ],
+      "parent_ids": [
+        "platform-quality-operations"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "software-product-engineering",
+        "data-analytics-ml",
+        "integration-automation",
+        "security-legal-governance"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.platform-quality-operations.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 플랫폼·품질·운영 조사에서 기존 기능개발·데이터·자동화·보안 책임과 중복되지 않는 운영 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "incident-response-postmortem",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "서비스 사고 대응·사후학습",
+      "title_en": "Service incident response and postmortem learning",
+      "definition": "장애 중 역할·상태·통신·증거·복구 목표가 섞이고 종료 후 개인 비난이나 미검증 action만 남는 문제를 다룹니다.",
+      "includes": [
+        "준비·triage·severity·incident command",
+        "상태문서·통신·결정·handoff",
+        "timeline·contributing factors·action owner·후속 검증"
+      ],
+      "excludes": [
+        "실제 on-call·고객 통신",
+        "법적 신고·보안 사고 전문판정",
+        "개인 성과평가"
+      ],
+      "parent_ids": [
+        "platform-quality-operations"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "software-product-engineering",
+        "data-analytics-ml",
+        "integration-automation",
+        "security-legal-governance"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.platform-quality-operations.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 플랫폼·품질·운영 조사에서 기존 기능개발·데이터·자동화·보안 책임과 중복되지 않는 운영 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "backup-restore-continuity",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "백업·복원·재해복구 검증",
+      "title_en": "Backup, restore and disaster recovery verification",
+      "definition": "backup 존재를 복구 가능성으로 오인하고 RTO·RPO·의존성·무결성·대체처리 검증 없이 복구계획을 신뢰하는 문제를 다룹니다.",
+      "includes": [
+        "BIA·dependency·RTO·RPO",
+        "격리 backup·restore·무결성 검증",
+        "failover·alternate processing·return-to-normal exercise"
+      ],
+      "excludes": [
+        "실제 운영데이터·재해",
+        "법적 보유·삭제정책",
+        "특정 storage·cloud DR 제품"
+      ],
+      "parent_ids": [
+        "platform-quality-operations"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "software-product-engineering",
+        "data-analytics-ml",
+        "integration-automation",
+        "security-legal-governance"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.platform-quality-operations.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 플랫폼·품질·운영 조사에서 기존 기능개발·데이터·자동화·보안 책임과 중복되지 않는 운영 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "technology-cost-finops",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "기술비용 할당·이상·최적화",
+      "title_en": "Technology cost allocation, anomaly and optimization",
+      "definition": "청구 총액만 보고 제품·환경·owner·사용량·unit economics를 연결하지 못해 비용 이상과 최적화 효과를 검증하지 못하는 문제를 다룹니다.",
+      "includes": [
+        "cost·usage ingestion과 allocation",
+        "shared cost·tag·owner·unit economics",
+        "forecast·anomaly·optimization hypothesis와 before/after"
+      ],
+      "excludes": [
+        "실제 구매·예약·계약 변경",
+        "회계·세무·조달 판정",
+        "비용절감 효과 보장"
+      ],
+      "parent_ids": [
+        "platform-quality-operations"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "software-product-engineering",
+        "data-analytics-ml",
+        "integration-automation",
+        "security-legal-governance"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.platform-quality-operations.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 플랫폼·품질·운영 조사에서 기존 기능개발·데이터·자동화·보안 책임과 중복되지 않는 운영 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "resilience-failure-mode-experimentation",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "복원력 설계·장애실험",
+      "title_en": "Resilience design and failure-mode experimentation",
+      "definition": "분산 서비스의 의존성과 장애 영역을 명시하지 않아 부분 장애와 과부하가 연쇄 장애로 확대되는 문제를 다룹니다.",
+      "includes": [
+        "dependency graph·failure domain·장애 전파 경로 모델링",
+        "timeout·부분 실패·연쇄 전파에서의 우아한 성능 저하와 제한된 retry",
+        "명시한 blast radius·중단 조건·복구 절차를 갖춘 제한된 fault experiment"
+      ],
+      "excludes": [
+        "실제 운영 환경의 무단 chaos 실험",
+        "영향 범위와 중단 조건이 제한되지 않은 장애 주입",
+        "보안 사고 대응과 취약점 악용",
+        "정상 부하 workload model과 capacity envelope 산정",
+        "admission control·throttling의 성능 tuning"
+      ],
+      "parent_ids": [
+        "platform-quality-operations"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "software-product-engineering",
+        "data-analytics-ml",
+        "integration-automation",
+        "security-legal-governance"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.platform-quality-operations.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 플랫폼·품질·운영 조사에서 기존 기능개발·데이터·자동화·보안 책임과 중복되지 않는 운영 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "production-readiness-service-lifecycle",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "서비스 운영준비·수명주기 전환",
+      "title_en": "Service production readiness and lifecycle transition",
+      "definition": "기능 완료만으로 운영 준비를 간주하여 소유권, 의존성, SLO, 관측성, 배포, 사고, 복구, 용량, 비용과 유지보수 증거가 분리되는 문제를 다룹니다.",
+      "includes": [
+        "위험 기반 운영준비 packet과 필수 증거 연결",
+        "소유자·지원·의존성·runbook·출시 승인 조건",
+        "유지보수·toil inventory·지원 종료·폐기까지의 수명주기 전환"
+      ],
+      "excludes": [
+        "조직 인력 배치와 실제 당직 운영의 승인",
+        "실제 운영 환경 출시 승인",
+        "법무·보안 최종 승인과 규제 적합성 보증"
+      ],
+      "parent_ids": [
+        "platform-quality-operations"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "software-product-engineering",
+        "data-analytics-ml",
+        "integration-automation",
+        "security-legal-governance"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.platform-quality-operations.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 플랫폼·품질·운영 조사에서 기존 기능개발·데이터·자동화·보안 책임과 중복되지 않는 운영 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "performance-capacity-overload-protection",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "성능·용량·과부하 보호 검증",
+      "title_en": "Performance, capacity and overload protection verification",
+      "definition": "평균값과 정상 부하만 확인해 burst·요청당 자원비용·retry amplification, saturation과 overload protection의 부하 한계를 검증하지 못하는 문제를 다룹니다.",
+      "includes": [
+        "workload model·latency 분포·throughput·saturation 측정",
+        "capacity envelope와 고정 seed 기반 부하·stress 비교",
+        "admission control·throttling·load shedding의 부하 한계와 정상 복구"
+      ],
+      "excludes": [
+        "무제한·production 부하",
+        "특정 autoscaler 문법",
+        "비즈니스 우선순위 정책 확정",
+        "dependency 장애 전파와 다중 service fault experiment",
+        "정상 부하 용량 산정을 벗어난 chaos experiment"
+      ],
+      "parent_ids": [
+        "platform-quality-operations"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "software-product-engineering",
+        "data-analytics-ml",
+        "integration-automation",
+        "security-legal-governance"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.platform-quality-operations.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 플랫폼·품질·운영 조사에서 기존 기능개발·데이터·자동화·보안 책임과 중복되지 않는 운영 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
         "superseded_by": null
       }
     }

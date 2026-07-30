@@ -1,0 +1,223 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.platform-quality-operations.incident-response-postmortem-learning",
+  "version": "1.0.0",
+  "title": "서비스 사고 대응·사후학습",
+  "summary": "장애 중 역할·상태·통신·증거·복구 목표가 섞이고 종료 후 개인 비난이나 미검증 action만 남는 문제를 다룹니다. 해결을 위한 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "platform-quality-operations",
+    "subdomains": [
+      "incident-response-postmortem"
+    ]
+  },
+  "domain_tags": [
+    "incident",
+    "response",
+    "postmortem",
+    "learning",
+    "operations"
+  ],
+  "capabilities": [
+    "봉인된 장애 tabletop에서 역할·상태·결정·통신·복구를 수행하고 evidence 기반 postmortem과 검증 가능한 action을 작성합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.platform-quality-operations.incident-response-postmortem-learning.d0",
+        "statement": "service incident, security incident, problem·root cause와 contingency recovery를 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.platform-quality-operations.incident-response-postmortem-learning.d3",
+        "statement": "봉인된 장애 tabletop에서 역할·상태·결정·통신·복구를 수행하고 evidence 기반 postmortem과 검증 가능한 action을 작성합니다.",
+        "target_level": "D3"
+      }
+    ],
+    "default_target_level": "D3",
+    "maximum_scope_level": "D3",
+    "estimated_minutes": 180,
+    "scope_expansion_policy": "local simulator·synthetic telemetry·sealed fixture·bounded load와 삭제 가능한 sandbox로 제한하며 실제 production·cloud 권한·고객·개인정보·결제·외부 장애·법적 통제는 제외합니다. 평가별 봉인 safety manifest에 wall_clock_timeout_seconds≤300, max_requests≤10000, max_concurrency≤16, max_retries_per_request≤2, max_fault_injections≤10, max_fixture_bytes≤10485760, record형 입력은 추가로 max_records≤10000, actual_spend=0, allowed_targets=loopback·새 임시 sandbox, abort trigger와 rollback·restore·cleanup invariant를 기록하고 runner가 위반 즉시 중단해야 합니다. 실제 조직의 severity·법무·홍보·규제 통신과 on-call 권한은 검증하지 않았습니다."
+  },
+  "relations": [
+    {
+      "type": "prerequisite",
+      "target": {
+        "id": "unit.platform-quality-operations.service-observability-telemetry-contract",
+        "version": "1.0.0"
+      },
+      "note": "이 후보의 필수 산출물·판정 Gate를 직접 입력으로 사용합니다.",
+      "required_level": "D3"
+    },
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.platform-quality-operations.sli-slo-error-budget-alerting",
+        "version": "1.0.0"
+      },
+      "note": "위험등급과 적용 가능성에 따라 선행하면 검증 범위를 강화하며 생략 시 N/A 근거가 필요합니다."
+    },
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.software.reproducible-debugging-fault-isolation",
+        "version": "1.0.0"
+      },
+      "note": "기존 정규 Unit의 공통 구현·검증 primitive를 재사용하고 플랫폼 운영 소유 경계를 중복하지 않습니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.platform-quality-operations.incident-response-postmortem-learning.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": false,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference와 prebuilt local simulator·합성 fixture 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "platform-quality-operations-incident-response-postmortem-learning-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.platform-quality-operations.incident-response-postmortem-learning.d0",
+          "outcome.platform-quality-operations.incident-response-postmortem-learning.d3"
+        ],
+        "required": true,
+        "success_criteria": [
+          "incident lifecycle과 지휘·기술·통신 역할, 사실·가설·결정·미해결 위험을 구분합니다. 봉인된 사례 분류표를 answer key와 대조해 핵심 오개념이 0건이어야 합니다.",
+          "사람 tabletop은 봉인 exercise_duration_minutes≤90과 max_event_steps≤24로 제한하고 제출 artifact 검사와 각 simulator 실행만 wall_clock_timeout_seconds≤300을 적용합니다. 치명 신호 누락·무소유 결정·모순 상태·handoff 손실·미검증 종료가 각각 0건이고 모든 action에 owner·기한·검증방법이 있어야 합니다. 평가별 봉인 safety manifest에 wall_clock_timeout_seconds≤300, max_requests≤10000, max_concurrency≤16, max_retries_per_request≤2, max_fault_injections≤10, max_fixture_bytes≤10485760, record형 입력은 추가로 max_records≤10000, actual_spend=0, allowed_targets=loopback·새 임시 sandbox, abort trigger와 rollback·restore·cleanup invariant를 기록하고 runner가 위반 즉시 중단해야 합니다.",
+          "실제 production·운영계정·개인정보·결제·외부 변경 없이 local·합성 fixture에서 평가하며 보안·법무·재무 전문판정은 소유하지 않습니다.",
+          "실행 전에 봉인 safety manifest와 answer key를 고정하고 실제 실행 기록·최종 상태·cleanup 결과를 대조합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Incident Response Recommendations and Considerations for Cybersecurity Risk Management: A CSF 2.0 Community Profile",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_source",
+      "url": "https://doi.org/10.6028/NIST.SP.800-61r3",
+      "source_version": "NIST SP 800-61 Rev. 3",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "Incident Response",
+      "publisher": "Google Site Reliability Engineering",
+      "source_type": "official_source",
+      "url": "https://sre.google/workbook/incident-response/",
+      "source_version": "The Site Reliability Workbook (2018), Chapter 9",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "Postmortem Culture: Learning from Failure",
+      "publisher": "Google Site Reliability Engineering",
+      "source_type": "official_source",
+      "url": "https://sre.google/workbook/postmortem-culture/",
+      "source_version": "The Site Reliability Workbook (2018), Chapter 10",
+      "checked_at": "2026-07-30"
+    }
+  ],
+  "potential_impact_types": [
+    "time",
+    "quality",
+    "risk_reduction",
+    "experience"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "candidate.platform-quality-operations.incident-response-postmortem-learning@1.0.0의 승인 결과를 정규 Unit 메타데이터로 등록했습니다. 예상 시간은 prebuilt local fixture 가설이며 실제 production 적합성·상세 교재·파일럿과 학습효과는 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.platform-quality-operations.incident-response-postmortem-learning",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.platform-quality-operations.breadth-a",
+      "promoted_at": "2026-07-30"
+    },
+    "evidence_claims": [
+      {
+        "id": "evidence.platform-quality-operations.shared.nist-incident",
+        "title": "Incident Response Recommendations and Considerations for Cybersecurity Risk Management: A CSF 2.0 Community Profile",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "official_source",
+        "url": "https://doi.org/10.6028/NIST.SP.800-61r3",
+        "source_version": "NIST SP 800-61 Rev. 3",
+        "checked_at": "2026-07-30",
+        "claim_scope": "incident 준비·탐지·대응·복구를 위험관리 전반에 통합하는 범위를 지지하며 법적 신고나 보안 전문판정을 이 Unit이 소유하게 하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ],
+        "published_at": "2025-04-03"
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.sre-incident",
+        "title": "Incident Response",
+        "publisher": "Google Site Reliability Engineering",
+        "source_type": "practitioner_primary",
+        "url": "https://sre.google/workbook/incident-response/",
+        "source_version": "The Site Reliability Workbook (2018), Chapter 9",
+        "checked_at": "2026-07-30",
+        "claim_scope": "incident 지휘·역할·상태문서·통신과 bounded exercise의 실무 범위를 지지하며 실제 on-call 결과로 일반화하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ],
+        "published_at": "2018-07-23"
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.sre-postmortem",
+        "title": "Postmortem Culture: Learning from Failure",
+        "publisher": "Google Site Reliability Engineering",
+        "source_type": "practitioner_primary",
+        "url": "https://sre.google/workbook/postmortem-culture/",
+        "source_version": "The Site Reliability Workbook (2018), Chapter 10",
+        "checked_at": "2026-07-30",
+        "claim_scope": "비난보다 사건 timeline·contributing factors·action owner·후속 검증을 중심으로 한 사후학습 범위를 지지합니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ],
+        "published_at": "2018-07-23"
+      }
+    ],
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.software.reproducible-debugging-fault-isolation",
+        "version": "1.0.0"
+      }
+    ]
+  }
+}

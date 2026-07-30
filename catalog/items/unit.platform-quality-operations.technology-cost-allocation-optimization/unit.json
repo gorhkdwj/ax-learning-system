@@ -1,0 +1,281 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.platform-quality-operations.technology-cost-allocation-optimization",
+  "version": "1.0.0",
+  "title": "기술비용 할당·이상·최적화",
+  "summary": "청구 총액만 보고 제품·환경·owner·사용량·unit economics를 연결하지 못해 비용 이상과 최적화 효과를 검증하지 못하는 문제를 다룹니다. 해결을 위한 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "platform-quality-operations",
+    "subdomains": [
+      "technology-cost-finops"
+    ]
+  },
+  "domain_tags": [
+    "technology",
+    "cost",
+    "allocation",
+    "optimization",
+    "operations"
+  ],
+  "capabilities": [
+    "합성 cost·usage fixture를 owner·product·environment에 할당하고 이상·forecast·최적화 후보의 품질과 trade-off를 검증합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.platform-quality-operations.technology-cost-allocation-optimization.d0",
+        "statement": "청구액, 사용량, 할당, unit cost, budget·forecast·anomaly와 업무가치를 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.platform-quality-operations.technology-cost-allocation-optimization.d2",
+        "statement": "합성 cost·usage fixture를 owner·product·environment에 할당하고 이상·forecast·최적화 후보의 품질과 trade-off를 검증합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "local simulator·synthetic telemetry·sealed fixture·bounded load와 삭제 가능한 sandbox로 제한하며 실제 production·cloud 권한·고객·개인정보·결제·외부 장애·법적 통제는 제외합니다. 평가별 봉인 safety manifest에 wall_clock_timeout_seconds≤300, max_requests≤10000, max_concurrency≤16, max_retries_per_request≤2, max_fault_injections≤10, max_fixture_bytes≤10485760, record형 입력은 추가로 max_records≤10000, actual_spend=0, allowed_targets=loopback·새 임시 sandbox, abort trigger와 rollback·restore·cleanup invariant를 기록하고 runner가 위반 즉시 중단해야 합니다. 실제 provider 할인·계약·회계정책과 조직별 unit economics는 검증하지 않았습니다."
+  },
+  "relations": [
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.platform-quality-operations.service-observability-telemetry-contract",
+        "version": "1.0.0"
+      },
+      "note": "산출물의 신뢰성·성능·비용 trade-off를 함께 검토하지만 서로의 소유 경계를 대신하지 않습니다."
+    },
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.data-analytics-ml.analytical-model-metric-semantics",
+        "version": "1.0.0"
+      },
+      "note": "기존 정규 Unit의 공통 구현·검증 primitive를 재사용하고 플랫폼 운영 소유 경계를 중복하지 않습니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.platform-quality-operations.technology-cost-allocation-optimization.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": false,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference와 prebuilt local simulator·합성 fixture 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "platform-quality-operations-technology-cost-allocation-optimization-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.platform-quality-operations.technology-cost-allocation-optimization.d0",
+          "outcome.platform-quality-operations.technology-cost-allocation-optimization.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "shared cost와 allocation rule이 의사결정·책임·unit economics에 미치는 영향을 설명합니다. 봉인된 사례 분류표를 answer key와 대조해 핵심 오개념이 0건이어야 합니다.",
+          "합성 cost·usage fixture에서 미할당·이중할당·합계 불일치가 각각 0건이고 봉인 이상·forecast·최적화 후보가 정답과 일치해야 합니다. actual_spend=0이며 성능·신뢰성 guardrail을 위반하는 최적화는 기각해야 합니다. 평가별 봉인 safety manifest에 wall_clock_timeout_seconds≤300, max_requests≤10000, max_concurrency≤16, max_retries_per_request≤2, max_fault_injections≤10, max_fixture_bytes≤10485760, record형 입력은 추가로 max_records≤10000, actual_spend=0, allowed_targets=loopback·새 임시 sandbox, abort trigger와 rollback·restore·cleanup invariant를 기록하고 runner가 위반 즉시 중단해야 합니다.",
+          "실제 production·운영계정·개인정보·결제·외부 변경 없이 local·합성 fixture에서 평가하며 보안·법무·재무 전문판정은 소유하지 않습니다.",
+          "실행 전에 봉인 safety manifest와 answer key를 고정하고 실제 실행 기록·최종 상태·cleanup 결과를 대조합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "FinOps Framework",
+      "publisher": "FinOps Foundation",
+      "source_type": "official_docs",
+      "url": "https://www.finops.org/framework/",
+      "source_version": "FinOps Framework 2026",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "Allocation",
+      "publisher": "FinOps Foundation",
+      "source_type": "official_docs",
+      "url": "https://www.finops.org/framework/capabilities/allocation/",
+      "source_version": "FinOps Framework 2026",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "Usage Optimization",
+      "publisher": "FinOps Foundation",
+      "source_type": "official_docs",
+      "url": "https://www.finops.org/framework/capabilities/usage-optimization/",
+      "source_version": "FinOps Framework 2026",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "Forecasting",
+      "publisher": "FinOps Foundation",
+      "source_type": "official_docs",
+      "url": "https://www.finops.org/framework/capabilities/forecasting/",
+      "source_version": "FinOps Framework 2026",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "Anomaly Management",
+      "publisher": "FinOps Foundation",
+      "source_type": "official_docs",
+      "url": "https://www.finops.org/framework/capabilities/anomaly-management/",
+      "source_version": "FinOps Framework 2026",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "FinOps Open Cost and Usage Specification",
+      "publisher": "FOCUS Project, Joint Development Foundation",
+      "source_type": "official_spec",
+      "url": "https://focus.finops.org/focus-specification/",
+      "source_version": "FOCUS 1.4, ratified 2026-06-04",
+      "checked_at": "2026-07-30"
+    }
+  ],
+  "potential_impact_types": [
+    "cost",
+    "quality",
+    "risk_reduction",
+    "strategic_option"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "candidate.platform-quality-operations.technology-cost-allocation-optimization@1.0.0의 승인 결과를 정규 Unit 메타데이터로 등록했습니다. 예상 시간은 prebuilt local fixture 가설이며 실제 production 적합성·상세 교재·파일럿과 학습효과는 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.platform-quality-operations.technology-cost-allocation-optimization",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.platform-quality-operations.breadth-a",
+      "promoted_at": "2026-07-30"
+    },
+    "evidence_claims": [
+      {
+        "id": "evidence.platform-quality-operations.shared.finops",
+        "title": "FinOps Framework",
+        "publisher": "FinOps Foundation",
+        "source_type": "official_docs",
+        "url": "https://www.finops.org/framework/",
+        "source_version": "FinOps Framework 2026",
+        "checked_at": "2026-07-30",
+        "claim_scope": "기술 사용량·비용·업무가치를 engineering·finance·business가 협업해 이해·정량화·최적화·운영하는 범위를 지지합니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.finops-allocation",
+        "title": "Allocation",
+        "publisher": "FinOps Foundation",
+        "source_type": "official_docs",
+        "url": "https://www.finops.org/framework/capabilities/allocation/",
+        "source_version": "FinOps Framework 2026",
+        "checked_at": "2026-07-30",
+        "claim_scope": "account·tag·label·derived metadata로 비용과 사용량을 책임 단위에 배분하고 shared cost를 문서화·검증하는 범위를 지지합니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.finops-optimization",
+        "title": "Usage Optimization",
+        "publisher": "FinOps Foundation",
+        "source_type": "official_docs",
+        "url": "https://www.finops.org/framework/capabilities/usage-optimization/",
+        "source_version": "FinOps Framework 2026",
+        "checked_at": "2026-07-30",
+        "claim_scope": "수요·사용량·비용 데이터를 바탕으로 낭비·이상·최적화 후보와 실행 전후 효과를 검토하는 범위를 지지하며 구매·예약 변경을 요구하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.finops-forecasting",
+        "title": "Forecasting",
+        "publisher": "FinOps Foundation",
+        "source_type": "official_docs",
+        "url": "https://www.finops.org/framework/capabilities/forecasting/",
+        "source_version": "FinOps Framework 2026",
+        "checked_at": "2026-07-30",
+        "claim_scope": "과거 사용·비용과 계획된 변화를 바탕으로 예측을 만들고 실제와 비교·교정하는 범위를 지지하며 실제 예산 승인을 대신하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.finops-anomaly",
+        "title": "Anomaly Management",
+        "publisher": "FinOps Foundation",
+        "source_type": "official_docs",
+        "url": "https://www.finops.org/framework/capabilities/anomaly-management/",
+        "source_version": "FinOps Framework 2026",
+        "checked_at": "2026-07-30",
+        "claim_scope": "예상 사용·비용과 다른 이상을 탐지·분류·대응하는 범위를 지지하며 특정 임계값을 보편 기준으로 만들지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.focus",
+        "title": "FinOps Open Cost and Usage Specification",
+        "publisher": "FOCUS Project, Joint Development Foundation",
+        "source_type": "official_spec",
+        "url": "https://focus.finops.org/focus-specification/",
+        "source_version": "FOCUS 1.4, ratified 2026-06-04",
+        "checked_at": "2026-07-30",
+        "claim_scope": "vendor-neutral 기술비용·사용량·청구 데이터의 필드와 합계 조정 계약을 지지하며 공급자별 회계정책을 대신하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ],
+        "published_at": "2026-06-04"
+      }
+    ],
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.data-analytics-ml.analytical-model-metric-semantics",
+        "version": "1.0.0"
+      }
+    ]
+  }
+}

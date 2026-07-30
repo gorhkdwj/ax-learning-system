@@ -1,0 +1,276 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.platform-quality-operations.service-production-readiness-lifecycle",
+  "version": "1.0.0",
+  "title": "서비스 운영준비·수명주기 전환",
+  "canonical_name": "Service production readiness and lifecycle transition",
+  "aliases": [],
+  "summary": "기능 완료만으로 운영 준비를 간주하여 소유권, 의존성, SLO, 관측성, 배포, 사고, 복구, 용량, 비용과 유지보수 증거가 분리되는 문제를 다룹니다. 해결을 위한 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "기능 완료만으로 운영 준비를 간주하여 소유권, 의존성, SLO, 관측성, 배포, 사고, 복구, 용량, 비용과 유지보수 증거가 분리되는 문제를 다룹니다.",
+    "includes": [
+      "위험 기반 운영준비 packet과 필수 증거 연결",
+      "소유자·지원·의존성·runbook·출시 승인 조건",
+      "유지보수·toil inventory·지원 종료·폐기까지의 수명주기 전환"
+    ],
+    "excludes": [
+      "조직 인력 배치와 실제 당직 운영의 승인",
+      "실제 운영 환경 출시 승인",
+      "법무·보안 최종 승인과 규제 적합성 보증"
+    ],
+    "boundary_note": "실제 production·운영계정·개인정보·결제·외부 변경 없이 local·합성 fixture에서 평가하며 보안·법무·재무 전문판정은 소유하지 않습니다."
+  },
+  "discovery": {
+    "lens_id": "platform-quality-operations",
+    "basis": "assigned_lens",
+    "notes": "공식·표준·1차 근거와 기존 Candidate·Unit·Set을 교차검토하고 역할 반전·인접 경계·누락 패스를 수행했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "platform-quality-operations",
+    "subdomains": [
+      "production-readiness-service-lifecycle"
+    ],
+    "tags": [
+      "service",
+      "production",
+      "readiness",
+      "lifecycle",
+      "operations"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "workflow",
+    "proposed_destination": "set_candidate",
+    "rationale": "둘 이상의 기술·업무 맥락으로 전이되는 관찰 가능한 D3 산출물과 검증 Gate가 있습니다.",
+    "proposed_set_id": "set.project.service-production-readiness-lifecycle"
+  },
+  "relations": [
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.platform-quality-operations.safe-release-deployment-rollback",
+        "version": "1.0.0"
+      },
+      "rationale": "이 후보의 필수 산출물·판정 Gate를 직접 입력으로 사용합니다."
+    },
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.platform-quality-operations.service-observability-telemetry-contract",
+        "version": "1.0.0"
+      },
+      "rationale": "이 후보의 필수 산출물·판정 Gate를 직접 입력으로 사용합니다."
+    },
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.platform-quality-operations.sli-slo-error-budget-alerting",
+        "version": "1.0.0"
+      },
+      "rationale": "이 후보의 필수 산출물·판정 Gate를 직접 입력으로 사용합니다."
+    },
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.platform-quality-operations.incident-response-postmortem-learning",
+        "version": "1.0.0"
+      },
+      "rationale": "이 후보의 필수 산출물·판정 Gate를 직접 입력으로 사용합니다."
+    },
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.platform-quality-operations.backup-restore-disaster-recovery",
+        "version": "1.0.0"
+      },
+      "rationale": "위험등급과 적용 가능성에 따라 선행하면 검증 범위를 강화하며 생략 시 N/A 근거가 필요합니다."
+    },
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.platform-quality-operations.performance-capacity-overload-protection",
+        "version": "1.0.0"
+      },
+      "rationale": "위험등급과 적용 가능성에 따라 선행하면 검증 범위를 강화하며 생략 시 N/A 근거가 필요합니다."
+    },
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.platform-quality-operations.technology-cost-allocation-optimization",
+        "version": "1.0.0"
+      },
+      "rationale": "위험등급과 적용 가능성에 따라 선행하면 검증 범위를 강화하며 생략 시 N/A 근거가 필요합니다."
+    },
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.platform-quality-operations.declarative-environment-drift-reconciliation",
+        "version": "1.0.0"
+      },
+      "rationale": "위험등급과 적용 가능성에 따라 선행하면 검증 범위를 강화하며 생략 시 N/A 근거가 필요합니다."
+    },
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.platform-quality-operations.resilience-failure-mode-experimentation",
+        "version": "1.0.0"
+      },
+      "rationale": "위험등급과 적용 가능성에 따라 선행하면 검증 범위를 강화하며 생략 시 N/A 근거가 필요합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "합성 서비스의 운영준비 packet과 toil·EOL inventory를 구성하고 연결된 Unit의 drill 결과를 추적하여 출시·유지·폐기 결정을 설명합니다.",
+    "work_contexts": [
+      "서비스·플랫폼 운영",
+      "배포·관측·신뢰성 개선",
+      "운영 품질 검증"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "comparison_required",
+    "agent_fit_rationale": "AI는 초안·분류·비교를 보조할 수 있지만 권한·최종 상태·사용자 영향·복구·비용 evidence는 결정적 검사와 인간 책임으로 검증해야 합니다."
+  },
+  "outcomes": {
+    "target_level": "D3",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "기능 완료, release ready, production ready와 운영 수명주기 완료의 차이를 구분합니다.",
+        "evidence_hypothesis": "서비스 위험에 따라 필요한 소유권·의존성·SLO·관측성·배포·사고·복구·용량·비용 증거를 분류합니다. 봉인된 사례 분류표를 answer key와 대조해 핵심 오개념이 0건이어야 합니다."
+      },
+      {
+        "level": "D3",
+        "outcome": "합성 서비스의 운영준비 packet과 toil·EOL inventory를 구성하고 연결된 Unit의 drill 결과를 추적하여 출시·유지·폐기 결정을 설명합니다.",
+        "evidence_hypothesis": "봉인 rubric에서 필수 owner 없음, 필수 evidence 누락, rollback·restore 실패 또는 safety 상한 위반을 blocking_readiness_defect로 정의합니다. 이 결함이 있으면 ready가 될 수 없고 결과는 ready·conditional·not-ready·retire 결정표와 일치해야 합니다. 평가별 봉인 safety manifest에 wall_clock_timeout_seconds≤300, max_requests≤10000, max_concurrency≤16, max_retries_per_request≤2, max_fault_injections≤10, max_fixture_bytes≤10485760, record형 입력은 추가로 max_records≤10000, actual_spend=0, allowed_targets=loopback·새 임시 sandbox, abort trigger와 rollback·restore·cleanup invariant를 기록하고 runner가 위반 즉시 중단해야 합니다."
+      }
+    ],
+    "depth_boundary": "local simulator·synthetic telemetry·sealed fixture·bounded load와 삭제 가능한 sandbox로 제한하며 실제 production·cloud 권한·고객·개인정보·결제·외부 장애·법적 통제는 제외합니다. 평가별 봉인 safety manifest에 wall_clock_timeout_seconds≤300, max_requests≤10000, max_concurrency≤16, max_retries_per_request≤2, max_fault_injections≤10, max_fixture_bytes≤10485760, record형 입력은 추가로 max_records≤10000, actual_spend=0, allowed_targets=loopback·새 임시 sandbox, abort trigger와 rollback·restore·cleanup invariant를 기록하고 runner가 위반 즉시 중단해야 합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "risk_reduction",
+      "prerequisite_value",
+      "strategic_option"
+    ],
+    "business_hypotheses": [
+      "위험 기반 운영준비 증거와 결정표는 근거 없는 출시, 지원 종료 누락과 수명주기 운영부채를 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "core",
+    "priority_hint": "next",
+    "measurement_hypothesis": "봉인 rubric에서 필수 owner 없음, 필수 evidence 누락, rollback·restore 실패 또는 safety 상한 위반을 blocking_readiness_defect로 정의합니다. 이 결함이 있으면 ready가 될 수 없고 결과는 ready·conditional·not-ready·retire 결정표와 일치해야 합니다. 평가별 봉인 safety manifest에 wall_clock_timeout_seconds≤300, max_requests≤10000, max_concurrency≤16, max_retries_per_request≤2, max_fault_injections≤10, max_fixture_bytes≤10485760, record형 입력은 추가로 max_records≤10000, actual_spend=0, allowed_targets=loopback·새 임시 sandbox, abort trigger와 rollback·restore·cleanup invariant를 기록하고 runner가 위반 즉시 중단해야 합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "permissions",
+      "cost",
+      "accessibility",
+      "observability",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "실제 보안·개인정보·법률·재무·고위험 승인 내용은 다음 전문 package와 조직 정책이 소유하며 이번 후보는 주어진 계약을 local fixture에 적용합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.platform-quality-operations.shared.sre-launch",
+      "title": "Reliable Product Launches at Scale",
+      "publisher": "Google Site Reliability Engineering",
+      "source_type": "practitioner_primary",
+      "url": "https://sre.google/sre-book/reliable-product-launches/",
+      "source_version": "Site Reliability Engineering (2016), Chapter 27",
+      "checked_at": "2026-07-30",
+      "claim_scope": "운영준비 checklist·capacity·rollback·ownership·문서의 지속 관리 범위를 지지하며 Google 조직과 launch 규모를 보편화하지 않습니다.",
+      "supports": [
+        "definition",
+        "learning_outcome",
+        "work_relevance"
+      ],
+      "published_at": "2016-03-23"
+    },
+    {
+      "id": "evidence.platform-quality-operations.shared.sre-toil",
+      "title": "Eliminating Toil",
+      "publisher": "Google Site Reliability Engineering",
+      "source_type": "practitioner_primary",
+      "url": "https://sre.google/sre-book/eliminating-toil/",
+      "source_version": "Site Reliability Engineering (2016), Chapter 5",
+      "checked_at": "2026-07-30",
+      "claim_scope": "manual·repetitive·automatable·tactical·지속가치 없음·서비스 성장에 선형인 toil의 정의와 engineering 개선 범위를 지지합니다.",
+      "supports": [
+        "definition",
+        "learning_outcome",
+        "work_relevance"
+      ],
+      "published_at": "2016-03-23"
+    },
+    {
+      "id": "evidence.platform-quality-operations.shared.cncf-platform-maturity",
+      "title": "Platform Engineering Maturity Model",
+      "publisher": "Cloud Native Computing Foundation TAG App Delivery",
+      "source_type": "official_docs",
+      "url": "https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/",
+      "source_version": "CNCF Platform Engineering Maturity Model",
+      "checked_at": "2026-07-30",
+      "claim_scope": "내부 플랫폼 capability의 upgrade·유지보수·deprecation·termination과 EOL 추적을 지지합니다. 일반 서비스 수명주기로의 적용은 전이 가설이며 특정 maturity level을 보편 목표로 만들지 않습니다.",
+      "supports": [
+        "definition",
+        "learning_outcome",
+        "work_relevance"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "high",
+    "rationale": "독립 근거·taxonomy·실용성 전수감사와 교정 후 재감사에서 P0·P1 0건을 확인해 정규 승격 대상으로 승인했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-03",
+    "work_package_id": "wp.platform-quality-operations.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-30",
+    "reviewers": [
+      "codex-platform-evidence-audit",
+      "codex-platform-taxonomy-audit",
+      "codex-platform-practicality-audit",
+      "codex-main-review"
+    ],
+    "known_unknowns": [
+      "실제 조직의 소유권·당직·법무·보안 승인과 운영 환경의 출시 적합성은 별도 검토가 필요합니다. CNCF 내부 플랫폼 lifecycle을 일반 서비스에 적용하는 범위는 전이 가설이며 실제 서비스 portfolio에서 검증하지 않았습니다."
+    ],
+    "next_action": "set.project.service-production-readiness-lifecycle@1.0.0으로 승격하고 정규 산출물의 독립 재검수를 완료했습니다. cataloged는 상세 교재·fixture·파일럿·학습효과 검증 완료를 뜻하지 않으며 후속 구현·검증이 필요합니다."
+  },
+  "extensions": {
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.software.requirements-acceptance-traceability",
+        "version": "1.0.0"
+      },
+      {
+        "kind": "unit",
+        "id": "unit.software.layered-verification-testing",
+        "version": "1.0.0"
+      },
+      {
+        "kind": "unit",
+        "id": "unit.software.build-dependency-reproducibility",
+        "version": "1.0.0"
+      }
+    ]
+  }
+}

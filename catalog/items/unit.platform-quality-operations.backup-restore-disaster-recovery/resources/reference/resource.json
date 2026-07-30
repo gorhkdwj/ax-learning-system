@@ -1,0 +1,143 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.platform-quality-operations.backup-restore-disaster-recovery.reference",
+  "version": "1.0.0",
+  "title": "백업·복원·재해복구 검증 공식·표준·1차 출처 Reference",
+  "description": "정규 Unit의 정의·범위와 판정 기준을 뒷받침하는 공개 Reference입니다. 상세 교재나 독립 평가자료를 대신하지 않습니다.",
+  "resource_type": "external_reference",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.platform-quality-operations.backup-restore-disaster-recovery",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "external",
+    "url": "https://doi.org/10.6028/NIST.SP.800-34r1"
+  },
+  "learning_outcome_ids": [
+    "outcome.platform-quality-operations.backup-restore-disaster-recovery.d0",
+    "outcome.platform-quality-operations.backup-restore-disaster-recovery.d3"
+  ],
+  "estimated_minutes": 30,
+  "language": "en",
+  "tags": [
+    "reference",
+    "promotion-evidence",
+    "platform-quality-operations"
+  ],
+  "requirements": {
+    "platforms": [
+      "web-browser"
+    ],
+    "network_required": true
+  },
+  "provenance": {
+    "origin": "external",
+    "sources": [
+      {
+        "title": "Contingency Planning Guide for Federal Information Systems",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "official_source",
+        "url": "https://doi.org/10.6028/NIST.SP.800-34r1",
+        "source_version": "NIST SP 800-34 Rev. 1, updated 2010-11-11",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "Guide for Cybersecurity Event Recovery",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "official_source",
+        "url": "https://csrc.nist.gov/pubs/sp/800/184/final",
+        "source_version": "NIST SP 800-184",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "Incident Response Recommendations and Considerations for Cybersecurity Risk Management: A CSF 2.0 Community Profile",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "official_source",
+        "url": "https://doi.org/10.6028/NIST.SP.800-61r3",
+        "source_version": "NIST SP 800-61 Rev. 3",
+        "checked_at": "2026-07-30"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "unverified",
+    "standard": "WCAG 2.2 AA",
+    "features": [],
+    "alternative_resource_refs": [],
+    "note": "외부 출처의 접근성은 재검토가 필요합니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-07-30",
+    "commands": [],
+    "expected_outputs": [
+      "출처가 Unit의 정의·범위·판정 기준과 일반화 제한을 뒷받침하는지 확인한 기록"
+    ],
+    "evidence_paths": [],
+    "note": "URL·버전·근거 범위를 독립 재검토했으며 상세 학습자료의 완전성·접근성·평가 타당성과 학습효과는 검증하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "Candidate 승격 시 등록한 공개 Reference입니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.platform-quality-operations.backup-restore-disaster-recovery",
+      "version": "1.0.0"
+    },
+    "promotion_reviewed_at": "2026-07-30",
+    "evidence_claims": [
+      {
+        "id": "evidence.platform-quality-operations.shared.nist-contingency",
+        "title": "Contingency Planning Guide for Federal Information Systems",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "official_source",
+        "url": "https://doi.org/10.6028/NIST.SP.800-34r1",
+        "source_version": "NIST SP 800-34 Rev. 1, updated 2010-11-11",
+        "checked_at": "2026-07-30",
+        "claim_scope": "BIA·RTO·RPO·backup·alternate processing·restore test와 contingency lifecycle을 지지하며 연방 규정 준수 판정으로 사용하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ],
+        "published_at": "2010-05-31"
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.nist-recovery",
+        "title": "Guide for Cybersecurity Event Recovery",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "official_source",
+        "url": "https://csrc.nist.gov/pubs/sp/800/184/final",
+        "source_version": "NIST SP 800-184",
+        "checked_at": "2026-07-30",
+        "claim_scope": "cybersecurity event의 복구 계획·실행·개선과 recovered asset 무결성 확인 범위를 보조적으로 지지하며 일반 서비스 연속성이나 법적 의무 판정으로 일반화하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ],
+        "published_at": "2016-12-22"
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.nist-incident",
+        "title": "Incident Response Recommendations and Considerations for Cybersecurity Risk Management: A CSF 2.0 Community Profile",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "official_source",
+        "url": "https://doi.org/10.6028/NIST.SP.800-61r3",
+        "source_version": "NIST SP 800-61 Rev. 3",
+        "checked_at": "2026-07-30",
+        "claim_scope": "incident 준비·탐지·대응·복구를 위험관리 전반에 통합하는 범위를 지지하며 법적 신고나 보안 전문판정을 이 Unit이 소유하게 하지 않습니다.",
+        "supports": [
+          "work_relevance"
+        ],
+        "published_at": "2025-04-03"
+      }
+    ]
+  }
+}

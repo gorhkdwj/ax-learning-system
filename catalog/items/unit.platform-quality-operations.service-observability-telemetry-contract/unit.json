@@ -1,0 +1,241 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.platform-quality-operations.service-observability-telemetry-contract",
+  "version": "1.0.0",
+  "title": "서비스 관측성·텔레메트리 계약",
+  "summary": "logs·metrics·traces가 생성되어도 identity·time·correlation·semantic contract가 없어 사용자 영향과 원인을 연결하지 못하는 문제를 다룹니다. 해결을 위한 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "platform-quality-operations",
+    "subdomains": [
+      "service-observability-telemetry"
+    ]
+  },
+  "domain_tags": [
+    "service",
+    "observability",
+    "telemetry",
+    "contract",
+    "operations"
+  ],
+  "capabilities": [
+    "local multi-service fixture에 표준화된 telemetry를 계측하고 오류·지연·배포를 correlation해 누락·오표기·민감값을 검증합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.platform-quality-operations.service-observability-telemetry-contract.d0",
+        "statement": "signal 생성, telemetry 수집, observability와 사용자 영향 판정을 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.platform-quality-operations.service-observability-telemetry-contract.d3",
+        "statement": "local multi-service fixture에 표준화된 telemetry를 계측하고 오류·지연·배포를 correlation해 누락·오표기·민감값을 검증합니다.",
+        "target_level": "D3"
+      }
+    ],
+    "default_target_level": "D3",
+    "maximum_scope_level": "D3",
+    "estimated_minutes": 180,
+    "scope_expansion_policy": "local simulator·synthetic telemetry·sealed fixture·bounded load와 삭제 가능한 sandbox로 제한하며 실제 production·cloud 권한·고객·개인정보·결제·외부 장애·법적 통제는 제외합니다. 평가별 봉인 safety manifest에 wall_clock_timeout_seconds≤300, max_requests≤10000, max_concurrency≤16, max_retries_per_request≤2, max_fault_injections≤10, max_fixture_bytes≤10485760, record형 입력은 추가로 max_records≤10000, actual_spend=0, allowed_targets=loopback·새 임시 sandbox, abort trigger와 rollback·restore·cleanup invariant를 기록하고 runner가 위반 즉시 중단해야 합니다. 실제 규모의 sampling·retention·cardinality 비용과 privacy 정책은 검증하지 않았습니다."
+  },
+  "relations": [
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.data-analytics-ml.data-quality-validation-observability",
+        "version": "1.0.0"
+      },
+      "note": "서비스 telemetry와 데이터 품질 관측은 소유 경계가 다르지만 완전성·정확성·freshness 검사 개념을 공유합니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.integration-automation.automation-outcome-observability-reconciliation",
+        "version": "1.0.0"
+      },
+      "note": "서비스 telemetry와 자동화 결과조정은 소유 경계가 다르지만 correlation·최종 상태 확인 개념을 공유합니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.platform-quality-operations.service-observability-telemetry-contract.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": false,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference와 prebuilt local simulator·합성 fixture 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "platform-quality-operations-service-observability-telemetry-contract-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.platform-quality-operations.service-observability-telemetry-contract.d0",
+          "outcome.platform-quality-operations.service-observability-telemetry-contract.d3"
+        ],
+        "required": true,
+        "success_criteria": [
+          "metric·log·trace·event의 용도와 공통 resource·attribute·correlation 계약을 사례에 맞게 선택합니다. 봉인된 사례 분류표를 answer key와 대조해 핵심 오개념이 0건이어야 합니다.",
+          "봉인 요청 수·attribute별 cardinality·총 telemetry byte 상한을 지키고 exporter 실패·backpressure에서 bounded retry와 예상 drop 수가 일치해야 합니다. 오류 6종의 요청→service→dependency→deployment 상관이 재현되고 synthetic secret canary 검출·비허용 민감값은 0건이며 collector 정상 종료와 cleanup을 확인해야 합니다. 평가별 봉인 safety manifest에 wall_clock_timeout_seconds≤300, max_requests≤10000, max_concurrency≤16, max_retries_per_request≤2, max_fault_injections≤10, max_fixture_bytes≤10485760, record형 입력은 추가로 max_records≤10000, actual_spend=0, allowed_targets=loopback·새 임시 sandbox, abort trigger와 rollback·restore·cleanup invariant를 기록하고 runner가 위반 즉시 중단해야 합니다.",
+          "실제 production·운영계정·개인정보·결제·외부 변경 없이 local·합성 fixture에서 평가하며 보안·법무·재무 전문판정은 소유하지 않습니다.",
+          "실행 전에 봉인 safety manifest와 answer key를 고정하고 실제 실행 기록·최종 상태·cleanup 결과를 대조합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "OpenTelemetry Specification",
+      "publisher": "Cloud Native Computing Foundation",
+      "source_type": "official_spec",
+      "url": "https://opentelemetry.io/docs/specs/otel/",
+      "source_version": "OpenTelemetry Specification 1.59.0",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "OpenTelemetry Semantic Conventions",
+      "publisher": "Cloud Native Computing Foundation",
+      "source_type": "official_spec",
+      "url": "https://opentelemetry.io/docs/specs/semconv/",
+      "source_version": "Semantic Conventions 1.43.0",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "Trace Context",
+      "publisher": "World Wide Web Consortium",
+      "source_type": "standard",
+      "url": "https://www.w3.org/TR/trace-context/",
+      "source_version": "W3C Recommendation 23 November 2021",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "Monitoring Systems with Advanced Analytics",
+      "publisher": "Google Site Reliability Engineering",
+      "source_type": "official_source",
+      "url": "https://sre.google/workbook/monitoring/",
+      "source_version": "The Site Reliability Workbook (2018), Chapter 4",
+      "checked_at": "2026-07-30"
+    }
+  ],
+  "potential_impact_types": [
+    "time",
+    "quality",
+    "risk_reduction",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "candidate.platform-quality-operations.service-observability-telemetry-contract@1.0.0의 승인 결과를 정규 Unit 메타데이터로 등록했습니다. 예상 시간은 prebuilt local fixture 가설이며 실제 production 적합성·상세 교재·파일럿과 학습효과는 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.platform-quality-operations.service-observability-telemetry-contract",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.platform-quality-operations.breadth-a",
+      "promoted_at": "2026-07-30"
+    },
+    "evidence_claims": [
+      {
+        "id": "evidence.platform-quality-operations.shared.otel",
+        "title": "OpenTelemetry Specification",
+        "publisher": "Cloud Native Computing Foundation",
+        "source_type": "official_spec",
+        "url": "https://opentelemetry.io/docs/specs/otel/",
+        "source_version": "OpenTelemetry Specification 1.59.0",
+        "checked_at": "2026-07-30",
+        "claim_scope": "traces·metrics·logs·context·resource·export의 공통 telemetry 계약을 지지하며 관측성 품질이나 사용자 영향 판정을 자동 보장하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.otel-semconv",
+        "title": "OpenTelemetry Semantic Conventions",
+        "publisher": "Cloud Native Computing Foundation",
+        "source_type": "official_spec",
+        "url": "https://opentelemetry.io/docs/specs/semconv/",
+        "source_version": "Semantic Conventions 1.43.0",
+        "checked_at": "2026-07-30",
+        "claim_scope": "signals와 resource의 공통 명칭·속성·단위·의미를 지지하며 모든 convention의 안정상태가 같다고 가정하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.w3c-trace-context",
+        "title": "Trace Context",
+        "publisher": "World Wide Web Consortium",
+        "source_type": "standard",
+        "url": "https://www.w3.org/TR/trace-context/",
+        "source_version": "W3C Recommendation 23 November 2021",
+        "checked_at": "2026-07-30",
+        "claim_scope": "분산 요청의 vendor-neutral trace context 전파 계약을 지지하며 관측성 품질이나 개인정보 적합성을 자동 보장하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ],
+        "published_at": "2021-11-23"
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.sre-monitoring",
+        "title": "Monitoring Systems with Advanced Analytics",
+        "publisher": "Google Site Reliability Engineering",
+        "source_type": "practitioner_primary",
+        "url": "https://sre.google/workbook/monitoring/",
+        "source_version": "The Site Reliability Workbook (2018), Chapter 4",
+        "checked_at": "2026-07-30",
+        "claim_scope": "metrics·structured logs·traces와 사용자 영향 SLI를 연결하는 monitoring 설계 사례를 지지하며 Google 운영규모나 수치를 보편 기준으로 일반화하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ],
+        "published_at": "2018-07-23"
+      }
+    ],
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.data-analytics-ml.data-quality-validation-observability",
+        "version": "1.0.0"
+      },
+      {
+        "kind": "unit",
+        "id": "unit.integration-automation.automation-outcome-observability-reconciliation",
+        "version": "1.0.0"
+      }
+    ]
+  }
+}

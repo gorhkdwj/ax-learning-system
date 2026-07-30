@@ -1,0 +1,244 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.platform-quality-operations.resilience-failure-mode-experimentation",
+  "version": "1.0.0",
+  "title": "복원력 설계·장애실험",
+  "summary": "분산 서비스의 의존성과 장애 영역을 명시하지 않아 부분 장애와 과부하가 연쇄 장애로 확대되는 문제를 다룹니다. 해결을 위한 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "platform-quality-operations",
+    "subdomains": [
+      "resilience-failure-mode-experimentation"
+    ]
+  },
+  "domain_tags": [
+    "resilience",
+    "failure",
+    "mode",
+    "experimentation",
+    "operations"
+  ],
+  "capabilities": [
+    "로컬 다중 서비스 fixture에 제한된 장애를 주입하고 중단·rollback 기준, 저하된 SLO와 정상 복구를 증거로 남깁니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.platform-quality-operations.resilience-failure-mode-experimentation.d0",
+        "statement": "중복성, 고가용성, 복원력, 내결함성과 chaos engineering의 목적과 경계를 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.platform-quality-operations.resilience-failure-mode-experimentation.d3",
+        "statement": "로컬 다중 서비스 fixture에 제한된 장애를 주입하고 중단·rollback 기준, 저하된 SLO와 정상 복구를 증거로 남깁니다.",
+        "target_level": "D3"
+      }
+    ],
+    "default_target_level": "D3",
+    "maximum_scope_level": "D3",
+    "estimated_minutes": 180,
+    "scope_expansion_policy": "local simulator·synthetic telemetry·sealed fixture·bounded load와 삭제 가능한 sandbox로 제한하며 실제 production·cloud 권한·고객·개인정보·결제·외부 장애·법적 통제는 제외합니다. 평가별 봉인 safety manifest에 wall_clock_timeout_seconds≤300, max_requests≤10000, max_concurrency≤16, max_retries_per_request≤2, max_fault_injections≤10, max_fixture_bytes≤10485760, record형 입력은 추가로 max_records≤10000, actual_spend=0, allowed_targets=loopback·새 임시 sandbox, abort trigger와 rollback·restore·cleanup invariant를 기록하고 runner가 위반 즉시 중단해야 합니다. 실제 운영 환경의 영향 범위와 공급자별 장애 특성은 이 로컬 실습으로 검증하지 않습니다."
+  },
+  "relations": [
+    {
+      "type": "prerequisite",
+      "target": {
+        "id": "unit.platform-quality-operations.service-observability-telemetry-contract",
+        "version": "1.0.0"
+      },
+      "note": "이 후보의 필수 산출물·판정 Gate를 직접 입력으로 사용합니다.",
+      "required_level": "D3"
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.platform-quality-operations.sli-slo-error-budget-alerting",
+        "version": "1.0.0"
+      },
+      "note": "산출물의 신뢰성·성능·비용 trade-off를 함께 검토하지만 서로의 소유 경계를 대신하지 않습니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.platform-quality-operations.performance-capacity-overload-protection",
+        "version": "1.0.0"
+      },
+      "note": "산출물의 신뢰성·성능·비용 trade-off를 함께 검토하지만 서로의 소유 경계를 대신하지 않습니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.integration-automation.external-api-consumer-resilience",
+        "version": "1.0.0"
+      },
+      "note": "서비스 복원력과 외부 API 소비 회복성은 소유 경계가 다르지만 timeout·retry·부분실패 개념을 공유합니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.integration-automation.side-effect-idempotency-retry-compensation",
+        "version": "1.0.0"
+      },
+      "note": "복구·장애실험과 부작용 안전성은 소유 경계가 다르지만 중복·부분실패·보상 개념을 공유합니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.platform-quality-operations.resilience-failure-mode-experimentation.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": false,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference와 prebuilt local simulator·합성 fixture 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "platform-quality-operations-resilience-failure-mode-experimentation-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.platform-quality-operations.resilience-failure-mode-experimentation.d0",
+          "outcome.platform-quality-operations.resilience-failure-mode-experimentation.d3"
+        ],
+        "required": true,
+        "success_criteria": [
+          "의존성, 장애 영역, 정상·저하·실패 상태와 복구 목표를 서로 구분해 설명합니다. 봉인된 사례 분류표를 answer key와 대조해 핵심 오개념이 0건이어야 합니다.",
+          "봉인 manifest의 허용 service·요청 수, fault 종류·최대 개수·지속시간, degraded SLO 범위, abort trigger와 retry 상한을 지켜야 합니다. rollback 완료 뒤 정상 상태가 복원되고 queue·retry·잔여 fault가 각각 0건이어야 합니다. 평가별 봉인 safety manifest에 wall_clock_timeout_seconds≤300, max_requests≤10000, max_concurrency≤16, max_retries_per_request≤2, max_fault_injections≤10, max_fixture_bytes≤10485760, record형 입력은 추가로 max_records≤10000, actual_spend=0, allowed_targets=loopback·새 임시 sandbox, abort trigger와 rollback·restore·cleanup invariant를 기록하고 runner가 위반 즉시 중단해야 합니다.",
+          "실제 production·운영계정·개인정보·결제·외부 변경 없이 local·합성 fixture에서 평가하며 보안·법무·재무 전문판정은 소유하지 않습니다.",
+          "실행 전에 봉인 safety manifest와 answer key를 고정하고 실제 실행 기록·최종 상태·cleanup 결과를 대조합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Handling Overload",
+      "publisher": "Google Site Reliability Engineering",
+      "source_type": "official_source",
+      "url": "https://sre.google/sre-book/handling-overload/",
+      "source_version": "Site Reliability Engineering (2016), Chapter 21",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "Testing for Reliability",
+      "publisher": "Google Site Reliability Engineering",
+      "source_type": "official_source",
+      "url": "https://sre.google/sre-book/testing-reliability/",
+      "source_version": "Site Reliability Engineering (2016), Chapter 17",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "Monitoring Systems with Advanced Analytics",
+      "publisher": "Google Site Reliability Engineering",
+      "source_type": "official_source",
+      "url": "https://sre.google/workbook/monitoring/",
+      "source_version": "The Site Reliability Workbook (2018), Chapter 4",
+      "checked_at": "2026-07-30"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "risk_reduction",
+    "capability_unlock",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "candidate.platform-quality-operations.resilience-failure-mode-experimentation@1.0.0의 승인 결과를 정규 Unit 메타데이터로 등록했습니다. 예상 시간은 prebuilt local fixture 가설이며 실제 production 적합성·상세 교재·파일럿과 학습효과는 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.platform-quality-operations.resilience-failure-mode-experimentation",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.platform-quality-operations.breadth-a",
+      "promoted_at": "2026-07-30"
+    },
+    "evidence_claims": [
+      {
+        "id": "evidence.platform-quality-operations.shared.sre-overload",
+        "title": "Handling Overload",
+        "publisher": "Google Site Reliability Engineering",
+        "source_type": "practitioner_primary",
+        "url": "https://sre.google/sre-book/handling-overload/",
+        "source_version": "Site Reliability Engineering (2016), Chapter 21",
+        "checked_at": "2026-07-30",
+        "claim_scope": "resource 기반 용량, quota·throttling·load shedding·bounded retry와 graceful degradation 범위를 지지하며 예시 수치를 보편 임계값으로 사용하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ],
+        "published_at": "2016-03-23"
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.sre-reliability-test",
+        "title": "Testing for Reliability",
+        "publisher": "Google Site Reliability Engineering",
+        "source_type": "practitioner_primary",
+        "url": "https://sre.google/sre-book/testing-reliability/",
+        "source_version": "Site Reliability Engineering (2016), Chapter 17",
+        "checked_at": "2026-07-30",
+        "claim_scope": "전통적·production reliability test, stress·canary·통계적 장애시험과 재현성 한계를 지지합니다. 이번 평가는 local bounded subset에 한정하며 실제 production readiness를 입증하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ],
+        "published_at": "2016-03-23"
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.sre-monitoring",
+        "title": "Monitoring Systems with Advanced Analytics",
+        "publisher": "Google Site Reliability Engineering",
+        "source_type": "practitioner_primary",
+        "url": "https://sre.google/workbook/monitoring/",
+        "source_version": "The Site Reliability Workbook (2018), Chapter 4",
+        "checked_at": "2026-07-30",
+        "claim_scope": "metrics·structured logs·traces와 사용자 영향 SLI를 연결하는 monitoring 설계 사례를 지지하며 Google 운영규모나 수치를 보편 기준으로 일반화하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ],
+        "published_at": "2018-07-23"
+      }
+    ],
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.integration-automation.external-api-consumer-resilience",
+        "version": "1.0.0"
+      },
+      {
+        "kind": "unit",
+        "id": "unit.integration-automation.side-effect-idempotency-retry-compensation",
+        "version": "1.0.0"
+      }
+    ]
+  }
+}

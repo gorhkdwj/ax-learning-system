@@ -1,0 +1,426 @@
+{
+  "schema_version": "1.0.0",
+  "id": "set.project.service-production-readiness-lifecycle",
+  "version": "1.0.0",
+  "title": "서비스 운영준비·수명주기 전환",
+  "summary": "기능 완료만으로 운영 준비를 간주하여 소유권, 의존성, SLO, 관측성, 배포, 사고, 복구, 용량, 비용과 유지보수 증거가 분리되는 문제를 다룹니다. 해결을 위한 정규 프로젝트 Set입니다.",
+  "set_type": "project",
+  "target_roles": [],
+  "business_context": "합성 서비스의 위험등급에 맞춰 플랫폼 운영 Unit의 증거를 조합해 출시·유지·지원 종료·폐기 결정을 연습하는 정규 Set입니다.",
+  "target_outcome": "합성 서비스의 운영준비 packet과 toil·EOL inventory를 구성하고 연결된 Unit의 drill 결과를 추적하여 출시·유지·폐기 결정을 설명합니다.",
+  "input_artifacts": [
+    "합성 서비스 요구·위험등급·소유권·의존성",
+    "봉인 safety manifest와 readiness 결정표",
+    "선택 단계의 봉인 N/A eligibility matrix와 answer key",
+    "toil·patch·EOL·지원 정책 fixture"
+  ],
+  "output_artifacts": [
+    "운영준비 packet과 Unit별 drill 증거",
+    "toil·patch·EOL·지원 종료 inventory",
+    "ready·conditional·not-ready·retire 결정과 근거"
+  ],
+  "entry_requirements": [
+    {
+      "unit": {
+        "id": "unit.software.requirements-acceptance-traceability",
+        "version": "1.0.0"
+      },
+      "required_level": "D2"
+    },
+    {
+      "unit": {
+        "id": "unit.software.layered-verification-testing",
+        "version": "1.0.0"
+      },
+      "required_level": "D2"
+    },
+    {
+      "unit": {
+        "id": "unit.software.build-dependency-reproducibility",
+        "version": "1.0.0"
+      },
+      "required_level": "D2"
+    }
+  ],
+  "priority": {
+    "curriculum_class": "role_core",
+    "execution_priority": "next",
+    "reason": "개별 운영 역량을 위험 기반 서비스 수명주기 결정으로 결합하되 실제 적용 순서는 개인·조직 우선순위 평가 뒤 결정합니다."
+  },
+  "business_impact": {
+    "value_hypothesis": "위험 기반 운영준비 증거와 결정표는 근거 없는 출시, 지원 종료 누락과 수명주기 운영부채를 줄일 가능성이 있습니다.",
+    "impact_types": [
+      "quality",
+      "risk_reduction",
+      "capability_unlock",
+      "strategic_option"
+    ],
+    "evidence_confidence": "hypothesis",
+    "learning_effort_note": "필수 단계 660분 + 선택 단계 0~840분 + packet 통합·결정 평가 120분의 가설이며 상세 fixture로 재검증해야 합니다.",
+    "maintenance_cost_note": "서비스 위험·운영정책·Unit Gate가 바뀌면 readiness rubric과 fixture를 다시 검증해야 합니다."
+  },
+  "steps": [
+    {
+      "id": "instrument-telemetry",
+      "title": "서비스 텔레메트리 계약 검증",
+      "reason": "서비스 위험등급과 적용 가능성에 맞는 정규 Unit의 봉인 평가 증거를 운영준비 packet에 연결합니다.",
+      "unit_ref": {
+        "id": "unit.platform-quality-operations.service-observability-telemetry-contract",
+        "version": "1.0.0"
+      },
+      "required_level": "D3",
+      "required": true,
+      "depends_on": [],
+      "resource_refs": [],
+      "consumes": [
+        "합성 서비스 위험등급·적용 가능성·봉인 safety manifest"
+      ],
+      "produces": [
+        "telemetry 계약·상관·품질 증거"
+      ],
+      "validation_gate_ids": [
+        "platform-quality-operations-service-observability-telemetry-contract-catalog-assessment"
+      ],
+      "context": "생략 불가 필수 단계입니다.",
+      "estimated_minutes": 180
+    },
+    {
+      "id": "define-service-objectives",
+      "title": "SLI·SLO·오류예산 판정",
+      "reason": "서비스 위험등급과 적용 가능성에 맞는 정규 Unit의 봉인 평가 증거를 운영준비 packet에 연결합니다.",
+      "unit_ref": {
+        "id": "unit.platform-quality-operations.sli-slo-error-budget-alerting",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": true,
+      "depends_on": [
+        "instrument-telemetry"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "합성 서비스 위험등급·적용 가능성·봉인 safety manifest"
+      ],
+      "produces": [
+        "사용자 영향 SLI·SLO·오류예산·알림 증거"
+      ],
+      "validation_gate_ids": [
+        "platform-quality-operations-sli-slo-error-budget-alerting-catalog-assessment"
+      ],
+      "context": "생략 불가 필수 단계입니다.",
+      "estimated_minutes": 120
+    },
+    {
+      "id": "verify-safe-release",
+      "title": "안전한 릴리스·롤백 검증",
+      "reason": "서비스 위험등급과 적용 가능성에 맞는 정규 Unit의 봉인 평가 증거를 운영준비 packet에 연결합니다.",
+      "unit_ref": {
+        "id": "unit.platform-quality-operations.safe-release-deployment-rollback",
+        "version": "1.0.0"
+      },
+      "required_level": "D3",
+      "required": true,
+      "depends_on": [
+        "instrument-telemetry",
+        "define-service-objectives"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "합성 서비스 위험등급·적용 가능성·봉인 safety manifest"
+      ],
+      "produces": [
+        "release·중단·rollback·postcondition 증거"
+      ],
+      "validation_gate_ids": [
+        "platform-quality-operations-safe-release-deployment-rollback-catalog-assessment"
+      ],
+      "context": "생략 불가 필수 단계입니다.",
+      "estimated_minutes": 180
+    },
+    {
+      "id": "rehearse-incident-response",
+      "title": "서비스 사고 대응·사후학습",
+      "reason": "서비스 위험등급과 적용 가능성에 맞는 정규 Unit의 봉인 평가 증거를 운영준비 packet에 연결합니다.",
+      "unit_ref": {
+        "id": "unit.platform-quality-operations.incident-response-postmortem-learning",
+        "version": "1.0.0"
+      },
+      "required_level": "D3",
+      "required": true,
+      "depends_on": [
+        "instrument-telemetry",
+        "define-service-objectives"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "합성 서비스 위험등급·적용 가능성·봉인 safety manifest"
+      ],
+      "produces": [
+        "사고 역할·상태·복구·사후조치 증거"
+      ],
+      "validation_gate_ids": [
+        "platform-quality-operations-incident-response-postmortem-learning-catalog-assessment"
+      ],
+      "context": "생략 불가 필수 단계입니다.",
+      "estimated_minutes": 180
+    },
+    {
+      "id": "reconcile-environment",
+      "title": "환경 드리프트·조정 검증",
+      "reason": "서비스 위험등급과 적용 가능성에 맞는 정규 Unit의 봉인 평가 증거를 운영준비 packet에 연결합니다.",
+      "unit_ref": {
+        "id": "unit.platform-quality-operations.declarative-environment-drift-reconciliation",
+        "version": "1.0.0"
+      },
+      "required_level": "D3",
+      "required": false,
+      "depends_on": [
+        "verify-safe-release"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "합성 서비스 위험등급·적용 가능성·봉인 safety manifest"
+      ],
+      "produces": [
+        "desired state·drift·조정·no-op 증거"
+      ],
+      "validation_gate_ids": [
+        "platform-quality-operations-declarative-environment-drift-reconciliation-catalog-assessment"
+      ],
+      "context": "봉인 N/A eligibility matrix가 허용할 때만 생략할 수 있습니다. N/A 레코드에는 step_id·rule_id·위험등급·서비스 특성·비적용 증거를 기록하고 answer key와 대조해야 합니다.",
+      "estimated_minutes": 180
+    },
+    {
+      "id": "verify-restore",
+      "title": "백업·복원·재해복구 검증",
+      "reason": "서비스 위험등급과 적용 가능성에 맞는 정규 Unit의 봉인 평가 증거를 운영준비 packet에 연결합니다.",
+      "unit_ref": {
+        "id": "unit.platform-quality-operations.backup-restore-disaster-recovery",
+        "version": "1.0.0"
+      },
+      "required_level": "D3",
+      "required": false,
+      "depends_on": [
+        "rehearse-incident-response"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "합성 서비스 위험등급·적용 가능성·봉인 safety manifest"
+      ],
+      "produces": [
+        "RTO·RPO·무결성·미복구 범위 증거"
+      ],
+      "validation_gate_ids": [
+        "platform-quality-operations-backup-restore-disaster-recovery-catalog-assessment"
+      ],
+      "context": "봉인 N/A eligibility matrix가 허용할 때만 생략할 수 있습니다. N/A 레코드에는 step_id·rule_id·위험등급·서비스 특성·비적용 증거를 기록하고 answer key와 대조해야 합니다.",
+      "estimated_minutes": 180
+    },
+    {
+      "id": "verify-capacity",
+      "title": "성능·용량·과부하 보호 검증",
+      "reason": "서비스 위험등급과 적용 가능성에 맞는 정규 Unit의 봉인 평가 증거를 운영준비 packet에 연결합니다.",
+      "unit_ref": {
+        "id": "unit.platform-quality-operations.performance-capacity-overload-protection",
+        "version": "1.0.0"
+      },
+      "required_level": "D3",
+      "required": false,
+      "depends_on": [
+        "instrument-telemetry",
+        "define-service-objectives"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "합성 서비스 위험등급·적용 가능성·봉인 safety manifest"
+      ],
+      "produces": [
+        "capacity envelope·부하 한계·정상 복구 증거"
+      ],
+      "validation_gate_ids": [
+        "platform-quality-operations-performance-capacity-overload-protection-catalog-assessment"
+      ],
+      "context": "봉인 N/A eligibility matrix가 허용할 때만 생략할 수 있습니다. N/A 레코드에는 step_id·rule_id·위험등급·서비스 특성·비적용 증거를 기록하고 answer key와 대조해야 합니다.",
+      "estimated_minutes": 180
+    },
+    {
+      "id": "test-resilience",
+      "title": "복원력·장애실험 검증",
+      "reason": "서비스 위험등급과 적용 가능성에 맞는 정규 Unit의 봉인 평가 증거를 운영준비 packet에 연결합니다.",
+      "unit_ref": {
+        "id": "unit.platform-quality-operations.resilience-failure-mode-experimentation",
+        "version": "1.0.0"
+      },
+      "required_level": "D3",
+      "required": false,
+      "depends_on": [
+        "instrument-telemetry",
+        "define-service-objectives"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "합성 서비스 위험등급·적용 가능성·봉인 safety manifest"
+      ],
+      "produces": [
+        "failure domain·중단·저하·복구 증거"
+      ],
+      "validation_gate_ids": [
+        "platform-quality-operations-resilience-failure-mode-experimentation-catalog-assessment"
+      ],
+      "context": "봉인 N/A eligibility matrix가 허용할 때만 생략할 수 있습니다. N/A 레코드에는 step_id·rule_id·위험등급·서비스 특성·비적용 증거를 기록하고 answer key와 대조해야 합니다.",
+      "estimated_minutes": 180
+    },
+    {
+      "id": "reconcile-technology-cost",
+      "title": "기술비용 할당·최적화 검증",
+      "reason": "서비스 위험등급과 적용 가능성에 맞는 정규 Unit의 봉인 평가 증거를 운영준비 packet에 연결합니다.",
+      "unit_ref": {
+        "id": "unit.platform-quality-operations.technology-cost-allocation-optimization",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": false,
+      "depends_on": [
+        "instrument-telemetry"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "합성 서비스 위험등급·적용 가능성·봉인 safety manifest"
+      ],
+      "produces": [
+        "할당·forecast·anomaly·guardrail 증거"
+      ],
+      "validation_gate_ids": [
+        "platform-quality-operations-technology-cost-allocation-optimization-catalog-assessment"
+      ],
+      "context": "봉인 N/A eligibility matrix가 허용할 때만 생략할 수 있습니다. N/A 레코드에는 step_id·rule_id·위험등급·서비스 특성·비적용 증거를 기록하고 answer key와 대조해야 합니다.",
+      "estimated_minutes": 120
+    }
+  ],
+  "risk_profile": {
+    "level": "medium",
+    "data_classes": [
+      "public"
+    ],
+    "human_approval_points": [
+      "합성 서비스·loopback·새 임시 sandbox만 사용하는지 확인합니다.",
+      "필수 증거 누락·rollback·restore 실패·상한 위반을 blocking_readiness_defect로 승인 없이 완화하지 않습니다.",
+      "실제 출시·당직·보안·법무 승인을 이 Set 결과로 대신하지 않습니다."
+    ],
+    "stop_conditions": [
+      "실제 production·cloud 계정·자격증명·개인정보·결제·외부 target이 필요합니다.",
+      "봉인 safety manifest의 실행·요청·부하·fault·fixture·비용 상한을 집행할 수 없습니다.",
+      "rollback·restore·cleanup 경로가 없거나 원본 fixture를 덮어써야 합니다.",
+      "보안·법무·재무 최종 판정이나 실제 운영 승인이 필요합니다."
+    ],
+    "rollback_plan": "local simulator와 임시 sandbox의 runtime 상태만 초기 snapshot으로 복원·삭제합니다. sanitized 실행 로그·중단 사유·rollback·cleanup 결과와 readiness packet은 봉인 평가 artifact 경로에 보존하며 실제 외부 상태는 변경하지 않습니다."
+  },
+  "capstone_resource_refs": [],
+  "acceptance_criteria": [
+    "서비스 위험에 따라 필요한 소유권·의존성·SLO·관측성·배포·사고·복구·용량·비용 증거를 분류합니다. 봉인된 사례 분류표를 answer key와 대조해 핵심 오개념이 0건이어야 합니다.",
+    "봉인 rubric에서 필수 owner 없음, 필수 evidence 누락, rollback·restore 실패 또는 safety 상한 위반을 blocking_readiness_defect로 정의합니다. 이 결함이 있으면 ready가 될 수 없고 결과는 ready·conditional·not-ready·retire 결정표와 일치해야 합니다. 평가별 봉인 safety manifest에 wall_clock_timeout_seconds≤300, max_requests≤10000, max_concurrency≤16, max_retries_per_request≤2, max_fault_injections≤10, max_fixture_bytes≤10485760, record형 입력은 추가로 max_records≤10000, actual_spend=0, allowed_targets=loopback·새 임시 sandbox, abort trigger와 rollback·restore·cleanup invariant를 기록하고 runner가 위반 즉시 중단해야 합니다.",
+    "필수 네 단계는 모두 통과하고 선택 단계는 통과하거나 위험등급·적용 가능성에 따른 N/A 근거가 있어야 합니다.",
+    "선택 단계 N/A 레코드의 step_id·rule_id·위험등급·서비스 특성·비적용 증거가 봉인 eligibility matrix와 일치해야 하며 지원되지 않는 N/A는 blocking_readiness_defect입니다.",
+    "toil·patch·EOL·지원 종료 inventory와 ready·conditional·not-ready·retire 결정이 봉인 rubric 및 연결 evidence와 일치해야 합니다."
+  ],
+  "transfer_evaluation": {
+    "check_after_days": 7,
+    "metrics": [
+      "필수 evidence 누락·모순 수",
+      "blocking_readiness_defect 누락·오분류 수",
+      "선택 단계 N/A 근거 누락 수",
+      "선택 단계 N/A 오분류 수",
+      "결정표와 최종 readiness 결정 불일치 수"
+    ],
+    "different_context_task": "위험등급·의존성·데이터 상태가 다른 새 합성 서비스에 같은 evidence routing·N/A·차단 결함·결정 절차를 적용합니다."
+  },
+  "sources": [
+    {
+      "title": "Reliable Product Launches at Scale",
+      "publisher": "Google Site Reliability Engineering",
+      "source_type": "official_source",
+      "url": "https://sre.google/sre-book/reliable-product-launches/",
+      "source_version": "Site Reliability Engineering (2016), Chapter 27",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "Eliminating Toil",
+      "publisher": "Google Site Reliability Engineering",
+      "source_type": "official_source",
+      "url": "https://sre.google/sre-book/eliminating-toil/",
+      "source_version": "Site Reliability Engineering (2016), Chapter 5",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "Platform Engineering Maturity Model",
+      "publisher": "Cloud Native Computing Foundation TAG App Delivery",
+      "source_type": "official_docs",
+      "url": "https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/",
+      "source_version": "CNCF Platform Engineering Maturity Model",
+      "checked_at": "2026-07-30"
+    }
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "candidate.platform-quality-operations.service-production-readiness-lifecycle@1.0.0의 승인 결과를 정규 Set으로 등록했습니다. 실제 production readiness·조직 승인·상세 fixture·파일럿과 학습효과는 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.platform-quality-operations.service-production-readiness-lifecycle",
+      "version": "1.0.0"
+    },
+    "evidence_claims": [
+      {
+        "id": "evidence.platform-quality-operations.shared.sre-launch",
+        "title": "Reliable Product Launches at Scale",
+        "publisher": "Google Site Reliability Engineering",
+        "source_type": "practitioner_primary",
+        "url": "https://sre.google/sre-book/reliable-product-launches/",
+        "source_version": "Site Reliability Engineering (2016), Chapter 27",
+        "checked_at": "2026-07-30",
+        "claim_scope": "운영준비 checklist·capacity·rollback·ownership·문서의 지속 관리 범위를 지지하며 Google 조직과 launch 규모를 보편화하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ],
+        "published_at": "2016-03-23"
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.sre-toil",
+        "title": "Eliminating Toil",
+        "publisher": "Google Site Reliability Engineering",
+        "source_type": "practitioner_primary",
+        "url": "https://sre.google/sre-book/eliminating-toil/",
+        "source_version": "Site Reliability Engineering (2016), Chapter 5",
+        "checked_at": "2026-07-30",
+        "claim_scope": "manual·repetitive·automatable·tactical·지속가치 없음·서비스 성장에 선형인 toil의 정의와 engineering 개선 범위를 지지합니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ],
+        "published_at": "2016-03-23"
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.cncf-platform-maturity",
+        "title": "Platform Engineering Maturity Model",
+        "publisher": "Cloud Native Computing Foundation TAG App Delivery",
+        "source_type": "official_docs",
+        "url": "https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/",
+        "source_version": "CNCF Platform Engineering Maturity Model",
+        "checked_at": "2026-07-30",
+        "claim_scope": "내부 플랫폼 capability의 upgrade·유지보수·deprecation·termination과 EOL 추적을 지지합니다. 일반 서비스 수명주기로의 적용은 전이 가설이며 특정 maturity level을 보편 목표로 만들지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      }
+    ]
+  }
+}

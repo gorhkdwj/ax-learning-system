@@ -1,0 +1,194 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.platform-quality-operations.backup-restore-disaster-recovery",
+  "version": "1.0.0",
+  "title": "백업·복원·재해복구 검증",
+  "canonical_name": "Backup, restore and disaster recovery verification",
+  "aliases": [],
+  "summary": "backup 존재를 복구 가능성으로 오인하고 RTO·RPO·의존성·무결성·대체처리 검증 없이 복구계획을 신뢰하는 문제를 다룹니다. 해결을 위한 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "backup 존재를 복구 가능성으로 오인하고 RTO·RPO·의존성·무결성·대체처리 검증 없이 복구계획을 신뢰하는 문제를 다룹니다.",
+    "includes": [
+      "BIA·dependency·RTO·RPO",
+      "격리 backup·restore·무결성 검증",
+      "failover·alternate processing·return-to-normal exercise"
+    ],
+    "excludes": [
+      "실제 운영데이터·재해",
+      "법적 보유·삭제정책",
+      "특정 storage·cloud DR 제품"
+    ],
+    "boundary_note": "실제 production·운영계정·개인정보·결제·외부 변경 없이 local·합성 fixture에서 평가하며 보안·법무·재무 전문판정은 소유하지 않습니다."
+  },
+  "discovery": {
+    "lens_id": "platform-quality-operations",
+    "basis": "assigned_lens",
+    "notes": "공식·표준·1차 근거와 기존 Candidate·Unit·Set을 교차검토하고 역할 반전·인접 경계·누락 패스를 수행했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "platform-quality-operations",
+    "subdomains": [
+      "backup-restore-continuity"
+    ],
+    "tags": [
+      "backup",
+      "restore",
+      "disaster",
+      "recovery",
+      "operations"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "둘 이상의 기술·업무 맥락으로 전이되는 관찰 가능한 D3 산출물과 검증 Gate가 있습니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.platform-quality-operations.backup-restore-disaster-recovery"
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.platform-quality-operations.incident-response-postmortem-learning",
+        "version": "1.0.0"
+      },
+      "rationale": "위험등급과 적용 가능성에 따라 선행하면 검증 범위를 강화하며 생략 시 N/A 근거가 필요합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "합성 state·dependency fixture를 격리 경로에 restore하고 corruption·missing dependency·stale backup을 주입해 RTO·RPO·무결성을 검증합니다.",
+    "work_contexts": [
+      "서비스·플랫폼 운영",
+      "배포·관측·신뢰성 개선",
+      "운영 품질 검증"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "comparison_required",
+    "agent_fit_rationale": "AI는 초안·분류·비교를 보조할 수 있지만 권한·최종 상태·사용자 영향·복구·비용 evidence는 결정적 검사와 인간 책임으로 검증해야 합니다."
+  },
+  "outcomes": {
+    "target_level": "D3",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "backup, restore, high availability, failover, disaster recovery와 business continuity를 구분합니다.",
+        "evidence_hypothesis": "업무 영향과 dependency로 recovery priority·RTO·RPO·대체처리의 차이를 설명합니다. 봉인된 사례 분류표를 answer key와 대조해 핵심 오개념이 0건이어야 합니다."
+      },
+      {
+        "level": "D3",
+        "outcome": "합성 state·dependency fixture를 격리 경로에 restore하고 corruption·missing dependency·stale backup을 주입해 RTO·RPO·무결성을 검증합니다.",
+        "evidence_hypothesis": "학습 판정 시간은 봉인 event의 logical clock 또는 허용오차가 고정된 deterministic simulator로 계산하고 wall clock은 안전 timeout으로만 사용합니다. RPO는 fixture timestamp 차이로 계산하며 정상·stale·corrupt·partial의 상태·무결성·미복구 항목이 각 기대값과 일치하고 원본 변경은 0건이어야 합니다. 평가별 봉인 safety manifest에 wall_clock_timeout_seconds≤300, max_requests≤10000, max_concurrency≤16, max_retries_per_request≤2, max_fault_injections≤10, max_fixture_bytes≤10485760, record형 입력은 추가로 max_records≤10000, actual_spend=0, allowed_targets=loopback·새 임시 sandbox, abort trigger와 rollback·restore·cleanup invariant를 기록하고 runner가 위반 즉시 중단해야 합니다."
+      }
+    ],
+    "depth_boundary": "local simulator·synthetic telemetry·sealed fixture·bounded load와 삭제 가능한 sandbox로 제한하며 실제 production·cloud 권한·고객·개인정보·결제·외부 장애·법적 통제는 제외합니다. 평가별 봉인 safety manifest에 wall_clock_timeout_seconds≤300, max_requests≤10000, max_concurrency≤16, max_retries_per_request≤2, max_fault_injections≤10, max_fixture_bytes≤10485760, record형 입력은 추가로 max_records≤10000, actual_spend=0, allowed_targets=loopback·새 임시 sandbox, abort trigger와 rollback·restore·cleanup invariant를 기록하고 runner가 위반 즉시 중단해야 합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "risk_reduction",
+      "prerequisite_value",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "격리 복원과 결정적 RTO·RPO·무결성 검사는 복구 가능성 오판과 목표 미달을 실제 장애 전에 발견할 가능성을 높입니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "core",
+    "priority_hint": "next",
+    "measurement_hypothesis": "학습 판정 시간은 봉인 event의 logical clock 또는 허용오차가 고정된 deterministic simulator로 계산하고 wall clock은 안전 timeout으로만 사용합니다. RPO는 fixture timestamp 차이로 계산하며 정상·stale·corrupt·partial의 상태·무결성·미복구 항목이 각 기대값과 일치하고 원본 변경은 0건이어야 합니다. 평가별 봉인 safety manifest에 wall_clock_timeout_seconds≤300, max_requests≤10000, max_concurrency≤16, max_retries_per_request≤2, max_fault_injections≤10, max_fixture_bytes≤10485760, record형 입력은 추가로 max_records≤10000, actual_spend=0, allowed_targets=loopback·새 임시 sandbox, abort trigger와 rollback·restore·cleanup invariant를 기록하고 runner가 위반 즉시 중단해야 합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "permissions",
+      "cost",
+      "accessibility",
+      "observability",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "실제 보안·개인정보·법률·재무·고위험 승인 내용은 다음 전문 package와 조직 정책이 소유하며 이번 후보는 주어진 계약을 local fixture에 적용합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.platform-quality-operations.shared.nist-contingency",
+      "title": "Contingency Planning Guide for Federal Information Systems",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_source",
+      "url": "https://doi.org/10.6028/NIST.SP.800-34r1",
+      "source_version": "NIST SP 800-34 Rev. 1, updated 2010-11-11",
+      "checked_at": "2026-07-30",
+      "claim_scope": "BIA·RTO·RPO·backup·alternate processing·restore test와 contingency lifecycle을 지지하며 연방 규정 준수 판정으로 사용하지 않습니다.",
+      "supports": [
+        "definition",
+        "learning_outcome",
+        "work_relevance"
+      ],
+      "published_at": "2010-05-31"
+    },
+    {
+      "id": "evidence.platform-quality-operations.shared.nist-recovery",
+      "title": "Guide for Cybersecurity Event Recovery",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_source",
+      "url": "https://csrc.nist.gov/pubs/sp/800/184/final",
+      "source_version": "NIST SP 800-184",
+      "checked_at": "2026-07-30",
+      "claim_scope": "cybersecurity event의 복구 계획·실행·개선과 recovered asset 무결성 확인 범위를 보조적으로 지지하며 일반 서비스 연속성이나 법적 의무 판정으로 일반화하지 않습니다.",
+      "supports": [
+        "definition",
+        "learning_outcome",
+        "work_relevance"
+      ],
+      "published_at": "2016-12-22"
+    },
+    {
+      "id": "evidence.platform-quality-operations.shared.nist-incident",
+      "title": "Incident Response Recommendations and Considerations for Cybersecurity Risk Management: A CSF 2.0 Community Profile",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_source",
+      "url": "https://doi.org/10.6028/NIST.SP.800-61r3",
+      "source_version": "NIST SP 800-61 Rev. 3",
+      "checked_at": "2026-07-30",
+      "claim_scope": "incident 준비·탐지·대응·복구를 위험관리 전반에 통합하는 범위를 지지하며 법적 신고나 보안 전문판정을 이 Unit이 소유하게 하지 않습니다.",
+      "supports": [
+        "work_relevance"
+      ],
+      "published_at": "2025-04-03"
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "high",
+    "rationale": "독립 근거·taxonomy·실용성 전수감사와 교정 후 재감사에서 P0·P1 0건을 확인해 정규 승격 대상으로 승인했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-03",
+    "work_package_id": "wp.platform-quality-operations.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-30",
+    "reviewers": [
+      "codex-platform-evidence-audit",
+      "codex-platform-taxonomy-audit",
+      "codex-platform-practicality-audit",
+      "codex-main-review"
+    ],
+    "known_unknowns": [
+      "실제 조직의 BIA·법적 보유·cross-region 설계와 업무 복구 수치는 검증하지 않았습니다."
+    ],
+    "next_action": "unit.platform-quality-operations.backup-restore-disaster-recovery@1.0.0으로 승격하고 정규 산출물의 독립 재검수를 완료했습니다. cataloged는 상세 교재·fixture·파일럿·학습효과 검증 완료를 뜻하지 않으며 후속 구현·검증이 필요합니다."
+  },
+  "extensions": {
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.integration-automation.side-effect-idempotency-retry-compensation",
+        "version": "1.0.0"
+      }
+    ]
+  }
+}

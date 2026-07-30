@@ -96,5 +96,7 @@ agent가 로드되었는지 확인한 뒤,
 - Claude Code 진입점, 읽기 전용 조사 agent, Candidate 스키마와 Wave Checkpoint 준비 완료
 - Wave 1 시험 배치 Candidate 10개와 독립 감사 완료, 정규 승격은 보류
 - 조사 렌즈·잠정 하위분류 Registry와 Candidate·Unit 참조 검증 완료
+- Wave 3 Human-AI 경험 패키지의 6 Unit·8 Resource 정규 승격과 1 Candidate 유보 완료
+- Wave 3 플랫폼 품질·운영 패키지의 9 Unit·9 Reference·1 Set 정규 승격 완료
 - 공개 학습 시스템과 개인 Vault의 저장·Git·경로 경계 분리 완료
-- 다음 단계: Wave 2 작업 패키지 Manifest 확정
+- 다음 단계: Wave 3 보안·법무·거버넌스 작업 패키지 조사·이중 검수·정규 승격

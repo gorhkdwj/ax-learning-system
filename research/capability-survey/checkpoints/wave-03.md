@@ -9,7 +9,7 @@
 | 시작일·마지막 갱신일 | `2026-07-29` · `2026-07-30` |
 | 총괄·유일 작성자 | Codex 메인 세션 |
 | 후보 스키마 | `capability-candidate 1.1.0` |
-| 분류 Registry | `taxonomy.ax-capability-map@0.7.0` (`provisional`) |
+| 분류 Registry | `taxonomy.ax-capability-map@0.8.0` (`provisional`) |
 | 동시 작업 패키지 | `1` |
 | 작업 패키지별 후보 상한 | `10` |
 
@@ -30,6 +30,7 @@ Wave 2 후보에 누락된 접근성·인간통제·운영·보안·법무·조�
 | 패키지 | 상태 | 후보 | 경로 | 판정 |
 |---|---|---:|---|---|
 | `wp.human-ai-experience.breadth-a` | promoted | 9/10 | `research/capability-survey/waves/wave-03/wp.human-ai-experience.breadth-a/` | 승격 전·후 재검수 P0·P1 0건, 6 Unit·2 Resource cataloged·1 deferred |
+| `wp.platform-quality-operations.breadth-a` | promoted | 10/10 | `research/capability-survey/waves/wave-03/wp.platform-quality-operations.breadth-a/` | 승격 전·후 독립 3중 재감사 P0·P1 0건, 9 Unit·9 Reference·1 Set cataloged |
 
 ## 4. 현재 결과
 
@@ -56,9 +57,15 @@ D0 Resource는 신규 기대형성·온보딩 Unit이 소유합니다. 승격 �
 16개 필드를 교정했고, 정규 메타데이터 생성 후 후보 추적·출처·관계·평가
 Gate를 다시 독립 검수했습니다. 개인화·기억 후보는 승격하지 않았습니다.
 
+플랫폼 품질·운영은 안전한 릴리스, 선언형 환경, 서비스 telemetry, SLI·SLO,
+사고대응, 백업·복원, 성능·용량, 기술비용, 복원력의 Unit 후보 9개와 서비스
+운영준비·수명주기 Set 후보 1개를 작성했습니다. 내부 플랫폼 독립 Unit은 실제
+내부 사용자와 조직 operating model 근거가 필요해 유보했으며 alert·on-call과
+toil은 관련 후보의 하위 성과로 흡수했습니다. 마지막 누락 점검의 새 고우선
+독립 후보는 0개입니다.
+
 ## 5. 다음 한 단계
 
-Human-AI 경험 패키지의 조사·감사·정규 승격과 승격 후 검수를 완료했습니다.
-다음 순차 패키지는 `platform-quality-operations`입니다. 동일하게 발견 조사,
-독립 근거·taxonomy·실용성 감사, 본 세션 재검수, 정규 승격과 승격 후 검수를
-순차 수행합니다.
+플랫폼 품질·운영의 정규 승격과 승격 후 독립 재검수를 완료했습니다. 다음 순차
+패키지 `security-legal-governance`의 Manifest·평가계약을 고정하고, 발견 조사와
+후보 작성·독립 감사·정규 승격을 같은 절차로 진행합니다.

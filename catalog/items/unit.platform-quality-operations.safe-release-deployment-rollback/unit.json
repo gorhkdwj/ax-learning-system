@@ -1,0 +1,225 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.platform-quality-operations.safe-release-deployment-rollback",
+  "version": "1.0.0",
+  "title": "안전한 릴리스·배포·롤백 검증",
+  "summary": "검증된 source·build와 실제 배포 artifact·configuration·rollout 상태가 분리되어 변경 누락, 잘못된 version, 사용자 영향과 rollback 실패가 생기는 문제를 다룹니다. 해결을 위한 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "platform-quality-operations",
+    "subdomains": [
+      "release-deployment-safety"
+    ]
+  },
+  "domain_tags": [
+    "safe",
+    "release",
+    "deployment",
+    "rollback",
+    "operations"
+  ],
+  "capabilities": [
+    "local service에 저장소 제공 사전 서명 fixture 또는 폐기 가능한 공개 test key로 artifact·configuration을 단계 배포하고 오류·회귀를 주입해 중단·rollback·postcondition을 검증합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.platform-quality-operations.safe-release-deployment-rollback.d0",
+        "statement": "build 성공, release artifact, deployment와 사용자에게 관찰되는 최종 상태를 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.platform-quality-operations.safe-release-deployment-rollback.d3",
+        "statement": "local service에 저장소 제공 사전 서명 fixture 또는 폐기 가능한 공개 test key로 artifact·configuration을 단계 배포하고 오류·회귀를 주입해 중단·rollback·postcondition을 검증합니다.",
+        "target_level": "D3"
+      }
+    ],
+    "default_target_level": "D3",
+    "maximum_scope_level": "D3",
+    "estimated_minutes": 180,
+    "scope_expansion_policy": "local simulator·synthetic telemetry·sealed fixture·bounded load와 삭제 가능한 sandbox로 제한하며 실제 production·cloud 권한·고객·개인정보·결제·외부 장애·법적 통제는 제외합니다. 평가별 봉인 safety manifest에 wall_clock_timeout_seconds≤300, max_requests≤10000, max_concurrency≤16, max_retries_per_request≤2, max_fault_injections≤10, max_fixture_bytes≤10485760, record형 입력은 추가로 max_records≤10000, actual_spend=0, allowed_targets=loopback·새 임시 sandbox, abort trigger와 rollback·restore·cleanup invariant를 기록하고 runner가 위반 즉시 중단해야 합니다. 실제 조직의 risk tier·승인권·rollout 수치는 sandbox 밖에서 검증하지 않았습니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.platform-quality-operations.declarative-environment-drift-reconciliation",
+        "version": "1.0.0"
+      },
+      "note": "위험등급과 적용 가능성에 따라 선행하면 검증 범위를 강화하며 생략 시 N/A 근거가 필요합니다."
+    },
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.software.build-dependency-reproducibility",
+        "version": "1.0.0"
+      },
+      "note": "기존 정규 Unit의 공통 구현·검증 primitive를 재사용하고 플랫폼 운영 소유 경계를 중복하지 않습니다."
+    },
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.software.version-control-change-integration",
+        "version": "1.0.0"
+      },
+      "note": "기존 정규 Unit의 공통 구현·검증 primitive를 재사용하고 플랫폼 운영 소유 경계를 중복하지 않습니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.platform-quality-operations.safe-release-deployment-rollback.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": false,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference와 prebuilt local simulator·합성 fixture 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "platform-quality-operations-safe-release-deployment-rollback-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.platform-quality-operations.safe-release-deployment-rollback.d0",
+          "outcome.platform-quality-operations.safe-release-deployment-rollback.d3"
+        ],
+        "required": true,
+        "success_criteria": [
+          "같은 source라도 artifact identity·configuration·target environment·rollout 상태가 다를 수 있음을 사례에서 구분합니다. 봉인된 사례 분류표를 answer key와 대조해 핵심 오개념이 0건이어야 합니다.",
+          "저장소 제공 사전 서명 fixture 또는 폐기 가능한 공개 test key만 사용하고 실제 private key·credential 접근과 외부 target 변경이 각각 0건이어야 합니다. artifact digest·configuration·단계가 봉인 manifest와 일치하며 오류 주입 때 영향 상한 안에서 중단·rollback하고 이전 상태와 postcondition을 복원해야 합니다. 평가별 봉인 safety manifest에 wall_clock_timeout_seconds≤300, max_requests≤10000, max_concurrency≤16, max_retries_per_request≤2, max_fault_injections≤10, max_fixture_bytes≤10485760, record형 입력은 추가로 max_records≤10000, actual_spend=0, allowed_targets=loopback·새 임시 sandbox, abort trigger와 rollback·restore·cleanup invariant를 기록하고 runner가 위반 즉시 중단해야 합니다.",
+          "실제 production·운영계정·개인정보·결제·외부 변경 없이 local·합성 fixture에서 평가하며 보안·법무·재무 전문판정은 소유하지 않습니다.",
+          "실행 전에 봉인 safety manifest와 answer key를 고정하고 실제 실행 기록·최종 상태·cleanup 결과를 대조합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Release Engineering",
+      "publisher": "Google Site Reliability Engineering",
+      "source_type": "official_source",
+      "url": "https://sre.google/sre-book/release-engineering/",
+      "source_version": "Site Reliability Engineering (2016), Chapter 8",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "SLSA specification",
+      "publisher": "Open Source Security Foundation",
+      "source_type": "official_spec",
+      "url": "https://slsa.dev/spec/v1.2/",
+      "source_version": "SLSA 1.2 Approved",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "OpenGitOps Principles",
+      "publisher": "OpenGitOps Working Group, Linux Foundation",
+      "source_type": "official_spec",
+      "url": "https://opengitops.dev/",
+      "source_version": "GitOps Principles 1.0.0",
+      "checked_at": "2026-07-30"
+    }
+  ],
+  "potential_impact_types": [
+    "time",
+    "quality",
+    "risk_reduction",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "candidate.platform-quality-operations.safe-release-deployment-rollback@1.0.0의 승인 결과를 정규 Unit 메타데이터로 등록했습니다. 예상 시간은 prebuilt local fixture 가설이며 실제 production 적합성·상세 교재·파일럿과 학습효과는 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.platform-quality-operations.safe-release-deployment-rollback",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.platform-quality-operations.breadth-a",
+      "promoted_at": "2026-07-30"
+    },
+    "evidence_claims": [
+      {
+        "id": "evidence.platform-quality-operations.shared.sre-release",
+        "title": "Release Engineering",
+        "publisher": "Google Site Reliability Engineering",
+        "source_type": "practitioner_primary",
+        "url": "https://sre.google/sre-book/release-engineering/",
+        "source_version": "Site Reliability Engineering (2016), Chapter 8",
+        "checked_at": "2026-07-30",
+        "claim_scope": "반복 가능한 build·test·package·canary·rollout·rollback과 release audit trail의 실무 범위를 지지하며 Google 내부 수치나 조직구조를 보편 기준으로 일반화하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ],
+        "published_at": "2016-03-23"
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.slsa",
+        "title": "SLSA specification",
+        "publisher": "Open Source Security Foundation",
+        "source_type": "official_spec",
+        "url": "https://slsa.dev/spec/v1.2/",
+        "source_version": "SLSA 1.2 Approved",
+        "checked_at": "2026-07-30",
+        "claim_scope": "artifact와 source provenance, 검증 가능한 build 속성과 공급망 무결성 범위를 지지하며 특정 CI/CD 제품 구현을 요구하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.opengitops",
+        "title": "OpenGitOps Principles",
+        "publisher": "OpenGitOps Working Group, Linux Foundation",
+        "source_type": "official_spec",
+        "url": "https://opengitops.dev/",
+        "source_version": "GitOps Principles 1.0.0",
+        "checked_at": "2026-07-30",
+        "claim_scope": "declarative·versioned and immutable·pulled automatically·continuously reconciled desired state 원칙을 지지하며 Kubernetes나 특정 도구 사용을 보편 요구로 만들지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      }
+    ],
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.software.build-dependency-reproducibility",
+        "version": "1.0.0"
+      },
+      {
+        "kind": "unit",
+        "id": "unit.software.version-control-change-integration",
+        "version": "1.0.0"
+      }
+    ]
+  }
+}

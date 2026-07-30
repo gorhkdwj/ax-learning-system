@@ -1,0 +1,218 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.platform-quality-operations.declarative-environment-drift-reconciliation",
+  "version": "1.0.0",
+  "title": "선언적 환경·구성 드리프트 조정",
+  "summary": "환경과 configuration의 desired state가 version·review·actual state와 분리되어 수동 변경, drift, 잘못된 reconciliation과 복구 불능이 생기는 문제를 다룹니다. 해결을 위한 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "platform-quality-operations",
+    "subdomains": [
+      "declarative-environment-configuration"
+    ]
+  },
+  "domain_tags": [
+    "declarative",
+    "environment",
+    "drift",
+    "reconciliation",
+    "operations"
+  ],
+  "capabilities": [
+    "local sandbox에서 versioned desired state와 actual state 차이를 탐지하고 승인된 변경만 제한적으로 조정·rollback합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.platform-quality-operations.declarative-environment-drift-reconciliation.d0",
+        "statement": "runtime 환경, application configuration, secret과 versioned desired state를 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.platform-quality-operations.declarative-environment-drift-reconciliation.d3",
+        "statement": "local sandbox에서 versioned desired state와 actual state 차이를 탐지하고 승인된 변경만 제한적으로 조정·rollback합니다.",
+        "target_level": "D3"
+      }
+    ],
+    "default_target_level": "D3",
+    "maximum_scope_level": "D3",
+    "estimated_minutes": 180,
+    "scope_expansion_policy": "local simulator·synthetic telemetry·sealed fixture·bounded load와 삭제 가능한 sandbox로 제한하며 실제 production·cloud 권한·고객·개인정보·결제·외부 장애·법적 통제는 제외합니다. 평가별 봉인 safety manifest에 wall_clock_timeout_seconds≤300, max_requests≤10000, max_concurrency≤16, max_retries_per_request≤2, max_fault_injections≤10, max_fixture_bytes≤10485760, record형 입력은 추가로 max_records≤10000, actual_spend=0, allowed_targets=loopback·새 임시 sandbox, abort trigger와 rollback·restore·cleanup invariant를 기록하고 runner가 위반 즉시 중단해야 합니다. 실제 multi-tenant 환경의 권한·state backend·concurrency는 후속 D3 Adapter 검증이 필요합니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.software.version-control-change-integration",
+        "version": "1.0.0"
+      },
+      "note": "기존 정규 Unit의 공통 구현·검증 primitive를 재사용하고 플랫폼 운영 소유 경계를 중복하지 않습니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.integration-automation.deterministic-workflow-orchestration",
+        "version": "1.0.0"
+      },
+      "note": "환경 조정과 일반 workflow orchestration은 소유 경계가 다르지만 명시적 상태·중단·재개 개념을 공유합니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.platform-quality-operations.declarative-environment-drift-reconciliation.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": false,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference와 prebuilt local simulator·합성 fixture 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "platform-quality-operations-declarative-environment-drift-reconciliation-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.platform-quality-operations.declarative-environment-drift-reconciliation.d0",
+          "outcome.platform-quality-operations.declarative-environment-drift-reconciliation.d3"
+        ],
+        "required": true,
+        "success_criteria": [
+          "declarative·versioned·immutable·pulled·reconciled 원칙과 단순 script push의 차이를 설명합니다. 봉인된 사례 분류표를 answer key와 대조해 핵심 오개념이 0건이어야 합니다.",
+          "승인 fixture 밖 변경과 secret 노출이 각각 0건이고 drift 목록·조정 계획·적용 후 상태·반복 실행 no-op·rollback 결과가 봉인 manifest와 일치해야 합니다. 평가별 봉인 safety manifest에 wall_clock_timeout_seconds≤300, max_requests≤10000, max_concurrency≤16, max_retries_per_request≤2, max_fault_injections≤10, max_fixture_bytes≤10485760, record형 입력은 추가로 max_records≤10000, actual_spend=0, allowed_targets=loopback·새 임시 sandbox, abort trigger와 rollback·restore·cleanup invariant를 기록하고 runner가 위반 즉시 중단해야 합니다.",
+          "실제 production·운영계정·개인정보·결제·외부 변경 없이 local·합성 fixture에서 평가하며 보안·법무·재무 전문판정은 소유하지 않습니다.",
+          "실행 전에 봉인 safety manifest와 answer key를 고정하고 실제 실행 기록·최종 상태·cleanup 결과를 대조합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "OpenGitOps Principles",
+      "publisher": "OpenGitOps Working Group, Linux Foundation",
+      "source_type": "official_spec",
+      "url": "https://opengitops.dev/",
+      "source_version": "GitOps Principles 1.0.0",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "Guide for Security-Focused Configuration Management of Information Systems",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_source",
+      "url": "https://csrc.nist.gov/pubs/sp/800/128/upd1/final",
+      "source_version": "NIST SP 800-128, updated 2019-10-10",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "Release Engineering",
+      "publisher": "Google Site Reliability Engineering",
+      "source_type": "official_source",
+      "url": "https://sre.google/sre-book/release-engineering/",
+      "source_version": "Site Reliability Engineering (2016), Chapter 8",
+      "checked_at": "2026-07-30"
+    }
+  ],
+  "potential_impact_types": [
+    "time",
+    "quality",
+    "risk_reduction",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "candidate.platform-quality-operations.declarative-environment-drift-reconciliation@1.0.0의 승인 결과를 정규 Unit 메타데이터로 등록했습니다. 예상 시간은 prebuilt local fixture 가설이며 실제 production 적합성·상세 교재·파일럿과 학습효과는 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.platform-quality-operations.declarative-environment-drift-reconciliation",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.platform-quality-operations.breadth-a",
+      "promoted_at": "2026-07-30"
+    },
+    "evidence_claims": [
+      {
+        "id": "evidence.platform-quality-operations.shared.opengitops",
+        "title": "OpenGitOps Principles",
+        "publisher": "OpenGitOps Working Group, Linux Foundation",
+        "source_type": "official_spec",
+        "url": "https://opengitops.dev/",
+        "source_version": "GitOps Principles 1.0.0",
+        "checked_at": "2026-07-30",
+        "claim_scope": "declarative·versioned and immutable·pulled automatically·continuously reconciled desired state 원칙을 지지하며 Kubernetes나 특정 도구 사용을 보편 요구로 만들지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.nist-config",
+        "title": "Guide for Security-Focused Configuration Management of Information Systems",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "official_source",
+        "url": "https://csrc.nist.gov/pubs/sp/800/128/upd1/final",
+        "source_version": "NIST SP 800-128, updated 2019-10-10",
+        "checked_at": "2026-07-30",
+        "claim_scope": "baseline configuration, change control, monitoring과 configuration management의 기술 중립 범위를 지지하며 연방 규정 준수 선언으로 사용하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ],
+        "published_at": "2019-10-10"
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.sre-release",
+        "title": "Release Engineering",
+        "publisher": "Google Site Reliability Engineering",
+        "source_type": "practitioner_primary",
+        "url": "https://sre.google/sre-book/release-engineering/",
+        "source_version": "Site Reliability Engineering (2016), Chapter 8",
+        "checked_at": "2026-07-30",
+        "claim_scope": "반복 가능한 build·test·package·canary·rollout·rollback과 release audit trail의 실무 범위를 지지하며 Google 내부 수치나 조직구조를 보편 기준으로 일반화하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ],
+        "published_at": "2016-03-23"
+      }
+    ],
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.software.version-control-change-integration",
+        "version": "1.0.0"
+      },
+      {
+        "kind": "unit",
+        "id": "unit.integration-automation.deterministic-workflow-orchestration",
+        "version": "1.0.0"
+      }
+    ]
+  }
+}

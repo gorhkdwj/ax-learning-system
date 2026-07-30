@@ -1,0 +1,145 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.platform-quality-operations.resilience-failure-mode-experimentation.reference",
+  "version": "1.0.0",
+  "title": "복원력 설계·장애실험 공식·표준·1차 출처 Reference",
+  "description": "정규 Unit의 정의·범위와 판정 기준을 뒷받침하는 공개 Reference입니다. 상세 교재나 독립 평가자료를 대신하지 않습니다.",
+  "resource_type": "external_reference",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.platform-quality-operations.resilience-failure-mode-experimentation",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "external",
+    "url": "https://sre.google/sre-book/handling-overload/"
+  },
+  "learning_outcome_ids": [
+    "outcome.platform-quality-operations.resilience-failure-mode-experimentation.d0",
+    "outcome.platform-quality-operations.resilience-failure-mode-experimentation.d3"
+  ],
+  "estimated_minutes": 30,
+  "language": "en",
+  "tags": [
+    "reference",
+    "promotion-evidence",
+    "platform-quality-operations"
+  ],
+  "requirements": {
+    "platforms": [
+      "web-browser"
+    ],
+    "network_required": true
+  },
+  "provenance": {
+    "origin": "external",
+    "sources": [
+      {
+        "title": "Handling Overload",
+        "publisher": "Google Site Reliability Engineering",
+        "source_type": "official_source",
+        "url": "https://sre.google/sre-book/handling-overload/",
+        "source_version": "Site Reliability Engineering (2016), Chapter 21",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "Testing for Reliability",
+        "publisher": "Google Site Reliability Engineering",
+        "source_type": "official_source",
+        "url": "https://sre.google/sre-book/testing-reliability/",
+        "source_version": "Site Reliability Engineering (2016), Chapter 17",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "Monitoring Systems with Advanced Analytics",
+        "publisher": "Google Site Reliability Engineering",
+        "source_type": "official_source",
+        "url": "https://sre.google/workbook/monitoring/",
+        "source_version": "The Site Reliability Workbook (2018), Chapter 4",
+        "checked_at": "2026-07-30"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "unverified",
+    "standard": "WCAG 2.2 AA",
+    "features": [],
+    "alternative_resource_refs": [],
+    "note": "외부 출처의 접근성은 재검토가 필요합니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-07-30",
+    "commands": [],
+    "expected_outputs": [
+      "출처가 Unit의 정의·범위·판정 기준과 일반화 제한을 뒷받침하는지 확인한 기록"
+    ],
+    "evidence_paths": [],
+    "note": "URL·버전·근거 범위를 독립 재검토했으며 상세 학습자료의 완전성·접근성·평가 타당성과 학습효과는 검증하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "Candidate 승격 시 등록한 공개 Reference입니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.platform-quality-operations.resilience-failure-mode-experimentation",
+      "version": "1.0.0"
+    },
+    "promotion_reviewed_at": "2026-07-30",
+    "evidence_claims": [
+      {
+        "id": "evidence.platform-quality-operations.shared.sre-overload",
+        "title": "Handling Overload",
+        "publisher": "Google Site Reliability Engineering",
+        "source_type": "practitioner_primary",
+        "url": "https://sre.google/sre-book/handling-overload/",
+        "source_version": "Site Reliability Engineering (2016), Chapter 21",
+        "checked_at": "2026-07-30",
+        "claim_scope": "resource 기반 용량, quota·throttling·load shedding·bounded retry와 graceful degradation 범위를 지지하며 예시 수치를 보편 임계값으로 사용하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ],
+        "published_at": "2016-03-23"
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.sre-reliability-test",
+        "title": "Testing for Reliability",
+        "publisher": "Google Site Reliability Engineering",
+        "source_type": "practitioner_primary",
+        "url": "https://sre.google/sre-book/testing-reliability/",
+        "source_version": "Site Reliability Engineering (2016), Chapter 17",
+        "checked_at": "2026-07-30",
+        "claim_scope": "전통적·production reliability test, stress·canary·통계적 장애시험과 재현성 한계를 지지합니다. 이번 평가는 local bounded subset에 한정하며 실제 production readiness를 입증하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ],
+        "published_at": "2016-03-23"
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.sre-monitoring",
+        "title": "Monitoring Systems with Advanced Analytics",
+        "publisher": "Google Site Reliability Engineering",
+        "source_type": "practitioner_primary",
+        "url": "https://sre.google/workbook/monitoring/",
+        "source_version": "The Site Reliability Workbook (2018), Chapter 4",
+        "checked_at": "2026-07-30",
+        "claim_scope": "metrics·structured logs·traces와 사용자 영향 SLI를 연결하는 monitoring 설계 사례를 지지하며 Google 운영규모나 수치를 보편 기준으로 일반화하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ],
+        "published_at": "2018-07-23"
+      }
+    ]
+  }
+}

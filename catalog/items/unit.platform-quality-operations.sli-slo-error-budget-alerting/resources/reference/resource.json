@@ -1,0 +1,145 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.platform-quality-operations.sli-slo-error-budget-alerting.reference",
+  "version": "1.0.0",
+  "title": "SLI·SLO·오류예산·알림 설계 공식·표준·1차 출처 Reference",
+  "description": "정규 Unit의 정의·범위와 판정 기준을 뒷받침하는 공개 Reference입니다. 상세 교재나 독립 평가자료를 대신하지 않습니다.",
+  "resource_type": "external_reference",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.platform-quality-operations.sli-slo-error-budget-alerting",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "external",
+    "url": "https://sre.google/workbook/implementing-slos/"
+  },
+  "learning_outcome_ids": [
+    "outcome.platform-quality-operations.sli-slo-error-budget-alerting.d0",
+    "outcome.platform-quality-operations.sli-slo-error-budget-alerting.d2"
+  ],
+  "estimated_minutes": 30,
+  "language": "en",
+  "tags": [
+    "reference",
+    "promotion-evidence",
+    "platform-quality-operations"
+  ],
+  "requirements": {
+    "platforms": [
+      "web-browser"
+    ],
+    "network_required": true
+  },
+  "provenance": {
+    "origin": "external",
+    "sources": [
+      {
+        "title": "Implementing SLOs",
+        "publisher": "Google Site Reliability Engineering",
+        "source_type": "official_source",
+        "url": "https://sre.google/workbook/implementing-slos/",
+        "source_version": "The Site Reliability Workbook (2018), Chapter 2",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "Alerting on SLOs",
+        "publisher": "Google Site Reliability Engineering",
+        "source_type": "official_source",
+        "url": "https://sre.google/workbook/alerting-on-slos/",
+        "source_version": "The Site Reliability Workbook (2018), Chapter 5",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "Monitoring Systems with Advanced Analytics",
+        "publisher": "Google Site Reliability Engineering",
+        "source_type": "official_source",
+        "url": "https://sre.google/workbook/monitoring/",
+        "source_version": "The Site Reliability Workbook (2018), Chapter 4",
+        "checked_at": "2026-07-30"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "unverified",
+    "standard": "WCAG 2.2 AA",
+    "features": [],
+    "alternative_resource_refs": [],
+    "note": "외부 출처의 접근성은 재검토가 필요합니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-07-30",
+    "commands": [],
+    "expected_outputs": [
+      "출처가 Unit의 정의·범위·판정 기준과 일반화 제한을 뒷받침하는지 확인한 기록"
+    ],
+    "evidence_paths": [],
+    "note": "URL·버전·근거 범위를 독립 재검토했으며 상세 학습자료의 완전성·접근성·평가 타당성과 학습효과는 검증하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "Candidate 승격 시 등록한 공개 Reference입니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.platform-quality-operations.sli-slo-error-budget-alerting",
+      "version": "1.0.0"
+    },
+    "promotion_reviewed_at": "2026-07-30",
+    "evidence_claims": [
+      {
+        "id": "evidence.platform-quality-operations.shared.sre-slo",
+        "title": "Implementing SLOs",
+        "publisher": "Google Site Reliability Engineering",
+        "source_type": "practitioner_primary",
+        "url": "https://sre.google/workbook/implementing-slos/",
+        "source_version": "The Site Reliability Workbook (2018), Chapter 2",
+        "checked_at": "2026-07-30",
+        "claim_scope": "사용자 여정에서 SLI·SLO·error budget을 정의하고 검토하는 실무 범위를 지지하며 특정 수치 목표를 보편화하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ],
+        "published_at": "2018-07-23"
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.sre-alerting",
+        "title": "Alerting on SLOs",
+        "publisher": "Google Site Reliability Engineering",
+        "source_type": "practitioner_primary",
+        "url": "https://sre.google/workbook/alerting-on-slos/",
+        "source_version": "The Site Reliability Workbook (2018), Chapter 5",
+        "checked_at": "2026-07-30",
+        "claim_scope": "error budget burn과 행동 가능한 alert의 관계를 지지하며 예시 임계값은 학습 fixture 밖으로 일반화하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ],
+        "published_at": "2018-07-23"
+      },
+      {
+        "id": "evidence.platform-quality-operations.shared.sre-monitoring",
+        "title": "Monitoring Systems with Advanced Analytics",
+        "publisher": "Google Site Reliability Engineering",
+        "source_type": "practitioner_primary",
+        "url": "https://sre.google/workbook/monitoring/",
+        "source_version": "The Site Reliability Workbook (2018), Chapter 4",
+        "checked_at": "2026-07-30",
+        "claim_scope": "metrics·structured logs·traces와 사용자 영향 SLI를 연결하는 monitoring 설계 사례를 지지하며 Google 운영규모나 수치를 보편 기준으로 일반화하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ],
+        "published_at": "2018-07-23"
+      }
+    ]
+  }
+}
