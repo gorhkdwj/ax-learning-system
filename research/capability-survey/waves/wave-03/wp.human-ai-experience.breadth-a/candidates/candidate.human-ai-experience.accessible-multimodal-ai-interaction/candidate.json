@@ -1,0 +1,175 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.human-ai-experience.accessible-multimodal-ai-interaction",
+  "version": "1.0.0",
+  "title": "접근 가능한 다중양식 AI 상호작용 가이드",
+  "canonical_name": "Accessible multimodal AI interaction guide",
+  "aliases": [],
+  "summary": "생성·변동하는 AI 상태와 자연어·음성·시각 입력·출력을 다양한 사용자가 인지·조작·이해·복구할 수 있도록 사용자 요구와 경험을 설계하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "AI 응답의 streaming·동적 갱신·음성 전용 입력·시각 결과와 시간제한이 보조기술 사용자와 다양한 인지·언어 능력을 배제하는 문제를 다룹니다.",
+    "includes": [
+      "자연어·음성·텍스트·직접조작 대안",
+      "streaming·생성·오류·완료 상태의 접근 가능한 전달",
+      "인지·언어·운동·감각 요구 기반 walkthrough"
+    ],
+    "excludes": [
+      "WCAG 적합성 선언",
+      "프론트엔드 구현 전체",
+      "보조기술 개발",
+      "법적 접근성 자문"
+    ],
+    "boundary_note": "기존 접근 가능한 UI 상태·상호작용 Unit은 semantic markup·focus·keyboard 구현과 D2 prototype 평가를 소유합니다. 이 후보는 AI 특유의 변동·다중양식 사용자 요구와 해당 Unit으로의 라우팅을 설명하는 D0 가이드만 소유합니다."
+  },
+  "discovery": {
+    "lens_id": "human-ai-experience",
+    "basis": "assigned_lens",
+    "notes": "공식·표준·1차 근거를 기존 Candidate·Unit·Set·Signal과 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "human-ai-experience",
+    "subdomains": [
+      "accessible-multimodal-ai-interaction"
+    ],
+    "tags": [
+      "accessible",
+      "multimodal",
+      "ai",
+      "interaction"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "concept",
+    "proposed_destination": "resource_only",
+    "rationale": "AI 특유의 다중양식·동적 상태 요구를 설명하되 D2 구현은 기존 접근 가능한 UI Unit이 소유하므로 D0 라우팅 Resource만 제안합니다."
+  },
+  "relations": [],
+  "capability": {
+    "learner_can_do": "AI 상호작용의 다중양식·동적 상태 요구와 기존 접근 가능한 UI 구현 Unit으로의 라우팅 경계를 설명합니다.",
+    "work_contexts": [
+      "AI 기능 UX 설계",
+      "Human-AI prototype 평가"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "comparison_required",
+    "agent_fit_rationale": "AI가 제안·생성을 보조할 수 있지만 인간 사용자의 mental model·통제·접근·복구 evidence는 실제 상호작용 평가로 판정해야 합니다."
+  },
+  "outcomes": {
+    "target_level": "D0",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "일반 UI 접근성과 AI의 생성·변동·자연어 상호작용이 추가하는 사용자 요구를 구분합니다.",
+        "evidence_hypothesis": "기존 정적 화면 검사를 통과해도 streaming 상태·음성 전용 입력·생성 결과 대안이 누락된 사례를 식별합니다."
+      }
+    ],
+    "depth_boundary": "D0 요구·경계 가이드로 제한하며 prototype 구현·평가는 기존 접근 가능한 UI Unit과 Human-AI 경험 평가 후보가 소유하고 정식 적합성 선언과 법률 자문은 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "risk_reduction",
+      "employee_experience",
+      "customer_experience",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "검증 가능한 Human-AI 경험 설계는 오해·통제실패·복구실패와 배제 위험을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "next",
+    "measurement_hypothesis": "기존 정적 화면 검사를 통과해도 streaming 상태·음성 전용 입력·생성 결과 대안이 누락된 사례를 식별합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "accessibility",
+      "privacy",
+      "ethics",
+      "permissions",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "법적·보안·개인정보 통제의 내용은 후속 전문 렌즈가 소유하며 이 후보는 제공된 제약을 경험 설계와 평가 Gate에 반영합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.human-ai-experience.accessible-multimodal-ai-interaction.naur",
+      "title": "Natural Language Interface Accessibility User Requirements",
+      "publisher": "World Wide Web Consortium",
+      "source_type": "official_docs",
+      "url": "https://www.w3.org/TR/naur/",
+      "published_at": "2022-09-03",
+      "source_version": "W3C Group Draft Note 2022-09-03",
+      "checked_at": "2026-07-29",
+      "claim_scope": "비규범적 W3C Group Draft Note로서 자연어 인터페이스의 장애별 입력·출력·상호작용 사용자 요구와 대체 양식 탐색 범위만 지지하며 표준 준수 주장은 지지하지 않습니다.",
+      "supports": [
+        "definition",
+        "learning_outcome"
+      ]
+    },
+    {
+      "id": "evidence.human-ai-experience.accessible-multimodal-ai-interaction.wcag",
+      "title": "Web Content Accessibility Guidelines (WCAG) 2.2",
+      "publisher": "World Wide Web Consortium",
+      "source_type": "standard",
+      "url": "https://www.w3.org/TR/WCAG22/",
+      "published_at": "2024-12-12",
+      "source_version": "W3C Recommendation 2024-12-12",
+      "checked_at": "2026-07-29",
+      "claim_scope": "인지·조작·이해·견고성과 동적 status message의 웹 접근성 기준을 지지합니다.",
+      "supports": [
+        "scope",
+        "risk"
+      ]
+    },
+    {
+      "id": "evidence.human-ai-experience.accessible-multimodal-ai-interaction.aria",
+      "title": "Accessible Rich Internet Applications (WAI-ARIA) 1.2",
+      "publisher": "World Wide Web Consortium",
+      "source_type": "standard",
+      "url": "https://www.w3.org/TR/wai-aria-1.2/",
+      "published_at": "2023-06-06",
+      "source_version": "W3C Recommendation 2023-06-06",
+      "checked_at": "2026-07-29",
+      "claim_scope": "동적 UI의 역할·상태·live region을 보조기술에 노출하는 구현 경계를 지지합니다.",
+      "supports": [
+        "scope",
+        "work_relevance"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "독립 근거·taxonomy·실용성 감사의 P1을 교정하고 재감사에서 P0·P1 0건을 확인했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-03",
+    "work_package_id": "wp.human-ai-experience.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-29",
+    "reviewers": [
+      "codex-human-ai-discovery",
+      "codex-evidence-auditor",
+      "codex-taxonomy-auditor",
+      "codex-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "상세 prototype·사용자 표본·수치 임계값과 학습효과는 아직 검증하지 않았습니다."
+    ],
+    "next_action": "resource.human-ai-experience.accessible-multimodal-ai-interaction-guide@1.0.0 정규 D0 Resource로 승격했습니다. 독립 Unit이나 적합성·법률 판단으로 확대하지 않습니다."
+  },
+  "extensions": {
+    "proposed_resource_id": "resource.human-ai-experience.accessible-multimodal-ai-interaction-guide",
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.software.accessible-ui-state-interaction",
+        "version": "1.0.0"
+      }
+    ]
+  }
+}

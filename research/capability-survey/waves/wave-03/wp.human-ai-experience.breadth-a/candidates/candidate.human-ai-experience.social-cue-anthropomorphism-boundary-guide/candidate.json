@@ -1,0 +1,184 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.human-ai-experience.social-cue-anthropomorphism-boundary-guide",
+  "version": "1.0.0",
+  "title": "AI 사회적 단서·의인화 경계 가이드",
+  "canonical_name": "AI social-cue and anthropomorphism boundary guide",
+  "aliases": [],
+  "summary": "이름·1인칭·목소리·감정표현·사회적 역할 같은 단서가 AI 역량·책임·신뢰 mental model에 미치는 경계를 설명하는 D0 Resource 후보입니다.",
+  "research_scope": {
+    "problem_addressed": "사람 같은 표현을 친화성 향상으로만 다루어 사용자가 역량·의도·공감·책임을 과잉 추론하는 문제를 다룹니다.",
+    "includes": [
+      "언어·음성·시각 사회적 단서 식별",
+      "역량·의도·감정·책임의 과잉 추론 위험",
+      "고위험·취약 사용자 맥락의 전문 검토 이관"
+    ],
+    "excludes": [
+      "성격·브랜드 캐릭터 제작",
+      "감정치료·동반자 설계",
+      "의인화 효과의 보편 결론",
+      "정신건강·아동 정책"
+    ],
+    "boundary_note": "독립 Unit이 아니라 mental model 온보딩과 기존 신뢰 보정 Unit을 연결하는 D0 경계 Resource입니다. 취약 사용자·조작·법적 의무는 후속 보안·법무·윤리 렌즈로 이관합니다."
+  },
+  "discovery": {
+    "lens_id": "human-ai-experience",
+    "basis": "assigned_lens",
+    "notes": "공식·표준·1차 근거를 기존 Candidate·Unit·Set·Signal과 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "human-ai-experience",
+    "subdomains": [
+      "ai-capability-mental-model-onboarding"
+    ],
+    "tags": [
+      "social",
+      "cue",
+      "anthropomorphism",
+      "boundary"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "concept",
+    "proposed_destination": "resource_only",
+    "rationale": "변동성과 맥락 의존성이 크며 기존 Unit을 연결하는 D0 경계 설명이므로 Resource만 제안합니다."
+  },
+  "relations": [
+    {
+      "type": "related_to",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.human-ai-experience.mental-model-capability-onboarding",
+        "version": "1.0.0"
+      },
+      "rationale": "사회적 단서는 사용자의 AI 역량 mental model 형성에 영향을 줄 수 있습니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "AI 경험의 사회적 단서를 식별하고 역량·의도·감정·책임의 과잉 추론 위험과 전문 검토 필요 맥락을 설명합니다.",
+    "work_contexts": [
+      "AI 기능 UX 설계",
+      "Human-AI prototype 평가"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "comparison_required",
+    "agent_fit_rationale": "AI가 제안·생성을 보조할 수 있지만 인간 사용자의 mental model·통제·접근·복구 evidence는 실제 상호작용 평가로 판정해야 합니다."
+  },
+  "outcomes": {
+    "target_level": "D0",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "AI의 사회적 단서와 실제 역량·의도·감정·책임을 구분합니다.",
+        "evidence_hypothesis": "이름·1인칭·목소리·공감표현을 근거로 지원되지 않은 인간 속성을 추론한 사례를 식별하고 적절한 경계 설명으로 수정합니다."
+      }
+    ],
+    "depth_boundary": "D0 경계 가이드로 제한하며 제품 성격 설계, 임상·아동·정신건강 정책과 효과 최적화는 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "risk_reduction",
+      "employee_experience",
+      "customer_experience",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "검증 가능한 Human-AI 경험 설계는 오해·통제실패·복구실패와 배제 위험을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "next",
+    "measurement_hypothesis": "이름·1인칭·목소리·공감표현을 근거로 지원되지 않은 인간 속성을 추론한 사례를 식별하고 적절한 경계 설명으로 수정합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "accessibility",
+      "privacy",
+      "ethics",
+      "permissions",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "법적·보안·개인정보 통제의 내용은 후속 전문 렌즈가 소유하며 이 후보는 제공된 제약을 경험 설계와 평가 Gate에 반영합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.human-ai-experience.social-cue-anthropomorphism-boundary-guide.anthro",
+      "title": "Believing Anthropomorphism: Examining the Role of Anthropomorphic Cues on User Trust in Large Language Models",
+      "publisher": "Google Research",
+      "source_type": "primary_research",
+      "url": "https://research.google/pubs/believing-anthropomorphism-examining-the-role-of-anthropomorphic-cues-on-user-trust-in-large-language-models/",
+      "published_at": "2024-05-09",
+      "source_version": "Extended Abstracts of CHI 2024",
+      "checked_at": "2026-07-29",
+      "claim_scope": "LLM의 의인화 단서와 사용자 신뢰 관계를 실험적으로 조사한 특정 연구 범위를 지지하며 보편 효과는 지지하지 않습니다.",
+      "supports": [
+        "definition",
+        "risk"
+      ]
+    },
+    {
+      "id": "evidence.human-ai-experience.social-cue-anthropomorphism-boundary-guide.pair-mental",
+      "title": "People + AI Guidebook: Mental Models",
+      "publisher": "Google People + AI Research",
+      "source_type": "official_docs",
+      "url": "https://pair.withgoogle.com/guidebook-v2/chapter/mental-models/",
+      "source_version": "updated 2021-05-18",
+      "checked_at": "2026-07-29",
+      "claim_scope": "AI를 사람처럼 소개할 때 잘못된 mental model과 기대가 형성될 수 있는 실무 경계를 지지합니다.",
+      "supports": [
+        "scope",
+        "work_relevance"
+      ]
+    },
+    {
+      "id": "evidence.human-ai-experience.social-cue-anthropomorphism-boundary-guide.nist-hai",
+      "title": "AI Risk Management and Human-AI Interaction",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_docs",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/",
+      "published_at": "2023-01-26",
+      "source_version": "AI RMF 1.0 Appendix C",
+      "checked_at": "2026-07-29",
+      "claim_scope": "인간 역할·책임과 AI 시스템의 역할을 명확히 구분해야 하는 위험관리 맥락을 지지합니다.",
+      "supports": [
+        "risk",
+        "scope"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "독립 근거·taxonomy·실용성 감사의 P1을 교정하고 재감사에서 P0·P1 0건을 확인했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-03",
+    "work_package_id": "wp.human-ai-experience.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-29",
+    "reviewers": [
+      "codex-human-ai-discovery",
+      "codex-evidence-auditor",
+      "codex-taxonomy-auditor",
+      "codex-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "근거는 미국 성인 2,165명의 pseudo-LLM 단기 실험으로 text·speech와 1인칭 단서만 다루며, 아동·취약사용자·장기 사용·다문화·감정표현·avatar·사회적 역할 전반으로 일반화할 수 없습니다."
+    ],
+    "next_action": "resource.human-ai-experience.social-cue-anthropomorphism-boundary-reference@1.0.0 정규 D0 Resource로 승격했습니다. 독립 Unit이나 적합성·법률 판단으로 확대하지 않습니다."
+  },
+  "extensions": {
+    "proposed_resource_id": "resource.human-ai-experience.social-cue-anthropomorphism-boundary-reference",
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.foundation.ai-trust-calibration",
+        "version": "1.0.0"
+      }
+    ]
+  }
+}

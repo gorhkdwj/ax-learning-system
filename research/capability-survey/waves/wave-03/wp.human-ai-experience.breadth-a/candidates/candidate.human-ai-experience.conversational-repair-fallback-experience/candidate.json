@@ -1,0 +1,196 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.human-ai-experience.conversational-repair-fallback-experience",
+  "version": "1.0.0",
+  "title": "대화형 AI 오류복구·대체경로 경험 설계",
+  "canonical_name": "Conversational AI repair and fallback experience design",
+  "aliases": [],
+  "summary": "대화형 AI의 오해·불완전 입력·지원불가·중단·반복 실패를 탐지하고 명료화·수정·재개·다른 양식·인간 이관으로 복구하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "자연어의 유창함이 이해 성공처럼 보이고 반복적인 재질문·막다른 응답·맥락 손실이 사용자를 탈출 경로 없이 가두는 문제를 다룹니다.",
+    "includes": [
+      "오해·모호성·지원불가 신호",
+      "명료화·수정·재개·요약",
+      "다른 입력양식·직접조작·인간 도움 fallback"
+    ],
+    "excludes": [
+      "대화모델 훈련",
+      "prompt engineering 일반",
+      "콜센터 운영정책",
+      "감정치료·의료상담"
+    ],
+    "boundary_note": "AI 시스템의 context·memory Unit은 내부 실행계약을 소유하고, 이 후보는 사용자가 오해를 인지·수정하고 안전하게 대체경로로 이동하는 경험을 소유합니다."
+  },
+  "discovery": {
+    "lens_id": "human-ai-experience",
+    "basis": "assigned_lens",
+    "notes": "공식·표준·1차 근거를 기존 Candidate·Unit·Set·Signal과 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "human-ai-experience",
+    "subdomains": [
+      "conversational-ai-repair"
+    ],
+    "tags": [
+      "conversational",
+      "repair",
+      "fallback",
+      "experience"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "제품 독립적인 사용자 경험 산출물과 관찰 가능한 D2 판정 기준을 가집니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.human-ai-experience.conversational-repair-fallback-experience"
+  },
+  "relations": [
+    {
+      "type": "requires",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.human-ai-experience.feedback-correction-user-control",
+        "version": "1.0.0"
+      },
+      "rationale": "사용자가 오해를 수정·거부하고 상태를 되돌릴 수 있어야 합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "대화 prototype에 모호성·오해·맥락손실·지원불가·반복실패를 주입해 명료화·수정·재개·fallback 도달성을 검증합니다.",
+    "work_contexts": [
+      "AI 기능 UX 설계",
+      "Human-AI prototype 평가"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "comparison_required",
+    "agent_fit_rationale": "AI가 제안·생성을 보조할 수 있지만 인간 사용자의 mental model·통제·접근·복구 evidence는 실제 상호작용 평가로 판정해야 합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "대화의 유창성, 과업 이해와 완료 상태를 구분합니다.",
+        "evidence_hypothesis": "응답은 자연스럽지만 사용자 의도·상태·다음 행동이 잘못된 사례를 판별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "대화형 AI의 오해·맥락손실·지원불가를 위한 repair·resume·fallback 흐름을 설계·검증합니다.",
+        "evidence_hypothesis": "봉인된 오류 시나리오에서 무한 반복 0건, 잘못된 완료 0건이며 키보드·텍스트 대안과 인간 도움 경로가 제한 단계 안에 도달 가능해야 합니다."
+      }
+    ],
+    "depth_boundary": "D2 대화 경험과 local prototype으로 제한하며 모델 훈련·실운영 상담·고위험 전문조언은 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "risk_reduction",
+      "employee_experience",
+      "customer_experience",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "검증 가능한 Human-AI 경험 설계는 오해·통제실패·복구실패와 배제 위험을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "next",
+    "measurement_hypothesis": "봉인된 오류 시나리오에서 무한 반복 0건, 잘못된 완료 0건이며 키보드·텍스트 대안과 인간 도움 경로가 제한 단계 안에 도달 가능해야 합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "accessibility",
+      "privacy",
+      "ethics",
+      "permissions",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "법적·보안·개인정보 통제의 내용은 후속 전문 렌즈가 소유하며 이 후보는 제공된 제약을 경험 설계와 평가 Gate에 반영합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.human-ai-experience.conversational-repair-fallback-experience.naur",
+      "title": "Natural Language Interface Accessibility User Requirements",
+      "publisher": "World Wide Web Consortium",
+      "source_type": "official_docs",
+      "url": "https://www.w3.org/TR/naur/",
+      "published_at": "2022-09-03",
+      "source_version": "W3C Group Draft Note 2022-09-03",
+      "checked_at": "2026-07-29",
+      "claim_scope": "비규범적 W3C Group Draft Note로서 자연어 인터페이스의 대체 입력·출력, 오류·개인정보·인지 접근성 사용자 요구 탐색 범위만 지지하며 표준 준수 주장은 지지하지 않습니다.",
+      "supports": [
+        "definition",
+        "risk"
+      ]
+    },
+    {
+      "id": "evidence.human-ai-experience.conversational-repair-fallback-experience.amershi",
+      "title": "Guidelines for Human-AI Interaction",
+      "publisher": "Association for Computing Machinery",
+      "source_type": "primary_research",
+      "url": "https://doi.org/10.1145/3290605.3300233",
+      "published_at": "2019-05-02",
+      "source_version": "CHI 2019",
+      "checked_at": "2026-07-29",
+      "claim_scope": "오류 범위 전달, 수정·거부·실패 복구와 맥락 제공 지침을 지지합니다.",
+      "supports": [
+        "learning_outcome",
+        "scope"
+      ]
+    },
+    {
+      "id": "evidence.human-ai-experience.conversational-repair-fallback-experience.iso110",
+      "title": "Ergonomics of human-system interaction — Part 110: Interaction principles",
+      "publisher": "International Organization for Standardization",
+      "source_type": "standard",
+      "url": "https://www.iso.org/standard/75258.html",
+      "published_at": "2020-05-28",
+      "source_version": "ISO 9241-110:2020 Edition 2",
+      "checked_at": "2026-07-29",
+      "claim_scope": "기술 독립적인 상호작용 원칙을 제공하되 AI 특수성은 별도 검증해야 한다는 경계를 지지합니다.",
+      "supports": [
+        "scope",
+        "work_relevance"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "독립 근거·taxonomy·실용성 감사의 P1을 교정하고 재감사에서 P0·P1 0건을 확인했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-03",
+    "work_package_id": "wp.human-ai-experience.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-29",
+    "reviewers": [
+      "codex-human-ai-discovery",
+      "codex-evidence-auditor",
+      "codex-taxonomy-auditor",
+      "codex-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "상세 prototype·사용자 표본·수치 임계값과 학습효과는 아직 검증하지 않았습니다."
+    ],
+    "next_action": "unit.human-ai-experience.conversational-repair-fallback-experience@1.0.0 정규 Unit과 공개 Reference로 승격했습니다. cataloged 상태이므로 상세 교재·fixture·파일럿과 학습효과는 아직 검증되지 않았습니다."
+  },
+  "extensions": {
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.ai.system-context-design",
+        "version": "1.0.0"
+      },
+      {
+        "kind": "unit",
+        "id": "unit.software.accessible-ui-state-interaction",
+        "version": "1.0.0"
+      }
+    ]
+  }
+}

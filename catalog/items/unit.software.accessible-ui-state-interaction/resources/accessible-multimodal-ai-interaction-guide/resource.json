@@ -1,0 +1,147 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.human-ai-experience.accessible-multimodal-ai-interaction-guide",
+  "version": "1.0.0",
+  "title": "접근 가능한 다중양식 AI 상호작용 가이드",
+  "description": "생성·변동하는 AI 상태와 자연어·음성·시각 입력·출력을 다양한 사용자가 인지·조작·이해·복구할 수 있도록 사용자 요구와 경험을 설계하는 정규 D0 Resource입니다.",
+  "resource_type": "external_reference",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.software.accessible-ui-state-interaction",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "external",
+    "url": "https://www.w3.org/TR/naur/"
+  },
+  "learning_outcome_ids": [
+    "outcome.software.accessible-ui-state-interaction.d0"
+  ],
+  "estimated_minutes": 30,
+  "language": "ko",
+  "tags": [
+    "accessible",
+    "multimodal",
+    "ai",
+    "interaction",
+    "boundary-guide"
+  ],
+  "requirements": {
+    "platforms": [
+      "web-browser"
+    ],
+    "network_required": true
+  },
+  "provenance": {
+    "origin": "external",
+    "sources": [
+      {
+        "title": "Natural Language Interface Accessibility User Requirements",
+        "publisher": "World Wide Web Consortium",
+        "source_type": "official_docs",
+        "url": "https://www.w3.org/TR/naur/",
+        "checked_at": "2026-07-30",
+        "source_version": "W3C Group Draft Note 2022-09-03"
+      },
+      {
+        "title": "Web Content Accessibility Guidelines (WCAG) 2.2",
+        "publisher": "World Wide Web Consortium",
+        "source_type": "standard",
+        "url": "https://www.w3.org/TR/WCAG22/",
+        "checked_at": "2026-07-30",
+        "source_version": "W3C Recommendation 2024-12-12"
+      },
+      {
+        "title": "Accessible Rich Internet Applications (WAI-ARIA) 1.2",
+        "publisher": "World Wide Web Consortium",
+        "source_type": "standard",
+        "url": "https://www.w3.org/TR/wai-aria-1.2/",
+        "checked_at": "2026-07-30",
+        "source_version": "W3C Recommendation 2023-06-06"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "unverified",
+    "standard": "WCAG 2.2 AA",
+    "features": [],
+    "alternative_resource_refs": [],
+    "note": "외부 출처의 접근성은 재검토가 필요합니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-07-30",
+    "commands": [],
+    "expected_outputs": [
+      "기존 정적 화면 검사를 통과해도 streaming 상태·음성 전용 입력·생성 결과 대안이 누락된 사례를 식별합니다."
+    ],
+    "evidence_paths": [],
+    "note": "AI의 생성·변동·다중양식 요구를 기존 접근 가능한 UI Unit으로 라우팅하는 D0 경계입니다. WCAG 적합성이나 법률 자문을 선언하지 않습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "candidate.human-ai-experience.accessible-multimodal-ai-interaction@1.0.0의 승인 결과를 정규 D0 Resource 메타데이터로 등록했습니다. 30분은 공개 Reference 검토 가설이며 상세 교재·독립 평가 타당성·파일럿과 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.human-ai-experience.accessible-multimodal-ai-interaction",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.human-ai-experience.breadth-a",
+      "promoted_at": "2026-07-30"
+    },
+    "evidence_claims": [
+      {
+        "id": "evidence.human-ai-experience.accessible-multimodal-ai-interaction.naur",
+        "title": "Natural Language Interface Accessibility User Requirements",
+        "publisher": "World Wide Web Consortium",
+        "source_type": "official_docs",
+        "url": "https://www.w3.org/TR/naur/",
+        "published_at": "2022-09-03",
+        "source_version": "W3C Group Draft Note 2022-09-03",
+        "checked_at": "2026-07-29",
+        "claim_scope": "비규범적 W3C Group Draft Note로서 자연어 인터페이스의 장애별 입력·출력·상호작용 사용자 요구와 대체 양식 탐색 범위만 지지하며 표준 준수 주장은 지지하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome"
+        ]
+      },
+      {
+        "id": "evidence.human-ai-experience.accessible-multimodal-ai-interaction.wcag",
+        "title": "Web Content Accessibility Guidelines (WCAG) 2.2",
+        "publisher": "World Wide Web Consortium",
+        "source_type": "standard",
+        "url": "https://www.w3.org/TR/WCAG22/",
+        "published_at": "2024-12-12",
+        "source_version": "W3C Recommendation 2024-12-12",
+        "checked_at": "2026-07-29",
+        "claim_scope": "인지·조작·이해·견고성과 동적 status message의 웹 접근성 기준을 지지합니다.",
+        "supports": [
+          "scope",
+          "risk"
+        ]
+      },
+      {
+        "id": "evidence.human-ai-experience.accessible-multimodal-ai-interaction.aria",
+        "title": "Accessible Rich Internet Applications (WAI-ARIA) 1.2",
+        "publisher": "World Wide Web Consortium",
+        "source_type": "standard",
+        "url": "https://www.w3.org/TR/wai-aria-1.2/",
+        "published_at": "2023-06-06",
+        "source_version": "W3C Recommendation 2023-06-06",
+        "checked_at": "2026-07-29",
+        "claim_scope": "동적 UI의 역할·상태·live region을 보조기술에 노출하는 구현 경계를 지지합니다.",
+        "supports": [
+          "scope",
+          "work_relevance"
+        ]
+      }
+    ],
+    "boundary_note": "AI의 생성·변동·다중양식 요구를 기존 접근 가능한 UI Unit으로 라우팅하는 D0 경계입니다. WCAG 적합성이나 법률 자문을 선언하지 않습니다."
+  }
+}

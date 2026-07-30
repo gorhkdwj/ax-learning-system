@@ -1,0 +1,142 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.human-ai-experience.human-ai-experience-evaluation.reference",
+  "version": "1.0.0",
+  "title": "Human-AI 경험·사용성 평가 공식·1차 출처 Reference",
+  "description": "정규 Unit의 정의·범위와 판정 기준을 뒷받침하는 공개 Reference입니다. 상세 교재나 독립 평가자료를 대신하지 않습니다.",
+  "resource_type": "external_reference",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.human-ai-experience.human-ai-experience-evaluation",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "external",
+    "url": "https://doi.org/10.6028/NIST.AI.200-1"
+  },
+  "learning_outcome_ids": [
+    "outcome.human-ai-experience.human-ai-experience-evaluation.d0",
+    "outcome.human-ai-experience.human-ai-experience-evaluation.d2"
+  ],
+  "estimated_minutes": 30,
+  "language": "ko",
+  "tags": [
+    "reference",
+    "promotion-evidence",
+    "human-ai-experience"
+  ],
+  "requirements": {
+    "platforms": [
+      "web-browser"
+    ],
+    "network_required": true
+  },
+  "provenance": {
+    "origin": "external",
+    "sources": [
+      {
+        "title": "AI Use Taxonomy: A Human-Centered Approach",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "official_source",
+        "url": "https://doi.org/10.6028/NIST.AI.200-1",
+        "checked_at": "2026-07-30",
+        "source_version": "NIST AI 200-1"
+      },
+      {
+        "title": "Guidelines for Human-AI Interaction",
+        "publisher": "Association for Computing Machinery",
+        "source_type": "primary_research",
+        "url": "https://doi.org/10.1145/3290605.3300233",
+        "checked_at": "2026-07-30",
+        "source_version": "CHI 2019"
+      },
+      {
+        "title": "AI Risk Management and Human-AI Interaction",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "official_docs",
+        "url": "https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/",
+        "checked_at": "2026-07-30",
+        "source_version": "AI RMF 1.0 Appendix C"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "unverified",
+    "standard": "WCAG 2.2 AA",
+    "features": [],
+    "alternative_resource_refs": [],
+    "note": "외부 출처의 접근성은 재검토가 필요합니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-07-30",
+    "commands": [],
+    "expected_outputs": [
+      "출처가 Unit의 정의·범위·판정 기준과 일반화 제한을 뒷받침하는지 확인한 기록"
+    ],
+    "evidence_paths": [],
+    "note": "URL·근거 범위만 재검토했으며 학습자료의 완전성, 접근성, 평가 타당성과 학습효과는 아직 검증하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "Candidate 승격 시 등록한 공개 Reference입니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.human-ai-experience.human-ai-experience-evaluation",
+      "version": "1.0.0"
+    },
+    "promotion_reviewed_at": "2026-07-30",
+    "evidence_claims": [
+      {
+        "id": "evidence.human-ai-experience.human-ai-experience-evaluation.nist-use",
+        "title": "AI Use Taxonomy: A Human-Centered Approach",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "official_source",
+        "url": "https://doi.org/10.6028/NIST.AI.200-1",
+        "published_at": "2024-03-26",
+        "source_version": "NIST AI 200-1",
+        "checked_at": "2026-07-29",
+        "claim_scope": "기술 독립적인 Human-AI 활동 분류와 usability·human-centered quality 평가 필요를 지지합니다.",
+        "supports": [
+          "definition",
+          "scope"
+        ]
+      },
+      {
+        "id": "evidence.human-ai-experience.human-ai-experience-evaluation.amershi",
+        "title": "Guidelines for Human-AI Interaction",
+        "publisher": "Association for Computing Machinery",
+        "source_type": "primary_research",
+        "url": "https://doi.org/10.1145/3290605.3300233",
+        "published_at": "2019-05-02",
+        "source_version": "CHI 2019",
+        "checked_at": "2026-07-29",
+        "claim_scope": "초기·사용 중·오류·시간 변화에 걸친 18개 HAI 지침과 제품 검토 방법을 지지합니다.",
+        "supports": [
+          "learning_outcome",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.human-ai-experience.human-ai-experience-evaluation.nist-hai",
+        "title": "AI Risk Management and Human-AI Interaction",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "official_docs",
+        "url": "https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/",
+        "published_at": "2023-01-26",
+        "source_version": "AI RMF 1.0 Appendix C",
+        "checked_at": "2026-07-29",
+        "claim_scope": "Human-AI configuration, 역할·책임·인지편향을 평가 맥락에 포함해야 하는 위험 범위를 지지합니다.",
+        "supports": [
+          "risk",
+          "scope"
+        ]
+      }
+    ]
+  }
+}

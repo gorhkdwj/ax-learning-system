@@ -1,0 +1,142 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.human-ai-experience.conversational-repair-fallback-experience.reference",
+  "version": "1.0.0",
+  "title": "대화형 AI 오류복구·대체경로 경험 설계 공식·1차 출처 Reference",
+  "description": "정규 Unit의 정의·범위와 판정 기준을 뒷받침하는 공개 Reference입니다. 상세 교재나 독립 평가자료를 대신하지 않습니다.",
+  "resource_type": "external_reference",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.human-ai-experience.conversational-repair-fallback-experience",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "external",
+    "url": "https://www.w3.org/TR/naur/"
+  },
+  "learning_outcome_ids": [
+    "outcome.human-ai-experience.conversational-repair-fallback-experience.d0",
+    "outcome.human-ai-experience.conversational-repair-fallback-experience.d2"
+  ],
+  "estimated_minutes": 30,
+  "language": "ko",
+  "tags": [
+    "reference",
+    "promotion-evidence",
+    "human-ai-experience"
+  ],
+  "requirements": {
+    "platforms": [
+      "web-browser"
+    ],
+    "network_required": true
+  },
+  "provenance": {
+    "origin": "external",
+    "sources": [
+      {
+        "title": "Natural Language Interface Accessibility User Requirements",
+        "publisher": "World Wide Web Consortium",
+        "source_type": "official_docs",
+        "url": "https://www.w3.org/TR/naur/",
+        "checked_at": "2026-07-30",
+        "source_version": "W3C Group Draft Note 2022-09-03"
+      },
+      {
+        "title": "Guidelines for Human-AI Interaction",
+        "publisher": "Association for Computing Machinery",
+        "source_type": "primary_research",
+        "url": "https://doi.org/10.1145/3290605.3300233",
+        "checked_at": "2026-07-30",
+        "source_version": "CHI 2019"
+      },
+      {
+        "title": "Ergonomics of human-system interaction — Part 110: Interaction principles",
+        "publisher": "International Organization for Standardization",
+        "source_type": "standard",
+        "url": "https://www.iso.org/standard/75258.html",
+        "checked_at": "2026-07-30",
+        "source_version": "ISO 9241-110:2020 Edition 2"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "unverified",
+    "standard": "WCAG 2.2 AA",
+    "features": [],
+    "alternative_resource_refs": [],
+    "note": "외부 출처의 접근성은 재검토가 필요합니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-07-30",
+    "commands": [],
+    "expected_outputs": [
+      "출처가 Unit의 정의·범위·판정 기준과 일반화 제한을 뒷받침하는지 확인한 기록"
+    ],
+    "evidence_paths": [],
+    "note": "URL·근거 범위만 재검토했으며 학습자료의 완전성, 접근성, 평가 타당성과 학습효과는 아직 검증하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "Candidate 승격 시 등록한 공개 Reference입니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.human-ai-experience.conversational-repair-fallback-experience",
+      "version": "1.0.0"
+    },
+    "promotion_reviewed_at": "2026-07-30",
+    "evidence_claims": [
+      {
+        "id": "evidence.human-ai-experience.conversational-repair-fallback-experience.naur",
+        "title": "Natural Language Interface Accessibility User Requirements",
+        "publisher": "World Wide Web Consortium",
+        "source_type": "official_docs",
+        "url": "https://www.w3.org/TR/naur/",
+        "published_at": "2022-09-03",
+        "source_version": "W3C Group Draft Note 2022-09-03",
+        "checked_at": "2026-07-29",
+        "claim_scope": "비규범적 W3C Group Draft Note로서 자연어 인터페이스의 대체 입력·출력, 오류·개인정보·인지 접근성 사용자 요구 탐색 범위만 지지하며 표준 준수 주장은 지지하지 않습니다.",
+        "supports": [
+          "definition",
+          "risk"
+        ]
+      },
+      {
+        "id": "evidence.human-ai-experience.conversational-repair-fallback-experience.amershi",
+        "title": "Guidelines for Human-AI Interaction",
+        "publisher": "Association for Computing Machinery",
+        "source_type": "primary_research",
+        "url": "https://doi.org/10.1145/3290605.3300233",
+        "published_at": "2019-05-02",
+        "source_version": "CHI 2019",
+        "checked_at": "2026-07-29",
+        "claim_scope": "오류 범위 전달, 수정·거부·실패 복구와 맥락 제공 지침을 지지합니다.",
+        "supports": [
+          "learning_outcome",
+          "scope"
+        ]
+      },
+      {
+        "id": "evidence.human-ai-experience.conversational-repair-fallback-experience.iso110",
+        "title": "Ergonomics of human-system interaction — Part 110: Interaction principles",
+        "publisher": "International Organization for Standardization",
+        "source_type": "standard",
+        "url": "https://www.iso.org/standard/75258.html",
+        "published_at": "2020-05-28",
+        "source_version": "ISO 9241-110:2020 Edition 2",
+        "checked_at": "2026-07-29",
+        "claim_scope": "기술 독립적인 상호작용 원칙을 제공하되 AI 특수성은 별도 검증해야 한다는 경계를 지지합니다.",
+        "supports": [
+          "scope",
+          "work_relevance"
+        ]
+      }
+    ]
+  }
+}

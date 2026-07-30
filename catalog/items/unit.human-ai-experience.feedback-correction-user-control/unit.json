@@ -1,0 +1,223 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.human-ai-experience.feedback-correction-user-control",
+  "version": "1.0.0",
+  "title": "AI 피드백·수정·되돌리기 사용자 통제 설계",
+  "summary": "사용자가 AI 결과·개인화·자동행동을 수정·거부·되돌리고 피드백의 영향과 적용 시점을 이해할 수 있는 통제 경험을 설계하는 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "human-ai-experience",
+    "subdomains": [
+      "ai-feedback-user-control"
+    ]
+  },
+  "domain_tags": [
+    "feedback",
+    "correction",
+    "user",
+    "control"
+  ],
+  "capabilities": [
+    "AI 결과·개인화·자동행동의 수정·거부·undo·reset prototype을 만들고 의도한 변화·no-op·오류 상태가 사용자에게 정확히 전달되는지 검증합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.human-ai-experience.feedback-correction-user-control.d0",
+        "statement": "피드백 수집, 결과 수정, 모델 학습과 사용자 통제를 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.human-ai-experience.feedback-correction-user-control.d2",
+        "statement": "명시적 피드백·수정·거부·undo·reset 흐름과 영향 설명을 설계하고 실패를 주입해 검증합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "D2 사용자 통제 경험으로 제한하며 학습 알고리즘·보유정책·실운영 고위험 권한은 제외합니다. 평가는 공개·합성 입력, local prototype과 봉인 fixture로 제한하며 만족도·유창성을 과업성공의 대리 지표로 사용하지 않습니다. 실행 전에 정답 manifest·실패 주입 목록·관찰 protocol을 고정하고 정상·오류·거부·무응답·지연·변경·접근성 시나리오를 포함합니다. 실제 개인정보·자격증명·운영 계정·결제·삭제·고위험 외부 상태 변경이 필요하면 중단하고 보안·법무·접근성 전문 소유 영역으로 이관합니다. 사용자 평가 결과를 표본·과업·맥락 밖으로 일반화하지 않으며 실제 참여자는 승인된 동의 절차와 비식별·최소 수집 조건을 충족한 경우에만 사용합니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.human-ai-experience.mental-model-capability-onboarding",
+        "version": "1.0.0"
+      },
+      "note": "지원·미지원 기능의 기대를 먼저 고정해야 통제 지점과 복구 경로를 설계할 수 있습니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.software.accessible-ui-state-interaction",
+        "version": "1.0.0"
+      },
+      "note": "통제 상태는 의미 구조·포커스·키보드·보조기술 조건에서도 전달되어야 합니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.integration-automation.side-effect-idempotency-retry-compensation",
+        "version": "1.0.0"
+      },
+      "note": "UI의 undo·reset 표시와 실제 부작용 상태의 일치를 함께 검증합니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.human-ai-experience.feedback-correction-user-control.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference와 prebuilt local prototype·합성 fixture 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "human-ai-experience-feedback-correction-user-control-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.human-ai-experience.feedback-correction-user-control.d0",
+          "outcome.human-ai-experience.feedback-correction-user-control.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "피드백이 즉시 결과를 바꾸는지, 미래 개인화에 쓰이는지, 단순 만족도 수집인지 구분합니다.",
+          "봉인된 지연·실패·충돌 시나리오에서 무응답 통제 0건, 되돌릴 수 없는 숨은 변경 0건이며 사용자 예측과 실제 상태가 일치해야 합니다.",
+          "실행 전에 정답 manifest, 실패 주입 목록과 관찰 protocol을 고정하고 정상·오류·거부·무응답·지연·변경·접근성 시나리오를 빠짐없이 확인합니다.",
+          "공개·합성 입력과 local prototype만 사용하며 실제 개인정보·자격증명·운영 계정·결제·삭제·고위험 외부 상태 변경이 필요하면 평가를 중단하고 전문 소유 영역으로 이관합니다.",
+          "사용자 평가 결과를 표본·과업·맥락 밖으로 일반화하지 않으며, 실제 참여자를 사용하려면 승인된 동의 절차와 비식별·최소 수집 조건을 먼저 충족해야 합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Guidelines for Human-AI Interaction",
+      "publisher": "Association for Computing Machinery",
+      "source_type": "primary_research",
+      "url": "https://doi.org/10.1145/3290605.3300233",
+      "checked_at": "2026-07-30",
+      "source_version": "CHI 2019"
+    },
+    {
+      "title": "People + AI Guidebook: Feedback + Control",
+      "publisher": "Google People + AI Research",
+      "source_type": "official_docs",
+      "url": "https://pair.withgoogle.com/chapter/feedback-controls/",
+      "checked_at": "2026-07-30",
+      "source_version": "updated 2021-05-18"
+    },
+    {
+      "title": "Web Content Accessibility Guidelines (WCAG) 2.2",
+      "publisher": "World Wide Web Consortium",
+      "source_type": "standard",
+      "url": "https://www.w3.org/TR/WCAG22/",
+      "checked_at": "2026-07-30",
+      "source_version": "W3C Recommendation 2024-12-12"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "risk_reduction",
+    "experience",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "candidate.human-ai-experience.feedback-correction-user-control@1.0.0의 승인 결과를 정규 Unit 메타데이터로 등록했습니다. 예상 시간은 prebuilt fixture·prototype 가설이며 상세 교재·독립 평가 타당성·파일럿과 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.human-ai-experience.feedback-correction-user-control",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.human-ai-experience.breadth-a",
+      "promoted_at": "2026-07-30"
+    },
+    "evidence_claims": [
+      {
+        "id": "evidence.human-ai-experience.feedback-correction-user-control.amershi",
+        "title": "Guidelines for Human-AI Interaction",
+        "publisher": "Association for Computing Machinery",
+        "source_type": "primary_research",
+        "url": "https://doi.org/10.1145/3290605.3300233",
+        "published_at": "2019-05-02",
+        "source_version": "CHI 2019",
+        "checked_at": "2026-07-29",
+        "claim_scope": "사용자 수정·거부·범위 조정, 피드백과 실패 복구에 관한 검증된 HAI 지침을 지지합니다.",
+        "supports": [
+          "definition",
+          "learning_outcome"
+        ]
+      },
+      {
+        "id": "evidence.human-ai-experience.feedback-correction-user-control.pair-feedback",
+        "title": "People + AI Guidebook: Feedback + Control",
+        "publisher": "Google People + AI Research",
+        "source_type": "official_docs",
+        "url": "https://pair.withgoogle.com/chapter/feedback-controls/",
+        "source_version": "updated 2021-05-18",
+        "checked_at": "2026-07-29",
+        "claim_scope": "피드백의 가치·영향 시점, 사용자 preference control과 자동화 균형 범위를 지지합니다.",
+        "supports": [
+          "scope",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.human-ai-experience.feedback-correction-user-control.wcag",
+        "title": "Web Content Accessibility Guidelines (WCAG) 2.2",
+        "publisher": "World Wide Web Consortium",
+        "source_type": "standard",
+        "url": "https://www.w3.org/TR/WCAG22/",
+        "published_at": "2024-12-12",
+        "source_version": "W3C Recommendation 2024-12-12",
+        "checked_at": "2026-07-29",
+        "claim_scope": "중요 입력의 검토·수정·가역성과 상태 메시지의 접근 가능한 전달을 일반 상호작용 기준으로 지지합니다.",
+        "supports": [
+          "risk",
+          "scope"
+        ]
+      }
+    ],
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.software.accessible-ui-state-interaction",
+        "version": "1.0.0"
+      },
+      {
+        "kind": "unit",
+        "id": "unit.integration-automation.side-effect-idempotency-retry-compensation",
+        "version": "1.0.0"
+      }
+    ]
+  }
+}

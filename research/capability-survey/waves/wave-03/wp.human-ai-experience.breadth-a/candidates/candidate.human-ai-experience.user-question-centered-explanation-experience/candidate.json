@@ -1,0 +1,191 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.human-ai-experience.user-question-centered-explanation-experience",
+  "version": "1.0.0",
+  "title": "사용자 질문 중심 AI 설명경험 설계",
+  "canonical_name": "User-question-centered AI explanation experience design",
+  "aliases": [],
+  "summary": "사용자의 역할·결정·행동에 필요한 질문을 먼저 정의하고 적절한 내용·시점·상세도의 AI 설명 경험을 설계·평가하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "기술적으로 제공 가능한 feature importance나 장문의 설명을 모든 사용자에게 노출해 실제 질문에 답하지 못하거나 잘못된 확신을 만드는 문제를 다룹니다.",
+    "includes": [
+      "사용자 역할·과업별 설명 질문 도출",
+      "내용·시점·상세도·비교·what-if 선택",
+      "설명 이해·행동 적합성·오해 평가"
+    ],
+    "excludes": [
+      "XAI 알고리즘 개발",
+      "설명의 사실성 자동 보장",
+      "법적 설명 의무 판정",
+      "모델 내부 연구"
+    ],
+    "boundary_note": "기존 AI 사용 투명성 Unit은 산출물의 역할·검토·불확실성 전달을 소유하고, 이 후보는 상호작용 제품에서 사용자 질문에 맞는 설명 경험을 설계·평가합니다."
+  },
+  "discovery": {
+    "lens_id": "human-ai-experience",
+    "basis": "assigned_lens",
+    "notes": "공식·표준·1차 근거를 기존 Candidate·Unit·Set·Signal과 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "human-ai-experience",
+    "subdomains": [
+      "human-centered-ai-explanations"
+    ],
+    "tags": [
+      "user",
+      "question",
+      "centered",
+      "explanation"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "제품 독립적인 사용자 경험 산출물과 관찰 가능한 D2 판정 기준을 가집니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.human-ai-experience.user-question-centered-explanation-experience"
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.human-ai-experience.mental-model-capability-onboarding",
+        "version": "1.0.0"
+      },
+      "rationale": "설명은 사용자의 기존 mental model과 역할·과업을 먼저 파악해야 합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "역할이 다른 사용자들의 설명 질문을 도출하고 설명 내용·시점·상세도를 prototype으로 구현해 이해·오해·행동 적합성을 비교합니다.",
+    "work_contexts": [
+      "AI 기능 UX 설계",
+      "Human-AI prototype 평가"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "comparison_required",
+    "agent_fit_rationale": "AI가 제안·생성을 보조할 수 있지만 인간 사용자의 mental model·통제·접근·복구 evidence는 실제 상호작용 평가로 판정해야 합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "모델 설명 가능성, 사용자에게 유용한 설명과 법적 설명 의무를 구분합니다.",
+        "evidence_hypothesis": "같은 설명이 사용자 역할·결정 맥락에 따라 유용·불충분·오도 가능함을 판별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "새 AI 기능의 사용자 질문을 근거로 두 설명 prototype을 만들고 이해·오해·다음 행동과 부적절한 의존의 역효과를 평가합니다.",
+        "evidence_hypothesis": "정답·오답이 섞인 봉인 fixture에서 필수 질문 누락·근거 없는 인과표현 0건이고, 설명 노출 뒤 잘못된 수용·거부율이 무설명 기준선보다 악화되지 않으며 이해도와 올바른 다음 행동 기준을 충족해야 합니다."
+      }
+    ],
+    "depth_boundary": "D2 사용자 중심 설명 설계로 제한하며 XAI 알고리즘, 법률 자문과 설명의 보편적 효과 주장은 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "risk_reduction",
+      "employee_experience",
+      "customer_experience",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "검증 가능한 Human-AI 경험 설계는 오해·통제실패·복구실패와 배제 위험을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "next",
+    "measurement_hypothesis": "정답·오답이 섞인 봉인 fixture에서 필수 질문 누락·근거 없는 인과표현 0건이고, 설명 노출 뒤 잘못된 수용·거부율이 무설명 기준선보다 악화되지 않으며 이해도와 올바른 다음 행동 기준을 충족해야 합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "accessibility",
+      "privacy",
+      "ethics",
+      "permissions",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "법적·보안·개인정보 통제의 내용은 후속 전문 렌즈가 소유하며 이 후보는 제공된 제약을 경험 설계와 평가 Gate에 반영합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.human-ai-experience.user-question-centered-explanation-experience.liao",
+      "title": "Questioning the AI: Informing Design Practices for Explainable AI User Experiences",
+      "publisher": "Association for Computing Machinery",
+      "source_type": "primary_research",
+      "url": "https://doi.org/10.1145/3313831.3376590",
+      "published_at": "2020-04-23",
+      "source_version": "CHI 2020",
+      "checked_at": "2026-07-29",
+      "claim_scope": "실무자의 설명 요구를 사용자 질문으로 표현하고 XAI 기술과 사용자 요구 사이의 간극을 다룬 1차 연구를 지지합니다.",
+      "supports": [
+        "definition",
+        "scope"
+      ]
+    },
+    {
+      "id": "evidence.human-ai-experience.user-question-centered-explanation-experience.liao-process",
+      "title": "Question-Driven Design Process for Explainable AI User Experiences",
+      "publisher": "arXiv; authors affiliated with IBM Research",
+      "source_type": "primary_research",
+      "url": "https://arxiv.org/abs/2104.03483",
+      "published_at": "2021-09-03",
+      "source_version": "arXiv:2104.03483v3, working paper",
+      "checked_at": "2026-07-29",
+      "claim_scope": "사용자 질문·기술 선택·경험 설계·평가를 연결하는 question-driven process를 지지합니다.",
+      "supports": [
+        "learning_outcome",
+        "work_relevance"
+      ]
+    },
+    {
+      "id": "evidence.human-ai-experience.user-question-centered-explanation-experience.pair-explain",
+      "title": "People + AI Guidebook: Explainability + Trust",
+      "publisher": "Google People + AI Research",
+      "source_type": "official_docs",
+      "url": "https://pair.withgoogle.com/chapter/explainability-trust",
+      "source_version": "updated 2021-05-18",
+      "checked_at": "2026-07-29",
+      "claim_scope": "사용자 mental model과 필요 상세도에 맞는 설명·what-if·통제 설계를 보완하며, 과도하거나 오해되는 설명·confidence 표시가 산만함과 맹목적 수용을 만들 수 있는 역효과 범위를 함께 지지합니다.",
+      "supports": [
+        "scope",
+        "work_relevance",
+        "risk"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "독립 근거·taxonomy·실용성 감사의 P1을 교정하고 재감사에서 P0·P1 0건을 확인했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-03",
+    "work_package_id": "wp.human-ai-experience.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-29",
+    "reviewers": [
+      "codex-human-ai-discovery",
+      "codex-evidence-auditor",
+      "codex-taxonomy-auditor",
+      "codex-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "상세 prototype·사용자 표본·수치 임계값과 학습효과는 아직 검증하지 않았습니다."
+    ],
+    "next_action": "unit.human-ai-experience.user-question-centered-explanation-experience@1.0.0 정규 Unit과 공개 Reference로 승격했습니다. cataloged 상태이므로 상세 교재·fixture·파일럿과 학습효과는 아직 검증되지 않았습니다."
+  },
+  "extensions": {
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.foundation.ai-use-transparency",
+        "version": "1.0.0"
+      }
+    ]
+  }
+}

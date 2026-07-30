@@ -1,0 +1,214 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.human-ai-experience.human-ai-experience-evaluation",
+  "version": "1.0.0",
+  "title": "Human-AI 경험·사용성 평가",
+  "canonical_name": "Human-AI experience and usability evaluation",
+  "aliases": [],
+  "summary": "정확도와 만족도만으로 판단하지 않고 과업성공·mental model·적절한 의존·통제·복구·접근성을 오류 주입과 사용자 evidence로 평가하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "모델 지표나 평균 만족도가 실제 사용자의 과업 성공·오해·과신·복구 실패·배제 문제를 가리는 문제를 다룹니다.",
+    "includes": [
+      "역할·과업·위험별 HAI 평가 질문",
+      "오류·불확실성·변화·거부·접근성 시나리오",
+      "과업성공·오해·의존·통제·복구 지표와 관찰"
+    ],
+    "excludes": [
+      "모델 benchmark·회귀평가",
+      "조직 성과·ROI 확정",
+      "임상·법적 검증",
+      "대규모 통계 연구"
+    ],
+    "boundary_note": "AI 시스템 평가 Unit은 모델·시스템 결과의 회귀를, 파일럿 영향평가 Unit은 업무효과를 소유합니다. 이 후보는 prebuilt prototype, 봉인 과업 3개와 오류 시나리오 6개를 대표 사용자 또는 proxy evaluator 3~5명으로 150~180분 안에 수행하는 formative 경험 평가로 제한합니다."
+  },
+  "discovery": {
+    "lens_id": "human-ai-experience",
+    "basis": "assigned_lens",
+    "notes": "공식·표준·1차 근거를 기존 Candidate·Unit·Set·Signal과 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "human-ai-experience",
+    "subdomains": [
+      "human-ai-experience-evaluation"
+    ],
+    "tags": [
+      "human",
+      "ai",
+      "experience",
+      "evaluation"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "제품 독립적인 사용자 경험 산출물과 관찰 가능한 D2 판정 기준을 가집니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.human-ai-experience.human-ai-experience-evaluation"
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.human-ai-experience.mental-model-capability-onboarding",
+        "version": "1.0.0"
+      },
+      "rationale": "평가에 mental model과 기대형성 관찰이 필요합니다."
+    },
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.human-ai-experience.feedback-correction-user-control",
+        "version": "1.0.0"
+      },
+      "rationale": "통제·수정·복구의 관찰 가능한 성공기준이 필요합니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.human-ai-experience.accessible-multimodal-ai-interaction",
+        "version": "1.0.0"
+      },
+      "rationale": "접근성 요구와 대체경로를 Human-AI 평가 범위에 포함합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "AI 오류·불확실성·변화·통제·접근성 시나리오를 포함한 소규모 HAI 평가를 설계하고 관찰 evidence로 개선 우선순위를 판정합니다.",
+    "work_contexts": [
+      "AI 기능 UX 설계",
+      "Human-AI prototype 평가"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "comparison_required",
+    "agent_fit_rationale": "AI가 제안·생성을 보조할 수 있지만 인간 사용자의 mental model·통제·접근·복구 evidence는 실제 상호작용 평가로 판정해야 합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "모델 정확도, 일반 사용성, Human-AI 상호작용 품질과 업무효과를 구분합니다.",
+        "evidence_hypothesis": "정확도·만족도는 높지만 오해·과신·복구·접근성 실패가 있는 사례를 식별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "새 AI prototype의 과업성공·mental model·의존·통제·복구·접근성을 오류 주입 사용자 평가로 검증합니다.",
+        "evidence_hypothesis": "prebuilt prototype, 봉인 과업 3개·오류 시나리오 6개와 대표 사용자 또는 proxy evaluator 3~5명의 150~180분 평가에서 관찰항목 누락 0건, 치명 통제·복구 실패 식별 누락 0건이며 주장 범위를 표본과 맥락 안으로 제한해야 합니다."
+      }
+    ],
+    "depth_boundary": "D2 소규모 formative 평가로 제한하며 대규모 실험, 모델 benchmark, ROI와 규제 적합성 확정은 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "risk_reduction",
+      "employee_experience",
+      "customer_experience",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "검증 가능한 Human-AI 경험 설계는 오해·통제실패·복구실패와 배제 위험을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "next",
+    "measurement_hypothesis": "prebuilt prototype, 봉인 과업 3개·오류 시나리오 6개와 대표 사용자 또는 proxy evaluator 3~5명의 150~180분 평가에서 관찰항목 누락 0건, 치명 통제·복구 실패 식별 누락 0건이며 주장 범위를 표본과 맥락 안으로 제한해야 합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "accessibility",
+      "privacy",
+      "ethics",
+      "permissions",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "법적·보안·개인정보 통제의 내용은 후속 전문 렌즈가 소유하며 이 후보는 제공된 제약을 경험 설계와 평가 Gate에 반영합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.human-ai-experience.human-ai-experience-evaluation.nist-use",
+      "title": "AI Use Taxonomy: A Human-Centered Approach",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_source",
+      "url": "https://doi.org/10.6028/NIST.AI.200-1",
+      "published_at": "2024-03-26",
+      "source_version": "NIST AI 200-1",
+      "checked_at": "2026-07-29",
+      "claim_scope": "기술 독립적인 Human-AI 활동 분류와 usability·human-centered quality 평가 필요를 지지합니다.",
+      "supports": [
+        "definition",
+        "scope"
+      ]
+    },
+    {
+      "id": "evidence.human-ai-experience.human-ai-experience-evaluation.amershi",
+      "title": "Guidelines for Human-AI Interaction",
+      "publisher": "Association for Computing Machinery",
+      "source_type": "primary_research",
+      "url": "https://doi.org/10.1145/3290605.3300233",
+      "published_at": "2019-05-02",
+      "source_version": "CHI 2019",
+      "checked_at": "2026-07-29",
+      "claim_scope": "초기·사용 중·오류·시간 변화에 걸친 18개 HAI 지침과 제품 검토 방법을 지지합니다.",
+      "supports": [
+        "learning_outcome",
+        "work_relevance"
+      ]
+    },
+    {
+      "id": "evidence.human-ai-experience.human-ai-experience-evaluation.nist-hai",
+      "title": "AI Risk Management and Human-AI Interaction",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_docs",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/",
+      "published_at": "2023-01-26",
+      "source_version": "AI RMF 1.0 Appendix C",
+      "checked_at": "2026-07-29",
+      "claim_scope": "Human-AI configuration, 역할·책임·인지편향을 평가 맥락에 포함해야 하는 위험 범위를 지지합니다.",
+      "supports": [
+        "risk",
+        "scope"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "독립 근거·taxonomy·실용성 감사의 P1을 교정하고 재감사에서 P0·P1 0건을 확인했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-03",
+    "work_package_id": "wp.human-ai-experience.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-29",
+    "reviewers": [
+      "codex-human-ai-discovery",
+      "codex-evidence-auditor",
+      "codex-taxonomy-auditor",
+      "codex-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "3~5명 formative 표본과 150~180분 규모 가설은 파일럿 전 운영 타당성과 포화도를 검증해야 합니다."
+    ],
+    "next_action": "unit.human-ai-experience.human-ai-experience-evaluation@1.0.0 정규 Unit과 공개 Reference로 승격했습니다. cataloged 상태이므로 상세 교재·fixture·파일럿과 학습효과는 아직 검증되지 않았습니다."
+  },
+  "extensions": {
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.ai.system-evaluation-regression-design",
+        "version": "1.0.0"
+      },
+      {
+        "kind": "unit",
+        "id": "unit.foundation.ai-trust-calibration",
+        "version": "1.0.0"
+      }
+    ]
+  }
+}

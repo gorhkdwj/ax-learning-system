@@ -1,0 +1,142 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.human-ai-experience.user-question-centered-explanation-experience.reference",
+  "version": "1.0.0",
+  "title": "사용자 질문 중심 AI 설명경험 설계 공식·1차 출처 Reference",
+  "description": "정규 Unit의 정의·범위와 판정 기준을 뒷받침하는 공개 Reference입니다. 상세 교재나 독립 평가자료를 대신하지 않습니다.",
+  "resource_type": "external_reference",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.human-ai-experience.user-question-centered-explanation-experience",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "external",
+    "url": "https://doi.org/10.1145/3313831.3376590"
+  },
+  "learning_outcome_ids": [
+    "outcome.human-ai-experience.user-question-centered-explanation-experience.d0",
+    "outcome.human-ai-experience.user-question-centered-explanation-experience.d2"
+  ],
+  "estimated_minutes": 30,
+  "language": "ko",
+  "tags": [
+    "reference",
+    "promotion-evidence",
+    "human-ai-experience"
+  ],
+  "requirements": {
+    "platforms": [
+      "web-browser"
+    ],
+    "network_required": true
+  },
+  "provenance": {
+    "origin": "external",
+    "sources": [
+      {
+        "title": "Questioning the AI: Informing Design Practices for Explainable AI User Experiences",
+        "publisher": "Association for Computing Machinery",
+        "source_type": "primary_research",
+        "url": "https://doi.org/10.1145/3313831.3376590",
+        "checked_at": "2026-07-30",
+        "source_version": "CHI 2020"
+      },
+      {
+        "title": "Question-Driven Design Process for Explainable AI User Experiences",
+        "publisher": "arXiv; authors affiliated with IBM Research",
+        "source_type": "primary_research",
+        "url": "https://arxiv.org/abs/2104.03483",
+        "checked_at": "2026-07-30",
+        "source_version": "arXiv:2104.03483v3, working paper"
+      },
+      {
+        "title": "People + AI Guidebook: Explainability + Trust",
+        "publisher": "Google People + AI Research",
+        "source_type": "official_docs",
+        "url": "https://pair.withgoogle.com/chapter/explainability-trust",
+        "checked_at": "2026-07-30",
+        "source_version": "updated 2021-05-18"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "unverified",
+    "standard": "WCAG 2.2 AA",
+    "features": [],
+    "alternative_resource_refs": [],
+    "note": "외부 출처의 접근성은 재검토가 필요합니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-07-30",
+    "commands": [],
+    "expected_outputs": [
+      "출처가 Unit의 정의·범위·판정 기준과 일반화 제한을 뒷받침하는지 확인한 기록"
+    ],
+    "evidence_paths": [],
+    "note": "URL·근거 범위만 재검토했으며 학습자료의 완전성, 접근성, 평가 타당성과 학습효과는 아직 검증하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "Candidate 승격 시 등록한 공개 Reference입니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.human-ai-experience.user-question-centered-explanation-experience",
+      "version": "1.0.0"
+    },
+    "promotion_reviewed_at": "2026-07-30",
+    "evidence_claims": [
+      {
+        "id": "evidence.human-ai-experience.user-question-centered-explanation-experience.liao",
+        "title": "Questioning the AI: Informing Design Practices for Explainable AI User Experiences",
+        "publisher": "Association for Computing Machinery",
+        "source_type": "primary_research",
+        "url": "https://doi.org/10.1145/3313831.3376590",
+        "published_at": "2020-04-23",
+        "source_version": "CHI 2020",
+        "checked_at": "2026-07-29",
+        "claim_scope": "실무자의 설명 요구를 사용자 질문으로 표현하고 XAI 기술과 사용자 요구 사이의 간극을 다룬 1차 연구를 지지합니다.",
+        "supports": [
+          "definition",
+          "scope"
+        ]
+      },
+      {
+        "id": "evidence.human-ai-experience.user-question-centered-explanation-experience.liao-process",
+        "title": "Question-Driven Design Process for Explainable AI User Experiences",
+        "publisher": "arXiv; authors affiliated with IBM Research",
+        "source_type": "primary_research",
+        "url": "https://arxiv.org/abs/2104.03483",
+        "published_at": "2021-09-03",
+        "source_version": "arXiv:2104.03483v3, working paper",
+        "checked_at": "2026-07-29",
+        "claim_scope": "사용자 질문·기술 선택·경험 설계·평가를 연결하는 question-driven process를 지지합니다.",
+        "supports": [
+          "learning_outcome",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.human-ai-experience.user-question-centered-explanation-experience.pair-explain",
+        "title": "People + AI Guidebook: Explainability + Trust",
+        "publisher": "Google People + AI Research",
+        "source_type": "official_docs",
+        "url": "https://pair.withgoogle.com/chapter/explainability-trust",
+        "source_version": "updated 2021-05-18",
+        "checked_at": "2026-07-29",
+        "claim_scope": "사용자 mental model과 필요 상세도에 맞는 설명·what-if·통제 설계를 보완하며, 과도하거나 오해되는 설명·confidence 표시가 산만함과 맹목적 수용을 만들 수 있는 역효과 범위를 함께 지지합니다.",
+        "supports": [
+          "scope",
+          "work_relevance",
+          "risk"
+        ]
+      }
+    ]
+  }
+}

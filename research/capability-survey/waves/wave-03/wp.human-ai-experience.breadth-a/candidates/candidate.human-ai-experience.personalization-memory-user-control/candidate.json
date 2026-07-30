@@ -1,0 +1,187 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.human-ai-experience.personalization-memory-user-control",
+  "version": "1.0.0",
+  "title": "개인화·기억 사용자 제어 경험 설계",
+  "canonical_name": "Personalization and memory user-control experience design",
+  "aliases": [],
+  "summary": "AI가 사용하는 선호·이력·기억의 원천·목적·범위를 알리고 사용자가 보기·수정·삭제·초기화·문맥분리를 제어하는 경험을 설계하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "개인화와 장기 기억이 보이지 않게 축적·재사용되어 사용자가 왜 달라졌는지 이해하지 못하고 잘못된 기억이나 문맥 간 노출을 통제하지 못하는 문제를 다룹니다.",
+    "includes": [
+      "기억 원천·목적·범위·유효기간의 경험 표시",
+      "보기·수정·삭제·초기화·opt-out",
+      "문맥 분리·stale memory·적용 실패 상태"
+    ],
+    "excludes": [
+      "메모리 저장 architecture",
+      "agent 내부 state·handoff 구현",
+      "개인정보 법률 판단",
+      "실제 개인 데이터"
+    ],
+    "boundary_note": "에이전트 상태·메모리·인계 Unit은 내부 실행계약을, 보안·법무 렌즈는 보유·처리 통제를 소유합니다. 이 후보는 제공된 정책 안에서 사용자가 개인화·기억을 이해하고 제어하는 경험만 소유합니다."
+  },
+  "discovery": {
+    "lens_id": "human-ai-experience",
+    "basis": "assigned_lens",
+    "notes": "공식·표준·1차 근거를 기존 Candidate·Unit·Set·Signal과 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "human-ai-experience",
+    "subdomains": [
+      "personalization-memory-user-control"
+    ],
+    "tags": [
+      "personalization",
+      "memory",
+      "user",
+      "control"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "defer",
+    "rationale": "현재 근거는 preference control과 적응 기대는 지지하지만 장기 기억의 개별 보기·삭제·문맥분리·실제 저장상태 일치를 직접 지지하지 못하므로 보강 조사 전 정규 목적지를 보류합니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.human-ai-experience.feedback-correction-user-control",
+        "version": "1.0.0"
+      },
+      "rationale": "개인화·기억의 수정·삭제·초기화는 명시적 통제와 결과 상태 피드백을 전제로 합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "합성 기억 fixture로 원천·목적·범위를 표시하고 보기·수정·삭제·초기화·문맥분리 흐름을 설계해 실제 적용 상태와 일치하는지 검증합니다.",
+    "work_contexts": [
+      "AI 기능 UX 설계",
+      "Human-AI prototype 평가"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "comparison_required",
+    "agent_fit_rationale": "AI가 제안·생성을 보조할 수 있지만 인간 사용자의 mental model·통제·접근·복구 evidence는 실제 상호작용 평가로 판정해야 합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "세션 문맥, 저장된 기억, 추론된 선호와 모델 학습을 구분합니다.",
+        "evidence_hypothesis": "사용자가 제공·추론·저장·학습된 정보의 차이와 각 통제 가능 범위를 사례에서 정확히 구분합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "합성 기억의 보기·수정·삭제·초기화·문맥분리 경험과 적용 상태 피드백을 설계·검증합니다.",
+        "evidence_hypothesis": "봉인된 stale·충돌·삭제실패·문맥전환 시나리오에서 비의도 노출 0건, 거짓 삭제완료 0건이며 UI 표시와 실제 fixture 상태가 일치해야 합니다."
+      }
+    ],
+    "depth_boundary": "D2 합성 fixture 경험 설계로 제한하며 실개인정보, 저장 architecture와 법적 보유·삭제 의무 판정은 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "risk_reduction",
+      "employee_experience",
+      "customer_experience",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "검증 가능한 Human-AI 경험 설계는 오해·통제실패·복구실패와 배제 위험을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "next",
+    "measurement_hypothesis": "봉인된 stale·충돌·삭제실패·문맥전환 시나리오에서 비의도 노출 0건, 거짓 삭제완료 0건이며 UI 표시와 실제 fixture 상태가 일치해야 합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "accessibility",
+      "privacy",
+      "ethics",
+      "permissions",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "법적·보안·개인정보 통제의 내용은 후속 전문 렌즈가 소유하며 이 후보는 제공된 제약을 경험 설계와 평가 Gate에 반영합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.human-ai-experience.personalization-memory-user-control.pair-feedback",
+      "title": "People + AI Guidebook: Feedback + Control",
+      "publisher": "Google People + AI Research",
+      "source_type": "official_docs",
+      "url": "https://pair.withgoogle.com/chapter/feedback-controls/",
+      "source_version": "updated 2021-05-18",
+      "checked_at": "2026-07-29",
+      "claim_scope": "사용자 preference control, 피드백의 영향·적용 시점과 opt-out 범위를 지지합니다.",
+      "supports": [
+        "definition",
+        "scope"
+      ]
+    },
+    {
+      "id": "evidence.human-ai-experience.personalization-memory-user-control.pair-mental",
+      "title": "People + AI Guidebook: Mental Models",
+      "publisher": "Google People + AI Research",
+      "source_type": "official_docs",
+      "url": "https://pair.withgoogle.com/guidebook-v2/chapter/mental-models/",
+      "source_version": "updated 2021-05-18",
+      "checked_at": "2026-07-29",
+      "claim_scope": "적응·개인화 시스템의 변화와 사용자가 시스템을 가르치는 방식에 대한 mental model 범위를 지지합니다.",
+      "supports": [
+        "learning_outcome",
+        "work_relevance"
+      ]
+    },
+    {
+      "id": "evidence.human-ai-experience.personalization-memory-user-control.nist-hai",
+      "title": "AI Risk Management and Human-AI Interaction",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_docs",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/",
+      "published_at": "2023-01-26",
+      "source_version": "AI RMF 1.0 Appendix C",
+      "checked_at": "2026-07-29",
+      "claim_scope": "AI 역할·인간 책임과 사용 맥락을 명확히 정의해야 하는 위험관리 경계를 지지합니다.",
+      "supports": [
+        "risk",
+        "scope"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "deferred",
+    "confidence": "medium",
+    "rationale": "독립 근거 감사에서 preference control을 넘는 memory lifecycle UX의 직접 근거가 부족하다고 판정해 보강 조사 전까지 보류했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-03",
+    "work_package_id": "wp.human-ai-experience.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-29",
+    "reviewers": [
+      "codex-human-ai-discovery",
+      "codex-evidence-auditor",
+      "codex-taxonomy-auditor",
+      "codex-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "상세 prototype·사용자 표본·수치 임계값과 학습효과는 아직 검증하지 않았습니다."
+    ],
+    "next_action": "기술 독립적인 장기 기억 원천 표시·개별 보기·삭제·문맥분리와 실제 저장상태 일치의 직접 표준·1차 연구를 보강한 뒤 Unit 후보 유지 또는 피드백·통제 후보 병합을 재검토합니다."
+  },
+  "extensions": {
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.ai.agent-state-memory-handoff-design",
+        "version": "1.0.0"
+      }
+    ]
+  }
+}

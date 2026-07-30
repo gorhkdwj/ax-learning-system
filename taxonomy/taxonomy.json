@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "id": "taxonomy.ax-capability-map",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "title": "AX 역량 분류 레지스트리",
   "status": "provisional",
   "updated_at": "2026-07-29",
@@ -2973,6 +2973,331 @@
           "research/capability-survey/waves/wave-02/wp.integration-automation.breadth-a/domain-survey.md"
         ],
         "rationale": "Wave 2 통합·업무자동화 조사에서 안정 코어와 인접 렌즈·제품 Adapter의 소유권을 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-29",
+        "last_reviewed_at": "2026-07-29",
+        "review_due_at": "2026-10-29",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "ai-capability-mental-model-onboarding",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "AI 역량 mental model·온보딩",
+      "title_en": "AI capability mental-model and onboarding",
+      "definition": "AI 기능의 용도·한계·역할·변화 가능성에 대한 정확한 기대형성과 점진적 온보딩을 다루는 잠정 중분류입니다.",
+      "includes": [
+        "AI 기능의 용도·한계·역할·변화 가능성에 대한 정확한 기대형성과 점진적 온보딩을 다루는"
+      ],
+      "excludes": [
+        "모델·알고리즘 개발",
+        "법적·보안 정책의 최종 판정",
+        "보편적 업무효과 주장"
+      ],
+      "parent_ids": [
+        "human-ai-experience"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "ai-literacy-trust",
+        "software-product-engineering",
+        "security-legal-governance",
+        "ai-foundations-and-limitations",
+        "trust-calibration",
+        "ai-use-transparency"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.human-ai-experience.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 Human-AI 경험 조사에서 기존 리터러시·구현·전문 통제와 중복되지 않는 경험 설계·평가 책임을 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-29",
+        "last_reviewed_at": "2026-07-29",
+        "review_due_at": "2026-10-29",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "human-centered-ai-explanations",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "사용자 중심 AI 설명경험",
+      "title_en": "Human-centered AI explanation experiences",
+      "definition": "사용자 역할·질문·결정에 맞는 설명 내용·시점·상세도와 이해·오해 평가를 다루는 잠정 중분류입니다.",
+      "includes": [
+        "사용자 역할·질문·결정에 맞는 설명 내용·시점·상세도와 이해·오해 평가를 다루는"
+      ],
+      "excludes": [
+        "모델·알고리즘 개발",
+        "법적·보안 정책의 최종 판정",
+        "보편적 업무효과 주장"
+      ],
+      "parent_ids": [
+        "human-ai-experience"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "ai-literacy-trust",
+        "security-legal-governance",
+        "ai-use-transparency",
+        "trust-calibration"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.human-ai-experience.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 Human-AI 경험 조사에서 기존 리터러시·구현·전문 통제와 중복되지 않는 경험 설계·평가 책임을 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-29",
+        "last_reviewed_at": "2026-07-29",
+        "review_due_at": "2026-10-29",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "ai-feedback-user-control",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "AI 피드백·사용자 통제",
+      "title_en": "AI feedback and user control",
+      "definition": "AI 결과·개인화·자동행동의 수정·거부·되돌리기와 피드백 영향 전달을 다루는 잠정 중분류입니다.",
+      "includes": [
+        "AI 결과·개인화·자동행동의 수정·거부·되돌리기와 피드백 영향 전달을 다루는"
+      ],
+      "excludes": [
+        "모델·알고리즘 개발",
+        "법적·보안 정책의 최종 판정",
+        "보편적 업무효과 주장"
+      ],
+      "parent_ids": [
+        "human-ai-experience"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "software-product-engineering",
+        "security-legal-governance",
+        "human-ai-control",
+        "accessible-ui-state-interaction",
+        "side-effect-safety-recovery"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.human-ai-experience.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 Human-AI 경험 조사에서 기존 리터러시·구현·전문 통제와 중복되지 않는 경험 설계·평가 책임을 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-29",
+        "last_reviewed_at": "2026-07-29",
+        "review_due_at": "2026-10-29",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "human-approval-escalation-interaction",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "인간 승인·재정의·이관 상호작용",
+      "title_en": "Human approval, override and escalation interaction",
+      "definition": "주어진 결정권·통제를 실질적으로 행사하는 승인·거부·재정의·이관 경험을 다루는 잠정 중분류입니다.",
+      "includes": [
+        "주어진 결정권·통제를 실질적으로 행사하는 승인·거부·재정의·이관 경험을 다루는"
+      ],
+      "excludes": [
+        "모델·알고리즘 개발",
+        "법적·보안 정책의 최종 판정",
+        "보편적 업무효과 주장"
+      ],
+      "parent_ids": [
+        "human-ai-experience"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "ai-literacy-trust",
+        "security-legal-governance",
+        "human-ai-control",
+        "human-ai-work-design",
+        "deterministic-workflow-orchestration",
+        "responsible-use-boundaries"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.human-ai-experience.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 Human-AI 경험 조사에서 기존 리터러시·구현·전문 통제와 중복되지 않는 경험 설계·평가 책임을 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-29",
+        "last_reviewed_at": "2026-07-29",
+        "review_due_at": "2026-10-29",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "conversational-ai-repair",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "대화형 AI 오류복구",
+      "title_en": "Conversational AI repair",
+      "definition": "대화 오해·맥락손실·지원불가를 명료화·수정·재개·대체경로로 복구하는 경험을 다루는 잠정 중분류입니다.",
+      "includes": [
+        "대화 오해·맥락손실·지원불가를 명료화·수정·재개·대체경로로 복구하는 경험을 다루는"
+      ],
+      "excludes": [
+        "모델·알고리즘 개발",
+        "법적·보안 정책의 최종 판정",
+        "보편적 업무효과 주장"
+      ],
+      "parent_ids": [
+        "human-ai-experience"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "software-product-engineering",
+        "security-legal-governance",
+        "context-engineering",
+        "accessible-ui-state-interaction"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.human-ai-experience.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 Human-AI 경험 조사에서 기존 리터러시·구현·전문 통제와 중복되지 않는 경험 설계·평가 책임을 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-29",
+        "last_reviewed_at": "2026-07-29",
+        "review_due_at": "2026-10-29",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "accessible-multimodal-ai-interaction",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "접근 가능한 다중양식 AI 상호작용",
+      "title_en": "Accessible multimodal AI interaction",
+      "definition": "AI의 생성·변동 상태와 자연어·음성·시각 입출력의 접근 가능한 사용자 요구·대안을 다루는 잠정 중분류입니다.",
+      "includes": [
+        "AI의 생성·변동 상태와 자연어·음성·시각 입출력의 접근 가능한 사용자 요구·대안을 다루는"
+      ],
+      "excludes": [
+        "모델·알고리즘 개발",
+        "법적·보안 정책의 최종 판정",
+        "보편적 업무효과 주장"
+      ],
+      "parent_ids": [
+        "human-ai-experience"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "software-product-engineering",
+        "accessible-ui-state-interaction"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.human-ai-experience.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 Human-AI 경험 조사에서 기존 리터러시·구현·전문 통제와 중복되지 않는 경험 설계·평가 책임을 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-29",
+        "last_reviewed_at": "2026-07-29",
+        "review_due_at": "2026-10-29",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "personalization-memory-user-control",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "개인화·기억 사용자 제어",
+      "title_en": "Personalization and memory user control",
+      "definition": "AI 개인화·기억의 원천·목적·범위를 알리고 사용자가 보기·수정·삭제·초기화·문맥분리를 제어하는 잠정 중분류입니다.",
+      "includes": [
+        "AI 개인화·기억의 원천·목적·범위를 알리고 사용자가 보기·수정·삭제·초기화·문맥분리를 제어하는"
+      ],
+      "excludes": [
+        "모델·알고리즘 개발",
+        "법적·보안 정책의 최종 판정",
+        "보편적 업무효과 주장"
+      ],
+      "parent_ids": [
+        "human-ai-experience"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "ai-systems-agents",
+        "security-legal-governance",
+        "agent-state-memory-handoff",
+        "responsible-use-boundaries",
+        "ai-feedback-user-control"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.human-ai-experience.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 Human-AI 경험 조사에서 기존 리터러시·구현·전문 통제와 중복되지 않는 경험 설계·평가 책임을 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-29",
+        "last_reviewed_at": "2026-07-29",
+        "review_due_at": "2026-10-29",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "human-ai-experience-evaluation",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "Human-AI 경험·사용성 평가",
+      "title_en": "Human-AI experience and usability evaluation",
+      "definition": "과업성공·mental model·의존·통제·복구·접근성을 오류 주입 사용자 evidence로 평가하는 잠정 중분류입니다.",
+      "includes": [
+        "과업성공·mental model·의존·통제·복구·접근성을 오류 주입 사용자 evidence로 평가하는"
+      ],
+      "excludes": [
+        "모델·알고리즘 개발",
+        "법적·보안 정책의 최종 판정",
+        "보편적 업무효과 주장"
+      ],
+      "parent_ids": [
+        "human-ai-experience"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "ai-literacy-trust",
+        "software-product-engineering",
+        "ai-system-evaluation-regression",
+        "trust-calibration",
+        "accessible-multimodal-ai-interaction"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.human-ai-experience.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 Human-AI 경험 조사에서 기존 리터러시·구현·전문 통제와 중복되지 않는 경험 설계·평가 책임을 분리하기 위해 제안했습니다."
       },
       "lifecycle": {
         "created_at": "2026-07-29",

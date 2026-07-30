@@ -1,0 +1,185 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.human-ai-experience.mental-model-capability-onboarding",
+  "version": "1.0.0",
+  "title": "AI 역량·한계 기대형성과 점진적 온보딩",
+  "canonical_name": "AI capability mental-model and progressive onboarding design",
+  "aliases": [],
+  "summary": "사용자가 AI 기능의 용도·한계·변화 가능성과 자신의 역할을 과장 없이 이해하도록 단계적 온보딩과 기대형성 경험을 설계하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "유창한 시연·마케팅 표현·의인화된 UI가 실제 역량보다 넓은 기대를 만들고 초기 실패 뒤 오용·포기를 유발하는 문제를 다룹니다.",
+    "includes": [
+      "용도·비용·한계·변화 가능성의 점진적 공개",
+      "첫 사용·재방문·기능 변경 시 기대 조정",
+      "사용자 역할·피드백 영향·도움 경로 안내"
+    ],
+    "excludes": [
+      "AI 기초 리터러시 교육",
+      "모델 성능 검증",
+      "법정 고지문 확정",
+      "브랜드 마케팅 전략"
+    ],
+    "boundary_note": "기존 AI 기초·한계 Unit은 사용자의 판별 역량을 소유하고, 이 후보는 제품 경험이 올바른 mental model을 형성하도록 설계·검증하는 책임만 소유합니다."
+  },
+  "discovery": {
+    "lens_id": "human-ai-experience",
+    "basis": "assigned_lens",
+    "notes": "공식·표준·1차 근거를 기존 Candidate·Unit·Set·Signal과 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "human-ai-experience",
+    "subdomains": [
+      "ai-capability-mental-model-onboarding"
+    ],
+    "tags": [
+      "mental",
+      "model",
+      "capability",
+      "onboarding"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "제품 독립적인 사용자 경험 산출물과 관찰 가능한 D2 판정 기준을 가집니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.human-ai-experience.mental-model-capability-onboarding"
+  },
+  "relations": [],
+  "capability": {
+    "learner_can_do": "새 AI 기능의 첫 사용·재방문·변경 시나리오에 맞는 점진적 온보딩을 설계하고 사용자가 용도·한계·역할을 정확히 회상하는지 검증합니다.",
+    "work_contexts": [
+      "AI 기능 UX 설계",
+      "Human-AI prototype 평가"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "comparison_required",
+    "agent_fit_rationale": "AI가 제안·생성을 보조할 수 있지만 인간 사용자의 mental model·통제·접근·복구 evidence는 실제 상호작용 평가로 판정해야 합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "AI 기능의 실제 역량과 사용자가 형성한 mental model의 차이를 설명합니다.",
+        "evidence_hypothesis": "과도한 기대, 불필요한 기술 설명과 누락된 역할·한계 안내를 사례에서 구분합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "AI 기능의 첫 사용·재방문·변경 상황별 점진적 온보딩 prototype과 이해도 검사를 만듭니다.",
+        "evidence_hypothesis": "봉인된 실패·변경 시나리오에서 사용자가 지원·미지원 과업, 자신의 검토 역할과 도움 경로를 오류 없이 판정해야 합니다."
+      }
+    ],
+    "depth_boundary": "D2 경험 설계·평가로 제한하며 모델 개발, 마케팅 효과와 법적 고지 적합성은 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "risk_reduction",
+      "employee_experience",
+      "customer_experience",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "검증 가능한 Human-AI 경험 설계는 오해·통제실패·복구실패와 배제 위험을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "next",
+    "measurement_hypothesis": "봉인된 실패·변경 시나리오에서 사용자가 지원·미지원 과업, 자신의 검토 역할과 도움 경로를 오류 없이 판정해야 합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "accessibility",
+      "privacy",
+      "ethics",
+      "permissions",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "법적·보안·개인정보 통제의 내용은 후속 전문 렌즈가 소유하며 이 후보는 제공된 제약을 경험 설계와 평가 Gate에 반영합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.human-ai-experience.mental-model-capability-onboarding.amershi",
+      "title": "Guidelines for Human-AI Interaction",
+      "publisher": "Association for Computing Machinery",
+      "source_type": "primary_research",
+      "url": "https://doi.org/10.1145/3290605.3300233",
+      "published_at": "2019-05-02",
+      "source_version": "CHI 2019",
+      "checked_at": "2026-07-29",
+      "claim_scope": "초기 기대 설정, 사용 중 맥락 제공과 시간에 따른 변화 고지 지침을 지지합니다.",
+      "supports": [
+        "definition",
+        "learning_outcome"
+      ]
+    },
+    {
+      "id": "evidence.human-ai-experience.mental-model-capability-onboarding.pair-mental",
+      "title": "People + AI Guidebook: Mental Models",
+      "publisher": "Google People + AI Research",
+      "source_type": "official_docs",
+      "url": "https://pair.withgoogle.com/guidebook-v2/chapter/mental-models/",
+      "source_version": "updated 2021-05-18",
+      "checked_at": "2026-07-29",
+      "claim_scope": "mental model, 단계적 온보딩과 기능 변화·피드백 영향 설명 범위를 지지합니다.",
+      "supports": [
+        "scope",
+        "work_relevance"
+      ]
+    },
+    {
+      "id": "evidence.human-ai-experience.mental-model-capability-onboarding.nist-hai",
+      "title": "AI Risk Management and Human-AI Interaction",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_docs",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/",
+      "published_at": "2023-01-26",
+      "source_version": "AI RMF 1.0 Appendix C",
+      "checked_at": "2026-07-29",
+      "claim_scope": "인간 역할·책임과 Human-AI configuration을 명확히 구분해야 하는 위험관리 범위를 지지합니다.",
+      "supports": [
+        "risk",
+        "scope"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "독립 근거·taxonomy·실용성 감사의 P1을 교정하고 재감사에서 P0·P1 0건을 확인했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-03",
+    "work_package_id": "wp.human-ai-experience.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-29",
+    "reviewers": [
+      "codex-human-ai-discovery",
+      "codex-evidence-auditor",
+      "codex-taxonomy-auditor",
+      "codex-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "상세 prototype·사용자 표본·수치 임계값과 학습효과는 아직 검증하지 않았습니다."
+    ],
+    "next_action": "unit.human-ai-experience.mental-model-capability-onboarding@1.0.0 정규 Unit과 공개 Reference로 승격했습니다. cataloged 상태이므로 상세 교재·fixture·파일럿과 학습효과는 아직 검증되지 않았습니다."
+  },
+  "extensions": {
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.foundation.ai-foundations-limitations",
+        "version": "1.0.0"
+      },
+      {
+        "kind": "unit",
+        "id": "unit.foundation.ai-trust-calibration",
+        "version": "1.0.0"
+      }
+    ]
+  }
+}

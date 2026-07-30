@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.human-ai-experience.feedback-correction-user-control.reference",
+  "version": "1.0.0",
+  "title": "AI 피드백·수정·되돌리기 사용자 통제 설계 공식·1차 출처 Reference",
+  "description": "정규 Unit의 정의·범위와 판정 기준을 뒷받침하는 공개 Reference입니다. 상세 교재나 독립 평가자료를 대신하지 않습니다.",
+  "resource_type": "external_reference",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.human-ai-experience.feedback-correction-user-control",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "external",
+    "url": "https://doi.org/10.1145/3290605.3300233"
+  },
+  "learning_outcome_ids": [
+    "outcome.human-ai-experience.feedback-correction-user-control.d0",
+    "outcome.human-ai-experience.feedback-correction-user-control.d2"
+  ],
+  "estimated_minutes": 30,
+  "language": "ko",
+  "tags": [
+    "reference",
+    "promotion-evidence",
+    "human-ai-experience"
+  ],
+  "requirements": {
+    "platforms": [
+      "web-browser"
+    ],
+    "network_required": true
+  },
+  "provenance": {
+    "origin": "external",
+    "sources": [
+      {
+        "title": "Guidelines for Human-AI Interaction",
+        "publisher": "Association for Computing Machinery",
+        "source_type": "primary_research",
+        "url": "https://doi.org/10.1145/3290605.3300233",
+        "checked_at": "2026-07-30",
+        "source_version": "CHI 2019"
+      },
+      {
+        "title": "People + AI Guidebook: Feedback + Control",
+        "publisher": "Google People + AI Research",
+        "source_type": "official_docs",
+        "url": "https://pair.withgoogle.com/chapter/feedback-controls/",
+        "checked_at": "2026-07-30",
+        "source_version": "updated 2021-05-18"
+      },
+      {
+        "title": "Web Content Accessibility Guidelines (WCAG) 2.2",
+        "publisher": "World Wide Web Consortium",
+        "source_type": "standard",
+        "url": "https://www.w3.org/TR/WCAG22/",
+        "checked_at": "2026-07-30",
+        "source_version": "W3C Recommendation 2024-12-12"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "unverified",
+    "standard": "WCAG 2.2 AA",
+    "features": [],
+    "alternative_resource_refs": [],
+    "note": "외부 출처의 접근성은 재검토가 필요합니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-07-30",
+    "commands": [],
+    "expected_outputs": [
+      "출처가 Unit의 정의·범위·판정 기준과 일반화 제한을 뒷받침하는지 확인한 기록"
+    ],
+    "evidence_paths": [],
+    "note": "URL·근거 범위만 재검토했으며 학습자료의 완전성, 접근성, 평가 타당성과 학습효과는 아직 검증하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "Candidate 승격 시 등록한 공개 Reference입니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.human-ai-experience.feedback-correction-user-control",
+      "version": "1.0.0"
+    },
+    "promotion_reviewed_at": "2026-07-30",
+    "evidence_claims": [
+      {
+        "id": "evidence.human-ai-experience.feedback-correction-user-control.amershi",
+        "title": "Guidelines for Human-AI Interaction",
+        "publisher": "Association for Computing Machinery",
+        "source_type": "primary_research",
+        "url": "https://doi.org/10.1145/3290605.3300233",
+        "published_at": "2019-05-02",
+        "source_version": "CHI 2019",
+        "checked_at": "2026-07-29",
+        "claim_scope": "사용자 수정·거부·범위 조정, 피드백과 실패 복구에 관한 검증된 HAI 지침을 지지합니다.",
+        "supports": [
+          "definition",
+          "learning_outcome"
+        ]
+      },
+      {
+        "id": "evidence.human-ai-experience.feedback-correction-user-control.pair-feedback",
+        "title": "People + AI Guidebook: Feedback + Control",
+        "publisher": "Google People + AI Research",
+        "source_type": "official_docs",
+        "url": "https://pair.withgoogle.com/chapter/feedback-controls/",
+        "source_version": "updated 2021-05-18",
+        "checked_at": "2026-07-29",
+        "claim_scope": "피드백의 가치·영향 시점, 사용자 preference control과 자동화 균형 범위를 지지합니다.",
+        "supports": [
+          "scope",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.human-ai-experience.feedback-correction-user-control.wcag",
+        "title": "Web Content Accessibility Guidelines (WCAG) 2.2",
+        "publisher": "World Wide Web Consortium",
+        "source_type": "standard",
+        "url": "https://www.w3.org/TR/WCAG22/",
+        "published_at": "2024-12-12",
+        "source_version": "W3C Recommendation 2024-12-12",
+        "checked_at": "2026-07-29",
+        "claim_scope": "중요 입력의 검토·수정·가역성과 상태 메시지의 접근 가능한 전달을 일반 상호작용 기준으로 지지합니다.",
+        "supports": [
+          "risk",
+          "scope"
+        ]
+      }
+    ]
+  }
+}

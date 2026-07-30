@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.human-ai-experience.mental-model-capability-onboarding.reference",
+  "version": "1.0.0",
+  "title": "AI 역량·한계 기대형성과 점진적 온보딩 공식·1차 출처 Reference",
+  "description": "정규 Unit의 정의·범위와 판정 기준을 뒷받침하는 공개 Reference입니다. 상세 교재나 독립 평가자료를 대신하지 않습니다.",
+  "resource_type": "external_reference",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.human-ai-experience.mental-model-capability-onboarding",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "external",
+    "url": "https://doi.org/10.1145/3290605.3300233"
+  },
+  "learning_outcome_ids": [
+    "outcome.human-ai-experience.mental-model-capability-onboarding.d0",
+    "outcome.human-ai-experience.mental-model-capability-onboarding.d2"
+  ],
+  "estimated_minutes": 30,
+  "language": "ko",
+  "tags": [
+    "reference",
+    "promotion-evidence",
+    "human-ai-experience"
+  ],
+  "requirements": {
+    "platforms": [
+      "web-browser"
+    ],
+    "network_required": true
+  },
+  "provenance": {
+    "origin": "external",
+    "sources": [
+      {
+        "title": "Guidelines for Human-AI Interaction",
+        "publisher": "Association for Computing Machinery",
+        "source_type": "primary_research",
+        "url": "https://doi.org/10.1145/3290605.3300233",
+        "checked_at": "2026-07-30",
+        "source_version": "CHI 2019"
+      },
+      {
+        "title": "People + AI Guidebook: Mental Models",
+        "publisher": "Google People + AI Research",
+        "source_type": "official_docs",
+        "url": "https://pair.withgoogle.com/guidebook-v2/chapter/mental-models/",
+        "checked_at": "2026-07-30",
+        "source_version": "updated 2021-05-18"
+      },
+      {
+        "title": "AI Risk Management and Human-AI Interaction",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "official_docs",
+        "url": "https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/",
+        "checked_at": "2026-07-30",
+        "source_version": "AI RMF 1.0 Appendix C"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "unverified",
+    "standard": "WCAG 2.2 AA",
+    "features": [],
+    "alternative_resource_refs": [],
+    "note": "외부 출처의 접근성은 재검토가 필요합니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-07-30",
+    "commands": [],
+    "expected_outputs": [
+      "출처가 Unit의 정의·범위·판정 기준과 일반화 제한을 뒷받침하는지 확인한 기록"
+    ],
+    "evidence_paths": [],
+    "note": "URL·근거 범위만 재검토했으며 학습자료의 완전성, 접근성, 평가 타당성과 학습효과는 아직 검증하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "Candidate 승격 시 등록한 공개 Reference입니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.human-ai-experience.mental-model-capability-onboarding",
+      "version": "1.0.0"
+    },
+    "promotion_reviewed_at": "2026-07-30",
+    "evidence_claims": [
+      {
+        "id": "evidence.human-ai-experience.mental-model-capability-onboarding.amershi",
+        "title": "Guidelines for Human-AI Interaction",
+        "publisher": "Association for Computing Machinery",
+        "source_type": "primary_research",
+        "url": "https://doi.org/10.1145/3290605.3300233",
+        "published_at": "2019-05-02",
+        "source_version": "CHI 2019",
+        "checked_at": "2026-07-29",
+        "claim_scope": "초기 기대 설정, 사용 중 맥락 제공과 시간에 따른 변화 고지 지침을 지지합니다.",
+        "supports": [
+          "definition",
+          "learning_outcome"
+        ]
+      },
+      {
+        "id": "evidence.human-ai-experience.mental-model-capability-onboarding.pair-mental",
+        "title": "People + AI Guidebook: Mental Models",
+        "publisher": "Google People + AI Research",
+        "source_type": "official_docs",
+        "url": "https://pair.withgoogle.com/guidebook-v2/chapter/mental-models/",
+        "source_version": "updated 2021-05-18",
+        "checked_at": "2026-07-29",
+        "claim_scope": "mental model, 단계적 온보딩과 기능 변화·피드백 영향 설명 범위를 지지합니다.",
+        "supports": [
+          "scope",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.human-ai-experience.mental-model-capability-onboarding.nist-hai",
+        "title": "AI Risk Management and Human-AI Interaction",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "official_docs",
+        "url": "https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/",
+        "published_at": "2023-01-26",
+        "source_version": "AI RMF 1.0 Appendix C",
+        "checked_at": "2026-07-29",
+        "claim_scope": "인간 역할·책임과 Human-AI configuration을 명확히 구분해야 하는 위험관리 범위를 지지합니다.",
+        "supports": [
+          "risk",
+          "scope"
+        ]
+      }
+    ]
+  }
+}

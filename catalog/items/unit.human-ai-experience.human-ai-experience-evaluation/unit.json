@@ -1,0 +1,240 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.human-ai-experience.human-ai-experience-evaluation",
+  "version": "1.0.0",
+  "title": "Human-AI 경험·사용성 평가",
+  "summary": "정확도와 만족도만으로 판단하지 않고 과업성공·mental model·적절한 의존·통제·복구·접근성을 오류 주입과 사용자 evidence로 평가하는 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "human-ai-experience",
+    "subdomains": [
+      "human-ai-experience-evaluation"
+    ]
+  },
+  "domain_tags": [
+    "human",
+    "ai",
+    "experience",
+    "evaluation"
+  ],
+  "capabilities": [
+    "AI 오류·불확실성·변화·통제·접근성 시나리오를 포함한 소규모 HAI 평가를 설계하고 관찰 evidence로 개선 우선순위를 판정합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.human-ai-experience.human-ai-experience-evaluation.d0",
+        "statement": "모델 정확도, 일반 사용성, Human-AI 상호작용 품질과 업무효과를 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.human-ai-experience.human-ai-experience-evaluation.d2",
+        "statement": "새 AI prototype의 과업성공·mental model·의존·통제·복구·접근성을 오류 주입 사용자 평가로 검증합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 180,
+    "scope_expansion_policy": "D2 소규모 formative 평가로 제한하며 대규모 실험, 모델 benchmark, ROI와 규제 적합성 확정은 제외합니다. 평가는 공개·합성 입력, local prototype과 봉인 fixture로 제한하며 만족도·유창성을 과업성공의 대리 지표로 사용하지 않습니다. 실행 전에 정답 manifest·실패 주입 목록·관찰 protocol을 고정하고 정상·오류·거부·무응답·지연·변경·접근성 시나리오를 포함합니다. 실제 개인정보·자격증명·운영 계정·결제·삭제·고위험 외부 상태 변경이 필요하면 중단하고 보안·법무·접근성 전문 소유 영역으로 이관합니다. 사용자 평가 결과를 표본·과업·맥락 밖으로 일반화하지 않으며 실제 참여자는 승인된 동의 절차와 비식별·최소 수집 조건을 충족한 경우에만 사용합니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.human-ai-experience.mental-model-capability-onboarding",
+        "version": "1.0.0"
+      },
+      "note": "경험 평가는 지원 범위와 사용자 mental model의 차이를 관찰합니다."
+    },
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.human-ai-experience.feedback-correction-user-control",
+        "version": "1.0.0"
+      },
+      "note": "통제·복구의 UI 표시와 실제 fixture 상태 일치를 평가합니다."
+    },
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.ai.system-evaluation-regression-design",
+        "version": "1.0.0"
+      },
+      "note": "봉인된 정답·오류 fixture와 회귀 판정 구조를 재사용합니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.foundation.ai-trust-calibration",
+        "version": "1.0.0"
+      },
+      "note": "만족도 대신 적절한 수용·거부와 의존 보정을 함께 관찰합니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.software.accessible-ui-state-interaction",
+        "version": "1.0.0"
+      },
+      "note": "Human-AI 경험 평가에서 접근성 구현 결과의 사용자 상호작용을 관찰합니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.human-ai-experience.human-ai-experience-evaluation.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference와 prebuilt local prototype·합성 fixture 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "human-ai-experience-human-ai-experience-evaluation-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.human-ai-experience.human-ai-experience-evaluation.d0",
+          "outcome.human-ai-experience.human-ai-experience-evaluation.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "정확도·만족도는 높지만 오해·과신·복구·접근성 실패가 있는 사례를 식별합니다.",
+          "prebuilt prototype, 봉인 과업 3개·오류 시나리오 6개와 대표 사용자 또는 proxy evaluator 3~5명의 150~180분 평가에서 관찰항목 누락 0건, 치명 통제·복구 실패 식별 누락 0건이며 주장 범위를 표본과 맥락 안으로 제한해야 합니다.",
+          "실행 전에 정답 manifest, 실패 주입 목록과 관찰 protocol을 고정하고 정상·오류·거부·무응답·지연·변경·접근성 시나리오를 빠짐없이 확인합니다.",
+          "공개·합성 입력과 local prototype만 사용하며 실제 개인정보·자격증명·운영 계정·결제·삭제·고위험 외부 상태 변경이 필요하면 평가를 중단하고 전문 소유 영역으로 이관합니다.",
+          "사용자 평가 결과를 표본·과업·맥락 밖으로 일반화하지 않으며, 실제 참여자를 사용하려면 승인된 동의 절차와 비식별·최소 수집 조건을 먼저 충족해야 합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "AI Use Taxonomy: A Human-Centered Approach",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_source",
+      "url": "https://doi.org/10.6028/NIST.AI.200-1",
+      "checked_at": "2026-07-30",
+      "source_version": "NIST AI 200-1"
+    },
+    {
+      "title": "Guidelines for Human-AI Interaction",
+      "publisher": "Association for Computing Machinery",
+      "source_type": "primary_research",
+      "url": "https://doi.org/10.1145/3290605.3300233",
+      "checked_at": "2026-07-30",
+      "source_version": "CHI 2019"
+    },
+    {
+      "title": "AI Risk Management and Human-AI Interaction",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_docs",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/",
+      "checked_at": "2026-07-30",
+      "source_version": "AI RMF 1.0 Appendix C"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "risk_reduction",
+    "experience",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "candidate.human-ai-experience.human-ai-experience-evaluation@1.0.0의 승인 결과를 정규 Unit 메타데이터로 등록했습니다. 예상 시간은 prebuilt fixture·prototype 가설이며 상세 교재·독립 평가 타당성·파일럿과 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.human-ai-experience.human-ai-experience-evaluation",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.human-ai-experience.breadth-a",
+      "promoted_at": "2026-07-30"
+    },
+    "evidence_claims": [
+      {
+        "id": "evidence.human-ai-experience.human-ai-experience-evaluation.nist-use",
+        "title": "AI Use Taxonomy: A Human-Centered Approach",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "official_source",
+        "url": "https://doi.org/10.6028/NIST.AI.200-1",
+        "published_at": "2024-03-26",
+        "source_version": "NIST AI 200-1",
+        "checked_at": "2026-07-29",
+        "claim_scope": "기술 독립적인 Human-AI 활동 분류와 usability·human-centered quality 평가 필요를 지지합니다.",
+        "supports": [
+          "definition",
+          "scope"
+        ]
+      },
+      {
+        "id": "evidence.human-ai-experience.human-ai-experience-evaluation.amershi",
+        "title": "Guidelines for Human-AI Interaction",
+        "publisher": "Association for Computing Machinery",
+        "source_type": "primary_research",
+        "url": "https://doi.org/10.1145/3290605.3300233",
+        "published_at": "2019-05-02",
+        "source_version": "CHI 2019",
+        "checked_at": "2026-07-29",
+        "claim_scope": "초기·사용 중·오류·시간 변화에 걸친 18개 HAI 지침과 제품 검토 방법을 지지합니다.",
+        "supports": [
+          "learning_outcome",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.human-ai-experience.human-ai-experience-evaluation.nist-hai",
+        "title": "AI Risk Management and Human-AI Interaction",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "official_docs",
+        "url": "https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/",
+        "published_at": "2023-01-26",
+        "source_version": "AI RMF 1.0 Appendix C",
+        "checked_at": "2026-07-29",
+        "claim_scope": "Human-AI configuration, 역할·책임·인지편향을 평가 맥락에 포함해야 하는 위험 범위를 지지합니다.",
+        "supports": [
+          "risk",
+          "scope"
+        ]
+      }
+    ],
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.ai.system-evaluation-regression-design",
+        "version": "1.0.0"
+      },
+      {
+        "kind": "unit",
+        "id": "unit.foundation.ai-trust-calibration",
+        "version": "1.0.0"
+      }
+    ]
+  }
+}

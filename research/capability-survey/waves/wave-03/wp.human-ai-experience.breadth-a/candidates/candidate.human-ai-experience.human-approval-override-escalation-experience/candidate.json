@@ -1,0 +1,196 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.human-ai-experience.human-approval-override-escalation-experience",
+  "version": "1.0.0",
+  "title": "인간 승인·재정의·이관 상호작용 설계",
+  "canonical_name": "Human approval, override and escalation interaction design",
+  "aliases": [],
+  "summary": "인간 검토가 실질적인 판단이 되도록 맥락·대안·불확실성·결과를 제공하고 승인·거부·재정의·이관 흐름을 검증하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "형식적인 승인 버튼, 시간압박, 불충분한 맥락과 실패한 이관이 인간 감독을 책임 전가나 병목으로 만드는 문제를 다룹니다.",
+    "includes": [
+      "검토에 필요한 맥락·대안·불확실성",
+      "승인·거부·override·escalation·timeout",
+      "결정 기록·후속 상태·수동 대체경로"
+    ],
+    "excludes": [
+      "누가 법적 승인권자인지 확정",
+      "고위험 자동결정 적법성 판단",
+      "조직 직무·권한체계 설계",
+      "외부 부작용 실행"
+    ],
+    "boundary_note": "업무 역할 배분 Candidate가 인간·AI 책임을 정하고 보안·법무 렌즈가 필수 통제를 정합니다. 이 후보는 주어진 결정권·통제를 실제로 행사할 수 있는 상호작용 경험을 소유합니다."
+  },
+  "discovery": {
+    "lens_id": "human-ai-experience",
+    "basis": "assigned_lens",
+    "notes": "공식·표준·1차 근거를 기존 Candidate·Unit·Set·Signal과 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "human-ai-experience",
+    "subdomains": [
+      "human-approval-escalation-interaction"
+    ],
+    "tags": [
+      "human",
+      "approval",
+      "override",
+      "escalation"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "제품 독립적인 사용자 경험 산출물과 관찰 가능한 D2 판정 기준을 가집니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.human-ai-experience.human-approval-override-escalation-experience"
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.human-ai-experience.feedback-correction-user-control",
+        "version": "1.0.0"
+      },
+      "rationale": "승인·거부·override는 사용자의 명시적 통제와 상태 피드백 원칙을 전제로 합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "제공된 역할·위험·권한계약을 바탕으로 승인·거부·override·이관 prototype을 만들고 거부·무응답·권한부족·timeout 시나리오를 검증합니다.",
+    "work_contexts": [
+      "AI 기능 UX 설계",
+      "Human-AI prototype 평가"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "comparison_required",
+    "agent_fit_rationale": "AI가 제안·생성을 보조할 수 있지만 인간 사용자의 mental model·통제·접근·복구 evidence는 실제 상호작용 평가로 판정해야 합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "형식적 human-in-the-loop와 실질적인 인간 판단·통제를 구분합니다.",
+        "evidence_hypothesis": "맥락·시간·권한·대안·결과 확인이 부족해 실질 판단이 불가능한 승인 경험을 식별합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "주어진 결정권 계약과 판단 맥락에 맞는 승인·거부·override·이관 흐름과 실패경로를 설계·검증합니다.",
+        "evidence_hypothesis": "정답 결정·필수 맥락이 봉인된 권한부족·오류·거부·무응답·timeout 시나리오에서 잘못된 승인·거부·이관 0건, 무승인 실행 0건, 결정자·근거·후속 상태 누락 0건이며 수동 대체경로가 도달 가능해야 합니다."
+      }
+    ],
+    "depth_boundary": "D2 상호작용 설계로 제한하며 법적 의무, 조직 권한정책과 실제 고위험 실행은 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "risk_reduction",
+      "employee_experience",
+      "customer_experience",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "검증 가능한 Human-AI 경험 설계는 오해·통제실패·복구실패와 배제 위험을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "next",
+    "measurement_hypothesis": "정답 결정·필수 맥락이 봉인된 권한부족·오류·거부·무응답·timeout 시나리오에서 잘못된 승인·거부·이관 0건, 무승인 실행 0건, 결정자·근거·후속 상태 누락 0건이며 수동 대체경로가 도달 가능해야 합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "accessibility",
+      "privacy",
+      "ethics",
+      "permissions",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "법적·보안·개인정보 통제의 내용은 후속 전문 렌즈가 소유하며 이 후보는 제공된 제약을 경험 설계와 평가 Gate에 반영합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.human-ai-experience.human-approval-override-escalation-experience.nist-hai",
+      "title": "AI Risk Management and Human-AI Interaction",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_docs",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/",
+      "published_at": "2023-01-26",
+      "source_version": "AI RMF 1.0 Appendix C",
+      "checked_at": "2026-07-29",
+      "claim_scope": "Human-AI configuration별 인간 역할·책임·감독을 명확히 정의해야 하는 위험관리 범위를 지지합니다.",
+      "supports": [
+        "definition",
+        "risk"
+      ]
+    },
+    {
+      "id": "evidence.human-ai-experience.human-approval-override-escalation-experience.nist-use",
+      "title": "AI Use Taxonomy: A Human-Centered Approach",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_source",
+      "url": "https://doi.org/10.6028/NIST.AI.200-1",
+      "published_at": "2024-03-26",
+      "source_version": "NIST AI 200-1",
+      "checked_at": "2026-07-29",
+      "claim_scope": "AI가 결과에 기여하는 방식과 인간-AI 과업 구조를 분류해 평가하는 공통 용어를 지지합니다.",
+      "supports": [
+        "scope",
+        "work_relevance"
+      ]
+    },
+    {
+      "id": "evidence.human-ai-experience.human-approval-override-escalation-experience.amershi",
+      "title": "Guidelines for Human-AI Interaction",
+      "publisher": "Association for Computing Machinery",
+      "source_type": "primary_research",
+      "url": "https://doi.org/10.1145/3290605.3300233",
+      "published_at": "2019-05-02",
+      "source_version": "CHI 2019",
+      "checked_at": "2026-07-29",
+      "claim_scope": "사용자 통제·수정·실패 범위 설정과 시간에 따른 상호작용 지침을 보완합니다.",
+      "supports": [
+        "learning_outcome",
+        "scope"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "독립 근거·taxonomy·실용성 감사의 P1을 교정하고 재감사에서 P0·P1 0건을 확인했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-03",
+    "work_package_id": "wp.human-ai-experience.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-29",
+    "reviewers": [
+      "codex-human-ai-discovery",
+      "codex-evidence-auditor",
+      "codex-taxonomy-auditor",
+      "codex-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "상세 prototype·사용자 표본·수치 임계값과 학습효과는 아직 검증하지 않았습니다."
+    ],
+    "next_action": "unit.human-ai-experience.human-approval-override-escalation-experience@1.0.0 정규 Unit과 공개 Reference로 승격했습니다. cataloged 상태이므로 상세 교재·fixture·파일럿과 학습효과는 아직 검증되지 않았습니다."
+  },
+  "extensions": {
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.integration-automation.deterministic-workflow-orchestration",
+        "version": "1.0.0"
+      },
+      {
+        "kind": "unit",
+        "id": "unit.foundation.risk-proportional-ai-reliance",
+        "version": "1.0.0"
+      }
+    ]
+  }
+}

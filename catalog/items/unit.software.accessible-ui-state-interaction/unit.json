@@ -64,6 +64,14 @@
       },
       "role": "reference",
       "required": false
+    },
+    {
+      "resource": {
+        "id": "resource.human-ai-experience.accessible-multimodal-ai-interaction-guide",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
     }
   ],
   "requirements": {

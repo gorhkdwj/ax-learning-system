@@ -1,0 +1,195 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.human-ai-experience.feedback-correction-user-control",
+  "version": "1.0.0",
+  "title": "AI 피드백·수정·되돌리기 사용자 통제 설계",
+  "canonical_name": "AI feedback, correction and reversible user-control design",
+  "aliases": [],
+  "summary": "사용자가 AI 결과·개인화·자동행동을 수정·거부·되돌리고 피드백의 영향과 적용 시점을 이해할 수 있는 통제 경험을 설계하는 후보 역량입니다.",
+  "research_scope": {
+    "problem_addressed": "좋아요·싫어요 같은 모호한 피드백이 무엇을 바꾸는지 알 수 없고 자동행동을 수정·되돌릴 수 없어 오류와 선호가 누적되는 문제를 다룹니다.",
+    "includes": [
+      "명시적 피드백 목적·영향·적용시점",
+      "결과 수정·거부·undo·reset·preference control",
+      "통제 성공·no-op·지연·실패 상태 피드백"
+    ],
+    "excludes": [
+      "학습 알고리즘 구현",
+      "개인정보 보유정책 확정",
+      "모델 개선 효과 보장",
+      "고위험 승인권한 정책"
+    ],
+    "boundary_note": "접근 가능한 UI Unit은 control의 기술 구현을, 부작용 안전성 Unit은 외부 상태의 멱등·보상을 소유합니다. 이 후보는 사용자가 결과와 학습 영향에 개입하는 경험계약을 소유합니다."
+  },
+  "discovery": {
+    "lens_id": "human-ai-experience",
+    "basis": "assigned_lens",
+    "notes": "공식·표준·1차 근거를 기존 Candidate·Unit·Set·Signal과 교차검토해 발견했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "human-ai-experience",
+    "subdomains": [
+      "ai-feedback-user-control"
+    ],
+    "tags": [
+      "feedback",
+      "correction",
+      "user",
+      "control"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "제품 독립적인 사용자 경험 산출물과 관찰 가능한 D2 판정 기준을 가집니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.human-ai-experience.feedback-correction-user-control"
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.human-ai-experience.mental-model-capability-onboarding",
+        "version": "1.0.0"
+      },
+      "rationale": "피드백의 영향과 적용 시점을 사용자가 예측할 수 있는 mental model이 필요합니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "AI 결과·개인화·자동행동의 수정·거부·undo·reset prototype을 만들고 의도한 변화·no-op·오류 상태가 사용자에게 정확히 전달되는지 검증합니다.",
+    "work_contexts": [
+      "AI 기능 UX 설계",
+      "Human-AI prototype 평가"
+    ],
+    "transferability": "multi_context",
+    "agent_fit": "comparison_required",
+    "agent_fit_rationale": "AI가 제안·생성을 보조할 수 있지만 인간 사용자의 mental model·통제·접근·복구 evidence는 실제 상호작용 평가로 판정해야 합니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "피드백 수집, 결과 수정, 모델 학습과 사용자 통제를 구분합니다.",
+        "evidence_hypothesis": "피드백이 즉시 결과를 바꾸는지, 미래 개인화에 쓰이는지, 단순 만족도 수집인지 구분합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "명시적 피드백·수정·거부·undo·reset 흐름과 영향 설명을 설계하고 실패를 주입해 검증합니다.",
+        "evidence_hypothesis": "봉인된 지연·실패·충돌 시나리오에서 무응답 통제 0건, 되돌릴 수 없는 숨은 변경 0건이며 사용자 예측과 실제 상태가 일치해야 합니다."
+      }
+    ],
+    "depth_boundary": "D2 사용자 통제 경험으로 제한하며 학습 알고리즘·보유정책·실운영 고위험 권한은 제외합니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "risk_reduction",
+      "employee_experience",
+      "customer_experience",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "검증 가능한 Human-AI 경험 설계는 오해·통제실패·복구실패와 배제 위험을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "material",
+    "priority_hint": "next",
+    "measurement_hypothesis": "봉인된 지연·실패·충돌 시나리오에서 무응답 통제 0건, 되돌릴 수 없는 숨은 변경 0건이며 사용자 예측과 실제 상태가 일치해야 합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "accessibility",
+      "privacy",
+      "ethics",
+      "permissions",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "법적·보안·개인정보 통제의 내용은 후속 전문 렌즈가 소유하며 이 후보는 제공된 제약을 경험 설계와 평가 Gate에 반영합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.human-ai-experience.feedback-correction-user-control.amershi",
+      "title": "Guidelines for Human-AI Interaction",
+      "publisher": "Association for Computing Machinery",
+      "source_type": "primary_research",
+      "url": "https://doi.org/10.1145/3290605.3300233",
+      "published_at": "2019-05-02",
+      "source_version": "CHI 2019",
+      "checked_at": "2026-07-29",
+      "claim_scope": "사용자 수정·거부·범위 조정, 피드백과 실패 복구에 관한 검증된 HAI 지침을 지지합니다.",
+      "supports": [
+        "definition",
+        "learning_outcome"
+      ]
+    },
+    {
+      "id": "evidence.human-ai-experience.feedback-correction-user-control.pair-feedback",
+      "title": "People + AI Guidebook: Feedback + Control",
+      "publisher": "Google People + AI Research",
+      "source_type": "official_docs",
+      "url": "https://pair.withgoogle.com/chapter/feedback-controls/",
+      "source_version": "updated 2021-05-18",
+      "checked_at": "2026-07-29",
+      "claim_scope": "피드백의 가치·영향 시점, 사용자 preference control과 자동화 균형 범위를 지지합니다.",
+      "supports": [
+        "scope",
+        "work_relevance"
+      ]
+    },
+    {
+      "id": "evidence.human-ai-experience.feedback-correction-user-control.wcag",
+      "title": "Web Content Accessibility Guidelines (WCAG) 2.2",
+      "publisher": "World Wide Web Consortium",
+      "source_type": "standard",
+      "url": "https://www.w3.org/TR/WCAG22/",
+      "published_at": "2024-12-12",
+      "source_version": "W3C Recommendation 2024-12-12",
+      "checked_at": "2026-07-29",
+      "claim_scope": "중요 입력의 검토·수정·가역성과 상태 메시지의 접근 가능한 전달을 일반 상호작용 기준으로 지지합니다.",
+      "supports": [
+        "risk",
+        "scope"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "medium",
+    "rationale": "독립 근거·taxonomy·실용성 감사의 P1을 교정하고 재감사에서 P0·P1 0건을 확인했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-03",
+    "work_package_id": "wp.human-ai-experience.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-29",
+    "reviewers": [
+      "codex-human-ai-discovery",
+      "codex-evidence-auditor",
+      "codex-taxonomy-auditor",
+      "codex-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "상세 prototype·사용자 표본·수치 임계값과 학습효과는 아직 검증하지 않았습니다."
+    ],
+    "next_action": "unit.human-ai-experience.feedback-correction-user-control@1.0.0 정규 Unit과 공개 Reference로 승격했습니다. cataloged 상태이므로 상세 교재·fixture·파일럿과 학습효과는 아직 검증되지 않았습니다."
+  },
+  "extensions": {
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.software.accessible-ui-state-interaction",
+        "version": "1.0.0"
+      },
+      {
+        "kind": "unit",
+        "id": "unit.integration-automation.side-effect-idempotency-retry-compensation",
+        "version": "1.0.0"
+      }
+    ]
+  }
+}

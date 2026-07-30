@@ -1,0 +1,223 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.human-ai-experience.mental-model-capability-onboarding",
+  "version": "1.0.0",
+  "title": "AI 역량·한계 기대형성과 점진적 온보딩",
+  "summary": "사용자가 AI 기능의 용도·한계·변화 가능성과 자신의 역할을 과장 없이 이해하도록 단계적 온보딩과 기대형성 경험을 설계하는 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "human-ai-experience",
+    "subdomains": [
+      "ai-capability-mental-model-onboarding"
+    ]
+  },
+  "domain_tags": [
+    "mental",
+    "model",
+    "capability",
+    "onboarding"
+  ],
+  "capabilities": [
+    "새 AI 기능의 첫 사용·재방문·변경 시나리오에 맞는 점진적 온보딩을 설계하고 사용자가 용도·한계·역할을 정확히 회상하는지 검증합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.human-ai-experience.mental-model-capability-onboarding.d0",
+        "statement": "AI 기능의 실제 역량과 사용자가 형성한 mental model의 차이를 설명합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.human-ai-experience.mental-model-capability-onboarding.d2",
+        "statement": "AI 기능의 첫 사용·재방문·변경 상황별 점진적 온보딩 prototype과 이해도 검사를 만듭니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "D2 경험 설계·평가로 제한하며 모델 개발, 마케팅 효과와 법적 고지 적합성은 제외합니다. 평가는 공개·합성 입력, local prototype과 봉인 fixture로 제한하며 만족도·유창성을 과업성공의 대리 지표로 사용하지 않습니다. 실행 전에 정답 manifest·실패 주입 목록·관찰 protocol을 고정하고 정상·오류·거부·무응답·지연·변경·접근성 시나리오를 포함합니다. 실제 개인정보·자격증명·운영 계정·결제·삭제·고위험 외부 상태 변경이 필요하면 중단하고 보안·법무·접근성 전문 소유 영역으로 이관합니다. 사용자 평가 결과를 표본·과업·맥락 밖으로 일반화하지 않으며 실제 참여자는 승인된 동의 절차와 비식별·최소 수집 조건을 충족한 경우에만 사용합니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.foundation.ai-foundations-limitations",
+        "version": "1.0.0"
+      },
+      "note": "AI 역량·한계의 기초 구분을 제품 기대형성과 온보딩 설계에 적용합니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.foundation.ai-trust-calibration",
+        "version": "1.0.0"
+      },
+      "note": "제품 기대형성은 일반적인 적절한 의존과 신뢰 보정 역량을 보완합니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.human-ai-experience.mental-model-capability-onboarding.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    },
+    {
+      "resource": {
+        "id": "resource.human-ai-experience.social-cue-anthropomorphism-boundary-reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference와 prebuilt local prototype·합성 fixture 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "human-ai-experience-mental-model-capability-onboarding-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.human-ai-experience.mental-model-capability-onboarding.d0",
+          "outcome.human-ai-experience.mental-model-capability-onboarding.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "과도한 기대, 불필요한 기술 설명과 누락된 역할·한계 안내를 사례에서 구분합니다.",
+          "봉인된 실패·변경 시나리오에서 사용자가 지원·미지원 과업, 자신의 검토 역할과 도움 경로를 오류 없이 판정해야 합니다.",
+          "실행 전에 정답 manifest, 실패 주입 목록과 관찰 protocol을 고정하고 정상·오류·거부·무응답·지연·변경·접근성 시나리오를 빠짐없이 확인합니다.",
+          "공개·합성 입력과 local prototype만 사용하며 실제 개인정보·자격증명·운영 계정·결제·삭제·고위험 외부 상태 변경이 필요하면 평가를 중단하고 전문 소유 영역으로 이관합니다.",
+          "사용자 평가 결과를 표본·과업·맥락 밖으로 일반화하지 않으며, 실제 참여자를 사용하려면 승인된 동의 절차와 비식별·최소 수집 조건을 먼저 충족해야 합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Guidelines for Human-AI Interaction",
+      "publisher": "Association for Computing Machinery",
+      "source_type": "primary_research",
+      "url": "https://doi.org/10.1145/3290605.3300233",
+      "checked_at": "2026-07-30",
+      "source_version": "CHI 2019"
+    },
+    {
+      "title": "People + AI Guidebook: Mental Models",
+      "publisher": "Google People + AI Research",
+      "source_type": "official_docs",
+      "url": "https://pair.withgoogle.com/guidebook-v2/chapter/mental-models/",
+      "checked_at": "2026-07-30",
+      "source_version": "updated 2021-05-18"
+    },
+    {
+      "title": "AI Risk Management and Human-AI Interaction",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_docs",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/",
+      "checked_at": "2026-07-30",
+      "source_version": "AI RMF 1.0 Appendix C"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "risk_reduction",
+    "experience",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "candidate.human-ai-experience.mental-model-capability-onboarding@1.0.0의 승인 결과를 정규 Unit 메타데이터로 등록했습니다. 예상 시간은 prebuilt fixture·prototype 가설이며 상세 교재·독립 평가 타당성·파일럿과 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.human-ai-experience.mental-model-capability-onboarding",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.human-ai-experience.breadth-a",
+      "promoted_at": "2026-07-30"
+    },
+    "evidence_claims": [
+      {
+        "id": "evidence.human-ai-experience.mental-model-capability-onboarding.amershi",
+        "title": "Guidelines for Human-AI Interaction",
+        "publisher": "Association for Computing Machinery",
+        "source_type": "primary_research",
+        "url": "https://doi.org/10.1145/3290605.3300233",
+        "published_at": "2019-05-02",
+        "source_version": "CHI 2019",
+        "checked_at": "2026-07-29",
+        "claim_scope": "초기 기대 설정, 사용 중 맥락 제공과 시간에 따른 변화 고지 지침을 지지합니다.",
+        "supports": [
+          "definition",
+          "learning_outcome"
+        ]
+      },
+      {
+        "id": "evidence.human-ai-experience.mental-model-capability-onboarding.pair-mental",
+        "title": "People + AI Guidebook: Mental Models",
+        "publisher": "Google People + AI Research",
+        "source_type": "official_docs",
+        "url": "https://pair.withgoogle.com/guidebook-v2/chapter/mental-models/",
+        "source_version": "updated 2021-05-18",
+        "checked_at": "2026-07-29",
+        "claim_scope": "mental model, 단계적 온보딩과 기능 변화·피드백 영향 설명 범위를 지지합니다.",
+        "supports": [
+          "scope",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.human-ai-experience.mental-model-capability-onboarding.nist-hai",
+        "title": "AI Risk Management and Human-AI Interaction",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "official_docs",
+        "url": "https://airc.nist.gov/airmf-resources/airmf/appendices/app-c-ai-risk-management-and-human-ai-interaction/",
+        "published_at": "2023-01-26",
+        "source_version": "AI RMF 1.0 Appendix C",
+        "checked_at": "2026-07-29",
+        "claim_scope": "인간 역할·책임과 Human-AI configuration을 명확히 구분해야 하는 위험관리 범위를 지지합니다.",
+        "supports": [
+          "risk",
+          "scope"
+        ]
+      }
+    ],
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.foundation.ai-foundations-limitations",
+        "version": "1.0.0"
+      },
+      {
+        "kind": "unit",
+        "id": "unit.foundation.ai-trust-calibration",
+        "version": "1.0.0"
+      }
+    ]
+  }
+}

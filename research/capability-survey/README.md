@@ -42,11 +42,11 @@ Resource 전용 1개입니다. 읽기 전용 감사자가 근거·분류·실무
 최초 P0는 0건이며 P1은 교정했습니다. 과목·후보 표시명은 한국어를 우선하고 node
 ID와 영문 병기는 허용한다는 명명 원칙도 승인되었습니다.
 
-`taxonomy.ax-capability-map@0.6.0`에는 기존 조사 렌즈와 Wave 1 node에 더해
+`taxonomy.ax-capability-map@0.7.0`에는 기존 조사 렌즈와 Wave 1 node에 더해
 `ai-literacy-trust` 잠정 subdomain 7개와 `ai-systems-agents` 잠정 subdomain
 7개, `software-product-engineering` 잠정 subdomain 9개,
 `data-analytics-ml` 잠정 subdomain 9개와 `integration-automation` 잠정
-subdomain 8개가 등록되었습니다.
+subdomain 8개, `human-ai-experience` 잠정 subdomain 8개가 등록되었습니다.
 
 두 번째 작업 패키지 `wp.ai-systems-agents.breadth-a`는 한국어 우선 표시명의
 Candidate 8개로 조사·감사를 완료한 `approved` 상태입니다. 전문 판단이 필요한
@@ -97,3 +97,16 @@ Signal은 수정하지 않았습니다.
 Adapter 1개, SaaS 프로젝트 Set 1개와 결정적 workflow Unit 소유의 D0 경계
 Resource 1개를 공개 Reference와 함께 정규 `cataloged` 메타데이터로
 승격했습니다. 상세 fixture·교재·파일럿과 학습효과는 아직 검증하지 않았습니다.
+
+Wave 3 첫 작업 패키지 `wp.human-ai-experience.breadth-a`는 한국어 우선
+표시명의 Candidate 9개를 조사·감사했습니다. mental model·온보딩, 사용자
+질문 중심 설명, 피드백·통제, 승인·이관, 대화 복구와 Human-AI 경험 평가의
+Unit 후보 6개와 접근 가능한 다중양식 요구, 사회적 단서·의인화 경계의 D0
+Resource 후보 2개는 `accepted`입니다. 개인화·기억 통제 후보 1개는 장기
+memory lifecycle 직접 근거를 보강할 때까지 `deferred`입니다. 독립 감사의
+P1을 교정하고 P0·P1 0건을 재확인했으며 정규 승격, 상세 prototype·파일럿과
+학습효과는 아직 수행·검증하지 않았습니다. 후속 사용자 승인과 승격 전·후
+이중 검수에 따라 accepted Unit 후보 6개는 공개 Reference와 함께 정규
+`cataloged` Unit으로, D0 Resource 후보 2개는 기존 접근 가능한 UI Unit과
+신규 기대형성·온보딩 Unit이 소유하는 정규 Resource로 승격했습니다. 개인화·
+기억 후보와 provisional node는 조사 공백 추적을 위해 그대로 유지했습니다.

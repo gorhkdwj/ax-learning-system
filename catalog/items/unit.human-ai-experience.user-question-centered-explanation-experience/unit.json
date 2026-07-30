@@ -1,0 +1,211 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.human-ai-experience.user-question-centered-explanation-experience",
+  "version": "1.0.0",
+  "title": "사용자 질문 중심 AI 설명경험 설계",
+  "summary": "사용자의 역할·결정·행동에 필요한 질문을 먼저 정의하고 적절한 내용·시점·상세도의 AI 설명 경험을 설계·평가하는 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "human-ai-experience",
+    "subdomains": [
+      "human-centered-ai-explanations"
+    ]
+  },
+  "domain_tags": [
+    "user",
+    "question",
+    "centered",
+    "explanation"
+  ],
+  "capabilities": [
+    "역할이 다른 사용자들의 설명 질문을 도출하고 설명 내용·시점·상세도를 prototype으로 구현해 이해·오해·행동 적합성을 비교합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.human-ai-experience.user-question-centered-explanation-experience.d0",
+        "statement": "모델 설명 가능성, 사용자에게 유용한 설명과 법적 설명 의무를 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.human-ai-experience.user-question-centered-explanation-experience.d2",
+        "statement": "새 AI 기능의 사용자 질문을 근거로 두 설명 prototype을 만들고 이해·오해·다음 행동과 부적절한 의존의 역효과를 평가합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 150,
+    "scope_expansion_policy": "D2 사용자 중심 설명 설계로 제한하며 XAI 알고리즘, 법률 자문과 설명의 보편적 효과 주장은 제외합니다. 평가는 공개·합성 입력, local prototype과 봉인 fixture로 제한하며 만족도·유창성을 과업성공의 대리 지표로 사용하지 않습니다. 실행 전에 정답 manifest·실패 주입 목록·관찰 protocol을 고정하고 정상·오류·거부·무응답·지연·변경·접근성 시나리오를 포함합니다. 실제 개인정보·자격증명·운영 계정·결제·삭제·고위험 외부 상태 변경이 필요하면 중단하고 보안·법무·접근성 전문 소유 영역으로 이관합니다. 사용자 평가 결과를 표본·과업·맥락 밖으로 일반화하지 않으며 실제 참여자는 승인된 동의 절차와 비식별·최소 수집 조건을 충족한 경우에만 사용합니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.human-ai-experience.mental-model-capability-onboarding",
+        "version": "1.0.0"
+      },
+      "note": "사용자의 현재 기대와 질문을 확인한 뒤 설명의 시점·내용·상세도를 설계합니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.foundation.ai-use-transparency",
+        "version": "1.0.0"
+      },
+      "note": "AI 사용 사실·불확실성의 투명성과 사용자 질문에 답하는 설명경험의 책임을 구분합니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.human-ai-experience.user-question-centered-explanation-experience.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference와 prebuilt local prototype·합성 fixture 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "human-ai-experience-user-question-centered-explanation-experience-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.human-ai-experience.user-question-centered-explanation-experience.d0",
+          "outcome.human-ai-experience.user-question-centered-explanation-experience.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "같은 설명이 사용자 역할·결정 맥락에 따라 유용·불충분·오도 가능함을 판별합니다.",
+          "정답·오답이 섞인 봉인 fixture에서 필수 질문 누락·근거 없는 인과표현 0건이고, 설명 노출 뒤 잘못된 수용·거부율이 무설명 기준선보다 악화되지 않으며 이해도와 올바른 다음 행동 기준을 충족해야 합니다.",
+          "실행 전에 정답 manifest, 실패 주입 목록과 관찰 protocol을 고정하고 정상·오류·거부·무응답·지연·변경·접근성 시나리오를 빠짐없이 확인합니다.",
+          "공개·합성 입력과 local prototype만 사용하며 실제 개인정보·자격증명·운영 계정·결제·삭제·고위험 외부 상태 변경이 필요하면 평가를 중단하고 전문 소유 영역으로 이관합니다.",
+          "사용자 평가 결과를 표본·과업·맥락 밖으로 일반화하지 않으며, 실제 참여자를 사용하려면 승인된 동의 절차와 비식별·최소 수집 조건을 먼저 충족해야 합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Questioning the AI: Informing Design Practices for Explainable AI User Experiences",
+      "publisher": "Association for Computing Machinery",
+      "source_type": "primary_research",
+      "url": "https://doi.org/10.1145/3313831.3376590",
+      "checked_at": "2026-07-30",
+      "source_version": "CHI 2020"
+    },
+    {
+      "title": "Question-Driven Design Process for Explainable AI User Experiences",
+      "publisher": "arXiv; authors affiliated with IBM Research",
+      "source_type": "primary_research",
+      "url": "https://arxiv.org/abs/2104.03483",
+      "checked_at": "2026-07-30",
+      "source_version": "arXiv:2104.03483v3, working paper"
+    },
+    {
+      "title": "People + AI Guidebook: Explainability + Trust",
+      "publisher": "Google People + AI Research",
+      "source_type": "official_docs",
+      "url": "https://pair.withgoogle.com/chapter/explainability-trust",
+      "checked_at": "2026-07-30",
+      "source_version": "updated 2021-05-18"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "risk_reduction",
+    "experience",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "candidate.human-ai-experience.user-question-centered-explanation-experience@1.0.0의 승인 결과를 정규 Unit 메타데이터로 등록했습니다. 예상 시간은 prebuilt fixture·prototype 가설이며 상세 교재·독립 평가 타당성·파일럿과 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.human-ai-experience.user-question-centered-explanation-experience",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.human-ai-experience.breadth-a",
+      "promoted_at": "2026-07-30"
+    },
+    "evidence_claims": [
+      {
+        "id": "evidence.human-ai-experience.user-question-centered-explanation-experience.liao",
+        "title": "Questioning the AI: Informing Design Practices for Explainable AI User Experiences",
+        "publisher": "Association for Computing Machinery",
+        "source_type": "primary_research",
+        "url": "https://doi.org/10.1145/3313831.3376590",
+        "published_at": "2020-04-23",
+        "source_version": "CHI 2020",
+        "checked_at": "2026-07-29",
+        "claim_scope": "실무자의 설명 요구를 사용자 질문으로 표현하고 XAI 기술과 사용자 요구 사이의 간극을 다룬 1차 연구를 지지합니다.",
+        "supports": [
+          "definition",
+          "scope"
+        ]
+      },
+      {
+        "id": "evidence.human-ai-experience.user-question-centered-explanation-experience.liao-process",
+        "title": "Question-Driven Design Process for Explainable AI User Experiences",
+        "publisher": "arXiv; authors affiliated with IBM Research",
+        "source_type": "primary_research",
+        "url": "https://arxiv.org/abs/2104.03483",
+        "published_at": "2021-09-03",
+        "source_version": "arXiv:2104.03483v3, working paper",
+        "checked_at": "2026-07-29",
+        "claim_scope": "사용자 질문·기술 선택·경험 설계·평가를 연결하는 question-driven process를 지지합니다.",
+        "supports": [
+          "learning_outcome",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.human-ai-experience.user-question-centered-explanation-experience.pair-explain",
+        "title": "People + AI Guidebook: Explainability + Trust",
+        "publisher": "Google People + AI Research",
+        "source_type": "official_docs",
+        "url": "https://pair.withgoogle.com/chapter/explainability-trust",
+        "source_version": "updated 2021-05-18",
+        "checked_at": "2026-07-29",
+        "claim_scope": "사용자 mental model과 필요 상세도에 맞는 설명·what-if·통제 설계를 보완하며, 과도하거나 오해되는 설명·confidence 표시가 산만함과 맹목적 수용을 만들 수 있는 역효과 범위를 함께 지지합니다.",
+        "supports": [
+          "scope",
+          "work_relevance",
+          "risk"
+        ]
+      }
+    ],
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.foundation.ai-use-transparency",
+        "version": "1.0.0"
+      }
+    ]
+  }
+}
