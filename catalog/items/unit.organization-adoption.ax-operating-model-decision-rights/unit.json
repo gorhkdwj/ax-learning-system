@@ -1,0 +1,301 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.organization-adoption.ax-operating-model-decision-rights",
+  "version": "1.0.0",
+  "title": "AX 운영모델·의사결정권·책임·인계 설계",
+  "summary": "사람·AI·자동화·전문 owner의 역할·decision rights·separation·approval·handoff·escalation을 운영 시나리오에서 검증합니다. 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "organization-adoption",
+    "subdomains": [
+      "human-ai-operating-model-decision-rights"
+    ]
+  },
+  "domain_tags": [
+    "ax",
+    "operating",
+    "model",
+    "decision",
+    "rights"
+  ],
+  "capabilities": [
+    "사람·AI·자동화·전문 owner의 역할·decision rights·separation·approval·handoff·escalation을 운영 시나리오에서 검증합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.organization-adoption.ax-operating-model-decision-rights.d0",
+        "statement": "역할·책임·decision right·approval·handoff·escalation·accountability를 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.organization-adoption.ax-operating-model-decision-rights.d3",
+        "statement": "사람·AI·자동화·전문 owner의 역할·decision rights·separation·approval·handoff·escalation을 운영 시나리오에서 검증합니다.",
+        "target_level": "D3"
+      }
+    ],
+    "default_target_level": "D3",
+    "maximum_scope_level": "D3",
+    "estimated_minutes": 180,
+    "scope_expansion_policy": "합성 조직도·역할·업무·skill·survey·학습·지원·adoption fixture와 local sandbox만 사용합니다. 실제 직원·지원자·고객의 개인·민감·성과·감정·행동 데이터, 개인 ranking·감시·징계·고용결정, 감정·의도·건강·노조활동·보호속성 추론, 운영계정·예산·조달·계약·외부 변경을 금지합니다. 설문·참여에는 자발성, 불참 불이익 금지, 관리자 개인응답 접근 금지, 비보복, 이의제기·철회 경로를 요구합니다. wall_clock_timeout_seconds≤300, max_records≤10000, max_fixture_bytes≤10485760, max_groups≤100, minimum_reportable_group_size≥10, max_report_queries≤20, max_dimensions_per_report≤2, complementary_suppression=true, max_survey_items≤50, max_learning_events≤10000, actual_spend=0을 넘으면 즉시 중단합니다. 전문 판단은 status=needs_qualified_review와 review_domains[hr|labor|legal|security|privacy|finance|procurement|accessibility], owner·reason·missing_evidence·resume_condition을 모두 기록합니다. 평가 종료 시 synthetic raw row·event는 0건이어야 하며 보존 evidence는 집계·비식별 필드만 허용하고 purpose·owner·access·expiry·hash를 기록합니다. 실제 조직·개인·고용·노무·법률·조달·배포 결론은 qualified owner를 대체하지 않습니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.organization-adoption.change-impact-readiness-engagement",
+        "version": "1.0.0"
+      },
+      "note": "동일 패키지의 독립 산출물·Gate를 선행 또는 관련 evidence로 연결합니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.human-ai-experience.human-approval-override-escalation-experience",
+        "version": "1.0.0"
+      },
+      "note": "관련 정규 Unit의 소유 범위를 복제하지 않고 조직 도입 산출물과 evidence를 연결합니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.security-legal-governance.security-control-assurance-audit-exception-governance",
+        "version": "1.0.0"
+      },
+      "note": "관련 정규 Unit의 소유 범위를 복제하지 않고 조직 도입 산출물과 evidence를 연결합니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.organization-adoption.ax-operating-model-decision-rights.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": false,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference와 prebuilt 합성·local fixture 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "organization-adoption-ax-operating-model-decision-rights-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.organization-adoption.ax-operating-model-decision-rights.d0",
+          "outcome.organization-adoption.ax-operating-model-decision-rights.d3"
+        ],
+        "required": true,
+        "success_criteria": [
+          "sealed fixture `candidate.organization-adoption.ax-operating-model-decision-rights.fixture@1.0.0`의 12개 사례를 봉인 분류표와 대조해 오답 0/12를 확인합니다.",
+          "sealed fixture `candidate.organization-adoption.ax-operating-model-decision-rights.fixture@1.0.0`의 D0 12사례 오답 0/12, 주입 결함 6/6 탐지·처리, 제출 파일 operating-model-role-matrix.json, decision-handoff-contract.json, assessment-result.json의 필수 필드·참조 무결성을 검사합니다. 같은 입력을 독립 sandbox에서 2회 평가한 canonical result hash가 같고 추가 mutation·잔여 임시자원은 각각 0건이며 초기·최종 manifest와 cleanup 밖 sanitized evidence hash가 유지되어야 합니다. 모든 고위험 결정의 accountable owner·approval·handoff·escalation·evidence가 연결되고 orphan·conflict·무승인 자동결정은 각각 0건이어야 합니다. 합성 조직도·역할·업무·skill·survey·학습·지원·adoption fixture와 local sandbox만 사용합니다. 실제 직원·지원자·고객의 개인·민감·성과·감정·행동 데이터, 개인 ranking·감시·징계·고용결정, 감정·의도·건강·노조활동·보호속성 추론, 운영계정·예산·조달·계약·외부 변경을 금지합니다. 설문·참여에는 자발성, 불참 불이익 금지, 관리자 개인응답 접근 금지, 비보복, 이의제기·철회 경로를 요구합니다. wall_clock_timeout_seconds≤300, max_records≤10000, max_fixture_bytes≤10485760, max_groups≤100, minimum_reportable_group_size≥10, max_report_queries≤20, max_dimensions_per_report≤2, complementary_suppression=true, max_survey_items≤50, max_learning_events≤10000, actual_spend=0을 넘으면 즉시 중단합니다. 전문 판단은 status=needs_qualified_review와 review_domains[hr|labor|legal|security|privacy|finance|procurement|accessibility], owner·reason·missing_evidence·resume_condition을 모두 기록합니다. 평가 종료 시 synthetic raw row·event는 0건이어야 하며 보존 evidence는 집계·비식별 필드만 허용하고 purpose·owner·access·expiry·hash를 기록합니다.",
+          "실제 개인·민감·성과 데이터, 개인 감시·ranking·고용·노무·법률·조달 결론 없이 평가하고 불명확 전문판단은 필요한 모든 이관 필드를 갖춘 needs_qualified_review로 중단합니다.",
+          "평가 종료 후 synthetic raw row·event는 0건이며 보존 evidence는 집계·비식별 필드와 purpose·owner·access·expiry·hash만 가집니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Artificial Intelligence Risk Management Framework",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "standard",
+      "url": "https://doi.org/10.6028/NIST.AI.100-1",
+      "source_version": "NIST AI RMF 1.0, January 2023",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "NIST AI RMF Playbook: Govern",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_docs",
+      "url": "https://airc.nist.gov/airmf-resources/playbook/govern/",
+      "source_version": "AI RMF 1.0 Govern Playbook, checked 2026-07-30",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "Information technology — Artificial intelligence — Management system",
+      "publisher": "International Organization for Standardization",
+      "source_type": "standard",
+      "url": "https://www.iso.org/standard/42001",
+      "source_version": "ISO/IEC 42001:2023, Edition 1",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "Artificial Intelligence: An Accountability Framework for Federal Agencies and Other Entities",
+      "publisher": "U.S. Government Accountability Office",
+      "source_type": "official_source",
+      "url": "https://www.gao.gov/products/gao-21-519sp",
+      "source_version": "GAO-21-519SP, June 2021",
+      "checked_at": "2026-07-30"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "risk_reduction",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "candidate.organization-adoption.ax-operating-model-decision-rights@1.0.0의 승인 결과를 정규 Unit으로 등록했습니다. 상세 fixture·실제 조직 적합성·학습효과는 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.organization-adoption.ax-operating-model-decision-rights",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.organization-adoption.breadth-a",
+      "promoted_at": "2026-07-30"
+    },
+    "evidence_claims": [
+      {
+        "id": "evidence.organization-adoption.nist-ai-rmf-1",
+        "title": "Artificial Intelligence Risk Management Framework",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "standard",
+        "url": "https://doi.org/10.6028/NIST.AI.100-1",
+        "source_version": "NIST AI RMF 1.0, January 2023",
+        "checked_at": "2026-07-30",
+        "claim_scope": "AI 위험의 Govern·Map·Measure·Manage outcome과 조직 역할·문화·역량을 지지하지만 인증기준이 아니며 revision 진행 중입니다.",
+        "supports": [
+          "definition",
+          "scope",
+          "learning_outcome"
+        ]
+      },
+      {
+        "id": "evidence.organization-adoption.nist-ai-rmf-govern-playbook",
+        "title": "NIST AI RMF Playbook: Govern",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "official_docs",
+        "url": "https://airc.nist.gov/airmf-resources/playbook/govern/",
+        "source_version": "AI RMF 1.0 Govern Playbook, checked 2026-07-30",
+        "checked_at": "2026-07-30",
+        "claim_scope": "역할·책임·의사소통·교육·risk culture·제3자 관리를 지지하지만 조직별 권한·정책·적합성을 확정하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.organization-adoption.iso-iec-42001-2023",
+        "title": "Information technology — Artificial intelligence — Management system",
+        "publisher": "International Organization for Standardization",
+        "source_type": "standard",
+        "url": "https://www.iso.org/standard/42001",
+        "source_version": "ISO/IEC 42001:2023, Edition 1",
+        "checked_at": "2026-07-30",
+        "claim_scope": "AI management system의 정책·목표·책임·지속개선을 지지하지만 이 학습 packet이 인증·적합성·실제 운영효과를 보증하지 않습니다.",
+        "supports": [
+          "definition",
+          "scope",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.organization-adoption.gao-21-519sp",
+        "title": "Artificial Intelligence: An Accountability Framework for Federal Agencies and Other Entities",
+        "publisher": "U.S. Government Accountability Office",
+        "source_type": "official_source",
+        "url": "https://www.gao.gov/products/gao-21-519sp",
+        "source_version": "GAO-21-519SP, June 2021",
+        "checked_at": "2026-07-30",
+        "claim_scope": "governance·data·performance·monitoring의 accountability 질문과 평가절차를 지지하지만 미국 연방 맥락과 독립적인 인증기준을 구분해야 합니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      }
+    ],
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.human-ai-experience.human-approval-override-escalation-experience",
+        "version": "1.0.0"
+      },
+      {
+        "kind": "unit",
+        "id": "unit.security-legal-governance.security-control-assurance-audit-exception-governance",
+        "version": "1.0.0"
+      }
+    ],
+    "source_candidate_relations": [
+      {
+        "type": "recommended_prerequisite",
+        "target": {
+          "kind": "candidate",
+          "id": "candidate.organization-adoption.change-impact-readiness-engagement",
+          "version": "1.0.0"
+        },
+        "rationale": "영향·참여·지원 경계를 먼저 고정하면 후속 조직 산출물의 적용 대상과 이관경로가 명확해집니다."
+      },
+      {
+        "type": "related_to",
+        "target": {
+          "kind": "candidate",
+          "id": "candidate.ax-strategy-value.task-allocation",
+          "version": "1.0.0"
+        },
+        "rationale": "미승격 전략 후보의 소유 경계를 exact Candidate 관계로 보존하며 존재하지 않는 정규 Unit으로 변환하지 않습니다."
+      },
+      {
+        "type": "related_to",
+        "target": {
+          "kind": "candidate",
+          "id": "candidate.ax-strategy-value.future-state-redesign",
+          "version": "1.0.0"
+        },
+        "rationale": "미승격 전략 후보의 소유 경계를 exact Candidate 관계로 보존하며 존재하지 않는 정규 Unit으로 변환하지 않습니다."
+      }
+    ],
+    "sealed_assessment_contract": {
+      "fixture_id": "candidate.organization-adoption.ax-operating-model-decision-rights.fixture",
+      "fixture_version": "1.0.0",
+      "d0_case_count": 12,
+      "allowed_d0_errors": 0,
+      "fault_injection_count": 6,
+      "faults": [
+        "owner 없는 결정 2건",
+        "상충·과도한 decision right 2건",
+        "handoff·escalation 단절 2건"
+      ],
+      "submission_artifacts": [
+        "operating-model-role-matrix.json",
+        "decision-handoff-contract.json",
+        "assessment-result.json"
+      ],
+      "idempotency_runs": 2,
+      "minimum_reportable_group_size": 10,
+      "max_report_queries": 20,
+      "max_dimensions_per_report": 2,
+      "complementary_suppression": true,
+      "raw_rows_after_cleanup": 0,
+      "raw_events_after_cleanup": 0,
+      "assessment_implementation_status": "required_before_activation",
+      "note": "Phase 2 정규 catalog 승격은 평가계약을 고정합니다. 실제 fixture·runner 구현과 학습효과·조직 적합성 검증은 Unit 활성화 전 별도 Gate입니다."
+    }
+  }
+}

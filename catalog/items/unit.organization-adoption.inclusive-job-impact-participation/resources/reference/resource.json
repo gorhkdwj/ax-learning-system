@@ -1,0 +1,142 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.organization-adoption.inclusive-job-impact-participation.reference",
+  "version": "1.0.0",
+  "title": "포용적 직무영향·직원참여·지원 경계 공식·표준·1차 출처 Reference",
+  "description": "정규 Unit의 정의·범위·판정기준을 뒷받침하는 공개 Reference입니다. 상세 교재나 조직·인사·노무·법률·조달 전문판단을 대체하지 않습니다.",
+  "resource_type": "external_reference",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.organization-adoption.inclusive-job-impact-participation",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "external",
+    "url": "https://www.iso.org/standard/71164.html"
+  },
+  "learning_outcome_ids": [
+    "outcome.organization-adoption.inclusive-job-impact-participation.d0",
+    "outcome.organization-adoption.inclusive-job-impact-participation.d2"
+  ],
+  "estimated_minutes": 30,
+  "language": "en",
+  "tags": [
+    "reference",
+    "promotion-evidence",
+    "organization-adoption"
+  ],
+  "requirements": {
+    "platforms": [
+      "web-browser"
+    ],
+    "network_required": true
+  },
+  "provenance": {
+    "origin": "external",
+    "sources": [
+      {
+        "title": "Human resource management — Diversity and inclusion",
+        "publisher": "International Organization for Standardization",
+        "source_type": "standard",
+        "url": "https://www.iso.org/standard/71164.html",
+        "source_version": "ISO 30415:2021, under systematic review 2026",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "Global case studies of social dialogue on AI and algorithmic management",
+        "publisher": "International Labour Organization",
+        "source_type": "primary_research",
+        "url": "https://www.ilo.org/publications/global-case-studies-social-dialogue-ai-and-algorithmic-management",
+        "source_version": "ILO Working Paper 144, July 10 2025",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "The algorithmic management of work and its implications in different contexts",
+        "publisher": "International Labour Organization",
+        "source_type": "primary_research",
+        "url": "https://www.ilo.org/publications/algorithmic-management-work-and-its-implications-different-contexts",
+        "source_version": "ILO background paper, June 21 2022",
+        "checked_at": "2026-07-30"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "unverified",
+    "standard": "WCAG 2.2 AA",
+    "features": [],
+    "alternative_resource_refs": [],
+    "note": "외부 출처의 접근성은 재검토가 필요합니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-07-30",
+    "commands": [],
+    "expected_outputs": [
+      "출처가 Unit의 정의·범위·판정기준과 claim 한계를 직접 지지하는지 확인한 기록"
+    ],
+    "evidence_paths": [],
+    "note": "URL·버전·claim 범위를 독립 재검토했으며 실제 조직 적합성·상세 학습효과는 검증하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "Candidate 승격 시 등록한 공개 Reference입니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.organization-adoption.inclusive-job-impact-participation",
+      "version": "1.0.0"
+    },
+    "promotion_reviewed_at": "2026-07-30",
+    "evidence_claims": [
+      {
+        "id": "evidence.organization-adoption.iso-30415-2021",
+        "title": "Human resource management — Diversity and inclusion",
+        "publisher": "International Organization for Standardization",
+        "source_type": "standard",
+        "url": "https://www.iso.org/standard/71164.html",
+        "source_version": "ISO 30415:2021, under systematic review 2026",
+        "checked_at": "2026-07-30",
+        "claim_scope": "D&I accountabilities·actions·measures를 지지하지만 노조·work council·국가별 법률·litigation은 범위 밖입니다.",
+        "supports": [
+          "definition",
+          "scope",
+          "risk"
+        ]
+      },
+      {
+        "id": "evidence.organization-adoption.ilo-social-dialogue-ai-2025",
+        "title": "Global case studies of social dialogue on AI and algorithmic management",
+        "publisher": "International Labour Organization",
+        "source_type": "primary_research",
+        "url": "https://www.ilo.org/publications/global-case-studies-social-dialogue-ai-and-algorithmic-management",
+        "source_version": "ILO Working Paper 144, July 10 2025",
+        "checked_at": "2026-07-30",
+        "claim_scope": "여러 대륙 사례에서 worker voice와 social dialogue의 역할을 보여주지만 사례 조건을 모든 조직·관할에 일반화하지 않습니다.",
+        "supports": [
+          "work_relevance",
+          "risk",
+          "business_hypothesis"
+        ]
+      },
+      {
+        "id": "evidence.organization-adoption.ilo-algorithmic-management-2022",
+        "title": "The algorithmic management of work and its implications in different contexts",
+        "publisher": "International Labour Organization",
+        "source_type": "primary_research",
+        "url": "https://www.ilo.org/publications/algorithmic-management-work-and-its-implications-different-contexts",
+        "source_version": "ILO background paper, June 21 2022",
+        "checked_at": "2026-07-30",
+        "claim_scope": "algorithmic management와 work organization·job quality 위험의 개념틀을 제공하지만 국가별 법률·개별 workplace 효과를 확정하지 않습니다.",
+        "supports": [
+          "definition",
+          "risk",
+          "work_relevance"
+        ]
+      }
+    ]
+  }
+}

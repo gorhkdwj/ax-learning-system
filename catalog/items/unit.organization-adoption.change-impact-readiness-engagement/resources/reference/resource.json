@@ -1,0 +1,165 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.organization-adoption.change-impact-readiness-engagement.reference",
+  "version": "1.0.0",
+  "title": "변화 영향·도입 준비도·이해관계자 참여 설계 공식·표준·1차 출처 Reference",
+  "description": "정규 Unit의 정의·범위·판정기준을 뒷받침하는 공개 Reference입니다. 상세 교재나 조직·인사·노무·법률·조달 전문판단을 대체하지 않습니다.",
+  "resource_type": "external_reference",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.organization-adoption.change-impact-readiness-engagement",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "external",
+    "url": "https://doi.org/10.1186/1748-5908-4-67"
+  },
+  "learning_outcome_ids": [
+    "outcome.organization-adoption.change-impact-readiness-engagement.d0",
+    "outcome.organization-adoption.change-impact-readiness-engagement.d2"
+  ],
+  "estimated_minutes": 30,
+  "language": "en",
+  "tags": [
+    "reference",
+    "promotion-evidence",
+    "organization-adoption"
+  ],
+  "requirements": {
+    "platforms": [
+      "web-browser"
+    ],
+    "network_required": true
+  },
+  "provenance": {
+    "origin": "external",
+    "sources": [
+      {
+        "title": "A theory of organizational readiness for change",
+        "publisher": "Implementation Science",
+        "source_type": "primary_research",
+        "url": "https://doi.org/10.1186/1748-5908-4-67",
+        "source_version": "Weiner, Implementation Science 4:67, 2009",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "Quality management — Guidance for people engagement",
+        "publisher": "International Organization for Standardization",
+        "source_type": "standard",
+        "url": "https://www.iso.org/standard/69979.html",
+        "source_version": "ISO 10018:2020, Edition 2; systematic review in progress 2026",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "NIST AI RMF Playbook",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "official_docs",
+        "url": "https://airc.nist.gov/airmf-resources/playbook/",
+        "source_version": "AI RMF 1.0 Playbook, updated page checked 2026-07-30",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "Global case studies of social dialogue on AI and algorithmic management",
+        "publisher": "International Labour Organization",
+        "source_type": "primary_research",
+        "url": "https://www.ilo.org/publications/global-case-studies-social-dialogue-ai-and-algorithmic-management",
+        "source_version": "ILO Working Paper 144, July 10 2025",
+        "checked_at": "2026-07-30"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "unverified",
+    "standard": "WCAG 2.2 AA",
+    "features": [],
+    "alternative_resource_refs": [],
+    "note": "외부 출처의 접근성은 재검토가 필요합니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-07-30",
+    "commands": [],
+    "expected_outputs": [
+      "출처가 Unit의 정의·범위·판정기준과 claim 한계를 직접 지지하는지 확인한 기록"
+    ],
+    "evidence_paths": [],
+    "note": "URL·버전·claim 범위를 독립 재검토했으며 실제 조직 적합성·상세 학습효과는 검증하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "Candidate 승격 시 등록한 공개 Reference입니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.organization-adoption.change-impact-readiness-engagement",
+      "version": "1.0.0"
+    },
+    "promotion_reviewed_at": "2026-07-30",
+    "evidence_claims": [
+      {
+        "id": "evidence.organization-adoption.weiner-readiness-2009",
+        "title": "A theory of organizational readiness for change",
+        "publisher": "Implementation Science",
+        "source_type": "primary_research",
+        "url": "https://doi.org/10.1186/1748-5908-4-67",
+        "source_version": "Weiner, Implementation Science 4:67, 2009",
+        "checked_at": "2026-07-30",
+        "claim_scope": "조직 readiness를 shared change commitment와 change efficacy로 구조화하지만 보건 구현 맥락에서 제안된 이론이며 AX 성공의 보편 예측기나 조직별 점수 기준이 아닙니다.",
+        "supports": [
+          "definition",
+          "scope",
+          "learning_outcome"
+        ]
+      },
+      {
+        "id": "evidence.organization-adoption.iso-10018-2020",
+        "title": "Quality management — Guidance for people engagement",
+        "publisher": "International Organization for Standardization",
+        "source_type": "standard",
+        "url": "https://www.iso.org/standard/69979.html",
+        "source_version": "ISO 10018:2020, Edition 2; systematic review in progress 2026",
+        "checked_at": "2026-07-30",
+        "claim_scope": "조직의 quality management system에서 사람의 참여·관여·역량 향상을 지지하지만 특정 변화관리 방법이나 효과를 보증하지 않습니다.",
+        "supports": [
+          "definition",
+          "scope",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.organization-adoption.nist-ai-rmf-playbook",
+        "title": "NIST AI RMF Playbook",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "official_docs",
+        "url": "https://airc.nist.gov/airmf-resources/playbook/",
+        "source_version": "AI RMF 1.0 Playbook, updated page checked 2026-07-30",
+        "checked_at": "2026-07-30",
+        "claim_scope": "조직 역할·교육·위험문화·이해관계자 참여의 선택 가능한 실천안을 제공하지만 checklist·순차 절차·보편 조직모델이 아닙니다.",
+        "supports": [
+          "scope",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.organization-adoption.ilo-social-dialogue-ai-2025",
+        "title": "Global case studies of social dialogue on AI and algorithmic management",
+        "publisher": "International Labour Organization",
+        "source_type": "primary_research",
+        "url": "https://www.ilo.org/publications/global-case-studies-social-dialogue-ai-and-algorithmic-management",
+        "source_version": "ILO Working Paper 144, July 10 2025",
+        "checked_at": "2026-07-30",
+        "claim_scope": "여러 대륙 사례에서 worker voice와 social dialogue의 역할을 보여주지만 사례 조건을 모든 조직·관할에 일반화하지 않습니다.",
+        "supports": [
+          "work_relevance",
+          "risk",
+          "business_hypothesis"
+        ]
+      }
+    ]
+  }
+}

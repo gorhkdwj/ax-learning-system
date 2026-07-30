@@ -1,0 +1,165 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.organization-adoption.vendor-procurement-adoption-handoff.reference",
+  "version": "1.0.0",
+  "title": "공급자·조달·SaaS 도입 증거·전문검토 이관 공식·표준·1차 출처 Reference",
+  "description": "정규 Unit의 정의·범위·판정기준을 뒷받침하는 공개 Reference입니다. 상세 교재나 조직·인사·노무·법률·조달 전문판단을 대체하지 않습니다.",
+  "resource_type": "external_reference",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.organization-adoption.vendor-procurement-adoption-handoff",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "external",
+    "url": "https://www.gov.uk/government/publications/guidelines-for-ai-procurement"
+  },
+  "learning_outcome_ids": [
+    "outcome.organization-adoption.vendor-procurement-adoption-handoff.d0",
+    "outcome.organization-adoption.vendor-procurement-adoption-handoff.d2"
+  ],
+  "estimated_minutes": 30,
+  "language": "en",
+  "tags": [
+    "reference",
+    "promotion-evidence",
+    "organization-adoption"
+  ],
+  "requirements": {
+    "platforms": [
+      "web-browser"
+    ],
+    "network_required": true
+  },
+  "provenance": {
+    "origin": "external",
+    "sources": [
+      {
+        "title": "Guidelines for AI procurement",
+        "publisher": "UK Government",
+        "source_type": "official_source",
+        "url": "https://www.gov.uk/government/publications/guidelines-for-ai-procurement",
+        "source_version": "UK Government guidance, published June 8 2020; page checked 2026-07-30",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "Information technology — Artificial intelligence — Management system",
+        "publisher": "International Organization for Standardization",
+        "source_type": "standard",
+        "url": "https://www.iso.org/standard/42001",
+        "source_version": "ISO/IEC 42001:2023, Edition 1",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "NIST AI RMF Playbook: Govern",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "official_docs",
+        "url": "https://airc.nist.gov/airmf-resources/playbook/govern/",
+        "source_version": "AI RMF 1.0 Govern Playbook, checked 2026-07-30",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "Artificial Intelligence: An Accountability Framework for Federal Agencies and Other Entities",
+        "publisher": "U.S. Government Accountability Office",
+        "source_type": "official_source",
+        "url": "https://www.gao.gov/products/gao-21-519sp",
+        "source_version": "GAO-21-519SP, June 2021",
+        "checked_at": "2026-07-30"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "unverified",
+    "standard": "WCAG 2.2 AA",
+    "features": [],
+    "alternative_resource_refs": [],
+    "note": "외부 출처의 접근성은 재검토가 필요합니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-07-30",
+    "commands": [],
+    "expected_outputs": [
+      "출처가 Unit의 정의·범위·판정기준과 claim 한계를 직접 지지하는지 확인한 기록"
+    ],
+    "evidence_paths": [],
+    "note": "URL·버전·claim 범위를 독립 재검토했으며 실제 조직 적합성·상세 학습효과는 검증하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "Candidate 승격 시 등록한 공개 Reference입니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.organization-adoption.vendor-procurement-adoption-handoff",
+      "version": "1.0.0"
+    },
+    "promotion_reviewed_at": "2026-07-30",
+    "evidence_claims": [
+      {
+        "id": "evidence.organization-adoption.uk-ai-procurement-guidelines",
+        "title": "Guidelines for AI procurement",
+        "publisher": "UK Government",
+        "source_type": "official_source",
+        "url": "https://www.gov.uk/government/publications/guidelines-for-ai-procurement",
+        "source_version": "UK Government guidance, published June 8 2020; page checked 2026-07-30",
+        "checked_at": "2026-07-30",
+        "claim_scope": "AI procurement의 요구·공급자 정보·데이터·위험·accountability 질문을 지지하지만 영국 공공조달 맥락이며 vendor 선정·계약·법적 적합성을 결정하지 않습니다.",
+        "supports": [
+          "scope",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.organization-adoption.iso-iec-42001-2023",
+        "title": "Information technology — Artificial intelligence — Management system",
+        "publisher": "International Organization for Standardization",
+        "source_type": "standard",
+        "url": "https://www.iso.org/standard/42001",
+        "source_version": "ISO/IEC 42001:2023, Edition 1",
+        "checked_at": "2026-07-30",
+        "claim_scope": "AI management system의 정책·목표·책임·지속개선을 지지하지만 이 학습 packet이 인증·적합성·실제 운영효과를 보증하지 않습니다.",
+        "supports": [
+          "definition",
+          "scope",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.organization-adoption.nist-ai-rmf-govern-playbook",
+        "title": "NIST AI RMF Playbook: Govern",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "official_docs",
+        "url": "https://airc.nist.gov/airmf-resources/playbook/govern/",
+        "source_version": "AI RMF 1.0 Govern Playbook, checked 2026-07-30",
+        "checked_at": "2026-07-30",
+        "claim_scope": "역할·책임·의사소통·교육·risk culture·제3자 관리를 지지하지만 조직별 권한·정책·적합성을 확정하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.organization-adoption.gao-21-519sp",
+        "title": "Artificial Intelligence: An Accountability Framework for Federal Agencies and Other Entities",
+        "publisher": "U.S. Government Accountability Office",
+        "source_type": "official_source",
+        "url": "https://www.gao.gov/products/gao-21-519sp",
+        "source_version": "GAO-21-519SP, June 2021",
+        "checked_at": "2026-07-30",
+        "claim_scope": "governance·data·performance·monitoring의 accountability 질문과 평가절차를 지지하지만 미국 연방 맥락과 독립적인 인증기준을 구분해야 합니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      }
+    ]
+  }
+}

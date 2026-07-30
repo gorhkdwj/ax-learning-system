@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "id": "taxonomy.ax-capability-map",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "title": "AX 역량 분류 레지스트리",
   "status": "provisional",
   "updated_at": "2026-07-30",
@@ -4152,6 +4152,442 @@
           "research/capability-survey/waves/wave-03/wp.security-legal-governance.breadth-a/domain-survey.md"
         ],
         "rationale": "Wave 3 보안·법무·거버넌스 조사에서 기존 catalog와 중복되지 않는 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "organizational-change-impact-participation",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "변화 영향·도입 준비도·이해관계자 참여 설계",
+      "title_en": "Change impact, adoption readiness and stakeholder engagement design",
+      "definition": "합성 AX 변화에서 영향받는 집단·업무·채널·준비도·우려·참여·feedback·지원·이의제기·중단 경로를 추적합니다.",
+      "includes": [
+        "stakeholder·업무·채널별 일반 변화 영향",
+        "준비도·우려·참여·communication·feedback",
+        "지원·이의제기·중단·qualified routing"
+      ],
+      "excludes": [
+        "상세 직무품질·workload·자율성·노동 판단",
+        "실제 직원 survey·감정 추론",
+        "변화 수용성 개인 ranking",
+        "실제 조직개편·인사·노무 판단"
+      ],
+      "parent_ids": [
+        "organization-adoption"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "ai-impact-awareness",
+        "ai-feedback-user-control",
+        "inclusive-workplace-impact-participation",
+        "human-ai-operating-model-decision-rights"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.organization-adoption.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 조직 도입 조사에서 기존 전략·기술·보안 소유권과 중복되지 않는 조직 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "human-ai-operating-model-decision-rights",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "AX 운영모델·의사결정권·책임·인계 설계",
+      "title_en": "AX operating model, decision rights, accountability and handoff design",
+      "definition": "사람·AI·자동화·전문 owner의 역할·decision rights·separation·approval·handoff·escalation을 운영 시나리오에서 검증합니다.",
+      "includes": [
+        "역할·책임·decision rights·separation",
+        "사람·AI·자동화 handoff·approval·escalation",
+        "운영 review·exception·재설계 trigger"
+      ],
+      "excludes": [
+        "실제 조직도·권한·인사 변경",
+        "AI workflow 기술 구현",
+        "법률·보안·위험수용 최종 승인"
+      ],
+      "parent_ids": [
+        "organization-adoption"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "human-approval-escalation-interaction",
+        "authorization-access-governance",
+        "deterministic-workflow-orchestration",
+        "security-control-assurance-audit",
+        "organizational-change-impact-participation",
+        "workforce-capability-gap-transition"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.organization-adoption.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 조직 도입 조사에서 기존 전략·기술·보안 소유권과 중복되지 않는 조직 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "workforce-capability-gap-transition",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "과업·역량·인력 수요·skill gap·전환 분석",
+      "title_en": "Task, capability, workforce demand, skill gap and transition analysis",
+      "definition": "선택된 AX 업무설계 가정에서 현재·미래 과업·역량·수요·공급·gap·개발·전환 option을 합성 workforce 시나리오로 비교합니다.",
+      "includes": [
+        "현재·미래 과업·역량·수요·공급 scenario",
+        "skill gap·전환 위험·개발 option",
+        "직무영향·qualified HR·labor routing"
+      ],
+      "excludes": [
+        "AX 기회선정·목표 업무설계",
+        "실제 개인 skill score·채용·배치·감원",
+        "고용·보상·성과평가 판단"
+      ],
+      "parent_ids": [
+        "organization-adoption"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "task-analysis",
+        "human-ai-operating-model-decision-rights",
+        "workplace-learning-transfer-operations",
+        "inclusive-workplace-impact-participation"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.organization-adoption.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 조직 도입 조사에서 기존 전략·기술·보안 소유권과 중복되지 않는 조직 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "workplace-learning-transfer-operations",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "역할 기반 학습·평가·업무전이 설계",
+      "title_en": "Role-based learning, assessment and workplace transfer design",
+      "definition": "역할별 역량 gap을 observable outcome·실습·평가·transfer task·지원·유지·재평가 trigger로 연결합니다.",
+      "includes": [
+        "역할별 outcome·선수·실습·평가",
+        "업무전이 task·지원·유지·재평가",
+        "접근성·AI literacy·위험비례 학습"
+      ],
+      "excludes": [
+        "특정 LMS·교육제품 운영",
+        "교육 참석을 업무성과로 간주",
+        "실제 개인 성과·고용 평가"
+      ],
+      "parent_ids": [
+        "organization-adoption"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "ai-foundations-and-limitations",
+        "impact-evaluation",
+        "workforce-capability-gap-transition",
+        "adoption-support-community-knowledge-flow"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.organization-adoption.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 조직 도입 조사에서 기존 전략·기술·보안 소유권과 중복되지 않는 조직 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "inclusive-workplace-impact-participation",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "포용적 직무영향·직원참여·지원 경계",
+      "title_en": "Inclusive job impact, worker participation and support boundaries",
+      "definition": "일반 변화영향 register를 입력으로 받아 합성 시나리오의 직무량·자율성·감시·접근성·분배효과·worker voice·support·contest 축을 심화하고 전문검토로 이관합니다.",
+      "includes": [
+        "일반 변화영향 register의 specialist overlay",
+        "직무량·자율성·감시·job quality 영향",
+        "접근성·포용성·분배효과 screening",
+        "worker voice·social dialogue·support·contest routing"
+      ],
+      "excludes": [
+        "실제 감정·건강·행동 추론",
+        "노사협의·법률 결론 대체",
+        "개인별 위험·성과 ranking"
+      ],
+      "parent_ids": [
+        "organization-adoption"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "ai-impact-awareness",
+        "human-ai-experience-evaluation",
+        "organizational-change-impact-participation",
+        "adoption-outcome-distribution-measurement"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.organization-adoption.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 조직 도입 조사에서 기존 전략·기술·보안 소유권과 중복되지 않는 조직 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "adoption-support-community-knowledge-flow",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "도입 지원·챔피언·community·지식흐름 운영",
+      "title_en": "Adoption support, champion, community and knowledge flow operations",
+      "definition": "합성 지원 queue와 지식 lifecycle에서 질문·incident·feedback·champion·community·owner·검증·폐기·개선 흐름을 운영합니다.",
+      "includes": [
+        "support channel·triage·owner·escalation",
+        "champion·community of practice·feedback loop",
+        "지식 capture·검증·version·검색·폐기·재사용"
+      ],
+      "excludes": [
+        "실제 직원 support ticket·개인 평가",
+        "특정 helpdesk·community 제품 조작",
+        "검증 없는 사용자 답변을 정본 지식으로 승격"
+      ],
+      "parent_ids": [
+        "organization-adoption"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "incident-response-postmortem",
+        "workplace-learning-transfer-operations",
+        "organizational-change-impact-participation",
+        "pilot-scale-transition-governance"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.organization-adoption.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 조직 도입 조사에서 기존 전략·기술·보안 소유권과 중복되지 않는 조직 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "adoption-outcome-distribution-measurement",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "도입 행동·품질·위험·성과·분배효과 측정",
+      "title_en": "Adoption behavior, quality, risk, outcome and distribution measurement",
+      "definition": "제공된 measurement contract를 소비해 사용행동·지원·quality·risk·cycle time·outcome·분배효과를 집계 모니터링하고 과도한 인과주장·개인감시 없이 재평가로 이관합니다.",
+      "includes": [
+        "제공된 지표 정의·분모·window·baseline의 변경 없는 소비",
+        "aggregate adoption scorecard·분배효과·억제",
+        "재평가·중단·실험 이관"
+      ],
+      "excludes": [
+        "지표·분모·baseline·인과평가 계약의 신규 정의·변경",
+        "로그인·교육완료만으로 성공 판정",
+        "개인 productivity·ranking·감시",
+        "비교설계 없는 인과효과 주장"
+      ],
+      "parent_ids": [
+        "organization-adoption"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "value-measurement",
+        "analytical-modeling-metric-semantics",
+        "impact-evaluation",
+        "inclusive-workplace-impact-participation",
+        "pilot-scale-transition-governance"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.organization-adoption.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 조직 도입 조사에서 기존 전략·기술·보안 소유권과 중복되지 않는 조직 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "pilot-scale-transition-governance",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "AX pilot·단계확대·중단·rollback 전환 거버넌스",
+      "title_en": "AX pilot, staged scale, stop and rollback transition governance",
+      "definition": "봉인된 pilot hypothesis·baseline·success·harm·stop 및 intervention evidence를 입력으로 받아 합성 AX initiative의 조직 지원·준비·단계확대·중단·rollback 전환 Gate를 판정합니다.",
+      "includes": [
+        "봉인된 pilot 평가계약·intervention evidence의 변경 없는 소비",
+        "조직 단계확대 eligibility·support·운영·rollback",
+        "continue·conditional·stop·retire 전환 결정과 재평가 이관"
+      ],
+      "excludes": [
+        "pilot hypothesis·baseline·success·harm·인과·편익 계약의 신규 정의·변경",
+        "실제 투자·배포·조달·조직 확대 승인",
+        "기술 release·rollback 구현",
+        "실제 pilot 성과·인과효과 보증"
+      ],
+      "parent_ids": [
+        "organization-adoption"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "value-measurement",
+        "impact-evaluation",
+        "release-deployment-safety",
+        "production-readiness-service-lifecycle",
+        "adoption-outcome-distribution-measurement",
+        "adoption-support-community-knowledge-flow"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.organization-adoption.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 조직 도입 조사에서 기존 전략·기술·보안 소유권과 중복되지 않는 조직 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "vendor-procurement-adoption-handoff",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "공급자·조달·SaaS 도입 증거·전문검토 이관",
+      "title_en": "Vendor, procurement and SaaS adoption evidence and qualified review handoff",
+      "definition": "합성 공급자·SaaS 도입에서 요구·사용사례·data flow·security·privacy·license·운영·exit·지원 evidence를 전문 owner에게 이관합니다.",
+      "includes": [
+        "요구·사용사례·공급자 evidence inventory",
+        "security·privacy·license·운영·지원·exit 질문",
+        "조달·법무·보안·privacy·재무 qualified routing"
+      ],
+      "excludes": [
+        "실제 vendor 선정·가격·계약·조달 승인",
+        "공급자 주장만으로 적합 판정",
+        "실제 SaaS account·data·credential"
+      ],
+      "parent_ids": [
+        "organization-adoption"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "software-supply-chain-security",
+        "security-control-assurance-audit",
+        "privacy-engineering-data-rights",
+        "copyright-license-rights-provenance",
+        "pilot-scale-transition-governance"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.organization-adoption.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 조직 도입 조사에서 기존 전략·기술·보안 소유권과 중복되지 않는 조직 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "enterprise-ax-adoption-lifecycle",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "조직 AX 도입·확산 lifecycle assurance",
+      "title_en": "Enterprise AX adoption and scaling lifecycle assurance",
+      "definition": "조직 AX 도입의 영향·운영모델·역량·학습·포용·지원·측정·pilot·공급자 evidence와 적용 가능한 기존 기술·운영·보안·privacy Gate를 종단 간 transition assurance packet으로 조합합니다.",
+      "includes": [
+        "변화영향·운영모델·역량·학습·포용·지원 evidence",
+        "adoption·성과·분배효과·pilot·vendor Gate",
+        "applicability 기반 기존 기술 release·telemetry·privacy·보안 통제 Gate",
+        "continue·conditional·not-ready·stop·retire·qualified review"
+      ],
+      "excludes": [
+        "실제 조직·투자·조달·배포·고용 결정",
+        "기존 Unit 내용 복제",
+        "법률·노무·보안·위험수용 최종 승인"
+      ],
+      "parent_ids": [
+        "organization-adoption"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "organizational-change-impact-participation",
+        "human-ai-operating-model-decision-rights",
+        "workforce-capability-gap-transition",
+        "workplace-learning-transfer-operations",
+        "inclusive-workplace-impact-participation",
+        "adoption-support-community-knowledge-flow",
+        "adoption-outcome-distribution-measurement",
+        "pilot-scale-transition-governance",
+        "vendor-procurement-adoption-handoff"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.organization-adoption.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 조직 도입 조사에서 기존 전략·기술·보안 소유권과 중복되지 않는 조직 산출물·검증 Gate를 분리하기 위해 제안했습니다."
       },
       "lifecycle": {
         "created_at": "2026-07-30",

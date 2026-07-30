@@ -1,0 +1,165 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.organization-adoption.adoption-outcome-distribution-measurement.reference",
+  "version": "1.0.0",
+  "title": "도입 행동·품질·위험·성과·분배효과 측정 공식·표준·1차 출처 Reference",
+  "description": "정규 Unit의 정의·범위·판정기준을 뒷받침하는 공개 Reference입니다. 상세 교재나 조직·인사·노무·법률·조달 전문판단을 대체하지 않습니다.",
+  "resource_type": "external_reference",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.organization-adoption.adoption-outcome-distribution-measurement",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "external",
+    "url": "https://doi.org/10.1007/s10488-010-0319-7"
+  },
+  "learning_outcome_ids": [
+    "outcome.organization-adoption.adoption-outcome-distribution-measurement.d0",
+    "outcome.organization-adoption.adoption-outcome-distribution-measurement.d3"
+  ],
+  "estimated_minutes": 30,
+  "language": "en",
+  "tags": [
+    "reference",
+    "promotion-evidence",
+    "organization-adoption"
+  ],
+  "requirements": {
+    "platforms": [
+      "web-browser"
+    ],
+    "network_required": true
+  },
+  "provenance": {
+    "origin": "external",
+    "sources": [
+      {
+        "title": "Outcomes for Implementation Research: Conceptual Distinctions, Measurement Challenges, and Research Agenda",
+        "publisher": "Administration and Policy in Mental Health",
+        "source_type": "primary_research",
+        "url": "https://doi.org/10.1007/s10488-010-0319-7",
+        "source_version": "Proctor et al., 38(2), 2011",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "Artificial Intelligence: An Accountability Framework for Federal Agencies and Other Entities",
+        "publisher": "U.S. Government Accountability Office",
+        "source_type": "official_source",
+        "url": "https://www.gao.gov/products/gao-21-519sp",
+        "source_version": "GAO-21-519SP, June 2021",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "Human resource management — Requirements and recommendations for human capital reporting and disclosure",
+        "publisher": "International Organization for Standardization",
+        "source_type": "standard",
+        "url": "https://www.iso.org/standard/30414",
+        "source_version": "ISO 30414:2025, Edition 2",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "Artificial Intelligence Risk Management Framework",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "standard",
+        "url": "https://doi.org/10.6028/NIST.AI.100-1",
+        "source_version": "NIST AI RMF 1.0, January 2023",
+        "checked_at": "2026-07-30"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "unverified",
+    "standard": "WCAG 2.2 AA",
+    "features": [],
+    "alternative_resource_refs": [],
+    "note": "외부 출처의 접근성은 재검토가 필요합니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-07-30",
+    "commands": [],
+    "expected_outputs": [
+      "출처가 Unit의 정의·범위·판정기준과 claim 한계를 직접 지지하는지 확인한 기록"
+    ],
+    "evidence_paths": [],
+    "note": "URL·버전·claim 범위를 독립 재검토했으며 실제 조직 적합성·상세 학습효과는 검증하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "Candidate 승격 시 등록한 공개 Reference입니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.organization-adoption.adoption-outcome-distribution-measurement",
+      "version": "1.0.0"
+    },
+    "promotion_reviewed_at": "2026-07-30",
+    "evidence_claims": [
+      {
+        "id": "evidence.organization-adoption.proctor-implementation-outcomes-2011",
+        "title": "Outcomes for Implementation Research: Conceptual Distinctions, Measurement Challenges, and Research Agenda",
+        "publisher": "Administration and Policy in Mental Health",
+        "source_type": "primary_research",
+        "url": "https://doi.org/10.1007/s10488-010-0319-7",
+        "source_version": "Proctor et al., 38(2), 2011",
+        "checked_at": "2026-07-30",
+        "claim_scope": "implementation outcome과 service·client outcome을 구분하는 heuristic을 제공하지만 정신건강 구현 연구에서 출발했고 AX 척도의 타당성·인과성을 보증하지 않습니다.",
+        "supports": [
+          "definition",
+          "scope",
+          "learning_outcome"
+        ]
+      },
+      {
+        "id": "evidence.organization-adoption.gao-21-519sp",
+        "title": "Artificial Intelligence: An Accountability Framework for Federal Agencies and Other Entities",
+        "publisher": "U.S. Government Accountability Office",
+        "source_type": "official_source",
+        "url": "https://www.gao.gov/products/gao-21-519sp",
+        "source_version": "GAO-21-519SP, June 2021",
+        "checked_at": "2026-07-30",
+        "claim_scope": "governance·data·performance·monitoring의 accountability 질문과 평가절차를 지지하지만 미국 연방 맥락과 독립적인 인증기준을 구분해야 합니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.organization-adoption.iso-30414-2025",
+        "title": "Human resource management — Requirements and recommendations for human capital reporting and disclosure",
+        "publisher": "International Organization for Standardization",
+        "source_type": "standard",
+        "url": "https://www.iso.org/standard/30414",
+        "source_version": "ISO 30414:2025, Edition 2",
+        "checked_at": "2026-07-30",
+        "claim_scope": "workforce composition·skills·engagement·productivity 등 human capital reporting 영역을 지지하지만 AX 인과효과·개인 score·보편 materiality를 정하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "risk"
+        ]
+      },
+      {
+        "id": "evidence.organization-adoption.nist-ai-rmf-1",
+        "title": "Artificial Intelligence Risk Management Framework",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "standard",
+        "url": "https://doi.org/10.6028/NIST.AI.100-1",
+        "source_version": "NIST AI RMF 1.0, January 2023",
+        "checked_at": "2026-07-30",
+        "claim_scope": "AI 위험의 Govern·Map·Measure·Manage outcome과 조직 역할·문화·역량을 지지하지만 인증기준이 아니며 revision 진행 중입니다.",
+        "supports": [
+          "definition",
+          "scope",
+          "learning_outcome"
+        ]
+      }
+    ]
+  }
+}

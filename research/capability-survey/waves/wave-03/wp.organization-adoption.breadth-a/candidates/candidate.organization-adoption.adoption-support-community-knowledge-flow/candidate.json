@@ -1,0 +1,239 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.organization-adoption.adoption-support-community-knowledge-flow",
+  "version": "1.0.0",
+  "title": "도입 지원·챔피언·community·지식흐름 운영",
+  "canonical_name": "Adoption support, champion, community and knowledge flow operations",
+  "aliases": [],
+  "summary": "합성 지원 queue와 지식 lifecycle에서 질문·incident·feedback·champion·community·owner·검증·폐기·개선 흐름을 운영합니다.",
+  "research_scope": {
+    "problem_addressed": "합성 지원 queue와 지식 lifecycle에서 질문·incident·feedback·champion·community·owner·검증·폐기·개선 흐름을 운영합니다.",
+    "includes": [
+      "support channel·triage·owner·escalation",
+      "champion·community of practice·feedback loop",
+      "지식 capture·검증·version·검색·폐기·재사용"
+    ],
+    "excludes": [
+      "실제 직원 support ticket·개인 평가",
+      "특정 helpdesk·community 제품 조작",
+      "검증 없는 사용자 답변을 정본 지식으로 승격"
+    ],
+    "boundary_note": "합성 조직도·역할·업무·skill·survey·학습·지원·adoption fixture와 local sandbox만 사용합니다. 실제 직원·지원자·고객의 개인·민감·성과·감정·행동 데이터, 개인 ranking·감시·징계·고용결정, 감정·의도·건강·노조활동·보호속성 추론, 운영계정·예산·조달·계약·외부 변경을 금지합니다. 설문·참여에는 자발성, 불참 불이익 금지, 관리자 개인응답 접근 금지, 비보복, 이의제기·철회 경로를 요구합니다. wall_clock_timeout_seconds≤300, max_records≤10000, max_fixture_bytes≤10485760, max_groups≤100, minimum_reportable_group_size≥10, max_report_queries≤20, max_dimensions_per_report≤2, complementary_suppression=true, max_survey_items≤50, max_learning_events≤10000, actual_spend=0을 넘으면 즉시 중단합니다. 전문 판단은 status=needs_qualified_review와 review_domains[hr|labor|legal|security|privacy|finance|procurement|accessibility], owner·reason·missing_evidence·resume_condition을 모두 기록합니다. 평가 종료 시 synthetic raw row·event는 0건이어야 하며 보존 evidence는 집계·비식별 필드만 허용하고 purpose·owner·access·expiry·hash를 기록합니다."
+  },
+  "discovery": {
+    "lens_id": "organization-adoption",
+    "basis": "assigned_lens",
+    "notes": "공식 표준·정부 지침·1차 연구와 기존 전체 Candidate·Unit·Set의 소유권을 교차검토했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "organization-adoption",
+    "subdomains": [
+      "adoption-support-community-knowledge-flow"
+    ],
+    "tags": [
+      "adoption",
+      "support",
+      "community",
+      "knowledge",
+      "flow"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "독립적인 D3 조직 산출물과 판정 Gate가 있어 Unit 후보입니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.organization-adoption.adoption-support-community-knowledge-flow"
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.organization-adoption.learning-transfer-operations",
+        "version": "1.0.0"
+      },
+      "rationale": "업무전이 계약이 도입 지원과 실제 수행 evidence의 기준을 제공합니다."
+    },
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.organization-adoption.change-impact-readiness-engagement",
+        "version": "1.0.0"
+      },
+      "rationale": "영향·참여·지원 경계를 먼저 고정하면 후속 조직 산출물의 적용 대상과 이관경로가 명확해집니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "합성 지원 queue와 지식 lifecycle에서 질문·incident·feedback·champion·community·owner·검증·폐기·개선 흐름을 운영합니다.",
+    "work_contexts": [
+      "합성 조직 AX 변화·도입",
+      "역할·학습·지원·측정 운영",
+      "pilot·scale·전문검토 이관"
+    ],
+    "transferability": "enterprise_cross_functional",
+    "agent_fit": "comparison_required",
+    "agent_fit_rationale": "AI는 분류·초안·일관성 검사를 보조할 수 있지만 조직·고용·노무·법률·보안·privacy·조달·위험수용의 최종 판단은 인간 책임자에게 있습니다."
+  },
+  "outcomes": {
+    "target_level": "D3",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "training·support·champion·community·knowledge artifact·feedback의 역할을 구분합니다.",
+        "evidence_hypothesis": "sealed fixture `candidate.organization-adoption.adoption-support-community-knowledge-flow.fixture@1.0.0`의 12개 사례를 봉인 분류표와 대조해 오답 0/12를 확인합니다."
+      },
+      {
+        "level": "D3",
+        "outcome": "합성 지원 queue와 지식 lifecycle에서 질문·incident·feedback·champion·community·owner·검증·폐기·개선 흐름을 운영합니다.",
+        "evidence_hypothesis": "sealed fixture `candidate.organization-adoption.adoption-support-community-knowledge-flow.fixture@1.0.0`의 D0 12사례 오답 0/12, 주입 결함 6/6 탐지·처리, 제출 파일 adoption-support-queue.json, community-knowledge-register.json, assessment-result.json의 필수 필드·참조 무결성을 검사합니다. 같은 입력을 독립 sandbox에서 2회 평가한 canonical result hash가 같고 추가 mutation·잔여 임시자원은 각각 0건이며 초기·최종 manifest와 cleanup 밖 sanitized evidence hash가 유지되어야 합니다. 합성 요청 24건의 분류·owner·SLA class·escalation 누락 0건, stale·상충 지식 4건 전부 격리, 검증 없는 정본 승격 0건, 2회차 queue·knowledge hash가 일치해야 합니다. 합성 조직도·역할·업무·skill·survey·학습·지원·adoption fixture와 local sandbox만 사용합니다. 실제 직원·지원자·고객의 개인·민감·성과·감정·행동 데이터, 개인 ranking·감시·징계·고용결정, 감정·의도·건강·노조활동·보호속성 추론, 운영계정·예산·조달·계약·외부 변경을 금지합니다. 설문·참여에는 자발성, 불참 불이익 금지, 관리자 개인응답 접근 금지, 비보복, 이의제기·철회 경로를 요구합니다. wall_clock_timeout_seconds≤300, max_records≤10000, max_fixture_bytes≤10485760, max_groups≤100, minimum_reportable_group_size≥10, max_report_queries≤20, max_dimensions_per_report≤2, complementary_suppression=true, max_survey_items≤50, max_learning_events≤10000, actual_spend=0을 넘으면 즉시 중단합니다. 전문 판단은 status=needs_qualified_review와 review_domains[hr|labor|legal|security|privacy|finance|procurement|accessibility], owner·reason·missing_evidence·resume_condition을 모두 기록합니다. 평가 종료 시 synthetic raw row·event는 0건이어야 하며 보존 evidence는 집계·비식별 필드만 허용하고 purpose·owner·access·expiry·hash를 기록합니다."
+      }
+    ],
+    "depth_boundary": "합성 조직도·역할·업무·skill·survey·학습·지원·adoption fixture와 local sandbox만 사용합니다. 실제 직원·지원자·고객의 개인·민감·성과·감정·행동 데이터, 개인 ranking·감시·징계·고용결정, 감정·의도·건강·노조활동·보호속성 추론, 운영계정·예산·조달·계약·외부 변경을 금지합니다. 설문·참여에는 자발성, 불참 불이익 금지, 관리자 개인응답 접근 금지, 비보복, 이의제기·철회 경로를 요구합니다. wall_clock_timeout_seconds≤300, max_records≤10000, max_fixture_bytes≤10485760, max_groups≤100, minimum_reportable_group_size≥10, max_report_queries≤20, max_dimensions_per_report≤2, complementary_suppression=true, max_survey_items≤50, max_learning_events≤10000, actual_spend=0을 넘으면 즉시 중단합니다. 전문 판단은 status=needs_qualified_review와 review_domains[hr|labor|legal|security|privacy|finance|procurement|accessibility], owner·reason·missing_evidence·resume_condition을 모두 기록합니다. 평가 종료 시 synthetic raw row·event는 0건이어야 하며 보존 evidence는 집계·비식별 필드만 허용하고 purpose·owner·access·expiry·hash를 기록합니다. 실제 조직·개인·고용·노무·법률·조달·배포 결론은 qualified owner를 대체하지 않습니다."
+  },
+  "practicality": {
+    "value_types": [
+      "cycle_time",
+      "quality",
+      "employee_experience",
+      "risk_reduction",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "추적 가능한 영향·역할·학습·지원·측정·이관은 도입 누락과 무근거 확대를 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "core",
+    "priority_hint": "next",
+    "measurement_hypothesis": "sealed fixture `candidate.organization-adoption.adoption-support-community-knowledge-flow.fixture@1.0.0`의 D0 12사례 오답 0/12, 주입 결함 6/6 탐지·처리, 제출 파일 adoption-support-queue.json, community-knowledge-register.json, assessment-result.json의 필수 필드·참조 무결성을 검사합니다. 같은 입력을 독립 sandbox에서 2회 평가한 canonical result hash가 같고 추가 mutation·잔여 임시자원은 각각 0건이며 초기·최종 manifest와 cleanup 밖 sanitized evidence hash가 유지되어야 합니다. 합성 요청 24건의 분류·owner·SLA class·escalation 누락 0건, stale·상충 지식 4건 전부 격리, 검증 없는 정본 승격 0건, 2회차 queue·knowledge hash가 일치해야 합니다. 합성 조직도·역할·업무·skill·survey·학습·지원·adoption fixture와 local sandbox만 사용합니다. 실제 직원·지원자·고객의 개인·민감·성과·감정·행동 데이터, 개인 ranking·감시·징계·고용결정, 감정·의도·건강·노조활동·보호속성 추론, 운영계정·예산·조달·계약·외부 변경을 금지합니다. 설문·참여에는 자발성, 불참 불이익 금지, 관리자 개인응답 접근 금지, 비보복, 이의제기·철회 경로를 요구합니다. wall_clock_timeout_seconds≤300, max_records≤10000, max_fixture_bytes≤10485760, max_groups≤100, minimum_reportable_group_size≥10, max_report_queries≤20, max_dimensions_per_report≤2, complementary_suppression=true, max_survey_items≤50, max_learning_events≤10000, actual_spend=0을 넘으면 즉시 중단합니다. 전문 판단은 status=needs_qualified_review와 review_domains[hr|labor|legal|security|privacy|finance|procurement|accessibility], owner·reason·missing_evidence·resume_condition을 모두 기록합니다. 평가 종료 시 synthetic raw row·event는 0건이어야 하며 보존 evidence는 집계·비식별 필드만 허용하고 purpose·owner·access·expiry·hash를 기록합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "privacy",
+      "legal",
+      "accessibility",
+      "observability",
+      "reliability",
+      "human_approval"
+    ],
+    "notes": "해당하지 않는 축은 봉인 applicability matrix의 rule_id·scope·evidence가 있을 때만 N/A로 처리합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.organization-adoption.iso-30401-2018",
+      "title": "Knowledge management systems — Requirements",
+      "publisher": "International Organization for Standardization",
+      "source_type": "standard",
+      "url": "https://www.iso.org/standard/68683.html",
+      "source_version": "ISO 30401:2018 + Amd 1:2022 + Amd 2:2024; revision in development",
+      "checked_at": "2026-07-30",
+      "claim_scope": "조직 지식관리 시스템의 수립·운영·검토·개선을 지지하지만 현재 개정 중이며 특정 community·도구·성과를 보증하지 않습니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "lifecycle"
+      ]
+    },
+    {
+      "id": "evidence.organization-adoption.dol-ten-07-25",
+      "title": "AI Literacy Framework",
+      "publisher": "U.S. Department of Labor, Employment and Training Administration",
+      "source_type": "official_source",
+      "url": "https://www.dol.gov/agencies/eta/advisories/ten-07-25",
+      "source_version": "Training and Employment Notice 07-25, February 13 2026",
+      "checked_at": "2026-07-30",
+      "claim_scope": "역할 기반 AI literacy와 enabling roles·지속 학습·지원 환경을 지지하지만 미국 workforce guidance이며 champion·community 패턴의 보편 효과를 보증하지 않습니다.",
+      "supports": [
+        "scope",
+        "learning_outcome",
+        "work_relevance"
+      ]
+    },
+    {
+      "id": "evidence.organization-adoption.iso-10018-2020",
+      "title": "Quality management — Guidance for people engagement",
+      "publisher": "International Organization for Standardization",
+      "source_type": "standard",
+      "url": "https://www.iso.org/standard/69979.html",
+      "source_version": "ISO 10018:2020, Edition 2; systematic review in progress 2026",
+      "checked_at": "2026-07-30",
+      "claim_scope": "조직의 quality management system에서 사람의 참여·관여·역량 향상을 지지하지만 특정 변화관리 방법이나 효과를 보증하지 않습니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "work_relevance"
+      ]
+    },
+    {
+      "id": "evidence.organization-adoption.nist-ai-rmf-playbook",
+      "title": "NIST AI RMF Playbook",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_docs",
+      "url": "https://airc.nist.gov/airmf-resources/playbook/",
+      "source_version": "AI RMF 1.0 Playbook, updated page checked 2026-07-30",
+      "checked_at": "2026-07-30",
+      "claim_scope": "조직 역할·교육·위험문화·이해관계자 참여의 선택 가능한 실천안을 제공하지만 checklist·순차 절차·보편 조직모델이 아닙니다.",
+      "supports": [
+        "scope",
+        "learning_outcome",
+        "work_relevance"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "high",
+    "rationale": "승격 전 근거·taxonomy·실용성 독립 재감사에서 최종 P0·P1 0건을 확인해 Phase 2 정규 catalog 승격을 승인했습니다.",
+    "review_gate": "breadth"
+  },
+  "review": {
+    "wave_id": "wave-03",
+    "work_package_id": "wp.organization-adoption.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-30",
+    "reviewers": [
+      "independent-evidence-auditor",
+      "independent-taxonomy-auditor",
+      "independent-practicality-auditor"
+    ],
+    "known_unknowns": [
+      "실제 조직·관할·산업·workforce tailoring과 상세 fixture·학습·업무효과는 검증하지 않았습니다."
+    ],
+    "next_action": "unit.organization-adoption.adoption-support-community-knowledge-flow@1.0.0으로 정규 승격했습니다. 실제 fixture·runner 구현과 학습효과·조직 적합성 검증은 활성화 전 required gate입니다."
+  },
+  "extensions": {
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.platform-quality-operations.incident-response-postmortem-learning",
+        "version": "1.0.0"
+      }
+    ],
+    "sealed_assessment_contract": {
+      "fixture_id": "candidate.organization-adoption.adoption-support-community-knowledge-flow.fixture",
+      "fixture_version": "1.0.0",
+      "d0_case_count": 12,
+      "allowed_d0_errors": 0,
+      "fault_injection_count": 6,
+      "faults": [
+        "owner·escalation 없는 지원 2건",
+        "검증·version 없는 지식 2건",
+        "feedback·폐기·재사용 단절 2건"
+      ],
+      "submission_artifacts": [
+        "adoption-support-queue.json",
+        "community-knowledge-register.json",
+        "assessment-result.json"
+      ],
+      "idempotency_runs": 2,
+      "minimum_reportable_group_size": 10,
+      "max_report_queries": 20,
+      "max_dimensions_per_report": 2,
+      "complementary_suppression": true,
+      "raw_rows_after_cleanup": 0,
+      "raw_events_after_cleanup": 0,
+      "assessment_implementation_status": "required_before_activation"
+    }
+  }
+}

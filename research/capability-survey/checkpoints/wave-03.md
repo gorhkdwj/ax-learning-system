@@ -5,11 +5,11 @@
 | 필드 | 값 |
 |---|---|
 | Wave | `wave-03` |
-| 상태 | `active` |
+| 상태 | `ready_for_wave-04-planning` |
 | 시작일·마지막 갱신일 | `2026-07-29` · `2026-07-30` |
 | 총괄·유일 작성자 | Codex 메인 세션 |
 | 후보 스키마 | `capability-candidate 1.1.0` |
-| 분류 Registry | `taxonomy.ax-capability-map@0.9.0` (`provisional`) |
+| 분류 Registry | `taxonomy.ax-capability-map@0.10.0` (`provisional`) |
 | 동시 작업 패키지 | `1` |
 | 작업 패키지별 후보 상한 | `10` |
 
@@ -32,6 +32,7 @@ Wave 2 후보에 누락된 접근성·인간통제·운영·보안·법무·조�
 | `wp.human-ai-experience.breadth-a` | promoted | 9/10 | `research/capability-survey/waves/wave-03/wp.human-ai-experience.breadth-a/` | 승격 전·후 재검수 P0·P1 0건, 6 Unit·2 Resource cataloged·1 deferred |
 | `wp.platform-quality-operations.breadth-a` | promoted | 10/10 | `research/capability-survey/waves/wave-03/wp.platform-quality-operations.breadth-a/` | 승격 전·후 독립 3중 재감사 P0·P1 0건, 9 Unit·9 Reference·1 Set cataloged |
 | `wp.security-legal-governance.breadth-a` | promoted | 10/10 | `research/capability-survey/waves/wave-03/wp.security-legal-governance.breadth-a/` | 승격 전·후 독립 3중 재감사 P0·P1 0건, 9 Unit·9 Reference·1 Set cataloged |
+| `wp.organization-adoption.breadth-a` | promoted | 10/10 | `research/capability-survey/waves/wave-03/wp.organization-adoption.breadth-a/` | 승격 전·후 독립 3중 재감사 완료, 9 Unit·9 Reference·1 Set cataloged |
 
 ## 4. 현재 결과
 
@@ -76,8 +77,18 @@ loopback sandbox로 제한하며 실제 법률·규제·위험수용 판단은 q
 상세 fixture·runner 구현과 실제 조직·관할·제품 적합성·학습효과는 검증하지
 않았으며 활성화 전 후속 Gate입니다.
 
+조직·도입은 변화 영향·준비도·참여, 운영모델·의사결정권, workforce
+capability gap·전환, 학습·업무전이, 포용적 직무영향·지원, adoption
+support·community·지식흐름, aggregate 도입성과·분배효과 monitoring,
+pilot·scale·stop·rollback, vendor·SaaS 전문검토 이관의 Unit 후보 9개와
+이를 조합하는 lifecycle Set 후보 1개를 작성했습니다. 실제 개인·성과·감정
+데이터와 고용·노무·법률·조달 결론은 제외하고 qualified owner에게
+이관합니다. 승격 전 독립 감사의 모든 P0·P1·P2를 교정해 9개 Unit·9개
+Reference와 필수 8개·조건부 5개인 13단계 Set으로 `cataloged` 등록했습니다.
+상세 fixture·runner, 실제 조직 tailoring과 도입·학습효과는
+`required_before_activation` 후속 Gate입니다.
+
 ## 5. 다음 한 단계
 
-보안·법무·거버넌스 정규 승격과 승격 후 재검수를 완료했습니다. 다음 순차
-패키지 `organization-adoption`의 Manifest·평가계약을 고정하고 발견 조사·후보
-작성·독립 감사·정규 승격을 같은 절차로 진행합니다.
+Wave 3의 네 작업 패키지 생성·정규 승격·승격 후 재검수를 완료했습니다.
+다음 단계는 사용자의 통합 검토와 Wave 4 범위 계획입니다.

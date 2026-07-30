@@ -1,0 +1,142 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.organization-adoption.workforce-capability-gap-transition.reference",
+  "version": "1.0.0",
+  "title": "과업·역량·인력 수요·skill gap·전환 분석 공식·표준·1차 출처 Reference",
+  "description": "정규 Unit의 정의·범위·판정기준을 뒷받침하는 공개 Reference입니다. 상세 교재나 조직·인사·노무·법률·조달 전문판단을 대체하지 않습니다.",
+  "resource_type": "external_reference",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.organization-adoption.workforce-capability-gap-transition",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "external",
+    "url": "https://www.iso.org/standard/64150.html"
+  },
+  "learning_outcome_ids": [
+    "outcome.organization-adoption.workforce-capability-gap-transition.d0",
+    "outcome.organization-adoption.workforce-capability-gap-transition.d2"
+  ],
+  "estimated_minutes": 30,
+  "language": "en",
+  "tags": [
+    "reference",
+    "promotion-evidence",
+    "organization-adoption"
+  ],
+  "requirements": {
+    "platforms": [
+      "web-browser"
+    ],
+    "network_required": true
+  },
+  "provenance": {
+    "origin": "external",
+    "sources": [
+      {
+        "title": "Human resource management — Workforce planning",
+        "publisher": "International Organization for Standardization",
+        "source_type": "standard",
+        "url": "https://www.iso.org/standard/64150.html",
+        "source_version": "ISO 30409:2016, confirmed 2022",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "Quality management — Guidelines for competence management and people development",
+        "publisher": "International Organization for Standardization",
+        "source_type": "standard",
+        "url": "https://www.iso.org/standard/69459.html",
+        "source_version": "ISO 10015:2019, Edition 2",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "Skills Framework for the Information Age 9",
+        "publisher": "SFIA Foundation",
+        "source_type": "official_spec",
+        "url": "https://sfia-online.org/en/sfia-9/",
+        "source_version": "SFIA 9, 2024",
+        "checked_at": "2026-07-30"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "unverified",
+    "standard": "WCAG 2.2 AA",
+    "features": [],
+    "alternative_resource_refs": [],
+    "note": "외부 출처의 접근성은 재검토가 필요합니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-07-30",
+    "commands": [],
+    "expected_outputs": [
+      "출처가 Unit의 정의·범위·판정기준과 claim 한계를 직접 지지하는지 확인한 기록"
+    ],
+    "evidence_paths": [],
+    "note": "URL·버전·claim 범위를 독립 재검토했으며 실제 조직 적합성·상세 학습효과는 검증하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "Candidate 승격 시 등록한 공개 Reference입니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.organization-adoption.workforce-capability-gap-transition",
+      "version": "1.0.0"
+    },
+    "promotion_reviewed_at": "2026-07-30",
+    "evidence_claims": [
+      {
+        "id": "evidence.organization-adoption.iso-30409-2016",
+        "title": "Human resource management — Workforce planning",
+        "publisher": "International Organization for Standardization",
+        "source_type": "standard",
+        "url": "https://www.iso.org/standard/64150.html",
+        "source_version": "ISO 30409:2016, confirmed 2022",
+        "checked_at": "2026-07-30",
+        "claim_scope": "확장 가능한 workforce planning framework를 지지하지만 실제 인력·채용·고용 결정을 제공하지 않습니다.",
+        "supports": [
+          "definition",
+          "scope",
+          "learning_outcome"
+        ]
+      },
+      {
+        "id": "evidence.organization-adoption.iso-10015-2019",
+        "title": "Quality management — Guidelines for competence management and people development",
+        "publisher": "International Organization for Standardization",
+        "source_type": "standard",
+        "url": "https://www.iso.org/standard/69459.html",
+        "source_version": "ISO 10015:2019, Edition 2",
+        "checked_at": "2026-07-30",
+        "claim_scope": "역량 필요 결정·현재 역량 평가·개발·효과 평가의 조직 관행을 지지하지만 실제 개인 성과평가나 고용 결정을 정당화하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.organization-adoption.sfia-9",
+        "title": "Skills Framework for the Information Age 9",
+        "publisher": "SFIA Foundation",
+        "source_type": "official_spec",
+        "url": "https://sfia-online.org/en/sfia-9/",
+        "source_version": "SFIA 9, 2024",
+        "checked_at": "2026-07-30",
+        "claim_scope": "전문 skill·responsibility level 대조를 지원하지만 조직별 직무·인력수요·학습과정을 그대로 정의하지 않습니다.",
+        "supports": [
+          "definition",
+          "scope",
+          "work_relevance"
+        ]
+      }
+    ]
+  }
+}

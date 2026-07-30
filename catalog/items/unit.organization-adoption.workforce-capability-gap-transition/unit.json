@@ -1,0 +1,258 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.organization-adoption.workforce-capability-gap-transition",
+  "version": "1.0.0",
+  "title": "과업·역량·인력 수요·skill gap·전환 분석",
+  "summary": "선택된 AX 업무설계 가정에서 현재·미래 과업·역량·수요·공급·gap·개발·전환 option을 합성 workforce 시나리오로 비교합니다. 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "organization-adoption",
+    "subdomains": [
+      "workforce-capability-gap-transition"
+    ]
+  },
+  "domain_tags": [
+    "workforce",
+    "capability",
+    "gap",
+    "transition"
+  ],
+  "capabilities": [
+    "선택된 AX 업무설계 가정에서 현재·미래 과업·역량·수요·공급·gap·개발·전환 option을 합성 workforce 시나리오로 비교합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.organization-adoption.workforce-capability-gap-transition.d0",
+        "statement": "과업·역량·직무·인력수요·공급·skill gap·학습요구를 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.organization-adoption.workforce-capability-gap-transition.d2",
+        "statement": "선택된 AX 업무설계 가정에서 현재·미래 과업·역량·수요·공급·gap·개발·전환 option을 합성 workforce 시나리오로 비교합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 180,
+    "scope_expansion_policy": "합성 조직도·역할·업무·skill·survey·학습·지원·adoption fixture와 local sandbox만 사용합니다. 실제 직원·지원자·고객의 개인·민감·성과·감정·행동 데이터, 개인 ranking·감시·징계·고용결정, 감정·의도·건강·노조활동·보호속성 추론, 운영계정·예산·조달·계약·외부 변경을 금지합니다. 설문·참여에는 자발성, 불참 불이익 금지, 관리자 개인응답 접근 금지, 비보복, 이의제기·철회 경로를 요구합니다. wall_clock_timeout_seconds≤300, max_records≤10000, max_fixture_bytes≤10485760, max_groups≤100, minimum_reportable_group_size≥10, max_report_queries≤20, max_dimensions_per_report≤2, complementary_suppression=true, max_survey_items≤50, max_learning_events≤10000, actual_spend=0을 넘으면 즉시 중단합니다. 전문 판단은 status=needs_qualified_review와 review_domains[hr|labor|legal|security|privacy|finance|procurement|accessibility], owner·reason·missing_evidence·resume_condition을 모두 기록합니다. 평가 종료 시 synthetic raw row·event는 0건이어야 하며 보존 evidence는 집계·비식별 필드만 허용하고 purpose·owner·access·expiry·hash를 기록합니다. 실제 조직·개인·고용·노무·법률·조달·배포 결론은 qualified owner를 대체하지 않습니다."
+  },
+  "relations": [
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.organization-adoption.ax-operating-model-decision-rights",
+        "version": "1.0.0"
+      },
+      "note": "동일 패키지의 독립 산출물·Gate를 선행 또는 관련 evidence로 연결합니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.organization-adoption.change-impact-readiness-engagement",
+        "version": "1.0.0"
+      },
+      "note": "동일 패키지의 독립 산출물·Gate를 선행 또는 관련 evidence로 연결합니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.organization-adoption.workforce-capability-gap-transition.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": false,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference와 prebuilt 합성·local fixture 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "organization-adoption-workforce-capability-gap-transition-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.organization-adoption.workforce-capability-gap-transition.d0",
+          "outcome.organization-adoption.workforce-capability-gap-transition.d2"
+        ],
+        "required": true,
+        "success_criteria": [
+          "sealed fixture `candidate.organization-adoption.workforce-capability-gap-transition.fixture@1.0.0`의 12개 사례를 봉인 분류표와 대조해 오답 0/12를 확인합니다.",
+          "sealed fixture `candidate.organization-adoption.workforce-capability-gap-transition.fixture@1.0.0`의 D0 12사례 오답 0/12, 주입 결함 6/6 탐지·처리, 제출 파일 workforce-scenario-map.json, capability-gap-transition-plan.json, assessment-result.json의 필수 필드·참조 무결성을 검사합니다. 같은 입력을 독립 sandbox에서 2회 평가한 canonical result hash가 같고 추가 mutation·잔여 임시자원은 각각 0건이며 초기·최종 manifest와 cleanup 밖 sanitized evidence hash가 유지되어야 합니다. 봉인 현재·미래 scenario 3개의 과업→역량→수요·공급→gap→option 연결 누락 0건, 개인별 score·고용 추천 출력 0건, 불명확 직무영향은 needs_qualified_review여야 합니다. 합성 조직도·역할·업무·skill·survey·학습·지원·adoption fixture와 local sandbox만 사용합니다. 실제 직원·지원자·고객의 개인·민감·성과·감정·행동 데이터, 개인 ranking·감시·징계·고용결정, 감정·의도·건강·노조활동·보호속성 추론, 운영계정·예산·조달·계약·외부 변경을 금지합니다. 설문·참여에는 자발성, 불참 불이익 금지, 관리자 개인응답 접근 금지, 비보복, 이의제기·철회 경로를 요구합니다. wall_clock_timeout_seconds≤300, max_records≤10000, max_fixture_bytes≤10485760, max_groups≤100, minimum_reportable_group_size≥10, max_report_queries≤20, max_dimensions_per_report≤2, complementary_suppression=true, max_survey_items≤50, max_learning_events≤10000, actual_spend=0을 넘으면 즉시 중단합니다. 전문 판단은 status=needs_qualified_review와 review_domains[hr|labor|legal|security|privacy|finance|procurement|accessibility], owner·reason·missing_evidence·resume_condition을 모두 기록합니다. 평가 종료 시 synthetic raw row·event는 0건이어야 하며 보존 evidence는 집계·비식별 필드만 허용하고 purpose·owner·access·expiry·hash를 기록합니다.",
+          "실제 개인·민감·성과 데이터, 개인 감시·ranking·고용·노무·법률·조달 결론 없이 평가하고 불명확 전문판단은 필요한 모든 이관 필드를 갖춘 needs_qualified_review로 중단합니다.",
+          "평가 종료 후 synthetic raw row·event는 0건이며 보존 evidence는 집계·비식별 필드와 purpose·owner·access·expiry·hash만 가집니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Human resource management — Workforce planning",
+      "publisher": "International Organization for Standardization",
+      "source_type": "standard",
+      "url": "https://www.iso.org/standard/64150.html",
+      "source_version": "ISO 30409:2016, confirmed 2022",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "Quality management — Guidelines for competence management and people development",
+      "publisher": "International Organization for Standardization",
+      "source_type": "standard",
+      "url": "https://www.iso.org/standard/69459.html",
+      "source_version": "ISO 10015:2019, Edition 2",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "Skills Framework for the Information Age 9",
+      "publisher": "SFIA Foundation",
+      "source_type": "official_spec",
+      "url": "https://sfia-online.org/en/sfia-9/",
+      "source_version": "SFIA 9, 2024",
+      "checked_at": "2026-07-30"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "risk_reduction",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "candidate.organization-adoption.workforce-capability-gap-transition@1.0.0의 승인 결과를 정규 Unit으로 등록했습니다. 상세 fixture·실제 조직 적합성·학습효과는 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.organization-adoption.workforce-capability-gap-transition",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.organization-adoption.breadth-a",
+      "promoted_at": "2026-07-30"
+    },
+    "evidence_claims": [
+      {
+        "id": "evidence.organization-adoption.iso-30409-2016",
+        "title": "Human resource management — Workforce planning",
+        "publisher": "International Organization for Standardization",
+        "source_type": "standard",
+        "url": "https://www.iso.org/standard/64150.html",
+        "source_version": "ISO 30409:2016, confirmed 2022",
+        "checked_at": "2026-07-30",
+        "claim_scope": "확장 가능한 workforce planning framework를 지지하지만 실제 인력·채용·고용 결정을 제공하지 않습니다.",
+        "supports": [
+          "definition",
+          "scope",
+          "learning_outcome"
+        ]
+      },
+      {
+        "id": "evidence.organization-adoption.iso-10015-2019",
+        "title": "Quality management — Guidelines for competence management and people development",
+        "publisher": "International Organization for Standardization",
+        "source_type": "standard",
+        "url": "https://www.iso.org/standard/69459.html",
+        "source_version": "ISO 10015:2019, Edition 2",
+        "checked_at": "2026-07-30",
+        "claim_scope": "역량 필요 결정·현재 역량 평가·개발·효과 평가의 조직 관행을 지지하지만 실제 개인 성과평가나 고용 결정을 정당화하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.organization-adoption.sfia-9",
+        "title": "Skills Framework for the Information Age 9",
+        "publisher": "SFIA Foundation",
+        "source_type": "official_spec",
+        "url": "https://sfia-online.org/en/sfia-9/",
+        "source_version": "SFIA 9, 2024",
+        "checked_at": "2026-07-30",
+        "claim_scope": "전문 skill·responsibility level 대조를 지원하지만 조직별 직무·인력수요·학습과정을 그대로 정의하지 않습니다.",
+        "supports": [
+          "definition",
+          "scope",
+          "work_relevance"
+        ]
+      }
+    ],
+    "existing_catalog_relations": [],
+    "source_candidate_relations": [
+      {
+        "type": "recommended_prerequisite",
+        "target": {
+          "kind": "candidate",
+          "id": "candidate.organization-adoption.ax-operating-model-decision-rights",
+          "version": "1.0.0"
+        },
+        "rationale": "운영모델의 역할·decision right·handoff가 후속 역량·지원·scale owner를 제공합니다."
+      },
+      {
+        "type": "related_to",
+        "target": {
+          "kind": "candidate",
+          "id": "candidate.organization-adoption.change-impact-readiness-engagement",
+          "version": "1.0.0"
+        },
+        "rationale": "영향·참여·지원 경계를 먼저 고정하면 후속 조직 산출물의 적용 대상과 이관경로가 명확해집니다."
+      },
+      {
+        "type": "recommended_prerequisite",
+        "target": {
+          "kind": "candidate",
+          "id": "candidate.ax-strategy-value.task-allocation",
+          "version": "1.0.0"
+        },
+        "rationale": "미승격 전략 후보의 소유 경계를 exact Candidate 관계로 보존하며 존재하지 않는 정규 Unit으로 변환하지 않습니다."
+      }
+    ],
+    "sealed_assessment_contract": {
+      "fixture_id": "candidate.organization-adoption.workforce-capability-gap-transition.fixture",
+      "fixture_version": "1.0.0",
+      "d0_case_count": 12,
+      "allowed_d0_errors": 0,
+      "fault_injection_count": 6,
+      "faults": [
+        "미래 과업·역량 누락 2건",
+        "수요·공급·gap 계산 불일치 2건",
+        "전환 option·전문이관 누락 2건"
+      ],
+      "submission_artifacts": [
+        "workforce-scenario-map.json",
+        "capability-gap-transition-plan.json",
+        "assessment-result.json"
+      ],
+      "idempotency_runs": 2,
+      "minimum_reportable_group_size": 10,
+      "max_report_queries": 20,
+      "max_dimensions_per_report": 2,
+      "complementary_suppression": true,
+      "raw_rows_after_cleanup": 0,
+      "raw_events_after_cleanup": 0,
+      "assessment_implementation_status": "required_before_activation",
+      "note": "Phase 2 정규 catalog 승격은 평가계약을 고정합니다. 실제 fixture·runner 구현과 학습효과·조직 적합성 검증은 Unit 활성화 전 별도 Gate입니다."
+    }
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.organization-adoption.pilot-scale-transition-governance.reference",
+  "version": "1.0.0",
+  "title": "AX pilot·단계확대·중단·rollback 전환 거버넌스 공식·표준·1차 출처 Reference",
+  "description": "정규 Unit의 정의·범위·판정기준을 뒷받침하는 공개 Reference입니다. 상세 교재나 조직·인사·노무·법률·조달 전문판단을 대체하지 않습니다.",
+  "resource_type": "external_reference",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.organization-adoption.pilot-scale-transition-governance",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "external",
+    "url": "https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works"
+  },
+  "learning_outcome_ids": [
+    "outcome.organization-adoption.pilot-scale-transition-governance.d0",
+    "outcome.organization-adoption.pilot-scale-transition-governance.d3"
+  ],
+  "estimated_minutes": 30,
+  "language": "en",
+  "tags": [
+    "reference",
+    "promotion-evidence",
+    "organization-adoption"
+  ],
+  "requirements": {
+    "platforms": [
+      "web-browser"
+    ],
+    "network_required": true
+  },
+  "provenance": {
+    "origin": "external",
+    "sources": [
+      {
+        "title": "How the discovery phase works",
+        "publisher": "UK Government Digital Service",
+        "source_type": "official_docs",
+        "url": "https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works",
+        "source_version": "GOV.UK Service Manual, updated June 2021",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "How the live phase works",
+        "publisher": "UK Government Digital Service",
+        "source_type": "official_docs",
+        "url": "https://www.gov.uk/service-manual/agile-delivery/how-the-live-phase-works",
+        "source_version": "GOV.UK Service Manual, updated May 2019",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "Innovation management — Innovation management system — Guidance",
+        "publisher": "International Organization for Standardization",
+        "source_type": "standard",
+        "url": "https://www.iso.org/standard/68221.html",
+        "source_version": "ISO 56002:2019, Edition 1; Edition 2 committee draft in development",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "Artificial Intelligence: An Accountability Framework for Federal Agencies and Other Entities",
+        "publisher": "U.S. Government Accountability Office",
+        "source_type": "official_source",
+        "url": "https://www.gao.gov/products/gao-21-519sp",
+        "source_version": "GAO-21-519SP, June 2021",
+        "checked_at": "2026-07-30"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "unverified",
+    "standard": "WCAG 2.2 AA",
+    "features": [],
+    "alternative_resource_refs": [],
+    "note": "외부 출처의 접근성은 재검토가 필요합니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-07-30",
+    "commands": [],
+    "expected_outputs": [
+      "출처가 Unit의 정의·범위·판정기준과 claim 한계를 직접 지지하는지 확인한 기록"
+    ],
+    "evidence_paths": [],
+    "note": "URL·버전·claim 범위를 독립 재검토했으며 실제 조직 적합성·상세 학습효과는 검증하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "Candidate 승격 시 등록한 공개 Reference입니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.organization-adoption.pilot-scale-transition-governance",
+      "version": "1.0.0"
+    },
+    "promotion_reviewed_at": "2026-07-30",
+    "evidence_claims": [
+      {
+        "id": "evidence.organization-adoption.govuk-service-discovery",
+        "title": "How the discovery phase works",
+        "publisher": "UK Government Digital Service",
+        "source_type": "official_docs",
+        "url": "https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works",
+        "source_version": "GOV.UK Service Manual, updated June 2021",
+        "checked_at": "2026-07-30",
+        "claim_scope": "문제·사용자·제약·가치·risky assumption 확인과 중단 결정을 지지하지만 공공 디지털서비스 맥락을 기업 AX 전체에 일반화하지 않습니다.",
+        "supports": [
+          "scope",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.organization-adoption.govuk-service-live",
+        "title": "How the live phase works",
+        "publisher": "UK Government Digital Service",
+        "source_type": "official_docs",
+        "url": "https://www.gov.uk/service-manual/agile-delivery/how-the-live-phase-works",
+        "source_version": "GOV.UK Service Manual, updated May 2019",
+        "checked_at": "2026-07-30",
+        "claim_scope": "beta-to-live evidence·지원·지표·접근성·보안·retirement를 지지하지만 특정 조직의 확대 승인이나 투자 결론을 정하지 않습니다.",
+        "supports": [
+          "scope",
+          "learning_outcome",
+          "lifecycle"
+        ]
+      },
+      {
+        "id": "evidence.organization-adoption.iso-56002-2019",
+        "title": "Innovation management — Innovation management system — Guidance",
+        "publisher": "International Organization for Standardization",
+        "source_type": "standard",
+        "url": "https://www.iso.org/standard/68221.html",
+        "source_version": "ISO 56002:2019, Edition 1; Edition 2 committee draft in development",
+        "checked_at": "2026-07-30",
+        "claim_scope": "혁신 활동의 방향·위험·자원·측정·지속개선을 지지하지만 2019판은 개정 중이며 AX pilot 단계나 효과를 보편화하지 않습니다.",
+        "supports": [
+          "scope",
+          "work_relevance",
+          "lifecycle"
+        ]
+      },
+      {
+        "id": "evidence.organization-adoption.gao-21-519sp",
+        "title": "Artificial Intelligence: An Accountability Framework for Federal Agencies and Other Entities",
+        "publisher": "U.S. Government Accountability Office",
+        "source_type": "official_source",
+        "url": "https://www.gao.gov/products/gao-21-519sp",
+        "source_version": "GAO-21-519SP, June 2021",
+        "checked_at": "2026-07-30",
+        "claim_scope": "governance·data·performance·monitoring의 accountability 질문과 평가절차를 지지하지만 미국 연방 맥락과 독립적인 인증기준을 구분해야 합니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      }
+    ]
+  }
+}
