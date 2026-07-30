@@ -35,22 +35,28 @@ python -m unittest discover -s tests -v
 
 ## 현재 상태
 
+Wave 2의 다섯 패키지와 Wave 3의 네 패키지는 조사·독립 감사·사용자 승인·
+정규 메타데이터 승격을 완료했습니다. 현재 정본 checkpoint는 Wave 3이며
+상태는 `ready_for_wave-04-planning`입니다. Wave 4는 조사 렌즈·범위·패키지
+순서·후보 상한을 별도 계획하고 사용자 승인을 받은 뒤 시작합니다.
+
 Wave 2의 첫 작업 패키지 `wp.ai-literacy-trust.breadth-a`는 Candidate 10개와
-evidence 22건, 고유 URL 13개로 구성되며 사용자 승인 상태입니다. 구성은 신규
+evidence 22건, 고유 URL 13개로 구성되며 정규 승격 상태입니다. 구성은 신규
 Unit 후보 8개, 기존 `unit.foundation.evidence-verification@1.0.0` 병합 1개,
 Resource 전용 1개입니다. 읽기 전용 감사자가 근거·분류·실무성을 독립 감사했고
 최초 P0는 0건이며 P1은 교정했습니다. 과목·후보 표시명은 한국어를 우선하고 node
 ID와 영문 병기는 허용한다는 명명 원칙도 승인되었습니다.
 
-`taxonomy.ax-capability-map@0.8.0`에는 기존 조사 렌즈와 Wave 1 node에 더해
+`taxonomy.ax-capability-map@0.10.0`에는 기존 조사 렌즈와 Wave 1 node에 더해
 `ai-literacy-trust` 잠정 subdomain 7개와 `ai-systems-agents` 잠정 subdomain
 7개, `software-product-engineering` 잠정 subdomain 9개,
 `data-analytics-ml` 잠정 subdomain 9개와 `integration-automation` 잠정
 subdomain 8개, `human-ai-experience` 잠정 subdomain 8개와
-`platform-quality-operations` 잠정 subdomain 10개가 등록되었습니다.
+`platform-quality-operations`, `security-legal-governance`,
+`organization-adoption` 잠정 subdomain 각 10개가 등록되었습니다.
 
 두 번째 작업 패키지 `wp.ai-systems-agents.breadth-a`는 한국어 우선 표시명의
-Candidate 8개로 조사·감사를 완료한 `approved` 상태입니다. 전문 판단이 필요한
+Candidate 8개로 조사·감사를 완료한 `promoted` 상태입니다. 전문 판단이 필요한
 구조·재사용·Adapter·전이성·평가 Gate는 사용자의 위임에 따라 운영 기본값으로
 확정했습니다. 구성은
 LLM 응용 계약, 시스템 컨텍스트, 구조화 출력, AI 도구, 상태·메모리·인계,
@@ -68,7 +74,7 @@ Resource로 등록했고 병합 후보는 기존 Unit을 그대로 사용합니�
 Signal은 수정하지 않았습니다.
 
 세 번째 작업 패키지 `wp.software-product-engineering.breadth-a`는 한국어 우선
-표시명의 Candidate 10개로 조사·감사를 완료한 `approved` 상태입니다. 구성은
+표시명의 Candidate 10개로 조사·감사를 완료한 `promoted` 상태입니다. 구성은
 요구사항, 모듈 설계, 버전관리, API, 관계형 DB, 접근 가능한 UI, 계층형 테스트,
 디버깅, 빌드 재현성의 Unit 후보 9개와 AI 보조 변경 전달 Set 후보 1개입니다.
 독립 근거·taxonomy·실용성 재감사에서 P0·P1 0건을 확인했습니다. 이 세 번째
@@ -78,7 +84,7 @@ Signal은 수정하지 않았습니다.
 
 네 번째 작업 패키지 `wp.data-analytics-ml.breadth-a`는 한국어 우선 표시명의
 신규 Candidate 9개와 기존 영향평가 Candidate 재사용 1개로 조사·감사를 완료한
-`approved` 상태입니다. 구성은 데이터 원천계약, 변환 pipeline, 분석 지표
+`promoted` 상태입니다. 구성은 데이터 원천계약, 변환 pipeline, 분석 지표
 의미계약, 탐색·통계 분석, 데이터 품질, 카탈로그·계보·책임 메타데이터,
 예측 ML 문제정의·기준선, 예측 ML 모델 검증, ML 생명주기의 Unit 후보입니다.
 기존 `candidate.ax-strategy-value.pilot-impact-evaluation@1.0.0`은 새 ID로
@@ -88,7 +94,7 @@ Signal은 수정하지 않았습니다.
 승격했습니다. 상세 교재·파일럿과 학습효과는 아직 검증하지 않았습니다.
 
 다섯 번째 작업 패키지 `wp.integration-automation.breadth-a`는 한국어 우선
-표시명의 Candidate 10개로 조사·감사를 완료한 `approved` 상태입니다. 구성은
+표시명의 Candidate 10개로 조사·감사를 완료한 `promoted` 상태입니다. 구성은
 외부 API 소비, 이벤트·웹훅, 결정적 workflow, 부작용 안전성, 비즈니스 규칙,
 자동화 결과판정과 UI 구동 자동화의 Unit 후보 7개, SaaS 커넥터 동기화 Set
 후보 1개, MCP technology Adapter 후보 1개와 결정적 workflow·agent 경계를
@@ -121,3 +127,25 @@ operating model 근거가 필요해 `organization-adoption` 후속 범위로 유
 9개 Unit·9개 공개 Reference·1개 Set을 정규 `cataloged` 메타데이터로
 승격했습니다. 실제 production 적합성, 상세 simulator·교재·파일럿과
 학습효과는 아직 검증하지 않았습니다.
+
+Wave 3 세 번째 작업 패키지 `wp.security-legal-governance.breadth-a`는
+보안 요구·위협 모델, 접근정책, secret·key lifecycle, 소프트웨어 공급망,
+privacy 영향·권리, 보안사고 evidence, 통제감사, 디지털 자산 권리 provenance,
+AI 보안평가의 Unit 후보 9개와 AI 위험·영향 거버넌스 Set 후보 1개를
+조사했습니다. 승격 전·후 독립 3축 재감사에서 최종 P0·P1 0건을 확인한 뒤
+9개 Unit·9개 공개 Reference·1개 Set을 정규 `cataloged` 메타데이터로
+승격했습니다. 실제 관할·법률·규제·위험수용 판단은 qualified owner 검토
+대상이며 상세 fixture·runner와 학습효과는 활성화 전 후속 Gate입니다.
+
+Wave 3 네 번째 작업 패키지 `wp.organization-adoption.breadth-a`는 변화 영향·
+준비도·참여, 운영모델·의사결정권, workforce 역량 gap·전환, 학습·업무전이,
+포용적 직무영향·지원, adoption support·지식흐름, aggregate 성과·분배효과,
+pilot·scale·rollback, vendor·SaaS 전문 이관의 Unit 후보 9개와 lifecycle
+Set 후보 1개를 조사했습니다. 승격 전·후 독립 3축 재감사에서 최종
+P0·P1·P2 0건을 확인하고 9개 Unit·9개 공개 Reference와 필수 8개·조건부
+5개인 13단계 Set을 정규 `cataloged` 메타데이터로 승격했습니다.
+
+현재 카탈로그 검증 기준은 Unit 76개, Resource 82개, Set 8개, Candidate
+96개와 Signal 3개입니다. `cataloged`는 정규 메타데이터 등록을 뜻하며 실제
+fixture·runner, 상세 교재, 조직 tailoring, 파일럿, 학습·업무효과 검증
+완료를 뜻하지 않습니다.

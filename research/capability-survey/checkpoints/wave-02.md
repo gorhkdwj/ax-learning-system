@@ -5,7 +5,7 @@
 | 필드 | 값 |
 |---|---|
 | Wave | `wave-02` |
-| 상태 | `in_progress` |
+| 상태 | `ready_for_wave-03-planning` |
 | 시작일 | `2026-07-27` |
 | 마지막 갱신일 | `2026-07-29` |
 | 총괄·유일 작성자 | Codex 메인 세션 |
@@ -30,18 +30,18 @@
 
 - 나머지 Wave 2 렌즈의 동시 조사
 - 상세 교재·실습·HUB 구축과 개인 학습 우선순위
-- 새 `integration-automation` Candidate의 정규 Unit·Set 승격
+- 사용자 승인 전 Candidate의 정규 Unit·Set·Resource 승격
 - 새 대분류 또는 기존 분류 ID 변경
 
 ## 3. 작업 패키지 현황
 
 | Work package | 담당 | 상태 | 후보 | 출력 | 마지막 검증 |
 |---|---|---|---:|---|---|
-| `wp.ai-literacy-trust.breadth-a` | Codex 메인 + 읽기 전용 조사·감사자 | approved | 10/10 | `research/capability-survey/waves/wave-02/wp.ai-literacy-trust.breadth-a/` | 2026-07-27 통과 |
-| `wp.ai-systems-agents.breadth-a` | Codex 메인 + 읽기 전용 조사·감사자 | approved | 8/10 | `research/capability-survey/waves/wave-02/wp.ai-systems-agents.breadth-a/` | 2026-07-28 전문판정 위임 반영·감사·전체 검증 통과 |
-| `wp.software-product-engineering.breadth-a` | Codex 메인 + 읽기 전용 감사자 | approved | 10/10 | `research/capability-survey/waves/wave-02/wp.software-product-engineering.breadth-a/` | 2026-07-28 P1 반영·독립 재감사 통과 |
-| `wp.data-analytics-ml.breadth-a` | Codex 메인 + 읽기 전용 조사·감사자 | approved | 10/10 | `research/capability-survey/waves/wave-02/wp.data-analytics-ml.breadth-a/` | 2026-07-29 P1 반영·독립 재감사 통과 |
-| `wp.integration-automation.breadth-a` | Codex 메인 + 읽기 전용 조사·감사자 | approved | 10/10 | `research/capability-survey/waves/wave-02/wp.integration-automation.breadth-a/` | 2026-07-29 P1 반영·잔여 권고 기록·독립 재감사 통과 |
+| `wp.ai-literacy-trust.breadth-a` | Codex 메인 + 읽기 전용 조사·감사자 | promoted | 10/10 | `research/capability-survey/waves/wave-02/wp.ai-literacy-trust.breadth-a/` | 2026-07-27 통과·정규 승격 완료 |
+| `wp.ai-systems-agents.breadth-a` | Codex 메인 + 읽기 전용 조사·감사자 | promoted | 8/10 | `research/capability-survey/waves/wave-02/wp.ai-systems-agents.breadth-a/` | 2026-07-28 전문판정 위임 반영·감사·정규 승격 완료 |
+| `wp.software-product-engineering.breadth-a` | Codex 메인 + 읽기 전용 감사자 | promoted | 10/10 | `research/capability-survey/waves/wave-02/wp.software-product-engineering.breadth-a/` | 2026-07-28 P1 반영·독립 재감사·정규 승격 완료 |
+| `wp.data-analytics-ml.breadth-a` | Codex 메인 + 읽기 전용 조사·감사자 | promoted | 10/10 | `research/capability-survey/waves/wave-02/wp.data-analytics-ml.breadth-a/` | 2026-07-29 P1 반영·독립 재감사·정규 승격 완료 |
+| `wp.integration-automation.breadth-a` | Codex 메인 + 읽기 전용 조사·감사자 | promoted | 10/10 | `research/capability-survey/waves/wave-02/wp.integration-automation.breadth-a/` | 2026-07-29 P1 반영·잔여 권고 기록·독립 재감사·정규 승격 완료 |
 
 ## 4. 승인된 실행 조건
 
