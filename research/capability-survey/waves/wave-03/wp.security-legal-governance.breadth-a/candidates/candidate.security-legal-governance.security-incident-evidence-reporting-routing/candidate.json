@@ -1,0 +1,239 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.security-legal-governance.security-incident-evidence-reporting-routing",
+  "version": "1.0.0",
+  "title": "보안사고 증거보존·신고의무 검토 이관",
+  "canonical_name": "Security incident evidence preservation and reporting obligation review routing",
+  "aliases": [],
+  "summary": "기존 플랫폼 사고대응 산출물을 받아 evidence ledger·chain/provenance·관할 matrix·전문 신고의무 검토 이관을 검증합니다.",
+  "research_scope": {
+    "problem_addressed": "기존 플랫폼 사고대응 산출물을 받아 evidence ledger·chain/provenance·관할 matrix·전문 신고의무 검토 이관을 검증합니다.",
+    "includes": [
+      "증거 hash·시간·출처·owner·보존·접근기록",
+      "evidence chain·provenance",
+      "관할 matrix·신고의무 qualified routing"
+    ],
+    "excludes": [
+      "기술 containment·복구·postmortem",
+      "실제 사고 대응·외부 통지·신고",
+      "법적 증거능력 판단"
+    ],
+    "boundary_note": "평가는 합성 fixture, fake identity, synthetic secret canary, 공개 test key, loopback·일회성 sandbox로 제한합니다. 실제 개인정보·비밀·운영 권한·외부 target을 사용하지 않으며 wall_clock_timeout_seconds=300, max_requests=10000, max_concurrency=16, max_retries_per_request=2, max_fault_injections=10, max_fixture_bytes=10485760, max_records=10000, actual_spend=0을 넘으면 즉시 중단합니다. 법률·규제·위험수용의 최종 판단은 qualified owner에게 이관합니다."
+  },
+  "discovery": {
+    "lens_id": "security-legal-governance",
+    "basis": "assigned_lens",
+    "notes": "공식 표준·법령·사양을 기존 Candidate·Unit·Set과 교차검토하고 누락·중복·역할 경계를 독립 감사했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "security-legal-governance",
+    "subdomains": [
+      "security-incident-evidence-reporting"
+    ],
+    "tags": [
+      "security",
+      "incident",
+      "evidence",
+      "reporting",
+      "routing"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "독립적인 D2 산출물과 검증 Gate가 있어 Unit 후보입니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.security-legal-governance.security-incident-evidence-reporting-routing"
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.security-legal-governance.security-risk-requirements-threat-model-controls",
+        "version": "1.0.0"
+      },
+      "rationale": "동일 패키지에서 조합·교차검증할 후보 관계입니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.security-legal-governance.security-control-assurance-audit-exception-governance",
+        "version": "1.0.0"
+      },
+      "rationale": "동일 패키지에서 조합·교차검증할 후보 관계입니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.security-legal-governance.privacy-engineering-impact-data-rights-lifecycle",
+        "version": "1.0.0"
+      },
+      "rationale": "동일 패키지에서 조합·교차검증할 후보 관계입니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "기존 플랫폼 사고대응 산출물을 받아 evidence ledger·chain/provenance·관할 matrix·전문 신고의무 검토 이관을 검증합니다.",
+    "work_contexts": [
+      "합성 보안·privacy·AI 시스템 검토",
+      "통제 evidence와 전문검토 이관",
+      "위험 기반 배포·운영 준비"
+    ],
+    "transferability": "enterprise_cross_functional",
+    "agent_fit": "comparison_required",
+    "agent_fit_rationale": "AI는 초안·분류·일관성 검사를 보조할 수 있지만 법률·보안·위험수용과 실제 권한 변경의 최종 판단은 인간 책임자에게 있습니다."
+  },
+  "outcomes": {
+    "target_level": "D2",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "service incident·security incident·복구·증거보존·법적 보고를 구분합니다.",
+        "evidence_hypothesis": "sealed fixture `candidate.security-legal-governance.security-incident-evidence-reporting-routing.fixture@1.0.0`의 12개 사례를 봉인 분류표와 대조하여 오답 0/12를 확인합니다."
+      },
+      {
+        "level": "D2",
+        "outcome": "기존 플랫폼 사고대응 산출물을 받아 evidence ledger·chain/provenance·관할 matrix·전문 신고의무 검토 이관을 검증합니다.",
+        "evidence_hypothesis": "증거 hash·시간·출처·접근기록 일치, 변조·누락 전부 탐지, 실제 통지·신고 0건, 관할 불명의 중단·이관을 검증합니다. sealed fixture `candidate.security-legal-governance.security-incident-evidence-reporting-routing.fixture@1.0.0`의 D0 12사례에서 오답 0/12, 주입 결함 6/6 탐지·처리, 제출 파일 incident-timeline.json, evidence-ledger.json, reporting-routing.json, assessment-result.json의 필수 필드·참조 무결성을 검사합니다. 독립된 새 sandbox에서 같은 입력으로 2회 실행한 canonical result hash가 같고 추가 mutation·잔여 임시자원은 각각 0건이어야 하며, 초기·최종 sandbox manifest가 일치하고 cleanup 대상 밖의 sanitized evidence hash는 유지되어야 합니다. exercise_duration_minutes≤45, max_event_steps≤20을 봉인합니다. 모든 evidence에 hash·출처·시간·owner·보존·access가 있어야 하며 주입 6건 전부 탐지, 관할 불명 2건은 needs_qualified_review, 실제 통지·신고는 0건이어야 합니다. 평가는 합성 fixture, fake identity, synthetic secret canary, 공개 test key, loopback·일회성 sandbox로 제한합니다. 실제 개인정보·비밀·운영 권한·외부 target을 사용하지 않으며 wall_clock_timeout_seconds=300, max_requests=10000, max_concurrency=16, max_retries_per_request=2, max_fault_injections=10, max_fixture_bytes=10485760, max_records=10000, actual_spend=0을 넘으면 즉시 중단합니다."
+      }
+    ],
+    "depth_boundary": "평가는 합성 fixture, fake identity, synthetic secret canary, 공개 test key, loopback·일회성 sandbox로 제한합니다. 실제 개인정보·비밀·운영 권한·외부 target을 사용하지 않으며 wall_clock_timeout_seconds=300, max_requests=10000, max_concurrency=16, max_retries_per_request=2, max_fault_injections=10, max_fixture_bytes=10485760, max_records=10000, actual_spend=0을 넘으면 즉시 중단합니다. 법률·규제·감사·위험수용 결론은 qualified owner를 대체하지 않습니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "risk_reduction",
+      "mandatory_control",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "추적 가능한 위험·통제·evidence·이관은 누락과 무근거 승인을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "core",
+    "priority_hint": "now",
+    "measurement_hypothesis": "증거 hash·시간·출처·접근기록 일치, 변조·누락 전부 탐지, 실제 통지·신고 0건, 관할 불명의 중단·이관을 검증합니다. sealed fixture `candidate.security-legal-governance.security-incident-evidence-reporting-routing.fixture@1.0.0`의 D0 12사례에서 오답 0/12, 주입 결함 6/6 탐지·처리, 제출 파일 incident-timeline.json, evidence-ledger.json, reporting-routing.json, assessment-result.json의 필수 필드·참조 무결성을 검사합니다. 독립된 새 sandbox에서 같은 입력으로 2회 실행한 canonical result hash가 같고 추가 mutation·잔여 임시자원은 각각 0건이어야 하며, 초기·최종 sandbox manifest가 일치하고 cleanup 대상 밖의 sanitized evidence hash는 유지되어야 합니다. exercise_duration_minutes≤45, max_event_steps≤20을 봉인합니다. 모든 evidence에 hash·출처·시간·owner·보존·access가 있어야 하며 주입 6건 전부 탐지, 관할 불명 2건은 needs_qualified_review, 실제 통지·신고는 0건이어야 합니다. 평가는 합성 fixture, fake identity, synthetic secret canary, 공개 test key, loopback·일회성 sandbox로 제한합니다. 실제 개인정보·비밀·운영 권한·외부 target을 사용하지 않으며 wall_clock_timeout_seconds=300, max_requests=10000, max_concurrency=16, max_retries_per_request=2, max_fault_injections=10, max_fixture_bytes=10485760, max_records=10000, actual_spend=0을 넘으면 즉시 중단합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "legal",
+      "observability",
+      "reliability",
+      "recovery",
+      "human_approval"
+    ],
+    "notes": "해당하지 않는 축은 봉인 applicability matrix의 근거가 있을 때만 N/A로 처리하며 법률·보안 최종 결론은 qualified owner에게 이관합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.security-legal-governance.nist-sp800-61r3",
+      "title": "Incident Response Recommendations and Considerations for Cybersecurity Risk Management",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "standard",
+      "url": "https://doi.org/10.6028/NIST.SP.800-61r3",
+      "source_version": "NIST SP 800-61 Rev. 3, April 2025",
+      "checked_at": "2026-07-30",
+      "claim_scope": "CSF 2.0 기반 보안사고 대응을 지지하지만 관할별 신고기준이나 법적 결론을 정하지 않습니다.",
+      "supports": [
+        "definition",
+        "learning_outcome",
+        "risk"
+      ]
+    },
+    {
+      "id": "evidence.security-legal-governance.nist-sp800-86",
+      "title": "Guide to Integrating Forensic Techniques into Incident Response",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "standard",
+      "url": "https://doi.org/10.6028/NIST.SP.800-86",
+      "source_version": "NIST SP 800-86, August 2006",
+      "checked_at": "2026-07-30",
+      "claim_scope": "IT 관점 forensic 보존을 지지하지만 법집행 절차·증거능력·법률 자문을 제공하지 않습니다.",
+      "supports": [
+        "learning_outcome",
+        "risk"
+      ]
+    },
+    {
+      "id": "evidence.security-legal-governance.eu-gdpr-personal-data-breach",
+      "title": "Regulation (EU) 2016/679, Articles 33–34",
+      "publisher": "European Union",
+      "source_type": "official_source",
+      "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+      "source_version": "GDPR personal data breach notification provisions, consolidated text checked 2026-07-30",
+      "checked_at": "2026-07-30",
+      "claim_scope": "GDPR상 personal data breach의 감독기관·정보주체 통지 분기만 지지하며 일반 보안사고 신고 근거나 다른 관할의 결론이 아닙니다.",
+      "supports": [
+        "scope",
+        "risk",
+        "learning_outcome"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "high",
+    "rationale": "근거·taxonomy·실용성 독립 감사와 메인 세션 재검수에서 P0·P1 0건을 확인하여 정규 승격 대상으로 승인했습니다.",
+    "review_gate": "promotion"
+  },
+  "review": {
+    "wave_id": "wave-03",
+    "work_package_id": "wp.security-legal-governance.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-30",
+    "reviewers": [
+      "codex-security-evidence-audit",
+      "codex-security-taxonomy-audit",
+      "codex-security-practicality-audit",
+      "codex-main-review"
+    ],
+    "known_unknowns": [
+      "실제 조직·관할·제품·데이터·통제 tailoring과 학습효과는 아직 검증하지 않았습니다."
+    ],
+    "next_action": "unit.security-legal-governance.security-incident-evidence-reporting-routing@1.0.0 승격과 정규 산출물 전수 재감사를 P0·P1 0건으로 완료했습니다. 상세 fixture·runner 구현, 접근성·파일럿과 학습·업무효과 검증은 활성화 전 후속 Gate입니다."
+  },
+  "extensions": {
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.platform-quality-operations.incident-response-postmortem-learning",
+        "version": "1.0.0"
+      },
+      {
+        "kind": "unit",
+        "id": "unit.platform-quality-operations.backup-restore-disaster-recovery",
+        "version": "1.0.0"
+      },
+      {
+        "kind": "unit",
+        "id": "unit.platform-quality-operations.service-observability-telemetry-contract",
+        "version": "1.0.0"
+      }
+    ],
+    "sealed_assessment_contract": {
+      "fixture_id": "candidate.security-legal-governance.security-incident-evidence-reporting-routing.fixture",
+      "fixture_version": "1.0.0",
+      "d0_case_count": 12,
+      "allowed_d0_errors": 0,
+      "fault_injection_count": 6,
+      "faults": [
+        "증거 hash 변조 2건",
+        "출처·시간·접근기록 누락 2건",
+        "관할·보고 이관 불명 2건"
+      ],
+      "submission_artifacts": [
+        "incident-timeline.json",
+        "evidence-ledger.json",
+        "reporting-routing.json",
+        "assessment-result.json"
+      ],
+      "idempotency_runs": 2,
+      "assessment_implementation_status": "required_before_activation",
+      "note": "Phase 2 정규 catalog 승격은 평가계약을 고정하며 실제 fixture·runner 구현과 학습효과 검증은 Unit 활성화 전 별도 Gate입니다."
+    }
+  }
+}

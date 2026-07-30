@@ -1,0 +1,164 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.security-legal-governance.digital-asset-license-rights-provenance-routing.reference",
+  "version": "1.0.0",
+  "title": "디지털 자산 저작권·라이선스 출처 추적·검토 이관 공식·표준·1차 출처 Reference",
+  "description": "정규 Unit의 정의·범위·판정기준을 뒷받침하는 공개 Reference입니다. 상세 교재나 법률·규제·보안 전문판단을 대체하지 않습니다.",
+  "resource_type": "external_reference",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.security-legal-governance.digital-asset-license-rights-provenance-routing",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "external",
+    "url": "https://spdx.github.io/spdx-spec/v3.0.1/"
+  },
+  "learning_outcome_ids": [
+    "outcome.security-legal-governance.digital-asset-license-rights-provenance-routing.d0",
+    "outcome.security-legal-governance.digital-asset-license-rights-provenance-routing.d2"
+  ],
+  "estimated_minutes": 30,
+  "language": "en",
+  "tags": [
+    "reference",
+    "promotion-evidence",
+    "security-legal-governance"
+  ],
+  "requirements": {
+    "platforms": [
+      "web-browser"
+    ],
+    "network_required": true
+  },
+  "provenance": {
+    "origin": "external",
+    "sources": [
+      {
+        "title": "SPDX Specification",
+        "publisher": "Linux Foundation",
+        "source_type": "official_spec",
+        "url": "https://spdx.github.io/spdx-spec/v3.0.1/",
+        "source_version": "SPDX 3.0.1",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "OpenChain ISO/IEC 5230",
+        "publisher": "OpenChain Project",
+        "source_type": "standard",
+        "url": "https://openchainproject.org/license-compliance",
+        "source_version": "ISO/IEC 5230:2020 / OpenChain Specification 2.1",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "PROV-DM: The PROV Data Model",
+        "publisher": "World Wide Web Consortium",
+        "source_type": "standard",
+        "url": "https://www.w3.org/TR/prov-dm/",
+        "source_version": "W3C Recommendation, April 2013",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "ODRL Information Model 2.2",
+        "publisher": "World Wide Web Consortium",
+        "source_type": "standard",
+        "url": "https://www.w3.org/TR/odrl-model/",
+        "source_version": "W3C Recommendation, February 15 2018",
+        "checked_at": "2026-07-30"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "unverified",
+    "standard": "WCAG 2.2 AA",
+    "features": [],
+    "alternative_resource_refs": [],
+    "note": "외부 출처의 접근성은 재검토가 필요합니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-07-30",
+    "commands": [],
+    "expected_outputs": [
+      "출처가 Unit의 정의·범위·판정기준과 한계를 직접 지지하는지 확인한 기록"
+    ],
+    "evidence_paths": [],
+    "note": "URL·버전·claim 범위를 독립 재검토했으며 실제 적합성·상세 학습효과는 검증하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "Candidate 승격 시 등록한 공개 Reference입니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.security-legal-governance.digital-asset-license-rights-provenance-routing",
+      "version": "1.0.0"
+    },
+    "promotion_reviewed_at": "2026-07-30",
+    "evidence_claims": [
+      {
+        "id": "evidence.security-legal-governance.spdx-3-0-1",
+        "title": "SPDX Specification",
+        "publisher": "Linux Foundation",
+        "source_type": "official_spec",
+        "url": "https://spdx.github.io/spdx-spec/v3.0.1/",
+        "source_version": "SPDX 3.0.1",
+        "checked_at": "2026-07-30",
+        "claim_scope": "BOM·license·provenance metadata 표현을 지원하지만 데이터의 정확성이나 법적 적합성을 보증하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.security-legal-governance.openchain-iso5230",
+        "title": "OpenChain ISO/IEC 5230",
+        "publisher": "OpenChain Project",
+        "source_type": "standard",
+        "url": "https://openchainproject.org/license-compliance",
+        "source_version": "ISO/IEC 5230:2020 / OpenChain Specification 2.1",
+        "checked_at": "2026-07-30",
+        "claim_scope": "오픈소스 license compliance program 요구를 제시하지만 개별 license 해석이나 준수를 보증하지 않습니다.",
+        "supports": [
+          "scope",
+          "work_relevance",
+          "risk"
+        ]
+      },
+      {
+        "id": "evidence.security-legal-governance.w3c-prov-dm",
+        "title": "PROV-DM: The PROV Data Model",
+        "publisher": "World Wide Web Consortium",
+        "source_type": "standard",
+        "url": "https://www.w3.org/TR/prov-dm/",
+        "source_version": "W3C Recommendation, April 2013",
+        "checked_at": "2026-07-30",
+        "claim_scope": "일반 provenance 모델을 제공하지만 저작권·license·계약상 사용권을 판단하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome"
+        ]
+      },
+      {
+        "id": "evidence.security-legal-governance.w3c-odrl-2-2",
+        "title": "ODRL Information Model 2.2",
+        "publisher": "World Wide Web Consortium",
+        "source_type": "standard",
+        "url": "https://www.w3.org/TR/odrl-model/",
+        "source_version": "W3C Recommendation, February 15 2018",
+        "checked_at": "2026-07-30",
+        "claim_scope": "디지털 자산의 permission·prohibition·duty 등 rights expression을 지원하지만 저작권·계약의 법적 유효성이나 사용권을 판단하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "scope"
+        ]
+      }
+    ]
+  }
+}

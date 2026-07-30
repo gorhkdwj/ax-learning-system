@@ -1,0 +1,252 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.security-legal-governance.security-control-assurance-audit-exception-governance",
+  "version": "1.0.0",
+  "title": "보안통제 보증·감사증거·예외 거버넌스",
+  "summary": "통제 register·평가계획·결과·evidence index와 deficiency·exception·owner·expiry·재검토 기록을 연결합니다. 해결을 위한 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "security-legal-governance",
+    "subdomains": [
+      "security-control-assurance-audit"
+    ]
+  },
+  "domain_tags": [
+    "security",
+    "control",
+    "assurance",
+    "audit",
+    "exception",
+    "governance"
+  ],
+  "capabilities": [
+    "통제 register·평가계획·결과·evidence index와 deficiency·exception·owner·expiry·재검토 기록을 연결합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.security-legal-governance.security-control-assurance-audit-exception-governance.d0",
+        "statement": "policy·standard·procedure·control·evidence·audit·certification을 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.security-legal-governance.security-control-assurance-audit-exception-governance.d3",
+        "statement": "통제 register·평가계획·결과·evidence index와 deficiency·exception·owner·expiry·재검토 기록을 연결합니다.",
+        "target_level": "D3"
+      }
+    ],
+    "default_target_level": "D3",
+    "maximum_scope_level": "D3",
+    "estimated_minutes": 180,
+    "scope_expansion_policy": "평가는 합성 fixture, fake identity, synthetic secret canary, 공개 test key, loopback·일회성 sandbox로 제한합니다. 실제 개인정보·비밀·운영 권한·외부 target을 사용하지 않으며 wall_clock_timeout_seconds=300, max_requests=10000, max_concurrency=16, max_retries_per_request=2, max_fault_injections=10, max_fixture_bytes=10485760, max_records=10000, actual_spend=0을 넘으면 즉시 중단합니다. 법률·규제·감사·위험수용 결론은 qualified owner를 대체하지 않습니다."
+  },
+  "relations": [
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.software.requirements-acceptance-traceability",
+        "version": "1.0.0"
+      },
+      "note": "관련 정규 Unit의 소유 범위를 복제하지 않고 이 보안·법무·거버넌스 Gate에서 evidence를 연결합니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.foundation.risk-proportional-ai-reliance",
+        "version": "1.0.0"
+      },
+      "note": "관련 정규 Unit의 소유 범위를 복제하지 않고 이 보안·법무·거버넌스 Gate에서 evidence를 연결합니다."
+    },
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.security-legal-governance.security-risk-requirements-threat-model-controls",
+        "version": "1.0.0"
+      },
+      "note": "동일 패키지에서 조합·교차검증할 후보 관계입니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.security-legal-governance.software-supply-chain-integrity-vulnerability-governance",
+        "version": "1.0.0"
+      },
+      "note": "동일 패키지에서 조합·교차검증할 후보 관계입니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.security-legal-governance.security-control-assurance-audit-exception-governance.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": false,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference와 prebuilt 합성·local fixture 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "security-legal-governance-security-control-assurance-audit-exception-governance-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.security-legal-governance.security-control-assurance-audit-exception-governance.d0",
+          "outcome.security-legal-governance.security-control-assurance-audit-exception-governance.d3"
+        ],
+        "required": true,
+        "success_criteria": [
+          "sealed fixture `candidate.security-legal-governance.security-control-assurance-audit-exception-governance.fixture@1.0.0`의 12개 사례를 봉인 분류표와 대조하여 오답 0/12를 확인합니다.",
+          "봉인 사례의 pass·fail·insufficient 판정 전부 일치, stale·contradictory evidence 전부 탐지, owner·근거·expiry 없는 예외 0건을 검증합니다. sealed fixture `candidate.security-legal-governance.security-control-assurance-audit-exception-governance.fixture@1.0.0`의 D0 12사례에서 오답 0/12, 주입 결함 6/6 탐지·처리, 제출 파일 control-register.json, assessment-evidence-index.json, exception-register.json, assessment-result.json의 필수 필드·참조 무결성을 검사합니다. 독립된 새 sandbox에서 같은 입력으로 2회 실행한 canonical result hash가 같고 추가 mutation·잔여 임시자원은 각각 0건이어야 하며, 초기·최종 sandbox manifest가 일치하고 cleanup 대상 밖의 sanitized evidence hash는 유지되어야 합니다. 모든 evidence에 hash·출처·시간·owner·보존·access가 있어야 하며 주입 6건 전부 탐지, 봉인 pass·fail·insufficient 판정 오차 0건, 불완전 예외 승인 0건이어야 합니다. 평가는 합성 fixture, fake identity, synthetic secret canary, 공개 test key, loopback·일회성 sandbox로 제한합니다. 실제 개인정보·비밀·운영 권한·외부 target을 사용하지 않으며 wall_clock_timeout_seconds=300, max_requests=10000, max_concurrency=16, max_retries_per_request=2, max_fault_injections=10, max_fixture_bytes=10485760, max_records=10000, actual_spend=0을 넘으면 즉시 중단합니다.",
+          "실제 개인정보·비밀·private key·운영계정·외부 target·통지·신고·법률 결론 없이 평가하며, 실제 전문판단이 필요한 항목은 needs_qualified_review로 중단·이관합니다.",
+          "실행 전에 봉인 safety manifest와 answer key를 고정하고 실제 실행 기록·최종 상태·rollback·cleanup 결과를 대조합니다. 합성 fixture·fake identity·synthetic secret canary·공개 test key·loopback·새 임시 sandbox로 제한합니다. 평가별 봉인 safety manifest에 wall_clock_timeout_seconds≤300, max_requests≤10000, max_concurrency≤16, max_retries_per_request≤2, max_fault_injections≤10, max_fixture_bytes≤10485760, max_records≤10000, actual_spend=0, allowed_targets=loopback·새 임시 sandbox, abort trigger와 rollback·cleanup invariant를 기록하고 위반 즉시 중단합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Security and Privacy Controls for Information Systems and Organizations",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "standard",
+      "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+      "source_version": "NIST SP 800-53 Rev. 5 Release 5.2.0",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "Assessing Security and Privacy Controls in Information Systems and Organizations",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "standard",
+      "url": "https://csrc.nist.gov/pubs/sp/800/53/a/r5/final",
+      "source_version": "NIST SP 800-53A Rev. 5 Release 5.2.0",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "OSCAL Assessment Results Model",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_spec",
+      "url": "https://pages.nist.gov/OSCAL-Reference/models/v1.2.2/assessment-results/",
+      "source_version": "OSCAL 1.2.2 Assessment Results Model",
+      "checked_at": "2026-07-30"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "risk_reduction",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "candidate.security-legal-governance.security-control-assurance-audit-exception-governance@1.0.0의 승인 결과를 정규 Unit 메타데이터로 등록했습니다. 상세 교재·실제 조직 적합성·학습효과는 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.security-legal-governance.security-control-assurance-audit-exception-governance",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.security-legal-governance.breadth-a",
+      "promoted_at": "2026-07-30"
+    },
+    "evidence_claims": [
+      {
+        "id": "evidence.security-legal-governance.nist-sp800-53r5",
+        "title": "Security and Privacy Controls for Information Systems and Organizations",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "standard",
+        "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+        "source_version": "NIST SP 800-53 Rev. 5 Release 5.2.0",
+        "checked_at": "2026-07-30",
+        "claim_scope": "보안·privacy 통제 catalog이며 모든 조직의 baseline이나 적합성 인증을 제공하지 않습니다.",
+        "supports": [
+          "definition",
+          "scope",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.security-legal-governance.nist-sp800-53ar5",
+        "title": "Assessing Security and Privacy Controls in Information Systems and Organizations",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "standard",
+        "url": "https://csrc.nist.gov/pubs/sp/800/53/a/r5/final",
+        "source_version": "NIST SP 800-53A Rev. 5 Release 5.2.0",
+        "checked_at": "2026-07-30",
+        "claim_scope": "통제 평가절차를 제공하지만 tailoring이 필요하며 checklist 통과가 통제 효과를 보증하지 않습니다.",
+        "supports": [
+          "learning_outcome",
+          "risk",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.security-legal-governance.nist-oscal-1-2-2",
+        "title": "OSCAL Assessment Results Model",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "official_spec",
+        "url": "https://pages.nist.gov/OSCAL-Reference/models/v1.2.2/assessment-results/",
+        "source_version": "OSCAL 1.2.2 Assessment Results Model",
+        "checked_at": "2026-07-30",
+        "claim_scope": "평가 결과와 evidence 표현을 지원하지만 감사 결론이나 인증을 자동화하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome"
+        ]
+      }
+    ],
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.software.requirements-acceptance-traceability",
+        "version": "1.0.0"
+      },
+      {
+        "kind": "unit",
+        "id": "unit.foundation.risk-proportional-ai-reliance",
+        "version": "1.0.0"
+      }
+    ],
+    "sealed_assessment_contract": {
+      "fixture_id": "candidate.security-legal-governance.security-control-assurance-audit-exception-governance.fixture",
+      "fixture_version": "1.0.0",
+      "d0_case_count": 12,
+      "allowed_d0_errors": 0,
+      "fault_injection_count": 6,
+      "faults": [
+        "stale evidence 2건",
+        "상충 evidence 2건",
+        "owner·expiry 없는 예외 2건"
+      ],
+      "submission_artifacts": [
+        "control-register.json",
+        "assessment-evidence-index.json",
+        "exception-register.json",
+        "assessment-result.json"
+      ],
+      "idempotency_runs": 2,
+      "assessment_implementation_status": "required_before_activation",
+      "note": "Phase 2 정규 catalog 승격은 평가계약을 고정하며 실제 fixture·runner 구현과 학습효과 검증은 Unit 활성화 전 별도 Gate입니다."
+    }
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.security-legal-governance.privacy-engineering-impact-data-rights-lifecycle.reference",
+  "version": "1.0.0",
+  "title": "개인정보 공학·영향평가·데이터 권리 수명주기 공식·표준·1차 출처 Reference",
+  "description": "정규 Unit의 정의·범위·판정기준을 뒷받침하는 공개 Reference입니다. 상세 교재나 법률·규제·보안 전문판단을 대체하지 않습니다.",
+  "resource_type": "external_reference",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.security-legal-governance.privacy-engineering-impact-data-rights-lifecycle",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "external",
+    "url": "https://www.nist.gov/privacy-framework/privacy-framework"
+  },
+  "learning_outcome_ids": [
+    "outcome.security-legal-governance.privacy-engineering-impact-data-rights-lifecycle.d0",
+    "outcome.security-legal-governance.privacy-engineering-impact-data-rights-lifecycle.d2"
+  ],
+  "estimated_minutes": 30,
+  "language": "en",
+  "tags": [
+    "reference",
+    "promotion-evidence",
+    "security-legal-governance"
+  ],
+  "requirements": {
+    "platforms": [
+      "web-browser"
+    ],
+    "network_required": true
+  },
+  "provenance": {
+    "origin": "external",
+    "sources": [
+      {
+        "title": "NIST Privacy Framework",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "standard",
+        "url": "https://www.nist.gov/privacy-framework/privacy-framework",
+        "source_version": "Privacy Framework 1.0, January 2020",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "Regulation (EU) 2016/679",
+        "publisher": "European Union",
+        "source_type": "official_source",
+        "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+        "source_version": "GDPR, consolidated text checked 2026-07-30",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "Data Privacy Vocabulary",
+        "publisher": "W3C Data Privacy Vocabularies and Controls Community Group",
+        "source_type": "official_source",
+        "url": "https://www.w3.org/community/reports/dpvcg/CG-FINAL-dpv-20240801/",
+        "source_version": "DPV 2.0, Final Community Group Report, August 1 2024",
+        "checked_at": "2026-07-30"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "unverified",
+    "standard": "WCAG 2.2 AA",
+    "features": [],
+    "alternative_resource_refs": [],
+    "note": "외부 출처의 접근성은 재검토가 필요합니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-07-30",
+    "commands": [],
+    "expected_outputs": [
+      "출처가 Unit의 정의·범위·판정기준과 한계를 직접 지지하는지 확인한 기록"
+    ],
+    "evidence_paths": [],
+    "note": "URL·버전·claim 범위를 독립 재검토했으며 실제 적합성·상세 학습효과는 검증하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "Candidate 승격 시 등록한 공개 Reference입니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.security-legal-governance.privacy-engineering-impact-data-rights-lifecycle",
+      "version": "1.0.0"
+    },
+    "promotion_reviewed_at": "2026-07-30",
+    "evidence_claims": [
+      {
+        "id": "evidence.security-legal-governance.nist-privacy-framework-1",
+        "title": "NIST Privacy Framework",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "standard",
+        "url": "https://www.nist.gov/privacy-framework/privacy-framework",
+        "source_version": "Privacy Framework 1.0, January 2020",
+        "checked_at": "2026-07-30",
+        "claim_scope": "privacy 위험관리 outcome을 제공하지만 관할별 법적 의무나 적합성을 확정하지 않습니다.",
+        "supports": [
+          "definition",
+          "scope",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.security-legal-governance.eu-gdpr",
+        "title": "Regulation (EU) 2016/679",
+        "publisher": "European Union",
+        "source_type": "official_source",
+        "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+        "source_version": "GDPR, consolidated text checked 2026-07-30",
+        "checked_at": "2026-07-30",
+        "claim_scope": "EU 개인정보 원칙·권리·영향평가·침해통지 요구의 1차 근거이며 다른 관할에 일반화하지 않습니다.",
+        "supports": [
+          "definition",
+          "risk",
+          "learning_outcome"
+        ]
+      },
+      {
+        "id": "evidence.security-legal-governance.w3c-dpv-2",
+        "title": "Data Privacy Vocabulary",
+        "publisher": "W3C Data Privacy Vocabularies and Controls Community Group",
+        "source_type": "official_source",
+        "url": "https://www.w3.org/community/reports/dpvcg/CG-FINAL-dpv-20240801/",
+        "source_version": "DPV 2.0, Final Community Group Report, August 1 2024",
+        "checked_at": "2026-07-30",
+        "claim_scope": "개인정보 처리·목적·법적 근거·통제 표현을 지원하는 Community Group Report이며 W3C 표준·법률 해석·규제 적합성을 보증하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome"
+        ]
+      }
+    ]
+  }
+}

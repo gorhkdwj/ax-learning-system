@@ -1,0 +1,225 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.security-legal-governance.security-control-assurance-audit-exception-governance",
+  "version": "1.0.0",
+  "title": "보안통제 보증·감사증거·예외 거버넌스",
+  "canonical_name": "Security control assurance, audit evidence and exception governance",
+  "aliases": [],
+  "summary": "통제 register·평가계획·결과·evidence index와 deficiency·exception·owner·expiry·재검토 기록을 연결합니다.",
+  "research_scope": {
+    "problem_addressed": "통제 register·평가계획·결과·evidence index와 deficiency·exception·owner·expiry·재검토 기록을 연결합니다.",
+    "includes": [
+      "통제·평가절차·evidence traceability",
+      "deficiency·exception·owner·expiry",
+      "재평가·감사 packet"
+    ],
+    "excludes": [
+      "실제 외부감사·인증",
+      "전사 통제 baseline 확정",
+      "법적 적합성 결론"
+    ],
+    "boundary_note": "평가는 합성 fixture, fake identity, synthetic secret canary, 공개 test key, loopback·일회성 sandbox로 제한합니다. 실제 개인정보·비밀·운영 권한·외부 target을 사용하지 않으며 wall_clock_timeout_seconds=300, max_requests=10000, max_concurrency=16, max_retries_per_request=2, max_fault_injections=10, max_fixture_bytes=10485760, max_records=10000, actual_spend=0을 넘으면 즉시 중단합니다. 법률·규제·위험수용의 최종 판단은 qualified owner에게 이관합니다."
+  },
+  "discovery": {
+    "lens_id": "security-legal-governance",
+    "basis": "assigned_lens",
+    "notes": "공식 표준·법령·사양을 기존 Candidate·Unit·Set과 교차검토하고 누락·중복·역할 경계를 독립 감사했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "security-legal-governance",
+    "subdomains": [
+      "security-control-assurance-audit"
+    ],
+    "tags": [
+      "security",
+      "control",
+      "assurance",
+      "audit",
+      "exception",
+      "governance"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "독립적인 D3 산출물과 검증 Gate가 있어 Unit 후보입니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.security-legal-governance.security-control-assurance-audit-exception-governance"
+  },
+  "relations": [
+    {
+      "type": "recommended_prerequisite",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.security-legal-governance.security-risk-requirements-threat-model-controls",
+        "version": "1.0.0"
+      },
+      "rationale": "동일 패키지에서 조합·교차검증할 후보 관계입니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "kind": "candidate",
+        "id": "candidate.security-legal-governance.software-supply-chain-integrity-vulnerability-governance",
+        "version": "1.0.0"
+      },
+      "rationale": "동일 패키지에서 조합·교차검증할 후보 관계입니다."
+    }
+  ],
+  "capability": {
+    "learner_can_do": "통제 register·평가계획·결과·evidence index와 deficiency·exception·owner·expiry·재검토 기록을 연결합니다.",
+    "work_contexts": [
+      "합성 보안·privacy·AI 시스템 검토",
+      "통제 evidence와 전문검토 이관",
+      "위험 기반 배포·운영 준비"
+    ],
+    "transferability": "enterprise_cross_functional",
+    "agent_fit": "comparison_required",
+    "agent_fit_rationale": "AI는 초안·분류·일관성 검사를 보조할 수 있지만 법률·보안·위험수용과 실제 권한 변경의 최종 판단은 인간 책임자에게 있습니다."
+  },
+  "outcomes": {
+    "target_level": "D3",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "policy·standard·procedure·control·evidence·audit·certification을 구분합니다.",
+        "evidence_hypothesis": "sealed fixture `candidate.security-legal-governance.security-control-assurance-audit-exception-governance.fixture@1.0.0`의 12개 사례를 봉인 분류표와 대조하여 오답 0/12를 확인합니다."
+      },
+      {
+        "level": "D3",
+        "outcome": "통제 register·평가계획·결과·evidence index와 deficiency·exception·owner·expiry·재검토 기록을 연결합니다.",
+        "evidence_hypothesis": "봉인 사례의 pass·fail·insufficient 판정 전부 일치, stale·contradictory evidence 전부 탐지, owner·근거·expiry 없는 예외 0건을 검증합니다. sealed fixture `candidate.security-legal-governance.security-control-assurance-audit-exception-governance.fixture@1.0.0`의 D0 12사례에서 오답 0/12, 주입 결함 6/6 탐지·처리, 제출 파일 control-register.json, assessment-evidence-index.json, exception-register.json, assessment-result.json의 필수 필드·참조 무결성을 검사합니다. 독립된 새 sandbox에서 같은 입력으로 2회 실행한 canonical result hash가 같고 추가 mutation·잔여 임시자원은 각각 0건이어야 하며, 초기·최종 sandbox manifest가 일치하고 cleanup 대상 밖의 sanitized evidence hash는 유지되어야 합니다. 모든 evidence에 hash·출처·시간·owner·보존·access가 있어야 하며 주입 6건 전부 탐지, 봉인 pass·fail·insufficient 판정 오차 0건, 불완전 예외 승인 0건이어야 합니다. 평가는 합성 fixture, fake identity, synthetic secret canary, 공개 test key, loopback·일회성 sandbox로 제한합니다. 실제 개인정보·비밀·운영 권한·외부 target을 사용하지 않으며 wall_clock_timeout_seconds=300, max_requests=10000, max_concurrency=16, max_retries_per_request=2, max_fault_injections=10, max_fixture_bytes=10485760, max_records=10000, actual_spend=0을 넘으면 즉시 중단합니다."
+      }
+    ],
+    "depth_boundary": "평가는 합성 fixture, fake identity, synthetic secret canary, 공개 test key, loopback·일회성 sandbox로 제한합니다. 실제 개인정보·비밀·운영 권한·외부 target을 사용하지 않으며 wall_clock_timeout_seconds=300, max_requests=10000, max_concurrency=16, max_retries_per_request=2, max_fault_injections=10, max_fixture_bytes=10485760, max_records=10000, actual_spend=0을 넘으면 즉시 중단합니다. 법률·규제·감사·위험수용 결론은 qualified owner를 대체하지 않습니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "risk_reduction",
+      "mandatory_control",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "추적 가능한 위험·통제·evidence·이관은 누락과 무근거 승인을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "core",
+    "priority_hint": "now",
+    "measurement_hypothesis": "봉인 사례의 pass·fail·insufficient 판정 전부 일치, stale·contradictory evidence 전부 탐지, owner·근거·expiry 없는 예외 0건을 검증합니다. sealed fixture `candidate.security-legal-governance.security-control-assurance-audit-exception-governance.fixture@1.0.0`의 D0 12사례에서 오답 0/12, 주입 결함 6/6 탐지·처리, 제출 파일 control-register.json, assessment-evidence-index.json, exception-register.json, assessment-result.json의 필수 필드·참조 무결성을 검사합니다. 독립된 새 sandbox에서 같은 입력으로 2회 실행한 canonical result hash가 같고 추가 mutation·잔여 임시자원은 각각 0건이어야 하며, 초기·최종 sandbox manifest가 일치하고 cleanup 대상 밖의 sanitized evidence hash는 유지되어야 합니다. 모든 evidence에 hash·출처·시간·owner·보존·access가 있어야 하며 주입 6건 전부 탐지, 봉인 pass·fail·insufficient 판정 오차 0건, 불완전 예외 승인 0건이어야 합니다. 평가는 합성 fixture, fake identity, synthetic secret canary, 공개 test key, loopback·일회성 sandbox로 제한합니다. 실제 개인정보·비밀·운영 권한·외부 target을 사용하지 않으며 wall_clock_timeout_seconds=300, max_requests=10000, max_concurrency=16, max_retries_per_request=2, max_fault_injections=10, max_fixture_bytes=10485760, max_records=10000, actual_spend=0을 넘으면 즉시 중단합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "privacy",
+      "permissions",
+      "legal",
+      "observability",
+      "human_approval"
+    ],
+    "notes": "해당하지 않는 축은 봉인 applicability matrix의 근거가 있을 때만 N/A로 처리하며 법률·보안 최종 결론은 qualified owner에게 이관합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.security-legal-governance.nist-sp800-53r5",
+      "title": "Security and Privacy Controls for Information Systems and Organizations",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "standard",
+      "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+      "source_version": "NIST SP 800-53 Rev. 5 Release 5.2.0",
+      "checked_at": "2026-07-30",
+      "claim_scope": "보안·privacy 통제 catalog이며 모든 조직의 baseline이나 적합성 인증을 제공하지 않습니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "work_relevance"
+      ]
+    },
+    {
+      "id": "evidence.security-legal-governance.nist-sp800-53ar5",
+      "title": "Assessing Security and Privacy Controls in Information Systems and Organizations",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "standard",
+      "url": "https://csrc.nist.gov/pubs/sp/800/53/a/r5/final",
+      "source_version": "NIST SP 800-53A Rev. 5 Release 5.2.0",
+      "checked_at": "2026-07-30",
+      "claim_scope": "통제 평가절차를 제공하지만 tailoring이 필요하며 checklist 통과가 통제 효과를 보증하지 않습니다.",
+      "supports": [
+        "learning_outcome",
+        "risk",
+        "work_relevance"
+      ]
+    },
+    {
+      "id": "evidence.security-legal-governance.nist-oscal-1-2-2",
+      "title": "OSCAL Assessment Results Model",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "official_spec",
+      "url": "https://pages.nist.gov/OSCAL-Reference/models/v1.2.2/assessment-results/",
+      "source_version": "OSCAL 1.2.2 Assessment Results Model",
+      "checked_at": "2026-07-30",
+      "claim_scope": "평가 결과와 evidence 표현을 지원하지만 감사 결론이나 인증을 자동화하지 않습니다.",
+      "supports": [
+        "definition",
+        "learning_outcome"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "high",
+    "rationale": "근거·taxonomy·실용성 독립 감사와 메인 세션 재검수에서 P0·P1 0건을 확인하여 정규 승격 대상으로 승인했습니다.",
+    "review_gate": "promotion"
+  },
+  "review": {
+    "wave_id": "wave-03",
+    "work_package_id": "wp.security-legal-governance.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-30",
+    "reviewers": [
+      "codex-security-evidence-audit",
+      "codex-security-taxonomy-audit",
+      "codex-security-practicality-audit",
+      "codex-main-review"
+    ],
+    "known_unknowns": [
+      "실제 조직·관할·제품·데이터·통제 tailoring과 학습효과는 아직 검증하지 않았습니다."
+    ],
+    "next_action": "unit.security-legal-governance.security-control-assurance-audit-exception-governance@1.0.0 승격과 정규 산출물 전수 재감사를 P0·P1 0건으로 완료했습니다. 상세 fixture·runner 구현, 접근성·파일럿과 학습·업무효과 검증은 활성화 전 후속 Gate입니다."
+  },
+  "extensions": {
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.software.requirements-acceptance-traceability",
+        "version": "1.0.0"
+      },
+      {
+        "kind": "unit",
+        "id": "unit.foundation.risk-proportional-ai-reliance",
+        "version": "1.0.0"
+      }
+    ],
+    "sealed_assessment_contract": {
+      "fixture_id": "candidate.security-legal-governance.security-control-assurance-audit-exception-governance.fixture",
+      "fixture_version": "1.0.0",
+      "d0_case_count": 12,
+      "allowed_d0_errors": 0,
+      "fault_injection_count": 6,
+      "faults": [
+        "stale evidence 2건",
+        "상충 evidence 2건",
+        "owner·expiry 없는 예외 2건"
+      ],
+      "submission_artifacts": [
+        "control-register.json",
+        "assessment-evidence-index.json",
+        "exception-register.json",
+        "assessment-result.json"
+      ],
+      "idempotency_runs": 2,
+      "assessment_implementation_status": "required_before_activation",
+      "note": "Phase 2 정규 catalog 승격은 평가계약을 고정하며 실제 fixture·runner 구현과 학습효과 검증은 Unit 활성화 전 별도 Gate입니다."
+    }
+  }
+}

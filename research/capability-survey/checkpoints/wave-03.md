@@ -9,7 +9,7 @@
 | 시작일·마지막 갱신일 | `2026-07-29` · `2026-07-30` |
 | 총괄·유일 작성자 | Codex 메인 세션 |
 | 후보 스키마 | `capability-candidate 1.1.0` |
-| 분류 Registry | `taxonomy.ax-capability-map@0.8.0` (`provisional`) |
+| 분류 Registry | `taxonomy.ax-capability-map@0.9.0` (`provisional`) |
 | 동시 작업 패키지 | `1` |
 | 작업 패키지별 후보 상한 | `10` |
 
@@ -31,6 +31,7 @@ Wave 2 후보에 누락된 접근성·인간통제·운영·보안·법무·조�
 |---|---|---:|---|---|
 | `wp.human-ai-experience.breadth-a` | promoted | 9/10 | `research/capability-survey/waves/wave-03/wp.human-ai-experience.breadth-a/` | 승격 전·후 재검수 P0·P1 0건, 6 Unit·2 Resource cataloged·1 deferred |
 | `wp.platform-quality-operations.breadth-a` | promoted | 10/10 | `research/capability-survey/waves/wave-03/wp.platform-quality-operations.breadth-a/` | 승격 전·후 독립 3중 재감사 P0·P1 0건, 9 Unit·9 Reference·1 Set cataloged |
+| `wp.security-legal-governance.breadth-a` | promoted | 10/10 | `research/capability-survey/waves/wave-03/wp.security-legal-governance.breadth-a/` | 승격 전·후 독립 3중 재감사 P0·P1 0건, 9 Unit·9 Reference·1 Set cataloged |
 
 ## 4. 현재 결과
 
@@ -64,8 +65,19 @@ Gate를 다시 독립 검수했습니다. 개인화·기억 후보는 승격하�
 toil은 관련 후보의 하위 성과로 흡수했습니다. 마지막 누락 점검의 새 고우선
 독립 후보는 0개입니다.
 
+보안·법무·거버넌스는 보안 요구·위협 모델, identity·접근정책, 비밀·암호키,
+소프트웨어 공급망, 개인정보 영향·권리, 보안사고 증거·보고 이관, 통제감사,
+디지털 자산 권리 provenance, AI 보안위협의 Unit 후보 9개와 AI 위험·영향
+거버넌스 보증 Set 후보 1개를 작성했습니다. 모든 실습은 합성 fixture와
+loopback sandbox로 제한하며 실제 법률·규제·위험수용 판단은 qualified owner에게
+이관합니다. 마지막 발견 누락 점검의 새 고우선 독립 후보는 0개입니다.
+승격 전 근거·taxonomy·실용성 감사와 승격 후 정규 산출물 재감사에서 P0·P1
+0건을 확인해 9개 Unit·9개 Reference·1개 Set을 `cataloged`로 등록했습니다.
+상세 fixture·runner 구현과 실제 조직·관할·제품 적합성·학습효과는 검증하지
+않았으며 활성화 전 후속 Gate입니다.
+
 ## 5. 다음 한 단계
 
-플랫폼 품질·운영의 정규 승격과 승격 후 독립 재검수를 완료했습니다. 다음 순차
-패키지 `security-legal-governance`의 Manifest·평가계약을 고정하고, 발견 조사와
-후보 작성·독립 감사·정규 승격을 같은 절차로 진행합니다.
+보안·법무·거버넌스 정규 승격과 승격 후 재검수를 완료했습니다. 다음 순차
+패키지 `organization-adoption`의 Manifest·평가계약을 고정하고 발견 조사·후보
+작성·독립 감사·정규 승격을 같은 절차로 진행합니다.

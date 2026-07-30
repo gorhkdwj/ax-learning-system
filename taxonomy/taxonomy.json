@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "id": "taxonomy.ax-capability-map",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "title": "AX 역량 분류 레지스트리",
   "status": "provisional",
   "updated_at": "2026-07-30",
@@ -3722,6 +3722,436 @@
           "research/capability-survey/waves/wave-03/wp.platform-quality-operations.breadth-a/domain-survey.md"
         ],
         "rationale": "Wave 3 플랫폼·품질·운영 조사에서 기존 기능개발·데이터·자동화·보안 책임과 중복되지 않는 운영 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "security-risk-threat-control-engineering",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "보안 위험·요구·위협 모델·통제 검증",
+      "title_en": "Security risk, requirements, threat modeling and control validation",
+      "definition": "합성 시스템의 자산·trust boundary·위협·보안 요구·통제·검증·잔여위험을 추적 가능한 구조로 연결합니다.",
+      "includes": [
+        "자산·trust boundary·위협 시나리오",
+        "보안 요구·통제·검증 연결",
+        "잔여위험·owner·qualified review 이관"
+      ],
+      "excludes": [
+        "실제 외부 target scan·exploit",
+        "전사 위험수용 승인",
+        "범용 요구공학·테스트 구현 반복"
+      ],
+      "parent_ids": [
+        "security-legal-governance"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "software-requirements-acceptance",
+        "software-verification-testing",
+        "security-control-assurance-audit",
+        "ai-system-security"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.security-legal-governance.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 보안·법무·거버넌스 조사에서 기존 catalog와 중복되지 않는 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "authorization-access-governance",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "접근 정책·권한 수명주기",
+      "title_en": "Access policy and authorization lifecycle governance",
+      "definition": "fake identity·role·attribute·resource로 authorization 정책과 join/move/leave·expire/revoke·break-glass 권한 수명주기를 검증합니다.",
+      "includes": [
+        "authorization·accounting과 access policy",
+        "RBAC·ABAC 정책결정",
+        "권한 부여·만료·회수·break-glass"
+      ],
+      "excludes": [
+        "identity proofing·authenticator·session·federation 검증",
+        "credential material 수명주기",
+        "운영 IAM 계정·권한 변경",
+        "승인 UX·범용 규칙엔진 반복"
+      ],
+      "parent_ids": [
+        "security-legal-governance"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "business-rule-decision-automation",
+        "human-approval-escalation-interaction",
+        "secrets-cryptographic-key-management"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.security-legal-governance.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 보안·법무·거버넌스 조사에서 기존 catalog와 중복되지 않는 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "secrets-cryptographic-key-management",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "비밀·자격 증명·암호키 수명주기",
+      "title_en": "Secrets, credentials and cryptographic key lifecycle management",
+      "definition": "synthetic canary와 공개 test key로 비밀·credential·암호키의 inventory·rotation·revocation·destruction을 검증합니다.",
+      "includes": [
+        "비밀·credential·key inventory",
+        "rotation·revocation·destruction",
+        "source·build·log 비노출 검사"
+      ],
+      "excludes": [
+        "실제 secret·private key·인증정보",
+        "운영 PKI 변경",
+        "특정 vault 제품 운용"
+      ],
+      "parent_ids": [
+        "security-legal-governance"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "build-dependency-reproducibility",
+        "release-deployment-safety",
+        "service-observability-telemetry",
+        "authorization-access-governance",
+        "software-supply-chain-security"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.security-legal-governance.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 보안·법무·거버넌스 조사에서 기존 catalog와 중복되지 않는 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "software-supply-chain-security",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "소프트웨어 공급망 무결성·취약점 거버넌스",
+      "title_en": "Software supply chain integrity and vulnerability governance",
+      "definition": "dependency graph·SBOM·artifact provenance와 취약점 remediation·exception·재검증 packet을 연결합니다.",
+      "includes": [
+        "dependency graph·SBOM",
+        "artifact provenance·signature 검증",
+        "취약점 remediation·exception·재검증"
+      ],
+      "excludes": [
+        "실제 공급자 감사",
+        "외부 registry 공격·scan",
+        "재현 build·배포 구현 반복"
+      ],
+      "parent_ids": [
+        "security-legal-governance"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "build-dependency-reproducibility",
+        "release-deployment-safety",
+        "data-catalog-lineage-ownership-metadata",
+        "copyright-license-rights-provenance",
+        "security-control-assurance-audit"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.security-legal-governance.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 보안·법무·거버넌스 조사에서 기존 catalog와 중복되지 않는 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "privacy-engineering-data-rights",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "개인정보 공학·영향평가·데이터 권리 수명주기",
+      "title_en": "Privacy engineering, impact assessment and data rights lifecycle",
+      "definition": "합성 데이터 흐름에서 처리·권리 register와 필요성·비례성·개인 위험·통제·잔여위험·재평가 trigger를 포함한 개인정보 영향평가 packet을 설계합니다.",
+      "includes": [
+        "처리목적·최소수집·보유·삭제와 정보주체 권리요청",
+        "이해관계자·필요성·비례성·개인 위험·통제·잔여위험",
+        "privacy 영향평가 screening·재평가·consultation·qualified routing"
+      ],
+      "excludes": [
+        "실제 개인정보 처리",
+        "관할·법적 근거 최종 판단",
+        "DPO·변호사·규제기관 승인 대체"
+      ],
+      "parent_ids": [
+        "security-legal-governance"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "data-source-acquisition-contracts",
+        "data-catalog-lineage-ownership-metadata",
+        "agent-state-memory-handoff",
+        "ai-impact-awareness",
+        "ai-risk-impact-governance"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.security-legal-governance.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 보안·법무·거버넌스 조사에서 기존 catalog와 중복되지 않는 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "security-incident-evidence-reporting",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "보안사고 증거보존·신고의무 검토 이관",
+      "title_en": "Security incident evidence preservation and reporting obligation review routing",
+      "definition": "기존 플랫폼 사고대응 산출물을 받아 evidence ledger·chain/provenance·관할 matrix·전문 신고의무 검토 이관을 검증합니다.",
+      "includes": [
+        "증거 hash·시간·출처·owner·보존·접근기록",
+        "evidence chain·provenance",
+        "관할 matrix·신고의무 qualified routing"
+      ],
+      "excludes": [
+        "기술 containment·복구·postmortem",
+        "실제 사고 대응·외부 통지·신고",
+        "법적 증거능력 판단"
+      ],
+      "parent_ids": [
+        "security-legal-governance"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "incident-response-postmortem",
+        "service-observability-telemetry",
+        "backup-restore-continuity",
+        "security-control-assurance-audit",
+        "privacy-engineering-data-rights"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.security-legal-governance.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 보안·법무·거버넌스 조사에서 기존 catalog와 중복되지 않는 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "security-control-assurance-audit",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "보안통제 보증·감사증거·예외 거버넌스",
+      "title_en": "Security control assurance, audit evidence and exception governance",
+      "definition": "통제 register·평가계획·결과·evidence index와 deficiency·exception·owner·expiry·재검토 기록을 연결합니다.",
+      "includes": [
+        "통제·평가절차·evidence traceability",
+        "deficiency·exception·owner·expiry",
+        "재평가·감사 packet"
+      ],
+      "excludes": [
+        "실제 외부감사·인증",
+        "전사 통제 baseline 확정",
+        "법적 적합성 결론"
+      ],
+      "parent_ids": [
+        "security-legal-governance"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "software-requirements-acceptance",
+        "output-appraisal-and-decision-reliance",
+        "security-risk-threat-control-engineering",
+        "software-supply-chain-security",
+        "security-incident-evidence-reporting"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.security-legal-governance.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 보안·법무·거버넌스 조사에서 기존 catalog와 중복되지 않는 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "copyright-license-rights-provenance",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "디지털 자산 저작권·라이선스 출처 추적·검토 이관",
+      "title_en": "Digital asset license, rights provenance and qualified review routing",
+      "definition": "합성 software·dataset·model·content의 출처·declared/concluded license·변형·notice·미확인 권리를 기록하고 이관합니다.",
+      "includes": [
+        "source·license·변형·notice inventory",
+        "declared·concluded license 충돌 탐지",
+        "미확인 권리 qualified routing"
+      ],
+      "excludes": [
+        "법률 자문·계약 해석",
+        "특허·상표·영업비밀 결론",
+        "실제 저작물 재배포 승인"
+      ],
+      "parent_ids": [
+        "security-legal-governance"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "evidence-verification",
+        "data-catalog-lineage-ownership-metadata",
+        "build-dependency-reproducibility",
+        "software-supply-chain-security"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.security-legal-governance.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 보안·법무·거버넌스 조사에서 기존 catalog와 중복되지 않는 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "ai-system-security",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "AI 시스템 보안위협 평가",
+      "title_en": "AI system security threat and adversarial evaluation",
+      "definition": "local stub model과 봉인 prompt·retrieval·tool fixture로 AI attack surface와 안전통제 회귀를 검증합니다.",
+      "includes": [
+        "prompt injection·poisoning·evasion",
+        "sensitive disclosure·unsafe output·excessive agency",
+        "AI 보안통제 회귀"
+      ],
+      "excludes": [
+        "실제 모델·외부 endpoint 공격",
+        "jailbreak·exploit 배포",
+        "일반 context·tool·평가 구현 반복"
+      ],
+      "parent_ids": [
+        "security-legal-governance"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "context-engineering",
+        "structured-output-and-tool-contracts",
+        "ai-system-evaluation-regression",
+        "security-risk-threat-control-engineering",
+        "software-supply-chain-security"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.security-legal-governance.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 보안·법무·거버넌스 조사에서 기존 catalog와 중복되지 않는 산출물·검증 Gate를 분리하기 위해 제안했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-07-30",
+        "last_reviewed_at": "2026-07-30",
+        "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "ai-risk-impact-governance",
+      "node_type": "subdomain",
+      "status": "provisional",
+      "title_ko": "AI 시스템 위험·영향 거버넌스 보증",
+      "title_en": "AI system risk, impact and governance assurance lifecycle",
+      "definition": "기존 AI 책임·투명성·인간감독·평가 Unit과 AI 보안평가를 합성 use case의 종단 간 assurance packet으로 조합합니다.",
+      "includes": [
+        "이해관계자·위험·영향·측정·통제",
+        "공정성·투명성·인간감독·책임 owner",
+        "잔여위험·승인·재평가 trigger"
+      ],
+      "excludes": [
+        "법률·규제 적합성 인증",
+        "실제 고위험 AI 배포 승인",
+        "기존 기반·Human-AI·AI 평가 Unit 내용 복제"
+      ],
+      "parent_ids": [
+        "security-legal-governance"
+      ],
+      "aliases": [],
+      "related_ids": [
+        "ai-impact-awareness",
+        "responsible-use-boundaries",
+        "ai-use-transparency",
+        "human-approval-escalation-interaction",
+        "ai-system-evaluation-regression",
+        "ai-system-security",
+        "privacy-engineering-data-rights",
+        "security-control-assurance-audit"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "wave_research",
+        "source_refs": [
+          "research/capability-survey/waves/wave-03/wp.security-legal-governance.breadth-a/domain-survey.md"
+        ],
+        "rationale": "Wave 3 보안·법무·거버넌스 조사에서 기존 catalog와 중복되지 않는 산출물·검증 Gate를 분리하기 위해 제안했습니다."
       },
       "lifecycle": {
         "created_at": "2026-07-30",

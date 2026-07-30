@@ -1,0 +1,204 @@
+{
+  "schema_version": "1.1.0",
+  "id": "candidate.security-legal-governance.security-risk-requirements-threat-model-controls",
+  "version": "1.0.0",
+  "title": "보안 위험·요구·위협 모델·통제 검증",
+  "canonical_name": "Security risk, requirements, threat modeling and control validation",
+  "aliases": [],
+  "summary": "합성 시스템의 자산·trust boundary·위협·보안 요구·통제·검증·잔여위험을 추적 가능한 구조로 연결합니다.",
+  "research_scope": {
+    "problem_addressed": "합성 시스템의 자산·trust boundary·위협·보안 요구·통제·검증·잔여위험을 추적 가능한 구조로 연결합니다.",
+    "includes": [
+      "자산·trust boundary·위협 시나리오",
+      "보안 요구·통제·검증 연결",
+      "잔여위험·owner·qualified review 이관"
+    ],
+    "excludes": [
+      "실제 외부 target scan·exploit",
+      "전사 위험수용 승인",
+      "범용 요구공학·테스트 구현 반복"
+    ],
+    "boundary_note": "평가는 합성 fixture, fake identity, synthetic secret canary, 공개 test key, loopback·일회성 sandbox로 제한합니다. 실제 개인정보·비밀·운영 권한·외부 target을 사용하지 않으며 wall_clock_timeout_seconds=300, max_requests=10000, max_concurrency=16, max_retries_per_request=2, max_fault_injections=10, max_fixture_bytes=10485760, max_records=10000, actual_spend=0을 넘으면 즉시 중단합니다. 법률·규제·위험수용의 최종 판단은 qualified owner에게 이관합니다."
+  },
+  "discovery": {
+    "lens_id": "security-legal-governance",
+    "basis": "assigned_lens",
+    "notes": "공식 표준·법령·사양을 기존 Candidate·Unit·Set과 교차검토하고 누락·중복·역할 경계를 독립 감사했습니다."
+  },
+  "taxonomy": {
+    "major_domain": "security-legal-governance",
+    "subdomains": [
+      "security-risk-threat-control-engineering"
+    ],
+    "tags": [
+      "security",
+      "risk",
+      "requirements",
+      "threat",
+      "model",
+      "controls"
+    ]
+  },
+  "classification": {
+    "candidate_kind": "practice",
+    "proposed_destination": "unit_candidate",
+    "rationale": "독립적인 D3 산출물과 검증 Gate가 있어 Unit 후보입니다.",
+    "proposed_item_type": "practice",
+    "proposed_unit_id": "unit.security-legal-governance.security-risk-requirements-threat-model-controls"
+  },
+  "relations": [],
+  "capability": {
+    "learner_can_do": "합성 시스템의 자산·trust boundary·위협·보안 요구·통제·검증·잔여위험을 추적 가능한 구조로 연결합니다.",
+    "work_contexts": [
+      "합성 보안·privacy·AI 시스템 검토",
+      "통제 evidence와 전문검토 이관",
+      "위험 기반 배포·운영 준비"
+    ],
+    "transferability": "enterprise_cross_functional",
+    "agent_fit": "comparison_required",
+    "agent_fit_rationale": "AI는 초안·분류·일관성 검사를 보조할 수 있지만 법률·보안·위험수용과 실제 권한 변경의 최종 판단은 인간 책임자에게 있습니다."
+  },
+  "outcomes": {
+    "target_level": "D3",
+    "items": [
+      {
+        "level": "D0",
+        "outcome": "threat·vulnerability·risk·control·requirement·test를 구분합니다.",
+        "evidence_hypothesis": "sealed fixture `candidate.security-legal-governance.security-risk-requirements-threat-model-controls.fixture@1.0.0`의 12개 사례를 봉인 분류표와 대조하여 오답 0/12를 확인합니다."
+      },
+      {
+        "level": "D3",
+        "outcome": "합성 시스템의 자산·trust boundary·위협·보안 요구·통제·검증·잔여위험을 추적 가능한 구조로 연결합니다.",
+        "evidence_hypothesis": "봉인 answer key의 고위험 위협 누락 0건, 모든 위협의 owner·control·test·잔여위험 연결, 미검증 고위험의 needs_qualified_review 이관을 검증합니다. sealed fixture `candidate.security-legal-governance.security-risk-requirements-threat-model-controls.fixture@1.0.0`의 D0 12사례에서 오답 0/12, 주입 결함 6/6 탐지·처리, 제출 파일 risk-register.json, threat-control-trace.json, assessment-result.json의 필수 필드·참조 무결성을 검사합니다. 독립된 새 sandbox에서 같은 입력으로 2회 실행한 canonical result hash가 같고 추가 mutation·잔여 임시자원은 각각 0건이어야 하며, 초기·최종 sandbox manifest가 일치하고 cleanup 대상 밖의 sanitized evidence hash는 유지되어야 합니다. 주입 결함 6건을 모두 탐지하고 고위험 위협·통제·검증·owner·잔여위험 누락은 0건이어야 합니다. 평가는 합성 fixture, fake identity, synthetic secret canary, 공개 test key, loopback·일회성 sandbox로 제한합니다. 실제 개인정보·비밀·운영 권한·외부 target을 사용하지 않으며 wall_clock_timeout_seconds=300, max_requests=10000, max_concurrency=16, max_retries_per_request=2, max_fault_injections=10, max_fixture_bytes=10485760, max_records=10000, actual_spend=0을 넘으면 즉시 중단합니다."
+      }
+    ],
+    "depth_boundary": "평가는 합성 fixture, fake identity, synthetic secret canary, 공개 test key, loopback·일회성 sandbox로 제한합니다. 실제 개인정보·비밀·운영 권한·외부 target을 사용하지 않으며 wall_clock_timeout_seconds=300, max_requests=10000, max_concurrency=16, max_retries_per_request=2, max_fault_injections=10, max_fixture_bytes=10485760, max_records=10000, actual_spend=0을 넘으면 즉시 중단합니다. 법률·규제·감사·위험수용 결론은 qualified owner를 대체하지 않습니다."
+  },
+  "practicality": {
+    "value_types": [
+      "quality",
+      "risk_reduction",
+      "mandatory_control",
+      "reuse"
+    ],
+    "business_hypotheses": [
+      "추적 가능한 위험·통제·evidence·이관은 누락과 무근거 승인을 줄일 가능성이 있습니다."
+    ],
+    "maintenance_relevance": "core",
+    "operations_relevance": "core",
+    "priority_hint": "now",
+    "measurement_hypothesis": "봉인 answer key의 고위험 위협 누락 0건, 모든 위협의 owner·control·test·잔여위험 연결, 미검증 고위험의 needs_qualified_review 이관을 검증합니다. sealed fixture `candidate.security-legal-governance.security-risk-requirements-threat-model-controls.fixture@1.0.0`의 D0 12사례에서 오답 0/12, 주입 결함 6/6 탐지·처리, 제출 파일 risk-register.json, threat-control-trace.json, assessment-result.json의 필수 필드·참조 무결성을 검사합니다. 독립된 새 sandbox에서 같은 입력으로 2회 실행한 canonical result hash가 같고 추가 mutation·잔여 임시자원은 각각 0건이어야 하며, 초기·최종 sandbox manifest가 일치하고 cleanup 대상 밖의 sanitized evidence hash는 유지되어야 합니다. 주입 결함 6건을 모두 탐지하고 고위험 위협·통제·검증·owner·잔여위험 누락은 0건이어야 합니다. 평가는 합성 fixture, fake identity, synthetic secret canary, 공개 test key, loopback·일회성 sandbox로 제한합니다. 실제 개인정보·비밀·운영 권한·외부 target을 사용하지 않으며 wall_clock_timeout_seconds=300, max_requests=10000, max_concurrency=16, max_retries_per_request=2, max_fault_injections=10, max_fixture_bytes=10485760, max_records=10000, actual_spend=0을 넘으면 즉시 중단합니다."
+  },
+  "cross_cutting": {
+    "applicable_axes": [
+      "security",
+      "permissions",
+      "reliability",
+      "human_approval"
+    ],
+    "notes": "해당하지 않는 축은 봉인 applicability matrix의 근거가 있을 때만 N/A로 처리하며 법률·보안 최종 결론은 qualified owner에게 이관합니다."
+  },
+  "evidence": [
+    {
+      "id": "evidence.security-legal-governance.nist-sp800-160v1r1",
+      "title": "Engineering Trustworthy Secure Systems",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "standard",
+      "url": "https://doi.org/10.6028/NIST.SP.800-160v1r1",
+      "source_version": "NIST SP 800-160 Vol. 1 Rev. 1, November 2022",
+      "checked_at": "2026-07-30",
+      "claim_scope": "시스템 보안공학의 요구·분석·검증 수명주기를 지지하지만 특정 위협 모델 방법이나 조직 적합성을 보증하지 않습니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "learning_outcome"
+      ]
+    },
+    {
+      "id": "evidence.security-legal-governance.nist-csf-2",
+      "title": "The NIST Cybersecurity Framework (CSF) 2.0",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "standard",
+      "url": "https://doi.org/10.6028/NIST.CSWP.29",
+      "source_version": "NIST CSWP 29, February 26 2024",
+      "checked_at": "2026-07-30",
+      "claim_scope": "사이버보안 위험 outcome을 분류하지만 구현 방법이나 적합성 인증을 제공하지 않습니다.",
+      "supports": [
+        "definition",
+        "scope",
+        "work_relevance"
+      ]
+    },
+    {
+      "id": "evidence.security-legal-governance.owasp-asvs-5",
+      "title": "OWASP Application Security Verification Standard",
+      "publisher": "OWASP Foundation",
+      "source_type": "official_spec",
+      "url": "https://owasp.org/www-project-application-security-verification-standard/",
+      "source_version": "OWASP ASVS 5.0.0, May 2025",
+      "checked_at": "2026-07-30",
+      "claim_scope": "애플리케이션 보안 검증 요구를 제공하지만 전사 위험관리나 조직 PKI 전체를 대신하지 않습니다.",
+      "supports": [
+        "definition",
+        "learning_outcome",
+        "work_relevance"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "accepted",
+    "confidence": "high",
+    "rationale": "근거·taxonomy·실용성 독립 감사와 메인 세션 재검수에서 P0·P1 0건을 확인하여 정규 승격 대상으로 승인했습니다.",
+    "review_gate": "promotion"
+  },
+  "review": {
+    "wave_id": "wave-03",
+    "work_package_id": "wp.security-legal-governance.breadth-a",
+    "author_agent": "codex-main-research",
+    "researched_at": "2026-07-30",
+    "reviewers": [
+      "codex-security-evidence-audit",
+      "codex-security-taxonomy-audit",
+      "codex-security-practicality-audit",
+      "codex-main-review"
+    ],
+    "known_unknowns": [
+      "실제 조직·관할·제품·데이터·통제 tailoring과 학습효과는 아직 검증하지 않았습니다."
+    ],
+    "next_action": "unit.security-legal-governance.security-risk-requirements-threat-model-controls@1.0.0 승격과 정규 산출물 전수 재감사를 P0·P1 0건으로 완료했습니다. 상세 fixture·runner 구현, 접근성·파일럿과 학습·업무효과 검증은 활성화 전 후속 Gate입니다."
+  },
+  "extensions": {
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.software.requirements-acceptance-traceability",
+        "version": "1.0.0"
+      },
+      {
+        "kind": "unit",
+        "id": "unit.software.layered-verification-testing",
+        "version": "1.0.0"
+      }
+    ],
+    "sealed_assessment_contract": {
+      "fixture_id": "candidate.security-legal-governance.security-risk-requirements-threat-model-controls.fixture",
+      "fixture_version": "1.0.0",
+      "d0_case_count": 12,
+      "allowed_d0_errors": 0,
+      "fault_injection_count": 6,
+      "faults": [
+        "누락 위협 2건",
+        "통제 미연결 2건",
+        "검증·잔여위험 미연결 2건"
+      ],
+      "submission_artifacts": [
+        "risk-register.json",
+        "threat-control-trace.json",
+        "assessment-result.json"
+      ],
+      "idempotency_runs": 2,
+      "assessment_implementation_status": "required_before_activation",
+      "note": "Phase 2 정규 catalog 승격은 평가계약을 고정하며 실제 fixture·runner 구현과 학습효과 검증은 Unit 활성화 전 별도 Gate입니다."
+    }
+  }
+}

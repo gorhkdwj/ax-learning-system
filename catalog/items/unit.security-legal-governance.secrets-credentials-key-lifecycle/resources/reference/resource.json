@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.security-legal-governance.secrets-credentials-key-lifecycle.reference",
+  "version": "1.0.0",
+  "title": "비밀·자격 증명·암호키 수명주기 공식·표준·1차 출처 Reference",
+  "description": "정규 Unit의 정의·범위·판정기준을 뒷받침하는 공개 Reference입니다. 상세 교재나 법률·규제·보안 전문판단을 대체하지 않습니다.",
+  "resource_type": "external_reference",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.security-legal-governance.secrets-credentials-key-lifecycle",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "external",
+    "url": "https://doi.org/10.6028/NIST.SP.800-57pt1r5"
+  },
+  "learning_outcome_ids": [
+    "outcome.security-legal-governance.secrets-credentials-key-lifecycle.d0",
+    "outcome.security-legal-governance.secrets-credentials-key-lifecycle.d3"
+  ],
+  "estimated_minutes": 30,
+  "language": "en",
+  "tags": [
+    "reference",
+    "promotion-evidence",
+    "security-legal-governance"
+  ],
+  "requirements": {
+    "platforms": [
+      "web-browser"
+    ],
+    "network_required": true
+  },
+  "provenance": {
+    "origin": "external",
+    "sources": [
+      {
+        "title": "Recommendation for Key Management: Part 1 – General",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "standard",
+        "url": "https://doi.org/10.6028/NIST.SP.800-57pt1r5",
+        "source_version": "NIST SP 800-57 Part 1 Rev. 5, May 2020",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "OWASP Application Security Verification Standard",
+        "publisher": "OWASP Foundation",
+        "source_type": "official_spec",
+        "url": "https://owasp.org/www-project-application-security-verification-standard/",
+        "source_version": "OWASP ASVS 5.0.0, May 2025",
+        "checked_at": "2026-07-30"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "unverified",
+    "standard": "WCAG 2.2 AA",
+    "features": [],
+    "alternative_resource_refs": [],
+    "note": "외부 출처의 접근성은 재검토가 필요합니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-07-30",
+    "commands": [],
+    "expected_outputs": [
+      "출처가 Unit의 정의·범위·판정기준과 한계를 직접 지지하는지 확인한 기록"
+    ],
+    "evidence_paths": [],
+    "note": "URL·버전·claim 범위를 독립 재검토했으며 실제 적합성·상세 학습효과는 검증하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "Candidate 승격 시 등록한 공개 Reference입니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.security-legal-governance.secrets-credentials-key-lifecycle",
+      "version": "1.0.0"
+    },
+    "promotion_reviewed_at": "2026-07-30",
+    "evidence_claims": [
+      {
+        "id": "evidence.security-legal-governance.nist-sp800-57pt1r5",
+        "title": "Recommendation for Key Management: Part 1 – General",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "standard",
+        "url": "https://doi.org/10.6028/NIST.SP.800-57pt1r5",
+        "source_version": "NIST SP 800-57 Part 1 Rev. 5, May 2020",
+        "checked_at": "2026-07-30",
+        "claim_scope": "암호키 수명주기와 보호를 지지하며 특정 secret 저장 제품이나 일반 credential 정책을 처방하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "risk"
+        ]
+      },
+      {
+        "id": "evidence.security-legal-governance.owasp-asvs-5",
+        "title": "OWASP Application Security Verification Standard",
+        "publisher": "OWASP Foundation",
+        "source_type": "official_spec",
+        "url": "https://owasp.org/www-project-application-security-verification-standard/",
+        "source_version": "OWASP ASVS 5.0.0, May 2025",
+        "checked_at": "2026-07-30",
+        "claim_scope": "애플리케이션 보안 검증 요구를 제공하지만 전사 위험관리나 조직 PKI 전체를 대신하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      }
+    ]
+  }
+}

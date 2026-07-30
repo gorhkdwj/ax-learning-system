@@ -1,0 +1,264 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.security-legal-governance.ai-system-security-threat-evaluation",
+  "version": "1.0.0",
+  "title": "AI 시스템 보안위협 평가",
+  "summary": "local stub model과 봉인 prompt·retrieval·tool fixture로 AI attack surface와 안전통제 회귀를 검증합니다. 해결을 위한 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "security-legal-governance",
+    "subdomains": [
+      "ai-system-security"
+    ]
+  },
+  "domain_tags": [
+    "ai",
+    "system",
+    "security",
+    "threat",
+    "evaluation"
+  ],
+  "capabilities": [
+    "local stub model과 봉인 prompt·retrieval·tool fixture로 AI attack surface와 안전통제 회귀를 검증합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.security-legal-governance.ai-system-security-threat-evaluation.d0",
+        "statement": "prompt injection·poisoning·evasion·sensitive disclosure·unsafe output·excessive agency를 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.security-legal-governance.ai-system-security-threat-evaluation.d3",
+        "statement": "local stub model과 봉인 prompt·retrieval·tool fixture로 AI attack surface와 안전통제 회귀를 검증합니다.",
+        "target_level": "D3"
+      }
+    ],
+    "default_target_level": "D3",
+    "maximum_scope_level": "D3",
+    "estimated_minutes": 180,
+    "scope_expansion_policy": "평가는 합성 fixture, fake identity, synthetic secret canary, 공개 test key, loopback·일회성 sandbox로 제한합니다. 실제 개인정보·비밀·운영 권한·외부 target을 사용하지 않으며 wall_clock_timeout_seconds=300, max_requests=10000, max_concurrency=16, max_retries_per_request=2, max_fault_injections=10, max_fixture_bytes=10485760, max_records=10000, actual_spend=0을 넘으면 즉시 중단합니다. 법률·규제·감사·위험수용 결론은 qualified owner를 대체하지 않습니다."
+  },
+  "relations": [
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.ai.system-context-design",
+        "version": "1.0.0"
+      },
+      "note": "관련 정규 Unit의 소유 범위를 복제하지 않고 이 보안·법무·거버넌스 Gate에서 evidence를 연결합니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.ai.tool-function-contract-design",
+        "version": "1.0.0"
+      },
+      "note": "관련 정규 Unit의 소유 범위를 복제하지 않고 이 보안·법무·거버넌스 Gate에서 evidence를 연결합니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.ai.system-evaluation-regression-design",
+        "version": "1.0.0"
+      },
+      "note": "관련 정규 Unit의 소유 범위를 복제하지 않고 이 보안·법무·거버넌스 Gate에서 evidence를 연결합니다."
+    },
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.security-legal-governance.security-risk-requirements-threat-model-controls",
+        "version": "1.0.0"
+      },
+      "note": "동일 패키지에서 조합·교차검증할 후보 관계입니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.security-legal-governance.software-supply-chain-integrity-vulnerability-governance",
+        "version": "1.0.0"
+      },
+      "note": "동일 패키지에서 조합·교차검증할 후보 관계입니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.security-legal-governance.ai-system-security-threat-evaluation.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": false,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference와 prebuilt 합성·local fixture 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "security-legal-governance-ai-system-security-threat-evaluation-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.security-legal-governance.ai-system-security-threat-evaluation.d0",
+          "outcome.security-legal-governance.ai-system-security-threat-evaluation.d3"
+        ],
+        "required": true,
+        "success_criteria": [
+          "sealed fixture `candidate.security-legal-governance.ai-system-security-threat-evaluation.fixture@1.0.0`의 12개 사례를 봉인 분류표와 대조하여 오답 0/12를 확인합니다.",
+          "synthetic canary 유출 0건, 무권한 tool side effect 0건, poisoned evidence 전부 격리, 위협 판정이 봉인 answer key와 일치함을 검증합니다. sealed fixture `candidate.security-legal-governance.ai-system-security-threat-evaluation.fixture@1.0.0`의 D0 12사례에서 오답 0/12, 주입 결함 6/6 탐지·처리, 제출 파일 ai-attack-surface.json, ai-security-regression.json, assessment-result.json의 필수 필드·참조 무결성을 검사합니다. 독립된 새 sandbox에서 같은 입력으로 2회 실행한 canonical result hash가 같고 추가 mutation·잔여 임시자원은 각각 0건이어야 하며, 초기·최종 sandbox manifest가 일치하고 cleanup 대상 밖의 sanitized evidence hash는 유지되어야 합니다. 세 위협 유형 각 2건에 detect·block·quarantine·revalidate 결과를 기록하고 canary 유출·무권한 side effect·cleanup 후 side effect는 각각 0건이어야 합니다. 평가는 합성 fixture, fake identity, synthetic secret canary, 공개 test key, loopback·일회성 sandbox로 제한합니다. 실제 개인정보·비밀·운영 권한·외부 target을 사용하지 않으며 wall_clock_timeout_seconds=300, max_requests=10000, max_concurrency=16, max_retries_per_request=2, max_fault_injections=10, max_fixture_bytes=10485760, max_records=10000, actual_spend=0을 넘으면 즉시 중단합니다.",
+          "실제 개인정보·비밀·private key·운영계정·외부 target·통지·신고·법률 결론 없이 평가하며, 실제 전문판단이 필요한 항목은 needs_qualified_review로 중단·이관합니다.",
+          "실행 전에 봉인 safety manifest와 answer key를 고정하고 실제 실행 기록·최종 상태·rollback·cleanup 결과를 대조합니다. 합성 fixture·fake identity·synthetic secret canary·공개 test key·loopback·새 임시 sandbox로 제한합니다. 평가별 봉인 safety manifest에 wall_clock_timeout_seconds≤300, max_requests≤10000, max_concurrency≤16, max_retries_per_request≤2, max_fault_injections≤10, max_fixture_bytes≤10485760, max_records≤10000, actual_spend=0, allowed_targets=loopback·새 임시 sandbox, abort trigger와 rollback·cleanup invariant를 기록하고 위반 즉시 중단합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "standard",
+      "url": "https://doi.org/10.6028/NIST.AI.100-2e2025",
+      "source_version": "NIST AI 100-2 E2025, March 2025",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "OWASP Top 10 for LLM and GenAI Applications",
+      "publisher": "OWASP Foundation",
+      "source_type": "official_source",
+      "url": "https://genai.owasp.org/llm-top-10/",
+      "source_version": "2025 edition",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "Secure Software Development Practices for Generative AI and Dual-Use Foundation Models",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "standard",
+      "url": "https://csrc.nist.gov/pubs/sp/800/218/a/final",
+      "source_version": "NIST SP 800-218A, July 2024",
+      "checked_at": "2026-07-30"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "risk_reduction",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "candidate.security-legal-governance.ai-system-security-threat-evaluation@1.0.0의 승인 결과를 정규 Unit 메타데이터로 등록했습니다. 상세 교재·실제 조직 적합성·학습효과는 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.security-legal-governance.ai-system-security-threat-evaluation",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.security-legal-governance.breadth-a",
+      "promoted_at": "2026-07-30"
+    },
+    "evidence_claims": [
+      {
+        "id": "evidence.security-legal-governance.nist-ai-100-2e2025",
+        "title": "Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "standard",
+        "url": "https://doi.org/10.6028/NIST.AI.100-2e2025",
+        "source_version": "NIST AI 100-2 E2025, March 2025",
+        "checked_at": "2026-07-30",
+        "claim_scope": "AML taxonomy와 용어를 제공하지만 평가 표준이나 완화 효과를 보증하지 않으며 공개 errata를 함께 확인해야 합니다.",
+        "supports": [
+          "definition",
+          "risk",
+          "learning_outcome"
+        ]
+      },
+      {
+        "id": "evidence.security-legal-governance.owasp-llm-top10-2025",
+        "title": "OWASP Top 10 for LLM and GenAI Applications",
+        "publisher": "OWASP Foundation",
+        "source_type": "official_source",
+        "url": "https://genai.owasp.org/llm-top-10/",
+        "source_version": "2025 edition",
+        "checked_at": "2026-07-30",
+        "claim_scope": "LLM application 위험·완화 목록이며 완전성·발생빈도·통제효과를 보증하지 않습니다.",
+        "supports": [
+          "scope",
+          "risk",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.security-legal-governance.nist-sp800-218a",
+        "title": "Secure Software Development Practices for Generative AI and Dual-Use Foundation Models",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "standard",
+        "url": "https://csrc.nist.gov/pubs/sp/800/218/a/final",
+        "source_version": "NIST SP 800-218A, July 2024",
+        "checked_at": "2026-07-30",
+        "claim_scope": "AI 모델 개발의 SSDF profile이며 runtime 공격시험 전체를 포괄하지 않습니다.",
+        "supports": [
+          "scope",
+          "learning_outcome",
+          "risk"
+        ]
+      }
+    ],
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.ai.system-context-design",
+        "version": "1.0.0"
+      },
+      {
+        "kind": "unit",
+        "id": "unit.ai.tool-function-contract-design",
+        "version": "1.0.0"
+      },
+      {
+        "kind": "unit",
+        "id": "unit.ai.system-evaluation-regression-design",
+        "version": "1.0.0"
+      }
+    ],
+    "sealed_assessment_contract": {
+      "fixture_id": "candidate.security-legal-governance.ai-system-security-threat-evaluation.fixture",
+      "fixture_version": "1.0.0",
+      "d0_case_count": 12,
+      "allowed_d0_errors": 0,
+      "fault_injection_count": 6,
+      "faults": [
+        "prompt injection 2건",
+        "poisoned retrieval 2건",
+        "무권한 tool abuse 2건"
+      ],
+      "submission_artifacts": [
+        "ai-attack-surface.json",
+        "ai-security-regression.json",
+        "assessment-result.json"
+      ],
+      "idempotency_runs": 2,
+      "assessment_implementation_status": "required_before_activation",
+      "note": "Phase 2 정규 catalog 승격은 평가계약을 고정하며 실제 fixture·runner 구현과 학습효과 검증은 Unit 활성화 전 별도 Gate입니다."
+    }
+  }
+}

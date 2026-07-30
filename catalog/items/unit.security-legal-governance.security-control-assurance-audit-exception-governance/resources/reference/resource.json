@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.security-legal-governance.security-control-assurance-audit-exception-governance.reference",
+  "version": "1.0.0",
+  "title": "보안통제 보증·감사증거·예외 거버넌스 공식·표준·1차 출처 Reference",
+  "description": "정규 Unit의 정의·범위·판정기준을 뒷받침하는 공개 Reference입니다. 상세 교재나 법률·규제·보안 전문판단을 대체하지 않습니다.",
+  "resource_type": "external_reference",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.security-legal-governance.security-control-assurance-audit-exception-governance",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "external",
+    "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+  },
+  "learning_outcome_ids": [
+    "outcome.security-legal-governance.security-control-assurance-audit-exception-governance.d0",
+    "outcome.security-legal-governance.security-control-assurance-audit-exception-governance.d3"
+  ],
+  "estimated_minutes": 30,
+  "language": "en",
+  "tags": [
+    "reference",
+    "promotion-evidence",
+    "security-legal-governance"
+  ],
+  "requirements": {
+    "platforms": [
+      "web-browser"
+    ],
+    "network_required": true
+  },
+  "provenance": {
+    "origin": "external",
+    "sources": [
+      {
+        "title": "Security and Privacy Controls for Information Systems and Organizations",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "standard",
+        "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+        "source_version": "NIST SP 800-53 Rev. 5 Release 5.2.0",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "Assessing Security and Privacy Controls in Information Systems and Organizations",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "standard",
+        "url": "https://csrc.nist.gov/pubs/sp/800/53/a/r5/final",
+        "source_version": "NIST SP 800-53A Rev. 5 Release 5.2.0",
+        "checked_at": "2026-07-30"
+      },
+      {
+        "title": "OSCAL Assessment Results Model",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "official_spec",
+        "url": "https://pages.nist.gov/OSCAL-Reference/models/v1.2.2/assessment-results/",
+        "source_version": "OSCAL 1.2.2 Assessment Results Model",
+        "checked_at": "2026-07-30"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "unverified",
+    "standard": "WCAG 2.2 AA",
+    "features": [],
+    "alternative_resource_refs": [],
+    "note": "외부 출처의 접근성은 재검토가 필요합니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-07-30",
+    "commands": [],
+    "expected_outputs": [
+      "출처가 Unit의 정의·범위·판정기준과 한계를 직접 지지하는지 확인한 기록"
+    ],
+    "evidence_paths": [],
+    "note": "URL·버전·claim 범위를 독립 재검토했으며 실제 적합성·상세 학습효과는 검증하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "Candidate 승격 시 등록한 공개 Reference입니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.security-legal-governance.security-control-assurance-audit-exception-governance",
+      "version": "1.0.0"
+    },
+    "promotion_reviewed_at": "2026-07-30",
+    "evidence_claims": [
+      {
+        "id": "evidence.security-legal-governance.nist-sp800-53r5",
+        "title": "Security and Privacy Controls for Information Systems and Organizations",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "standard",
+        "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+        "source_version": "NIST SP 800-53 Rev. 5 Release 5.2.0",
+        "checked_at": "2026-07-30",
+        "claim_scope": "보안·privacy 통제 catalog이며 모든 조직의 baseline이나 적합성 인증을 제공하지 않습니다.",
+        "supports": [
+          "definition",
+          "scope",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.security-legal-governance.nist-sp800-53ar5",
+        "title": "Assessing Security and Privacy Controls in Information Systems and Organizations",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "standard",
+        "url": "https://csrc.nist.gov/pubs/sp/800/53/a/r5/final",
+        "source_version": "NIST SP 800-53A Rev. 5 Release 5.2.0",
+        "checked_at": "2026-07-30",
+        "claim_scope": "통제 평가절차를 제공하지만 tailoring이 필요하며 checklist 통과가 통제 효과를 보증하지 않습니다.",
+        "supports": [
+          "learning_outcome",
+          "risk",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.security-legal-governance.nist-oscal-1-2-2",
+        "title": "OSCAL Assessment Results Model",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "official_spec",
+        "url": "https://pages.nist.gov/OSCAL-Reference/models/v1.2.2/assessment-results/",
+        "source_version": "OSCAL 1.2.2 Assessment Results Model",
+        "checked_at": "2026-07-30",
+        "claim_scope": "평가 결과와 evidence 표현을 지원하지만 감사 결론이나 인증을 자동화하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome"
+        ]
+      }
+    ]
+  }
+}

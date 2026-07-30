@@ -1,0 +1,264 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.security-legal-governance.identity-access-policy-lifecycle",
+  "version": "1.0.0",
+  "title": "접근 정책·권한 수명주기",
+  "summary": "fake identity·role·attribute·resource로 authorization 정책과 join/move/leave·expire/revoke·break-glass 권한 수명주기를 검증합니다. 해결을 위한 정규 카탈로그 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "security-legal-governance",
+    "subdomains": [
+      "authorization-access-governance"
+    ]
+  },
+  "domain_tags": [
+    "identity",
+    "access",
+    "policy",
+    "lifecycle"
+  ],
+  "capabilities": [
+    "fake identity·role·attribute·resource로 authorization 정책과 join/move/leave·expire/revoke·break-glass 권한 수명주기를 검증합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.security-legal-governance.identity-access-policy-lifecycle.d0",
+        "statement": "identification·authentication·authorization·accounting의 경계를 설명하고 RBAC·ABAC 접근결정을 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.security-legal-governance.identity-access-policy-lifecycle.d3",
+        "statement": "fake identity·role·attribute·resource로 authorization 정책과 join/move/leave·expire/revoke·break-glass 권한 수명주기를 검증합니다.",
+        "target_level": "D3"
+      }
+    ],
+    "default_target_level": "D3",
+    "maximum_scope_level": "D3",
+    "estimated_minutes": 180,
+    "scope_expansion_policy": "평가는 합성 fixture, fake identity, synthetic secret canary, 공개 test key, loopback·일회성 sandbox로 제한합니다. 실제 개인정보·비밀·운영 권한·외부 target을 사용하지 않으며 wall_clock_timeout_seconds=300, max_requests=10000, max_concurrency=16, max_retries_per_request=2, max_fault_injections=10, max_fixture_bytes=10485760, max_records=10000, actual_spend=0을 넘으면 즉시 중단합니다. 법률·규제·감사·위험수용 결론은 qualified owner를 대체하지 않습니다."
+  },
+  "relations": [
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.human-ai-experience.human-approval-override-escalation-experience",
+        "version": "1.0.0"
+      },
+      "note": "관련 정규 Unit의 소유 범위를 복제하지 않고 이 보안·법무·거버넌스 Gate에서 evidence를 연결합니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.integration-automation.business-rule-decision-automation",
+        "version": "1.0.0"
+      },
+      "note": "관련 정규 Unit의 소유 범위를 복제하지 않고 이 보안·법무·거버넌스 Gate에서 evidence를 연결합니다."
+    },
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.security-legal-governance.security-risk-requirements-threat-model-controls",
+        "version": "1.0.0"
+      },
+      "note": "동일 패키지에서 조합·교차검증할 후보 관계입니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.security-legal-governance.identity-access-policy-lifecycle.reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": false,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference와 prebuilt 합성·local fixture 1회"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "security-legal-governance-identity-access-policy-lifecycle-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.security-legal-governance.identity-access-policy-lifecycle.d0",
+          "outcome.security-legal-governance.identity-access-policy-lifecycle.d3"
+        ],
+        "required": true,
+        "success_criteria": [
+          "sealed fixture `candidate.security-legal-governance.identity-access-policy-lifecycle.fixture@1.0.0`의 12개 사례를 봉인 분류표와 대조하여 오답 0/12를 확인합니다.",
+          "봉인 allow·deny·escalate 결과 전부 일치, 만료·회수 후 잔여권한 0건, SoD 위반과 무승인 break-glass 전부 차단을 검증합니다. sealed fixture `candidate.security-legal-governance.identity-access-policy-lifecycle.fixture@1.0.0`의 D0 12사례에서 오답 0/12, 주입 결함 6/6 탐지·처리, 제출 파일 access-policy-matrix.json, access-lifecycle-ledger.json, assessment-result.json의 필수 필드·참조 무결성을 검사합니다. 독립된 새 sandbox에서 같은 입력으로 2회 실행한 canonical result hash가 같고 추가 mutation·잔여 임시자원은 각각 0건이어야 하며, 초기·최종 sandbox manifest가 일치하고 cleanup 대상 밖의 sanitized evidence hash는 유지되어야 합니다. 승인된 break-glass 2건은 성공 후 15분 가상시간 이내 만료·회수·사후감사 기록을 남기고, 무승인 2건은 모두 차단하며 2회차 잔여권한은 0건이어야 합니다. 평가는 합성 fixture, fake identity, synthetic secret canary, 공개 test key, loopback·일회성 sandbox로 제한합니다. 실제 개인정보·비밀·운영 권한·외부 target을 사용하지 않으며 wall_clock_timeout_seconds=300, max_requests=10000, max_concurrency=16, max_retries_per_request=2, max_fault_injections=10, max_fixture_bytes=10485760, max_records=10000, actual_spend=0을 넘으면 즉시 중단합니다.",
+          "실제 개인정보·비밀·private key·운영계정·외부 target·통지·신고·법률 결론 없이 평가하며, 실제 전문판단이 필요한 항목은 needs_qualified_review로 중단·이관합니다.",
+          "실행 전에 봉인 safety manifest와 answer key를 고정하고 실제 실행 기록·최종 상태·rollback·cleanup 결과를 대조합니다. 합성 fixture·fake identity·synthetic secret canary·공개 test key·loopback·새 임시 sandbox로 제한합니다. 평가별 봉인 safety manifest에 wall_clock_timeout_seconds≤300, max_requests≤10000, max_concurrency≤16, max_retries_per_request≤2, max_fault_injections≤10, max_fixture_bytes≤10485760, max_records≤10000, actual_spend=0, allowed_targets=loopback·새 임시 sandbox, abort trigger와 rollback·cleanup invariant를 기록하고 위반 즉시 중단합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Digital Identity Guidelines",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "standard",
+      "url": "https://doi.org/10.6028/NIST.SP.800-63-4",
+      "source_version": "NIST SP 800-63-4, July 2025",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "Guide to Attribute Based Access Control Definition and Considerations",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "standard",
+      "url": "https://doi.org/10.6028/NIST.SP.800-162",
+      "source_version": "NIST SP 800-162, updated August 2019",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "Best Current Practice for OAuth 2.0 Security",
+      "publisher": "RFC Editor",
+      "source_type": "standard",
+      "url": "https://www.rfc-editor.org/info/rfc9700",
+      "source_version": "RFC 9700 / BCP 240, January 2025",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "Security and Privacy Controls for Information Systems and Organizations, Access Control Family",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "standard",
+      "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+      "source_version": "NIST SP 800-53 Rev. 5 Release 5.2.0, AC-2·AC-5·AC-6",
+      "checked_at": "2026-07-30"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "risk_reduction",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "candidate.security-legal-governance.identity-access-policy-lifecycle@1.0.0의 승인 결과를 정규 Unit 메타데이터로 등록했습니다. 상세 교재·실제 조직 적합성·학습효과는 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.security-legal-governance.identity-access-policy-lifecycle",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.security-legal-governance.breadth-a",
+      "promoted_at": "2026-07-30"
+    },
+    "evidence_claims": [
+      {
+        "id": "evidence.security-legal-governance.nist-sp800-63-4",
+        "title": "Digital Identity Guidelines",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "standard",
+        "url": "https://doi.org/10.6028/NIST.SP.800-63-4",
+        "source_version": "NIST SP 800-63-4, July 2025",
+        "checked_at": "2026-07-30",
+        "claim_scope": "identity proofing·authentication·federation을 다루며 일반 authorization 정책 전체를 규정하지 않습니다.",
+        "supports": [
+          "definition",
+          "scope",
+          "learning_outcome"
+        ]
+      },
+      {
+        "id": "evidence.security-legal-governance.nist-sp800-162",
+        "title": "Guide to Attribute Based Access Control Definition and Considerations",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "standard",
+        "url": "https://doi.org/10.6028/NIST.SP.800-162",
+        "source_version": "NIST SP 800-162, updated August 2019",
+        "checked_at": "2026-07-30",
+        "claim_scope": "ABAC 정의와 고려사항을 제공하지만 모든 조직의 IAM baseline을 확정하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.security-legal-governance.rfc9700",
+        "title": "Best Current Practice for OAuth 2.0 Security",
+        "publisher": "RFC Editor",
+        "source_type": "standard",
+        "url": "https://www.rfc-editor.org/info/rfc9700",
+        "source_version": "RFC 9700 / BCP 240, January 2025",
+        "checked_at": "2026-07-30",
+        "claim_scope": "OAuth 2.0 보안 권고이며 모든 identity·authorization 체계를 포괄하지 않습니다.",
+        "supports": [
+          "risk",
+          "learning_outcome"
+        ]
+      },
+      {
+        "id": "evidence.security-legal-governance.nist-sp800-53r5-access-control",
+        "title": "Security and Privacy Controls for Information Systems and Organizations, Access Control Family",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "standard",
+        "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+        "source_version": "NIST SP 800-53 Rev. 5 Release 5.2.0, AC-2·AC-5·AC-6",
+        "checked_at": "2026-07-30",
+        "claim_scope": "AC-2의 temporary·emergency account lifecycle, AC-5의 separation of duties, AC-6의 least privilege를 지지하며 조직별 access policy나 실제 승인권자를 확정하지 않습니다.",
+        "supports": [
+          "definition",
+          "learning_outcome",
+          "risk"
+        ]
+      }
+    ],
+    "existing_catalog_relations": [
+      {
+        "kind": "unit",
+        "id": "unit.human-ai-experience.human-approval-override-escalation-experience",
+        "version": "1.0.0"
+      },
+      {
+        "kind": "unit",
+        "id": "unit.integration-automation.business-rule-decision-automation",
+        "version": "1.0.0"
+      }
+    ],
+    "sealed_assessment_contract": {
+      "fixture_id": "candidate.security-legal-governance.identity-access-policy-lifecycle.fixture",
+      "fixture_version": "1.0.0",
+      "d0_case_count": 12,
+      "allowed_d0_errors": 0,
+      "fault_injection_count": 6,
+      "faults": [
+        "SoD 위반 2건",
+        "만료·회수 누락 2건",
+        "무승인 break-glass 2건"
+      ],
+      "submission_artifacts": [
+        "access-policy-matrix.json",
+        "access-lifecycle-ledger.json",
+        "assessment-result.json"
+      ],
+      "idempotency_runs": 2,
+      "assessment_implementation_status": "required_before_activation",
+      "note": "Phase 2 정규 catalog 승격은 평가계약을 고정하며 실제 fixture·runner 구현과 학습효과 검증은 Unit 활성화 전 별도 Gate입니다."
+    }
+  }
+}

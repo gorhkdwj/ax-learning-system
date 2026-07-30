@@ -1,0 +1,576 @@
+{
+  "schema_version": "1.0.0",
+  "id": "set.project.ai-system-risk-impact-governance-assurance",
+  "version": "1.0.0",
+  "title": "AI 시스템 위험·영향 거버넌스 보증",
+  "summary": "기존 AI 책임·투명성·인간감독·평가 Unit과 AI 보안평가를 합성 use case의 종단 간 assurance packet으로 조합합니다.",
+  "set_type": "project",
+  "target_roles": [
+    "AI product owner",
+    "AI engineer",
+    "security and risk reviewer"
+  ],
+  "business_context": "합성 AI use case의 위험·영향·통제·evidence·인간감독·전문검토 이관을 하나의 의사결정 packet으로 연결합니다.",
+  "target_outcome": "기존 AI 책임·투명성·인간감독·평가 Unit과 AI 보안평가를 합성 use case의 종단 간 assurance packet으로 조합합니다.",
+  "input_artifacts": [
+    "합성 AI use case",
+    "봉인 applicability·risk·safety manifest",
+    "synthetic evaluation fixture"
+  ],
+  "output_artifacts": [
+    "AI 위험·영향 거버넌스 assurance packet",
+    "ready·conditional·not-ready 판정과 qualified review queue"
+  ],
+  "entry_requirements": [],
+  "priority": {
+    "curriculum_class": "mandatory_control",
+    "execution_priority": "now",
+    "reason": "AI 도입에서 기술평가·인간감독·privacy·보안·책임 근거를 분리하지 않도록 하는 통합 control Set입니다."
+  },
+  "business_impact": {
+    "value_hypothesis": "추적 가능한 위험·영향·통제·evidence·승인 이관은 누락과 무근거 배포승인을 줄일 가능성이 있습니다.",
+    "impact_types": [
+      "quality",
+      "risk_reduction",
+      "capability_unlock",
+      "reuse"
+    ],
+    "evidence_confidence": "hypothesis",
+    "learning_effort_note": "prebuilt 합성 fixture 기준이며 실제 조직·관할·제품 tailoring은 포함하지 않습니다.",
+    "maintenance_cost_note": "AI·privacy·보안 표준과 법령의 버전·관할 adapter를 주기적으로 재검토해야 합니다."
+  },
+  "steps": [
+    {
+      "id": "frame-ai-risk",
+      "title": "AI 위험·영향 경계 고정",
+      "reason": "기존 정규 Unit 또는 이 패키지의 신규 Unit 산출물을 종단 간 AI assurance packet에 연결합니다.",
+      "unit_ref": {
+        "id": "unit.foundation.ai-impact-awareness",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": true,
+      "depends_on": [],
+      "resource_refs": [],
+      "consumes": [
+        "합성 AI use case와 봉인 applicability·risk·safety manifest"
+      ],
+      "produces": [
+        "AI 위험·영향 경계 고정 evidence"
+      ],
+      "validation_gate_ids": [
+        "foundation-ai-impact-awareness-catalog-assessment"
+      ],
+      "context": "실제 배포·규제·위험수용 승인에 사용하지 않으며 qualified owner 검토를 대체하지 않습니다.",
+      "estimated_minutes": 180
+    },
+    {
+      "id": "calibrate-reliance",
+      "title": "위험 비례 의존 수준 결정",
+      "reason": "기존 정규 Unit 또는 이 패키지의 신규 Unit 산출물을 종단 간 AI assurance packet에 연결합니다.",
+      "unit_ref": {
+        "id": "unit.foundation.risk-proportional-ai-reliance",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": true,
+      "depends_on": [
+        "frame-ai-risk"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "합성 AI use case와 봉인 applicability·risk·safety manifest"
+      ],
+      "produces": [
+        "위험 비례 의존 수준 결정 evidence"
+      ],
+      "validation_gate_ids": [
+        "foundation-risk-proportional-ai-reliance-catalog-assessment"
+      ],
+      "context": "실제 배포·규제·위험수용 승인에 사용하지 않으며 qualified owner 검토를 대체하지 않습니다.",
+      "estimated_minutes": 180
+    },
+    {
+      "id": "fix-use-boundaries",
+      "title": "책임 있는 사용 경계 고정",
+      "reason": "기존 정규 Unit 또는 이 패키지의 신규 Unit 산출물을 종단 간 AI assurance packet에 연결합니다.",
+      "unit_ref": {
+        "id": "unit.foundation.responsible-ai-use-boundaries",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": true,
+      "depends_on": [
+        "frame-ai-risk"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "합성 AI use case와 봉인 applicability·risk·safety manifest"
+      ],
+      "produces": [
+        "책임 있는 사용 경계 고정 evidence"
+      ],
+      "validation_gate_ids": [
+        "foundation-responsible-ai-use-boundaries-catalog-assessment"
+      ],
+      "context": "실제 배포·규제·위험수용 승인에 사용하지 않으며 qualified owner 검토를 대체하지 않습니다.",
+      "estimated_minutes": 180
+    },
+    {
+      "id": "establish-transparency",
+      "title": "AI 사용 투명성 설정",
+      "reason": "기존 정규 Unit 또는 이 패키지의 신규 Unit 산출물을 종단 간 AI assurance packet에 연결합니다.",
+      "unit_ref": {
+        "id": "unit.foundation.ai-use-transparency",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": true,
+      "depends_on": [
+        "fix-use-boundaries"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "합성 AI use case와 봉인 applicability·risk·safety manifest"
+      ],
+      "produces": [
+        "AI 사용 투명성 설정 evidence"
+      ],
+      "validation_gate_ids": [
+        "foundation-ai-use-transparency-catalog-assessment"
+      ],
+      "context": "실제 배포·규제·위험수용 승인에 사용하지 않으며 qualified owner 검토를 대체하지 않습니다.",
+      "estimated_minutes": 180
+    },
+    {
+      "id": "evaluate-system",
+      "title": "AI 시스템 평가·회귀 evidence",
+      "reason": "기존 정규 Unit 또는 이 패키지의 신규 Unit 산출물을 종단 간 AI assurance packet에 연결합니다.",
+      "unit_ref": {
+        "id": "unit.ai.system-evaluation-regression-design",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": true,
+      "depends_on": [
+        "frame-ai-risk"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "합성 AI use case와 봉인 applicability·risk·safety manifest"
+      ],
+      "produces": [
+        "AI 시스템 평가·회귀 evidence"
+      ],
+      "validation_gate_ids": [
+        "ai-system-evaluation-regression-design-catalog-assessment"
+      ],
+      "context": "실제 배포·규제·위험수용 승인에 사용하지 않으며 qualified owner 검토를 대체하지 않습니다.",
+      "estimated_minutes": 180
+    },
+    {
+      "id": "evaluate-ai-security",
+      "title": "AI 보안위협·통제 회귀",
+      "reason": "기존 정규 Unit 또는 이 패키지의 신규 Unit 산출물을 종단 간 AI assurance packet에 연결합니다.",
+      "unit_ref": {
+        "id": "unit.security-legal-governance.ai-system-security-threat-evaluation",
+        "version": "1.0.0"
+      },
+      "required_level": "D3",
+      "required": true,
+      "depends_on": [
+        "evaluate-system"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "합성 AI use case와 봉인 applicability·risk·safety manifest"
+      ],
+      "produces": [
+        "AI 보안위협·통제 회귀 evidence"
+      ],
+      "validation_gate_ids": [
+        "security-legal-governance-ai-system-security-threat-evaluation-catalog-assessment"
+      ],
+      "context": "실제 배포·규제·위험수용 승인에 사용하지 않으며 qualified owner 검토를 대체하지 않습니다.",
+      "estimated_minutes": 180
+    },
+    {
+      "id": "evaluate-privacy",
+      "title": "개인정보 영향·권리 이관",
+      "reason": "기존 정규 Unit 또는 이 패키지의 신규 Unit 산출물을 종단 간 AI assurance packet에 연결합니다.",
+      "unit_ref": {
+        "id": "unit.security-legal-governance.privacy-engineering-impact-data-rights-lifecycle",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": false,
+      "depends_on": [
+        "frame-ai-risk"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "합성 AI use case와 봉인 applicability·risk·safety manifest"
+      ],
+      "produces": [
+        "개인정보 영향·권리 이관 evidence"
+      ],
+      "validation_gate_ids": [
+        "security-legal-governance-privacy-engineering-impact-data-rights-lifecycle-catalog-assessment"
+      ],
+      "context": "봉인 applicability matrix가 적용 대상으로 판정하면 필수이며 N/A에는 rule_id·범위·근거가 필요합니다. 실제 배포·규제·위험수용 승인에 사용하지 않으며 qualified owner 검토를 대체하지 않습니다.",
+      "estimated_minutes": 180
+    },
+    {
+      "id": "design-human-oversight",
+      "title": "인간 승인·중단·이관 경험",
+      "reason": "기존 정규 Unit 또는 이 패키지의 신규 Unit 산출물을 종단 간 AI assurance packet에 연결합니다.",
+      "unit_ref": {
+        "id": "unit.human-ai-experience.human-approval-override-escalation-experience",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": true,
+      "depends_on": [
+        "calibrate-reliance",
+        "evaluate-system"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "합성 AI use case와 봉인 applicability·risk·safety manifest"
+      ],
+      "produces": [
+        "인간 승인·중단·이관 경험 evidence"
+      ],
+      "validation_gate_ids": [
+        "human-ai-experience-human-approval-override-escalation-experience-catalog-assessment"
+      ],
+      "context": "실제 배포·규제·위험수용 승인에 사용하지 않으며 qualified owner 검토를 대체하지 않습니다.",
+      "estimated_minutes": 180
+    },
+    {
+      "id": "assure-controls",
+      "title": "통제·evidence·예외 보증",
+      "reason": "기존 정규 Unit 또는 이 패키지의 신규 Unit 산출물을 종단 간 AI assurance packet에 연결합니다.",
+      "unit_ref": {
+        "id": "unit.security-legal-governance.security-control-assurance-audit-exception-governance",
+        "version": "1.0.0"
+      },
+      "required_level": "D3",
+      "required": false,
+      "depends_on": [
+        "evaluate-ai-security",
+        "design-human-oversight"
+      ],
+      "resource_refs": [],
+      "consumes": [
+        "합성 AI use case와 봉인 applicability·risk·safety manifest"
+      ],
+      "produces": [
+        "통제·evidence·예외 보증 evidence"
+      ],
+      "validation_gate_ids": [
+        "security-legal-governance-security-control-assurance-audit-exception-governance-catalog-assessment"
+      ],
+      "context": "봉인 applicability matrix가 적용 대상으로 판정하면 필수이며 N/A에는 rule_id·범위·근거가 필요합니다. 실제 배포·규제·위험수용 승인에 사용하지 않으며 qualified owner 검토를 대체하지 않습니다.",
+      "estimated_minutes": 180
+    }
+  ],
+  "risk_profile": {
+    "level": "high",
+    "data_classes": [
+      "public"
+    ],
+    "human_approval_points": [
+      "실제 AI use case·개인정보·운영 권한을 사용하지 않는지 확인합니다.",
+      "고위험·불명확 관할·잔여위험은 needs_qualified_review로 이관합니다.",
+      "ready 판정은 실제 배포·법률·규제·위험수용 승인이 아님을 확인합니다."
+    ],
+    "stop_conditions": [
+      "실제 개인정보·비밀·운영계정·외부 target이 필요합니다.",
+      "법률·규제·위험수용의 최종 결론을 학습 결과로 대체하려 합니다.",
+      "봉인 safety manifest·answer key·rollback·cleanup 기준이 없습니다."
+    ],
+    "rollback_plan": "일회성 local sandbox를 초기 snapshot으로 복원·삭제하고 sanitized 실행기록과 중단·이관 이유만 보존합니다."
+  },
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": false,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 Reference와 prebuilt 합성 fixture"
+    },
+    "technology_versions": []
+  },
+  "capstone_resource_refs": [],
+  "acceptance_criteria": [
+    "sealed fixture `candidate.security-legal-governance.ai-system-risk-impact-governance-assurance.fixture@1.0.0`의 12개 사례를 봉인 분류표와 대조하여 오답 0/12를 확인합니다.",
+    "고위험 항목의 owner·evidence·human oversight·qualified review 누락 0건과 ready·conditional·not-ready 결정의 봉인표 일치를 검증합니다. sealed fixture `candidate.security-legal-governance.ai-system-risk-impact-governance-assurance.fixture@1.0.0`의 D0 12사례에서 오답 0/12, 주입 결함 6/6 탐지·처리, 제출 파일 ai-applicability-matrix.json, ai-assurance-packet.json, readiness-decision.json의 필수 필드·참조 무결성을 검사합니다. 독립된 새 sandbox에서 같은 입력으로 2회 실행한 canonical result hash가 같고 추가 mutation·잔여 임시자원은 각각 0건이어야 하며, 초기·최종 sandbox manifest가 일치하고 cleanup 대상 밖의 sanitized evidence hash는 유지되어야 합니다. 고정된 구성 Unit 버전의 필수 Gate 하나라도 실패하면 not-ready여야 합니다. N/A에는 rule_id·범위·근거가 필요하고, 관할·고위험 잔여위험 불명은 needs_qualified_review여야 하며 별도 transfer fixture의 판정 오차는 0건이어야 합니다. 평가는 합성 fixture, fake identity, synthetic secret canary, 공개 test key, loopback·일회성 sandbox로 제한합니다. 실제 개인정보·비밀·운영 권한·외부 target을 사용하지 않으며 wall_clock_timeout_seconds=300, max_requests=10000, max_concurrency=16, max_retries_per_request=2, max_fault_injections=10, max_fixture_bytes=10485760, max_records=10000, actual_spend=0을 넘으면 즉시 중단합니다.",
+    "모든 required 단계의 evidence가 연결되고 고위험·불명확 항목은 qualified review로 중단·이관되어야 합니다.",
+    "별도 transfer fixture 6사례에 동일한 3개 제출 artifact를 적용하고 판정 오류는 0/6이어야 합니다.",
+    "실제 배포·외부 통지·규제 인증·법률 결론·위험수용 승인은 0건이어야 합니다. 합성 fixture·fake identity·synthetic secret canary·공개 test key·loopback·새 임시 sandbox로 제한합니다. 평가별 봉인 safety manifest에 wall_clock_timeout_seconds≤300, max_requests≤10000, max_concurrency≤16, max_retries_per_request≤2, max_fault_injections≤10, max_fixture_bytes≤10485760, max_records≤10000, actual_spend=0, allowed_targets=loopback·새 임시 sandbox, abort trigger와 rollback·cleanup invariant를 기록하고 위반 즉시 중단합니다."
+  ],
+  "transfer_evaluation": {
+    "check_after_days": 7,
+    "metrics": [
+      "고위험 owner·evidence 누락 수",
+      "qualified review 오이관 수",
+      "봉인 결정표 불일치 수"
+    ],
+    "different_context_task": "위험등급·데이터·관할 가정이 다른 합성 AI use case에 같은 evidence routing과 결정 절차를 적용합니다."
+  },
+  "sources": [
+    {
+      "title": "Artificial Intelligence Risk Management Framework",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "standard",
+      "url": "https://doi.org/10.6028/NIST.AI.100-1",
+      "source_version": "NIST AI RMF 1.0, January 2023",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile",
+      "publisher": "National Institute of Standards and Technology",
+      "source_type": "standard",
+      "url": "https://doi.org/10.6028/NIST.AI.600-1",
+      "source_version": "NIST AI 600-1, July 2024",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "Regulation (EU) 2024/1689",
+      "publisher": "European Union",
+      "source_type": "official_source",
+      "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+      "source_version": "EU Artificial Intelligence Act, Official Journal 2024",
+      "checked_at": "2026-07-30"
+    },
+    {
+      "title": "Regulation (EU) 2026/1744",
+      "publisher": "European Union",
+      "source_type": "official_source",
+      "url": "https://eur-lex.europa.eu/eli/reg/2026/1744/oj",
+      "source_version": "Digital Omnibus on AI, Official Journal July 24 2026; in force July 27 2026",
+      "checked_at": "2026-07-30"
+    }
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-07-30",
+    "review_due_at": "2026-10-30",
+    "note": "candidate.security-legal-governance.ai-system-risk-impact-governance-assurance@1.0.0의 승인 결과를 정규 Set으로 등록했습니다. 실제 조직 적합성·법률 결론·학습효과는 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.security-legal-governance.ai-system-risk-impact-governance-assurance",
+      "version": "1.0.0"
+    },
+    "promotion_context": {
+      "work_package_id": "wp.security-legal-governance.breadth-a",
+      "promoted_at": "2026-07-30"
+    },
+    "evidence_claims": [
+      {
+        "id": "evidence.security-legal-governance.nist-ai-rmf-1",
+        "title": "Artificial Intelligence Risk Management Framework",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "standard",
+        "url": "https://doi.org/10.6028/NIST.AI.100-1",
+        "source_version": "NIST AI RMF 1.0, January 2023",
+        "checked_at": "2026-07-30",
+        "claim_scope": "AI 위험의 Govern·Map·Measure·Manage outcome을 제공하지만 인증기준이 아니며 revision 진행 중입니다.",
+        "supports": [
+          "definition",
+          "scope",
+          "learning_outcome"
+        ]
+      },
+      {
+        "id": "evidence.security-legal-governance.nist-ai-600-1",
+        "title": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "standard",
+        "url": "https://doi.org/10.6028/NIST.AI.600-1",
+        "source_version": "NIST AI 600-1, July 2024",
+        "checked_at": "2026-07-30",
+        "claim_scope": "생성형 AI 위험·조치를 보완하지만 모든 AI·관할·산업의 의무를 정하지 않습니다.",
+        "supports": [
+          "learning_outcome",
+          "risk",
+          "work_relevance"
+        ]
+      },
+      {
+        "id": "evidence.security-legal-governance.eu-ai-act",
+        "title": "Regulation (EU) 2024/1689",
+        "publisher": "European Union",
+        "source_type": "official_source",
+        "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+        "source_version": "EU Artificial Intelligence Act, Official Journal 2024",
+        "checked_at": "2026-07-30",
+        "claim_scope": "EU 관할의 AI 위험관리·인간감독·투명성·영향평가 의무에 대한 원 제정법이며 2026/1744 개정과 단계적 적용일을 함께 확인해야 하고 다른 관할이나 모든 AI 시스템에 일반화하지 않습니다.",
+        "supports": [
+          "scope",
+          "risk",
+          "learning_outcome"
+        ]
+      },
+      {
+        "id": "evidence.security-legal-governance.eu-ai-act-amendment-2026",
+        "title": "Regulation (EU) 2026/1744",
+        "publisher": "European Union",
+        "source_type": "official_source",
+        "url": "https://eur-lex.europa.eu/eli/reg/2026/1744/oj",
+        "source_version": "Digital Omnibus on AI, Official Journal July 24 2026; in force July 27 2026",
+        "checked_at": "2026-07-30",
+        "claim_scope": "Regulation 2024/1689의 적용시점을 포함한 개정사항을 제공하며 실제 시스템 분류·관할·의무 판단은 qualified legal review가 필요합니다.",
+        "supports": [
+          "scope",
+          "risk",
+          "lifecycle"
+        ]
+      }
+    ],
+    "sealed_assessment_contract": {
+      "fixture_id": "candidate.security-legal-governance.ai-system-risk-impact-governance-assurance.fixture",
+      "fixture_version": "1.0.0",
+      "d0_case_count": 12,
+      "allowed_d0_errors": 0,
+      "fault_injection_count": 6,
+      "faults": [
+        "owner·evidence 누락 2건",
+        "인간감독 누락 2건",
+        "qualified review 누락 2건"
+      ],
+      "submission_artifacts": [
+        "ai-applicability-matrix.json",
+        "ai-assurance-packet.json",
+        "readiness-decision.json"
+      ],
+      "idempotency_runs": 2,
+      "assessment_implementation_status": "required_before_activation",
+      "note": "Phase 2 정규 catalog 승격은 평가계약을 고정하며 실제 fixture·runner 구현과 학습효과 검증은 Unit 활성화 전 별도 Gate입니다.",
+      "transfer_fixture_id": "candidate.security-legal-governance.ai-system-risk-impact-governance-assurance.transfer-fixture@1.0.0",
+      "transfer_case_count": 6,
+      "allowed_transfer_errors": 0,
+      "transfer_submission_artifacts": [
+        "ai-applicability-matrix.json",
+        "ai-assurance-packet.json",
+        "readiness-decision.json"
+      ],
+      "blocking_rule": "필수 Unit Gate 하나라도 실패하면 not-ready"
+    },
+    "required_unit_composition": [
+      {
+        "id": "unit.foundation.ai-impact-awareness",
+        "version": "1.0.0",
+        "required": true,
+        "required_level": "D2"
+      },
+      {
+        "id": "unit.foundation.risk-proportional-ai-reliance",
+        "version": "1.0.0",
+        "required": true,
+        "required_level": "D2"
+      },
+      {
+        "id": "unit.foundation.responsible-ai-use-boundaries",
+        "version": "1.0.0",
+        "required": true,
+        "required_level": "D2"
+      },
+      {
+        "id": "unit.foundation.ai-use-transparency",
+        "version": "1.0.0",
+        "required": true,
+        "required_level": "D2"
+      },
+      {
+        "id": "unit.human-ai-experience.human-approval-override-escalation-experience",
+        "version": "1.0.0",
+        "required": true,
+        "required_level": "D2"
+      },
+      {
+        "id": "unit.ai.system-evaluation-regression-design",
+        "version": "1.0.0",
+        "required": true,
+        "required_level": "D2"
+      },
+      {
+        "id": "unit.security-legal-governance.ai-system-security-threat-evaluation",
+        "version": "1.0.0",
+        "required": true,
+        "required_level": "D3"
+      },
+      {
+        "id": "unit.security-legal-governance.privacy-engineering-impact-data-rights-lifecycle",
+        "version": "1.0.0",
+        "required": false,
+        "required_level": "D2",
+        "applicability_rule": "봉인 applicability matrix가 해당 위험·데이터·통제 축을 적용 대상으로 판정하면 필수"
+      },
+      {
+        "id": "unit.security-legal-governance.security-control-assurance-audit-exception-governance",
+        "version": "1.0.0",
+        "required": false,
+        "required_level": "D3",
+        "applicability_rule": "봉인 applicability matrix가 해당 위험·데이터·통제 축을 적용 대상으로 판정하면 필수"
+      }
+    ],
+    "recommended_unit_prerequisites": [
+      {
+        "id": "unit.security-legal-governance.security-risk-requirements-threat-model-controls",
+        "version": "1.0.0",
+        "required_level": "D3",
+        "rationale": "AI assurance의 위험·통제·검증 traceability를 먼저 고정하면 Set의 보안·privacy·인간감독 evidence를 같은 위험 register에 연결할 수 있습니다."
+      }
+    ],
+    "source_candidate_relations": [
+      {
+        "type": "requires",
+        "target": {
+          "kind": "candidate",
+          "id": "candidate.security-legal-governance.ai-system-security-threat-evaluation",
+          "version": "1.0.0"
+        },
+        "rationale": "동일 패키지에서 조합·교차검증할 후보 관계입니다."
+      },
+      {
+        "type": "recommended_prerequisite",
+        "target": {
+          "kind": "candidate",
+          "id": "candidate.security-legal-governance.security-risk-requirements-threat-model-controls",
+          "version": "1.0.0"
+        },
+        "rationale": "동일 패키지에서 조합·교차검증할 후보 관계입니다."
+      },
+      {
+        "type": "related_to",
+        "target": {
+          "kind": "candidate",
+          "id": "candidate.security-legal-governance.privacy-engineering-impact-data-rights-lifecycle",
+          "version": "1.0.0"
+        },
+        "rationale": "동일 패키지에서 조합·교차검증할 후보 관계입니다."
+      },
+      {
+        "type": "related_to",
+        "target": {
+          "kind": "candidate",
+          "id": "candidate.security-legal-governance.security-control-assurance-audit-exception-governance",
+          "version": "1.0.0"
+        },
+        "rationale": "동일 패키지에서 조합·교차검증할 후보 관계입니다."
+      }
+    ]
+  }
+}
