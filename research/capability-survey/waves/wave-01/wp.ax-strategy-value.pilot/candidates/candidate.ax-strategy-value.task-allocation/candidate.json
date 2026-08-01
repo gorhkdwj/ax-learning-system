@@ -171,10 +171,10 @@
     }
   ],
   "decision": {
-    "status": "proposed",
+    "status": "accepted",
     "confidence": "medium",
     "rationale": "과업 분석과 인간-시스템 기능배분의 직접 근거 및 세 독립 감사로 D2 학습성과를 유지하되 산업별 위험·책임 경계는 후속 렌즈에서 보정합니다.",
-    "review_gate": "breadth"
+    "review_gate": "promotion"
   },
   "review": {
     "wave_id": "wave-01",
@@ -190,6 +190,6 @@
       "비생성형 AI까지 포괄하는 공통 과업 속성표의 타당성을 검증해야 합니다.",
       "산업별 책임 경계의 전이 한계를 후속 렌즈와 조정해야 합니다."
     ],
-    "next_action": "공통 과업 속성표를 두 산업 맥락의 숨은 평가자료로 검증합니다."
+    "next_action": "unit.ax-strategy-value.task-allocation@1.0.0 정규 승격과 구조검증을 완료했습니다. 공통 과업 속성표의 전이성은 상세 fixture 설계에서 검증합니다."
   }
 }

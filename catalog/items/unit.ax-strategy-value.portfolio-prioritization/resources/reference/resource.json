@@ -1,0 +1,109 @@
+{
+    "schema_version":  "1.0.0",
+    "id":  "resource.ax-strategy-value.portfolio-prioritization.reference",
+    "version":  "1.0.0",
+    "title":  "AX 후보 포트폴리오 우선순위·재균형 공식·1차 출처 Reference",
+    "description":  "정규 Unit의 정의·범위와 판정 기준을 뒷받침하는 공개 Reference입니다. 상세 교재나 독립 평가자료를 대신하지 않습니다.",
+    "resource_type":  "external_reference",
+    "owner":  {
+                  "kind":  "unit",
+                  "id":  "unit.ax-strategy-value.portfolio-prioritization",
+                  "version":  "1.0.0"
+              },
+    "location":  {
+                     "kind":  "external",
+                     "url":  "https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government/the-green-book-2026"
+                 },
+    "learning_outcome_ids":  [
+                                 "outcome.ax-strategy-value.portfolio-prioritization.d0",
+                                 "outcome.ax-strategy-value.portfolio-prioritization.d2"
+                             ],
+    "estimated_minutes":  30,
+    "language":  "ko",
+    "tags":  [
+                 "reference",
+                 "promotion-evidence"
+             ],
+    "requirements":  {
+                         "platforms":  [
+                                           "web-browser"
+                                       ],
+                         "network_required":  true
+                     },
+    "provenance":  {
+                       "origin":  "external",
+                       "sources":  [
+                                       {
+                                           "title":  "The Green Book (2026)",
+                                           "publisher":  "HM Treasury; Government Finance Function",
+                                           "source_type":  "official_docs",
+                                           "url":  "https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government/the-green-book-2026",
+                                           "source_version":  "2026 edition; page updated 2026-02-05",
+                                           "checked_at":  "2026-07-26"
+                                       },
+                                       {
+                                           "title":  "Portfolio Risk Management Guidance — Orange Book Annex",
+                                           "publisher":  "HM Treasury; Government Finance Function",
+                                           "source_type":  "official_docs",
+                                           "url":  "https://assets.publishing.service.gov.uk/media/6453b363c33b460012f5e6bf/Portfolio_Risk_Management_Guidance_Orange_Book_Annex.pdf",
+                                           "source_version":  "May 2023 annex; GOV.UK publication collection records addition on 2023-05-04",
+                                           "checked_at":  "2026-07-27"
+                                       },
+                                       {
+                                           "title":  "What is portfolio management?",
+                                           "publisher":  "Association for Project Management",
+                                           "source_type":  "official_source",
+                                           "url":  "https://www.apm.org.uk/resources/what-is-project-management/what-is-portfolio-management/",
+                                           "source_version":  "APM Body of Knowledge 8th edition 기반 정의 페이지; 페이지 자체 발행일 표기 없음",
+                                           "checked_at":  "2026-07-26"
+                                       },
+                                       {
+                                           "title":  "Artificial Intelligence Playbook for the UK Government",
+                                           "publisher":  "Government Digital Service",
+                                           "source_type":  "official_docs",
+                                           "url":  "https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government/artificial-intelligence-playbook-for-the-uk-government-html",
+                                           "source_version":  "AI Playbook published 2025-02-10; update log records expansion of the 2024 Generative AI Framework",
+                                           "checked_at":  "2026-07-27"
+                                       }
+                                   ]
+                   },
+    "accessibility":  {
+                          "status":  "unverified",
+                          "standard":  "WCAG 2.2 AA",
+                          "features":  [
+
+                                       ],
+                          "alternative_resource_refs":  [
+
+                                                        ],
+                          "note":  "외부 출처의 접근성은 재검토가 필요합니다."
+                      },
+    "verification":  {
+                         "status":  "partial",
+                         "checked_at":  "2026-08-02",
+                         "commands":  [
+
+                                      ],
+                         "expected_outputs":  [
+                                                  "출처가 Unit의 정의·범위·판정 기준을 뒷받침하는지 확인한 기록"
+                                              ],
+                         "evidence_paths":  [
+
+                                            ],
+                         "note":  "URL·근거 범위만 검토했으며 학습자료로서의 완전성과 평가 타당성은 아직 검증하지 않았습니다."
+                     },
+    "lifecycle":  {
+                      "status":  "cataloged",
+                      "owner":  "AX learning workspace",
+                      "last_reviewed_at":  "2026-08-02",
+                      "review_due_at":  "2026-11-02",
+                      "note":  "Candidate 승격 시 등록한 공개 Reference입니다."
+                  },
+    "extensions":  {
+                       "promoted_from":  {
+                                             "kind":  "capability_candidate",
+                                             "id":  "candidate.ax-strategy-value.portfolio-prioritization",
+                                             "version":  "1.0.0"
+                                         }
+                   }
+}

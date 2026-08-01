@@ -54,6 +54,14 @@
         "version": "1.0.0"
       },
       "note": "분석 의미계약은 재현 가능한 변환으로 구현·검증됩니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.ax-strategy-value.measurement-contract",
+        "version": "1.0.0"
+      },
+      "note": "전략 Unit이 지표 선택을 소유하고 이 Unit이 선택된 지표의 계산 의미를 소유합니다."
     }
   ],
   "resource_refs": [
@@ -157,17 +165,6 @@
     "promotion_context": {
       "work_package_id": "wp.data-analytics-ml.breadth-a",
       "promoted_at": "2026-07-29"
-    },
-    "pending_candidate_relations": [
-      {
-        "type": "related_to",
-        "target": {
-          "kind": "candidate",
-          "id": "candidate.ax-strategy-value.measurement-contract",
-          "version": "1.0.0"
-        },
-        "rationale": "전략 후보가 지표 선택을 소유하고 이 후보가 선택된 지표의 계산 의미를 소유합니다."
-      }
-    ]
+    }
   }
 }

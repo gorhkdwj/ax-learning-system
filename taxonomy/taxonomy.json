@@ -1,18 +1,18 @@
 {
   "schema_version": "1.0.0",
   "id": "taxonomy.ax-capability-map",
-  "version": "0.10.0",
+  "version": "1.0.0",
   "title": "AX 역량 분류 레지스트리",
-  "status": "provisional",
-  "updated_at": "2026-07-30",
+  "status": "canonical",
+  "updated_at": "2026-08-02",
   "nodes": [
     {
       "id": "ax-strategy-value",
       "node_type": "domain",
-      "status": "research_lens",
+      "status": "canonical",
       "title_ko": "AX 전략·가치·업무재설계",
       "title_en": "AX strategy, value and work redesign",
-      "definition": "AX 기회를 사업 문제와 가치가설로 정의하고 업무·의사결정·포트폴리오·로드맵과 성과측정을 설계하는 조사 렌즈입니다.",
+      "definition": "AX 기회를 사업 문제와 가치가설로 정의하고 업무·의사결정·포트폴리오·로드맵과 성과측정을 설계하는 전사 역량 분야입니다.",
       "includes": [
         "기회·가치 프레이밍, 업무 재설계, 해법 선택, 포트폴리오, 로드맵과 성과측정"
       ],
@@ -56,10 +56,10 @@
     {
       "id": "ai-literacy-trust",
       "node_type": "domain",
-      "status": "research_lens",
+      "status": "canonical",
       "title_ko": "AI 리터러시·검증·신뢰",
       "title_en": "AI literacy, verification and trust",
-      "definition": "AI의 용도와 한계, 결과 검증, 책임 있는 사용과 인간 판단을 다루는 조사 렌즈입니다.",
+      "definition": "AI의 용도와 한계, 결과 검증, 책임 있는 사용과 인간 판단을 다루는 전사 역량 분야입니다.",
       "includes": [
         "AI 리터러시, 근거 검증, 책임 있는 사용, 인간 판단과 결과 신뢰"
       ],
@@ -102,10 +102,10 @@
     {
       "id": "ai-systems-agents",
       "node_type": "domain",
-      "status": "research_lens",
+      "status": "canonical",
       "title_ko": "AI 시스템·에이전트",
       "title_en": "AI systems and agents",
-      "definition": "LLM, 검색·RAG, 평가, 컨텍스트·도구·메모리와 에이전트 시스템을 다루는 조사 렌즈입니다.",
+      "definition": "LLM, 검색·RAG, 평가, 컨텍스트·도구·메모리와 에이전트 시스템을 다루는 전사 역량 분야입니다.",
       "includes": [
         "LLM 응용, 검색·RAG, 에이전트, 평가, 컨텍스트·도구·메모리"
       ],
@@ -150,10 +150,10 @@
     {
       "id": "software-product-engineering",
       "node_type": "domain",
-      "status": "research_lens",
+      "status": "canonical",
       "title_ko": "소프트웨어·제품 엔지니어링",
       "title_en": "Software and product engineering",
-      "definition": "프론트엔드, 백엔드, API, DB, 테스트, 설계와 바이브 코딩의 공학 실천을 조사하는 잠정 렌즈입니다.",
+      "definition": "프론트엔드, 백엔드, API, DB, 테스트, 설계와 AI 보조 개발을 포괄하는 소프트웨어·제품 공학 역량 분야입니다.",
       "includes": [
         "프론트엔드, 백엔드, API, 애플리케이션 DB, 테스트, 아키텍처와 바이브 코딩"
       ],
@@ -205,10 +205,10 @@
     {
       "id": "data-analytics-ml",
       "node_type": "domain",
-      "status": "research_lens",
+      "status": "canonical",
       "title_ko": "데이터·분석·ML",
       "title_en": "Data, analytics and machine learning",
-      "definition": "데이터 수집·모델링·파이프라인·분석·품질·거버넌스와 ML을 조사하는 잠정 렌즈입니다.",
+      "definition": "데이터 수집·모델링·파이프라인·분석·품질·거버넌스와 ML을 포괄하는 전사 역량 분야입니다.",
       "includes": [
         "데이터 엔지니어링, 분석 엔지니어링, 데이터 품질·거버넌스, 통계와 ML"
       ],
@@ -260,10 +260,10 @@
     {
       "id": "integration-automation",
       "node_type": "domain",
-      "status": "research_lens",
+      "status": "canonical",
       "title_ko": "통합·업무자동화",
       "title_en": "Integration and workflow automation",
-      "definition": "API, MCP, SaaS, 결정적 자동화와 워크플로우 오케스트레이션을 조사하는 렌즈입니다.",
+      "definition": "API, MCP, SaaS, 결정적 자동화와 워크플로우 오케스트레이션을 포괄하는 통합·자동화 역량 분야입니다.",
       "includes": [
         "API 통합, MCP, SaaS, 결정적 자동화, 워크플로우 오케스트레이션"
       ],
@@ -306,10 +306,10 @@
     {
       "id": "human-ai-experience",
       "node_type": "domain",
-      "status": "research_lens",
+      "status": "canonical",
       "title_ko": "Human-AI 경험·접근성",
       "title_en": "Human-AI experience and accessibility",
-      "definition": "UI·UX, Human-AI Interaction, 접근성, 설명과 승인 경험을 조사하는 렌즈입니다.",
+      "definition": "UI·UX, Human-AI Interaction, 접근성, 설명과 승인 경험을 포괄하는 전사 역량 분야입니다.",
       "includes": [
         "UI·UX, Human-AI Interaction, 접근성, 설명·승인·이의제기 경험"
       ],
@@ -360,10 +360,10 @@
     {
       "id": "platform-quality-operations",
       "node_type": "domain",
-      "status": "research_lens",
+      "status": "canonical",
       "title_ko": "플랫폼·품질·운영",
       "title_en": "Platform, quality and operations",
-      "definition": "배포, 관측성, 신뢰성, 비용, 장애·복구와 유지보수를 조사하는 렌즈입니다.",
+      "definition": "배포, 관측성, 신뢰성, 비용, 장애·복구와 유지보수를 포괄하는 플랫폼·운영 역량 분야입니다.",
       "includes": [
         "배포, 플랫폼, 관측성, 신뢰성, 비용, 장애·복구와 유지보수"
       ],
@@ -415,10 +415,10 @@
     {
       "id": "security-legal-governance",
       "node_type": "domain",
-      "status": "research_lens",
+      "status": "canonical",
       "title_ko": "보안·법무·거버넌스",
       "title_en": "Security, legal and governance",
-      "definition": "보안, 개인정보, 권한, 감사, 법무, 저작권과 윤리를 조사하는 렌즈입니다.",
+      "definition": "보안, 개인정보, 권한, 감사, 법무, 저작권과 윤리를 포괄하는 전사 통제 역량 분야입니다.",
       "includes": [
         "보안, 개인정보, 권한, 감사, 법무, 저작권, 윤리와 인간 승인"
       ],
@@ -475,10 +475,10 @@
     {
       "id": "organization-adoption",
       "node_type": "domain",
-      "status": "research_lens",
+      "status": "canonical",
       "title_ko": "조직 도입·변화·학습운영",
       "title_en": "Organization adoption, change and learning operations",
-      "definition": "조직변화, 역할·협업, 교육 운영과 AX 도입·성과 확산을 조사하는 렌즈입니다.",
+      "definition": "조직변화, 역할·협업, 교육 운영과 AX 도입·성과 확산을 포괄하는 조직 역량 분야입니다.",
       "includes": [
         "조직변화, 역할·협업, 교육 운영, 운영모델과 도입·성과 확산"
       ],
@@ -591,7 +591,7 @@
     {
       "id": "process-analysis",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "업무 프로세스 분석",
       "title_en": "Work process analysis",
       "definition": "실제 증거로 현행 업무 흐름과 병목을 복원하는 잠정 중분류입니다.",
@@ -627,7 +627,7 @@
     {
       "id": "baseline-discovery",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "기준선 발견",
       "title_en": "Baseline discovery",
       "definition": "현행 수행 증거에서 평가 가능한 기준선을 찾는 잠정 중분류입니다.",
@@ -663,7 +663,7 @@
     {
       "id": "enterprise-roadmap",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "전사 AX 로드맵",
       "title_en": "Enterprise AX roadmap",
       "definition": "사업 결과와 공통 기반 역량을 실행 파동과 게이트로 순서화하는 잠정 중분류입니다.",
@@ -699,7 +699,7 @@
     {
       "id": "capability-roadmapping",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "역량 로드매핑",
       "title_en": "Capability roadmapping",
       "definition": "현재·목표 역량 격차와 선행관계를 실행 순서에 연결하는 잠정 중분류입니다.",
@@ -734,7 +734,7 @@
     {
       "id": "process-redesign",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "업무 프로세스 재설계",
       "title_en": "Work process redesign",
       "definition": "인간·자동화·AI가 결합된 미래 업무 흐름을 설계하는 잠정 중분류입니다.",
@@ -770,7 +770,7 @@
     {
       "id": "human-ai-control",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "인간-AI 통제",
       "title_en": "Human-AI control",
       "definition": "인간 승인·개입·예외처리와 AI 역할 경계를 설계하는 잠정 중분류입니다.",
@@ -806,7 +806,7 @@
     {
       "id": "value-measurement",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "가치·성과 측정",
       "title_en": "Value and outcome measurement",
       "definition": "성과지표의 분모·창·출처·가드레일을 재현 가능한 계약으로 만드는 잠정 중분류입니다.",
@@ -842,7 +842,7 @@
     {
       "id": "evaluation-design",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "평가 설계",
       "title_en": "Evaluation design",
       "definition": "성과 평가 계약과 검증 계획의 구조를 설계하는 잠정 중분류입니다.",
@@ -878,7 +878,7 @@
     {
       "id": "opportunity-discovery",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "AX 기회 발견",
       "title_en": "AX opportunity discovery",
       "definition": "기술보다 업무 문제와 가치 기회를 먼저 식별하는 잠정 중분류입니다.",
@@ -913,7 +913,7 @@
     {
       "id": "value-framing",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "가치가설 프레이밍",
       "title_en": "Value-hypothesis framing",
       "definition": "업무 문제, 기대 결과, 제약과 반증조건을 가치가설로 고정하는 잠정 중분류입니다.",
@@ -948,7 +948,7 @@
     {
       "id": "impact-evaluation",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "개입 영향평가",
       "title_en": "Intervention impact evaluation",
       "definition": "반사실과 주장 한계를 포함해 파일럿 개입의 영향을 평가하는 잠정 중분류입니다.",
@@ -984,7 +984,7 @@
     {
       "id": "test-and-learn",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "시험·학습",
       "title_en": "Test and learn",
       "definition": "제한된 개입과 증거로 다음 결정을 갱신하는 잠정 중분류입니다.",
@@ -1019,7 +1019,7 @@
     {
       "id": "portfolio-strategy",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "AX 포트폴리오 전략",
       "title_en": "AX portfolio strategy",
       "definition": "복수 AX 후보를 가치·위험·역량·의존성으로 비교하고 재균형하는 잠정 중분류입니다.",
@@ -1055,7 +1055,7 @@
     {
       "id": "initiative-prioritization",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "이니셔티브 우선순위",
       "title_en": "Initiative prioritization",
       "definition": "제약과 근거를 사용해 AX 이니셔티브의 진행·보류·중단을 결정하는 잠정 중분류입니다.",
@@ -1090,7 +1090,7 @@
     {
       "id": "solution-selection",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "해법 선택",
       "title_en": "Solution selection",
       "definition": "동일한 수용기준으로 현행·SaaS·자동화·AI 대안을 비교하는 잠정 중분류입니다.",
@@ -1125,7 +1125,7 @@
     {
       "id": "automation-fit",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "자동화 적합성",
       "title_en": "Automation fit",
       "definition": "비자동화·결정적 자동화·SaaS·AI·에이전트 방식의 적합성을 비교하는 잠정 중분류입니다.",
@@ -1160,7 +1160,7 @@
     {
       "id": "task-analysis",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "과업 분석",
       "title_en": "Task analysis",
       "definition": "업무를 과업 수준으로 분해하고 요구 판단·권한·예외를 분석하는 잠정 중분류입니다.",
@@ -1195,7 +1195,7 @@
     {
       "id": "human-ai-work-design",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "인간-AI 업무설계",
       "title_en": "Human-AI work design",
       "definition": "과업별 인간·자동화·AI 역할과 승인·이관 경계를 설계하는 잠정 중분류입니다.",
@@ -1231,7 +1231,7 @@
     {
       "id": "evidence-verification",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "근거·출처 검증",
       "title_en": "Evidence and source verification",
       "definition": "주장을 출처와 연결하고 사실·해석·불확실성을 구분하는 잠정 중분류입니다.",
@@ -1275,7 +1275,7 @@
     {
       "id": "ai-foundations-and-limitations",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "AI 기초·역량·한계",
       "title_en": "AI foundations, capabilities and limitations",
       "definition": "AI 시스템의 기본 동작, 적용 가능한 역량과 맥락 의존적 한계를 설명하는 잠정 중분류입니다.",
@@ -1322,7 +1322,7 @@
     {
       "id": "ai-task-framing-and-use",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "AI 과업 프레이밍·사용",
       "title_en": "AI task framing and use",
       "definition": "과업 목적·맥락·제약·완료조건을 상호작용형·생성형 AI 사용에 맞게 표현하고 결과를 바탕으로 요청을 교정하는 잠정 중분류입니다.",
@@ -1364,7 +1364,7 @@
     {
       "id": "output-appraisal-and-decision-reliance",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "출력 평가·결정 의존",
       "title_en": "Output appraisal and decision reliance",
       "definition": "AI 출력의 업무 적합성과 불확실성을 평가하고 위험에 맞게 수용·수정·거부·에스컬레이션하는 잠정 중분류입니다.",
@@ -1407,7 +1407,7 @@
     {
       "id": "trust-calibration",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "AI 신뢰 보정",
       "title_en": "AI trust calibration",
       "definition": "자동화 편향·과신·과소신뢰를 인식하고 독립 판단과 비교 검토로 AI 의존 수준을 조정하는 잠정 중분류입니다.",
@@ -1448,7 +1448,7 @@
     {
       "id": "responsible-use-boundaries",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "책임 있는 사용 경계",
       "title_en": "Responsible AI use boundaries",
       "definition": "정책·데이터 민감도·권한·기밀성·개인정보·지식재산과 금지 용도를 인식하고 사용을 중단·이관하는 잠정 중분류입니다.",
@@ -1495,7 +1495,7 @@
     {
       "id": "ai-impact-awareness",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "AI 영향·편향 인식",
       "title_en": "AI impact and harmful-bias awareness",
       "definition": "영향받는 사람·집단과 불균등 오류·차별·접근성·인권 위험을 사례에서 식별하고 전문 검토로 이관하는 잠정 중분류입니다.",
@@ -1544,7 +1544,7 @@
     {
       "id": "ai-use-transparency",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "AI 사용 투명성",
       "title_en": "AI use transparency",
       "definition": "AI 사용 사실, 인간 검토 범위, 근거 상태, 한계와 불확실성을 이해관계자에게 맥락에 맞게 전달하는 잠정 중분류입니다.",
@@ -1585,7 +1585,7 @@
     {
       "id": "llm-application-architecture",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "LLM 응용 아키텍처",
       "title_en": "LLM application architecture",
       "definition": "모델 호출 경계, 입력·출력·버전 계약과 모델 routing·fallback을 다루는 잠정 중분류입니다.",
@@ -1627,7 +1627,7 @@
     {
       "id": "context-engineering",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "시스템 컨텍스트 설계",
       "title_en": "Context engineering",
       "definition": "시스템 지시, 예시, 도구, 외부자료와 대화기록의 선택·순서·압축·격리 및 컨텍스트 예산을 다루는 잠정 중분류입니다.",
@@ -1668,7 +1668,7 @@
     {
       "id": "retrieval-grounding-systems",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "검색·근거 연결 시스템",
       "title_en": "Retrieval and grounding systems",
       "definition": "질의 변환, 검색·재정렬, 근거 컨텍스트 조립, 인용·답변 보류·최신성과 검색 실패 평가를 다루는 잠정 중분류입니다.",
@@ -1710,7 +1710,7 @@
     {
       "id": "structured-output-and-tool-contracts",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "구조화 출력·AI 도구 계약",
       "title_en": "Structured output and AI tool contracts",
       "definition": "비결정적 모델 출력의 스키마·검증·복구와 모델이 사용할 도구의 입력·출력·오류·부작용 계약을 다루는 잠정 중분류입니다.",
@@ -1752,7 +1752,7 @@
     {
       "id": "agent-state-memory-handoff",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "에이전트 상태·메모리·인계",
       "title_en": "Agent state, memory and handoff",
       "definition": "작업 상태, 단기·장기 메모리의 쓰기·검색·만료, checkpoint와 에이전트 간 인계 계약을 다루는 잠정 중분류입니다.",
@@ -1793,7 +1793,7 @@
     {
       "id": "agent-workflow-orchestration",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "AI 워크플로·에이전트 토폴로지",
       "title_en": "AI workflow and agent topology",
       "definition": "단일 호출, 고정 workflow, 모델 주도 agent와 orchestrator-worker·다중 agent 토폴로지의 기술적 선택과 조합을 다루는 잠정 중분류입니다.",
@@ -1838,7 +1838,7 @@
     {
       "id": "ai-system-evaluation-regression",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "AI 시스템 평가·회귀",
       "title_en": "AI system evaluation and regression",
       "definition": "대표 과제·환경·grader·trajectory·실패 분류·회귀 세트와 release gate 설계를 다루는 잠정 중분류입니다.",
@@ -1880,7 +1880,7 @@
     {
       "id": "grounded-output-evaluation",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "근거 기반 AI 출력 평가",
       "title_en": "Grounded AI output evaluation",
       "definition": "AI 출력의 주장이 제공된 근거로 확인되는지 평가하는 잠정 중분류입니다.",
@@ -1916,7 +1916,7 @@
     {
       "id": "software-requirements-acceptance",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "소프트웨어 요구사항·인수기준",
       "title_en": "Software requirements and acceptance",
       "definition": "업무 요구를 검증 가능한 소프트웨어 동작·품질 제약·인수기준과 추적관계로 표현하는 잠정 중분류입니다.",
@@ -1957,7 +1957,7 @@
     {
       "id": "modular-software-design",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "모듈형 소프트웨어 설계",
       "title_en": "Modular software design",
       "definition": "응집도·결합도·책임·의존성 경계를 사용해 변경 가능한 소프트웨어 구조를 설계하는 잠정 중분류입니다.",
@@ -1998,7 +1998,7 @@
     {
       "id": "version-control-change-integration",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "버전관리·변경 통합",
       "title_en": "Version control and change integration",
       "definition": "작은 변경 단위, 분기·병합·충돌 해결과 검증 증거를 사용해 변경 이력을 안전하게 통합하는 잠정 중분류입니다.",
@@ -2038,7 +2038,7 @@
     {
       "id": "api-contracts-compatibility",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "API 계약·호환성",
       "title_en": "API contracts and compatibility",
       "definition": "HTTP API의 요청·응답·오류·버전·호환성 계약을 기술 중립적으로 설계하고 검증하는 잠정 중분류입니다.",
@@ -2080,7 +2080,7 @@
     {
       "id": "relational-data-modeling-schema-evolution",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "관계형 데이터 모델·스키마 진화",
       "title_en": "Relational data modeling and schema evolution",
       "definition": "식별자·관계·제약을 갖춘 관계형 모델과 기존 데이터를 보존하는 스키마 변경을 설계하는 잠정 중분류입니다.",
@@ -2121,7 +2121,7 @@
     {
       "id": "accessible-ui-state-interaction",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "접근 가능한 UI 상태·상호작용 구현",
       "title_en": "Accessible UI state and interaction implementation",
       "definition": "사용자 입력·상태·오류·포커스·접근성 의미를 구현하고 자동·수동 검사로 검증하는 잠정 중분류입니다.",
@@ -2162,7 +2162,7 @@
     {
       "id": "software-verification-testing",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "소프트웨어 검증·테스트",
       "title_en": "Software verification and testing",
       "definition": "요구·위험·변경 범위에 맞춰 단위·통합·계약·종단 간·정적 검사를 조합하고 회귀 Gate를 설계하는 잠정 중분류입니다.",
@@ -2203,7 +2203,7 @@
     {
       "id": "debugging-fault-isolation",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "디버깅·결함 격리",
       "title_en": "Debugging and fault isolation",
       "definition": "재현 조건·최소 실패 사례·로그·가설·이분 탐색을 사용해 결함 원인을 격리하고 수정 회귀를 검증하는 잠정 중분류입니다.",
@@ -2244,7 +2244,7 @@
     {
       "id": "build-dependency-reproducibility",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "빌드·의존성 재현성",
       "title_en": "Build and dependency reproducibility",
       "definition": "소스 revision·의존성·환경·빌드 명령을 고정하고 독립 환경에서 산출물과 검증 결과를 재현하는 잠정 중분류입니다.",
@@ -2285,7 +2285,7 @@
     {
       "id": "data-source-acquisition-contracts",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "데이터 원천 수집·계약",
       "title_en": "Data source acquisition contracts",
       "definition": "원천·관찰단위·수집시점과 필드 의미·형식·단위·키·결측·갱신 조건을 기계 판독 계약과 인수검사로 만드는 잠정 중분류입니다.",
@@ -2327,7 +2327,7 @@
     {
       "id": "data-transformation-pipelines",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "데이터 변환·파이프라인",
       "title_en": "Data transformation pipelines",
       "definition": "입력–변환–출력 DAG와 코드·데이터·환경 버전을 고정하고 멱등 재실행·부분 실패 복구·backfill을 검증하는 잠정 중분류입니다.",
@@ -2370,7 +2370,7 @@
     {
       "id": "analytical-modeling-metric-semantics",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "분석 모델·지표 의미계약",
       "title_en": "Analytical modeling and metric semantics",
       "definition": "관찰 grain, dimension·measure·attribute와 분자·분모·단위·시간창·집계 가능성을 명시해 일관된 지표 계산을 만드는 잠정 중분류입니다.",
@@ -2412,7 +2412,7 @@
     {
       "id": "exploratory-statistical-analysis",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "탐색적·통계적 분석",
       "title_en": "Exploratory and statistical analysis",
       "definition": "분석질문·표본·결측·가정을 점검하고 분포·관계·효과크기·구간·민감도와 한계를 재현 가능한 결론으로 만드는 잠정 중분류입니다.",
@@ -2454,7 +2454,7 @@
     {
       "id": "data-quality-validation-observability",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "데이터 품질 검증·관측",
       "title_en": "Data quality validation and observability",
       "definition": "사용목적별 품질 dimension·metric·threshold와 schema·완전성·유일성·일관성·적시성·분포 검사를 설계하는 잠정 중분류입니다.",
@@ -2495,7 +2495,7 @@
     {
       "id": "data-catalog-lineage-ownership-metadata",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "데이터 카탈로그·계보·책임 메타데이터",
       "title_en": "Data catalog, lineage and ownership metadata",
       "definition": "dataset 식별·버전·설명과 제공된 owner·steward 메타데이터, source–activity–output 계보를 기록해 원천·변환·책임 대상을 역추적하는 잠정 중분류입니다.",
@@ -2537,7 +2537,7 @@
     {
       "id": "predictive-ml-problem-framing-baselines",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "예측 ML 문제정의·비ML 기준선",
       "title_en": "Predictive ML problem framing and non-ML baselines",
       "definition": "비ML 업무목표·결정·행동을 예측 target·label·prediction unit·time으로 변환하고 heuristic·단순모델 기준선과 go·no-go를 만드는 잠정 중분류입니다.",
@@ -2579,7 +2579,7 @@
     {
       "id": "predictive-ml-model-evaluation-validation",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "예측 ML 모델 평가·검증",
       "title_en": "Predictive ML model evaluation and validation",
       "definition": "누수 없는 데이터 분할과 업무비용에 맞춘 metric·baseline·calibration·threshold·slice 오류분석을 설계하는 잠정 중분류입니다.",
@@ -2621,7 +2621,7 @@
     {
       "id": "ml-lifecycle-reproducibility-monitoring",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "ML 생명주기 재현성·모니터링",
       "title_en": "ML lifecycle reproducibility and monitoring",
       "definition": "data·feature·label·code·config·model 버전을 고정해 학습을 재현하고 skew·drift·성능 악화로 변경 Gate를 판정하는 잠정 중분류입니다.",
@@ -2663,7 +2663,7 @@
     {
       "id": "external-api-consumer-integration",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "외부 API 소비자 통합",
       "title_en": "External API consumer integration",
       "definition": "기존 API 계약을 소비해 pagination·quota·timeout·오류·호환성 변화에 제한적으로 대응하고 안전하게 실패하는 잠정 중분류입니다.",
@@ -2703,7 +2703,7 @@
     {
       "id": "event-webhook-integration",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "이벤트·웹훅 통합",
       "title_en": "Event and webhook integration",
       "definition": "이벤트 envelope·구독·callback·전달 확인과 중복·지연·역순·재전송·서명 실패를 검증하는 잠정 중분류입니다.",
@@ -2743,7 +2743,7 @@
     {
       "id": "deterministic-workflow-orchestration",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "결정적 워크플로 오케스트레이션",
       "title_en": "Deterministic workflow orchestration",
       "definition": "명시적 상태·분기·timer·병렬·join·승인 대기·오류·중단·재개·종료조건으로 장기 실행 업무를 제어하는 잠정 중분류입니다.",
@@ -2784,7 +2784,7 @@
     {
       "id": "side-effect-safety-recovery",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "부작용 안전성·복구",
       "title_en": "Side-effect safety and recovery",
       "definition": "상태 재조회·불일치 판정 결과를 입력받아 idempotency·deduplication·제한된 retry·backoff·compensation·수동복구로 외부 변경을 안전하게 다루는 잠정 중분류입니다.",
@@ -2824,7 +2824,7 @@
     {
       "id": "business-rule-decision-automation",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "비즈니스 규칙·의사결정 자동화",
       "title_en": "Business rule and decision automation",
       "definition": "입력·출력·규칙 우선순위·decision table hit policy·누락·충돌·version과 설명 가능한 결정 trace를 만드는 잠정 중분류입니다.",
@@ -2864,7 +2864,7 @@
     {
       "id": "automation-outcome-verification",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "자동화 결과검증·상태조정",
       "title_en": "Automation outcome verification and reconciliation",
       "definition": "execution·correlation trace와 의도·관찰 postcondition, 외부 상태 재조회·비교·불일치 판정으로 업무 결과와 조정 필요성을 확인하는 잠정 중분류입니다.",
@@ -2904,7 +2904,7 @@
     {
       "id": "ui-driven-task-automation",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "UI 구동 업무자동화",
       "title_en": "UI-driven task automation",
       "definition": "안정적 API가 없을 때 DOM 기반 selector·wait·dialog·증거·postcondition·변경 감지·수동 이관을 설계하는 잠정 중분류입니다.",
@@ -2944,7 +2944,7 @@
     {
       "id": "integration-protocol-adapters",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "통합 프로토콜 Adapter",
       "title_en": "Integration protocol adapters",
       "definition": "빠르게 변하는 통합 프로토콜의 특정 revision·capability·lifecycle·transport를 안정 코어와 분리해 검증하는 잠정 중분류입니다.",
@@ -2984,7 +2984,7 @@
     {
       "id": "ai-capability-mental-model-onboarding",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "AI 역량 mental model·온보딩",
       "title_en": "AI capability mental-model and onboarding",
       "definition": "AI 기능의 용도·한계·역할·변화 가능성에 대한 정확한 기대형성과 점진적 온보딩을 다루는 잠정 중분류입니다.",
@@ -3026,7 +3026,7 @@
     {
       "id": "human-centered-ai-explanations",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "사용자 중심 AI 설명경험",
       "title_en": "Human-centered AI explanation experiences",
       "definition": "사용자 역할·질문·결정에 맞는 설명 내용·시점·상세도와 이해·오해 평가를 다루는 잠정 중분류입니다.",
@@ -3066,7 +3066,7 @@
     {
       "id": "ai-feedback-user-control",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "AI 피드백·사용자 통제",
       "title_en": "AI feedback and user control",
       "definition": "AI 결과·개인화·자동행동의 수정·거부·되돌리기와 피드백 영향 전달을 다루는 잠정 중분류입니다.",
@@ -3107,7 +3107,7 @@
     {
       "id": "human-approval-escalation-interaction",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "인간 승인·재정의·이관 상호작용",
       "title_en": "Human approval, override and escalation interaction",
       "definition": "주어진 결정권·통제를 실질적으로 행사하는 승인·거부·재정의·이관 경험을 다루는 잠정 중분류입니다.",
@@ -3149,7 +3149,7 @@
     {
       "id": "conversational-ai-repair",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "대화형 AI 오류복구",
       "title_en": "Conversational AI repair",
       "definition": "대화 오해·맥락손실·지원불가를 명료화·수정·재개·대체경로로 복구하는 경험을 다루는 잠정 중분류입니다.",
@@ -3189,7 +3189,7 @@
     {
       "id": "accessible-multimodal-ai-interaction",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "접근 가능한 다중양식 AI 상호작용",
       "title_en": "Accessible multimodal AI interaction",
       "definition": "AI의 생성·변동 상태와 자연어·음성·시각 입출력의 접근 가능한 사용자 요구·대안을 다루는 잠정 중분류입니다.",
@@ -3268,7 +3268,7 @@
     {
       "id": "human-ai-experience-evaluation",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "Human-AI 경험·사용성 평가",
       "title_en": "Human-AI experience and usability evaluation",
       "definition": "과업성공·mental model·의존·통제·복구·접근성을 오류 주입 사용자 evidence로 평가하는 잠정 중분류입니다.",
@@ -3309,7 +3309,7 @@
     {
       "id": "release-deployment-safety",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "안전한 릴리스·배포·롤백 검증",
       "title_en": "Safe release, deployment and rollback verification",
       "definition": "검증된 source·build와 실제 배포 artifact·configuration·rollout 상태가 분리되어 변경 누락, 잘못된 version, 사용자 영향과 rollback 실패가 생기는 문제를 다룹니다.",
@@ -3351,7 +3351,7 @@
     {
       "id": "declarative-environment-configuration",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "선언적 환경·구성 드리프트 조정",
       "title_en": "Declarative environment configuration and drift reconciliation",
       "definition": "환경과 configuration의 desired state가 version·review·actual state와 분리되어 수동 변경, drift, 잘못된 reconciliation과 복구 불능이 생기는 문제를 다룹니다.",
@@ -3393,7 +3393,7 @@
     {
       "id": "service-observability-telemetry",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "서비스 관측성·텔레메트리 계약",
       "title_en": "Service observability and telemetry contract engineering",
       "definition": "logs·metrics·traces가 생성되어도 identity·time·correlation·semantic contract가 없어 사용자 영향과 원인을 연결하지 못하는 문제를 다룹니다.",
@@ -3435,7 +3435,7 @@
     {
       "id": "service-level-objectives-reliability",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "SLI·SLO·오류예산·알림 설계",
       "title_en": "SLI, SLO, error budget and actionable alert design",
       "definition": "가용성 평균이나 infrastructure metric을 사용자 경험과 혼동해 목표·허용 위험·alert가 행동과 연결되지 않는 문제를 다룹니다.",
@@ -3477,7 +3477,7 @@
     {
       "id": "incident-response-postmortem",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "서비스 사고 대응·사후학습",
       "title_en": "Service incident response and postmortem learning",
       "definition": "장애 중 역할·상태·통신·증거·복구 목표가 섞이고 종료 후 개인 비난이나 미검증 action만 남는 문제를 다룹니다.",
@@ -3519,7 +3519,7 @@
     {
       "id": "backup-restore-continuity",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "백업·복원·재해복구 검증",
       "title_en": "Backup, restore and disaster recovery verification",
       "definition": "backup 존재를 복구 가능성으로 오인하고 RTO·RPO·의존성·무결성·대체처리 검증 없이 복구계획을 신뢰하는 문제를 다룹니다.",
@@ -3561,7 +3561,7 @@
     {
       "id": "technology-cost-finops",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "기술비용 할당·이상·최적화",
       "title_en": "Technology cost allocation, anomaly and optimization",
       "definition": "청구 총액만 보고 제품·환경·owner·사용량·unit economics를 연결하지 못해 비용 이상과 최적화 효과를 검증하지 못하는 문제를 다룹니다.",
@@ -3603,7 +3603,7 @@
     {
       "id": "resilience-failure-mode-experimentation",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "복원력 설계·장애실험",
       "title_en": "Resilience design and failure-mode experimentation",
       "definition": "분산 서비스의 의존성과 장애 영역을 명시하지 않아 부분 장애와 과부하가 연쇄 장애로 확대되는 문제를 다룹니다.",
@@ -3647,7 +3647,7 @@
     {
       "id": "production-readiness-service-lifecycle",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "서비스 운영준비·수명주기 전환",
       "title_en": "Service production readiness and lifecycle transition",
       "definition": "기능 완료만으로 운영 준비를 간주하여 소유권, 의존성, SLO, 관측성, 배포, 사고, 복구, 용량, 비용과 유지보수 증거가 분리되는 문제를 다룹니다.",
@@ -3689,7 +3689,7 @@
     {
       "id": "performance-capacity-overload-protection",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "성능·용량·과부하 보호 검증",
       "title_en": "Performance, capacity and overload protection verification",
       "definition": "평균값과 정상 부하만 확인해 burst·요청당 자원비용·retry amplification, saturation과 overload protection의 부하 한계를 검증하지 못하는 문제를 다룹니다.",
@@ -3733,7 +3733,7 @@
     {
       "id": "security-risk-threat-control-engineering",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "보안 위험·요구·위협 모델·통제 검증",
       "title_en": "Security risk, requirements, threat modeling and control validation",
       "definition": "합성 시스템의 자산·trust boundary·위협·보안 요구·통제·검증·잔여위험을 추적 가능한 구조로 연결합니다.",
@@ -3775,7 +3775,7 @@
     {
       "id": "authorization-access-governance",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "접근 정책·권한 수명주기",
       "title_en": "Access policy and authorization lifecycle governance",
       "definition": "fake identity·role·attribute·resource로 authorization 정책과 join/move/leave·expire/revoke·break-glass 권한 수명주기를 검증합니다.",
@@ -3817,7 +3817,7 @@
     {
       "id": "secrets-cryptographic-key-management",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "비밀·자격 증명·암호키 수명주기",
       "title_en": "Secrets, credentials and cryptographic key lifecycle management",
       "definition": "synthetic canary와 공개 test key로 비밀·credential·암호키의 inventory·rotation·revocation·destruction을 검증합니다.",
@@ -3860,7 +3860,7 @@
     {
       "id": "software-supply-chain-security",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "소프트웨어 공급망 무결성·취약점 거버넌스",
       "title_en": "Software supply chain integrity and vulnerability governance",
       "definition": "dependency graph·SBOM·artifact provenance와 취약점 remediation·exception·재검증 packet을 연결합니다.",
@@ -3903,7 +3903,7 @@
     {
       "id": "privacy-engineering-data-rights",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "개인정보 공학·영향평가·데이터 권리 수명주기",
       "title_en": "Privacy engineering, impact assessment and data rights lifecycle",
       "definition": "합성 데이터 흐름에서 처리·권리 register와 필요성·비례성·개인 위험·통제·잔여위험·재평가 trigger를 포함한 개인정보 영향평가 packet을 설계합니다.",
@@ -3946,7 +3946,7 @@
     {
       "id": "security-incident-evidence-reporting",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "보안사고 증거보존·신고의무 검토 이관",
       "title_en": "Security incident evidence preservation and reporting obligation review routing",
       "definition": "기존 플랫폼 사고대응 산출물을 받아 evidence ledger·chain/provenance·관할 matrix·전문 신고의무 검토 이관을 검증합니다.",
@@ -3989,7 +3989,7 @@
     {
       "id": "security-control-assurance-audit",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "보안통제 보증·감사증거·예외 거버넌스",
       "title_en": "Security control assurance, audit evidence and exception governance",
       "definition": "통제 register·평가계획·결과·evidence index와 deficiency·exception·owner·expiry·재검토 기록을 연결합니다.",
@@ -4032,7 +4032,7 @@
     {
       "id": "copyright-license-rights-provenance",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "디지털 자산 저작권·라이선스 출처 추적·검토 이관",
       "title_en": "Digital asset license, rights provenance and qualified review routing",
       "definition": "합성 software·dataset·model·content의 출처·declared/concluded license·변형·notice·미확인 권리를 기록하고 이관합니다.",
@@ -4074,7 +4074,7 @@
     {
       "id": "ai-system-security",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "AI 시스템 보안위협 평가",
       "title_en": "AI system security threat and adversarial evaluation",
       "definition": "local stub model과 봉인 prompt·retrieval·tool fixture로 AI attack surface와 안전통제 회귀를 검증합니다.",
@@ -4117,7 +4117,7 @@
     {
       "id": "ai-risk-impact-governance",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "AI 시스템 위험·영향 거버넌스 보증",
       "title_en": "AI system risk, impact and governance assurance lifecycle",
       "definition": "기존 AI 책임·투명성·인간감독·평가 Unit과 AI 보안평가를 합성 use case의 종단 간 assurance packet으로 조합합니다.",
@@ -4163,7 +4163,7 @@
     {
       "id": "organizational-change-impact-participation",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "변화 영향·도입 준비도·이해관계자 참여 설계",
       "title_en": "Change impact, adoption readiness and stakeholder engagement design",
       "definition": "합성 AX 변화에서 영향받는 집단·업무·채널·준비도·우려·참여·feedback·지원·이의제기·중단 경로를 추적합니다.",
@@ -4206,7 +4206,7 @@
     {
       "id": "human-ai-operating-model-decision-rights",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "AX 운영모델·의사결정권·책임·인계 설계",
       "title_en": "AX operating model, decision rights, accountability and handoff design",
       "definition": "사람·AI·자동화·전문 owner의 역할·decision rights·separation·approval·handoff·escalation을 운영 시나리오에서 검증합니다.",
@@ -4250,7 +4250,7 @@
     {
       "id": "workforce-capability-gap-transition",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "과업·역량·인력 수요·skill gap·전환 분석",
       "title_en": "Task, capability, workforce demand, skill gap and transition analysis",
       "definition": "선택된 AX 업무설계 가정에서 현재·미래 과업·역량·수요·공급·gap·개발·전환 option을 합성 workforce 시나리오로 비교합니다.",
@@ -4292,7 +4292,7 @@
     {
       "id": "workplace-learning-transfer-operations",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "역할 기반 학습·평가·업무전이 설계",
       "title_en": "Role-based learning, assessment and workplace transfer design",
       "definition": "역할별 역량 gap을 observable outcome·실습·평가·transfer task·지원·유지·재평가 trigger로 연결합니다.",
@@ -4334,7 +4334,7 @@
     {
       "id": "inclusive-workplace-impact-participation",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "포용적 직무영향·직원참여·지원 경계",
       "title_en": "Inclusive job impact, worker participation and support boundaries",
       "definition": "일반 변화영향 register를 입력으로 받아 합성 시나리오의 직무량·자율성·감시·접근성·분배효과·worker voice·support·contest 축을 심화하고 전문검토로 이관합니다.",
@@ -4377,7 +4377,7 @@
     {
       "id": "adoption-support-community-knowledge-flow",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "도입 지원·챔피언·community·지식흐름 운영",
       "title_en": "Adoption support, champion, community and knowledge flow operations",
       "definition": "합성 지원 queue와 지식 lifecycle에서 질문·incident·feedback·champion·community·owner·검증·폐기·개선 흐름을 운영합니다.",
@@ -4419,7 +4419,7 @@
     {
       "id": "adoption-outcome-distribution-measurement",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "도입 행동·품질·위험·성과·분배효과 측정",
       "title_en": "Adoption behavior, quality, risk, outcome and distribution measurement",
       "definition": "제공된 measurement contract를 소비해 사용행동·지원·quality·risk·cycle time·outcome·분배효과를 집계 모니터링하고 과도한 인과주장·개인감시 없이 재평가로 이관합니다.",
@@ -4463,7 +4463,7 @@
     {
       "id": "pilot-scale-transition-governance",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "AX pilot·단계확대·중단·rollback 전환 거버넌스",
       "title_en": "AX pilot, staged scale, stop and rollback transition governance",
       "definition": "봉인된 pilot hypothesis·baseline·success·harm·stop 및 intervention evidence를 입력으로 받아 합성 AX initiative의 조직 지원·준비·단계확대·중단·rollback 전환 Gate를 판정합니다.",
@@ -4508,7 +4508,7 @@
     {
       "id": "vendor-procurement-adoption-handoff",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "공급자·조달·SaaS 도입 증거·전문검토 이관",
       "title_en": "Vendor, procurement and SaaS adoption evidence and qualified review handoff",
       "definition": "합성 공급자·SaaS 도입에서 요구·사용사례·data flow·security·privacy·license·운영·exit·지원 evidence를 전문 owner에게 이관합니다.",
@@ -4551,7 +4551,7 @@
     {
       "id": "enterprise-ax-adoption-lifecycle",
       "node_type": "subdomain",
-      "status": "provisional",
+      "status": "canonical",
       "title_ko": "조직 AX 도입·확산 lifecycle assurance",
       "title_en": "Enterprise AX adoption and scaling lifecycle assurance",
       "definition": "조직 AX 도입의 영향·운영모델·역량·학습·포용·지원·측정·pilot·공급자 evidence와 적용 가능한 기존 기술·운영·보안·privacy Gate를 종단 간 transition assurance packet으로 조합합니다.",

@@ -180,10 +180,10 @@
     }
   ],
   "decision": {
-    "status": "proposed",
+    "status": "accepted",
     "confidence": "medium",
     "rationale": "Orca로 조정한 독립 근거·분류·실무성 감사에서 독립 학습성과와 실습 가능성이 확인되었고, 원문 과대해석 근거 삭제, D2 객관평가, AX 고유 경계와 선행지식 범위를 교정했습니다. 정규 Unit 승격은 하지 않습니다.",
-    "review_gate": "breadth"
+    "review_gate": "promotion"
   },
   "review": {
     "wave_id": "wave-01",
@@ -204,6 +204,6 @@
       "Unit·Set 최종 목적지는 고정 fixture 산출물 검증 후 확정하며, 3개 기능·5개 의존성 영역·3개 이상 실행 파동·재순서화 1회 기준 180~240분이라는 학습량 상한 가설을 파일럿에서 검증해야 합니다.",
       "NIST AI RMF 개정판이 공개되면 현재 AI RMF 1.0 근거의 버전과 claim_scope를 재검토해야 합니다."
     ],
-    "next_action": "사용자 검토에서 Unit 후보 유지 여부를 판단하고, 유지 시 고정 의존성 fixture·DAG assertion과 축소 맥락 전이를 파일럿으로 검증합니다."
+    "next_action": "unit.ax-strategy-value.enterprise-ax-roadmap@1.0.0 정규 승격과 구조검증을 완료했습니다. 고정 의존성 fixture·DAG assertion과 축소 맥락 전이는 활성화 전 검증합니다."
   }
 }

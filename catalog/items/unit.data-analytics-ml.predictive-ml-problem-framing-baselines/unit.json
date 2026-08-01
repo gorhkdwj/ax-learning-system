@@ -46,6 +46,22 @@
         "version": "1.0.0"
       },
       "note": "prediction time의 feature 가용성과 label·원천 계약이 문제정의의 실행 가능성을 제한합니다."
+    },
+    {
+      "type": "recommended_before",
+      "target": {
+        "id": "unit.ax-strategy-value.solution-fit-assessment",
+        "version": "1.0.0"
+      },
+      "note": "업무·비ML·ML 해법의 적합성 경계가 ML 문제계약의 상위 입력입니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.ax-strategy-value.measurement-contract",
+        "version": "1.0.0"
+      },
+      "note": "사업 성공지표와 모델 평가 metric을 구분하되 서로 연결해야 합니다."
     }
   ],
   "resource_refs": [
@@ -154,26 +170,6 @@
     "promotion_context": {
       "work_package_id": "wp.data-analytics-ml.breadth-a",
       "promoted_at": "2026-07-29"
-    },
-    "pending_candidate_relations": [
-      {
-        "type": "recommended_prerequisite",
-        "target": {
-          "kind": "candidate",
-          "id": "candidate.ax-strategy-value.solution-fit-assessment",
-          "version": "1.0.0"
-        },
-        "rationale": "업무·비ML·ML 해법의 적합성 경계가 ML 문제계약의 상위 입력입니다."
-      },
-      {
-        "type": "related_to",
-        "target": {
-          "kind": "candidate",
-          "id": "candidate.ax-strategy-value.measurement-contract",
-          "version": "1.0.0"
-        },
-        "rationale": "사업 성공지표와 모델 평가 metric을 구분하되 서로 연결해야 합니다."
-      }
-    ]
+    }
   }
 }

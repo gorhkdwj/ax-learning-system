@@ -166,10 +166,11 @@ Checkpoint는 새 세션이 대화 기록 없이 작업을 재개할 수 있는 
 다음은 고정 taxonomy가 아니라 누락 방지를 위한 조사 렌즈입니다. Wave 0 보정과
 사용자 승인 없이 정규 대분류로 확정하지 않습니다.
 
-이 렌즈들은 `taxonomy.ax-capability-map@0.1.0`에 `research_lens` 상태로
-등록되어 있습니다. Wave 1에서 사용한 하위 node는 `provisional`이며 정규
-대분류·중분류 확정이 아닙니다. 프론트엔드·백엔드·데이터 엔지니어링은 현재
-`planned` 역할 보기로 두고 Wave 2·3 결과에서 필요한 역량 node를 조합합니다.
+이 렌즈들은 Wave 0~4 동안 `research_lens` 상태로 조사되었고, Wave 5에서
+Coverage·중복·목적지 검토를 통과한 10개 안정 ID를 canonical domain으로
+전환했습니다. 최초 발견 렌즈는 Candidate의 `discovery.lens_id`와 provenance에
+보존합니다. 근거가 부족한 하위 node 3개는 `provisional`이며, 프론트엔드·
+백엔드·데이터 엔지니어링은 현재 `planned` 역할 보기로 유지합니다.
 
 | 렌즈 ID | 범위 |
 |---|---|

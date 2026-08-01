@@ -209,10 +209,10 @@
     }
   ],
   "decision": {
-    "status": "proposed",
+    "status": "accepted",
     "confidence": "medium",
     "rationale": "세 독립 감사에서 여러 선행 Unit을 조합하는 산출물형 Learning Set이 적합하다고 판정했으며 상세 통제 구현은 다른 렌즈에 이관했습니다.",
-    "review_gate": "breadth"
+    "review_gate": "promotion"
   },
   "review": {
     "wave_id": "wave-01",
@@ -228,6 +228,6 @@
       "독립 Unit과 통합 Learning Set 중 최종 목적지는 파일럿 산출물 검증 후 확정해야 합니다.",
       "고위험 승인·권한의 상세 소유권은 security-legal-governance 렌즈와 조정해야 합니다."
     ],
-    "next_action": "선행 후보를 실제 Unit으로 확정한 뒤 Set 구성과 실패 주입 실습을 설계합니다."
+    "next_action": "set.deliverable.ax-future-state-work-design@1.0.0 정규 승격과 구조검증을 완료했습니다. 실패 주입 fixture와 실제 업무효과는 활성화 전 검증합니다."
   }
 }

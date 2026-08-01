@@ -1,0 +1,191 @@
+{
+    "schema_version":  "1.1.0",
+    "id":  "unit.ax-strategy-value.portfolio-prioritization",
+    "version":  "1.0.0",
+    "title":  "AX 후보 포트폴리오 우선순위·재균형",
+    "summary":  "여러 AX 후보를 전략 정합성, 기대 가치와 근거 수준, 위험선호, 실행 가능성·가용 역량, 의존성과 학습 옵션으로 비교하여 진행·보류·중단 결정을 기록하고 조건 변화에 따라 재균형하는 후보 역량입니다.",
+    "item_type":  "practice",
+    "taxonomy":  {
+                     "major_domain":  "ax-strategy-value",
+                     "subdomains":  [
+                                        "portfolio-strategy",
+                                        "initiative-prioritization"
+                                    ]
+                 },
+    "domain_tags":  [
+                        "portfolio",
+                        "prioritization",
+                        "rebalancing",
+                        "decision-ledger"
+                    ],
+    "capabilities":  [
+                         "최소 5개의 이질적인 AX 후보에 대해 공통 기준, 가중치, 제약, 의존성, 근거 신뢰도와 불확실성을 표시한 포트폴리오 결정 원장을 만들고 조건 변화에 따라 진행·보류·중단 조합을 재설계합니다."
+                     ],
+    "learning":  {
+                     "outcomes":  [
+                                      {
+                                          "id":  "outcome.ax-strategy-value.portfolio-prioritization.d0",
+                                          "statement":  "개별 후보 평가와 포트폴리오 최적화의 차이, 단일 점수 순위가 의존성·위험·학습 옵션을 놓치는 이유를 설명합니다.",
+                                          "target_level":  "D0"
+                                      },
+                                      {
+                                          "id":  "outcome.ax-strategy-value.portfolio-prioritization.d2",
+                                          "statement":  "서로 다른 부서의 후보 5개 이상을 대상으로 제약과 의존성을 포함한 결정 원장을 작성하고 변경된 조건에서 포트폴리오를 일관되게 재균형합니다.",
+                                          "target_level":  "D2"
+                                      }
+                                  ],
+                     "default_target_level":  "D2",
+                     "maximum_scope_level":  "D2",
+                     "estimated_minutes":  120,
+                     "scope_expansion_policy":  "목표 D2, 상한 D2입니다. 전문 투자심사, 자본예산 편성, 할인율·NPV·BCR·낙관편향 보정 같은 Green Book 정량 감정 기법, 최적화 알고리즘 개발과 경영진의 최종 승인 권한은 포함하지 않습니다."
+                 },
+    "relations":  [
+                      {
+                          "type":  "prerequisite",
+                          "target":  {
+                                         "id":  "unit.ax-strategy-value.opportunity-value-framing",
+                                         "version":  "1.0.0"
+                                     },
+                          "note":  "비교 대상 후보마다 문제, 기대 결과, 제약과 no-go 조건이 먼저 정의되어야 합니다.",
+                          "required_level":  "D2"
+                      },
+                      {
+                          "type":  "recommended_before",
+                          "target":  {
+                                         "id":  "unit.ax-strategy-value.measurement-contract",
+                                         "version":  "1.0.0"
+                                     },
+                          "note":  "공통 측정 언어가 있으면 후보별 가치 주장과 근거 수준을 더 일관되게 비교할 수 있습니다."
+                      },
+                      {
+                          "type":  "related_to",
+                          "target":  {
+                                         "id":  "unit.data-analytics-ml.intervention-impact-evaluation",
+                                         "version":  "1.0.0"
+                                     },
+                          "note":  "포트폴리오 판정은 후보 간 상대 배분을 소유하고, 단일 파일럿의 인과 증거 기반 go·iterate·stop 판정은 영향평가가 소유합니다."
+                      }
+                  ],
+    "resource_refs":  [
+                          {
+                              "resource":  {
+                                               "id":  "resource.ax-strategy-value.portfolio-prioritization.reference",
+                                               "version":  "1.0.0"
+                                           },
+                              "role":  "reference",
+                              "required":  false
+                          }
+                      ],
+    "requirements":  {
+                         "platforms":  [
+                                           "cross-platform",
+                                           "web-browser"
+                                       ],
+                         "network_required":  true,
+                         "accounts":  [
+
+                                      ],
+                         "secret_names":  [
+
+                                          ],
+                         "permissions":  [
+
+                                         ],
+                         "cost":  {
+                                      "model":  "free",
+                                      "currency":  "KRW",
+                                      "estimated_amount":  0,
+                                      "basis":  "공개 Reference 검토 1회"
+                                  },
+                         "technology_versions":  [
+
+                                                 ]
+                     },
+    "validation":  {
+                       "completion":  "required",
+                       "checks":  [
+                                      {
+                                          "id":  "ax-strategy-value-portfolio-prioritization-catalog-assessment",
+                                          "type":  "manual",
+                                          "learning_outcome_ids":  [
+                                                                       "outcome.ax-strategy-value.portfolio-prioritization.d0",
+                                                                       "outcome.ax-strategy-value.portfolio-prioritization.d2"
+                                                                   ],
+                                          "required":  true,
+                                          "success_criteria":  [
+                                                                   "점수는 높지만 필수 역량이 없거나 위험한 후보가 섞인 사례에서 단순 순위의 오류를 식별합니다.",
+                                                                   "후보 5~7개와 고정 근거 신뢰도 척도를 제공하는 합성 fixture에서 초기 결정 뒤 숨겨진 예산·역량·위험 조건을 변경합니다. assertion으로 가용 역량 초과 승인 0건, 선행 후보 미승인 상태의 후속 후보 승인 0건, 필수 통제 후보의 근거 없는 강등 0건, 모든 결정의 사유·근거 링크·재검토 트리거 존재, 뒤집힌 결정의 변경 입력 인용을 검사하고 독립 평가자 2인의 진행·보류·중단 판정 일치도를 확인합니다."
+                                                               ]
+                                      }
+                                  ]
+                   },
+    "sources":  [
+                    {
+                        "title":  "The Green Book (2026)",
+                        "publisher":  "HM Treasury; Government Finance Function",
+                        "source_type":  "official_docs",
+                        "url":  "https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government/the-green-book-2026",
+                        "source_version":  "2026 edition; page updated 2026-02-05",
+                        "checked_at":  "2026-07-26"
+                    },
+                    {
+                        "title":  "Portfolio Risk Management Guidance — Orange Book Annex",
+                        "publisher":  "HM Treasury; Government Finance Function",
+                        "source_type":  "official_docs",
+                        "url":  "https://assets.publishing.service.gov.uk/media/6453b363c33b460012f5e6bf/Portfolio_Risk_Management_Guidance_Orange_Book_Annex.pdf",
+                        "source_version":  "May 2023 annex; GOV.UK publication collection records addition on 2023-05-04",
+                        "checked_at":  "2026-07-27"
+                    },
+                    {
+                        "title":  "What is portfolio management?",
+                        "publisher":  "Association for Project Management",
+                        "source_type":  "official_source",
+                        "url":  "https://www.apm.org.uk/resources/what-is-project-management/what-is-portfolio-management/",
+                        "source_version":  "APM Body of Knowledge 8th edition 기반 정의 페이지; 페이지 자체 발행일 표기 없음",
+                        "checked_at":  "2026-07-26"
+                    },
+                    {
+                        "title":  "Artificial Intelligence Playbook for the UK Government",
+                        "publisher":  "Government Digital Service",
+                        "source_type":  "official_docs",
+                        "url":  "https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government/artificial-intelligence-playbook-for-the-uk-government-html",
+                        "source_version":  "AI Playbook published 2025-02-10; update log records expansion of the 2024 Generative AI Framework",
+                        "checked_at":  "2026-07-27"
+                    }
+                ],
+    "potential_impact_types":  [
+                                   "cost",
+                                   "risk_reduction",
+                                   "capability_unlock",
+                                   "strategic_option"
+                               ],
+    "lifecycle":  {
+                      "status":  "cataloged",
+                      "owner":  "AX learning workspace",
+                      "last_reviewed_at":  "2026-08-02",
+                      "review_due_at":  "2026-11-02",
+                      "note":  "candidate.ax-strategy-value.portfolio-prioritization@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+                  },
+    "extensions":  {
+                       "promoted_from":  {
+                                             "kind":  "capability_candidate",
+                                             "id":  "candidate.ax-strategy-value.portfolio-prioritization",
+                                             "version":  "1.0.0"
+                                         },
+                       "promotion_context":  {
+                                                 "work_package_id":  "wp.candidate-normalization.integration-a",
+                                                 "promoted_at":  "2026-08-02"
+                                             },
+                       "pending_candidate_relations":  [
+                                                           {
+                                                               "type":  "related_to",
+                                                               "target":  {
+                                                                              "kind":  "candidate",
+                                                                              "id":  "candidate.ax-strategy-value.benefits-realization",
+                                                                              "version":  "1.0.0"
+                                                                          },
+                                                               "rationale":  "포트폴리오 판정은 후보 간 상대 배분을 소유하고, 운영 중 실현 편익·완전원가 기반 판정은 편익관리 역량이 소유합니다."
+                                                           }
+                                                       ]
+                   }
+}

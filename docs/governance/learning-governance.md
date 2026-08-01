@@ -40,8 +40,9 @@ AI 리터러시, AI 결과 검증, 보안, 개인정보, 저작권·라이선스
 - 분류 ID, 정의, 포함·제외, 부모·관련 관계와 상태의 단일 정본은
   `taxonomy/taxonomy.json`입니다. Candidate와 Unit은 Registry의 활성 node를
   참조하며 임의 문자열로 대분류·중분류를 늘리지 않습니다.
-- `research_lens`는 누락 방지를 위한 조사축이지 정규 대분류가 아닙니다.
-  조사 완료 후 `provisional`·`canonical` 분류를 조립하되 조사 이력은 보존합니다.
+- `research_lens`는 누락 방지를 위한 조사 역할이지 조사 시점의 정규 대분류가
+  아닙니다. 조사·Coverage·정규화 Gate를 통과한 안정 ID는 canonical domain으로
+  전환할 수 있으며 Candidate의 discovery와 provenance에 최초 조사 이력을 보존합니다.
 - 프론트엔드·백엔드·데이터 엔지니어링 같은 직무는 여러 역량 node를 조합하는
   역할 보기로 우선 표현합니다. 조사 결과 독립된 안정 범위가 입증되면 중분류나
   대분류로 승격할 수 있습니다.

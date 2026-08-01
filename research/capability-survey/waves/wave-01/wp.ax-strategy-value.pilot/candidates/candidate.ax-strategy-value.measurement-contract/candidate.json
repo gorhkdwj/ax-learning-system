@@ -193,10 +193,10 @@
     }
   ],
   "decision": {
-    "status": "proposed",
+    "status": "accepted",
     "confidence": "medium",
     "rationale": "세 독립 감사에서 재현 가능한 지표 명세의 독립 학습성과가 확인되었고 현행 분석의 관측값과 영향평가의 효과 귀속 책임을 분리했습니다.",
-    "review_gate": "breadth"
+    "review_gate": "promotion"
   },
   "review": {
     "wave_id": "wave-01",
@@ -212,6 +212,6 @@
       "주관적 품질 평가의 허용오차와 평가자 일치도 기준은 업무별 보정이 필요합니다.",
       "고위험 개입의 필수 가드레일은 security-legal-governance 렌즈와 조정해야 합니다."
     ],
-    "next_action": "고정 fixture로 지표 재현성과 게임 탐지 실습의 합격기준을 보정합니다."
+    "next_action": "unit.ax-strategy-value.measurement-contract@1.0.0 정규 승격과 구조검증을 완료했습니다. 지표 재현성과 게임 탐지 합격기준은 상세 fixture 설계에서 보정합니다."
   }
 }

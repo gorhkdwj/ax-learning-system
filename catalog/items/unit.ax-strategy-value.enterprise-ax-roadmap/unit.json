@@ -1,0 +1,163 @@
+{
+    "schema_version":  "1.1.0",
+    "id":  "unit.ax-strategy-value.enterprise-ax-roadmap",
+    "version":  "1.0.0",
+    "title":  "전사 AX 역량 로드맵 설계",
+    "summary":  "사업 결과와 현재·목표 역량을 연결하고 데이터·플랫폼·보안·인력·거버넌스의 의존성을 반영하여 단계별 실행 파동, 판정 게이트와 재검토 조건을 설계하는 후보 역량입니다.",
+    "item_type":  "practice",
+    "taxonomy":  {
+                     "major_domain":  "ax-strategy-value",
+                     "subdomains":  [
+                                        "enterprise-roadmap",
+                                        "capability-roadmapping"
+                                    ]
+                 },
+    "domain_tags":  [
+                        "roadmap",
+                        "capability-gap",
+                        "dependency",
+                        "sequencing"
+                    ],
+    "capabilities":  [
+                         "세 개 이상의 조직 기능을 대상으로 사업 결과, 현재·목표 역량 격차, 선행 의존성, 기존 역할 소유자, 최소 3개 실행 파동, 판정 게이트와 재검토 트리거가 연결된 AX 역량 로드맵을 만들고 제약 변화에 따라 재순서화합니다."
+                     ],
+    "learning":  {
+                     "outcomes":  [
+                                      {
+                                          "id":  "outcome.ax-strategy-value.enterprise-ax-roadmap.d0",
+                                          "statement":  "프로젝트 일정표, 기술 도입 목록과 역량 기반 AX 로드맵의 차이를 설명하고 로드맵이 변경 조건을 포함해야 하는 이유를 설명합니다.",
+                                          "target_level":  "D0"
+                                      },
+                                      {
+                                          "id":  "outcome.ax-strategy-value.enterprise-ax-roadmap.d2",
+                                          "statement":  "세 개 이상의 기능을 포함한 환경에서 최소 3개 실행 파동의 AX 역량 로드맵을 작성하고 예산·역량·법적 제약 변화에 따라 재설계합니다.",
+                                          "target_level":  "D2"
+                                      }
+                                  ],
+                     "default_target_level":  "D2",
+                     "maximum_scope_level":  "D2",
+                     "estimated_minutes":  120,
+                     "scope_expansion_policy":  "목표 D2, 상한 D2입니다. 의존성 카탈로그 자체의 기술 전문 판단, C-level 전략 승인, 상세 운영모델·조직설계, 엔터프라이즈 아키텍처 구현과 변화관리 프로그램 운영은 포함하지 않습니다."
+                 },
+    "relations":  [
+                      {
+                          "type":  "recommended_before",
+                          "target":  {
+                                         "id":  "unit.ax-strategy-value.portfolio-prioritization",
+                                         "version":  "1.0.0"
+                                     },
+                          "note":  "우선순위와 상태가 표시된 후보 포트폴리오가 있으면 공통 기반 역량과 실행 파동을 더 현실적으로 순서화할 수 있습니다."
+                      },
+                      {
+                          "type":  "recommended_before",
+                          "target":  {
+                                         "id":  "unit.ax-strategy-value.opportunity-value-framing",
+                                         "version":  "1.0.0"
+                                     },
+                          "note":  "로드맵의 실행 항목을 도구 목록이 아니라 사업 문제와 기대 결과에 연결하기 위해 기회 프레이밍이 도움이 됩니다."
+                      }
+                  ],
+    "resource_refs":  [
+                          {
+                              "resource":  {
+                                               "id":  "resource.ax-strategy-value.enterprise-ax-roadmap.reference",
+                                               "version":  "1.0.0"
+                                           },
+                              "role":  "reference",
+                              "required":  false
+                          }
+                      ],
+    "requirements":  {
+                         "platforms":  [
+                                           "cross-platform",
+                                           "web-browser"
+                                       ],
+                         "network_required":  true,
+                         "accounts":  [
+
+                                      ],
+                         "secret_names":  [
+
+                                          ],
+                         "permissions":  [
+
+                                         ],
+                         "cost":  {
+                                      "model":  "free",
+                                      "currency":  "KRW",
+                                      "estimated_amount":  0,
+                                      "basis":  "공개 Reference 검토 1회"
+                                  },
+                         "technology_versions":  [
+
+                                                 ]
+                     },
+    "validation":  {
+                       "completion":  "required",
+                       "checks":  [
+                                      {
+                                          "id":  "ax-strategy-value-enterprise-ax-roadmap-catalog-assessment",
+                                          "type":  "manual",
+                                          "learning_outcome_ids":  [
+                                                                       "outcome.ax-strategy-value.enterprise-ax-roadmap.d0",
+                                                                       "outcome.ax-strategy-value.enterprise-ax-roadmap.d2"
+                                                                   ],
+                                          "required":  true,
+                                          "success_criteria":  [
+                                                                   "도구 구매 일정만 있는 사례에서 사업 결과·역량 격차·의존성·게이트 누락을 식별합니다.",
+                                                                   "합성 고정 fixture가 사업 결과와 데이터·플랫폼·보안·인력·거버넌스 의존성 카탈로그를 제공합니다. 초기 로드맵 뒤 숨겨진 제약을 변경하고, DAG assertion으로 선행 의존성 위반 0건을 확인하며 모든 실행 항목의 사업 결과 연결, 모든 게이트의 진입·종료 조건과 기존 역할 소유자, 이동 항목의 변경 입력 인용을 스키마로 검사합니다. 변경 후에도 동일 assertion을 다시 통과해야 합니다."
+                                                               ]
+                                      }
+                                  ]
+                   },
+    "sources":  [
+                    {
+                        "title":  "ISO/IEC 42001:2023 — Information technology — Artificial intelligence — Management system",
+                        "publisher":  "International Organization for Standardization",
+                        "source_type":  "standard",
+                        "url":  "https://www.iso.org/standard/81230.html",
+                        "source_version":  "ISO/IEC 42001:2023 (1st edition, 2023-12); public catalogue abstract checked, normative text not reviewed; systematic review in progress at stage 90.20",
+                        "checked_at":  "2026-07-27"
+                    },
+                    {
+                        "title":  "Artificial Intelligence Risk Management Framework Core",
+                        "publisher":  "National Institute of Standards and Technology",
+                        "source_type":  "official_docs",
+                        "url":  "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+                        "source_version":  "AI RMF 1.0; AIRC page states a revised version is in progress as checked 2026-07-27",
+                        "checked_at":  "2026-07-27"
+                    },
+                    {
+                        "title":  "Digital Government Outlook 2026 — Adopting and governing AI in government",
+                        "publisher":  "Organisation for Economic Co-operation and Development",
+                        "source_type":  "official_source",
+                        "url":  "https://www.oecd.org/content/dam/oecd/en/publications/reports/2026/06/digital-government-outlook_4585678e/0496b2bc-en.pdf",
+                        "source_version":  "Digital Government Outlook 2026: From Foundations to Transformational Impact; DOI 10.1787/0496b2bc-en; Chapter 4, pp.107-146; CC BY 4.0; Public Governance Committee approved 2026-06-08",
+                        "checked_at":  "2026-07-27"
+                    }
+                ],
+    "potential_impact_types":  [
+                                   "risk_reduction",
+                                   "capability_unlock",
+                                   "reuse",
+                                   "strategic_option"
+                               ],
+    "lifecycle":  {
+                      "status":  "cataloged",
+                      "owner":  "AX learning workspace",
+                      "last_reviewed_at":  "2026-08-02",
+                      "review_due_at":  "2026-11-02",
+                      "note":  "candidate.ax-strategy-value.enterprise-ax-roadmap@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+                  },
+    "extensions":  {
+                       "promoted_from":  {
+                                             "kind":  "capability_candidate",
+                                             "id":  "candidate.ax-strategy-value.enterprise-ax-roadmap",
+                                             "version":  "1.0.0"
+                                         },
+                       "promotion_context":  {
+                                                 "work_package_id":  "wp.candidate-normalization.integration-a",
+                                                 "promoted_at":  "2026-08-02"
+                                             }
+                   }
+}

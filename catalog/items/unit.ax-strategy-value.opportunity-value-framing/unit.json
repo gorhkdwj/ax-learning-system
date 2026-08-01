@@ -1,0 +1,139 @@
+{
+    "schema_version":  "1.1.0",
+    "id":  "unit.ax-strategy-value.opportunity-value-framing",
+    "version":  "1.0.0",
+    "title":  "AX 기회·가치가설 프레이밍",
+    "summary":  "AI 도구가 아니라 업무 문제와 기대 결과에서 출발하여 현재 대안, 인과가정, 비용·위험과 no-go 조건이 연결된 검증 가능한 AX 기회를 정의하는 후보 역량입니다.",
+    "item_type":  "practice",
+    "taxonomy":  {
+                     "major_domain":  "ax-strategy-value",
+                     "subdomains":  [
+                                        "opportunity-discovery",
+                                        "value-framing"
+                                    ]
+                 },
+    "domain_tags":  [
+                        "problem-framing",
+                        "value-hypothesis",
+                        "no-go"
+                    ],
+    "capabilities":  [
+                         "새로운 업무 문제에 대해 대상, 현 상태, 기대 결과, 인과가정, 비목표, 대안과 no-go 조건이 포함된 한 장의 기회 정의서를 작성하고 근거 수준을 표시합니다."
+                     ],
+    "learning":  {
+                     "outcomes":  [
+                                      {
+                                          "id":  "outcome.ax-strategy-value.opportunity-value-framing.d0",
+                                          "statement":  "AX 기회와 기술 중심 아이디어를 구분하고 가치가설을 사실로 표현하면 안 되는 이유를 설명합니다.",
+                                          "target_level":  "D0"
+                                      },
+                                      {
+                                          "id":  "outcome.ax-strategy-value.opportunity-value-framing.d2",
+                                          "statement":  "새로운 업무에서 증거와 미확인을 구분한 기회·가치가설 정의서를 독립적으로 작성합니다.",
+                                          "target_level":  "D2"
+                                      }
+                                  ],
+                     "default_target_level":  "D2",
+                     "maximum_scope_level":  "D2",
+                     "estimated_minutes":  120,
+                     "scope_expansion_policy":  "목표 D2, 상한 D2입니다. 전문 투자심사, 회계처리, 공급자 선정과 전사 전략 로드맵은 포함하지 않습니다."
+                 },
+    "relations":  [
+
+                  ],
+    "resource_refs":  [
+                          {
+                              "resource":  {
+                                               "id":  "resource.ax-strategy-value.opportunity-value-framing.reference",
+                                               "version":  "1.0.0"
+                                           },
+                              "role":  "reference",
+                              "required":  false
+                          }
+                      ],
+    "requirements":  {
+                         "platforms":  [
+                                           "cross-platform",
+                                           "web-browser"
+                                       ],
+                         "network_required":  true,
+                         "accounts":  [
+
+                                      ],
+                         "secret_names":  [
+
+                                          ],
+                         "permissions":  [
+
+                                         ],
+                         "cost":  {
+                                      "model":  "free",
+                                      "currency":  "KRW",
+                                      "estimated_amount":  0,
+                                      "basis":  "공개 Reference 검토 1회"
+                                  },
+                         "technology_versions":  [
+
+                                                 ]
+                     },
+    "validation":  {
+                       "completion":  "required",
+                       "checks":  [
+                                      {
+                                          "id":  "ax-strategy-value-opportunity-value-framing-catalog-assessment",
+                                          "type":  "manual",
+                                          "learning_outcome_ids":  [
+                                                                       "outcome.ax-strategy-value.opportunity-value-framing.d0",
+                                                                       "outcome.ax-strategy-value.opportunity-value-framing.d2"
+                                                                   ],
+                                          "required":  true,
+                                          "success_criteria":  [
+                                                                   "기회·해법·효과 주장이 혼합된 사례를 분류합니다.",
+                                                                   "서로 다른 두 미지 업무에 대해 필수필드, 근거 링크, 반증 가능한 가정, 현행·비AI 가능성과 no-go 조건을 검사하는 체크리스트를 통과하고 누락 필드는 스키마 검사로 탐지합니다."
+                                                               ]
+                                      }
+                                  ]
+                   },
+    "sources":  [
+                    {
+                        "title":  "Artificial Intelligence Risk Management Framework Core",
+                        "publisher":  "National Institute of Standards and Technology",
+                        "source_type":  "official_docs",
+                        "url":  "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+                        "source_version":  "AI RMF 1.0",
+                        "checked_at":  "2026-07-26"
+                    },
+                    {
+                        "title":  "The Green Book (2026)",
+                        "publisher":  "HM Treasury",
+                        "source_type":  "official_docs",
+                        "url":  "https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government/the-green-book-2026",
+                        "source_version":  "2026 edition; page updated 2026-02-05",
+                        "checked_at":  "2026-07-26"
+                    }
+                ],
+    "potential_impact_types":  [
+                                   "cost",
+                                   "risk_reduction",
+                                   "capability_unlock",
+                                   "strategic_option"
+                               ],
+    "lifecycle":  {
+                      "status":  "cataloged",
+                      "owner":  "AX learning workspace",
+                      "last_reviewed_at":  "2026-08-02",
+                      "review_due_at":  "2026-11-02",
+                      "note":  "candidate.ax-strategy-value.opportunity-value-framing@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+                  },
+    "extensions":  {
+                       "promoted_from":  {
+                                             "kind":  "capability_candidate",
+                                             "id":  "candidate.ax-strategy-value.opportunity-value-framing",
+                                             "version":  "1.0.0"
+                                         },
+                       "promotion_context":  {
+                                                 "work_package_id":  "wp.candidate-normalization.integration-a",
+                                                 "promoted_at":  "2026-08-02"
+                                             }
+                   }
+}

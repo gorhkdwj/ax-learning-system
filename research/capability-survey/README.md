@@ -15,7 +15,7 @@ staging 영역입니다. Candidate는 학습 Unit이나 현재 학습 배정이 
 - Checkpoint 템플릿: `templates/research/wave-checkpoint.template.md`
 - Claude→Codex 인계 계약: `research/capability-survey/handoffs/README.md`
 - 인계 스키마: `schemas/phase2-handoff.schema.json`
-- 현재 상태: `research/capability-survey/checkpoints/wave-04.md`
+- 현재 상태: `research/capability-survey/checkpoints/wave-05.md`
 
 ## 쓰기 규칙
 
@@ -39,8 +39,11 @@ Wave 2의 다섯 패키지와 Wave 3의 네 패키지는 조사·독립 감사·
 정규 메타데이터 승격을 완료했습니다. Wave 4에서는 Candidate 96개를 10개
 조사 렌즈, 8개 역할 관점과 12개 횡단 품질축으로 교차 점검하고 개발자 기술스택
 편향을 레드팀 검토했습니다. 라우팅 없는 신규 고우선 공백은 0개였으며 신규
-Candidate를 만들지 않았습니다. 현재 정본 checkpoint는 Wave 4이고 상태는
-`ready_for_wave-05-planning`입니다.
+Candidate를 만들지 않았습니다. Wave 5에서는 Candidate 96개의 명칭·alias·
+목적지·관계를 정규화하고 Wave 1의 승인 후보 7개 Unit·7개 Reference·1개 Set을
+정규 승격했습니다. Taxonomy는 canonical node 107개와 provisional node 3개인
+`taxonomy.ax-capability-map@1.0.0`으로 전환했습니다. 현재 정본 checkpoint는
+Wave 5이고 상태는 `ready_for_wave-06-planning`입니다.
 
 Wave 2의 첫 작업 패키지 `wp.ai-literacy-trust.breadth-a`는 Candidate 10개와
 evidence 22건, 고유 URL 13개로 구성되며 정규 승격 상태입니다. 구성은 신규
@@ -49,13 +52,10 @@ Resource 전용 1개입니다. 읽기 전용 감사자가 근거·분류·실무
 최초 P0는 0건이며 P1은 교정했습니다. 과목·후보 표시명은 한국어를 우선하고 node
 ID와 영문 병기는 허용한다는 명명 원칙도 승인되었습니다.
 
-`taxonomy.ax-capability-map@0.10.0`에는 기존 조사 렌즈와 Wave 1 node에 더해
-`ai-literacy-trust` 잠정 subdomain 7개와 `ai-systems-agents` 잠정 subdomain
-7개, `software-product-engineering` 잠정 subdomain 9개,
-`data-analytics-ml` 잠정 subdomain 9개와 `integration-automation` 잠정
-subdomain 8개, `human-ai-experience` 잠정 subdomain 8개와
-`platform-quality-operations`, `security-legal-governance`,
-`organization-adoption` 잠정 subdomain 각 10개가 등록되었습니다.
+Wave 1~3에서 `taxonomy.ax-capability-map@0.10.0`까지 조사 렌즈와 잠정
+subdomain을 누적했습니다. Wave 5 정규화 후 현재 Registry는
+`taxonomy.ax-capability-map@1.0.0`이며 10개 domain과 근거가 확인된 97개
+subdomain은 canonical, deferred 근거만 있는 3개 subdomain은 provisional입니다.
 
 두 번째 작업 패키지 `wp.ai-systems-agents.breadth-a`는 한국어 우선 표시명의
 Candidate 8개로 조사·감사를 완료한 `promoted` 상태입니다. 전문 판단이 필요한
@@ -147,7 +147,7 @@ Set 후보 1개를 조사했습니다. 승격 전·후 독립 3축 재감사에�
 P0·P1·P2 0건을 확인하고 9개 Unit·9개 공개 Reference와 필수 8개·조건부
 5개인 13단계 Set을 정규 `cataloged` 메타데이터로 승격했습니다.
 
-현재 카탈로그 검증 기준은 Unit 76개, Resource 82개, Set 8개, Candidate
+현재 카탈로그 검증 기준은 Unit 83개, Resource 89개, Set 9개, Candidate
 96개와 Signal 3개입니다. `cataloged`는 정규 메타데이터 등록을 뜻하며 실제
 fixture·runner, 상세 교재, 조직 tailoring, 파일럿, 학습·업무효과 검증
 완료를 뜻하지 않습니다.

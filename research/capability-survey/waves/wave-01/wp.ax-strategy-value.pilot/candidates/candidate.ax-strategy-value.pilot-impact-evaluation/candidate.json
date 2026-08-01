@@ -147,7 +147,7 @@
     "status": "accepted",
     "confidence": "high",
     "rationale": "공식 AI 개입 평가 지침과 데이터·분석·ML 패키지의 독립 근거·taxonomy·실용성 감사에서 D2 설계 역량을 재확인했고 고급 실행은 전문가에게 이관하도록 경계를 고정했습니다.",
-    "review_gate": "breadth"
+    "review_gate": "promotion"
   },
   "review": {
     "wave_id": "wave-01",
@@ -163,6 +163,6 @@
       "업무별 최소 탐지효과와 표본 수는 실제 분산·위험을 확인한 뒤 계산해야 합니다.",
       "고위험 개입에서 전문 평가자에게 반드시 이관할 기준을 후속 조사해야 합니다."
     ],
-    "next_action": "정규 Unit unit.data-analytics-ml.intervention-impact-evaluation@1.0.0로 승격했습니다. measurement-contract 선수 후보는 정규 승격 전까지 pending_candidate_relations에 보존합니다."
+    "next_action": "정규 Unit unit.data-analytics-ml.intervention-impact-evaluation@1.0.0로 승격했습니다. measurement-contract도 정규 승격되어 Wave 5 관계 정규화 대상으로 전환했습니다."
   }
 }

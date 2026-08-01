@@ -1,0 +1,109 @@
+{
+    "schema_version":  "1.0.0",
+    "id":  "resource.ax-strategy-value.task-allocation.reference",
+    "version":  "1.0.0",
+    "title":  "업무 분해와 인간-AI 역할 배분 공식·1차 출처 Reference",
+    "description":  "정규 Unit의 정의·범위와 판정 기준을 뒷받침하는 공개 Reference입니다. 상세 교재나 독립 평가자료를 대신하지 않습니다.",
+    "resource_type":  "external_reference",
+    "owner":  {
+                  "kind":  "unit",
+                  "id":  "unit.ax-strategy-value.task-allocation",
+                  "version":  "1.0.0"
+              },
+    "location":  {
+                     "kind":  "external",
+                     "url":  "https://researchrepository.ilo.org/esploro/outputs/encyclopediaEntry/995653520102676"
+                 },
+    "learning_outcome_ids":  [
+                                 "outcome.ax-strategy-value.task-allocation.d0",
+                                 "outcome.ax-strategy-value.task-allocation.d2"
+                             ],
+    "estimated_minutes":  30,
+    "language":  "ko",
+    "tags":  [
+                 "reference",
+                 "promotion-evidence"
+             ],
+    "requirements":  {
+                         "platforms":  [
+                                           "web-browser"
+                                       ],
+                         "network_required":  true
+                     },
+    "provenance":  {
+                       "origin":  "external",
+                       "sources":  [
+                                       {
+                                           "title":  "Generative AI and Jobs: A Refined Global Index of Occupational Exposure",
+                                           "publisher":  "International Labour Organization",
+                                           "source_type":  "primary_research",
+                                           "url":  "https://researchrepository.ilo.org/esploro/outputs/encyclopediaEntry/995653520102676",
+                                           "source_version":  "web page checked 2026-07-26",
+                                           "checked_at":  "2026-07-26"
+                                       },
+                                       {
+                                           "title":  "AI RMF Core (AI RMF 1.0)",
+                                           "publisher":  "National Institute of Standards and Technology",
+                                           "source_type":  "official_docs",
+                                           "url":  "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+                                           "source_version":  "AI RMF 1.0",
+                                           "checked_at":  "2026-07-26"
+                                       },
+                                       {
+                                           "title":  "Human Integration Design Handbook",
+                                           "publisher":  "National Aeronautics and Space Administration",
+                                           "source_type":  "official_docs",
+                                           "url":  "https://www.nasa.gov/sites/default/files/atoms/files/human_integration_design_handbook_revision_1.pdf",
+                                           "source_version":  "Revision 1",
+                                           "checked_at":  "2026-07-26"
+                                       },
+                                       {
+                                           "title":  "Artificial Intelligence Playbook for the UK Government",
+                                           "publisher":  "Government Digital Service",
+                                           "source_type":  "official_docs",
+                                           "url":  "https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government/artificial-intelligence-playbook-for-the-uk-government-html",
+                                           "source_version":  "web page checked 2026-07-26",
+                                           "checked_at":  "2026-07-26"
+                                       }
+                                   ]
+                   },
+    "accessibility":  {
+                          "status":  "unverified",
+                          "standard":  "WCAG 2.2 AA",
+                          "features":  [
+
+                                       ],
+                          "alternative_resource_refs":  [
+
+                                                        ],
+                          "note":  "외부 출처의 접근성은 재검토가 필요합니다."
+                      },
+    "verification":  {
+                         "status":  "partial",
+                         "checked_at":  "2026-08-02",
+                         "commands":  [
+
+                                      ],
+                         "expected_outputs":  [
+                                                  "출처가 Unit의 정의·범위·판정 기준을 뒷받침하는지 확인한 기록"
+                                              ],
+                         "evidence_paths":  [
+
+                                            ],
+                         "note":  "URL·근거 범위만 검토했으며 학습자료로서의 완전성과 평가 타당성은 아직 검증하지 않았습니다."
+                     },
+    "lifecycle":  {
+                      "status":  "cataloged",
+                      "owner":  "AX learning workspace",
+                      "last_reviewed_at":  "2026-08-02",
+                      "review_due_at":  "2026-11-02",
+                      "note":  "Candidate 승격 시 등록한 공개 Reference입니다."
+                  },
+    "extensions":  {
+                       "promoted_from":  {
+                                             "kind":  "capability_candidate",
+                                             "id":  "candidate.ax-strategy-value.task-allocation",
+                                             "version":  "1.0.0"
+                                         }
+                   }
+}

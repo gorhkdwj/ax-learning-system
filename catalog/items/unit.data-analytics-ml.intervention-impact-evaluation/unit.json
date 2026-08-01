@@ -38,7 +38,17 @@
     "estimated_minutes": 120,
     "scope_expansion_policy": "목표 D2, 상한 D2입니다. 전문가 수준의 RCT·준실험 집행, 고급 통계모형과 고위험 개입의 최종 승인 책임은 포함하지 않습니다."
   },
-  "relations": [],
+  "relations": [
+    {
+      "type": "prerequisite",
+      "target": {
+        "id": "unit.ax-strategy-value.measurement-contract",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "note": "사전 정의된 결과·가드레일과 데이터 계약이 있어야 영향평가 설계와 판정을 재현할 수 있습니다."
+    }
+  ],
   "resource_refs": [
     {
       "resource": {
@@ -125,17 +135,6 @@
     "promotion_context": {
       "work_package_id": "wp.data-analytics-ml.breadth-a",
       "promoted_at": "2026-07-29"
-    },
-    "pending_candidate_relations": [
-      {
-        "type": "requires",
-        "target": {
-          "kind": "candidate",
-          "id": "candidate.ax-strategy-value.measurement-contract",
-          "version": "1.0.0"
-        },
-        "rationale": "사전 정의된 결과·가드레일과 데이터 계약이 있어야 영향평가 설계와 판정을 재현할 수 있습니다."
-      }
-    ]
+    }
   }
 }

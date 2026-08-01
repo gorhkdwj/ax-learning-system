@@ -1,0 +1,173 @@
+{
+    "schema_version":  "1.1.0",
+    "id":  "unit.ax-strategy-value.solution-fit-assessment",
+    "version":  "1.0.0",
+    "title":  "기술중립적 해법 적합성 평가",
+    "summary":  "현행 유지·제거·단순화·기존 SaaS·결정적 자동화·AI 보조·에이전트를 같은 업무 단위에서 비교하여 가장 단순하고 검증 가능한 해법을 선택하는 후보 역량입니다.",
+    "item_type":  "practice",
+    "taxonomy":  {
+                     "major_domain":  "ax-strategy-value",
+                     "subdomains":  [
+                                        "solution-selection",
+                                        "automation-fit"
+                                    ]
+                 },
+    "domain_tags":  [
+                        "technology-neutral",
+                        "deterministic-automation",
+                        "agent-fit"
+                    ],
+    "capabilities":  [
+                         "하나의 업무 문제에 대해 현행 유지부터 에이전트까지 대안별 적합성·비용·위험·탈락 근거를 비교하고 채택 또는 비채택 결정 메모를 작성합니다."
+                     ],
+    "learning":  {
+                     "outcomes":  [
+                                      {
+                                          "id":  "outcome.ax-strategy-value.solution-fit-assessment.d0",
+                                          "statement":  "결정적 자동화, AI 보조와 에이전트의 일반적인 적용 경계와 추가 복잡성을 설명합니다.",
+                                          "target_level":  "D0"
+                                      },
+                                      {
+                                          "id":  "outcome.ax-strategy-value.solution-fit-assessment.d2",
+                                          "statement":  "새로운 업무에서 대안 비교표와 민감도 기록을 작성하여 기술중립적 해법 결정을 방어합니다.",
+                                          "target_level":  "D2"
+                                      }
+                                  ],
+                     "default_target_level":  "D2",
+                     "maximum_scope_level":  "D2",
+                     "estimated_minutes":  120,
+                     "scope_expansion_policy":  "목표 D2, 상한 D2입니다. 공급자 기능·가격 비교, 상세 구현, 조달과 고위험 법적 판단은 포함하지 않습니다."
+                 },
+    "relations":  [
+                      {
+                          "type":  "prerequisite",
+                          "target":  {
+                                         "id":  "unit.ax-strategy-value.opportunity-value-framing",
+                                         "version":  "1.0.0"
+                                     },
+                          "note":  "검증된 업무 문제와 기대결과가 있어야 해법 비교의 수용기준을 고정할 수 있습니다.",
+                          "required_level":  "D2"
+                      },
+                      {
+                          "type":  "prerequisite",
+                          "target":  {
+                                         "id":  "unit.ax-strategy-value.task-allocation",
+                                         "version":  "1.0.0"
+                                     },
+                          "note":  "과업과 인간 책임 경계를 알아야 결정적 자동화·AI 보조·에이전트를 같은 단위에서 비교할 수 있습니다.",
+                          "required_level":  "D2"
+                      }
+                  ],
+    "resource_refs":  [
+                          {
+                              "resource":  {
+                                               "id":  "resource.ax-strategy-value.solution-fit-assessment.reference",
+                                               "version":  "1.0.0"
+                                           },
+                              "role":  "reference",
+                              "required":  false
+                          }
+                      ],
+    "requirements":  {
+                         "platforms":  [
+                                           "cross-platform",
+                                           "web-browser"
+                                       ],
+                         "network_required":  true,
+                         "accounts":  [
+
+                                      ],
+                         "secret_names":  [
+
+                                          ],
+                         "permissions":  [
+
+                                         ],
+                         "cost":  {
+                                      "model":  "free",
+                                      "currency":  "KRW",
+                                      "estimated_amount":  0,
+                                      "basis":  "공개 Reference 검토 1회"
+                                  },
+                         "technology_versions":  [
+
+                                                 ]
+                     },
+    "validation":  {
+                       "completion":  "required",
+                       "checks":  [
+                                      {
+                                          "id":  "ax-strategy-value-solution-fit-assessment-catalog-assessment",
+                                          "type":  "manual",
+                                          "learning_outcome_ids":  [
+                                                                       "outcome.ax-strategy-value.solution-fit-assessment.d0",
+                                                                       "outcome.ax-strategy-value.solution-fit-assessment.d2"
+                                                                   ],
+                                          "required":  true,
+                                          "success_criteria":  [
+                                                                   "대표 사례를 가장 단순한 적합 해법과 부적합 해법으로 분류합니다.",
+                                                                   "미지 업무 시나리오에서 동일 수용기준을 만족하는 대안 중 비용·위험·복구 부담이 지배적으로 낮은 해법을 선택하고 변동성·가역성 조건이 변경되면 결정을 일관되게 갱신합니다."
+                                                               ]
+                                      }
+                                  ]
+                   },
+    "sources":  [
+                    {
+                        "title":  "RPA Program Playbook",
+                        "publisher":  "Federal RPA Community of Practice and U.S. General Services Administration",
+                        "source_type":  "official_source",
+                        "url":  "https://digital.gov/s3/files/m-files/rpa-playbook.pdf",
+                        "source_version":  "1.1",
+                        "checked_at":  "2026-07-26"
+                    },
+                    {
+                        "title":  "Building effective agents",
+                        "publisher":  "Anthropic",
+                        "source_type":  "official_source",
+                        "url":  "https://www.anthropic.com/engineering/building-effective-agents",
+                        "source_version":  "web page checked 2026-07-26",
+                        "checked_at":  "2026-07-26"
+                    },
+                    {
+                        "title":  "Artificial Intelligence Risk Management Framework Core",
+                        "publisher":  "National Institute of Standards and Technology",
+                        "source_type":  "official_docs",
+                        "url":  "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+                        "source_version":  "AI RMF 1.0",
+                        "checked_at":  "2026-07-26"
+                    },
+                    {
+                        "title":  "Artificial Intelligence Playbook for the UK Government",
+                        "publisher":  "Government Digital Service",
+                        "source_type":  "official_docs",
+                        "url":  "https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government/artificial-intelligence-playbook-for-the-uk-government-html",
+                        "source_version":  "web page checked 2026-07-26",
+                        "checked_at":  "2026-07-26"
+                    }
+                ],
+    "potential_impact_types":  [
+                                   "cost",
+                                   "time",
+                                   "quality",
+                                   "risk_reduction",
+                                   "strategic_option"
+                               ],
+    "lifecycle":  {
+                      "status":  "cataloged",
+                      "owner":  "AX learning workspace",
+                      "last_reviewed_at":  "2026-08-02",
+                      "review_due_at":  "2026-11-02",
+                      "note":  "candidate.ax-strategy-value.solution-fit-assessment@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+                  },
+    "extensions":  {
+                       "promoted_from":  {
+                                             "kind":  "capability_candidate",
+                                             "id":  "candidate.ax-strategy-value.solution-fit-assessment",
+                                             "version":  "1.0.0"
+                                         },
+                       "promotion_context":  {
+                                                 "work_package_id":  "wp.candidate-normalization.integration-a",
+                                                 "promoted_at":  "2026-08-02"
+                                             }
+                   }
+}

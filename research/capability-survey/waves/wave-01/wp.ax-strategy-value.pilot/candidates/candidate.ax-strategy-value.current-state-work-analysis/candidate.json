@@ -159,10 +159,10 @@
     }
   ],
   "decision": {
-    "status": "proposed",
+    "status": "accepted",
     "confidence": "medium",
     "rationale": "세 독립 조사와 감사에서 실행 증거 기반 현행 분석의 독립 학습성과가 확인되었고 사용자 경험·미래상태 설계·제품 Adapter와의 경계를 분리했습니다.",
-    "review_gate": "breadth"
+    "review_gate": "promotion"
   },
   "review": {
     "wave_id": "wave-01",
@@ -178,6 +178,6 @@
       "이벤트 로그가 없는 수작업 업무의 최소 신뢰 표본 기준을 보정해야 합니다.",
       "서비스 디자인 역량과 최종 소유 경계를 후속 전사 조사에서 확인해야 합니다."
     ],
-    "next_action": "이벤트 로그가 없는 수작업 표본 기준을 후속 실습 설계에서 검증합니다."
+    "next_action": "unit.ax-strategy-value.current-state-work-analysis@1.0.0 정규 승격과 구조검증을 완료했습니다. 이벤트 로그가 없는 수작업 표본 기준은 상세 fixture 설계에서 검증합니다."
   }
 }

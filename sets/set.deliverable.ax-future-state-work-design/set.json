@@ -1,0 +1,378 @@
+{
+    "schema_version":  "1.0.0",
+    "id":  "set.deliverable.ax-future-state-work-design",
+    "version":  "1.0.0",
+    "title":  "미래 상태 인간-AI 업무흐름 재설계",
+    "summary":  "불필요한 단계를 제거·단순화한 뒤 인간·결정적 자동화·AI 역할, 결정권, 정상·예외·실패·수동 대체 경로를 하나의 미래 업무흐름으로 설계하는 후보입니다.",
+    "set_type":  "deliverable",
+    "target_roles":  [
+                         "AX 기획·전략 담당자",
+                         "현업 프로세스 소유자",
+                         "제품·운영·위험 검토자"
+                     ],
+    "business_context":  "합성 저·중위험 업무를 대상으로 문제·현행·과업·해법·측정 계약을 미래 상태 업무흐름으로 통합합니다.",
+    "target_outcome":  "현행 업무지도와 가치목표를 입력으로 미래 상태 흐름, 인간·자동화·AI 역할, 결정·승인·예외·복구 지점과 수용 기준을 설계하고 walkthrough로 검증합니다.",
+    "input_artifacts":  [
+                            "합성 현행 업무 시나리오",
+                            "봉인된 제약·위험·수용기준 manifest"
+                        ],
+    "output_artifacts":  [
+                             "future-state-work-design.json",
+                             "scenario-walkthrough-results.json",
+                             "design-decision.json"
+                         ],
+    "entry_requirements":  [
+
+                           ],
+    "priority":  {
+                     "curriculum_class":  "role_core",
+                     "execution_priority":  "later",
+                     "reason":  "여러 공통 Unit을 조합하는 정규 deliverable Set이며 Phase 3 우선순위 평가 전에는 현재 학습으로 자동 배정하지 않습니다."
+                 },
+    "business_impact":  {
+                            "value_hypothesis":  "자동화 전에 낭비를 제거하고 종단 간 인계·재작업을 줄일 가능성이 있습니다.",
+                            "impact_types":  [
+                                                 "time",
+                                                 "throughput",
+                                                 "quality",
+                                                 "experience",
+                                                 "risk_reduction"
+                                             ],
+                            "evidence_confidence":  "hypothesis",
+                            "learning_effort_note":  "합성 fixture와 문서형 산출물 기준이며 실제 조직·업무 적용은 포함하지 않습니다.",
+                            "maintenance_cost_note":  "연결 Unit의 버전·관계와 안전·법률·운영 경계를 주기적으로 재검토해야 합니다."
+                        },
+    "steps":  [
+                  {
+                      "id":  "opportunity-value-framing",
+                      "title":  "AX 기회·가치가설 프레이밍",
+                      "reason":  "선행 Unit의 산출물과 검증 Gate를 미래 상태 업무흐름 설계에 연결합니다.",
+                      "unit_ref":  {
+                                       "id":  "unit.ax-strategy-value.opportunity-value-framing",
+                                       "version":  "1.0.0"
+                                   },
+                      "required_level":  "D2",
+                      "required":  true,
+                      "depends_on":  [
+
+                                     ],
+                      "resource_refs":  [
+
+                                        ],
+                      "consumes":  [
+                                       "합성 업무 시나리오와 선행 단계 산출물"
+                                   ],
+                      "produces":  [
+                                       "AX 기회·가치가설 프레이밍 evidence"
+                                   ],
+                      "validation_gate_ids":  [
+                                                  "ax-strategy-value-opportunity-value-framing-catalog-assessment"
+                                              ],
+                      "context":  "실제 운영계 변경과 고위험 승인·법률 판단을 수행하지 않습니다.",
+                      "estimated_minutes":  120
+                  },
+                  {
+                      "id":  "current-state-work-analysis",
+                      "title":  "현행 업무시스템 분석",
+                      "reason":  "선행 Unit의 산출물과 검증 Gate를 미래 상태 업무흐름 설계에 연결합니다.",
+                      "unit_ref":  {
+                                       "id":  "unit.ax-strategy-value.current-state-work-analysis",
+                                       "version":  "1.0.0"
+                                   },
+                      "required_level":  "D2",
+                      "required":  true,
+                      "depends_on":  [
+                                         "opportunity-value-framing"
+                                     ],
+                      "resource_refs":  [
+
+                                        ],
+                      "consumes":  [
+                                       "합성 업무 시나리오와 선행 단계 산출물"
+                                   ],
+                      "produces":  [
+                                       "현행 업무시스템 분석 evidence"
+                                   ],
+                      "validation_gate_ids":  [
+                                                  "ax-strategy-value-current-state-work-analysis-catalog-assessment"
+                                              ],
+                      "context":  "실제 운영계 변경과 고위험 승인·법률 판단을 수행하지 않습니다.",
+                      "estimated_minutes":  120
+                  },
+                  {
+                      "id":  "task-allocation",
+                      "title":  "인간·자동화·AI 과업 역할 배분",
+                      "reason":  "선행 Unit의 산출물과 검증 Gate를 미래 상태 업무흐름 설계에 연결합니다.",
+                      "unit_ref":  {
+                                       "id":  "unit.ax-strategy-value.task-allocation",
+                                       "version":  "1.0.0"
+                                   },
+                      "required_level":  "D2",
+                      "required":  true,
+                      "depends_on":  [
+                                         "current-state-work-analysis"
+                                     ],
+                      "resource_refs":  [
+
+                                        ],
+                      "consumes":  [
+                                       "합성 업무 시나리오와 선행 단계 산출물"
+                                   ],
+                      "produces":  [
+                                       "인간·자동화·AI 과업 역할 배분 evidence"
+                                   ],
+                      "validation_gate_ids":  [
+                                                  "ax-strategy-value-task-allocation-catalog-assessment"
+                                              ],
+                      "context":  "실제 운영계 변경과 고위험 승인·법률 판단을 수행하지 않습니다.",
+                      "estimated_minutes":  120
+                  },
+                  {
+                      "id":  "solution-fit-assessment",
+                      "title":  "기술중립적 해법 적합성 평가",
+                      "reason":  "선행 Unit의 산출물과 검증 Gate를 미래 상태 업무흐름 설계에 연결합니다.",
+                      "unit_ref":  {
+                                       "id":  "unit.ax-strategy-value.solution-fit-assessment",
+                                       "version":  "1.0.0"
+                                   },
+                      "required_level":  "D2",
+                      "required":  true,
+                      "depends_on":  [
+                                         "opportunity-value-framing",
+                                         "task-allocation"
+                                     ],
+                      "resource_refs":  [
+
+                                        ],
+                      "consumes":  [
+                                       "합성 업무 시나리오와 선행 단계 산출물"
+                                   ],
+                      "produces":  [
+                                       "기술중립적 해법 적합성 평가 evidence"
+                                   ],
+                      "validation_gate_ids":  [
+                                                  "ax-strategy-value-solution-fit-assessment-catalog-assessment"
+                                              ],
+                      "context":  "실제 운영계 변경과 고위험 승인·법률 판단을 수행하지 않습니다.",
+                      "estimated_minutes":  120
+                  },
+                  {
+                      "id":  "measurement-contract",
+                      "title":  "AX 성과 측정계약 설계",
+                      "reason":  "선행 Unit의 산출물과 검증 Gate를 미래 상태 업무흐름 설계에 연결합니다.",
+                      "unit_ref":  {
+                                       "id":  "unit.ax-strategy-value.measurement-contract",
+                                       "version":  "1.0.0"
+                                   },
+                      "required_level":  "D2",
+                      "required":  true,
+                      "depends_on":  [
+                                         "opportunity-value-framing",
+                                         "current-state-work-analysis"
+                                     ],
+                      "resource_refs":  [
+
+                                        ],
+                      "consumes":  [
+                                       "합성 업무 시나리오와 선행 단계 산출물"
+                                   ],
+                      "produces":  [
+                                       "AX 성과 측정계약 설계 evidence"
+                                   ],
+                      "validation_gate_ids":  [
+                                                  "ax-strategy-value-measurement-contract-catalog-assessment"
+                                              ],
+                      "context":  "실제 운영계 변경과 고위험 승인·법률 판단을 수행하지 않습니다.",
+                      "estimated_minutes":  120
+                  }
+              ],
+    "risk_profile":  {
+                         "level":  "medium",
+                         "data_classes":  [
+                                              "public"
+                                          ],
+                         "human_approval_points":  [
+                                                       "실제 개인정보·운영 권한·고위험 자동결정을 사용하지 않는지 확인합니다.",
+                                                       "실제 배포·조직변경·법률 판단은 별도 승인과 전문 검토로 이관합니다."
+                                                   ],
+                         "stop_conditions":  [
+                                                 "실제 개인정보·비밀정보·운영계정이 필요합니다.",
+                                                 "고위험 권한·법률·인사 결정을 학습 결과로 대체하려 합니다."
+                                             ],
+                         "rollback_plan":  "합성 산출물만 폐기하고 외부 시스템이나 실제 업무 상태는 변경하지 않습니다."
+                     },
+    "requirements":  {
+                         "platforms":  [
+                                           "cross-platform",
+                                           "web-browser"
+                                       ],
+                         "network_required":  false,
+                         "accounts":  [
+
+                                      ],
+                         "secret_names":  [
+
+                                          ],
+                         "permissions":  [
+
+                                         ],
+                         "cost":  {
+                                      "model":  "free",
+                                      "currency":  "KRW",
+                                      "estimated_amount":  0,
+                                      "basis":  "합성 문서 fixture 1회"
+                                  },
+                         "technology_versions":  [
+
+                                                 ]
+                     },
+    "capstone_resource_refs":  [
+
+                               ],
+    "acceptance_criteria":  [
+                                "낭비·예외·fallback이 누락된 설계를 판별합니다.",
+                                "정상·예외·권한거부·외부서비스 장애·AI 오류 시나리오를 주입한 walkthrough에서 각 경로의 책임자, 중단조건, 수동 대체와 복구 결과가 모두 확인되어야 합니다.",
+                                "다섯 required Unit의 검증 Gate와 산출물 참조가 모두 연결되고 한 Gate라도 실패하면 미완료로 판정합니다.",
+                                "실제 개인정보·운영계정·외부 상태 변경과 전문 법률·위험수용 결론은 0건이어야 합니다."
+                            ],
+    "transfer_evaluation":  {
+                                "check_after_days":  7,
+                                "metrics":  [
+                                                "누락된 역할·승인·예외·복구 경로 수",
+                                                "검증되지 않은 효과 주장 수",
+                                                "선행 Unit Gate 누락 수"
+                                            ],
+                                "different_context_task":  "역할·예외·위험이 다른 두 번째 합성 업무에 같은 설계 절차를 적용합니다."
+                            },
+    "sources":  [
+                    {
+                        "title":  "Eliminate, Optimize, Automate",
+                        "publisher":  "U.S. General Services Administration",
+                        "source_type":  "official_docs",
+                        "url":  "https://www.gsa.gov/technology/government-it-initiatives/eliminate-optimize-automate",
+                        "source_version":  "web page checked 2026-07-26",
+                        "checked_at":  "2026-07-26"
+                    },
+                    {
+                        "title":  "AI RMF Core (AI RMF 1.0)",
+                        "publisher":  "National Institute of Standards and Technology",
+                        "source_type":  "official_docs",
+                        "url":  "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+                        "source_version":  "AI RMF 1.0",
+                        "checked_at":  "2026-07-26"
+                    },
+                    {
+                        "title":  "Artificial Intelligence Playbook for the UK Government",
+                        "publisher":  "Government Digital Service",
+                        "source_type":  "official_docs",
+                        "url":  "https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government/artificial-intelligence-playbook-for-the-uk-government-html",
+                        "source_version":  "web page checked 2026-07-26",
+                        "checked_at":  "2026-07-26"
+                    },
+                    {
+                        "title":  "Artificial Intelligence: An Accountability Framework for Federal Agencies and Other Entities",
+                        "publisher":  "U.S. Government Accountability Office",
+                        "source_type":  "official_docs",
+                        "url":  "https://www.gao.gov/products/gao-21-519sp",
+                        "source_version":  "web page checked 2026-07-26",
+                        "checked_at":  "2026-07-26"
+                    }
+                ],
+    "lifecycle":  {
+                      "status":  "cataloged",
+                      "owner":  "AX learning workspace",
+                      "last_reviewed_at":  "2026-08-02",
+                      "review_due_at":  "2026-11-02",
+                      "note":  "candidate.ax-strategy-value.future-state-redesign@1.0.0의 승인 결과를 정규 Set으로 등록했습니다. 실제 업무효과와 학습효과는 아직 검증하지 않았습니다."
+                  },
+    "extensions":  {
+                       "promoted_from":  {
+                                             "kind":  "capability_candidate",
+                                             "id":  "candidate.ax-strategy-value.future-state-redesign",
+                                             "version":  "1.0.0"
+                                         },
+                       "promotion_context":  {
+                                                 "work_package_id":  "wp.candidate-normalization.integration-a",
+                                                 "promoted_at":  "2026-08-02"
+                                             },
+                       "required_unit_composition":  [
+                                                         {
+                                                             "id":  "unit.ax-strategy-value.opportunity-value-framing",
+                                                             "version":  "1.0.0",
+                                                             "required":  true,
+                                                             "required_level":  "D2"
+                                                         },
+                                                         {
+                                                             "id":  "unit.ax-strategy-value.current-state-work-analysis",
+                                                             "version":  "1.0.0",
+                                                             "required":  true,
+                                                             "required_level":  "D2"
+                                                         },
+                                                         {
+                                                             "id":  "unit.ax-strategy-value.task-allocation",
+                                                             "version":  "1.0.0",
+                                                             "required":  true,
+                                                             "required_level":  "D2"
+                                                         },
+                                                         {
+                                                             "id":  "unit.ax-strategy-value.solution-fit-assessment",
+                                                             "version":  "1.0.0",
+                                                             "required":  true,
+                                                             "required_level":  "D2"
+                                                         },
+                                                         {
+                                                             "id":  "unit.ax-strategy-value.measurement-contract",
+                                                             "version":  "1.0.0",
+                                                             "required":  true,
+                                                             "required_level":  "D2"
+                                                         }
+                                                     ],
+                       "source_candidate_relations":  [
+                                                          {
+                                                              "type":  "requires",
+                                                              "target":  {
+                                                                             "kind":  "candidate",
+                                                                             "id":  "candidate.ax-strategy-value.opportunity-value-framing",
+                                                                             "version":  "1.0.0"
+                                                                         },
+                                                              "rationale":  "미래상태 설계의 목표와 비목표를 고정합니다."
+                                                          },
+                                                          {
+                                                              "type":  "requires",
+                                                              "target":  {
+                                                                             "kind":  "candidate",
+                                                                             "id":  "candidate.ax-strategy-value.current-state-work-analysis",
+                                                                             "version":  "1.0.0"
+                                                                         },
+                                                              "rationale":  "현재 흐름·병목·예외를 근거로 제거·단순화 대상을 판단합니다."
+                                                          },
+                                                          {
+                                                              "type":  "requires",
+                                                              "target":  {
+                                                                             "kind":  "candidate",
+                                                                             "id":  "candidate.ax-strategy-value.task-allocation",
+                                                                             "version":  "1.0.0"
+                                                                         },
+                                                              "rationale":  "인간·자동화·AI의 과업 책임과 승인 경계를 입력으로 사용합니다."
+                                                          },
+                                                          {
+                                                              "type":  "requires",
+                                                              "target":  {
+                                                                             "kind":  "candidate",
+                                                                             "id":  "candidate.ax-strategy-value.solution-fit-assessment",
+                                                                             "version":  "1.0.0"
+                                                                         },
+                                                              "rationale":  "각 단계에 가장 단순하고 검증 가능한 해법을 배치합니다."
+                                                          },
+                                                          {
+                                                              "type":  "requires",
+                                                              "target":  {
+                                                                             "kind":  "candidate",
+                                                                             "id":  "candidate.ax-strategy-value.measurement-contract",
+                                                                             "version":  "1.0.0"
+                                                                         },
+                                                              "rationale":  "설계 수용기준과 실제 효과를 구분할 측정계약을 포함합니다."
+                                                          }
+                                                      ]
+                   }
+}

@@ -1,0 +1,101 @@
+{
+    "schema_version":  "1.0.0",
+    "id":  "resource.ax-strategy-value.enterprise-ax-roadmap.reference",
+    "version":  "1.0.0",
+    "title":  "전사 AX 역량 로드맵 설계 공식·1차 출처 Reference",
+    "description":  "정규 Unit의 정의·범위와 판정 기준을 뒷받침하는 공개 Reference입니다. 상세 교재나 독립 평가자료를 대신하지 않습니다.",
+    "resource_type":  "external_reference",
+    "owner":  {
+                  "kind":  "unit",
+                  "id":  "unit.ax-strategy-value.enterprise-ax-roadmap",
+                  "version":  "1.0.0"
+              },
+    "location":  {
+                     "kind":  "external",
+                     "url":  "https://www.iso.org/standard/81230.html"
+                 },
+    "learning_outcome_ids":  [
+                                 "outcome.ax-strategy-value.enterprise-ax-roadmap.d0",
+                                 "outcome.ax-strategy-value.enterprise-ax-roadmap.d2"
+                             ],
+    "estimated_minutes":  30,
+    "language":  "ko",
+    "tags":  [
+                 "reference",
+                 "promotion-evidence"
+             ],
+    "requirements":  {
+                         "platforms":  [
+                                           "web-browser"
+                                       ],
+                         "network_required":  true
+                     },
+    "provenance":  {
+                       "origin":  "external",
+                       "sources":  [
+                                       {
+                                           "title":  "ISO/IEC 42001:2023 — Information technology — Artificial intelligence — Management system",
+                                           "publisher":  "International Organization for Standardization",
+                                           "source_type":  "standard",
+                                           "url":  "https://www.iso.org/standard/81230.html",
+                                           "source_version":  "ISO/IEC 42001:2023 (1st edition, 2023-12); public catalogue abstract checked, normative text not reviewed; systematic review in progress at stage 90.20",
+                                           "checked_at":  "2026-07-27"
+                                       },
+                                       {
+                                           "title":  "Artificial Intelligence Risk Management Framework Core",
+                                           "publisher":  "National Institute of Standards and Technology",
+                                           "source_type":  "official_docs",
+                                           "url":  "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+                                           "source_version":  "AI RMF 1.0; AIRC page states a revised version is in progress as checked 2026-07-27",
+                                           "checked_at":  "2026-07-27"
+                                       },
+                                       {
+                                           "title":  "Digital Government Outlook 2026 — Adopting and governing AI in government",
+                                           "publisher":  "Organisation for Economic Co-operation and Development",
+                                           "source_type":  "official_source",
+                                           "url":  "https://www.oecd.org/content/dam/oecd/en/publications/reports/2026/06/digital-government-outlook_4585678e/0496b2bc-en.pdf",
+                                           "source_version":  "Digital Government Outlook 2026: From Foundations to Transformational Impact; DOI 10.1787/0496b2bc-en; Chapter 4, pp.107-146; CC BY 4.0; Public Governance Committee approved 2026-06-08",
+                                           "checked_at":  "2026-07-27"
+                                       }
+                                   ]
+                   },
+    "accessibility":  {
+                          "status":  "unverified",
+                          "standard":  "WCAG 2.2 AA",
+                          "features":  [
+
+                                       ],
+                          "alternative_resource_refs":  [
+
+                                                        ],
+                          "note":  "외부 출처의 접근성은 재검토가 필요합니다."
+                      },
+    "verification":  {
+                         "status":  "partial",
+                         "checked_at":  "2026-08-02",
+                         "commands":  [
+
+                                      ],
+                         "expected_outputs":  [
+                                                  "출처가 Unit의 정의·범위·판정 기준을 뒷받침하는지 확인한 기록"
+                                              ],
+                         "evidence_paths":  [
+
+                                            ],
+                         "note":  "URL·근거 범위만 검토했으며 학습자료로서의 완전성과 평가 타당성은 아직 검증하지 않았습니다."
+                     },
+    "lifecycle":  {
+                      "status":  "cataloged",
+                      "owner":  "AX learning workspace",
+                      "last_reviewed_at":  "2026-08-02",
+                      "review_due_at":  "2026-11-02",
+                      "note":  "Candidate 승격 시 등록한 공개 Reference입니다."
+                  },
+    "extensions":  {
+                       "promoted_from":  {
+                                             "kind":  "capability_candidate",
+                                             "id":  "candidate.ax-strategy-value.enterprise-ax-roadmap",
+                                             "version":  "1.0.0"
+                                         }
+                   }
+}

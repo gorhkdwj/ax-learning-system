@@ -1,0 +1,182 @@
+{
+    "schema_version":  "1.1.0",
+    "id":  "unit.ax-strategy-value.measurement-contract",
+    "version":  "1.0.0",
+    "title":  "AX 기준선·KPI·가드레일 측정계약 설계",
+    "summary":  "출력량이나 사용률을 효과로 오인하지 않도록 기준선, 결과·선행 지표, 품질·안전 가드레일, 데이터 정의·책임자·임계조건을 하나의 측정계약으로 만드는 후보 역량입니다.",
+    "item_type":  "practice",
+    "taxonomy":  {
+                     "major_domain":  "ax-strategy-value",
+                     "subdomains":  [
+                                        "value-measurement",
+                                        "evaluation-design"
+                                    ]
+                 },
+    "domain_tags":  [
+                        "baseline",
+                        "kpi",
+                        "guardrail"
+                    ],
+    "capabilities":  [
+                         "새로운 AX 후보에 대해 기준선, 결과·진단·가드레일 지표의 분자·분모·측정창·데이터 출처·책임자·임계조건이 있는 측정계약을 작성합니다."
+                     ],
+    "learning":  {
+                     "outcomes":  [
+                                      {
+                                          "id":  "outcome.ax-strategy-value.measurement-contract.d0",
+                                          "statement":  "출력·활동·결과·영향 지표를 구분하고 단일 지표 최적화의 위험을 설명합니다.",
+                                          "target_level":  "D0"
+                                      },
+                                      {
+                                          "id":  "outcome.ax-strategy-value.measurement-contract.d2",
+                                          "statement":  "새로운 AX 개입을 현행 대안과 비교할 수 있는 KPI·가드레일 측정계약을 독립적으로 설계합니다.",
+                                          "target_level":  "D2"
+                                      }
+                                  ],
+                     "default_target_level":  "D2",
+                     "maximum_scope_level":  "D2",
+                     "estimated_minutes":  120,
+                     "scope_expansion_policy":  "목표 D2, 상한 D2입니다. 운영 경보·자동중단 구현, 고급 통계과정과 전사 성과관리 제도는 제외합니다."
+                 },
+    "relations":  [
+                      {
+                          "type":  "prerequisite",
+                          "target":  {
+                                         "id":  "unit.ax-strategy-value.opportunity-value-framing",
+                                         "version":  "1.0.0"
+                                     },
+                          "note":  "가치가설과 no-go 조건을 측정 가능한 결과·가드레일로 변환합니다.",
+                          "required_level":  "D2"
+                      },
+                      {
+                          "type":  "prerequisite",
+                          "target":  {
+                                         "id":  "unit.ax-strategy-value.current-state-work-analysis",
+                                         "version":  "1.0.0"
+                                     },
+                          "note":  "현행 관측값과 데이터 출처를 측정 기준선으로 사용합니다.",
+                          "required_level":  "D2"
+                      }
+                  ],
+    "resource_refs":  [
+                          {
+                              "resource":  {
+                                               "id":  "resource.ax-strategy-value.measurement-contract.reference",
+                                               "version":  "1.0.0"
+                                           },
+                              "role":  "reference",
+                              "required":  false
+                          }
+                      ],
+    "requirements":  {
+                         "platforms":  [
+                                           "cross-platform",
+                                           "web-browser"
+                                       ],
+                         "network_required":  true,
+                         "accounts":  [
+
+                                      ],
+                         "secret_names":  [
+
+                                          ],
+                         "permissions":  [
+
+                                         ],
+                         "cost":  {
+                                      "model":  "free",
+                                      "currency":  "KRW",
+                                      "estimated_amount":  0,
+                                      "basis":  "공개 Reference 검토 1회"
+                                  },
+                         "technology_versions":  [
+
+                                                 ]
+                     },
+    "validation":  {
+                       "completion":  "required",
+                       "checks":  [
+                                      {
+                                          "id":  "ax-strategy-value-measurement-contract-catalog-assessment",
+                                          "type":  "manual",
+                                          "learning_outcome_ids":  [
+                                                                       "outcome.ax-strategy-value.measurement-contract.d0",
+                                                                       "outcome.ax-strategy-value.measurement-contract.d2"
+                                                                   ],
+                                          "required":  true,
+                                          "success_criteria":  [
+                                                                   "잘못된 분모와 품질 상쇄가 있는 지표 사례를 판별합니다.",
+                                                                   "고정 원자료 fixture에서 두 평가자가 같은 지표값을 재현하고 결측·잘못된 분모·가드레일 위반·단일지표 게임 사례를 사전 정의된 assertion으로 탐지합니다."
+                                                               ]
+                                      }
+                                  ]
+                   },
+    "sources":  [
+                    {
+                        "title":  "Artificial Intelligence Risk Management Framework Core",
+                        "publisher":  "National Institute of Standards and Technology",
+                        "source_type":  "official_docs",
+                        "url":  "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+                        "source_version":  "AI RMF 1.0",
+                        "checked_at":  "2026-07-26"
+                    },
+                    {
+                        "title":  "Magenta Book: Central Government guidance on evaluation",
+                        "publisher":  "HM Treasury and Evaluation Task Force",
+                        "source_type":  "official_docs",
+                        "url":  "https://www.gov.uk/government/publications/the-magenta-book/magenta-book-central-government-guidance-on-evaluation-html",
+                        "source_version":  "2026 edition; page updated 2026-05-15",
+                        "checked_at":  "2026-07-26"
+                    },
+                    {
+                        "title":  "Measuring the success of your service",
+                        "publisher":  "Performance analysis community",
+                        "source_type":  "official_docs",
+                        "url":  "https://www.gov.uk/service-manual/measuring-success/measuring-the-success-of-your-service",
+                        "source_version":  "web page checked 2026-07-26",
+                        "checked_at":  "2026-07-26"
+                    },
+                    {
+                        "title":  "A Dirty Dozen: Twelve Common Metric Interpretation Pitfalls in Online Controlled Experiments",
+                        "publisher":  "Microsoft Research",
+                        "source_type":  "primary_research",
+                        "url":  "https://www.microsoft.com/en-us/research/publication/a-dirty-dozen-twelve-common-metric-interpretation-pitfalls-in-online-controlled-experiments/",
+                        "source_version":  "published 2017-08",
+                        "checked_at":  "2026-07-26"
+                    },
+                    {
+                        "title":  "Guidance: Outcomes and measurement",
+                        "publisher":  "Immigration, Refugees and Citizenship Canada",
+                        "source_type":  "official_docs",
+                        "url":  "https://www.canada.ca/en/immigration-refugees-citizenship/corporate/partners-service-providers/funding/outcome-guidance.html",
+                        "source_version":  "web page checked 2026-07-26",
+                        "checked_at":  "2026-07-26"
+                    }
+                ],
+    "potential_impact_types":  [
+                                   "time",
+                                   "throughput",
+                                   "quality",
+                                   "cost",
+                                   "risk_reduction",
+                                   "capability_unlock"
+                               ],
+    "lifecycle":  {
+                      "status":  "cataloged",
+                      "owner":  "AX learning workspace",
+                      "last_reviewed_at":  "2026-08-02",
+                      "review_due_at":  "2026-11-02",
+                      "note":  "candidate.ax-strategy-value.measurement-contract@1.0.0의 승인 결과를 정규 메타데이터로 등록했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+                  },
+    "extensions":  {
+                       "promoted_from":  {
+                                             "kind":  "capability_candidate",
+                                             "id":  "candidate.ax-strategy-value.measurement-contract",
+                                             "version":  "1.0.0"
+                                         },
+                       "promotion_context":  {
+                                                 "work_package_id":  "wp.candidate-normalization.integration-a",
+                                                 "promoted_at":  "2026-08-02"
+                                             }
+                   }
+}

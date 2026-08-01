@@ -131,10 +131,10 @@
     }
   ],
   "decision": {
-    "status": "proposed",
+    "status": "accepted",
     "confidence": "medium",
     "rationale": "세 독립 조사와 근거·분류·실무성 감사에서 문제·가치가설 프레이밍의 독립 학습성과가 확인되었고 상세 해법 결정 책임은 분리했습니다.",
-    "review_gate": "breadth"
+    "review_gate": "promotion"
   },
   "review": {
     "wave_id": "wave-01",
@@ -150,6 +150,6 @@
       "민간·비영리 맥락에서 필요한 최소 산출물 크기를 파일럿으로 보정해야 합니다.",
       "정량 가치평가를 별도 전문 Unit으로 분리할지는 후속 조사가 필요합니다."
     ],
-    "next_action": "시험 배치 전체의 교정 후 사용자 검토에서 유지·재분류 여부를 판단합니다."
+    "next_action": "unit.ax-strategy-value.opportunity-value-framing@1.0.0 정규 승격과 구조검증을 완료했습니다. 실제 업무 적용과 학습효과는 Phase 3 이후 검증합니다."
   }
 }

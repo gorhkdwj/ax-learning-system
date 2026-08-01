@@ -20,6 +20,12 @@
 - `canonical`: 사용자 승인과 정규화 Gate를 통과한 분류
 - `deprecated`: 새 항목에서 참조할 수 없는 분류
 
+Wave 5 정규화에서 Coverage와 승인·승격 근거가 있는 10개 domain과 97개
+subdomain을 canonical로 확정했습니다. 최초 조사 렌즈 ID는 변경하지 않고
+Candidate의 `discovery.lens_id`와 provenance에 발견 이력을 보존합니다.
+`operational-value`, `benefits-realization`, `personalization-memory-user-control`은
+deferred 근거만 있어 provisional로 유지합니다.
+
 ## 변경 순서
 
 1. 새 분류의 정의, 포함·제외, 부모와 관련 노드를 제안합니다.

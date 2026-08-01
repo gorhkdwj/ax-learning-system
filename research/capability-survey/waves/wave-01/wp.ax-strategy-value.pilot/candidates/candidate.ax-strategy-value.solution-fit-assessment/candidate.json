@@ -185,10 +185,10 @@
     }
   ],
   "decision": {
-    "status": "proposed",
+    "status": "accepted",
     "confidence": "medium",
     "rationale": "세 독립 조사와 근거·분류·실무성 감사에서 기술중립 비교의 독립 학습성과가 확인되었고 보편 임계값은 배제했습니다.",
-    "review_gate": "breadth"
+    "review_gate": "promotion"
   },
   "review": {
     "wave_id": "wave-01",
@@ -204,6 +204,6 @@
       "업무 변동성과 예외율의 보편적인 정량 임계값은 확인되지 않았습니다.",
       "산업별 위험·비용 가중치는 조직 정책과 실제 데이터로 보정해야 합니다."
     ],
-    "next_action": "실제 업무 표본으로 대안별 완전원가와 복구 부담의 측정 가능성을 보정합니다."
+    "next_action": "unit.ax-strategy-value.solution-fit-assessment@1.0.0 정규 승격과 구조검증을 완료했습니다. 실제 업무 표본의 완전원가와 복구 부담은 Phase 3 이후 보정합니다."
   }
 }

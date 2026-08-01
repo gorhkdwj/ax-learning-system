@@ -87,15 +87,12 @@
       "id": "candidate.integration-automation.deterministic-agentic-boundary-guide",
       "version": "1.0.0"
     },
-    "pending_candidate_relations": [
+    "existing_catalog_relations": [
       {
-        "type": "related_to",
-        "target": {
-          "kind": "candidate",
-          "id": "candidate.ax-strategy-value.solution-fit-assessment",
-          "version": "1.0.0"
-        },
-        "rationale": "새 과제의 기술중립 해법 선택은 이 Resource가 아니라 기존 해법 적합성 Candidate로 라우팅합니다."
+        "kind": "unit",
+        "id": "unit.ax-strategy-value.solution-fit-assessment",
+        "version": "1.0.0",
+        "rationale": "새 과제의 기술중립 해법 선택은 이 Resource가 아니라 정규 해법 적합성 Unit으로 라우팅합니다."
       }
     ],
     "related_catalog_artifacts": [
