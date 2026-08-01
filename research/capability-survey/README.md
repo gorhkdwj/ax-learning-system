@@ -15,7 +15,7 @@ staging 영역입니다. Candidate는 학습 Unit이나 현재 학습 배정이 
 - Checkpoint 템플릿: `templates/research/wave-checkpoint.template.md`
 - Claude→Codex 인계 계약: `research/capability-survey/handoffs/README.md`
 - 인계 스키마: `schemas/phase2-handoff.schema.json`
-- 현재 상태: `research/capability-survey/checkpoints/wave-03.md`
+- 현재 상태: `research/capability-survey/checkpoints/wave-04.md`
 
 ## 쓰기 규칙
 
@@ -36,9 +36,11 @@ python -m unittest discover -s tests -v
 ## 현재 상태
 
 Wave 2의 다섯 패키지와 Wave 3의 네 패키지는 조사·독립 감사·사용자 승인·
-정규 메타데이터 승격을 완료했습니다. 현재 정본 checkpoint는 Wave 3이며
-상태는 `ready_for_wave-04-planning`입니다. Wave 4는 조사 렌즈·범위·패키지
-순서·후보 상한을 별도 계획하고 사용자 승인을 받은 뒤 시작합니다.
+정규 메타데이터 승격을 완료했습니다. Wave 4에서는 Candidate 96개를 10개
+조사 렌즈, 8개 역할 관점과 12개 횡단 품질축으로 교차 점검하고 개발자 기술스택
+편향을 레드팀 검토했습니다. 라우팅 없는 신규 고우선 공백은 0개였으며 신규
+Candidate를 만들지 않았습니다. 현재 정본 checkpoint는 Wave 4이고 상태는
+`ready_for_wave-05-planning`입니다.
 
 Wave 2의 첫 작업 패키지 `wp.ai-literacy-trust.breadth-a`는 Candidate 10개와
 evidence 22건, 고유 URL 13개로 구성되며 정규 승격 상태입니다. 구성은 신규
