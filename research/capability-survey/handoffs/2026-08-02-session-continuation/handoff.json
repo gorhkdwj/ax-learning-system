@@ -3,7 +3,7 @@
   "id": "handoff.phase2.wave-07-session-continuation",
   "version": "1.0.0",
   "title": "Phase 2 Wave 7 Codex Session Continuation Handoff",
-  "status": "ready_for_review",
+  "status": "phase_complete",
   "created_at": "2026-08-02",
   "created_by": "Codex",
   "source_contract": {
@@ -43,10 +43,10 @@
       "Wave 5 Candidate·관계·taxonomy 정규화",
       "Wave 6 고위험 전수·일반 층화 독립 QA와 교정",
       "Wave 7 active role view 8개와 최종 역량지도 조립·독립 완료 감사",
-      "Public 원격 반영과 Public·Vault 저장소 경계 최종 확인"
+      "Public 원격 반영과 Public·Vault 저장소 경계 최종 확인",
+      "2026-08-02 사용자 Phase 2 완료 승인과 phase_complete 전환"
     ],
     "excluded": [
-      "Phase 2 사용자 완료 승인 확정",
       "Phase 3 역할별 학습 우선순위 결정",
       "상세 교재·fixture·runner·HUB 대량 제작",
       "실제 조직·제품·운영계 적합성과 학습·업무효과 검증"
@@ -1149,25 +1149,24 @@
     }
   ],
   "open_items": {
-    "questions": [
-      "사용자가 Phase 2 최종 역량지도와 완료 감사 보고서를 검토하고 Phase 2 완료를 승인할지 확인해야 합니다."
-    ],
+    "questions": [],
     "risks": [
       "15개 Candidate의 evidence 25건에 source_version이 비어 있어 원문 버전 재현성이 낮습니다.",
       "Wave 5 source projection과 Candidate 사이에 source_type 5건과 source_version 7건의 비차단 차이가 있습니다.",
       "로컬 환경에서 python 명령이 Windows Store 별칭을 가리킬 수 있으므로 실제 Python이 PATH에 있는지 확인해야 합니다.",
-      "codex-windows-sandbox-setup 실행 파일과 UserPromptSubmit hook 오류는 저장소 외부 로컬 도구 문제로 보이며 Git 작업과 검증 결과에는 영향을 주지 않았습니다."
+      "codex-windows-sandbox-setup 실행 파일과 UserPromptSubmit hook 오류는 저장소 외부 로컬 도구 문제로 보이며 Git 작업과 검증 결과에는 영향을 주지 않았습니다.",
+      "Cataloged Unit·Set의 실제 학습효과와 업무효과는 Phase 3 이후 별도 검증이 필요합니다.",
+      "역할 view active 상태는 개인별 필수과정·직무기술서·실제 조직 적합성을 뜻하지 않습니다."
     ],
     "conflicts": [],
-    "unverified_claims": [
-      "Cataloged Unit·Set의 실제 학습효과와 업무효과는 검증되지 않았습니다.",
-      "역할 view active 상태는 개인별 필수과정·직무기술서·실제 조직 적합성을 뜻하지 않습니다."
-    ]
+    "unverified_claims": []
   },
   "approval": {
-    "status": "pending",
+    "status": "approved",
     "requested_at": "2026-08-02",
-    "note": "Wave 7 산출물과 독립 완료 감사는 통과했으며 Phase 2 사용자 완료 승인만 남았습니다."
+    "approved_at": "2026-08-02",
+    "approved_by": "user",
+    "note": "사용자가 2026-08-02 Phase 2 완료와 phase_complete 상태 전환을 승인했습니다."
   },
   "resume": {
     "read_first": [
@@ -1180,7 +1179,7 @@
       "research/capability-survey/waves/wave-07/phase2-completion-report.md",
       "docs/research/phase2-capability-survey-runbook.md"
     ],
-    "next_action": "사용자에게 Phase 2 완료 승인 여부를 확인하고, 승인 전에는 Phase 3 상세 작업을 시작하지 않습니다.",
+    "next_action": "Phase 3에서 8개 active role view를 입력으로 사용자 업무·역량·제약을 확인하고 우선 학습 패키지 후보를 평가합니다.",
     "inputs": [
       "taxonomy/taxonomy.json",
       "research/capability-survey/waves/wave-07/capability-map.md",
@@ -1190,13 +1189,13 @@
       "research/capability-survey/checkpoints/wave-07.md",
       "docs/plans/curriculum-foundation-plan.md"
     ],
-    "approval_required": true,
+    "approval_required": false,
     "stop_conditions": [
       "Public 로컬 HEAD와 origin/main이 다르거나 Phase 2 완료 기준 커밋 62506b8e04cb62b0e1072476a012f6ee34ef70d3이 현재 main의 조상이 아닙니다.",
       "Public 또는 Vault 작업트리에 예상하지 못한 변경이 있습니다.",
       "상위 AX 작업공간에 .git이 존재합니다.",
       "공개 경계·카탈로그·회귀검증이 실패합니다.",
-      "사용자가 Phase 2 완료를 승인하지 않거나 범위 변경을 요청합니다."
+      "Phase 3 우선순위 평가가 학습 범위나 목표 난이도를 크게 변경합니다."
     ]
   },
   "attestations": {

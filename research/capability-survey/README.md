@@ -9,7 +9,8 @@ staging 영역입니다. Candidate는 학습 Unit이나 현재 학습 배정이 
 - 실행 Runbook: `docs/research/phase2-capability-survey-runbook.md`
 - 후보 스키마: `schemas/capability-candidate.schema.json`
 - 후보 템플릿: `templates/research/capability-candidate.template.json`
-- 분류 Registry: `taxonomy/taxonomy.json` (`taxonomy.ax-capability-map@1.1.0`)
+- Phase 2 완료 시점 분류 Registry: `taxonomy/taxonomy.json`
+  (`taxonomy.ax-capability-map@1.1.0`; 후속 학습 설계 버전은 Registry 정본 참조)
 - 분류 스키마: `schemas/capability-taxonomy.schema.json`
 - 분야 보고서 템플릿: `templates/research/domain-survey.template.md`
 - Checkpoint 템플릿: `templates/research/wave-checkpoint.template.md`
@@ -46,8 +47,8 @@ Candidate를 만들지 않았습니다. Wave 5에서는 Candidate 96개의 명�
 `taxonomy.ax-capability-map@1.0.0`으로 전환했습니다. Wave 6에서는 고위험·D3·
 논쟁 후보 30개와 일반 층화표본 26개를 세 독립 감사축으로 재검수하고 P0·P1을
 0건으로 교정했습니다. Wave 7에서는 Registry를 1.1.0으로 갱신하고 Wave 4의
-8개 역할 관점을 active view로 조립하고 세 독립 완료 감사를 통과했습니다. 현재
-상태는 `ready_for_user_completion_approval`입니다.
+8개 역할 관점을 active view로 조립하고 세 독립 완료 감사를 통과했습니다.
+사용자가 `2026-08-02`에 완료를 승인하여 현재 상태는 `phase_complete`입니다.
 
 Wave 2의 첫 작업 패키지 `wp.ai-literacy-trust.breadth-a`는 Candidate 10개와
 evidence 22건, 고유 URL 13개로 구성되며 정규 승격 상태입니다. 구성은 신규
@@ -58,7 +59,7 @@ ID와 영문 병기는 허용한다는 명명 원칙도 승인되었습니다.
 
 Wave 1~3에서 `taxonomy.ax-capability-map@0.10.0`까지 조사 렌즈와 잠정
 subdomain을 누적했습니다. Wave 5 정규화에서 1.0.0을 확정했고 Wave 7 역할
-view 조립 후 현재 Registry는 `taxonomy.ax-capability-map@1.1.0`입니다. 10개
+view 조립 후 Phase 2 완료 시점 Registry는 `taxonomy.ax-capability-map@1.1.0`입니다. 10개
 domain과 근거가 확인된 97개 subdomain은 canonical, deferred 근거만 있는
 3개 subdomain은 provisional입니다.
 

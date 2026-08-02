@@ -13,7 +13,7 @@ Vault main: ed2e9ad7a00a0830321cc3ca49f1a3ec73d4d57f
 Public worktree: clean
 Vault worktree: clean
 상위 AX/.git: 없음
-현재 상태: ready_for_user_completion_approval
+현재 상태: phase_complete
 ```
 
 새 세션에서는 작업 전에 `git fetch origin main`을 실행하고 로컬 HEAD와 원격
@@ -56,21 +56,20 @@ Phase 2 결과는 canonical domain 10개, canonical subdomain 97개, provisional
 subdomain 3개와 active role view 8개입니다. Role view의 active는 탐색 가능
 상태이며 개인별 필수과정, 상세 교재 완료나 실제 효과 검증을 뜻하지 않습니다.
 
-## 4. 남은 작업
+## 4. 완료 승인과 다음 작업
+
+### Phase 2 완료 승인
+
+사용자가 `2026-08-02`에 최종 역량지도와 Phase 2 완료 감사 보고서를 승인했습니다.
+`handoff.json`의 상태는 `phase_complete`, 승인 상태는 `approved`로 전환했습니다.
+이 승인은 상세 교재·개인별 우선순위·실제 효과 검증의 완료를 뜻하지 않습니다.
 
 ### 즉시 다음 행동
 
-사용자에게 최종 역량지도와 Phase 2 완료 감사 보고서의 완료 승인 여부를
-확인하십시오. 승인 전에는 Phase 3 상세 작업을 시작하지 마십시오.
-
-### 사용자가 승인한 뒤
-
-1. Wave 7 Checkpoint와 Foundation Plan에 사용자 승인 사실과 날짜를 기록합니다.
-2. Phase 2 완료 상태를 `phase_complete`로 전환할 때 승인자·승인일과 최종 검증을
-   함께 기록합니다.
-3. Phase 3에서 8개 role view를 입력으로 가치·선행관계·안전·유지비를 평가합니다.
-4. 80 Unit·8 Set을 한꺼번에 제작하지 않고 소수 우선 패키지를 먼저 선택합니다.
-5. 선택된 패키지만 fixture·runner·교재·전이평가 Gate를 구현합니다.
+1. Phase 3에서 8개 role view를 입력으로 사용자 업무·역량·제약을 확인합니다.
+2. 가치·선행관계·안전·유지비를 기준으로 우선순위를 평가합니다.
+3. 80 Unit·8 Set을 한꺼번에 제작하지 않고 소수 우선 패키지를 먼저 선택합니다.
+4. 선택된 패키지만 fixture·runner·교재·전이평가 Gate를 구현합니다.
 
 ### 비차단 후속 정리
 
@@ -121,5 +120,5 @@ Public 검증과 Vault 상태에는 영향을 주지 않았습니다. 새 세션
 다음 문장과 `handoff.json` 경로만 전달해도 됩니다.
 
 > `research/capability-survey/handoffs/2026-08-02-session-continuation/handoff.json`을
-> 검증하고 Phase 2 사용자 완료 승인 여부 확인부터 재개하십시오. 승인 전에는
-> Phase 3 상세 작업을 시작하지 마십시오.
+> 검증하고 Phase 3 역할별 우선순위 평가를 위한 사용자 업무·역량·제약 확인부터
+> 재개하십시오. 상세 패키지는 우선순위가 확정된 소수 항목만 구현하십시오.

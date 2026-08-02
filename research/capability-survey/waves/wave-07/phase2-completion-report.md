@@ -3,8 +3,8 @@
 ## 결론
 
 Phase 2의 조사·Coverage·정규화·독립 QA와 지도 조립 산출물은 완료조건을
-충족하도록 구성했습니다. 현재 상태는 `ready_for_user_completion_approval`이며
-사용자 승인 전에는 완료 승인을 소급해 기록하지 않습니다.
+충족했으며, 사용자가 `2026-08-02`에 완료를 승인했습니다. 현재 상태는
+`phase_complete`입니다.
 
 ## 완료 근거
 
@@ -30,9 +30,9 @@ Phase 2의 조사·Coverage·정규화·독립 QA와 지도 조립 산출물은 
 | 기존 ID 삭제·개명 | 0 |
 | P0·P1 | 0 |
 | 자동검증 | Public boundary 0, catalog 오류·경고 0, tests 33/33 |
-| 사용자 완료 승인 | 대기 |
+| 사용자 완료 승인 | 2026-08-02 승인 |
 
-## 승인해도 확정되지 않는 것
+## Phase 2 완료 범위에 포함되지 않는 것
 
 - 모든 Unit·Set의 상세 교재, fixture와 runner
 - 개인별 학습 우선순위와 역할별 필수과정
@@ -53,7 +53,7 @@ Phase 2의 조사·Coverage·정규화·독립 QA와 지도 조립 산출물은 
 - Wave 6 근거 P2인 15 Candidate·25 evidence의 `source_version` 공란과 Wave 5
   projection의 `source_type` 5건·`source_version` 7건 차이
 
-## 승인 후 다음 단계
+## 다음 단계
 
 Phase 3에서 역할 view를 입력으로 학습 우선순위를 평가하고, 가치·안전·선행관계·
 유지비를 기준으로 소수 Unit·Set의 상세 학습 패키지부터 활성화합니다.
