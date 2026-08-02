@@ -92,8 +92,8 @@
 
 ## Phase 2. 전사 AX 역량지도 조사
 
-상태: 2026-08-02 Wave 1~3 조사·승격, Wave 4 Coverage, Wave 5 정규화와
-Wave 6 독립 QA 완료, Wave 7 최종 지도 조립 준비
+상태: 2026-08-02 Wave 1~3 조사·승격, Wave 4 Coverage, Wave 5 정규화,
+Wave 6 독립 QA와 Wave 7 최종 지도 조립 완료, 사용자 완료 승인 대기
 
 ### 조사 범위
 
@@ -221,5 +221,6 @@ Wave 6 독립 QA 완료, Wave 7 최종 지도 조립 준비
 Phase 0, Phase 1과 Trend Signal 연구 인입 기반을 완료했고, Phase 2의 Wave 1~3
 Breadth 조사·승격, Wave 4 Coverage, Wave 5 후보·taxonomy 정규화와 Wave 6의
 고위험·D3·논쟁 후보 전수검수 및 일반 후보 층화표본 독립 QA를 완료했습니다.
-다음은 Wave 7에서 역할 view와 최종 역량지도를 조립하고 Phase 2 완료 승인을
-받는 것입니다. 상세 교재는 Phase 3 우선순위 평가 전까지 대량 생성하지 않습니다.
+Wave 7에서는 8개 active 역할 view와 최종 역량지도를 조립하고 독립 완료 감사를
+통과했습니다. 현재는 Phase 2 사용자 완료 승인을 기다립니다. 상세 교재는 Phase 3
+우선순위 평가 전까지 대량 생성하지 않습니다.

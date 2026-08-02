@@ -26,6 +26,13 @@ Candidate의 `discovery.lens_id`와 provenance에 발견 이력을 보존합니�
 `operational-value`, `benefits-realization`, `personalization-memory-user-control`은
 deferred 근거만 있어 provisional로 유지합니다.
 
+`taxonomy.ax-capability-map@1.1.0`은 Wave 7에서 Wave 4의 8개 역할 관점을
+`active` role view로 조립했습니다. 이
+view는 canonical domain을 조합하는 탐색 projection이며 학습순서, 직무기술서,
+실제 조직 적합성이나 학습·업무효과 검증을 뜻하지 않습니다. 기존 프론트엔드·
+백엔드·데이터 엔지니어링 3개 planned view는 ID를 삭제하지 않고 세부 역할 보기
+후보로 유지합니다.
+
 ## 변경 순서
 
 1. 새 분류의 정의, 포함·제외, 부모와 관련 노드를 제안합니다.
@@ -41,6 +48,7 @@ python tools/validate_catalog.py
 python -m unittest discover -s tests -v
 ```
 
-프론트엔드·백엔드·데이터 엔지니어링은 현재 `planned` 역할 보기입니다.
-Wave 2·3 조사 결과에 따라 정규 대분류, 중분류 또는 역할 보기 중 적합한
-목적지를 결정합니다.
+경영·현업·제품·엔지니어링·데이터·운영·위험·조직의 8개 역할 보기는
+`active`입니다. 프론트엔드·백엔드·데이터 엔지니어링 3개 세부 역할 보기는
+기존 ID 보존을 위해 `planned`로 유지하며 이후 실제 사용례와 사용자 승인에 따라
+활성화·병합·대체 여부를 결정합니다.
