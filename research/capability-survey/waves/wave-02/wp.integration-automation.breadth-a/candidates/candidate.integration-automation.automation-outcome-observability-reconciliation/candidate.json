@@ -150,7 +150,7 @@
       "title": "RPA Program Playbook",
       "publisher": "U.S. General Services Administration",
       "source_type": "official_source",
-      "url": "https://www.gsa.gov/cdnstatic/rpa-playbook.pdf",
+      "url": "https://digital.gov/s3/files/m-files/rpa-playbook.pdf",
       "checked_at": "2026-07-29",
       "claim_scope": "자동화 변경 감시·품질관리·내부통제 시험과 성과 측정의 공공부문 실무 범위를 지지합니다.",
       "supports": [
@@ -179,7 +179,7 @@
       "title": "The Arazzo Specification",
       "publisher": "OpenAPI Initiative",
       "source_type": "official_spec",
-      "url": "https://spec.openapis.org/arazzo/1.1.0.html",
+      "url": "https://spec.openapis.org/arazzo/v1.1.0.html",
       "checked_at": "2026-07-29",
       "claim_scope": "workflow step의 success criteria와 output을 명시해 단순 호출 응답과 완료조건을 분리하는 계약 범위를 보조합니다.",
       "supports": [

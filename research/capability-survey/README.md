@@ -15,7 +15,7 @@ staging 영역입니다. Candidate는 학습 Unit이나 현재 학습 배정이 
 - Checkpoint 템플릿: `templates/research/wave-checkpoint.template.md`
 - Claude→Codex 인계 계약: `research/capability-survey/handoffs/README.md`
 - 인계 스키마: `schemas/phase2-handoff.schema.json`
-- 현재 상태: `research/capability-survey/checkpoints/wave-05.md`
+- 현재 상태: `research/capability-survey/checkpoints/wave-06.md`
 
 ## 쓰기 규칙
 
@@ -42,8 +42,10 @@ Wave 2의 다섯 패키지와 Wave 3의 네 패키지는 조사·독립 감사·
 Candidate를 만들지 않았습니다. Wave 5에서는 Candidate 96개의 명칭·alias·
 목적지·관계를 정규화하고 Wave 1의 승인 후보 7개 Unit·7개 Reference·1개 Set을
 정규 승격했습니다. Taxonomy는 canonical node 107개와 provisional node 3개인
-`taxonomy.ax-capability-map@1.0.0`으로 전환했습니다. 현재 정본 checkpoint는
-Wave 5이고 상태는 `ready_for_wave-06-planning`입니다.
+`taxonomy.ax-capability-map@1.0.0`으로 전환했습니다. Wave 6에서는 고위험·D3·
+논쟁 후보 30개와 일반 층화표본 26개를 세 독립 감사축으로 재검수하고 P0·P1을
+0건으로 교정했습니다. 현재 정본 checkpoint는 Wave 6이고 상태는
+`ready_for_wave-07-planning`입니다.
 
 Wave 2의 첫 작업 패키지 `wp.ai-literacy-trust.breadth-a`는 Candidate 10개와
 evidence 22건, 고유 URL 13개로 구성되며 정규 승격 상태입니다. 구성은 신규

@@ -104,6 +104,67 @@
                                              "kind":  "capability_candidate",
                                              "id":  "candidate.ax-strategy-value.current-state-work-analysis",
                                              "version":  "1.0.0"
-                                         }
+                                         },
+                       "evidence_claims":  [
+                                               {
+                                                   "id":  "evidence.ax-strategy-value.current-state-work-analysis.govuk-whole-problem",
+                                                   "title":  "Map and understand a user\u0027s whole problem",
+                                                   "publisher":  "Design community",
+                                                   "source_type":  "official_docs",
+                                                   "url":  "https://www.gov.uk/service-manual/design/map-a-users-whole-problem",
+                                                   "published_at":  "2019-05-01",
+                                                   "checked_at":  "2026-07-26",
+                                                   "claim_scope":  "사용자 여정, 관련 조직·시스템·백엔드 과정과 증거를 함께 매핑해 전체 문제를 이해해야 한다는 범위만 지지합니다.",
+                                                   "supports":  [
+                                                                    "scope",
+                                                                    "work_relevance"
+                                                                ]
+                                               },
+                                               {
+                                                   "id":  "evidence.ax-strategy-value.current-state-work-analysis.govuk-user-experience-research",
+                                                   "title":  "Researching user experiences",
+                                                   "publisher":  "User research community",
+                                                   "source_type":  "practitioner_primary",
+                                                   "url":  "https://www.gov.uk/service-manual/user-research/researching-user-experiences",
+                                                   "published_at":  "2017-02-21",
+                                                   "checked_at":  "2026-07-26",
+                                                   "source_version":  "page updated 2017-08-25",
+                                                   "claim_scope":  "경험 인터뷰에서 실제 사건·관련자를 기록하고 참여자가 지도를 확인하게 하며 여러 경험을 현재 서비스 지도로 종합하는 범위만 지지합니다.",
+                                                   "supports":  [
+                                                                    "scope",
+                                                                    "work_relevance",
+                                                                    "learning_outcome"
+                                                                ]
+                                               },
+                                               {
+                                                   "id":  "evidence.ax-strategy-value.current-state-work-analysis.bpmn",
+                                                   "title":  "Business Process Model and Notation Specification Version 2.0.2",
+                                                   "publisher":  "Object Management Group",
+                                                   "source_type":  "standard",
+                                                   "url":  "https://www.omg.org/spec/BPMN/",
+                                                   "checked_at":  "2026-07-26",
+                                                   "source_version":  "2.0.2",
+                                                   "claim_scope":  "업무 프로세스를 공통 표기로 표현하는 정규 표준의 존재와 범위를 지지하며 실제 프로세스 발견 방법이나 가치효과는 지지하지 않습니다.",
+                                                   "supports":  [
+                                                                    "definition",
+                                                                    "scope"
+                                                                ]
+                                               },
+                                               {
+                                                   "id":  "evidence.ax-strategy-value.current-state-work-analysis.process-mining-manifesto",
+                                                   "title":  "Process Mining Manifesto",
+                                                   "publisher":  "IEEE Task Force on Process Mining",
+                                                   "source_type":  "practitioner_primary",
+                                                   "url":  "https://www.tf-pm.org/resources/manifesto",
+                                                   "checked_at":  "2026-07-26",
+                                                   "source_version":  "2012",
+                                                   "claim_scope":  "이벤트 로그에서 실제 실행 흐름을 발견·확인하고 데이터 품질을 점검하는 범위만 지지하며 이벤트 로그가 없는 수작업 표본 방법까지 지지하지 않습니다.",
+                                                   "supports":  [
+                                                                    "definition",
+                                                                    "scope",
+                                                                    "work_relevance"
+                                                                ]
+                                               }
+                                           ]
                    }
 }

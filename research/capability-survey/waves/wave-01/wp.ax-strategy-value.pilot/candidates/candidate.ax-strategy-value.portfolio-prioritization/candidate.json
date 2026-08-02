@@ -163,13 +163,13 @@
     },
     {
       "id": "evidence.ax-strategy-value.portfolio-prioritization.portfolio-risk-annex",
-      "title": "Portfolio Risk Management Guidance — Orange Book Annex",
+      "title": "The Orange Book: Management of Risk — Principles and Concepts",
       "publisher": "HM Treasury; Government Finance Function",
       "source_type": "official_docs",
-      "url": "https://assets.publishing.service.gov.uk/media/6453b363c33b460012f5e6bf/Portfolio_Risk_Management_Guidance_Orange_Book_Annex.pdf",
-      "checked_at": "2026-07-27",
-      "source_version": "May 2023 annex; GOV.UK publication collection records addition on 2023-05-04",
-      "claim_scope": "공공부문 포트폴리오에서 위험·수익, 위험선호, 프로그램 간 상호의존성, 가용 자원과 불완전한 정보 아래 우선순위·재균형 결정을 다루는 범위를 지지합니다. 민간 AX 포트폴리오의 효과 크기나 전문 투자 최적화는 지지하지 않습니다.",
+      "url": "https://www.gov.uk/government/publications/orange-book/the-orange-book-management-of-risk-principles-and-concepts",
+      "checked_at": "2026-08-02",
+      "source_version": "GOV.UK guidance updated 2026-07-29",
+      "claim_scope": "공공부문에서 위험선호를 반영한 전략·우선순위·자원배분, 대안의 비용·편익·위험·의존성 평가, 변화에 따른 지속 재검토 범위만 지지합니다. 포트폴리오 전용 절차·민간 AX 효과 크기·전문 투자 최적화는 지지하지 않습니다.",
       "supports": [
         "scope",
         "learning_outcome",

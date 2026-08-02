@@ -104,6 +104,69 @@
                                              "kind":  "capability_candidate",
                                              "id":  "candidate.ax-strategy-value.solution-fit-assessment",
                                              "version":  "1.0.0"
-                                         }
+                                         },
+                       "evidence_claims":  [
+                                               {
+                                                   "id":  "evidence.ax-strategy-value.solution-fit-assessment.gsa-rpa-playbook",
+                                                   "title":  "RPA Program Playbook",
+                                                   "publisher":  "Federal RPA Community of Practice and U.S. General Services Administration",
+                                                   "source_type":  "practitioner_primary",
+                                                   "url":  "https://digital.gov/s3/files/m-files/rpa-playbook.pdf",
+                                                   "published_at":  "2020-01-17",
+                                                   "checked_at":  "2026-07-26",
+                                                   "source_version":  "1.1",
+                                                   "claim_scope":  "규칙 기반 자동화 후보를 업무 안정성·예외·표준화·기준선 관점에서 평가하는 범위만 지지하며 AI와 에이전트의 보편 비교우위는 지지하지 않습니다.",
+                                                   "supports":  [
+                                                                    "scope",
+                                                                    "work_relevance"
+                                                                ]
+                                               },
+                                               {
+                                                   "id":  "evidence.ax-strategy-value.solution-fit-assessment.anthropic-agents",
+                                                   "title":  "Building effective agents",
+                                                   "publisher":  "Anthropic",
+                                                   "source_type":  "practitioner_primary",
+                                                   "url":  "https://www.anthropic.com/engineering/building-effective-agents",
+                                                   "published_at":  "2024-12-19",
+                                                   "checked_at":  "2026-07-26",
+                                                   "claim_scope":  "가장 단순한 해법에서 시작하고 워크플로우와 에이전트의 비용·지연·유연성 차이를 구분하는 실무 지침 범위만 지지하며 일반적인 성과 크기는 지지하지 않습니다.",
+                                                   "supports":  [
+                                                                    "definition",
+                                                                    "scope",
+                                                                    "work_relevance"
+                                                                ]
+                                               },
+                                               {
+                                                   "id":  "evidence.ax-strategy-value.solution-fit-assessment.nist-airmf",
+                                                   "title":  "Artificial Intelligence Risk Management Framework Core",
+                                                   "publisher":  "National Institute of Standards and Technology",
+                                                   "source_type":  "official_docs",
+                                                   "url":  "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+                                                   "published_at":  "2023-01-26",
+                                                   "checked_at":  "2026-07-26",
+                                                   "source_version":  "AI RMF 1.0",
+                                                   "claim_scope":  "MAP 1과 MAP 3의 맥락·업무가치·효익·비용·위험·초기 go/no-go 고려 범위만 지지합니다.",
+                                                   "supports":  [
+                                                                    "scope",
+                                                                    "risk",
+                                                                    "work_relevance"
+                                                                ]
+                                               },
+                                               {
+                                                   "id":  "evidence.ax-strategy-value.solution-fit-assessment.uk-ai-playbook",
+                                                   "title":  "Artificial Intelligence Playbook for the UK Government",
+                                                   "publisher":  "Government Digital Service",
+                                                   "source_type":  "official_docs",
+                                                   "url":  "https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government/artificial-intelligence-playbook-for-the-uk-government-html",
+                                                   "published_at":  "2025-02-10",
+                                                   "checked_at":  "2026-07-26",
+                                                   "claim_scope":  "업무·사용자 필요에서 출발하고 전통적 해법과 AI의 상대적 이점·위험·유지 역량을 비교해야 한다는 범위만 지지합니다.",
+                                                   "supports":  [
+                                                                    "scope",
+                                                                    "work_relevance",
+                                                                    "risk"
+                                                                ]
+                                               }
+                                           ]
                    }
 }

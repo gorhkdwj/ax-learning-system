@@ -72,7 +72,7 @@
                                            "cross-platform",
                                            "web-browser"
                                        ],
-                         "network_required":  true,
+                         "network_required":  false,
                          "accounts":  [
 
                                       ],
@@ -86,7 +86,7 @@
                                       "model":  "free",
                                       "currency":  "KRW",
                                       "estimated_amount":  0,
-                                      "basis":  "공개 Reference 검토 1회"
+                                      "basis":  "합성·공개 또는 승인된 비식별 fixture 평가 1회"
                                   },
                          "technology_versions":  [
 
@@ -158,6 +158,78 @@
                        "promotion_context":  {
                                                  "work_package_id":  "wp.candidate-normalization.integration-a",
                                                  "promoted_at":  "2026-08-02"
-                                             }
+                                             },
+                       "evidence_claims":  [
+                                               {
+                                                   "id":  "evidence.ax-strategy-value.enterprise-ax-roadmap.iso-42001",
+                                                   "title":  "ISO/IEC 42001:2023 — Information technology — Artificial intelligence — Management system",
+                                                   "publisher":  "International Organization for Standardization",
+                                                   "source_type":  "standard",
+                                                   "url":  "https://www.iso.org/standard/81230.html",
+                                                   "checked_at":  "2026-07-27",
+                                                   "source_version":  "ISO/IEC 42001:2023 (1st edition, 2023-12); public catalogue abstract checked, normative text not reviewed; systematic review in progress at stage 90.20",
+                                                   "claim_scope":  "조직이 AI에 대한 정책·목표·프로세스와 지속적 개선 체계를 수립해야 한다는 범위를 지지하며 특정 로드맵 형식이나 효과 크기는 지지하지 않습니다.",
+                                                   "supports":  [
+                                                                    "scope",
+                                                                    "work_relevance",
+                                                                    "lifecycle"
+                                                                ]
+                                               },
+                                               {
+                                                   "id":  "evidence.ax-strategy-value.enterprise-ax-roadmap.nist-airmf",
+                                                   "title":  "Artificial Intelligence Risk Management Framework Core",
+                                                   "publisher":  "National Institute of Standards and Technology",
+                                                   "source_type":  "official_docs",
+                                                   "url":  "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+                                                   "published_at":  "2023-01-26",
+                                                   "checked_at":  "2026-07-27",
+                                                   "source_version":  "AI RMF 1.0; AIRC page states a revised version is in progress as checked 2026-07-27",
+                                                   "claim_scope":  "AI 인벤토리와 자원을 위험 우선순위, 역할, 조직의 임무·목표·사업가치 및 위험선호에 맞추어 관리해야 한다는 범위를 지지합니다.",
+                                                   "supports":  [
+                                                                    "scope",
+                                                                    "risk",
+                                                                    "lifecycle"
+                                                                ]
+                                               },
+                                               {
+                                                   "id":  "evidence.ax-strategy-value.enterprise-ax-roadmap.oecd-2026",
+                                                   "title":  "Digital Government Outlook 2026 — Adopting and governing AI in government",
+                                                   "publisher":  "Organisation for Economic Co-operation and Development",
+                                                   "source_type":  "official_source",
+                                                   "url":  "https://www.oecd.org/content/dam/oecd/en/publications/reports/2026/06/digital-government-outlook_4585678e/0496b2bc-en.pdf",
+                                                   "published_at":  "2026-06-15",
+                                                   "checked_at":  "2026-07-27",
+                                                   "source_version":  "Digital Government Outlook 2026: From Foundations to Transformational Impact; DOI 10.1787/0496b2bc-en; Chapter 4, pp.107-146; CC BY 4.0; Public Governance Committee approved 2026-06-08",
+                                                   "claim_scope":  "AI 전략의 범정부 조정 실행, 명확한 결과 책임, 거버넌스·데이터·인프라·기술인력·투자·조달·파트너십이라는 선행 기반과 보호장치를 직접 지지합니다. 파일럿 난립과 확장 한계에 관한 공공부문 관찰이며 민간기업에 동일한 효과가 난다는 주장은 지지하지 않습니다.",
+                                                   "supports":  [
+                                                                    "scope",
+                                                                    "work_relevance",
+                                                                    "business_hypothesis",
+                                                                    "risk"
+                                                                ]
+                                               }
+                                           ],
+                       "source_candidate_relations":  [
+                                                          {
+                                                              "type":  "recommended_prerequisite",
+                                                              "target":  {
+                                                                             "kind":  "candidate",
+                                                                             "id":  "candidate.ax-strategy-value.portfolio-prioritization",
+                                                                             "version":  "1.0.0"
+                                                                         },
+                                                              "rationale":  "우선순위와 상태가 표시된 후보 포트폴리오가 있으면 공통 기반 역량과 실행 파동을 더 현실적으로 순서화할 수 있습니다."
+                                                          },
+                                                          {
+                                                              "type":  "recommended_prerequisite",
+                                                              "target":  {
+                                                                             "kind":  "candidate",
+                                                                             "id":  "candidate.ax-strategy-value.opportunity-value-framing",
+                                                                             "version":  "1.0.0"
+                                                                         },
+                                                              "rationale":  "로드맵의 실행 항목을 도구 목록이 아니라 사업 문제와 기대 결과에 연결하기 위해 기회 프레이밍이 도움이 됩니다."
+                                                          }
+                                                      ],
+                       "assessment_implementation_status":  "required_before_activation",
+                       "assessment_input_policy":  "활성화 전 봉인된 합성·공개 fixture와 정답 manifest, 판정·안전·정리 Gate를 구현하고 검증해야 합니다."
                    }
 }

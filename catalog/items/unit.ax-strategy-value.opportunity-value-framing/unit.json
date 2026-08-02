@@ -56,7 +56,7 @@
                                            "cross-platform",
                                            "web-browser"
                                        ],
-                         "network_required":  true,
+                         "network_required":  false,
                          "accounts":  [
 
                                       ],
@@ -70,7 +70,7 @@
                                       "model":  "free",
                                       "currency":  "KRW",
                                       "estimated_amount":  0,
-                                      "basis":  "공개 Reference 검토 1회"
+                                      "basis":  "합성·공개 또는 승인된 비식별 fixture 평가 1회"
                                   },
                          "technology_versions":  [
 
@@ -134,6 +134,44 @@
                        "promotion_context":  {
                                                  "work_package_id":  "wp.candidate-normalization.integration-a",
                                                  "promoted_at":  "2026-08-02"
-                                             }
+                                             },
+                       "evidence_claims":  [
+                                               {
+                                                   "id":  "evidence.ax-strategy-value.opportunity-value-framing.nist-airmf",
+                                                   "title":  "Artificial Intelligence Risk Management Framework Core",
+                                                   "publisher":  "National Institute of Standards and Technology",
+                                                   "source_type":  "official_docs",
+                                                   "url":  "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+                                                   "published_at":  "2023-01-26",
+                                                   "checked_at":  "2026-07-26",
+                                                   "source_version":  "AI RMF 1.0",
+                                                   "claim_scope":  "MAP 1과 MAP 3이 업무 맥락·목표·사업가치, 기대 편익·비용과 적절한 기준의 문서화를 요구한다는 범위만 지지합니다.",
+                                                   "supports":  [
+                                                                    "scope",
+                                                                    "work_relevance",
+                                                                    "risk"
+                                                                ]
+                                               },
+                                               {
+                                                   "id":  "evidence.ax-strategy-value.opportunity-value-framing.green-book",
+                                                   "title":  "The Green Book (2026)",
+                                                   "publisher":  "HM Treasury",
+                                                   "source_type":  "official_docs",
+                                                   "url":  "https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government/the-green-book-2026",
+                                                   "checked_at":  "2026-07-26",
+                                                   "source_version":  "2026 edition; page updated 2026-02-05",
+                                                   "claim_scope":  "Case for change, BAU, Theory of Change, 목표와 대안별 비용·편익·위험을 연결하는 공공부문 평가 구조를 지지하며 일반적인 AX 효과 크기는 지지하지 않습니다.",
+                                                   "supports":  [
+                                                                    "definition",
+                                                                    "scope",
+                                                                    "learning_outcome"
+                                                                ]
+                                               }
+                                           ],
+                       "source_candidate_relations":  [
+
+                                                      ],
+                       "assessment_implementation_status":  "required_before_activation",
+                       "assessment_input_policy":  "활성화 전 봉인된 합성·공개 fixture와 정답 manifest, 판정·안전·정리 Gate를 구현하고 검증해야 합니다."
                    }
 }

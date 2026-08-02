@@ -53,7 +53,7 @@
         "title": "RPA Program Playbook",
         "publisher": "U.S. General Services Administration",
         "source_type": "official_source",
-        "url": "https://www.gsa.gov/cdnstatic/rpa-playbook.pdf",
+        "url": "https://digital.gov/s3/files/m-files/rpa-playbook.pdf",
         "checked_at": "2026-07-29"
       },
       {
@@ -68,7 +68,7 @@
         "title": "The Arazzo Specification",
         "publisher": "OpenAPI Initiative",
         "source_type": "official_spec",
-        "url": "https://spec.openapis.org/arazzo/1.1.0.html",
+        "url": "https://spec.openapis.org/arazzo/v1.1.0.html",
         "source_version": "1.1.0",
         "checked_at": "2026-07-29"
       }

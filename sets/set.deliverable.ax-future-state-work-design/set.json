@@ -373,6 +373,68 @@
                                                                          },
                                                               "rationale":  "설계 수용기준과 실제 효과를 구분할 측정계약을 포함합니다."
                                                           }
-                                                      ]
+                                                      ],
+                       "evidence_claims":  [
+                                               {
+                                                   "id":  "evidence.ax-strategy-value.future-state-redesign.gsa-eoa",
+                                                   "title":  "Eliminate, Optimize, Automate",
+                                                   "publisher":  "U.S. General Services Administration",
+                                                   "source_type":  "official_docs",
+                                                   "url":  "https://www.gsa.gov/technology/government-it-initiatives/eliminate-optimize-automate",
+                                                   "checked_at":  "2026-07-26",
+                                                   "claim_scope":  "불필요한 일을 제거하고 필요한 프로세스를 최적화한 후 반복 업무를 자동화하는 순서를 지지하며 구체 AX 효과는 지지하지 않습니다.",
+                                                   "supports":  [
+                                                                    "scope",
+                                                                    "work_relevance"
+                                                                ]
+                                               },
+                                               {
+                                                   "id":  "evidence.ax-strategy-value.future-state-redesign.nist-airmf",
+                                                   "title":  "AI RMF Core (AI RMF 1.0)",
+                                                   "publisher":  "National Institute of Standards and Technology",
+                                                   "source_type":  "official_docs",
+                                                   "url":  "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+                                                   "published_at":  "2023-01-26",
+                                                   "checked_at":  "2026-07-26",
+                                                   "source_version":  "AI RMF 1.0",
+                                                   "claim_scope":  "AI 지식한계, 출력의 인간 활용, 인간 감독, 비용·위험과 대상 적용범위를 문서화해야 한다는 범위만 지지합니다.",
+                                                   "supports":  [
+                                                                    "scope",
+                                                                    "risk"
+                                                                ]
+                                               },
+                                               {
+                                                   "id":  "evidence.ax-strategy-value.future-state-redesign.uk-ai-playbook",
+                                                   "title":  "Artificial Intelligence Playbook for the UK Government",
+                                                   "publisher":  "Government Digital Service",
+                                                   "source_type":  "official_docs",
+                                                   "url":  "https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government/artificial-intelligence-playbook-for-the-uk-government-html",
+                                                   "published_at":  "2025-02-10",
+                                                   "checked_at":  "2026-07-26",
+                                                   "claim_scope":  "의미 있는 인간 통제, 올바른 도구 선택과 전체 수명주기 책임을 설계해야 한다는 범위만 지지하며 구체적인 효과 크기는 지지하지 않습니다.",
+                                                   "supports":  [
+                                                                    "scope",
+                                                                    "work_relevance",
+                                                                    "risk"
+                                                                ]
+                                               },
+                                               {
+                                                   "id":  "evidence.ax-strategy-value.future-state-redesign.gao-accountability",
+                                                   "title":  "Artificial Intelligence: An Accountability Framework for Federal Agencies and Other Entities",
+                                                   "publisher":  "U.S. Government Accountability Office",
+                                                   "source_type":  "official_docs",
+                                                   "url":  "https://www.gao.gov/products/gao-21-519sp",
+                                                   "published_at":  "2021-06-30",
+                                                   "checked_at":  "2026-07-26",
+                                                   "claim_scope":  "AI 수명주기의 거버넌스·데이터·성능·모니터링 책임과 통제 활동을 문서화하는 범위만 지지합니다.",
+                                                   "supports":  [
+                                                                    "scope",
+                                                                    "risk",
+                                                                    "work_relevance"
+                                                                ]
+                                               }
+                                           ],
+                       "assessment_implementation_status":  "required_before_activation",
+                       "assessment_input_policy":  "봉인된 합성·공개 fixture와 정답 manifest를 기본 입력으로 사용하며, 실제 업무자료·개인정보·계정·고위험 의사결정은 포함하지 않습니다."
                    }
 }

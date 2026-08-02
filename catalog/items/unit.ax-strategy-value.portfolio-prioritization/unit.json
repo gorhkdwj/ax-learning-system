@@ -81,7 +81,7 @@
                                            "cross-platform",
                                            "web-browser"
                                        ],
-                         "network_required":  true,
+                         "network_required":  false,
                          "accounts":  [
 
                                       ],
@@ -95,7 +95,7 @@
                                       "model":  "free",
                                       "currency":  "KRW",
                                       "estimated_amount":  0,
-                                      "basis":  "공개 Reference 검토 1회"
+                                      "basis":  "합성·공개 또는 승인된 비식별 fixture 평가 1회"
                                   },
                          "technology_versions":  [
 
@@ -129,12 +129,12 @@
                         "checked_at":  "2026-07-26"
                     },
                     {
-                        "title":  "Portfolio Risk Management Guidance — Orange Book Annex",
+                        "title":  "The Orange Book: Management of Risk — Principles and Concepts",
                         "publisher":  "HM Treasury; Government Finance Function",
                         "source_type":  "official_docs",
-                        "url":  "https://assets.publishing.service.gov.uk/media/6453b363c33b460012f5e6bf/Portfolio_Risk_Management_Guidance_Orange_Book_Annex.pdf",
-                        "source_version":  "May 2023 annex; GOV.UK publication collection records addition on 2023-05-04",
-                        "checked_at":  "2026-07-27"
+                        "url":  "https://www.gov.uk/government/publications/orange-book/the-orange-book-management-of-risk-principles-and-concepts",
+                        "source_version":  "GOV.UK guidance updated 2026-07-29",
+                        "checked_at":  "2026-08-02"
                     },
                     {
                         "title":  "What is portfolio management?",
@@ -186,6 +186,109 @@
                                                                           },
                                                                "rationale":  "포트폴리오 판정은 후보 간 상대 배분을 소유하고, 운영 중 실현 편익·완전원가 기반 판정은 편익관리 역량이 소유합니다."
                                                            }
-                                                       ]
+                                                       ],
+                       "evidence_claims":  [
+                                               {
+                                                   "id":  "evidence.ax-strategy-value.portfolio-prioritization.green-book",
+                                                   "title":  "The Green Book (2026)",
+                                                   "publisher":  "HM Treasury; Government Finance Function",
+                                                   "source_type":  "official_docs",
+                                                   "url":  "https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government/the-green-book-2026",
+                                                   "checked_at":  "2026-07-26",
+                                                   "source_version":  "2026 edition; page updated 2026-02-05",
+                                                   "claim_scope":  "단일 제안 내부의 longlist 생성, critical success factor와 낙관편의 보정을 포함하여 목표 대비 선택지를 비용·편익·위험·불확실성과 함께 평가해야 한다는 범위만 지지합니다. 복수 후보 간 포트폴리오 비교·재균형이나 AX 포트폴리오의 특정 점수모형은 지지하지 않습니다.",
+                                                   "supports":  [
+                                                                    "scope",
+                                                                    "risk"
+                                                                ]
+                                               },
+                                               {
+                                                   "id":  "evidence.ax-strategy-value.portfolio-prioritization.portfolio-risk-annex",
+                                                   "title":  "The Orange Book: Management of Risk — Principles and Concepts",
+                                                   "publisher":  "HM Treasury; Government Finance Function",
+                                                   "source_type":  "official_docs",
+                                                   "url":  "https://www.gov.uk/government/publications/orange-book/the-orange-book-management-of-risk-principles-and-concepts",
+                                                   "checked_at":  "2026-08-02",
+                                                   "source_version":  "GOV.UK guidance updated 2026-07-29",
+                                                   "claim_scope":  "공공부문에서 위험선호를 반영한 전략·우선순위·자원배분, 대안의 비용·편익·위험·의존성 평가, 변화에 따른 지속 재검토 범위만 지지합니다. 포트폴리오 전용 절차·민간 AX 효과 크기·전문 투자 최적화는 지지하지 않습니다.",
+                                                   "supports":  [
+                                                                    "scope",
+                                                                    "learning_outcome",
+                                                                    "risk",
+                                                                    "lifecycle"
+                                                                ]
+                                               },
+                                               {
+                                                   "id":  "evidence.ax-strategy-value.portfolio-prioritization.apm",
+                                                   "title":  "What is portfolio management?",
+                                                   "publisher":  "Association for Project Management",
+                                                   "source_type":  "practitioner_primary",
+                                                   "url":  "https://www.apm.org.uk/resources/what-is-project-management/what-is-portfolio-management/",
+                                                   "checked_at":  "2026-07-26",
+                                                   "source_version":  "APM Body of Knowledge 8th edition 기반 정의 페이지; 페이지 자체 발행일 표기 없음",
+                                                   "claim_scope":  "프로젝트·프로그램의 선택, 우선순위 설정과 통제를 전략 목표 및 실행 역량에 맞추는 포트폴리오 관리의 실무 범위를 지지합니다.",
+                                                   "supports":  [
+                                                                    "definition",
+                                                                    "work_relevance",
+                                                                    "lifecycle"
+                                                                ]
+                                               },
+                                               {
+                                                   "id":  "evidence.ax-strategy-value.portfolio-prioritization.ai-playbook",
+                                                   "title":  "Artificial Intelligence Playbook for the UK Government",
+                                                   "publisher":  "Government Digital Service",
+                                                   "source_type":  "official_docs",
+                                                   "url":  "https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government/artificial-intelligence-playbook-for-the-uk-government-html",
+                                                   "published_at":  "2025-02-10",
+                                                   "checked_at":  "2026-07-27",
+                                                   "source_version":  "AI Playbook published 2025-02-10; update log records expansion of the 2024 Generative AI Framework",
+                                                   "claim_scope":  "AI 사용사례가 적절한 도구·사업사례·거버넌스·위험과 편익을 함께 검토해야 한다는 AI 특화 판정 관점을 지지하며 일반 기업 투자수익을 지지하지 않습니다.",
+                                                   "supports":  [
+                                                                    "scope",
+                                                                    "work_relevance",
+                                                                    "risk"
+                                                                ]
+                                               }
+                                           ],
+                       "source_candidate_relations":  [
+                                                          {
+                                                              "type":  "requires",
+                                                              "target":  {
+                                                                             "kind":  "candidate",
+                                                                             "id":  "candidate.ax-strategy-value.opportunity-value-framing",
+                                                                             "version":  "1.0.0"
+                                                                         },
+                                                              "rationale":  "비교 대상 후보마다 문제, 기대 결과, 제약과 no-go 조건이 먼저 정의되어야 합니다."
+                                                          },
+                                                          {
+                                                              "type":  "recommended_prerequisite",
+                                                              "target":  {
+                                                                             "kind":  "candidate",
+                                                                             "id":  "candidate.ax-strategy-value.measurement-contract",
+                                                                             "version":  "1.0.0"
+                                                                         },
+                                                              "rationale":  "공통 측정 언어가 있으면 후보별 가치 주장과 근거 수준을 더 일관되게 비교할 수 있습니다."
+                                                          },
+                                                          {
+                                                              "type":  "related_to",
+                                                              "target":  {
+                                                                             "kind":  "candidate",
+                                                                             "id":  "candidate.ax-strategy-value.pilot-impact-evaluation",
+                                                                             "version":  "1.0.0"
+                                                                         },
+                                                              "rationale":  "포트폴리오 판정은 후보 간 상대 배분을 소유하고, 단일 파일럿의 인과 증거 기반 go·iterate·stop 판정은 영향평가가 소유합니다."
+                                                          },
+                                                          {
+                                                              "type":  "related_to",
+                                                              "target":  {
+                                                                             "kind":  "candidate",
+                                                                             "id":  "candidate.ax-strategy-value.benefits-realization",
+                                                                             "version":  "1.0.0"
+                                                                         },
+                                                              "rationale":  "포트폴리오 판정은 후보 간 상대 배분을 소유하고, 운영 중 실현 편익·완전원가 기반 판정은 편익관리 역량이 소유합니다."
+                                                          }
+                                                      ],
+                       "assessment_implementation_status":  "required_before_activation",
+                       "assessment_input_policy":  "활성화 전 봉인된 합성·공개 fixture와 정답 manifest, 판정·안전·정리 Gate를 구현하고 검증해야 합니다."
                    }
 }

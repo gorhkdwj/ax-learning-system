@@ -73,7 +73,7 @@
                                            "cross-platform",
                                            "web-browser"
                                        ],
-                         "network_required":  true,
+                         "network_required":  false,
                          "accounts":  [
 
                                       ],
@@ -87,7 +87,7 @@
                                       "model":  "free",
                                       "currency":  "KRW",
                                       "estimated_amount":  0,
-                                      "basis":  "공개 Reference 검토 1회"
+                                      "basis":  "합성·공개 또는 승인된 비식별 fixture 평가 1회"
                                   },
                          "technology_versions":  [
 
@@ -177,6 +177,101 @@
                        "promotion_context":  {
                                                  "work_package_id":  "wp.candidate-normalization.integration-a",
                                                  "promoted_at":  "2026-08-02"
-                                             }
+                                             },
+                       "evidence_claims":  [
+                                               {
+                                                   "id":  "evidence.ax-strategy-value.measurement-contract.nist-airmf",
+                                                   "title":  "Artificial Intelligence Risk Management Framework Core",
+                                                   "publisher":  "National Institute of Standards and Technology",
+                                                   "source_type":  "official_docs",
+                                                   "url":  "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+                                                   "published_at":  "2023-01-26",
+                                                   "checked_at":  "2026-07-26",
+                                                   "source_version":  "AI RMF 1.0",
+                                                   "claim_scope":  "적절한 benchmark와 문서화된 반복 측정·검증, 편익·비용·위험의 평가가 필요하다는 범위만 지지합니다.",
+                                                   "supports":  [
+                                                                    "scope",
+                                                                    "risk"
+                                                                ]
+                                               },
+                                               {
+                                                   "id":  "evidence.ax-strategy-value.measurement-contract.magenta-book",
+                                                   "title":  "Magenta Book: Central Government guidance on evaluation",
+                                                   "publisher":  "HM Treasury and Evaluation Task Force",
+                                                   "source_type":  "official_docs",
+                                                   "url":  "https://www.gov.uk/government/publications/the-magenta-book/magenta-book-central-government-guidance-on-evaluation-html",
+                                                   "checked_at":  "2026-07-26",
+                                                   "source_version":  "2026 edition; page updated 2026-05-15",
+                                                   "claim_scope":  "과정·영향·가치 대비 비용 평가와 평가를 개입 설계 단계부터 포함해야 한다는 범위만 지지합니다.",
+                                                   "supports":  [
+                                                                    "scope",
+                                                                    "work_relevance"
+                                                                ]
+                                               },
+                                               {
+                                                   "id":  "evidence.ax-strategy-value.measurement-contract.govuk-service-metrics",
+                                                   "title":  "Measuring the success of your service",
+                                                   "publisher":  "Performance analysis community",
+                                                   "source_type":  "official_docs",
+                                                   "url":  "https://www.gov.uk/service-manual/measuring-success/measuring-the-success-of-your-service",
+                                                   "published_at":  "2018-08-06",
+                                                   "checked_at":  "2026-07-26",
+                                                   "claim_scope":  "서비스 목표에 맞는 지표·데이터 출처를 정하고 과업 완료와 시간 등을 측정하는 범위만 지지하며 완전한 AX 측정계약을 직접 규정하지 않습니다.",
+                                                   "supports":  [
+                                                                    "scope",
+                                                                    "work_relevance"
+                                                                ]
+                                               },
+                                               {
+                                                   "id":  "evidence.ax-strategy-value.measurement-contract.metric-pitfalls",
+                                                   "title":  "A Dirty Dozen: Twelve Common Metric Interpretation Pitfalls in Online Controlled Experiments",
+                                                   "publisher":  "Microsoft Research",
+                                                   "source_type":  "primary_research",
+                                                   "url":  "https://www.microsoft.com/en-us/research/publication/a-dirty-dozen-twelve-common-metric-interpretation-pitfalls-in-online-controlled-experiments/",
+                                                   "checked_at":  "2026-07-26",
+                                                   "source_version":  "published 2017-08",
+                                                   "claim_scope":  "온라인 통제실험에서 지표 해석 오류와 설계상 함정을 점검해야 한다는 범위만 지지하며 모든 업무 맥락의 보편 효과를 지지하지 않습니다.",
+                                                   "supports":  [
+                                                                    "work_relevance",
+                                                                    "risk"
+                                                                ]
+                                               },
+                                               {
+                                                   "id":  "evidence.ax-strategy-value.measurement-contract.canada-outcomes-measurement",
+                                                   "title":  "Guidance: Outcomes and measurement",
+                                                   "publisher":  "Immigration, Refugees and Citizenship Canada",
+                                                   "source_type":  "official_docs",
+                                                   "url":  "https://www.canada.ca/en/immigration-refugees-citizenship/corporate/partners-service-providers/funding/outcome-guidance.html",
+                                                   "checked_at":  "2026-07-26",
+                                                   "claim_scope":  "성과지표마다 기준선·목표·완료시점·수집빈도·데이터 출처·수집 책임을 정의하는 측정 프레임 범위만 지지하며 AX 고유 효과를 지지하지 않습니다.",
+                                                   "supports":  [
+                                                                    "scope",
+                                                                    "learning_outcome",
+                                                                    "work_relevance"
+                                                                ]
+                                               }
+                                           ],
+                       "source_candidate_relations":  [
+                                                          {
+                                                              "type":  "requires",
+                                                              "target":  {
+                                                                             "kind":  "candidate",
+                                                                             "id":  "candidate.ax-strategy-value.opportunity-value-framing",
+                                                                             "version":  "1.0.0"
+                                                                         },
+                                                              "rationale":  "가치가설과 no-go 조건을 측정 가능한 결과·가드레일로 변환합니다."
+                                                          },
+                                                          {
+                                                              "type":  "requires",
+                                                              "target":  {
+                                                                             "kind":  "candidate",
+                                                                             "id":  "candidate.ax-strategy-value.current-state-work-analysis",
+                                                                             "version":  "1.0.0"
+                                                                         },
+                                                              "rationale":  "현행 관측값과 데이터 출처를 측정 기준선으로 사용합니다."
+                                                          }
+                                                      ],
+                       "assessment_implementation_status":  "required_before_activation",
+                       "assessment_input_policy":  "활성화 전 봉인된 합성·공개 fixture와 정답 manifest, 판정·안전·정리 Gate를 구현하고 검증해야 합니다."
                    }
 }

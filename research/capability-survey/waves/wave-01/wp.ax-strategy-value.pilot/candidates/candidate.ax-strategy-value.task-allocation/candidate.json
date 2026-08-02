@@ -78,7 +78,7 @@
       {
         "level": "D2",
         "outcome": "새로운 업무를 과업으로 분해하고 인간·결정적 자동화·AI의 역할과 승인 경계를 설계합니다.",
-        "evidence_hypothesis": "두 미지 업무의 실제 표본을 과업으로 분해하고 사전 제공된 책임·가역성·권한 제약을 위반한 역할 배정을 자동 탐지한 뒤 독립 검토자의 판정 일치도를 확인합니다."
+        "evidence_hypothesis": "두 미지 업무의 봉인된 합성·공개 또는 승인된 비식별 fixture 표본을 과업으로 분해하고 사전 제공된 책임·가역성·권한 제약을 위반한 역할 배정을 자동 탐지한 뒤 독립 검토자의 판정 일치도를 확인합니다."
       }
     ],
     "depth_boundary": "목표 D2, 상한 D2입니다. 조직 구조·인력 계획, 노사정책, 법률 자문, 해법 아키텍처와 상세 구현은 제외합니다."
@@ -97,7 +97,7 @@
     "maintenance_relevance": "awareness",
     "operations_relevance": "material",
     "priority_hint": "unassessed",
-    "measurement_hypothesis": "역할 배분별 완료시간·품질·override·에스컬레이션과 재작업을 실제 표본으로 비교합니다."
+    "measurement_hypothesis": "역할 배분별 완료시간·품질·override·에스컬레이션과 재작업을 봉인된 합성·공개 또는 승인된 비식별 fixture 표본으로 비교합니다. 실제 자료는 별도 승인된 overlay에서만 사용합니다."
   },
   "cross_cutting": {
     "applicable_axes": [
