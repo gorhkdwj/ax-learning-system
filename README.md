@@ -24,9 +24,9 @@ git clone https://github.com/gorhkdwj/ax-learning-system.git
 덮어쓰거나 삭제하지 않고 중단합니다. 변경 없이 점검하려면 `-PlanOnly`, Vault
 복제를 생략하려면 `-SkipVaultClone`을 사용합니다.
 
-Vault Git 저장소를 복제해도 Git에서 제외되는 원문 PDF·아티클, 개인 진행 자료,
-임베딩과 검색 인덱스는 복원되지 않습니다. 원문은 별도의 개인 백업에서 복원하고
-임베딩과 인덱스는 로컬에서 다시 생성해야 합니다.
+Vault Git 저장소를 복제하면 직접 작성한 업무 Overlay·개인 진행 기록과 원천
+manifest는 복원됩니다. 원문 PDF·아티클, 임베딩과 검색 인덱스는 Git에서 제외되므로
+원문은 별도의 개인 백업에서 복원하고 파생 데이터는 로컬에서 다시 생성해야 합니다.
 
 ## 문서
 

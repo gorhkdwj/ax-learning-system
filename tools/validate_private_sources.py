@@ -50,6 +50,7 @@ class PrivateSourceReport:
     skipped: bool = False
     manifest_count: int = 0
     file_count: int = 0
+    unavailable_file_count: int = 0
     issues: list[PrivateSourceIssue] = field(default_factory=list)
 
     @property
@@ -85,7 +86,12 @@ class PrivateSourceValidator:
             format_checker=FormatChecker(),
         )
 
-    def validate(self, vault_root: Path) -> PrivateSourceReport:
+    def validate(
+        self,
+        vault_root: Path,
+        *,
+        require_files: bool = False,
+    ) -> PrivateSourceReport:
         root = vault_root.resolve()
         report = PrivateSourceReport()
         if not root.is_dir():
@@ -100,7 +106,12 @@ class PrivateSourceValidator:
         )
         for manifest_path in manifests:
             report.manifest_count += 1
-            self._validate_manifest(root, manifest_path, report)
+            self._validate_manifest(
+                root,
+                manifest_path,
+                report,
+                require_files=require_files,
+            )
         return report
 
     def _validate_manifest(
@@ -108,6 +119,8 @@ class PrivateSourceValidator:
         vault_root: Path,
         manifest_path: Path,
         report: PrivateSourceReport,
+        *,
+        require_files: bool,
     ) -> None:
         try:
             with manifest_path.open("r", encoding="utf-8") as stream:
@@ -162,8 +175,27 @@ class PrivateSourceValidator:
         )
 
         package_root = manifest_path.parent.resolve()
+        safe_declared_paths = []
         for item in files:
-            self._validate_file(vault_root, package_root, item, report)
+            relative_path = item.get("path")
+            if not isinstance(relative_path, str):
+                continue
+            path = (package_root / relative_path).resolve()
+            if path != package_root and package_root in path.parents:
+                safe_declared_paths.append(path)
+        manifest_only = (
+            not require_files
+            and bool(safe_declared_paths)
+            and not any(path.is_file() for path in safe_declared_paths)
+        )
+        for item in files:
+            self._validate_file(
+                vault_root,
+                package_root,
+                item,
+                report,
+                allow_missing=manifest_only,
+            )
 
     @staticmethod
     def _check_duplicates(
@@ -186,6 +218,8 @@ class PrivateSourceValidator:
         package_root: Path,
         item: dict[str, Any],
         report: PrivateSourceReport,
+        *,
+        allow_missing: bool,
     ) -> None:
         relative_path = item.get("path")
         if not isinstance(relative_path, str):
@@ -201,6 +235,9 @@ class PrivateSourceValidator:
             )
             return
         if not path.is_file():
+            if allow_missing:
+                report.unavailable_file_count += 1
+                return
             report.issues.append(
                 PrivateSourceIssue("FILE_NOT_FOUND", path, "원천 파일이 없습니다.")
             )
@@ -253,6 +290,11 @@ def build_parser() -> argparse.ArgumentParser:
         default=None,
         help="AX_VAULT_ROOT를 대체할 선택적 Vault 경로입니다.",
     )
+    parser.add_argument(
+        "--require-files",
+        action="store_true",
+        help="manifest만 있는 clone을 허용하지 않고 모든 원천 파일을 요구합니다.",
+    )
     return parser
 
 
@@ -260,7 +302,10 @@ def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     try:
         vault_root = resolve_vault_root(args.vault_root)
-        report = PrivateSourceValidator().validate(vault_root)
+        report = PrivateSourceValidator().validate(
+            vault_root,
+            require_files=args.require_files,
+        )
     except (OSError, json.JSONDecodeError, ValueError) as exc:
         print(f"PRIVATE_SOURCE_ERROR|INITIALIZATION|<config>|{exc}")
         return 2
@@ -268,16 +313,21 @@ def main(argv: list[str] | None = None) -> int:
     if report.skipped:
         print(
             "PRIVATE_SOURCE_SUMMARY|status=skipped|reason=vault_unavailable|"
-            "manifests=0|files=0|errors=0"
+            "manifests=0|files=0|unavailable_files=0|errors=0"
         )
         return 0
 
     for issue in report.issues:
         print(issue.render(vault_root))
+    if report.is_valid and report.unavailable_file_count:
+        status = "manifest_only"
+    else:
+        status = "passed" if report.is_valid else "failed"
     print(
         "PRIVATE_SOURCE_SUMMARY|"
-        f"status={'passed' if report.is_valid else 'failed'}|"
+        f"status={status}|"
         f"manifests={report.manifest_count}|files={report.file_count}|"
+        f"unavailable_files={report.unavailable_file_count}|"
         f"errors={len(report.issues)}"
     )
     return 0 if report.is_valid else 1

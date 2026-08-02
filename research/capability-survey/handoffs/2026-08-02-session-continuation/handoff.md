@@ -109,9 +109,9 @@ Public 검증과 Vault 상태에는 영향을 주지 않았습니다. 새 세션
 ## 6. 저장소 경계
 
 - Public과 Vault를 한 명령으로 함께 커밋하거나 푸시하지 않습니다.
-- Vault HEAD `ed2e9ad`와 clean 상태를 유지합니다.
-- Vault의 원문·임베딩·개인 진행자료는 Git 복원 대상이 아니며 ignore 정책을
-  유지합니다.
+- Vault 로컬 HEAD와 `origin/main`이 일치하고 clean 상태인지 확인합니다.
+- Vault의 직접 작성 Overlay·개인 진행 기록과 원천 manifest는 비공개 Git으로
+  복원하며, 원문·임베딩·색인은 별도 백업 또는 재생성 정책을 유지합니다.
 - 상위 AX는 Git 저장소가 아니어야 합니다.
 - Public에 Vault 원문, 개인정보, 절대경로와 인증정보를 기록하지 않습니다.
 

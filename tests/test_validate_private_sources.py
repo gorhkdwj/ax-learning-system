@@ -66,12 +66,15 @@ class PrivateSourceValidatorTest(unittest.TestCase):
     def _codes(report) -> set[str]:
         return {issue.code for issue in report.issues}
 
-    def _validate(self, pages: int = 2):
+    def _validate(self, pages: int = 2, *, require_files: bool = False):
         with patch(
             "tools.validate_private_sources._pdf_page_count",
             return_value=pages,
         ):
-            return PrivateSourceValidator().validate(self.vault_root)
+            return PrivateSourceValidator().validate(
+                self.vault_root,
+                require_files=require_files,
+            )
 
     def test_missing_vault_is_successfully_skipped(self) -> None:
         report = PrivateSourceValidator().validate(
@@ -88,8 +91,35 @@ class PrivateSourceValidatorTest(unittest.TestCase):
         self.assertEqual(report.manifest_count, 1)
         self.assertEqual(report.file_count, 1)
 
-    def test_missing_file_is_rejected(self) -> None:
+    def test_manifest_only_clone_is_valid(self) -> None:
         self.pdf_path.unlink()
+
+        report = self._validate()
+
+        self.assertTrue(report.is_valid)
+        self.assertEqual(report.file_count, 0)
+        self.assertEqual(report.unavailable_file_count, 1)
+
+    def test_required_missing_file_is_rejected(self) -> None:
+        self.pdf_path.unlink()
+
+        self.assertIn(
+            "FILE_NOT_FOUND",
+            self._codes(self._validate(require_files=True)),
+        )
+
+    def test_partially_restored_package_is_rejected(self) -> None:
+        missing = dict(self.manifest["files"][0])
+        missing.update(
+            {
+                "id": "private-file.example.missing",
+                "title": "누락 PDF",
+                "path": "files/missing.pdf",
+            }
+        )
+        self.manifest["files"].append(missing)
+        self.manifest["selection"]["expected_file_count"] = 2
+        self._write_manifest()
 
         self.assertIn("FILE_NOT_FOUND", self._codes(self._validate()))
 

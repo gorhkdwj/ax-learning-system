@@ -217,6 +217,7 @@ AX/
       generated-public/
     docs/
   ax-learning-vault/
+    overlays/
     sources/
       articles/
       documents/
@@ -224,6 +225,7 @@ AX/
       embeddings/
       indexes/
     personal/
+      progress/
     generated-private/
 ```
 
