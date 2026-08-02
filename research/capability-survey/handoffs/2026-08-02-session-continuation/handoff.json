@@ -1,0 +1,1208 @@
+{
+  "schema_version": "1.0.0",
+  "id": "handoff.phase2.wave-07-session-continuation",
+  "version": "1.0.0",
+  "title": "Phase 2 Wave 7 Codex Session Continuation Handoff",
+  "status": "ready_for_review",
+  "created_at": "2026-08-02",
+  "created_by": "Codex",
+  "source_contract": {
+    "governance_files": [
+      "AGENTS.md",
+      "CLAUDE.md",
+      "docs/governance/learning-governance.md",
+      "docs/architecture/learning-system.md",
+      "docs/research/trend-signal-governance.md",
+      "docs/plans/curriculum-foundation-plan.md",
+      "docs/research/phase2-capability-survey-runbook.md"
+    ],
+    "schema_versions": [
+      {
+        "name": "capability-candidate",
+        "version": "1.0.0"
+      },
+      {
+        "name": "capability-taxonomy",
+        "version": "1.0.0"
+      },
+      {
+        "name": "phase2-handoff",
+        "version": "1.0.0"
+      }
+    ],
+    "checkpoint_path": "research/capability-survey/checkpoints/wave-07.md"
+  },
+  "scope": {
+    "requested": [
+      "새 데스크톱 로컬 세션에서 기존 작업 현황과 남은 작업을 손실 없이 이어갈 수 있는 인계 문서 작성"
+    ],
+    "completed": [
+      "Workspace bootstrap 구현·검증·Public 반영",
+      "Phase 2 Wave 1~3 Candidate 조사·독립 감사·정규 승격",
+      "Wave 4 Coverage와 편향 레드팀 검토",
+      "Wave 5 Candidate·관계·taxonomy 정규화",
+      "Wave 6 고위험 전수·일반 층화 독립 QA와 교정",
+      "Wave 7 active role view 8개와 최종 역량지도 조립·독립 완료 감사",
+      "Public 원격 반영과 Public·Vault 저장소 경계 최종 확인"
+    ],
+    "excluded": [
+      "Phase 2 사용자 완료 승인 확정",
+      "Phase 3 역할별 학습 우선순위 결정",
+      "상세 교재·fixture·runner·HUB 대량 제작",
+      "실제 조직·제품·운영계 적합성과 학습·업무효과 검증"
+    ],
+    "started_at": "2026-07-26",
+    "ended_at": "2026-08-02"
+  },
+  "execution": {
+    "current_wave": "wave-07",
+    "completed_waves": [
+      "wave-00",
+      "wave-01",
+      "wave-02",
+      "wave-03",
+      "wave-04",
+      "wave-05",
+      "wave-06",
+      "wave-07"
+    ],
+    "work_packages": [
+      {
+        "id": "wp.ax-strategy-value.pilot",
+        "status": "complete",
+        "path": "research/capability-survey/waves/wave-01/wp.ax-strategy-value.pilot",
+        "candidate_count": 9
+      },
+      {
+        "id": "wp.ai-literacy-trust.breadth-a",
+        "status": "complete",
+        "path": "research/capability-survey/waves/wave-02/wp.ai-literacy-trust.breadth-a",
+        "candidate_count": 10
+      },
+      {
+        "id": "wp.ai-systems-agents.breadth-a",
+        "status": "complete",
+        "path": "research/capability-survey/waves/wave-02/wp.ai-systems-agents.breadth-a",
+        "candidate_count": 8
+      },
+      {
+        "id": "wp.software-product-engineering.breadth-a",
+        "status": "complete",
+        "path": "research/capability-survey/waves/wave-02/wp.software-product-engineering.breadth-a",
+        "candidate_count": 10
+      },
+      {
+        "id": "wp.data-analytics-ml.breadth-a",
+        "status": "complete",
+        "path": "research/capability-survey/waves/wave-02/wp.data-analytics-ml.breadth-a",
+        "candidate_count": 10
+      },
+      {
+        "id": "wp.integration-automation.breadth-a",
+        "status": "complete",
+        "path": "research/capability-survey/waves/wave-02/wp.integration-automation.breadth-a",
+        "candidate_count": 10
+      },
+      {
+        "id": "wp.human-ai-experience.breadth-a",
+        "status": "complete",
+        "path": "research/capability-survey/waves/wave-03/wp.human-ai-experience.breadth-a",
+        "candidate_count": 9
+      },
+      {
+        "id": "wp.platform-quality-operations.breadth-a",
+        "status": "complete",
+        "path": "research/capability-survey/waves/wave-03/wp.platform-quality-operations.breadth-a",
+        "candidate_count": 10
+      },
+      {
+        "id": "wp.security-legal-governance.breadth-a",
+        "status": "complete",
+        "path": "research/capability-survey/waves/wave-03/wp.security-legal-governance.breadth-a",
+        "candidate_count": 10
+      },
+      {
+        "id": "wp.organization-adoption.breadth-a",
+        "status": "complete",
+        "path": "research/capability-survey/waves/wave-03/wp.organization-adoption.breadth-a",
+        "candidate_count": 10
+      }
+    ],
+    "counts": {
+      "candidates_total": 96,
+      "proposed": 0,
+      "needs_review": 1,
+      "accepted": 93,
+      "merged": 1,
+      "deferred": 1,
+      "signalized": 0,
+      "excluded": 0
+    }
+  },
+  "coverage": {
+    "domains": [
+      {
+        "id": "ax-strategy-value",
+        "status": "complete",
+        "note": "조사·승격·Coverage·정규화·독립 QA와 역할 projection을 완료했습니다. 편익 실현은 needs_review로 보존합니다."
+      },
+      {
+        "id": "ai-literacy-trust",
+        "status": "complete",
+        "note": "조사·승격·Coverage·정규화·독립 QA와 역할 projection을 완료했습니다."
+      },
+      {
+        "id": "ai-systems-agents",
+        "status": "complete",
+        "note": "조사·승격·Coverage·정규화·독립 QA와 역할 projection을 완료했습니다."
+      },
+      {
+        "id": "software-product-engineering",
+        "status": "complete",
+        "note": "조사·승격·Coverage·정규화·독립 QA와 역할 projection을 완료했습니다."
+      },
+      {
+        "id": "data-analytics-ml",
+        "status": "complete",
+        "note": "조사·승격·Coverage·정규화·독립 QA와 역할 projection을 완료했습니다."
+      },
+      {
+        "id": "integration-automation",
+        "status": "complete",
+        "note": "조사·승격·Coverage·정규화·독립 QA와 역할 projection을 완료했습니다."
+      },
+      {
+        "id": "human-ai-experience",
+        "status": "complete",
+        "note": "조사·승격·Coverage·정규화·독립 QA와 역할 projection을 완료했습니다. 개인화·장기 memory는 deferred로 보존합니다."
+      },
+      {
+        "id": "platform-quality-operations",
+        "status": "complete",
+        "note": "조사·승격·Coverage·정규화·고위험 전수 QA와 역할 projection을 완료했습니다."
+      },
+      {
+        "id": "security-legal-governance",
+        "status": "complete",
+        "note": "조사·승격·Coverage·정규화·전수 QA와 역할 projection을 완료했습니다."
+      },
+      {
+        "id": "organization-adoption",
+        "status": "complete",
+        "note": "조사·승격·Coverage·정규화·고위험 전수 QA와 역할 projection을 완료했습니다."
+      }
+    ],
+    "known_gaps": [
+      "개인화·장기 memory 사용자 통제는 직접 근거와 삭제·철회·전이 평가계약 확보 전까지 deferred입니다.",
+      "편익 실현·가치 추적은 일반 편익관리와 AX 전용 Resource 경계가 확정될 때까지 needs_review입니다.",
+      "operational-value taxonomy node는 직접 승격 근거 또는 canonical 소유권 확보 전까지 provisional입니다.",
+      "내부 플랫폼 제품 운영, 인증·session·federation·탐지 engineering, vendor assurance와 전문 조직·노무·조달 범위는 재개 조건이 충족될 때 후속 조사합니다.",
+      "기존 프론트엔드·백엔드·데이터 엔지니어링 planned view 3개는 실제 사용례·subdomain 영향분석·사용자 승인 전까지 활성화하지 않습니다."
+    ]
+  },
+  "artifacts": [
+    {
+      "path": "research/capability-survey/checkpoints/wave-07.md",
+      "role": "checkpoint",
+      "status": "unchanged"
+    },
+    {
+      "path": "research/capability-survey/waves/wave-07/manifest.md",
+      "role": "manifest",
+      "status": "unchanged"
+    },
+    {
+      "path": "research/capability-survey/waves/wave-07/capability-map.md",
+      "role": "domain_report",
+      "status": "unchanged"
+    },
+    {
+      "path": "research/capability-survey/waves/wave-07/phase2-completion-report.md",
+      "role": "domain_report",
+      "status": "unchanged"
+    },
+    {
+      "path": "research/capability-survey/waves/wave-07/audit/evidence-review.md",
+      "role": "audit",
+      "status": "unchanged"
+    },
+    {
+      "path": "research/capability-survey/waves/wave-07/audit/taxonomy-review.md",
+      "role": "audit",
+      "status": "unchanged"
+    },
+    {
+      "path": "research/capability-survey/waves/wave-07/audit/practicality-review.md",
+      "role": "audit",
+      "status": "unchanged"
+    },
+    {
+      "path": "taxonomy/taxonomy.json",
+      "role": "other",
+      "status": "unchanged"
+    },
+    {
+      "path": "research/capability-survey/handoffs/2026-08-02-session-continuation/handoff.json",
+      "role": "handoff",
+      "status": "new"
+    },
+    {
+      "path": "research/capability-survey/handoffs/2026-08-02-session-continuation/handoff.md",
+      "role": "handoff",
+      "status": "new"
+    }
+  ],
+  "quality": {
+    "catalog_validation": {
+      "command": "python tools/validate_catalog.py",
+      "ran_at": "2026-08-02",
+      "exit_code": 0,
+      "summary": "Unit 83개, Resource 89개, Set 9개, Candidate 96개와 taxonomy 1개를 오류·경고 없이 검증했습니다."
+    },
+    "regression_tests": {
+      "command": "python -m unittest discover -s tests -v",
+      "ran_at": "2026-08-02",
+      "exit_code": 0,
+      "summary": "전체 33개 회귀 테스트가 통과했습니다."
+    },
+    "source_audit": {
+      "sample_rule": "Wave 6의 56개 Candidate 독립 QA 결과 중 Wave 7 인계 시 남은 비차단 근거 메타데이터 위험 범주를 재확인했습니다.",
+      "reviewed_count": 2,
+      "p0_count": 0,
+      "p1_count": 0,
+      "p2_count": 2,
+      "result": "pass"
+    },
+    "taxonomy_audit": {
+      "result": "pass",
+      "note": "Canonical node 107개, provisional node 3개와 active role view 8개의 Wave 4 S 집합 exact 일치를 확인했습니다."
+    },
+    "practicality_audit": {
+      "result": "pass",
+      "note": "탐색 projection, 상세 교재·metadata-first 구분, 안전·전문 이관과 Phase 3 활성화 경계를 확인했습니다."
+    }
+  },
+  "decisions": [
+    {
+      "candidate_ref": {
+        "id": "candidate.ai-literacy-trust.affected-person-impact-awareness",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "공식 위험·교육 프레임워크가 영향 관점을 지지하며 전문 공정성·법적 평가를 제외했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.ai-literacy-trust.ai-foundations-limitations",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "공식 노동 역량 프레임워크와 NIST 위험관리 문서가 독립적인 기초 이해 범위를 지지하며 제품별 사용법은 제외했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.ai-literacy-trust.ai-task-framing-use",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "두 공식 프레임워크가 과업·맥락 표현과 반복적 AI 사용을 지지하며 시스템 프롬프트 구현과 구분했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.ai-literacy-trust.ai-use-transparency",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "OECD가 AI 상호작용·역량·한계의 맥락별 투명성을 직접 지지하고 NIST는 위험 커뮤니케이션, C2PA는 provenance와 진실 판정의 경계를 보조합니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.ai-literacy-trust.content-provenance-interpretation",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "공식 사양이 개념과 한계를 지지하지만 unit.foundation.evidence-verification@1.0.0의 Resource로 충분하며 AI 사용 투명성은 관련 후보로 남깁니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.ai-literacy-trust.evidence-source-verification",
+        "version": "1.0.0"
+      },
+      "disposition": "merged",
+      "rationale": "기존 unit.foundation.evidence-verification@1.0.0이 같은 문제·행동·D2 검증을 이미 소유하므로 신규 Unit 제안을 만들지 않습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.ai-literacy-trust.output-fitness-appraisal",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "공식 프레임워크가 출력 평가를 기초 역량으로 다루며 기존 근거 검증 Unit과 평가 하네스 구현을 명확히 제외했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.ai-literacy-trust.responsible-use-boundaries",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "공식 노동·위험 프레임워크가 공통 사용자 경계를 지지하며 법률·보안 통제 설계를 명시적으로 제외했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.ai-literacy-trust.risk-proportional-reliance",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "NIST가 맥락·영향 기반 위험 대응을 지지하며 EU 근거는 관할권별 의무로 제한했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.ai-literacy-trust.trust-calibration",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "공식 위험 문서와 최신 연구가 의존 보정의 독립 문제를 지지하지만 측정 합의가 진행 중임을 불확실성으로 남겼습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.ai-systems-agents.agent-state-memory-handoff-design",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "상태·checkpoint·메모리·handoff를 중단·재개·위임 뒤 과업 연속성을 보존하는 하나의 계약으로 평가하도록 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.ai-systems-agents.ai-system-evaluation-regression-design",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "시스템·trajectory·변경 회귀를 기존 개별 근거 판정과 분리하고 기본 반복·합격 Gate를 적용하도록 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.ai-systems-agents.ai-tool-function-contract-design",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "프로토콜 독립 의미 계약을 Unit 코어로, 전송·인증·SDK 세부를 Adapter로 분리하도록 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.ai-systems-agents.ai-workflow-agent-topology-design",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "기반 Unit을 조합해 둘 이상의 실행 구조를 비교하는 Set으로 승인했으며 다중 agent의 우월성은 가정하지 않습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.ai-systems-agents.llm-application-architecture-contract",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "LLM 특유의 호출·버전·입출력·실패 계약을 일반 서비스 구현과 분리한 Unit 후보로 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.ai-systems-agents.retrieval-grounded-generation-design",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "검색·컨텍스트·생성·근거 판정·회귀를 조합하는 Set 후보로 승인하고 retrieval 코어의 별도 Unit은 만들지 않습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.ai-systems-agents.structured-output-contract-validation",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "공급자 중립 스키마·검증·복구·중단 계약을 Unit 코어로 유지하고 구현 차이는 Adapter로 분리하도록 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.ai-systems-agents.system-context-design",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "컨텍스트 선택·신뢰·격리·예산 계약을 Unit 코어로 유지하고 모델별 최적 기법은 회귀 대상으로 분리하도록 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.ax-strategy-value.benefits-realization",
+        "version": "1.0.0"
+      },
+      "disposition": "needs_review",
+      "rationale": "실무가치는 확인되었지만 일반 프로젝트 편익관리와 독립적인 AX 학습성과가 확인되지 않아 Unit 승격을 보류합니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.ax-strategy-value.current-state-work-analysis",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "세 독립 조사와 감사에서 실행 증거 기반 현행 분석의 독립 학습성과가 확인되었고 사용자 경험·미래상태 설계·제품 Adapter와의 경계를 분리했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.ax-strategy-value.enterprise-ax-roadmap",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "Orca로 조정한 독립 근거·분류·실무성 감사에서 독립 학습성과와 실습 가능성이 확인되었고, 원문 과대해석 근거 삭제, D2 객관평가, AX 고유 경계와 선행지식 범위를 교정했습니다. 정규 Unit 승격은 하지 않습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.ax-strategy-value.future-state-redesign",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "세 독립 감사에서 여러 선행 Unit을 조합하는 산출물형 Learning Set이 적합하다고 판정했으며 상세 통제 구현은 다른 렌즈에 이관했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.ax-strategy-value.measurement-contract",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "세 독립 감사에서 재현 가능한 지표 명세의 독립 학습성과가 확인되었고 현행 분석의 관측값과 영향평가의 효과 귀속 책임을 분리했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.ax-strategy-value.opportunity-value-framing",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "세 독립 조사와 근거·분류·실무성 감사에서 문제·가치가설 프레이밍의 독립 학습성과가 확인되었고 상세 해법 결정 책임은 분리했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.ax-strategy-value.pilot-impact-evaluation",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "공식 AI 개입 평가 지침과 데이터·분석·ML 패키지의 독립 근거·taxonomy·실용성 감사에서 D2 설계 역량을 재확인했고 고급 실행은 전문가에게 이관하도록 경계를 고정했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.ax-strategy-value.portfolio-prioritization",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "Orca로 조정한 독립 근거·분류·실무성 감사에서 독립 학습성과와 실습 가능성이 확인되었고, 판본·주장범위·D2 객관평가·일반 포트폴리오관리 경계의 P0·P1을 교정했습니다. 정규 Unit 승격은 하지 않습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.ax-strategy-value.solution-fit-assessment",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "세 독립 조사와 근거·분류·실무성 감사에서 기술중립 비교의 독립 학습성과가 확인되었고 보편 임계값은 배제했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.ax-strategy-value.task-allocation",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "과업 분석과 인간-시스템 기능배분의 직접 근거 및 세 독립 감사로 D2 학습성과를 유지하되 산업별 위험·책임 경계는 후속 렌즈에서 보정합니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.data-analytics-ml.analytical-model-metric-semantics",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "공식·1차 근거, 중복 경계와 D0·D2 평가계약을 확인했고 독립 근거·taxonomy·실용성 감사의 P0·P1을 모두 해소했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.data-analytics-ml.data-catalog-lineage-ownership-metadata",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "공식·1차 근거, 축소된 책임 메타데이터 경계와 D0·D2 평가계약을 확인했고 독립 근거·taxonomy·실용성 감사의 P0·P1을 모두 해소했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.data-analytics-ml.data-quality-validation-observability",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "공식·1차 근거, 봉인 holdout을 포함한 D0·D2 평가계약을 확인했고 독립 근거·taxonomy·실용성 감사의 P0·P1을 모두 해소했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.data-analytics-ml.data-source-acquisition-contract-design",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "공식·1차 근거, 공개 요구와 봉인 정답을 분리한 D0·D2 평가계약을 확인했고 독립 근거·taxonomy·실용성 감사의 P0·P1을 모두 해소했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.data-analytics-ml.exploratory-statistical-analysis",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "공식·1차 근거, 인과 귀속과 분리된 D0·D2 평가계약을 확인했고 독립 근거·taxonomy·실용성 감사의 P0·P1을 모두 해소했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.data-analytics-ml.ml-lifecycle-reproducibility-monitoring",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "공식·1차 근거, 독립적인 ML 변경 판정 코어와 D0·D2 평가계약을 확인했고 독립 근거·taxonomy·실용성 감사의 P0·P1을 모두 해소했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.data-analytics-ml.predictive-ml-model-validation-decision-thresholds",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "공식·1차 근거, 봉인 test와 누수 방지를 포함한 D0·D2 평가계약을 확인했고 독립 근거·taxonomy·실용성 감사의 P0·P1을 모두 해소했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.data-analytics-ml.predictive-ml-problem-framing-baselines",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "공식·1차 근거, 예측 ML로 좁힌 범위와 D0·D2 평가계약을 확인했고 독립 근거·taxonomy·실용성 감사의 P0·P1을 모두 해소했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.data-analytics-ml.reproducible-data-transformation-pipelines",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "공식·1차 근거, 멱등 재실행·복구를 포함한 D0·D2 평가계약을 확인했고 독립 근거·taxonomy·실용성 감사의 P0·P1을 모두 해소했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.human-ai-experience.accessible-multimodal-ai-interaction",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "독립 근거·taxonomy·실용성 감사의 P1을 교정하고 재감사에서 P0·P1 0건을 확인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.human-ai-experience.conversational-repair-fallback-experience",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "독립 근거·taxonomy·실용성 감사의 P1을 교정하고 재감사에서 P0·P1 0건을 확인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.human-ai-experience.feedback-correction-user-control",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "독립 근거·taxonomy·실용성 감사의 P1을 교정하고 재감사에서 P0·P1 0건을 확인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.human-ai-experience.human-ai-experience-evaluation",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "독립 근거·taxonomy·실용성 감사의 P1을 교정하고 재감사에서 P0·P1 0건을 확인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.human-ai-experience.human-approval-override-escalation-experience",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "독립 근거·taxonomy·실용성 감사의 P1을 교정하고 재감사에서 P0·P1 0건을 확인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.human-ai-experience.mental-model-capability-onboarding",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "독립 근거·taxonomy·실용성 감사의 P1을 교정하고 재감사에서 P0·P1 0건을 확인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.human-ai-experience.personalization-memory-user-control",
+        "version": "1.0.0"
+      },
+      "disposition": "deferred",
+      "rationale": "독립 근거 감사에서 preference control을 넘는 memory lifecycle UX의 직접 근거가 부족하다고 판정해 보강 조사 전까지 보류했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.human-ai-experience.social-cue-anthropomorphism-boundary-guide",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "독립 근거·taxonomy·실용성 감사의 P1을 교정하고 재감사에서 P0·P1 0건을 확인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.human-ai-experience.user-question-centered-explanation-experience",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "독립 근거·taxonomy·실용성 감사의 P1을 교정하고 재감사에서 P0·P1 0건을 확인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.integration-automation.automation-outcome-observability-reconciliation",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "202 Accepted·success criteria 근거와 결과판정 소유권을 보강했으며 독립 근거·taxonomy·실용성 재감사에서 P0·P1 0건을 확인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.integration-automation.business-rule-decision-automation",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "명시적 규칙과 ML·LLM·전문정책 경계를 확인했으며 독립 근거·taxonomy·실용성 재감사에서 P0·P1 0건을 확인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.integration-automation.deterministic-agentic-boundary-guide",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "D0 설명·라우팅 Resource로 중복을 제거했으며 독립 근거·taxonomy·실용성 재감사에서 P0·P1 0건을 확인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.integration-automation.deterministic-workflow-orchestration",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "durable 구현과 Adapter별 persistence 경계를 보강했으며 독립 근거·taxonomy·실용성 재감사에서 P0·P1 0건을 확인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.integration-automation.event-webhook-delivery-contract",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "표준 보장과 local 격리·순서정책의 경계를 유지했으며 독립 근거·taxonomy·실용성 재감사에서 P0·P1 0건을 확인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.integration-automation.external-api-consumer-resilience",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "직접 근거와 제공자 계약별 경계를 보강했으며 독립 근거·taxonomy·실용성 재감사에서 P0·P1 0건을 확인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.integration-automation.mcp-protocol-integration-adapter",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "versioned protocol 근거와 두 server 격리 fixture를 보강했으며 독립 근거·taxonomy·실용성 재감사에서 P0·P1 0건을 확인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.integration-automation.saas-connector-sync-delivery",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "두 공급자의 증분 동기화 근거와 workflow 조합 관계를 보강했으며 독립 근거·taxonomy·실용성 재감사에서 P0·P1 0건을 확인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.integration-automation.side-effect-idempotency-retry-compensation",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "결과판정과 복구실행의 소유권을 분리했으며 독립 근거·taxonomy·실용성 재감사에서 P0·P1 0건을 확인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.integration-automation.ui-driven-task-automation",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "dated WebDriver·WAI-ARIA와 Adapter locator 경계를 보강했으며 독립 근거·taxonomy·실용성 재감사에서 P0·P1 0건을 확인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.organization-adoption.adoption-outcome-distribution-measurement",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "승격 전 근거·taxonomy·실용성 독립 재감사에서 최종 P0·P1 0건을 확인해 Phase 2 정규 catalog 승격을 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.organization-adoption.adoption-support-community-knowledge-flow",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "승격 전 근거·taxonomy·실용성 독립 재감사에서 최종 P0·P1 0건을 확인해 Phase 2 정규 catalog 승격을 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.organization-adoption.ax-operating-model-decision-rights",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "승격 전 근거·taxonomy·실용성 독립 재감사에서 최종 P0·P1 0건을 확인해 Phase 2 정규 catalog 승격을 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.organization-adoption.change-impact-readiness-engagement",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "승격 전 근거·taxonomy·실용성 독립 재감사에서 최종 P0·P1 0건을 확인해 Phase 2 정규 catalog 승격을 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.organization-adoption.enterprise-ax-adoption-lifecycle",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "승격 전 근거·taxonomy·실용성 독립 재감사에서 최종 P0·P1 0건을 확인해 Phase 2 정규 catalog 승격을 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.organization-adoption.inclusive-job-impact-participation",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "승격 전 근거·taxonomy·실용성 독립 재감사에서 최종 P0·P1 0건을 확인해 Phase 2 정규 catalog 승격을 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.organization-adoption.learning-transfer-operations",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "승격 전 근거·taxonomy·실용성 독립 재감사에서 최종 P0·P1 0건을 확인해 Phase 2 정규 catalog 승격을 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.organization-adoption.pilot-scale-transition-governance",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "승격 전 근거·taxonomy·실용성 독립 재감사에서 최종 P0·P1 0건을 확인해 Phase 2 정규 catalog 승격을 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.organization-adoption.vendor-procurement-adoption-handoff",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "승격 전 근거·taxonomy·실용성 독립 재감사에서 최종 P0·P1 0건을 확인해 Phase 2 정규 catalog 승격을 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.organization-adoption.workforce-capability-gap-transition",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "승격 전 근거·taxonomy·실용성 독립 재감사에서 최종 P0·P1 0건을 확인해 Phase 2 정규 catalog 승격을 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.platform-quality-operations.backup-restore-disaster-recovery",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "독립 근거·taxonomy·실용성 전수감사와 교정 후 재감사에서 P0·P1 0건을 확인해 정규 승격 대상으로 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.platform-quality-operations.declarative-environment-drift-reconciliation",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "독립 근거·taxonomy·실용성 전수감사와 교정 후 재감사에서 P0·P1 0건을 확인해 정규 승격 대상으로 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.platform-quality-operations.incident-response-postmortem-learning",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "독립 근거·taxonomy·실용성 전수감사와 교정 후 재감사에서 P0·P1 0건을 확인해 정규 승격 대상으로 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.platform-quality-operations.performance-capacity-overload-protection",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "독립 근거·taxonomy·실용성 전수감사와 교정 후 재감사에서 P0·P1 0건을 확인해 정규 승격 대상으로 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.platform-quality-operations.resilience-failure-mode-experimentation",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "독립 근거·taxonomy·실용성 전수감사와 교정 후 재감사에서 P0·P1 0건을 확인해 정규 승격 대상으로 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.platform-quality-operations.safe-release-deployment-rollback",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "독립 근거·taxonomy·실용성 전수감사와 교정 후 재감사에서 P0·P1 0건을 확인해 정규 승격 대상으로 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.platform-quality-operations.service-observability-telemetry-contract",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "독립 근거·taxonomy·실용성 전수감사와 교정 후 재감사에서 P0·P1 0건을 확인해 정규 승격 대상으로 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.platform-quality-operations.service-production-readiness-lifecycle",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "독립 근거·taxonomy·실용성 전수감사와 교정 후 재감사에서 P0·P1 0건을 확인해 정규 승격 대상으로 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.platform-quality-operations.sli-slo-error-budget-alerting",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "독립 근거·taxonomy·실용성 전수감사와 교정 후 재감사에서 P0·P1 0건을 확인해 정규 승격 대상으로 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.platform-quality-operations.technology-cost-allocation-optimization",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "독립 근거·taxonomy·실용성 전수감사와 교정 후 재감사에서 P0·P1 0건을 확인해 정규 승격 대상으로 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.security-legal-governance.ai-system-risk-impact-governance-assurance",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "근거·taxonomy·실용성 독립 감사와 메인 세션 재검수에서 P0·P1 0건을 확인하여 정규 승격 대상으로 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.security-legal-governance.ai-system-security-threat-evaluation",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "근거·taxonomy·실용성 독립 감사와 메인 세션 재검수에서 P0·P1 0건을 확인하여 정규 승격 대상으로 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.security-legal-governance.digital-asset-license-rights-provenance-routing",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "근거·taxonomy·실용성 독립 감사와 메인 세션 재검수에서 P0·P1 0건을 확인하여 정규 승격 대상으로 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.security-legal-governance.identity-access-policy-lifecycle",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "근거·taxonomy·실용성 독립 감사와 메인 세션 재검수에서 P0·P1 0건을 확인하여 정규 승격 대상으로 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.security-legal-governance.privacy-engineering-impact-data-rights-lifecycle",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "근거·taxonomy·실용성 독립 감사와 메인 세션 재검수에서 P0·P1 0건을 확인하여 정규 승격 대상으로 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.security-legal-governance.secrets-credentials-key-lifecycle",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "근거·taxonomy·실용성 독립 감사와 메인 세션 재검수에서 P0·P1 0건을 확인하여 정규 승격 대상으로 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.security-legal-governance.security-control-assurance-audit-exception-governance",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "근거·taxonomy·실용성 독립 감사와 메인 세션 재검수에서 P0·P1 0건을 확인하여 정규 승격 대상으로 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.security-legal-governance.security-incident-evidence-reporting-routing",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "근거·taxonomy·실용성 독립 감사와 메인 세션 재검수에서 P0·P1 0건을 확인하여 정규 승격 대상으로 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.security-legal-governance.security-risk-requirements-threat-model-controls",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "근거·taxonomy·실용성 독립 감사와 메인 세션 재검수에서 P0·P1 0건을 확인하여 정규 승격 대상으로 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.security-legal-governance.software-supply-chain-integrity-vulnerability-governance",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "근거·taxonomy·실용성 독립 감사와 메인 세션 재검수에서 P0·P1 0건을 확인하여 정규 승격 대상으로 승인했습니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.software-product-engineering.accessible-ui-state-interaction",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "순수 UX 연구와 분리된 구현·검증 행동이 있고 여러 프론트엔드 문맥에 전이되므로 Unit 후보로 둡니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.software-product-engineering.ai-assisted-change-delivery",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "AI 코딩을 독립 기술 Unit으로 과대승격하지 않고 기존 공학 Unit을 조합하고 기준선 비교가 필요한 Set 후보로 둡니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.software-product-engineering.api-contract-compatibility",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "공급자와 구현 언어를 바꿔도 소비자 계약·오류·호환성 검증이 전이되므로 Unit 후보로 둡니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.software-product-engineering.build-dependency-reproducibility",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "보안 공급망 전체와 분리해도 독립 환경의 build·test 재현이라는 검증 가능한 전이 성과가 있어 Unit 후보로 둡니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.software-product-engineering.layered-software-verification",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "특정 테스트 프레임워크가 아니라 위험·경계·oracle·회귀 Gate 설계가 전이되므로 Unit 후보로 둡니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.software-product-engineering.modular-design-dependency-boundaries",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "언어·프레임워크가 달라도 전이되는 설계 판단과 검증 가능한 리팩터링 결과가 있어 Unit 후보로 둡니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.software-product-engineering.relational-data-model-schema-evolution",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "PostgreSQL은 fixture이지만 키·관계·제약·migration 검증은 관계형 시스템 전반에 전이되므로 Unit 후보로 둡니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.software-product-engineering.reproducible-debugging-fault-isolation",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "운영 incident와 분리된 개발환경 D2 행동이며 언어·프레임워크가 달라도 재현·가설·격리 절차가 전이됩니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.software-product-engineering.requirements-acceptance-traceability",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "기술·방법론과 무관하게 전이되며 새 변경의 완료조건과 추적을 독립적으로 검증할 수 있어 Unit 후보로 둡니다.",
+      "user_approved": true
+    },
+    {
+      "candidate_ref": {
+        "id": "candidate.software-product-engineering.version-control-change-integration",
+        "version": "1.0.0"
+      },
+      "disposition": "accepted",
+      "rationale": "특정 호스팅 제품이 아니라 변경 이력·통합·복구의 전이 가능한 D2 실천으로 범위를 제한했습니다.",
+      "user_approved": true
+    }
+  ],
+  "open_items": {
+    "questions": [
+      "사용자가 Phase 2 최종 역량지도와 완료 감사 보고서를 검토하고 Phase 2 완료를 승인할지 확인해야 합니다."
+    ],
+    "risks": [
+      "15개 Candidate의 evidence 25건에 source_version이 비어 있어 원문 버전 재현성이 낮습니다.",
+      "Wave 5 source projection과 Candidate 사이에 source_type 5건과 source_version 7건의 비차단 차이가 있습니다.",
+      "로컬 환경에서 python 명령이 Windows Store 별칭을 가리킬 수 있으므로 실제 Python이 PATH에 있는지 확인해야 합니다.",
+      "codex-windows-sandbox-setup 실행 파일과 UserPromptSubmit hook 오류는 저장소 외부 로컬 도구 문제로 보이며 Git 작업과 검증 결과에는 영향을 주지 않았습니다."
+    ],
+    "conflicts": [],
+    "unverified_claims": [
+      "Cataloged Unit·Set의 실제 학습효과와 업무효과는 검증되지 않았습니다.",
+      "역할 view active 상태는 개인별 필수과정·직무기술서·실제 조직 적합성을 뜻하지 않습니다."
+    ]
+  },
+  "approval": {
+    "status": "pending",
+    "requested_at": "2026-08-02",
+    "note": "Wave 7 산출물과 독립 완료 감사는 통과했으며 Phase 2 사용자 완료 승인만 남았습니다."
+  },
+  "resume": {
+    "read_first": [
+      "AGENTS.md",
+      "CLAUDE.md",
+      "research/capability-survey/handoffs/2026-08-02-session-continuation/handoff.json",
+      "research/capability-survey/handoffs/2026-08-02-session-continuation/handoff.md",
+      "research/capability-survey/checkpoints/wave-07.md",
+      "research/capability-survey/waves/wave-07/capability-map.md",
+      "research/capability-survey/waves/wave-07/phase2-completion-report.md",
+      "docs/research/phase2-capability-survey-runbook.md"
+    ],
+    "next_action": "사용자에게 Phase 2 완료 승인 여부를 확인하고, 승인 전에는 Phase 3 상세 작업을 시작하지 않습니다.",
+    "inputs": [
+      "taxonomy/taxonomy.json",
+      "research/capability-survey/waves/wave-07/capability-map.md",
+      "research/capability-survey/waves/wave-07/phase2-completion-report.md"
+    ],
+    "expected_outputs": [
+      "research/capability-survey/checkpoints/wave-07.md",
+      "docs/plans/curriculum-foundation-plan.md"
+    ],
+    "approval_required": true,
+    "stop_conditions": [
+      "Public 로컬 HEAD와 origin/main이 다르거나 Phase 2 완료 기준 커밋 62506b8e04cb62b0e1072476a012f6ee34ef70d3이 현재 main의 조상이 아닙니다.",
+      "Public 또는 Vault 작업트리에 예상하지 못한 변경이 있습니다.",
+      "상위 AX 작업공간에 .git이 존재합니다.",
+      "공개 경계·카탈로그·회귀검증이 실패합니다.",
+      "사용자가 Phase 2 완료를 승인하지 않거나 범위 변경을 요청합니다."
+    ]
+  },
+  "attestations": {
+    "no_unauthorized_catalog_promotion": true,
+    "assigned_paths_only": true,
+    "unverified_claims_disclosed": true,
+    "checkpoint_updated": true
+  }
+}
