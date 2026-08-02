@@ -86,7 +86,12 @@
       "semantic_structure",
       "print_alternative"
     ],
-    "alternative_resource_refs": [],
+    "alternative_resource_refs": [
+      {
+        "id": "resource.data-analytics-ml.domain-concept-relationship-modeling.interactive-course",
+        "version": "1.0.0"
+      }
+    ],
     "checked_at": "2026-08-02",
     "note": "Markdown 정적 자료이며 표와 절차는 텍스트만으로도 해석할 수 있습니다."
   },

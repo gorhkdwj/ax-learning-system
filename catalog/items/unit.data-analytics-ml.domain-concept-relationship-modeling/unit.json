@@ -77,6 +77,14 @@
   "resource_refs": [
     {
       "resource": {
+        "id": "resource.data-analytics-ml.domain-concept-relationship-modeling.interactive-course",
+        "version": "1.0.0"
+      },
+      "role": "core",
+      "required": true
+    },
+    {
+      "resource": {
         "id": "resource.data-analytics-ml.domain-concept-relationship-modeling.lab",
         "version": "1.0.0"
       },
