@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.workflow.retrieval-grounded-generation.representation-probe",
+  "version": "1.0.0",
+  "title": "검색 표현 선택 Probe",
+  "description": "공개·합성 문서와 12개 골든 질문의 고정 snapshot으로 텍스트·벡터, 메타데이터·관계형, 구조화 관계 질의를 비교하는 선택형 2시간 Probe입니다.",
+  "resource_type": "assessment",
+  "owner": {
+    "kind": "set",
+    "id": "set.workflow.retrieval-grounded-generation",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "local",
+    "path": "sets/set.workflow.retrieval-grounded-generation/resources/representation-probe/README.md"
+  },
+  "learning_outcome_ids": [
+    "outcome.data-analytics-ml.domain-concept-relationship-modeling.d0",
+    "outcome.data-analytics-ml.domain-concept-relationship-modeling.rag-boundary.d0",
+    "outcome.data-analytics-ml.domain-concept-relationship-modeling.d2"
+  ],
+  "estimated_minutes": 120,
+  "language": "ko",
+  "tags": [
+    "rag",
+    "retrieval",
+    "representation-choice",
+    "probe"
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "python-3"
+    ],
+    "network_required": false
+  },
+  "provenance": {
+    "origin": "original",
+    "sources": [
+      {
+        "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+        "publisher": "NeurIPS",
+        "source_type": "primary_research",
+        "url": "https://arxiv.org/abs/2005.11401",
+        "source_version": "arXiv:2005.11401v4",
+        "checked_at": "2026-08-02"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "verified",
+    "standard": "WCAG 2.2 AA",
+    "features": [
+      "semantic_structure",
+      "print_alternative"
+    ],
+    "alternative_resource_refs": [],
+    "checked_at": "2026-08-02",
+    "note": "정적 Markdown과 JSON fixture로 구성되며 모든 판정 항목을 텍스트로 제공합니다."
+  },
+  "verification": {
+    "status": "verified",
+    "checked_at": "2026-08-02",
+    "commands": [
+      "python tools/evaluate_retrieval_probe.py sets/set.workflow.retrieval-grounded-generation/resources/representation-probe/probe.json sets/set.workflow.retrieval-grounded-generation/resources/representation-probe/decision.example.json",
+      "python -m unittest discover -s tests -p test_evaluate_retrieval_probe.py -v"
+    ],
+    "expected_outputs": [
+      "예시에서 metadata_relational과 structured_graph가 기능 Gate를 통과하고 유지비가 낮은 metadata_relational이 기준선으로 선택됩니다.",
+      "고유한 필수 관계 질문 없이 structured_graph를 선택한 결정은 거부됩니다."
+    ],
+    "evidence_paths": [
+      "tools/evaluate_retrieval_probe.py",
+      "tests/test_evaluate_retrieval_probe.py",
+      "sets/set.workflow.retrieval-grounded-generation/resources/representation-probe/probe.json",
+      "sets/set.workflow.retrieval-grounded-generation/resources/representation-probe/decision.example.json"
+    ],
+    "note": "제공 결정은 검증기 예시일 뿐 실제 Probe 완료 기록이 아닙니다. 실제 수행에는 사람 표본 검토가 필요합니다."
+  },
+  "lifecycle": {
+    "status": "probe",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-08-02",
+    "review_due_at": "2026-11-02",
+    "note": "기존 RAG 필수 경로와 분리된 선택형 Probe Resource입니다."
+  }
+}

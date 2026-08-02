@@ -16,6 +16,11 @@ try {
         throw "Catalog validation failed."
     }
 
+    python tools/validate_private_sources.py
+    if ($LASTEXITCODE -ne 0) {
+        throw "Private source validation failed."
+    }
+
     python -m unittest discover -s tests -v
     if ($LASTEXITCODE -ne 0) {
         throw "Unit tests failed."

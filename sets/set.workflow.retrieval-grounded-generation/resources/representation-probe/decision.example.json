@@ -1,0 +1,21 @@
+{
+  "decision_id": "decision.retrieval-representation.synthetic-example",
+  "selected_baseline": "metadata_relational",
+  "question_type_choices": [
+    {"question_type": "exact_fact_or_paraphrase", "method": "text_vector", "condition": "별도 ACL·최신성 필터를 선행 적용할 수 있을 때"},
+    {"question_type": "metadata_state_acl", "method": "metadata_relational", "condition": "상태·버전·권한 필드를 결정적으로 검사할 때"},
+    {"question_type": "bounded_relationship", "method": "metadata_relational", "condition": "고정된 1~2 hop 관계 조회로 질문을 충족할 때"},
+    {"question_type": "unbounded_relationship", "method": "structured_graph", "condition": "다른 방식이 실패한 필수 관계 질문과 Gate 통과가 별도로 입증될 때만"}
+  ],
+  "graph_only_required_question_ids": [],
+  "graph_gates": {"acl_pass": true, "freshness_pass": true},
+  "excluded_reasons": [
+    "text_vector 단독 방식은 최신성·ACL·2 hop 관계 Gate를 통과하지 못했습니다.",
+    "structured_graph는 같은 필수 질문을 해결하지만 이 snapshot에서 고유한 필수 관계 질문이 없고 유지비가 더 높습니다."
+  ],
+  "revisit_conditions": [
+    "metadata_relational이 충족하지 못하는 필수 다단계 관계 질문이 반복 재현됩니다.",
+    "그래프 방식이 ACL·최신성·추적성 Gate를 통과하는 고정 snapshot을 제공합니다."
+  ],
+  "human_review_status": "example_only_not_completion"
+}

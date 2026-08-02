@@ -1,0 +1,24 @@
+{
+  "submission_id": "replace-with-stable-submission-id",
+  "transfer_task_id": "replace-with-transfer-task-id",
+  "classes": [],
+  "fields": [],
+  "relations": [],
+  "questions": [],
+  "representation_decision": {
+    "selected": "replace-with-json-rdbms-or-graph",
+    "sufficient_representations": [],
+    "graph_required_question_ids": [],
+    "gates": {
+      "acl_pass": false,
+      "freshness_pass": false
+    },
+    "rationale": ""
+  },
+  "corrected_errors": [],
+  "human_explanation": {
+    "classification_reason": "",
+    "representation_reason": "",
+    "validation_evidence": ""
+  }
+}

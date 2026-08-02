@@ -1,0 +1,66 @@
+{
+  "fixture_id": "domain-model.synthetic-knowledge-library.valid",
+  "submission_id": "submission.synthetic-knowledge-library.valid",
+  "transfer_task_id": "transfer.synthetic-knowledge-library",
+  "classes": [
+    {"id": "document", "role": "entity"},
+    {"id": "document-version", "role": "version"},
+    {"id": "source", "role": "source"},
+    {"id": "label", "role": "entity"}
+  ],
+  "fields": [
+    {"id": "document.title", "owner": "document", "kind": "value"},
+    {"id": "document-version.status", "owner": "document-version", "kind": "state"},
+    {"id": "document-version.effective-at", "owner": "document-version", "kind": "temporal"},
+    {"id": "document-version.source-id", "owner": "document-version", "kind": "provenance"}
+  ],
+  "relations": [
+    {"id": "document-has-version", "from": "document", "to": "document-version"},
+    {"id": "version-derived-from-source", "from": "document-version", "to": "source"},
+    {"id": "version-has-label", "from": "document-version", "to": "label"}
+  ],
+  "questions": [
+    {
+      "id": "q.current-documents-by-label",
+      "text": "현재 유효한 특정 라벨의 문서는 무엇입니까?",
+      "answer_path_ids": [
+        "document-has-version",
+        "document-version.status",
+        "document-version.effective-at",
+        "version-has-label"
+      ]
+    },
+    {
+      "id": "q.document-source",
+      "text": "이 문서 버전의 원천은 무엇입니까?",
+      "answer_path_ids": [
+        "version-derived-from-source",
+        "document-version.source-id"
+      ]
+    },
+    {
+      "id": "q.version-title",
+      "text": "특정 버전이 속한 문서 제목은 무엇입니까?",
+      "answer_path_ids": [
+        "document-has-version",
+        "document.title"
+      ]
+    }
+  ],
+  "representation_decision": {
+    "selected": "json",
+    "sufficient_representations": ["json", "rdbms"],
+    "graph_required_question_ids": [],
+    "gates": {"acl_pass": true, "freshness_pass": true},
+    "rationale": "작은 읽기 전용 표본과 고정된 관계 깊이에는 중첩 JSON이 가장 단순하며, 동시 수정과 제약이 늘면 RDBMS로 재검토합니다."
+  },
+  "corrected_errors": [
+    "active를 클래스로 두었던 초안을 document-version.status 필드로 수정했습니다.",
+    "문서에 직접 붙였던 원천을 버전별 관계와 source-id로 수정했습니다."
+  ],
+  "human_explanation": {
+    "classification_reason": "독립 식별·수명주기가 있는 문서, 버전, 원천, 라벨만 클래스로 두었습니다.",
+    "representation_reason": "현재 질문은 고정 깊이 탐색으로 답할 수 있어 가장 단순한 JSON을 선택했습니다.",
+    "validation_evidence": "세 질문의 answer_path_ids가 실제 필드와 관계를 모두 참조하며 상태·시점·원천·버전을 추적했습니다."
+  }
+}

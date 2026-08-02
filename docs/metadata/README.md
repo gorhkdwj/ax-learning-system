@@ -17,9 +17,15 @@ Breadth 조사 결과도 Capability Candidate 메타데이터로 staging한 뒤 
 
 - `schemas/*.schema.json`: 개별 JSON 파일의 필드, 자료형, enum과 필수값을
   검사합니다.
+- `schemas/private-source-manifest.schema.json`: 공개 구조를 특정 개인 원천명에
+  결합하지 않고 Vault 원천 패키지의 권리 상태·선정 범위·파일 무결성 계약을
+  검사합니다.
 - `tools/validate_catalog.py`: 여러 파일 사이의 정확한 버전 참조, 소유관계,
   학습성과 정렬, 상대경로, Unit·Set DAG, Trend Signal, Taxonomy와 생명주기
   규칙을 검사합니다.
+- `tools/validate_private_sources.py`: `AX_VAULT_ROOT`로만 선택적 Vault를 찾고,
+  Vault가 있으면 `source.json`의 상대경로·크기·SHA-256·PDF 페이지 수를
+  읽기 전용으로 검사합니다. Vault가 없으면 성공으로 건너뜁니다.
 - `templates/metadata/*.template.json`: 새 항목을 작성할 때 복제하는 시작점입니다.
 - `examples/valid`: 검증기 정상 동작과 테스트에 사용하는 최소 참조 구현입니다.
 - `catalog/items`: 승인된 정규 Unit과 그 Unit이 소유하는 Resource를 관리합니다.

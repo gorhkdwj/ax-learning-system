@@ -1,0 +1,45 @@
+{
+  "review_id": "replace-with-stable-review-id",
+  "reviewed_model_ids": [],
+  "reviewer_type": "learner_self_review",
+  "reviewed_at": "YYYY-MM-DD",
+  "criteria": [
+    {
+      "id": "question-answerability",
+      "status": "pending",
+      "evidence": ""
+    },
+    {
+      "id": "classification-semantics",
+      "status": "pending",
+      "evidence": ""
+    },
+    {
+      "id": "temporality-provenance",
+      "status": "pending",
+      "evidence": ""
+    },
+    {
+      "id": "representation-sufficiency",
+      "status": "pending",
+      "evidence": ""
+    },
+    {
+      "id": "independent-transfer",
+      "status": "pending",
+      "evidence": ""
+    },
+    {
+      "id": "oral-explanation",
+      "status": "pending",
+      "evidence": ""
+    }
+  ],
+  "oral_explanation_confirmed": false,
+  "repeated_error_codes": [],
+  "remediation": {
+    "required": false,
+    "minutes": 0,
+    "retest_status": "not_required"
+  }
+}

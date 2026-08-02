@@ -73,6 +73,13 @@ Vault가 없으면 공개 모드로 계속 실행하고, 필요한 비공개 기
 경계입니다. Registry를 도입할 때에는 별도 JSON Schema와 참조 검증을 먼저
 추가합니다.
 
+Vault의 원천 패키지는 `source.json`에 불투명 원천 ID, 패키지 기준 상대경로,
+파일 크기, SHA-256, PDF 페이지 수, 검토일, 권리 상태와 선정·제외 범위를
+기록합니다. 일반화된 계약은
+`schemas/private-source-manifest.schema.json`, 선택형 검증기는
+`tools/validate_private_sources.py`에 있습니다. 공개 Unit과 Resource는 이
+manifest의 실제 파일명·경로·추출 텍스트를 참조하지 않습니다.
+
 ## 6. HUB와 임베딩
 
 HUB는 두 실행 모드를 가집니다.
@@ -108,7 +115,9 @@ HUB는 두 실행 모드를 가집니다.
 ./ax-learning-system/tools/verify.ps1
 ```
 
-검증은 공개 경계, 카탈로그와 단위 테스트를 순서대로 확인합니다.
+검증은 공개 경계, 카탈로그, 선택적 Vault 원천 manifest와 단위 테스트를
+순서대로 확인합니다. Vault가 없으면 manifest 단계는 `skipped`로 성공하며,
+Vault가 있으면 manifest·파일·크기·SHA-256·페이지 수 불일치를 실패로 처리합니다.
 
 ## 9. 새 컴퓨터 부트스트랩
 

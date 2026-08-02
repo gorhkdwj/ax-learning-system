@@ -1,0 +1,48 @@
+{
+  "review_id": "semantic-review.domain-model.valid",
+  "reviewed_model_ids": [
+    "submission.synthetic-knowledge-library.valid",
+    "submission.synthetic-equipment-maintenance.valid"
+  ],
+  "reviewer_type": "learner_self_review",
+  "reviewed_at": "2026-08-02",
+  "criteria": [
+    {
+      "id": "question-answerability",
+      "status": "pass",
+      "evidence": "두 모델의 모든 핵심 질문을 실제 필드와 관계의 순서로 따라가 답할 수 있음을 표본 값으로 확인했습니다."
+    },
+    {
+      "id": "classification-semantics",
+      "status": "pass",
+      "evidence": "독립 식별과 수명주기가 있는 대상만 클래스로 두고 상태와 단순 값은 필드로 유지했습니다."
+    },
+    {
+      "id": "temporality-provenance",
+      "status": "pass",
+      "evidence": "현재 상태의 기준 시점과 유효 버전, 판정에 사용한 원천을 각 질문의 답변 경로에서 추적했습니다."
+    },
+    {
+      "id": "representation-sufficiency",
+      "status": "pass",
+      "evidence": "고정 깊이 조회와 작은 읽기 전용 표본에는 JSON이 충분하며 동시 수정과 제약이 늘 때만 RDBMS를 재검토합니다."
+    },
+    {
+      "id": "independent-transfer",
+      "status": "pass",
+      "evidence": "지식문서와 장비 정비라는 서로 다른 두 도메인을 예제 클래스명을 복사하지 않고 각각의 질문에서 다시 모델링했습니다."
+    },
+    {
+      "id": "oral-explanation",
+      "status": "pass",
+      "evidence": "사용자가 클래스 경계, 표현 선택, 상태와 원천 추적 근거를 모델 파일을 읽지 않고 자신의 말로 설명했습니다."
+    }
+  ],
+  "oral_explanation_confirmed": true,
+  "repeated_error_codes": [],
+  "remediation": {
+    "required": false,
+    "minutes": 0,
+    "retest_status": "not_required"
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.data-analytics-ml.domain-concept-relationship-modeling.lab",
+  "version": "1.0.0",
+  "title": "질문 기반 도메인 개념·관계 모델링 10시간 핵심 실습",
+  "description": "공개·합성 지식문서에서 핵심 질문을 모델로 바꾸고 RAG·구조화 검색의 경계를 검토한 뒤 서로 다른 두 도메인으로 전이하여 구조 자동검사와 사람 의미 검토를 통과하는 적응형 D2 실습입니다.",
+  "resource_type": "lab",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.data-analytics-ml.domain-concept-relationship-modeling",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "local",
+    "path": "catalog/items/unit.data-analytics-ml.domain-concept-relationship-modeling/resources/lab/README.md"
+  },
+  "learning_outcome_ids": [
+    "outcome.data-analytics-ml.domain-concept-relationship-modeling.d0",
+    "outcome.data-analytics-ml.domain-concept-relationship-modeling.d1",
+    "outcome.data-analytics-ml.domain-concept-relationship-modeling.rag-boundary.d0",
+    "outcome.data-analytics-ml.domain-concept-relationship-modeling.d2"
+  ],
+  "estimated_minutes": 600,
+  "language": "ko",
+  "tags": [
+    "domain-modeling",
+    "competency-questions",
+    "transfer-assessment",
+    "synthetic-data"
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "python-3"
+    ],
+    "network_required": false
+  },
+  "provenance": {
+    "origin": "original",
+    "sources": [
+      {
+        "title": "Ontology Development 101: A Guide to Creating Your First Ontology",
+        "publisher": "Stanford University",
+        "source_type": "secondary_reference",
+        "url": "https://protege.stanford.edu/publications/ontology_development/ontology101-noy-mcguinness.html",
+        "checked_at": "2026-08-02"
+      },
+      {
+        "title": "RDF 1.1 Concepts and Abstract Syntax",
+        "publisher": "World Wide Web Consortium",
+        "source_type": "official_spec",
+        "url": "https://www.w3.org/TR/rdf11-concepts/",
+        "source_version": "W3C Recommendation 2014-02-25",
+        "checked_at": "2026-08-02"
+      },
+      {
+        "title": "OWL 2 Web Ontology Language Primer (Second Edition)",
+        "publisher": "World Wide Web Consortium",
+        "source_type": "official_spec",
+        "url": "https://www.w3.org/TR/owl2-primer/",
+        "source_version": "W3C Recommendation 2012-12-11",
+        "checked_at": "2026-08-02"
+      },
+      {
+        "title": "SPARQL 1.1 Query Language",
+        "publisher": "World Wide Web Consortium",
+        "source_type": "official_spec",
+        "url": "https://www.w3.org/TR/sparql11-query/",
+        "source_version": "W3C Recommendation 2013-03-21",
+        "checked_at": "2026-08-02"
+      },
+      {
+        "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+        "publisher": "NeurIPS",
+        "source_type": "primary_research",
+        "url": "https://arxiv.org/abs/2005.11401",
+        "source_version": "arXiv:2005.11401v4",
+        "checked_at": "2026-08-02"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "verified",
+    "standard": "WCAG 2.2 AA",
+    "features": [
+      "semantic_structure",
+      "print_alternative"
+    ],
+    "alternative_resource_refs": [],
+    "checked_at": "2026-08-02",
+    "note": "Markdown 정적 자료이며 표와 절차는 텍스트만으로도 해석할 수 있습니다."
+  },
+  "verification": {
+    "status": "verified",
+    "checked_at": "2026-08-02",
+    "commands": [
+      "python tools/evaluate_domain_model.py catalog/items/unit.data-analytics-ml.domain-concept-relationship-modeling/resources/lab/fixtures/valid.json",
+      "python tools/evaluate_domain_model.py catalog/items/unit.data-analytics-ml.domain-concept-relationship-modeling/resources/lab/fixtures/valid.json --semantic-review catalog/items/unit.data-analytics-ml.domain-concept-relationship-modeling/resources/lab/fixtures/semantic-review.valid.json --require-semantic-review",
+      "python tools/evaluate_domain_learning.py catalog/items/unit.data-analytics-ml.domain-concept-relationship-modeling/resources/lab/fixtures/valid.json catalog/items/unit.data-analytics-ml.domain-concept-relationship-modeling/resources/lab/fixtures/valid-transfer.json catalog/items/unit.data-analytics-ml.domain-concept-relationship-modeling/resources/lab/fixtures/semantic-review.valid.json",
+      "python -m unittest discover -s tests -p test_evaluate_domain_*.py -v"
+    ],
+    "expected_outputs": [
+      "정상 fixture는 errors=0입니다.",
+      "클래스 과다·상태 누락·답변 불가능 질문·근거 없는 그래프 선택 fixture가 각각 거부됩니다.",
+      "두 전이 모델, 여섯 의미 기준, 사용자 설명과 조건부 보충학습 계약이 누락되거나 실패하면 D2 완료가 거부됩니다."
+    ],
+    "evidence_paths": [
+      "tools/evaluate_domain_model.py",
+      "tools/evaluate_domain_learning.py",
+      "tests/test_evaluate_domain_model.py",
+      "tests/test_evaluate_domain_learning.py",
+      "catalog/items/unit.data-analytics-ml.domain-concept-relationship-modeling/resources/lab/fixtures/valid.json",
+      "catalog/items/unit.data-analytics-ml.domain-concept-relationship-modeling/resources/lab/fixtures/valid-transfer.json",
+      "catalog/items/unit.data-analytics-ml.domain-concept-relationship-modeling/resources/lab/fixtures/semantic-review.valid.json",
+      "catalog/items/unit.data-analytics-ml.domain-concept-relationship-modeling/resources/lab/templates/model-submission.template.json",
+      "catalog/items/unit.data-analytics-ml.domain-concept-relationship-modeling/resources/lab/templates/semantic-review.template.json",
+      "catalog/items/unit.data-analytics-ml.domain-concept-relationship-modeling/resources/lab/transfer-prompts.json"
+    ],
+    "note": "결정적 구조 검사만으로 의미 타당성을 확정하지 않습니다. 두 전이 모델을 대상으로 한 사람 의미 검토와 사용자 설명을 완료 게이트로 함께 적용합니다."
+  },
+  "lifecycle": {
+    "status": "scheduled",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-08-02",
+    "review_due_at": "2026-11-02",
+    "note": "2026-08-10까지 D2 학습 범위에서 10시간 핵심 Unit을 완료하고, 연결된 2시간 검색 표현 선택 Probe까지 수행하도록 예약한 공개·합성 실습입니다."
+  }
+}

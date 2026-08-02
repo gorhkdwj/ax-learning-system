@@ -1,0 +1,37 @@
+{
+  "fixture_id": "domain-model.unanswerable-question",
+  "classes": [
+    {"id": "document", "role": "entity"},
+    {"id": "document-version", "role": "version"},
+    {"id": "source", "role": "source"}
+  ],
+  "fields": [
+    {"id": "document-version.status", "owner": "document-version", "kind": "state"},
+    {"id": "document-version.effective-at", "owner": "document-version", "kind": "temporal"},
+    {"id": "document-version.source-id", "owner": "document-version", "kind": "provenance"}
+  ],
+  "relations": [
+    {"id": "document-has-version", "from": "document", "to": "document-version"},
+    {"id": "version-derived-from-source", "from": "document-version", "to": "source"}
+  ],
+  "questions": [
+    {
+      "id": "q.document-owner",
+      "text": "문서의 승인 책임자는 누구입니까?",
+      "answer_path_ids": ["document-approved-by-person"]
+    }
+  ],
+  "representation_decision": {
+    "selected": "json",
+    "sufficient_representations": ["json"],
+    "graph_required_question_ids": [],
+    "gates": {"acl_pass": true, "freshness_pass": true},
+    "rationale": "고정된 소규모 표본입니다."
+  },
+  "corrected_errors": ["오류 1을 수정했습니다.", "오류 2를 수정했습니다."],
+  "human_explanation": {
+    "classification_reason": "식별 가능한 대상만 클래스로 두었습니다.",
+    "representation_reason": "고정 깊이 질문이므로 JSON을 선택했습니다.",
+    "validation_evidence": "질문 경로를 점검했습니다."
+  }
+}

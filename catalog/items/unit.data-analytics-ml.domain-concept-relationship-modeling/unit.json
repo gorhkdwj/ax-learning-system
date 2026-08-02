@@ -1,0 +1,219 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.data-analytics-ml.domain-concept-relationship-modeling",
+  "version": "1.0.0",
+  "title": "질문 기반 도메인 개념·관계 모델링",
+  "summary": "핵심 질문에서 클래스·인스턴스·속성·관계·상태를 도출하고 일반 RAG와 구조화 관계 검색의 경계를 구별한 뒤 JSON·RDBMS·그래프 중 가장 단순한 충분 표현을 두 독립 도메인에서 선택·검증하는 범용 실습입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "data-analytics-ml",
+    "subdomains": [
+      "domain-concept-relationship-modeling"
+    ]
+  },
+  "domain_tags": [
+    "domain-modeling",
+    "competency-questions",
+    "ontology",
+    "representation-choice"
+  ],
+  "capabilities": [
+    "서로 다른 두 소규모 도메인의 핵심 질문을 제한된 클래스와 추적 가능한 필드·관계로 모델링하고 가장 단순한 충분 표현을 선택한 뒤 사람 의미 검토를 통과합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.data-analytics-ml.domain-concept-relationship-modeling.d0",
+        "statement": "taxonomy·schema·ontology·knowledge graph의 차이와 적용 한계를 설명합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.data-analytics-ml.domain-concept-relationship-modeling.d1",
+        "statement": "주어진 핵심 질문에서 클래스·인스턴스·속성·관계·상태를 도출합니다.",
+        "target_level": "D1"
+      },
+      {
+        "id": "outcome.data-analytics-ml.domain-concept-relationship-modeling.rag-boundary.d0",
+        "statement": "일반 RAG, 메타데이터·관계형 조회와 구조화 관계 질의의 역할·한계를 구별하고 온톨로지 또는 그래프의 우위를 전제하지 않습니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.data-analytics-ml.domain-concept-relationship-modeling.d2",
+        "statement": "서로 다른 새로운 소규모 도메인 두 개를 제한된 클래스로 모델링하고 JSON·RDBMS·그래프 중 가장 단순한 충분 표현을 선택하여 질문 충족 여부를 자동검사와 사람 의미 검토로 검증합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 600,
+    "scope_expansion_policy": "FOL·ASP·OWL 추론, Protégé·Fuseki·SPARQL 구현과 그래프 DB 운영은 제외합니다. RDF·OWL·SPARQL은 표현 기술을 구별하는 D0 참고 범위로만 다룹니다."
+  },
+  "relations": [
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.data-analytics-ml.data-catalog-lineage-ownership-metadata",
+        "version": "1.0.0"
+      },
+      "note": "원천·버전·책임 메타데이터가 모델의 추적성과 최신성 판단에 연결됩니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.software.relational-data-model-schema-evolution",
+        "version": "1.0.0"
+      },
+      "note": "업무 질문이 키·관계·제약과 스키마 변경으로 이어지는 경우의 인접 역량입니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.ai.system-context-design",
+        "version": "1.0.0"
+      },
+      "note": "검색·근거 연결 시스템에서 구조화된 원천과 관계를 컨텍스트로 선택하는 인접 역량입니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.data-analytics-ml.domain-concept-relationship-modeling.lab",
+        "version": "1.0.0"
+      },
+      "role": "lab",
+      "required": true
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "python-3"
+    ],
+    "network_required": false,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개·합성 fixture를 사용하는 로컬 10시간 핵심 Unit과 별도 2시간 선택형 Probe"
+    },
+    "technology_versions": [
+      {
+        "name": "Python",
+        "constraint": ">=3.11"
+      }
+    ]
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "domain-concept-relationship-model-review",
+        "type": "command",
+        "learning_outcome_ids": [
+          "outcome.data-analytics-ml.domain-concept-relationship-modeling.d0",
+          "outcome.data-analytics-ml.domain-concept-relationship-modeling.d1",
+          "outcome.data-analytics-ml.domain-concept-relationship-modeling.rag-boundary.d0",
+          "outcome.data-analytics-ml.domain-concept-relationship-modeling.d2"
+        ],
+        "required": true,
+        "command": "python tools/evaluate_domain_learning.py <first-transfer-model.json> <second-transfer-model.json> <semantic-review.json>",
+        "success_criteria": [
+          "서로 다른 두 전이 도메인을 각각 작은 범위로 제한하고 값·상태를 불필요한 클래스로 승격하지 않습니다.",
+          "시간에 따라 변하는 정보와 원천·버전을 명시하고 각 핵심 질문의 답변 경로를 필드·관계로 추적합니다.",
+          "JSON·RDBMS·그래프 선택을 질문 충족과 유지비로 설명하며 더 단순한 충분 표현이 있으면 복잡한 방식을 선택하지 않습니다.",
+          "구조 자동검사와 여섯 기준의 사람 의미 검토를 모두 통과하고 최종 판단 근거를 사용자가 설명합니다.",
+          "같은 오류가 두 과제에서 반복될 때만 최대 120분을 보충하고 재평가하며 반복 오류가 없으면 추가 시간을 배정하지 않습니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Ontology Development 101: A Guide to Creating Your First Ontology",
+      "publisher": "Stanford University",
+      "source_type": "secondary_reference",
+      "url": "https://protege.stanford.edu/publications/ontology_development/ontology101-noy-mcguinness.html",
+      "checked_at": "2026-08-02"
+    },
+    {
+      "title": "RDF 1.1 Concepts and Abstract Syntax",
+      "publisher": "World Wide Web Consortium",
+      "source_type": "official_spec",
+      "url": "https://www.w3.org/TR/rdf11-concepts/",
+      "source_version": "W3C Recommendation 2014-02-25",
+      "checked_at": "2026-08-02"
+    },
+    {
+      "title": "OWL 2 Web Ontology Language Primer (Second Edition)",
+      "publisher": "World Wide Web Consortium",
+      "source_type": "official_spec",
+      "url": "https://www.w3.org/TR/owl2-primer/",
+      "source_version": "W3C Recommendation 2012-12-11",
+      "checked_at": "2026-08-02"
+    },
+    {
+      "title": "SPARQL 1.1 Query Language",
+      "publisher": "World Wide Web Consortium",
+      "source_type": "official_spec",
+      "url": "https://www.w3.org/TR/sparql11-query/",
+      "source_version": "W3C Recommendation 2013-03-21",
+      "checked_at": "2026-08-02"
+    },
+    {
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "publisher": "NeurIPS",
+      "source_type": "primary_research",
+      "url": "https://arxiv.org/abs/2005.11401",
+      "source_version": "arXiv:2005.11401v4",
+      "checked_at": "2026-08-02"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "time",
+    "risk_reduction",
+    "reuse",
+    "capability_unlock"
+  ],
+  "lifecycle": {
+    "status": "scheduled",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-08-02",
+    "review_due_at": "2026-11-02",
+    "note": "2026-08-10까지 완료할 D2 학습 범위에 포함한 10시간 핵심 Unit으로 예약했습니다. 기존 RAG Set의 2시간 검색 표현 선택 Probe를 연결한 기본 경로는 12시간이며, 반복 오류가 있을 때만 최대 2시간을 보충합니다. 외부 강의는 범위 발견용이며 공개 내용의 사실 정본으로 사용하지 않습니다."
+  },
+  "extensions": {
+    "related_taxonomy_nodes": [
+      "data-catalog-lineage-ownership-metadata",
+      "relational-data-modeling-schema-evolution",
+      "retrieval-grounding-systems"
+    ],
+    "excluded_implementation_topics": [
+      "FOL",
+      "ASP",
+      "OWL reasoning",
+      "Protege",
+      "Fuseki",
+      "SPARQL implementation",
+      "graph database operations"
+    ],
+    "adaptive_timebox": {
+      "core_unit_minutes": 600,
+      "linked_probe_minutes": 120,
+      "default_path_minutes": 720,
+      "conditional_remediation_minutes_max": 120,
+      "maximum_path_minutes": 840,
+      "remediation_trigger": "같은 모델링 오류가 두 독립 전이과제에서 반복되고 사람 의미 검토가 실패할 때만 보충학습 후 재평가합니다.",
+      "linked_probe": {
+        "set_id": "set.workflow.retrieval-grounded-generation",
+        "set_version": "1.0.0",
+        "step_id": "choose-retrieval-representation",
+        "resource_id": "resource.workflow.retrieval-grounded-generation.representation-probe",
+        "resource_version": "1.0.0"
+      }
+    }
+  }
+}

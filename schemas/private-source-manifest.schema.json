@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ax-learning.local/schemas/private-source-manifest.schema.json",
+  "title": "AX Private Source Manifest",
+  "description": "선택적 Vault 안의 개인 학습 원천 패키지를 검증하기 위한 일반화된 manifest 스키마입니다.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "version",
+    "title",
+    "reviewed_at",
+    "rights",
+    "selection",
+    "files"
+  ],
+  "properties": {
+    "schema_version": {
+      "$ref": "#/$defs/semver"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^private-source\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+    },
+    "version": {
+      "$ref": "#/$defs/semver"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reviewed_at": {
+      "$ref": "#/$defs/date"
+    },
+    "rights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "allowed_use",
+        "redistribution"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "unverified",
+            "verified",
+            "restricted",
+            "public_domain"
+          ]
+        },
+        "allowed_use": {
+          "enum": [
+            "personal_learning_only",
+            "internal_use",
+            "public_redistribution"
+          ]
+        },
+        "redistribution": {
+          "enum": [
+            "prohibited_until_verified",
+            "prohibited",
+            "permitted_with_conditions",
+            "permitted"
+          ]
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "selection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "included_topics",
+        "excluded_scope",
+        "expected_file_count"
+      ],
+      "properties": {
+        "included_topics": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "excluded_scope": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "expected_file_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "files": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "path",
+          "sha256",
+          "size_bytes",
+          "page_count"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^private-file\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "path": {
+            "type": "string",
+            "pattern": "^(?![A-Za-z]:)(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+\\.pdf$"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "size_bytes": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "page_count": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "semver": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    }
+  }
+}

@@ -49,6 +49,7 @@ Vault Git 저장소를 복제해도 Git에서 제외되는 원문 PDF·아티클
 - [Capability Survey Candidate](schemas/capability-candidate.schema.json)
 - [Phase 2 Claude→Codex Handoff](schemas/phase2-handoff.schema.json)
 - [Capability Taxonomy Registry](schemas/capability-taxonomy.schema.json)
+- [Private Source Manifest](schemas/private-source-manifest.schema.json)
 - [메타데이터 작성·검증 안내](docs/metadata/README.md)
 
 ## 검증
@@ -57,7 +58,8 @@ Vault Git 저장소를 복제해도 Git에서 제외되는 원문 PDF·아티클
 ./tools/verify.ps1
 ```
 
-이 명령은 공개 저장소 경계, 카탈로그와 단위 테스트를 순서대로 검사합니다.
+이 명령은 공개 저장소 경계, 카탈로그, 선택적 Vault 원천 manifest와 단위 테스트를
+순서대로 검사합니다. Vault가 없으면 원천 manifest 검사는 정상적으로 건너뜁니다.
 상위 통합 작업공간에서는 다음과 같이 실행할 수 있습니다.
 
 ```powershell
@@ -93,10 +95,7 @@ agent가 로드되었는지 확인한 뒤,
 - Phase 0 거버넌스와 스키마 등록 완료
 - Phase 1 예제 메타데이터, 템플릿, 참조·DAG 검증기와 회귀검사 완료
 - Trend Signal 연구 인입 스키마·검증기와 최초 사례 3개 등록 완료
-- Claude Code 진입점, 읽기 전용 조사 agent, Candidate 스키마와 Wave Checkpoint 준비 완료
-- Wave 1 시험 배치 Candidate 10개와 독립 감사 완료, 정규 승격은 보류
-- 조사 렌즈·잠정 하위분류 Registry와 Candidate·Unit 참조 검증 완료
-- Wave 3 Human-AI 경험 패키지의 6 Unit·8 Resource 정규 승격과 1 Candidate 유보 완료
-- Wave 3 플랫폼 품질·운영 패키지의 9 Unit·9 Reference·1 Set 정규 승격 완료
 - 공개 학습 시스템과 개인 Vault의 저장·Git·경로 경계 분리 완료
-- 다음 단계: Wave 3 보안·법무·거버넌스 작업 패키지 조사·이중 검수·정규 승격
+- Phase 2 Wave 1~7 조사·승격·Coverage·정규화·독립 QA와 최종 역량지도 완료
+- Phase 2 사용자 완료 승인: `2026-08-02` (`phase_complete`)
+- 다음 단계: Phase 3 역할별 학습 우선순위와 비즈니스 임팩트 평가

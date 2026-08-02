@@ -1,0 +1,37 @@
+{
+  "fixture_id": "domain-model.too-many-classes",
+  "classes": [
+    {"id": "document", "role": "entity"},
+    {"id": "document-version", "role": "version"},
+    {"id": "source", "role": "source"},
+    {"id": "label", "role": "entity"},
+    {"id": "title", "role": "value"},
+    {"id": "active", "role": "state"},
+    {"id": "created-at", "role": "value"},
+    {"id": "file-size", "role": "value"}
+  ],
+  "fields": [
+    {"id": "document-version.status", "owner": "document-version", "kind": "state"},
+    {"id": "document-version.effective-at", "owner": "document-version", "kind": "temporal"},
+    {"id": "document-version.source-id", "owner": "document-version", "kind": "provenance"}
+  ],
+  "relations": [
+    {"id": "document-has-version", "from": "document", "to": "document-version"}
+  ],
+  "questions": [
+    {"id": "q.current", "answer_path_ids": ["document-version.status"]}
+  ],
+  "representation_decision": {
+    "selected": "json",
+    "sufficient_representations": ["json"],
+    "graph_required_question_ids": [],
+    "gates": {"acl_pass": true, "freshness_pass": true},
+    "rationale": "고정된 소규모 표본입니다."
+  },
+  "corrected_errors": ["오류 1을 수정했습니다.", "오류 2를 수정했습니다."],
+  "human_explanation": {
+    "classification_reason": "초안 분류 이유입니다.",
+    "representation_reason": "표현 선택 이유입니다.",
+    "validation_evidence": "질문 경로를 점검했습니다."
+  }
+}

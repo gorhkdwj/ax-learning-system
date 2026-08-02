@@ -1,0 +1,74 @@
+{
+  "probe_id": "probe.retrieval-representation.synthetic-v1",
+  "snapshot_version": "1.0.0",
+  "golden_questions": [
+    {"id": "q01", "type": "exact_fact", "required": true},
+    {"id": "q02", "type": "paraphrase_fact", "required": true},
+    {"id": "q03", "type": "metadata_filter", "required": true},
+    {"id": "q04", "type": "latest_state", "required": true},
+    {"id": "q05", "type": "acl_exclusion", "required": true},
+    {"id": "q06", "type": "one_hop_relation", "required": true},
+    {"id": "q07", "type": "two_hop_relation", "required": true},
+    {"id": "q08", "type": "owner_lookup", "required": true},
+    {"id": "q09", "type": "version_lookup", "required": true},
+    {"id": "q10", "type": "answer_absent", "required": true},
+    {"id": "q11", "type": "source_trace", "required": true},
+    {"id": "q12", "type": "mixed_filter_relation", "required": true}
+  ],
+  "snapshots": {
+    "text_vector": {
+      "maintenance_rank": 1,
+      "maintenance_note": "기존 텍스트 색인과 평가를 유지합니다.",
+      "results": [
+        {"question_id": "q01", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q02", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q03", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q04", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": false, "acl_pass": true, "traceable": true},
+        {"question_id": "q05", "required_facts_recovered": true, "wrong_evidence_count": 1, "freshness_pass": true, "acl_pass": false, "traceable": true},
+        {"question_id": "q06", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q07", "required_facts_recovered": false, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q08", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q09", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q10", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q11", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q12", "required_facts_recovered": true, "wrong_evidence_count": 1, "freshness_pass": true, "acl_pass": true, "traceable": true}
+      ]
+    },
+    "metadata_relational": {
+      "maintenance_rank": 2,
+      "maintenance_note": "기존 색인에 상태·권한·버전 필드와 고정 관계 조회를 유지합니다.",
+      "results": [
+        {"question_id": "q01", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q02", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q03", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q04", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q05", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q06", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q07", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q08", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q09", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q10", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q11", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q12", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true}
+      ]
+    },
+    "structured_graph": {
+      "maintenance_rank": 3,
+      "maintenance_note": "별도 관계 스키마·동기화·질의·권한·운영 경로를 유지합니다.",
+      "results": [
+        {"question_id": "q01", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q02", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q03", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q04", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q05", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q06", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q07", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q08", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q09", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q10", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q11", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true},
+        {"question_id": "q12", "required_facts_recovered": true, "wrong_evidence_count": 0, "freshness_pass": true, "acl_pass": true, "traceable": true}
+      ]
+    }
+  }
+}

@@ -33,6 +33,11 @@ view는 canonical domain을 조합하는 탐색 projection이며 학습순서, �
 백엔드·데이터 엔지니어링 3개 planned view는 ID를 삭제하지 않고 세부 역할 보기
 후보로 유지합니다.
 
+현재 Registry는 `taxonomy.ax-capability-map@1.2.0`입니다. Phase 2의 완료 기록과
+기존 110개 node는 그대로 보존하고, 사용자 승인 학습 설계에서 확정한
+`domain-concept-relationship-modeling` subdomain 한 개를 2026-08-02에
+추가했습니다.
+
 ## 변경 순서
 
 1. 새 분류의 정의, 포함·제외, 부모와 관련 노드를 제안합니다.

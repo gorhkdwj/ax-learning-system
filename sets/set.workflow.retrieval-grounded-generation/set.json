@@ -6,19 +6,22 @@
   "summary": "모델 호출·컨텍스트 조립·근거 평가·회귀 평가 Unit을 조합하여 검색과 생성 실패를 분리하는 최소 RAG 시스템을 설계합니다.",
   "set_type": "workflow",
   "target_roles": [],
-  "business_context": "공개 또는 합성 corpus와 사전 구축된 두 index snapshot을 사용합니다. 원문 수집·대규모 재색인·임베딩 학습·운영 권한관리는 이 Set의 범위가 아닙니다.",
+  "business_context": "공개 또는 합성 corpus와 사전 구축된 두 index snapshot을 사용합니다. 원문 수집·대규모 재색인·임베딩 학습·운영 권한관리는 이 Set의 범위가 아닙니다. 검색 표현 비교가 필요한 경우에만 선택형 Probe를 추가하며 그래프 우위를 전제하지 않습니다.",
   "target_outcome": "source ID와 검색 trace를 보존하고 답변 보류·삭제·갱신·권한 제한 조건을 검증할 수 있는 최소 검색·근거 연결 생성 시스템을 만듭니다.",
   "input_artifacts": [
     "공개 또는 합성 corpus 두 버전",
     "사전 구축 index snapshot 두 버전",
     "정상·경계·실패 질문군",
-    "시간·비용·권한 한도"
+    "시간·비용·권한 한도",
+    "선택형 Probe용 골든 질문 12개",
+    "세 검색 방식의 고정 결과 snapshot"
   ],
   "output_artifacts": [
     "모델 호출·컨텍스트 계약",
     "검색·생성 trace",
     "근거 및 답변 보류 평가 기록",
-    "snapshot 회귀 보고서"
+    "snapshot 회귀 보고서",
+    "선택형 질문 유형별 검색 방식 선택표와 기술 도입 결정 기록"
   ],
   "entry_requirements": [
     {
@@ -68,6 +71,40 @@
       "validation_gate_ids": [
         "ai-llm-application-architecture-contract-catalog-assessment"
       ],
+      "estimated_minutes": 120
+    },
+    {
+      "id": "choose-retrieval-representation",
+      "title": "검색 표현 방식 비교 Probe",
+      "reason": "같은 질문군에서 텍스트·벡터, 메타데이터·관계형, 구조화 관계 질의를 비교하고 가장 단순한 충분 방식을 선택합니다.",
+      "unit_ref": {
+        "id": "unit.data-analytics-ml.domain-concept-relationship-modeling",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "required": false,
+      "depends_on": [
+        "define-inference-boundary"
+      ],
+      "resource_refs": [
+        {
+          "id": "resource.workflow.retrieval-grounded-generation.representation-probe",
+          "version": "1.0.0"
+        }
+      ],
+      "consumes": [
+        "공개 또는 합성 corpus 두 버전",
+        "선택형 Probe용 골든 질문 12개",
+        "세 검색 방식의 고정 결과 snapshot"
+      ],
+      "produces": [
+        "질문 유형별 검색 방식 선택표",
+        "기술 도입 결정 기록"
+      ],
+      "validation_gate_ids": [
+        "domain-concept-relationship-model-review"
+      ],
+      "context": "필수 질문·최신성·ACL·추적성 Gate를 만족하는 방식 중 유지비가 가장 낮은 방식을 선택합니다. 그래프는 다른 방식이 실패한 필수 관계 질문을 해결할 때만 후보가 됩니다.",
       "estimated_minutes": 120
     },
     {
@@ -174,7 +211,9 @@
     "전체 과업 성공률이 80% 이상이며 모든 실행이 사전 정의한 시간·비용 한도를 지킵니다.",
     "성공률이 80~89%이거나 실패 유형이 불안정하면 30회로 확대해 재평가합니다.",
     "검색 누락과 제공 근거를 무시한 생성이 별도 실패로 기록됩니다.",
-    "삭제·갱신·권한 제한 문서가 결과에 남지 않고 답이 없는 질문은 보류됩니다."
+    "삭제·갱신·권한 제한 문서가 결과에 남지 않고 답이 없는 질문은 보류됩니다.",
+    "선택형 choose-retrieval-representation 단계를 건너뛰어도 기존 필수 단계와 수용 기준이 그대로 실행됩니다.",
+    "선택형 Probe를 수행하면 모든 필수 질문과 최신성·ACL Gate를 만족하는 방식 중 가장 단순한 방식을 선택하고 제외 이유와 재검토 조건을 기록합니다."
   ],
   "transfer_evaluation": {
     "check_after_days": 7,
@@ -192,8 +231,9 @@
       "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
       "publisher": "NeurIPS",
       "source_type": "primary_research",
-      "url": "https://proceedings.neurips.cc/paper_files/paper/2020/hash/6b493230205f780e1bc26945df7481e5-Abstract.html",
-      "checked_at": "2026-07-28"
+      "url": "https://arxiv.org/abs/2005.11401",
+      "source_version": "arXiv:2005.11401v4",
+      "checked_at": "2026-08-02"
     },
     {
       "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
@@ -206,9 +246,9 @@
   "lifecycle": {
     "status": "cataloged",
     "owner": "AX learning workspace",
-    "last_reviewed_at": "2026-07-28",
+    "last_reviewed_at": "2026-08-02",
     "review_due_at": "2026-10-28",
-    "note": "candidate.ai-systems-agents.retrieval-grounded-generation-design@1.0.0의 승인 결과를 정규 Set 메타데이터로 등록했습니다. 파일럿과 학습효과는 아직 검증하지 않았습니다."
+    "note": "candidate.ai-systems-agents.retrieval-grounded-generation-design@1.0.0의 승인 결과를 정규 Set 메타데이터로 등록했습니다. 2026-08-02에 기존 필수 경로와 독립적인 검색 표현 선택 Probe를 추가했으며 파일럿과 학습효과는 아직 검증하지 않았습니다."
   },
   "extensions": {
     "promoted_from": {

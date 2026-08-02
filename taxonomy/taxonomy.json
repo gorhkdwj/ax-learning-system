@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "id": "taxonomy.ax-capability-map",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "AX 역량 분류 레지스트리",
   "status": "canonical",
   "updated_at": "2026-08-02",
@@ -4593,6 +4593,53 @@
         "created_at": "2026-07-30",
         "last_reviewed_at": "2026-07-30",
         "review_due_at": "2026-10-30",
+        "superseded_by": null
+      }
+    },
+    {
+      "id": "domain-concept-relationship-modeling",
+      "node_type": "subdomain",
+      "status": "canonical",
+      "title_ko": "도메인 개념·관계 모델링",
+      "title_en": "Domain concept and relationship modeling",
+      "definition": "핵심 질문에서 클래스·인스턴스·속성·관계·상태를 도출하고 JSON·RDBMS·그래프 중 가장 단순한 충분 표현을 선택·검증합니다.",
+      "includes": [
+        "핵심 질문 기반 도메인 범위 제한",
+        "클래스·인스턴스·속성·관계·상태 구분",
+        "시간·원천·버전과 질문별 답변 경로 추적",
+        "JSON·RDBMS·그래프의 충분성·유지비 비교"
+      ],
+      "excludes": [
+        "FOL·ASP 구현과 형식논리 심화",
+        "OWL 추론과 Protégé·Fuseki·SPARQL 구현",
+        "그래프 데이터베이스 운영",
+        "온톨로지 또는 그래프가 모든 검색 문제에 우수하다는 일반화"
+      ],
+      "parent_ids": [
+        "data-analytics-ml"
+      ],
+      "aliases": [
+        "question-driven domain modeling",
+        "ontology design fundamentals"
+      ],
+      "related_ids": [
+        "data-catalog-lineage-ownership-metadata",
+        "relational-data-modeling-schema-evolution",
+        "retrieval-grounding-systems"
+      ],
+      "external_mappings": [],
+      "provenance": {
+        "basis": "user_governance",
+        "source_refs": [
+          "catalog/items/unit.data-analytics-ml.domain-concept-relationship-modeling/unit.json",
+          "https://protege.stanford.edu/publications/ontology_development/ontology101-noy-mcguinness.html"
+        ],
+        "rationale": "사용자가 승인한 2026-08-02 학습 설계에 따라 질문 충족과 최소 충분 표현 선택을 하나의 전이 가능한 D2 실습 범위로 고정했습니다."
+      },
+      "lifecycle": {
+        "created_at": "2026-08-02",
+        "last_reviewed_at": "2026-08-02",
+        "review_due_at": "2026-11-02",
         "superseded_by": null
       }
     }

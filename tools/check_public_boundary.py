@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 
@@ -24,6 +25,31 @@ FORBIDDEN_FILE_NAMES = {
     "id_rsa",
     "id_ed25519",
 }
+FORBIDDEN_PUBLIC_SUFFIXES = {
+    ".docx",
+    ".pdf",
+    ".pptx",
+    ".zip",
+}
+PUBLIC_CONTENT_ROOTS = {
+    "catalog",
+    "docs",
+    "sets",
+    "taxonomy",
+}
+TEXT_SUFFIXES = {
+    ".css",
+    ".html",
+    ".js",
+    ".json",
+    ".md",
+    ".txt",
+    ".yaml",
+    ".yml",
+}
+LOCAL_ABSOLUTE_PATH = re.compile(
+    r"(?i)(?:(?<![A-Za-z0-9])[A-Z]:[\\/]|file://)"
+)
 IGNORED_WALK_PARTS = {
     ".git",
     "__pycache__",
@@ -48,11 +74,26 @@ def collect_issues() -> list[str]:
             continue
         if path.name in FORBIDDEN_FILE_NAMES:
             issues.append(f"forbidden local file: {relative.as_posix()}")
+        if path.suffix.lower() in FORBIDDEN_PUBLIC_SUFFIXES:
+            issues.append(f"forbidden public binary: {relative.as_posix()}")
         if path.stat().st_size > MAX_PUBLIC_FILE_BYTES:
             issues.append(
                 "oversized public file: "
                 f"{relative.as_posix()} ({path.stat().st_size} bytes)"
             )
+        if (
+            relative.parts
+            and relative.parts[0] in PUBLIC_CONTENT_ROOTS
+            and path.suffix.lower() in TEXT_SUFFIXES
+        ):
+            try:
+                content = path.read_text(encoding="utf-8")
+            except (OSError, UnicodeDecodeError):
+                continue
+            if LOCAL_ABSOLUTE_PATH.search(content):
+                issues.append(
+                    f"local absolute path in public content: {relative.as_posix()}"
+                )
 
     return issues
 

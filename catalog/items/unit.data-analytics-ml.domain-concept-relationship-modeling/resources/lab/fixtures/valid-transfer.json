@@ -1,0 +1,68 @@
+{
+  "fixture_id": "domain-model.synthetic-equipment-maintenance.valid",
+  "submission_id": "submission.synthetic-equipment-maintenance.valid",
+  "transfer_task_id": "transfer.equipment-maintenance",
+  "classes": [
+    {"id": "equipment", "role": "entity"},
+    {"id": "inspection", "role": "version"},
+    {"id": "source", "role": "source"},
+    {"id": "part", "role": "entity"}
+  ],
+  "fields": [
+    {"id": "equipment.operating-status", "owner": "equipment", "kind": "state"},
+    {"id": "inspection.performed-at", "owner": "inspection", "kind": "temporal"},
+    {"id": "inspection.source-id", "owner": "inspection", "kind": "provenance"},
+    {"id": "inspection.version", "owner": "inspection", "kind": "version"},
+    {"id": "part.serial-number", "owner": "part", "kind": "value"}
+  ],
+  "relations": [
+    {"id": "equipment-has-inspection", "from": "equipment", "to": "inspection"},
+    {"id": "inspection-derived-from-source", "from": "inspection", "to": "source"},
+    {"id": "equipment-has-part", "from": "equipment", "to": "part"}
+  ],
+  "questions": [
+    {
+      "id": "q.operable-equipment",
+      "text": "현재 운행 가능한 장비는 무엇입니까?",
+      "answer_path_ids": [
+        "equipment.operating-status",
+        "equipment-has-inspection",
+        "inspection.performed-at"
+      ]
+    },
+    {
+      "id": "q.inspection-evidence",
+      "text": "해당 판정은 어떤 점검 버전과 원천을 사용했습니까?",
+      "answer_path_ids": [
+        "equipment-has-inspection",
+        "inspection.version",
+        "inspection-derived-from-source",
+        "inspection.source-id"
+      ]
+    },
+    {
+      "id": "q.replaced-part",
+      "text": "교체된 부품은 무엇입니까?",
+      "answer_path_ids": [
+        "equipment-has-part",
+        "part.serial-number"
+      ]
+    }
+  ],
+  "representation_decision": {
+    "selected": "rdbms",
+    "sufficient_representations": ["rdbms"],
+    "graph_required_question_ids": [],
+    "gates": {"acl_pass": true, "freshness_pass": true},
+    "rationale": "장비·점검·부품이 독립적으로 갱신되고 최신 판정의 무결성과 안정된 조인이 중요하므로 RDBMS를 선택했습니다."
+  },
+  "corrected_errors": [
+    "운행 가능을 클래스로 두었던 초안을 equipment.operating-status 상태 필드로 수정했습니다.",
+    "점검 시점과 버전을 장비에 직접 붙이지 않고 inspection의 시점·버전 필드로 분리했습니다."
+  ],
+  "human_explanation": {
+    "classification_reason": "장비, 점검, 원천, 부품은 독립 식별과 변경 수명주기가 있어 클래스로 두고 운행 가능 여부는 상태 필드로 두었습니다.",
+    "representation_reason": "동시 갱신과 최신 점검 무결성이 중요하고 관계 깊이가 안정적이므로 그래프보다 RDBMS가 단순하고 충분합니다.",
+    "validation_evidence": "세 질문의 답변 경로가 장비 상태, 점검 시점·버전·원천과 부품 관계를 실제 ID로 추적합니다."
+  }
+}

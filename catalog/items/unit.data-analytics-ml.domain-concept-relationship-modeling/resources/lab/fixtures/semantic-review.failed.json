@@ -1,0 +1,24 @@
+{
+  "review_id": "semantic-review.domain-model.failed",
+  "reviewed_model_ids": [
+    "submission.synthetic-knowledge-library.valid"
+  ],
+  "reviewer_type": "learner_self_review",
+  "reviewed_at": "2026-08-02",
+  "criteria": [
+    {
+      "id": "question-answerability",
+      "status": "fail",
+      "evidence": "관계 ID가 존재하지만 질문의 의미에 맞는 답을 만들지는 못했습니다."
+    }
+  ],
+  "oral_explanation_confirmed": false,
+  "repeated_error_codes": [
+    "UNANSWERABLE_QUESTION"
+  ],
+  "remediation": {
+    "required": false,
+    "minutes": 0,
+    "retest_status": "not_started"
+  }
+}
