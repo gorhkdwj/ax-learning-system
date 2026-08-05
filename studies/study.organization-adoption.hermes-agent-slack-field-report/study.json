@@ -1,0 +1,187 @@
+{
+  "schema_version": "1.0.0",
+  "id": "study.organization-adoption.hermes-agent-slack-field-report",
+  "version": "1.0.0",
+  "title": "소규모 조직의 Slack 공용 에이전트 한 달 운영 후기 학습 기록",
+  "status": "read",
+  "source": {
+    "kind": "video",
+    "title": "5인 회사 운영하며 직접 헤르메스 에이전트 720시간 돌려본 후기 (feat. Slack, Hostinger)",
+    "publisher": "빌더 조쉬 Builder Josh",
+    "url": "https://www.youtube.com/watch?v=9m8iMzEBuSU",
+    "private_source_ref": {
+      "id": "private-source.hermes-agent-slack-field-report",
+      "version": "1.0.0"
+    },
+    "published_at": "2026-06-17",
+    "checked_at": "2026-08-05",
+    "language": "ko"
+  },
+  "media": {
+    "duration_minutes": 34,
+    "watched_segments": [
+      "00:00-34:16"
+    ],
+    "transcript_source": "auto_caption",
+    "frame_coverage": {
+      "frames_retained": 0,
+      "resolution_px": 1024,
+      "sampling_note": "1024px 선별 프레임 추출을 시도했으나 yt-dlp가 JS 런타임 없이 영상 포맷을 받지 못해(HTTP 403) 0장을 확보했습니다. 화면 대조 대신 공식 저장소 대조로 고유명사를 확정했습니다. 화면에만 제시된 도표와 수치는 확인하지 못했습니다."
+    },
+    "corrections": [
+      {
+        "at": "14:38",
+        "heard": "게리 X텐",
+        "confirmed": "Garry Tan",
+        "basis": "official_doc"
+      },
+      {
+        "at": "14:35",
+        "heard": "G스텍",
+        "confirmed": "GStack",
+        "basis": "official_doc"
+      },
+      {
+        "at": "15:11",
+        "heard": "G브레인",
+        "confirmed": "GBrain",
+        "basis": "official_doc"
+      },
+      {
+        "at": "17:22",
+        "heard": "안드레 카파시",
+        "confirmed": "Andrej Karpathy",
+        "basis": "domain_knowledge"
+      },
+      {
+        "at": "16:29",
+        "heard": "고성능의 레그",
+        "confirmed": "RAG",
+        "basis": "domain_knowledge"
+      },
+      {
+        "at": "11:29",
+        "heard": "플라우드 노트",
+        "confirmed": "Plaud Note",
+        "basis": "domain_knowledge"
+      },
+      {
+        "at": "12:26",
+        "heard": "재피어",
+        "confirmed": "Zapier",
+        "basis": "domain_knowledge"
+      },
+      {
+        "at": "30:05",
+        "heard": "안묵지",
+        "confirmed": "암묵지",
+        "basis": "domain_knowledge"
+      }
+    ]
+  },
+  "taxonomy_refs": [
+    "organization-adoption",
+    "human-ai-operating-model-decision-rights",
+    "agent-state-memory-handoff"
+  ],
+  "takeaways": [
+    {
+      "claim": "발표자가 인용한 GStack과 GBrain은 Y Combinator CEO Garry Tan이 공개한 별개의 오픈소스입니다. GBrain은 Markdown 문서를 자동으로 연결해 지식그래프를 만드는 에이전트 메모리 계층입니다.",
+      "basis": "official_doc",
+      "verification": {
+        "status": "cross_checked",
+        "source_url": "https://github.com/garrytan/gbrain",
+        "checked_at": "2026-08-05"
+      }
+    },
+    {
+      "claim": "영상은 GStack을 'Y Combinator가 가지고 있는 사업의 SOP 혹은 기준'으로 설명하지만, 공식 저장소는 Garry Tan 개인의 Claude Code 셋업으로 기술합니다. 기관 표준이나 심사 기준으로 인용하지 않습니다.",
+      "basis": "official_doc",
+      "verification": {
+        "status": "cross_checked",
+        "source_url": "https://github.com/garrytan/gstack",
+        "checked_at": "2026-08-05"
+      }
+    },
+    {
+      "claim": "원천 기록을 그대로 두지 않고 압축 요약 문서 한 곳으로 매일 갱신해 에이전트가 그것을 읽게 하는 방식을 사용했습니다. 근거로 토큰 효율과 거버넌스를 들었으며, Karpathy의 LLM Wiki 개념에서 착안했다고 밝힙니다.",
+      "basis": "transcript",
+      "verification": {
+        "status": "ai_derived",
+        "checked_at": "2026-08-05"
+      }
+    },
+    {
+      "claim": "일일 업무 제안 기능은 도입 초기에 맥락 부족으로 구성원에게 유용하지 않았고, 맥락이 축적된 뒤 품질이 올라갔다고 보고합니다. 도입 직후의 효과 부재를 실패로 판정하기 전에 관찰 기간이 필요함을 시사합니다.",
+      "basis": "transcript",
+      "verification": {
+        "status": "ai_derived",
+        "checked_at": "2026-08-05"
+      }
+    },
+    {
+      "claim": "계약·견적·금액이 걸린 외부 커뮤니케이션은 사람 검수를 유지했고, 이메일 일괄 답장에도 발송 전 승인 단계를 두었습니다. 암묵지 의존이 큰 영역을 자동 결정에서 제외하는 경계로 설명합니다.",
+      "basis": "transcript",
+      "verification": {
+        "status": "ai_derived",
+        "checked_at": "2026-08-05"
+      }
+    },
+    {
+      "claim": "레거시가 적은 소규모·신생 조직에 적합하고 기존 조직은 데이터 적재와 도구 관성 때문에 어렵다고 판단합니다. 단일 조직 한 달 경험이므로 조직 규모별 일반화 근거로는 쓸 수 없습니다.",
+      "basis": "transcript",
+      "verification": {
+        "status": "ai_derived",
+        "checked_at": "2026-08-05"
+      }
+    },
+    {
+      "claim": "영상에는 특정 VPS 서비스의 제휴 할인 링크가 포함되어 있습니다. 해당 인프라 선택 권고는 상업적 이해관계가 있는 주장으로 다루고 비용·보안 비교의 근거로 사용하지 않습니다.",
+      "basis": "transcript",
+      "verification": {
+        "status": "ai_derived",
+        "checked_at": "2026-08-05"
+      }
+    },
+    {
+      "claim": "자막이 플랫폼 자동 생성본이라 고유명사 오인식이 광범위했습니다. 화면 프레임을 확보하지 못해 교정은 공식 저장소 대조와 도메인 지식으로만 수행했으며, 화면에만 제시된 도표와 수치는 검증하지 못했습니다.",
+      "basis": "own_reasoning",
+      "verification": {
+        "status": "ai_derived",
+        "checked_at": "2026-08-05"
+      }
+    }
+  ],
+  "applicability": "high",
+  "applicability_note": "Slack을 중심 채널로 삼아 조직 데이터를 적재하고 에이전트가 질의하게 하는 구조가 현재 Phase 3의 Drive 지식구조·검색·Slack 인터페이스 계획과 같은 문제 영역입니다. 다만 이 영상은 단일 조직의 미측정 경험담이므로 설계 착안점으로만 쓰고 효과 근거로 인용하지 않습니다.",
+  "outcome_coverage": [],
+  "related_unit_refs": [
+    {
+      "id": "unit.organization-adoption.ax-operating-model-decision-rights",
+      "observed_at_version": "1.0.0",
+      "note": "사람과 에이전트의 업무 분담, 승인 지점, 자동 결정에서 제외할 영역을 다루는 부분과 겹칩니다."
+    },
+    {
+      "id": "unit.ai.agent-state-memory-handoff-design",
+      "observed_at_version": "1.0.0",
+      "note": "압축 요약 문서와 GBrain 같은 메모리 계층으로 맥락을 유지하는 방식과 겹칩니다."
+    },
+    {
+      "id": "unit.organization-adoption.pilot-scale-transition-governance",
+      "observed_at_version": "1.0.0",
+      "note": "한 달 파일럿 관찰 후 확대를 판단하는 구간과 겹칩니다."
+    }
+  ],
+  "discovered_signal_refs": [
+    {
+      "id": "signal.knowledge.karpathy-llm-wiki",
+      "version": "1.0.0"
+    }
+  ],
+  "lifecycle": {
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-08-05",
+    "review_due_at": "2026-11-05",
+    "note": "효과 주장은 비교 기준선이 없어 미검증으로 유지합니다. Phase 3에서 Slack 인터페이스 설계를 착수할 때 다시 검토합니다."
+  }
+}
