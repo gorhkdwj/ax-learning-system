@@ -36,6 +36,18 @@ AX/
 - 임베딩, 청크, 검색 인덱스와 비공개 HUB 산출물
 - 인증정보가 아니라도 공개하면 안 되는 로컬 운영 데이터
 
+Vault의 원천은 `sources/` 아래에 종류별로 배치합니다.
+
+```text
+ax-learning-vault/sources/
+  documents/   PDF 등 문서 원천 패키지
+  media/       영상·팟캐스트의 트랜스크립트·선별 프레임·오디오·영상 패키지
+  articles/    수집한 아티클 원문
+```
+
+각 원천 패키지는 불투명 원천 ID를 이름으로 하는 디렉터리에 `source.json`
+manifest와 원본·파생 파일을 둡니다.
+
 비밀정보와 인증정보는 Vault에도 평문으로 기록하지 않고 운영체제의 비밀정보
 저장소나 환경변수를 사용합니다.
 
@@ -79,6 +91,22 @@ Vault의 원천 패키지는 `source.json`에 불투명 원천 ID, 패키지 기
 `schemas/private-source-manifest.schema.json`, 선택형 검증기는
 `tools/validate_private_sources.py`에 있습니다. 공개 Unit과 Resource는 이
 manifest의 실제 파일명·경로·추출 텍스트를 참조하지 않습니다.
+
+manifest의 `files[]`는 선택 필드 `media_kind`로 파일 종류를 구분합니다.
+미지정 시 `document`로 해석하므로 기존 manifest는 수정 없이 그대로 통과하며,
+이 하위호환은 계약의 제약조건입니다.
+
+| `media_kind` | `path` 확장자 | 추가 필수 필드 |
+|---|---|---|
+| `document`(기본값) | `.pdf` | `page_count` |
+| `transcript` | `.vtt` `.srt` `.txt` `.md` | 없음 |
+| `frame` | `.jpg` `.jpeg` `.png` | `captured_at_seconds` |
+| `audio` | `.m4a` `.mp3` `.wav` | `duration_seconds` |
+| `video` | `.mp4` `.webm` `.mkv` | `duration_seconds` |
+
+`page_count`는 더 이상 모든 파일의 필수가 아니며 `document`일 때만 필수입니다.
+`captured_at_seconds`와 `duration_seconds`는 0 이상 정수이며, 파일에서
+추출하지 않고 사람이 기록한 참고값으로 다룹니다.
 
 ## 6. HUB와 임베딩
 
@@ -127,6 +155,11 @@ Vault clone에 manifest만 있고 해당 package의 원문이 전혀 없으면 `
 ```powershell
 python tools/validate_private_sources.py --require-files
 ```
+
+원천 manifest 검증의 순회 범위는 `sources/documents`만이 아니라 `sources`
+전체입니다. 따라서 `sources/articles/`와 `sources/media/`의 manifest도 같은
+규칙으로 검사합니다. `document`가 아닌 미디어 파일은 크기와 SHA-256만
+확인하며, 재생시간과 프레임 시각은 manifest에 기록된 값의 존재만 확인합니다.
 
 ## 9. 새 컴퓨터 부트스트랩
 

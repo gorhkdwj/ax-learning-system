@@ -1,0 +1,454 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ax-learning.local/schemas/learning-study.schema.json",
+  "title": "AX Learning Study",
+  "description": "아티클·영상 등 자료 한 편 단위의 학습 기록 메타데이터 스키마입니다. Study는 이수 대상이 아니며 숙련도와 선수관계에 참여하지 않습니다.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "version",
+    "title",
+    "status",
+    "source",
+    "taxonomy_refs",
+    "takeaways",
+    "applicability",
+    "lifecycle"
+  ],
+  "properties": {
+    "schema_version": {
+      "$ref": "#/$defs/semver"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^study\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+    },
+    "version": {
+      "$ref": "#/$defs/semver"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "read",
+        "applied",
+        "archived"
+      ]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "title",
+        "checked_at"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "article",
+            "video",
+            "podcast",
+            "private_document"
+          ]
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https://"
+        },
+        "private_source_ref": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "version"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^private-source\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+            },
+            "version": {
+              "$ref": "#/$defs/semver"
+            }
+          }
+        },
+        "published_at": {
+          "$ref": "#/$defs/date"
+        },
+        "checked_at": {
+          "$ref": "#/$defs/date"
+        },
+        "language": {
+          "type": "string"
+        }
+      },
+      "anyOf": [
+        {
+          "required": [
+            "url"
+          ]
+        },
+        {
+          "required": [
+            "private_source_ref"
+          ]
+        }
+      ]
+    },
+    "media": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "transcript_source"
+      ],
+      "properties": {
+        "duration_minutes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "watched_segments": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[0-9]{2}:[0-5][0-9](?::[0-5][0-9])?-[0-9]{2}:[0-5][0-9](?::[0-5][0-9])?$"
+          }
+        },
+        "transcript_source": {
+          "enum": [
+            "official_caption",
+            "auto_caption",
+            "whisper_groq",
+            "whisper_openai",
+            "none"
+          ]
+        },
+        "frame_coverage": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "frames_retained",
+            "resolution_px"
+          ],
+          "properties": {
+            "frames_retained": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "resolution_px": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "sampling_note": {
+              "type": "string"
+            }
+          }
+        },
+        "corrections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "at",
+              "heard",
+              "confirmed",
+              "basis"
+            ],
+            "properties": {
+              "at": {
+                "type": "string",
+                "pattern": "^[0-9]{2}:[0-5][0-9](?::[0-5][0-9])?$"
+              },
+              "heard": {
+                "type": "string",
+                "minLength": 1
+              },
+              "confirmed": {
+                "type": "string",
+                "minLength": 1
+              },
+              "basis": {
+                "enum": [
+                  "frame",
+                  "official_doc",
+                  "domain_knowledge"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "taxonomy_refs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+      }
+    },
+    "taxonomy_gap": {
+      "type": "string"
+    },
+    "takeaways": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "claim",
+          "basis",
+          "verification"
+        ],
+        "properties": {
+          "claim": {
+            "type": "string",
+            "minLength": 1
+          },
+          "basis": {
+            "enum": [
+              "transcript",
+              "frame",
+              "official_doc",
+              "own_reasoning"
+            ]
+          },
+          "verification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "checked_at"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "ai_derived",
+                  "human_confirmed",
+                  "cross_checked"
+                ]
+              },
+              "source_url": {
+                "type": "string",
+                "pattern": "^https://"
+              },
+              "checked_at": {
+                "$ref": "#/$defs/date"
+              }
+            },
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "status": {
+                      "const": "cross_checked"
+                    }
+                  },
+                  "required": [
+                    "status"
+                  ]
+                },
+                "then": {
+                  "required": [
+                    "source_url"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "applicability": {
+      "enum": [
+        "high",
+        "medium",
+        "low",
+        "none"
+      ]
+    },
+    "applicability_note": {
+      "type": "string"
+    },
+    "outcome_coverage": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "outcome_id",
+          "coverage",
+          "mapped_at"
+        ],
+        "properties": {
+          "outcome_id": {
+            "type": "string",
+            "pattern": "^outcome\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+          },
+          "coverage": {
+            "enum": [
+              "full",
+              "partial",
+              "contradicts"
+            ]
+          },
+          "basis": {
+            "type": "string"
+          },
+          "mapped_at": {
+            "$ref": "#/$defs/date"
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "related_unit_refs": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^unit\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+          },
+          "observed_at_version": {
+            "$ref": "#/$defs/semver"
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "discovered_signal_refs": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "version"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^signal\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+          },
+          "version": {
+            "$ref": "#/$defs/semver"
+          }
+        }
+      }
+    },
+    "application": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "task",
+        "evidence_paths",
+        "completed_at"
+      ],
+      "properties": {
+        "task": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_paths": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^(?![A-Za-z]:)(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+"
+          }
+        },
+        "completed_at": {
+          "$ref": "#/$defs/date"
+        }
+      }
+    },
+    "lifecycle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "owner",
+        "last_reviewed_at"
+      ],
+      "properties": {
+        "owner": {
+          "type": "string",
+          "minLength": 1
+        },
+        "last_reviewed_at": {
+          "$ref": "#/$defs/date"
+        },
+        "review_due_at": {
+          "$ref": "#/$defs/date"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "source": {
+            "properties": {
+              "kind": {
+                "enum": [
+                  "article",
+                  "private_document"
+                ]
+              }
+            }
+          }
+        },
+        "required": [
+          "source"
+        ]
+      },
+      "then": {
+        "not": {
+          "required": [
+            "media"
+          ]
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "semver": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    }
+  }
+}

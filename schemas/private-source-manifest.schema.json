@@ -117,8 +117,7 @@
           "title",
           "path",
           "sha256",
-          "size_bytes",
-          "page_count"
+          "size_bytes"
         ],
         "properties": {
           "id": {
@@ -131,7 +130,17 @@
           },
           "path": {
             "type": "string",
-            "pattern": "^(?![A-Za-z]:)(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+\\.pdf$"
+            "pattern": "^(?![A-Za-z]:)(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+          },
+          "media_kind": {
+            "description": "선택 필드이며 미지정 시 document로 해석합니다. 기존 manifest의 하위호환을 위해 필수로 두지 않습니다.",
+            "enum": [
+              "document",
+              "transcript",
+              "frame",
+              "audio",
+              "video"
+            ]
           },
           "sha256": {
             "type": "string",
@@ -144,8 +153,124 @@
           "page_count": {
             "type": "integer",
             "minimum": 1
+          },
+          "captured_at_seconds": {
+            "description": "frame이 영상의 몇 초 지점인지 사람이 기록한 참고값입니다.",
+            "type": "integer",
+            "minimum": 0
+          },
+          "duration_seconds": {
+            "description": "audio·video의 재생시간을 사람이 기록한 참고값입니다. 검증기는 파일에서 실제 재생시간을 추출하지 않습니다.",
+            "type": "integer",
+            "minimum": 0
           }
-        }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "media_kind": {
+                  "const": "document"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "page_count"
+              ],
+              "properties": {
+                "path": {
+                  "pattern": "\\.pdf$"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "media_kind": {
+                  "const": "transcript"
+                }
+              },
+              "required": [
+                "media_kind"
+              ]
+            },
+            "then": {
+              "properties": {
+                "path": {
+                  "pattern": "\\.(vtt|srt|txt|md)$"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "media_kind": {
+                  "const": "frame"
+                }
+              },
+              "required": [
+                "media_kind"
+              ]
+            },
+            "then": {
+              "required": [
+                "captured_at_seconds"
+              ],
+              "properties": {
+                "path": {
+                  "pattern": "\\.(jpg|jpeg|png)$"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "media_kind": {
+                  "const": "audio"
+                }
+              },
+              "required": [
+                "media_kind"
+              ]
+            },
+            "then": {
+              "required": [
+                "duration_seconds"
+              ],
+              "properties": {
+                "path": {
+                  "pattern": "\\.(m4a|mp3|wav)$"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "media_kind": {
+                  "const": "video"
+                }
+              },
+              "required": [
+                "media_kind"
+              ]
+            },
+            "then": {
+              "required": [
+                "duration_seconds"
+              ],
+              "properties": {
+                "path": {
+                  "pattern": "\\.(mp4|webm|mkv)$"
+                }
+              }
+            }
+          }
+        ]
       }
     }
   },

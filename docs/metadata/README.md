@@ -20,6 +20,8 @@ Breadth 조사 결과도 Capability Candidate 메타데이터로 staging한 뒤 
 - `schemas/private-source-manifest.schema.json`: 공개 구조를 특정 개인 원천명에
   결합하지 않고 Vault 원천 패키지의 권리 상태·선정 범위·파일 무결성 계약을
   검사합니다.
+- `schemas/learning-study.schema.json`: 자료 한 편 단위 학습 기록 Study의
+  원천, 상태, takeaway 검증 상태와 적용 기록 계약을 검사합니다.
 - `tools/validate_catalog.py`: 여러 파일 사이의 정확한 버전 참조, 소유관계,
   학습성과 정렬, 상대경로, Unit·Set DAG, Trend Signal, Taxonomy와 생명주기
   규칙을 검사합니다.
@@ -33,6 +35,8 @@ Breadth 조사 결과도 Capability Candidate 메타데이터로 staging한 뒤 
 - `examples/valid`: 검증기 정상 동작과 테스트에 사용하는 최소 참조 구현입니다.
 - `catalog/items`: 승인된 정규 Unit과 그 Unit이 소유하는 Resource를 관리합니다.
 - `sets`: 승인된 정규 Learning Set을 관리합니다.
+- `studies`: 자료 한 편 단위의 학습 기록 Study를 관리합니다. 이수 대상이나
+  숙련도 부여 대상이 아닙니다.
 - `research/signals`: 검증 전 신흥 개념의 정의, 주장·근거와 승격 판정을 보존합니다.
 - `research/capability-survey`: Phase 2 후보, 분야 보고서와 Wave Checkpoint를 보존합니다.
 - `taxonomy/taxonomy.json`: 조사 렌즈, 잠정·정규 분류 node, 외부 참고체계와
@@ -56,8 +60,8 @@ Breadth 조사 결과도 Capability Candidate 메타데이터로 staging한 뒤 
 7. 단일 검증 명령과 자동 테스트를 실행합니다.
 
 템플릿은 설명용 JSON이므로 그대로는 실제 카탈로그가 아닙니다. 템플릿 파일명을
-`unit.json`, `resource.json`, `set.json`, `signal.json`, `candidate.json`,
-`handoff.json` 또는 `taxonomy.json`으로
+`unit.json`, `resource.json`, `set.json`, `study.json`, `signal.json`,
+`candidate.json`, `handoff.json` 또는 `taxonomy.json`으로
 바꾼 뒤에는 모든 자리표시자와
 참조 대상 및 실제 파일을 먼저 준비해야 합니다.
 
@@ -66,12 +70,16 @@ Breadth 조사 결과도 Capability Candidate 메타데이터로 staging한 뒤 
 - Unit: `unit.<영역>.<이름>`
 - Resource: `resource.<영역>.<이름>.<역할>`
 - Set: `set.<유형>.<이름>`
+- Study: `study.<영역>.<이름>`
 - Trend Signal: `signal.<영역>.<이름>`
 - Capability Candidate: `candidate.<영역>.<이름>`
 - Phase 2 Handoff: `handoff.phase2.<범위>`
 - Taxonomy Registry: `taxonomy.<영역>`
 - 콘텐츠 버전: SemVer 형식의 `major.minor.patch`
 - 참조: ID만으로 최신 버전을 추정하지 않고 항상 정확한 버전을 지정합니다.
+- 예외: Study의 관련 Unit 참조는 과거 시점 기록이므로 ID로만 조인하고 당시
+  버전은 `observed_at_version`에 참고로 기록합니다. Study의 발견 Signal 참조는
+  정확한 버전을 사용합니다.
 - 대체 항목: `lifecycle.superseded_by`에도 같은 종류의 ID와 정확한 버전을
   지정합니다.
 
@@ -87,9 +95,9 @@ owner도 함께 검토합니다. 검증기는 다른 버전의 Resource를 자�
 python tools/validate_catalog.py
 ```
 
-기본 검증 범위는 `examples/valid`, `catalog`, `sets`, `research/signals`,
-`research/capability-survey`, `taxonomy`입니다. 따라서 정규 승격 파일도 별도
-인자 없이 교차 참조와 Taxonomy 검증을 받습니다.
+기본 검증 범위는 `examples/valid`, `catalog`, `sets`, `studies`,
+`research/signals`, `research/capability-survey`, `taxonomy`입니다. 따라서
+정규 승격 파일도 별도 인자 없이 교차 참조와 Taxonomy 검증을 받습니다.
 
 전체 자동 회귀검사는 다음과 같습니다.
 
@@ -101,7 +109,7 @@ python -m unittest discover -s tests -v
 
 ```text
 SEVERITY|CODE|relative/path.json|message
-SUMMARY|units=N|resources=N|sets=N|signals=N|candidates=N|handoffs=N|taxonomies=N|errors=N|warnings=N
+SUMMARY|units=N|resources=N|sets=N|studies=N|signals=N|candidates=N|handoffs=N|taxonomies=N|errors=N|warnings=N
 ```
 
 오류가 하나라도 있으면 종료코드 `1`, 스키마 자체를 불러오지 못하면 `2`,
@@ -136,6 +144,13 @@ SUMMARY|units=N|resources=N|sets=N|signals=N|candidates=N|handoffs=N|taxonomies=
 - 활성 Taxonomy Registry 수, 중복 node·프레임워크·보기 ID와 깨진 내부 참조
 - Taxonomy 계층 순환, 별칭·명칭 충돌, 폐기 node 참조와 잘못된 외부 매핑
 - Candidate·Unit의 미등록 대분류·하위분류와 부모 계층 불일치
+- Study의 미등록 또는 폐기된 Taxonomy node 참조
+- URL과 비공개 원천 참조가 모두 없는 Study 원천
+- `applied` Study의 적용 기록 누락 또는 사람 확인 이상 takeaway 부재
+- `contradicts` 학습성과 대응의 `cross_checked` takeaway 부재
+- Study의 알 수 없는 학습성과·Unit·Signal 참조
+- 영상·팟캐스트 여부와 `media` 기록의 불일치
+- Study 적용 증적 경로의 경로 규칙 위반과 중복 `(study, ID, 버전)`
 
 외부 URL의 실시간 접속, 공급자별 버전 제약 해석, 명령 실행, 내용 정확성과
 학습효과 측정은 이 구조검증기가 대신하지 않습니다. 해당 검증은 Resource

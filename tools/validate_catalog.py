@@ -26,6 +26,7 @@ SCHEMA_FILES = {
     "unit": "learning-unit.schema.json",
     "resource": "learning-resource.schema.json",
     "set": "learning-set.schema.json",
+    "study": "learning-study.schema.json",
     "signal": "trend-signal.schema.json",
     "candidate": "capability-candidate.schema.json",
     "handoff": "phase2-handoff.schema.json",
@@ -36,6 +37,7 @@ METADATA_FILENAMES = {
     "unit.json": "unit",
     "resource.json": "resource",
     "set.json": "set",
+    "study.json": "study",
     "signal.json": "signal",
     "candidate.json": "candidate",
     "handoff.json": "handoff",
@@ -106,6 +108,7 @@ class ValidationReport:
             "unit": 0,
             "resource": 0,
             "set": 0,
+            "study": 0,
             "signal": 0,
             "candidate": 0,
             "handoff": 0,
@@ -158,6 +161,7 @@ class CatalogValidator:
             "unit": {},
             "resource": {},
             "set": {},
+            "study": {},
             "signal": {},
             "candidate": {},
             "handoff": {},
@@ -201,8 +205,9 @@ class CatalogValidator:
                             "UNSUPPORTED_METADATA_FILE",
                             resolved,
                             (
-                                "파일명은 unit.json, resource.json, set.json, signal.json, "
-                                "candidate.json, handoff.json 또는 taxonomy.json이어야 합니다."
+                                "파일명은 unit.json, resource.json, set.json, study.json, "
+                                "signal.json, candidate.json, handoff.json 또는 "
+                                "taxonomy.json이어야 합니다."
                             ),
                         )
                     )
@@ -333,6 +338,8 @@ class CatalogValidator:
                 self._validate_resource_references(record, indexes, report)
             elif record.kind == "set":
                 self._validate_set_references(record, indexes, report)
+            elif record.kind == "study":
+                self._validate_study_references(record, indexes, report)
             elif record.kind == "signal":
                 self._validate_signal_references(record, indexes, report)
             elif record.kind == "candidate":
@@ -958,6 +965,212 @@ class CatalogValidator:
                                 f"위험 권한이 있는 Set의 risk_profile.{field_name}가 비어 있습니다.",
                             )
                         )
+
+    def _validate_study_references(
+        self,
+        record: Record,
+        indexes: dict[str, dict[tuple[str, str], Record]],
+        report: ValidationReport,
+    ) -> None:
+        """Study의 원천, 미디어 조건, 상태 승격 조건과 카탈로그 참조를 검증합니다.
+
+        Study는 이수 대상이 아니므로 소유관계·역참조 검증에 참여하지 않으며,
+        Unit 참조는 의도적으로 정확한 버전 대신 ID 존재만 확인합니다.
+        """
+
+        data = record.data
+        media_source_kinds = {"video", "podcast"}
+
+        source = data.get("source")
+        source_kind = source.get("kind") if isinstance(source, dict) else None
+        if isinstance(source, dict):
+            has_url = isinstance(source.get("url"), str) and bool(source.get("url"))
+            has_private_ref = isinstance(source.get("private_source_ref"), dict)
+            if not has_url and not has_private_ref:
+                report.issues.append(
+                    Issue(
+                        ERROR,
+                        "STUDY_SOURCE_MISSING",
+                        record.path,
+                        "source에는 url과 private_source_ref 중 최소 하나가 필요합니다.",
+                    )
+                )
+
+        media = data.get("media")
+        if media is not None and source_kind not in media_source_kinds:
+            report.issues.append(
+                Issue(
+                    ERROR,
+                    "STUDY_MEDIA_ON_NON_MEDIA",
+                    record.path,
+                    (
+                        f"source.kind={source_kind}인 Study에는 media를 둘 수 없습니다. "
+                        "media는 video 또는 podcast 자료에만 허용합니다."
+                    ),
+                )
+            )
+        if media is None and source_kind in media_source_kinds:
+            report.issues.append(
+                Issue(
+                    ERROR,
+                    "STUDY_MEDIA_MISSING",
+                    record.path,
+                    (
+                        f"source.kind={source_kind}인 Study에는 transcript_source를 포함한 "
+                        "media 기록이 필요합니다."
+                    ),
+                )
+            )
+
+        takeaways = self._list(data, "takeaways")
+        takeaway_statuses = {
+            item.get("verification", {}).get("status")
+            for item in takeaways
+            if isinstance(item, dict) and isinstance(item.get("verification"), dict)
+        }
+        has_human_confirmed = bool(
+            takeaway_statuses & {"human_confirmed", "cross_checked"}
+        )
+        has_cross_checked = "cross_checked" in takeaway_statuses
+
+        status = data.get("status")
+        application = data.get("application")
+        if status == "applied":
+            if not isinstance(application, dict):
+                report.issues.append(
+                    Issue(
+                        ERROR,
+                        "STUDY_APPLIED_WITHOUT_APPLICATION",
+                        record.path,
+                        "applied 상태에는 실제 반영 내역을 담은 application이 필요합니다.",
+                    )
+                )
+            if not has_human_confirmed:
+                report.issues.append(
+                    Issue(
+                        ERROR,
+                        "STUDY_APPLIED_WITHOUT_CONFIRMATION",
+                        record.path,
+                        (
+                            "applied 상태에는 human_confirmed 이상으로 검증된 takeaway가 "
+                            "1건 이상 필요합니다. AI 요약만으로 업무 반영을 표시할 수 없습니다."
+                        ),
+                    )
+                )
+
+        if isinstance(application, dict):
+            for evidence_path in self._list(application, "evidence_paths"):
+                self._validate_study_evidence_path(evidence_path, record, report)
+
+        unit_outcome_ids = {
+            outcome.get("id")
+            for unit in indexes["unit"].values()
+            for outcome in self._list(unit.data.get("learning", {}), "outcomes")
+            if isinstance(outcome.get("id"), str)
+        }
+        for coverage_item in self._list(data, "outcome_coverage"):
+            if not isinstance(coverage_item, dict):
+                continue
+            outcome_id = coverage_item.get("outcome_id")
+            if isinstance(outcome_id, str) and outcome_id not in unit_outcome_ids:
+                report.issues.append(
+                    Issue(
+                        ERROR,
+                        "STUDY_OUTCOME_UNKNOWN",
+                        record.path,
+                        f"outcome_coverage: {outcome_id}가 어떤 Unit의 학습성과에도 없습니다.",
+                    )
+                )
+            if coverage_item.get("coverage") == "contradicts" and not has_cross_checked:
+                report.issues.append(
+                    Issue(
+                        ERROR,
+                        "STUDY_CONTRADICTS_WITHOUT_EVIDENCE",
+                        record.path,
+                        (
+                            f"outcome_coverage: {outcome_id}에 contradicts를 표시하려면 "
+                            "공식 출처로 cross_checked된 takeaway가 필요합니다."
+                        ),
+                    )
+                )
+
+        known_unit_ids = {unit_id for (unit_id, _version) in indexes["unit"]}
+        for reference in self._list(data, "related_unit_refs"):
+            if not isinstance(reference, dict):
+                continue
+            unit_id = reference.get("id")
+            if isinstance(unit_id, str) and unit_id not in known_unit_ids:
+                report.issues.append(
+                    Issue(
+                        ERROR,
+                        "STUDY_UNIT_UNKNOWN",
+                        record.path,
+                        f"related_unit_refs: Unit {unit_id}가 어느 버전으로도 없습니다.",
+                    )
+                )
+
+        for reference in self._list(data, "discovered_signal_refs"):
+            key = self._reference_key(reference)
+            if key is not None and key not in indexes["signal"]:
+                report.issues.append(
+                    Issue(
+                        ERROR,
+                        "STUDY_SIGNAL_UNKNOWN",
+                        record.path,
+                        f"discovered_signal_refs: Signal {key[0]}@{key[1]}를 찾을 수 없습니다.",
+                    )
+                )
+
+    def _validate_study_evidence_path(
+        self,
+        raw_path: Any,
+        record: Record,
+        report: ValidationReport,
+    ) -> None:
+        """application 증거 경로에 기존 로컬 경로 규칙을 STUDY_INVALID_PATH로 적용합니다."""
+
+        if not isinstance(raw_path, str):
+            return
+        if Path(raw_path).is_absolute() or "\\" in raw_path:
+            report.issues.append(
+                Issue(
+                    ERROR,
+                    "STUDY_INVALID_PATH",
+                    record.path,
+                    (
+                        "application.evidence_paths: 작업공간 기준 슬래시 상대경로를 "
+                        "사용해야 합니다."
+                    ),
+                )
+            )
+            return
+        candidate = (self.workspace_root / raw_path).resolve()
+        try:
+            within_workspace = (
+                os.path.commonpath([self.workspace_root, candidate])
+                == str(self.workspace_root)
+            )
+        except ValueError:
+            within_workspace = False
+        if not within_workspace:
+            report.issues.append(
+                Issue(
+                    ERROR,
+                    "STUDY_INVALID_PATH",
+                    record.path,
+                    "application.evidence_paths: 경로가 작업공간 밖을 가리킵니다.",
+                )
+            )
+            return
+        if not candidate.exists():
+            report.issues.append(
+                Issue(
+                    ERROR,
+                    "STUDY_INVALID_PATH",
+                    record.path,
+                    f"application.evidence_paths: {raw_path}가 없습니다.",
+                )
+            )
 
     def _validate_candidate_references(
         self,
@@ -1801,6 +2014,7 @@ class CatalogValidator:
         taxonomy_consumers = [
             *indexes["candidate"].values(),
             *indexes["unit"].values(),
+            *indexes["study"].values(),
         ]
 
         if taxonomy_consumers and len(active_registries) != 1:
@@ -1852,6 +2066,45 @@ class CatalogValidator:
 
         for unit in indexes["unit"].values():
             self._validate_taxonomy_assignment(unit, node_by_id, report)
+
+        for study in indexes["study"].values():
+            self._validate_study_taxonomy_refs(study, node_by_id, report)
+
+    def _validate_study_taxonomy_refs(
+        self,
+        record: Record,
+        node_by_id: dict[str, dict[str, Any]],
+        report: ValidationReport,
+    ) -> None:
+        """Study taxonomy_refs가 활성 Registry의 유효한 node를 가리키는지 검증합니다.
+
+        Unit의 taxonomy와 달리 domain과 subdomain을 모두 허용하며 부모 관계는
+        요구하지 않습니다. 분류 없는 기록 축적을 막는 것이 목적입니다.
+        """
+
+        for node_id in self._list(record.data, "taxonomy_refs"):
+            if not isinstance(node_id, str):
+                continue
+            node = node_by_id.get(node_id)
+            if node is None:
+                report.issues.append(
+                    Issue(
+                        ERROR,
+                        "STUDY_TAXONOMY_UNKNOWN",
+                        record.path,
+                        f"taxonomy_refs: node {node_id}가 활성 Registry에 없습니다.",
+                    )
+                )
+                continue
+            if node.get("status") == "deprecated":
+                report.issues.append(
+                    Issue(
+                        ERROR,
+                        "STUDY_TAXONOMY_DEPRECATED",
+                        record.path,
+                        f"taxonomy_refs: 폐기된 node {node_id}를 참조합니다.",
+                    )
+                )
 
     def _validate_taxonomy_registry_record(
         self,
@@ -3012,8 +3265,8 @@ class CatalogValidator:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description=(
-            "AX 학습 Unit, Resource, Set, Trend Signal, Capability Candidate와 "
-            "Taxonomy Registry 메타데이터를 검증합니다."
+            "AX 학습 Unit, Resource, Set, Study, Trend Signal, Capability "
+            "Candidate와 Taxonomy Registry 메타데이터를 검증합니다."
         )
     )
     parser.add_argument(
@@ -3023,13 +3276,14 @@ def build_parser() -> argparse.ArgumentParser:
             "examples/valid",
             "catalog",
             "sets",
+            "studies",
             "research/signals",
             "research/capability-survey",
             "taxonomy",
         ],
         help=(
             "검증할 파일 또는 디렉터리입니다. 기본값: "
-            "examples/valid catalog sets research/signals "
+            "examples/valid catalog sets studies research/signals "
             "research/capability-survey taxonomy"
         ),
     )
@@ -3090,6 +3344,7 @@ def main(argv: list[str] | None = None) -> int:
         f"SUMMARY|units={report.counts['unit']}|"
         f"resources={report.counts['resource']}|"
         f"sets={report.counts['set']}|"
+        f"studies={report.counts['study']}|"
         f"signals={report.counts['signal']}|"
         f"candidates={report.counts['candidate']}|"
         f"handoffs={report.counts['handoff']}|"

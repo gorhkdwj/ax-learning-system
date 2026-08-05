@@ -2,8 +2,12 @@
 """선택적 Vault의 private source manifest와 원본 파일을 검증합니다.
 
 공개 저장소는 Vault가 없어도 동작해야 하므로 Vault 디렉터리가 없으면 성공으로
-건너뜁니다. Vault가 있으면 source.json의 스키마, 상대경로, 파일 크기, SHA-256과
-PDF 페이지 수를 읽기 전용으로 확인합니다.
+건너뜁니다. Vault가 있으면 sources/ 전체를 순회하며 source.json의 스키마,
+상대경로, 파일 크기와 SHA-256을 읽기 전용으로 확인합니다. PDF 페이지 수는
+media_kind가 document(미지정 포함)인 파일에만 확인하며, transcript·frame·
+audio·video는 크기와 해시만 확인합니다. captured_at_seconds와
+duration_seconds는 사람이 기록한 참고값으로 다루고 파일에서 실제 재생시간을
+추출하지 않습니다. 외부 도구 의존을 늘리지 않기 위한 결정입니다.
 """
 
 from __future__ import annotations
@@ -29,6 +33,15 @@ SCHEMA_PATH = (
     / "schemas"
     / "private-source-manifest.schema.json"
 )
+
+# media_kind별로 manifest에 반드시 기록해야 하는 참고값입니다. 스키마가 먼저
+# 강제하지만, 스키마 개정으로 계약이 느슨해져도 검증기가 지키도록 이중으로
+# 확인합니다.
+REQUIRED_MEDIA_FIELDS = {
+    "frame": "captured_at_seconds",
+    "audio": "duration_seconds",
+    "video": "duration_seconds",
+}
 
 
 @dataclass(frozen=True)
@@ -98,10 +111,12 @@ class PrivateSourceValidator:
             report.skipped = True
             return report
 
-        documents_root = root / "sources" / "documents"
+        # documents만 보던 범위를 sources 전체로 넓혀 media와 articles도
+        # 검증 대상에 포함합니다. 기존 documents 경로는 그대로 포함됩니다.
+        sources_root = root / "sources"
         manifests = (
-            sorted(documents_root.rglob("source.json"))
-            if documents_root.is_dir()
+            sorted(sources_root.rglob("source.json"))
+            if sources_root.is_dir()
             else []
         )
         for manifest_path in manifests:
@@ -224,6 +239,19 @@ class PrivateSourceValidator:
         relative_path = item.get("path")
         if not isinstance(relative_path, str):
             return
+        # media_kind 미지정은 기존 manifest와의 하위호환을 위해 document로
+        # 해석합니다.
+        media_kind = item.get("media_kind", "document")
+        required_media_field = REQUIRED_MEDIA_FIELDS.get(media_kind)
+        if required_media_field is not None and required_media_field not in item:
+            report.issues.append(
+                PrivateSourceIssue(
+                    "MEDIA_FIELD_MISSING",
+                    package_root / "source.json",
+                    f"media_kind={media_kind} 파일에는 "
+                    f"{required_media_field}가 필요합니다.",
+                )
+            )
         path = (package_root / relative_path).resolve()
         if path == package_root or package_root not in path.parents:
             report.issues.append(
@@ -263,6 +291,11 @@ class PrivateSourceValidator:
                     f"expected={item.get('sha256')}, actual={actual_hash}",
                 )
             )
+
+        # 페이지 수 검증은 document에만 해당합니다. 나머지 미디어는 크기와
+        # SHA-256만 확인하며 재생시간은 manifest의 참고값을 그대로 신뢰합니다.
+        if media_kind != "document":
+            return
 
         try:
             actual_pages = _pdf_page_count(path)

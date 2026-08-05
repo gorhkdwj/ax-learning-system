@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "id": "study.example.replace-me",
+  "version": "1.0.0",
+  "title": "교체: 자료 한 편의 학습 기록 제목",
+  "status": "read",
+  "source": {
+    "kind": "article",
+    "title": "교체: 원자료 제목",
+    "publisher": "교체: 발행자 또는 채널",
+    "url": "https://example.com/replace-me",
+    "published_at": "2026-08-01",
+    "checked_at": "2026-08-05",
+    "language": "ko"
+  },
+  "taxonomy_refs": [
+    "replace-me-registry-node"
+  ],
+  "taxonomy_gap": "교체: 활성 Registry에 맞는 분류가 없을 때만 메모를 남기고, 있으면 이 필드를 삭제합니다.",
+  "takeaways": [
+    {
+      "claim": "교체: 이 자료에서 배운 핵심 주장 한 문장",
+      "basis": "own_reasoning",
+      "verification": {
+        "status": "ai_derived",
+        "checked_at": "2026-08-05"
+      }
+    },
+    {
+      "claim": "교체: 공식 출처로 교차 확인한 주장. cross_checked에는 source_url이 필수입니다.",
+      "basis": "official_doc",
+      "verification": {
+        "status": "cross_checked",
+        "source_url": "https://example.com/replace-me-official-source",
+        "checked_at": "2026-08-05"
+      }
+    }
+  ],
+  "applicability": "medium",
+  "applicability_note": "교체: 어떤 업무에 어떻게 적용할 수 있는지, 없다면 왜 없는지를 기록합니다.",
+  "outcome_coverage": [],
+  "related_unit_refs": [],
+  "discovered_signal_refs": [],
+  "lifecycle": {
+    "owner": "교체: 유지관리 책임자",
+    "last_reviewed_at": "2026-08-05"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "id": "study.example.grounded-eval-article",
+  "version": "1.0.0",
+  "title": "근거 기반 출력 평가 아티클 학습 기록 표본",
+  "status": "read",
+  "source": {
+    "kind": "article",
+    "title": "Evaluating grounded outputs in production LLM systems",
+    "publisher": "Example Engineering Blog",
+    "url": "https://example.com/articles/evaluating-grounded-outputs",
+    "published_at": "2026-06-15",
+    "checked_at": "2026-08-01",
+    "language": "en"
+  },
+  "taxonomy_refs": [
+    "ai-systems-agents",
+    "grounded-output-evaluation"
+  ],
+  "takeaways": [
+    {
+      "claim": "근거 연결 평가 결과는 전체 품질 점수와 분리하여 기록해야 회귀 원인을 추적할 수 있습니다.",
+      "basis": "own_reasoning",
+      "verification": {
+        "status": "ai_derived",
+        "checked_at": "2026-08-01"
+      }
+    },
+    {
+      "claim": "판단 불가 상태는 근거 부족과 다른 범주로 집계해야 평가 기준 변경의 영향을 구분할 수 있습니다.",
+      "basis": "official_doc",
+      "verification": {
+        "status": "cross_checked",
+        "source_url": "https://example.com/docs/grounding-evaluation-guide",
+        "checked_at": "2026-08-01"
+      }
+    },
+    {
+      "claim": "표본 평가는 라벨 기준서를 먼저 합의한 뒤 시작해야 평가자 간 편차를 줄일 수 있습니다.",
+      "basis": "own_reasoning",
+      "verification": {
+        "status": "human_confirmed",
+        "checked_at": "2026-08-02"
+      }
+    }
+  ],
+  "applicability": "medium",
+  "applicability_note": "근거 평가 기록 형식을 개선할 때 참조할 수 있으나 즉시 반영할 업무는 없습니다.",
+  "outcome_coverage": [],
+  "related_unit_refs": [
+    {
+      "id": "unit.ai.grounded-output-evaluation",
+      "observed_at_version": "1.0.0",
+      "note": "이 아티클은 해당 Unit의 평가 기록 형식 논의와 겹칩니다."
+    }
+  ],
+  "discovered_signal_refs": [],
+  "lifecycle": {
+    "owner": "AX curriculum research",
+    "last_reviewed_at": "2026-08-02"
+  }
+}

@@ -22,6 +22,9 @@ flowchart TD
     B --> C[업무 목적별 Learning Set]
     C --> D[개인 우선순위 학습 경로]
 
+    ST[자료 단위 Study 학습 기록] -. 관련 Unit ID 단방향 참조 .-> B
+    ST -. 발견한 신흥 용어 .-> S
+
     H[HUB 대시보드] --> A
     H --> B
     H --> C
@@ -96,6 +99,28 @@ Taxonomy Registry는 학습 계층이 아니라 전사 역량지도를 조립하
   projection입니다.
 - 외부 프레임워크 매핑은 경계·누락 확인용이며 `verified` 전에는 동등성으로
   해석하지 않습니다.
+
+### 2.8 자료 단위 Study 학습 기록
+
+Study는 아티클·영상 등 자료 한 편을 단위로 하는 학습 기록입니다. 다섯 번째
+학습 계층이 아니며, Trend Signal이 네 계층 앞의 연구 인입인 것과 같은 위상으로
+Unit과 Set 옆에 둡니다.
+
+- 이수 대상이 아니며 숙련도 D0–D4를 부여하지 않습니다.
+- 선수관계 DAG에 참여하지 않고 개인 우선순위 학습 경로로 직접 연결하지
+  않습니다.
+- Study가 이수 대상이 되면 자료 소비량이 숙련도 주장으로 바뀝니다. 거버넌스는
+  D2 완료 주장에 새로운 입력에서의 독립 실행과 전이평가 증거를 요구하므로 이
+  경로를 차단합니다.
+
+Trend Signal과는 단위와 질문으로 경계를 나눕니다. Study는 자료 한 편에 대해
+"이 자료에서 무엇을 배웠고 어떻게 쓰는가"를 기록하고, Trend Signal은 용어·개념
+하나에 대해 "이 용어가 실재하며 정규 학습에 넣을 가치가 있는가"를 판정합니다.
+대부분의 자료는 신흥 용어가 아니라 이미 아는 주제의 설명이므로 Study만
+남기며, 자료에서 새 용어를 발견했을 때에만 Signal을 별도로 만들고
+`discovered_signal_refs`로 연결합니다. 같은 판정이 여러 Study에 분산되어
+G0–G8 승격 게이트가 무력해지는 것을 막기 위한 경계입니다. 상세 설계는
+`docs/plans/study-layer-design.md`를 정본으로 합니다.
 
 ## 3. 정규 콘텐츠와 참조
 
@@ -178,6 +203,17 @@ Phase 2 후보의 정의·범위·분류·전이성, 목표 숙련도, 비즈니
 관계, 별칭, 외부 참고체계, 탐색 보기와 변경 승인 정책을 관리합니다. Registry
 상태는 학습 콘텐츠 상태와 분리합니다.
 
+### 5.7 Study 메타데이터
+
+자료 원천과 확인일, 상태(`read`·`applied`·`archived`), Taxonomy Registry node
+참조, 근거와 검증 상태를 가진 takeaway, 적용 판정과 적용 증적, Unit 학습성과
+대응, 관련 Unit 참조, 발견 Signal 연결과 생명주기를 관리합니다. 영상·팟캐스트
+자료에는 트랜스크립트 출처와 프레임 표본 기록을 둡니다.
+
+관련 Unit 참조는 정확한 버전 참조 규칙의 의도적 예외입니다. Study는 과거
+시점의 기록이므로 ID로 조인하고 당시 버전은 `observed_at_version`에 참고로만
+남깁니다. 발견 Signal 참조는 정확한 버전을 사용합니다.
+
 사용자 진행 상태는 콘텐츠 메타데이터와 분리합니다. 기술 변경으로 재학습이 필요해도
 이전 완료 이력을 삭제하지 않고 `갱신 필요`로 표시합니다.
 
@@ -203,6 +239,9 @@ AX/
         set.json
         overlays/
         lock.json
+    studies/
+      <study-id>/
+        study.json
     taxonomy/
       taxonomy.json
     research/
@@ -221,6 +260,7 @@ AX/
     sources/
       articles/
       documents/
+      media/
     derived/
       embeddings/
       indexes/

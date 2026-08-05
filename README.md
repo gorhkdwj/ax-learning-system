@@ -39,12 +39,14 @@ manifest는 복원됩니다. 원문 PDF·아티클, 임베딩과 검색 인덱�
 - [Phase 2 전수조사 Runbook](docs/research/phase2-capability-survey-runbook.md)
 - [AX 역량 분류 Registry](taxonomy/README.md)
 - [커리큘럼 기반 구축 계획](docs/plans/curriculum-foundation-plan.md)
+- [자료 단위 Study 계층 설계](docs/plans/study-layer-design.md)
 
 ## 메타데이터 스키마
 
 - [Learning Unit](schemas/learning-unit.schema.json)
 - [Learning Set](schemas/learning-set.schema.json)
 - [Learning Resource](schemas/learning-resource.schema.json)
+- [Learning Study](schemas/learning-study.schema.json)
 - [Trend Signal](schemas/trend-signal.schema.json)
 - [Capability Survey Candidate](schemas/capability-candidate.schema.json)
 - [Phase 2 Claude→Codex Handoff](schemas/phase2-handoff.schema.json)

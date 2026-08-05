@@ -197,6 +197,7 @@ class CatalogValidatorTest(unittest.TestCase):
                 "unit": 2,
                 "resource": 5,
                 "set": 1,
+                "study": 1,
                 "signal": 3,
                 "candidate": 1,
                 "handoff": 1,
