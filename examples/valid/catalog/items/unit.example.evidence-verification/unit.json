@@ -1,6 +1,6 @@
 {
   "schema_version": "1.1.0",
-  "id": "unit.foundation.evidence-verification",
+  "id": "unit.example.evidence-verification",
   "version": "1.0.0",
   "title": "근거 및 출처 검증",
   "summary": "주장의 근거를 공식·1차 출처와 대조하고 사실, 해석과 불확실성을 구분하는 방법을 학습합니다.",
@@ -23,17 +23,17 @@
   "learning": {
     "outcomes": [
       {
-        "id": "outcome.foundation.evidence-verification.explain",
+        "id": "outcome.example.evidence-verification.explain",
         "statement": "출처 우선순위와 확인 범위를 설명합니다.",
         "target_level": "D0"
       },
       {
-        "id": "outcome.foundation.evidence-verification.guided",
+        "id": "outcome.example.evidence-verification.guided",
         "statement": "제공된 주장과 출처 묶음을 안내 절차에 따라 근거 기록으로 변환합니다.",
         "target_level": "D1"
       },
       {
-        "id": "outcome.foundation.evidence-verification.apply",
+        "id": "outcome.example.evidence-verification.apply",
         "statement": "새로운 주장 집합을 독립적으로 검증하고 근거 기록을 작성합니다.",
         "target_level": "D2"
       }
@@ -47,7 +47,7 @@
   "resource_refs": [
     {
       "resource": {
-        "id": "resource.foundation.evidence-verification.guide",
+        "id": "resource.example.evidence-verification.guide",
         "version": "1.0.0"
       },
       "role": "core",
@@ -55,19 +55,11 @@
     },
     {
       "resource": {
-        "id": "resource.foundation.evidence-verification.lab",
+        "id": "resource.example.evidence-verification.lab",
         "version": "1.0.0"
       },
       "role": "lab",
       "required": true
-    },
-    {
-      "resource": {
-        "id": "resource.foundation.evidence-verification.content-provenance-reference",
-        "version": "1.0.0"
-      },
-      "role": "reference",
-      "required": false
     }
   ],
   "requirements": {
@@ -94,13 +86,13 @@
         "id": "evidence-record-rubric",
         "type": "resource",
         "learning_outcome_ids": [
-          "outcome.foundation.evidence-verification.explain",
-          "outcome.foundation.evidence-verification.guided",
-          "outcome.foundation.evidence-verification.apply"
+          "outcome.example.evidence-verification.explain",
+          "outcome.example.evidence-verification.guided",
+          "outcome.example.evidence-verification.apply"
         ],
         "required": true,
         "resource_ref": {
-          "id": "resource.foundation.evidence-verification.lab",
+          "id": "resource.example.evidence-verification.lab",
           "version": "1.0.0"
         },
         "success_criteria": [

@@ -1,0 +1,165 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.foundation.evidence-verification",
+  "version": "1.0.0",
+  "title": "근거·출처 검증",
+  "summary": "주장을 확인 가능한 출처와 연결하고 사실·해석·미확인 가정을 구분하여 재현 가능한 근거 기록을 만드는 역량입니다. AI 출력 검증과 콘텐츠 provenance 해석은 이 역량의 적용 맥락이며 별도 역량으로 분리하지 않습니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "ai-literacy-trust",
+    "subdomains": [
+      "evidence-verification"
+    ]
+  },
+  "domain_tags": [
+    "evidence",
+    "source-verification",
+    "information-integrity"
+  ],
+  "capabilities": [
+    "핵심 주장을 분해하여 확인 가능한 출처와 연결하고 사실·해석·미확인 가정을 구분한 근거 기록을 재현 가능하게 작성합니다.",
+    "provenance 신호의 유효·손상·없음·미지원 상태를 구분하고 그것이 내용의 사실성을 보증하지 않음을 판별하여 추가 검증이 필요한 지점을 지정합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.foundation.evidence-verification.explain",
+        "statement": "출처 우선순위와 확인 범위를 설명하고, 출처가 있어도 주장을 직접 지지하지 않는 경우와 provenance·서명·AI 생성 표시가 내용의 진실성을 보증하지 않는 경우를 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.foundation.evidence-verification.guided",
+        "statement": "안내된 절차로 주장별 출처를 확인하고 자격 증명의 유효·손상·없음·미지원 상태와 별도 사실 검증이 필요한 항목을 기록합니다.",
+        "target_level": "D1"
+      },
+      {
+        "id": "outcome.foundation.evidence-verification.apply",
+        "statement": "새로운 주장 집합을 독립적으로 검증하여 각 핵심 주장에 출처 또는 미확인 표시와 확인 범위·확인일이 있는 근거 기록을 작성합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 150,
+    "scope_expansion_policy": "고위험 전문 사실의 최종 판정은 도메인 전문가와 별도 Learning Set에서 다룹니다. C2PA manifest 작성, 서명 인프라와 검증기 구현은 Adapter 또는 전문 Unit으로 분리합니다."
+  },
+  "relations": [
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.foundation.ai-output-fitness-appraisal",
+        "version": "1.0.0"
+      },
+      "note": "근거 검증은 출력 적합성 평가의 입력 중 하나이지만 업무 적합성 전체 판정과는 다릅니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.foundation.ai-use-transparency",
+        "version": "1.0.0"
+      },
+      "note": "AI 사용과 편집 이력의 전달은 provenance 해석과 인접하지만 주장–출처 검증 자체와는 다른 학습성과입니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.foundation.evidence-verification.lab",
+        "version": "1.0.0"
+      },
+      "role": "lab",
+      "required": true
+    },
+    {
+      "resource": {
+        "id": "resource.foundation.evidence-verification.content-provenance-reference",
+        "version": "1.0.0"
+      },
+      "role": "reference",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "공개 사양과 공식 문서 검토"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "foundation-evidence-verification-catalog-assessment",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.foundation.evidence-verification.explain",
+          "outcome.foundation.evidence-verification.guided",
+          "outcome.foundation.evidence-verification.apply"
+        ],
+        "required": true,
+        "success_criteria": [
+          "각 핵심 주장에 확인 가능한 출처 또는 미확인 표시가 있고 확인 범위와 확인일이 기록되어 있습니다.",
+          "사실, 해석과 미확인 가정을 구분하며 출처가 있으나 주장을 직접 지지하지 않는 사례를 판별합니다.",
+          "자격 증명이 유효해도 내용이 거짓일 수 있음을 판별하고 유효·손상·없음·미지원 상태별로 추가 검증 필요를 구분합니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile",
+      "publisher": "NIST",
+      "source_type": "official_spec",
+      "url": "https://doi.org/10.6028/NIST.AI.600-1",
+      "source_version": "NIST AI 600-1",
+      "checked_at": "2026-07-27"
+    },
+    {
+      "title": "Training and Employment Notice No. 07-25: U.S. Department of Labor's AI Literacy Framework",
+      "publisher": "U.S. Department of Labor",
+      "source_type": "official_docs",
+      "url": "https://www.dol.gov/agencies/eta/advisories/ten-07-25",
+      "source_version": "TEN 07-25",
+      "checked_at": "2026-07-27"
+    },
+    {
+      "title": "C2PA and Content Credentials Explainer",
+      "publisher": "Coalition for Content Provenance and Authenticity",
+      "source_type": "official_docs",
+      "url": "https://spec.c2pa.org/specifications/specifications/2.4/explainer/Explainer.html",
+      "source_version": "C2PA Specifications 2.4",
+      "checked_at": "2026-07-27"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "risk_reduction",
+    "capability_unlock",
+    "reuse"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-08-06",
+    "review_due_at": "2026-11-06",
+    "note": "Wave 2에서 candidate.ai-literacy-trust.evidence-source-verification@1.0.0을 이 Unit으로 병합하고 candidate.ai-literacy-trust.content-provenance-interpretation@1.0.0을 Resource로 승격했으나, 대상 Unit이 examples/valid의 fixture에만 존재하여 정규 등록이 누락되어 있었습니다. 2026-08-06에 두 Candidate의 조사 결과를 근거로 정규 메타데이터를 등록하여 승격을 완결했습니다. fixture는 unit.example.evidence-verification으로 이름을 바꾸어 실제 ID 점유를 해소했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  },
+  "extensions": {
+    "promoted_from": {
+      "kind": "capability_candidate",
+      "id": "candidate.ai-literacy-trust.evidence-source-verification",
+      "version": "1.0.0"
+    }
+  }
+}

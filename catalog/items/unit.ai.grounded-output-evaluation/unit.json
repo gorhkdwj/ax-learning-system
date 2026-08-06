@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.1.0",
+  "id": "unit.ai.grounded-output-evaluation",
+  "version": "1.0.0",
+  "title": "근거 기반 AI 출력 평가",
+  "summary": "AI 출력의 핵심 주장이 실제로 제공된 근거로 확인되는지 판정하고, 검색이 근거를 가져오지 못한 실패와 근거가 있는데도 생성이 그것을 따르지 않은 실패를 서로 다른 유형으로 기록하는 역량입니다.",
+  "item_type": "practice",
+  "taxonomy": {
+    "major_domain": "ai-systems-agents",
+    "subdomains": [
+      "grounded-output-evaluation"
+    ]
+  },
+  "domain_tags": [
+    "evaluation",
+    "grounding",
+    "abstention"
+  ],
+  "capabilities": [
+    "출력의 주장별로 근거 있음·근거 부족·모순·판단 불가를 구분하고 판정 기준을 재현 가능하게 기록합니다.",
+    "검색 단계의 누락과 생성 단계의 근거 무시를 분리하여 어느 구간을 고쳐야 하는지 지목합니다.",
+    "근거가 없을 때 답을 만들어내지 않고 보류하는 것이 올바른 동작인 경우를 판별합니다."
+  ],
+  "learning": {
+    "outcomes": [
+      {
+        "id": "outcome.ai.grounded-output-evaluation.explain",
+        "statement": "근거 있음, 근거 부족, 모순, 판단 불가의 차이를 설명하고 검색 누락과 제공된 근거 무시가 서로 다른 실패임을 구분합니다.",
+        "target_level": "D0"
+      },
+      {
+        "id": "outcome.ai.grounded-output-evaluation.guided",
+        "statement": "라벨이 있는 표본과 안내 기준을 사용하여 출력의 주장별 근거 연결 상태와 실패 구간을 분류합니다.",
+        "target_level": "D1"
+      },
+      {
+        "id": "outcome.ai.grounded-output-evaluation.apply",
+        "statement": "새로운 출력 집합을 독립적으로 평가하여 주장별 판정, 실패 구간과 보류 적정성을 재현 가능한 형식으로 기록합니다.",
+        "target_level": "D2"
+      }
+    ],
+    "default_target_level": "D2",
+    "maximum_scope_level": "D2",
+    "estimated_minutes": 120,
+    "scope_expansion_policy": "자동 평가기 구현과 교정, 운영 모니터링, 고위험 도메인의 사실 최종판정은 별도 D3 Unit 또는 Learning Set에서 다룹니다."
+  },
+  "relations": [
+    {
+      "type": "prerequisite",
+      "target": {
+        "id": "unit.foundation.evidence-verification",
+        "version": "1.0.0"
+      },
+      "required_level": "D2",
+      "note": "출력 평가 전에 개별 주장과 출처의 직접 관계를 독립적으로 검증할 수 있어야 합니다."
+    },
+    {
+      "type": "related_to",
+      "target": {
+        "id": "unit.ai.system-evaluation-regression-design",
+        "version": "1.0.0"
+      },
+      "note": "단건 출력 평가는 회귀 평가의 입력이지만 snapshot 간 비교 설계와는 다른 학습성과입니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.ai.grounded-output-evaluation.lab",
+        "version": "1.0.0"
+      },
+      "role": "lab",
+      "required": true
+    }
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": false,
+    "accounts": [],
+    "secret_names": [],
+    "permissions": [],
+    "cost": {
+      "model": "free",
+      "currency": "KRW",
+      "estimated_amount": 0,
+      "basis": "합성 표본과 로컬 기록만 사용"
+    },
+    "technology_versions": []
+  },
+  "validation": {
+    "completion": "required",
+    "checks": [
+      {
+        "id": "grounded-output-rubric",
+        "type": "manual",
+        "learning_outcome_ids": [
+          "outcome.ai.grounded-output-evaluation.explain",
+          "outcome.ai.grounded-output-evaluation.guided",
+          "outcome.ai.grounded-output-evaluation.apply"
+        ],
+        "required": true,
+        "success_criteria": [
+          "주장별 판정에 근거 있음·근거 부족·모순·판단 불가가 일관된 기준으로 적용되어 있습니다.",
+          "같은 오답이라도 검색이 근거를 가져오지 못한 경우와 근거가 있는데 생성이 따르지 않은 경우를 분리해 기록합니다.",
+          "근거가 없을 때 보류한 것을 오답으로 세지 않고, 보류해야 할 때 답을 만들어낸 것을 실패로 셉니다."
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile",
+      "publisher": "NIST",
+      "source_type": "official_spec",
+      "url": "https://doi.org/10.6028/NIST.AI.600-1",
+      "source_version": "NIST AI 600-1",
+      "checked_at": "2026-07-27"
+    }
+  ],
+  "potential_impact_types": [
+    "quality",
+    "risk_reduction",
+    "capability_unlock"
+  ],
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-08-06",
+    "review_due_at": "2026-11-06",
+    "note": "taxonomy의 grounded-output-evaluation subdomain과 set.workflow.retrieval-grounded-generation@1.0.0의 evaluate-grounding-and-abstention 단계가 이 Unit을 요구하지만 정규 등록이 누락되어 examples/valid의 fixture로만 존재했습니다. 2026-08-06에 정규 메타데이터를 등록하여 해소했습니다. 상세 교재와 학습효과는 아직 검증하지 않았습니다."
+  }
+}

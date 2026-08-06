@@ -1,27 +1,29 @@
 {
   "schema_version": "1.0.0",
-  "id": "resource.ai.grounded-output-evaluation.guide",
+  "id": "resource.example.grounded-output-evaluation.lab",
   "version": "1.0.0",
-  "title": "근거 기반 출력 평가 가이드 예제",
-  "description": "AI 출력 평가 Unit의 학습성과와 Resource 관계를 검증하는 최소 문서입니다.",
-  "resource_type": "article",
+  "title": "근거 기반 출력 평가 실습 예제",
+  "description": "새로운 AI 출력 집합을 동일한 기준으로 평가하는 D2 변형 과제 예제입니다.",
+  "resource_type": "lab",
   "owner": {
     "kind": "unit",
-    "id": "unit.ai.grounded-output-evaluation",
+    "id": "unit.example.grounded-output-evaluation",
     "version": "1.0.0"
   },
   "location": {
     "kind": "local",
-    "path": "examples/valid/catalog/items/unit.ai.grounded-output-evaluation/resources/guide/content.md"
+    "path": "examples/valid/catalog/items/unit.example.grounded-output-evaluation/resources/lab/content.md"
   },
   "learning_outcome_ids": [
-    "outcome.ai.grounded-output-evaluation.explain"
+    "outcome.example.grounded-output-evaluation.guided",
+    "outcome.example.grounded-output-evaluation.apply"
   ],
-  "estimated_minutes": 30,
+  "estimated_minutes": 90,
   "language": "ko",
   "tags": [
     "example",
-    "guide"
+    "lab",
+    "transfer-task"
   ],
   "requirements": {
     "platforms": [
@@ -58,18 +60,18 @@
       "text_alternative"
     ],
     "checked_at": "2026-07-26",
-    "note": "Markdown 의미 구조를 확인했으며 별도 화면낭독기 검증은 수행하지 않았습니다."
+    "note": "텍스트 기반 실습이며 별도 보조기기 검증은 수행하지 않았습니다."
   },
   "verification": {
     "status": "verified",
     "checked_at": "2026-07-26",
     "expected_outputs": [
-      "문서가 UTF-8 Markdown으로 열립니다."
+      "평가 기준, 개별 판정, 근거와 불확실성을 포함한 평가 기록을 작성합니다."
     ],
     "evidence_paths": [
-      "examples/valid/catalog/items/unit.ai.grounded-output-evaluation/resources/guide/content.md"
+      "examples/valid/catalog/items/unit.example.grounded-output-evaluation/resources/lab/content.md"
     ],
-    "note": "Phase 1 메타데이터 예제의 파일 존재와 읽기 가능 여부만 검증했습니다."
+    "note": "실습 계약과 파일 존재를 확인했습니다. 학습효과 평가는 수행하지 않았습니다."
   },
   "lifecycle": {
     "status": "cataloged",

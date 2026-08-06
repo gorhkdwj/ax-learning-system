@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.foundation.evidence-verification.lab",
+  "version": "1.0.0",
+  "title": "주장–근거 기록 실습",
+  "description": "확인 가능한 주장을 분리하여 출처와 연결하고 지지됨·부분 지지·미확인·반박됨을 판정한 뒤, 새로운 자료로 전이과제를 수행하는 실습입니다. provenance 자격 증명 상태와 내용 사실성을 분리해 기록하는 절차를 포함합니다.",
+  "resource_type": "lab",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.foundation.evidence-verification",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "local",
+    "path": "catalog/items/unit.foundation.evidence-verification/resources/lab/README.md"
+  },
+  "learning_outcome_ids": [
+    "outcome.foundation.evidence-verification.guided",
+    "outcome.foundation.evidence-verification.apply"
+  ],
+  "estimated_minutes": 90,
+  "language": "ko",
+  "tags": [
+    "evidence",
+    "source-verification",
+    "transfer-assessment"
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "web-browser"
+    ],
+    "network_required": true
+  },
+  "provenance": {
+    "origin": "original",
+    "sources": [
+      {
+        "title": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile",
+        "publisher": "NIST",
+        "source_type": "official_spec",
+        "url": "https://doi.org/10.6028/NIST.AI.600-1",
+        "source_version": "NIST AI 600-1",
+        "checked_at": "2026-07-27"
+      },
+      {
+        "title": "Training and Employment Notice No. 07-25: U.S. Department of Labor's AI Literacy Framework",
+        "publisher": "U.S. Department of Labor",
+        "source_type": "official_docs",
+        "url": "https://www.dol.gov/agencies/eta/advisories/ten-07-25",
+        "source_version": "TEN 07-25",
+        "checked_at": "2026-07-27"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "verified",
+    "standard": "WCAG 2.2 AA",
+    "features": [
+      "semantic_structure",
+      "text_alternative",
+      "print_alternative"
+    ],
+    "checked_at": "2026-08-06",
+    "note": "Markdown 문서와 표로만 구성되어 특정 도구나 스크립트 실행이 필요하지 않습니다. 화면 낭독기와 인쇄본에서 동일한 절차를 따를 수 있습니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-08-06",
+    "commands": [],
+    "expected_outputs": [
+      "각 주장에 판정, 출처 또는 미확인 표시, 확인 범위와 확인일이 있는 기록을 작성합니다.",
+      "출처가 달려 있으나 주장을 직접 지지하지 않는 사례를 최소 1건 식별합니다.",
+      "자격 증명 상태와 별도 사실 검증 필요를 분리해 기록합니다."
+    ],
+    "evidence_paths": [
+      "catalog/items/unit.foundation.evidence-verification/resources/lab/README.md",
+      "catalog/items/unit.foundation.evidence-verification/resources/lab/templates/claim-evidence-record.template.md"
+    ],
+    "note": "절차와 완료 기준은 공식 출처로 정렬했으나 실제 학습효과와 평가 타당성은 아직 검증하지 않았습니다. 자동 채점기가 없으므로 사람이 완료 기준으로 확인합니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-08-06",
+    "review_due_at": "2026-11-06",
+    "note": "unit.foundation.evidence-verification@1.0.0의 D2 학습성과를 다루기 위해 작성했습니다. set.workflow.retrieval-grounded-generation@1.0.0이 이 Unit의 D2를 진입 요건으로 요구합니다."
+  }
+}

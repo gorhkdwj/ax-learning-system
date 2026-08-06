@@ -1,6 +1,6 @@
 {
   "schema_version": "1.1.0",
-  "id": "unit.ai.grounded-output-evaluation",
+  "id": "unit.example.grounded-output-evaluation",
   "version": "1.0.0",
   "title": "근거 기반 AI 출력 평가",
   "summary": "AI 출력의 핵심 주장이 제공된 근거로 확인되는지 평가하고 실패 유형을 기록하는 방법을 학습합니다.",
@@ -23,17 +23,17 @@
   "learning": {
     "outcomes": [
       {
-        "id": "outcome.ai.grounded-output-evaluation.explain",
+        "id": "outcome.example.grounded-output-evaluation.explain",
         "statement": "근거 있음, 근거 부족, 모순과 판단 불가의 차이를 설명합니다.",
         "target_level": "D0"
       },
       {
-        "id": "outcome.ai.grounded-output-evaluation.guided",
+        "id": "outcome.example.grounded-output-evaluation.guided",
         "statement": "라벨이 있는 표본과 안내 기준을 사용하여 AI 출력의 근거 연결 상태를 분류합니다.",
         "target_level": "D1"
       },
       {
-        "id": "outcome.ai.grounded-output-evaluation.apply",
+        "id": "outcome.example.grounded-output-evaluation.apply",
         "statement": "새로운 출력 집합을 독립적으로 평가하고 결과를 재현 가능한 형식으로 기록합니다.",
         "target_level": "D2"
       }
@@ -47,17 +47,17 @@
     {
       "type": "prerequisite",
       "target": {
-        "id": "unit.foundation.evidence-verification",
+        "id": "unit.example.evidence-verification",
         "version": "1.0.0"
       },
       "required_level": "D2",
-      "note": "AI 출력 평가 전에 개별 주장과 출처의 직접 관계를 검증할 수 있어야 합니다."
+      "note": "AI 출력 평가 전에 개별 주장과 출처의 직접 관계를 검증할 수 있어야 합니다. 정규 Unit을 선수로 두어 이 fixture를 참조하는 정규 Set의 진입 요건과 일치시킵니다."
     }
   ],
   "resource_refs": [
     {
       "resource": {
-        "id": "resource.ai.grounded-output-evaluation.guide",
+        "id": "resource.example.grounded-output-evaluation.guide",
         "version": "1.0.0"
       },
       "role": "core",
@@ -65,7 +65,7 @@
     },
     {
       "resource": {
-        "id": "resource.ai.grounded-output-evaluation.lab",
+        "id": "resource.example.grounded-output-evaluation.lab",
         "version": "1.0.0"
       },
       "role": "lab",
@@ -96,13 +96,13 @@
         "id": "grounded-output-rubric",
         "type": "resource",
         "learning_outcome_ids": [
-          "outcome.ai.grounded-output-evaluation.explain",
-          "outcome.ai.grounded-output-evaluation.guided",
-          "outcome.ai.grounded-output-evaluation.apply"
+          "outcome.example.grounded-output-evaluation.explain",
+          "outcome.example.grounded-output-evaluation.guided",
+          "outcome.example.grounded-output-evaluation.apply"
         ],
         "required": true,
         "resource_ref": {
-          "id": "resource.ai.grounded-output-evaluation.lab",
+          "id": "resource.example.grounded-output-evaluation.lab",
           "version": "1.0.0"
         },
         "success_criteria": [

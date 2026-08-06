@@ -29,26 +29,10 @@ class CatalogValidatorTest(unittest.TestCase):
             self.workspace_root / "examples" / "valid",
             self.fixture_root,
         )
-        promoted_reference_source = (
-            self.workspace_root
-            / "catalog"
-            / "items"
-            / "unit.foundation.evidence-verification"
-            / "resources"
-            / "content-provenance-reference"
-            / "resource.json"
-        )
-        promoted_reference_target = (
-            self.fixture_root
-            / "catalog"
-            / "items"
-            / "unit.foundation.evidence-verification"
-            / "resources"
-            / "content-provenance-reference"
-            / "resource.json"
-        )
-        promoted_reference_target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(promoted_reference_source, promoted_reference_target)
+        # 승격된 content-provenance Resource는 정규 Unit
+        # unit.foundation.evidence-verification@1.0.0이 소유하므로 fixture로
+        # 복사하지 않습니다. 예전에는 소유자가 examples/valid에만 있어 이 복사가
+        # 필요했으나 2026-08-06에 정규 등록으로 해소했습니다.
         self.signal_root = Path(self.temporary_directory.name) / "signals"
         shutil.copytree(
             self.workspace_root / "research" / "signals",
@@ -194,7 +178,7 @@ class CatalogValidatorTest(unittest.TestCase):
     # 단언이 살아 있도록 항목별로 확인합니다.
     EXPECTED_FIXTURE_COUNTS = {
         "unit": 2,
-        "resource": 5,
+        "resource": 4,
         "set": 1,
         "study": 1,
         "signal": 3,
@@ -255,7 +239,7 @@ class CatalogValidatorTest(unittest.TestCase):
 
     def test_unit_taxonomy_reference_must_exist(self) -> None:
         self.mutate(
-            "catalog/items/unit.foundation.evidence-verification/unit.json",
+            "catalog/items/unit.example.evidence-verification/unit.json",
             lambda data: data["taxonomy"].update(
                 subdomains=["unknown-subdomain"]
             ),
@@ -291,7 +275,7 @@ class CatalogValidatorTest(unittest.TestCase):
 
     def test_invalid_id_is_rejected_by_schema(self) -> None:
         self.mutate(
-            "catalog/items/unit.foundation.evidence-verification/unit.json",
+            "catalog/items/unit.example.evidence-verification/unit.json",
             lambda data: data.update(id="invalid id"),
         )
 
@@ -299,7 +283,7 @@ class CatalogValidatorTest(unittest.TestCase):
 
     def test_absolute_local_path_is_rejected(self) -> None:
         self.mutate(
-            "catalog/items/unit.foundation.evidence-verification/resources/guide/resource.json",
+            "catalog/items/unit.example.evidence-verification/resources/guide/resource.json",
             lambda data: data["location"].update(path="C:/absolute/content.md"),
         )
 
@@ -317,12 +301,12 @@ class CatalogValidatorTest(unittest.TestCase):
 
     def test_unit_prerequisite_cycle_is_rejected(self) -> None:
         self.mutate(
-            "catalog/items/unit.foundation.evidence-verification/unit.json",
+            "catalog/items/unit.example.evidence-verification/unit.json",
             lambda data: data["relations"].append(
                 {
                     "type": "prerequisite",
                     "target": {
-                        "id": "unit.ai.grounded-output-evaluation",
+                        "id": "unit.example.grounded-output-evaluation",
                         "version": "1.0.0",
                     },
                     "required_level": "D2",
@@ -345,7 +329,7 @@ class CatalogValidatorTest(unittest.TestCase):
     def test_duplicate_id_and_version_is_rejected(self) -> None:
         source = (
             self.fixture_root
-            / "catalog/items/unit.foundation.evidence-verification/unit.json"
+            / "catalog/items/unit.example.evidence-verification/unit.json"
         )
         duplicate = self.fixture_root / "catalog/items/duplicate/unit.json"
         duplicate.parent.mkdir(parents=True)
@@ -355,7 +339,7 @@ class CatalogValidatorTest(unittest.TestCase):
 
     def test_owner_backreference_is_required(self) -> None:
         self.mutate(
-            "catalog/items/unit.foundation.evidence-verification/unit.json",
+            "catalog/items/unit.example.evidence-verification/unit.json",
             lambda data: data["resource_refs"].pop(0),
         )
 
@@ -363,10 +347,10 @@ class CatalogValidatorTest(unittest.TestCase):
 
     def test_every_outcome_needs_a_required_check(self) -> None:
         self.mutate(
-            "catalog/items/unit.foundation.evidence-verification/unit.json",
+            "catalog/items/unit.example.evidence-verification/unit.json",
             lambda data: data["validation"]["checks"][0][
                 "learning_outcome_ids"
-            ].remove("outcome.foundation.evidence-verification.guided"),
+            ].remove("outcome.example.evidence-verification.guided"),
         )
 
         self.assertIn(
@@ -458,7 +442,7 @@ class CatalogValidatorTest(unittest.TestCase):
                 "proposed_destination": "merge_existing",
                 "merge_target": {
                     "kind": "unit",
-                    "id": "unit.foundation.evidence-verification",
+                    "id": "unit.example.evidence-verification",
                     "version": "9.9.9",
                 },
                 "rationale": "기존 Unit과 학습성과가 동일하다고 판정했습니다.",

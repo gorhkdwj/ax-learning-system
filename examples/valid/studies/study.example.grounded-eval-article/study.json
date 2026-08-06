@@ -49,7 +49,7 @@
   "outcome_coverage": [],
   "related_unit_refs": [
     {
-      "id": "unit.ai.grounded-output-evaluation",
+      "id": "unit.example.grounded-output-evaluation",
       "observed_at_version": "1.0.0",
       "note": "이 아티클은 해당 Unit의 평가 기록 형식 논의와 겹칩니다."
     }

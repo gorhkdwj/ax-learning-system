@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.ai.grounded-output-evaluation.lab",
+  "version": "1.0.0",
+  "title": "근거 연결 평가 실습",
+  "description": "출력의 주장별로 근거 있음·근거 부족·모순·판단 불가를 판정하고, 검색 누락과 근거 무시를 분리하며, 올바른 보류를 오답에서 제외하는 평가 절차를 수행하는 실습입니다.",
+  "resource_type": "lab",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.ai.grounded-output-evaluation",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "local",
+    "path": "catalog/items/unit.ai.grounded-output-evaluation/resources/lab/README.md"
+  },
+  "learning_outcome_ids": [
+    "outcome.ai.grounded-output-evaluation.explain",
+    "outcome.ai.grounded-output-evaluation.guided",
+    "outcome.ai.grounded-output-evaluation.apply"
+  ],
+  "estimated_minutes": 120,
+  "language": "ko",
+  "tags": [
+    "grounding",
+    "abstention",
+    "failure-attribution"
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform"
+    ],
+    "network_required": false
+  },
+  "provenance": {
+    "origin": "original",
+    "sources": [
+      {
+        "title": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile",
+        "publisher": "NIST",
+        "source_type": "official_spec",
+        "url": "https://doi.org/10.6028/NIST.AI.600-1",
+        "source_version": "NIST AI 600-1",
+        "checked_at": "2026-07-27"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "verified",
+    "standard": "WCAG 2.2 AA",
+    "features": [
+      "semantic_structure",
+      "text_alternative",
+      "print_alternative"
+    ],
+    "checked_at": "2026-08-06",
+    "note": "Markdown 문서와 표로만 구성되어 도구 실행이나 네트워크가 필요하지 않습니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-08-06",
+    "commands": [],
+    "expected_outputs": [
+      "주장별 판정이 일관된 기준으로 기록됩니다.",
+      "검색 누락과 근거 무시가 분리 집계되어 먼저 고칠 구간을 지목할 수 있습니다.",
+      "올바른 보류가 오답에서 제외되고 허구 생성이 별도로 집계됩니다."
+    ],
+    "evidence_paths": [
+      "catalog/items/unit.ai.grounded-output-evaluation/resources/lab/README.md",
+      "catalog/items/unit.ai.grounded-output-evaluation/resources/lab/templates/grounding-evaluation-record.template.md"
+    ],
+    "note": "절차는 공식 출처의 위험 범주와 정렬했으나 실제 학습효과와 평가자 간 일치도는 아직 검증하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-08-06",
+    "review_due_at": "2026-11-06",
+    "note": "set.workflow.retrieval-grounded-generation@1.0.0의 evaluate-grounding-and-abstention 단계가 이 Unit의 D2를 요구합니다."
+  }
+}

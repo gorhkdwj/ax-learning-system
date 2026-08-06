@@ -82,7 +82,7 @@
       "title": "주장과 출처 검증",
       "reason": "AI 출력 평가 전에 개별 주장과 근거의 직접 관계를 확인합니다.",
       "unit_ref": {
-        "id": "unit.foundation.evidence-verification",
+        "id": "unit.example.evidence-verification",
         "version": "1.0.0"
       },
       "required_level": "D2",
@@ -90,7 +90,7 @@
       "depends_on": [],
       "resource_refs": [
         {
-          "id": "resource.foundation.evidence-verification.lab",
+          "id": "resource.example.evidence-verification.lab",
           "version": "1.0.0"
         }
       ],
@@ -111,7 +111,7 @@
       "title": "AI 출력의 근거 연결 평가",
       "reason": "브리핑 초안의 주장을 근거 있음, 부족, 모순 또는 판단 불가로 구분합니다.",
       "unit_ref": {
-        "id": "unit.ai.grounded-output-evaluation",
+        "id": "unit.example.grounded-output-evaluation",
         "version": "1.0.0"
       },
       "required_level": "D2",
@@ -121,7 +121,7 @@
       ],
       "resource_refs": [
         {
-          "id": "resource.ai.grounded-output-evaluation.lab",
+          "id": "resource.example.grounded-output-evaluation.lab",
           "version": "1.0.0"
         }
       ],

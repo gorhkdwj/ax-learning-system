@@ -1,23 +1,23 @@
 {
   "schema_version": "1.0.0",
-  "id": "resource.foundation.evidence-verification.guide",
+  "id": "resource.example.grounded-output-evaluation.guide",
   "version": "1.0.0",
-  "title": "근거 검증 가이드 예제",
-  "description": "근거 검증 Unit의 Resource 메타데이터와 로컬 상대경로를 검증하는 최소 문서입니다.",
+  "title": "근거 기반 출력 평가 가이드 예제",
+  "description": "AI 출력 평가 Unit의 학습성과와 Resource 관계를 검증하는 최소 문서입니다.",
   "resource_type": "article",
   "owner": {
     "kind": "unit",
-    "id": "unit.foundation.evidence-verification",
+    "id": "unit.example.grounded-output-evaluation",
     "version": "1.0.0"
   },
   "location": {
     "kind": "local",
-    "path": "examples/valid/catalog/items/unit.foundation.evidence-verification/resources/guide/content.md"
+    "path": "examples/valid/catalog/items/unit.example.grounded-output-evaluation/resources/guide/content.md"
   },
   "learning_outcome_ids": [
-    "outcome.foundation.evidence-verification.explain"
+    "outcome.example.grounded-output-evaluation.explain"
   ],
-  "estimated_minutes": 20,
+  "estimated_minutes": 30,
   "language": "ko",
   "tags": [
     "example",
@@ -32,6 +32,13 @@
   "provenance": {
     "origin": "original",
     "sources": [
+      {
+        "title": "Evaluate agent workflows",
+        "publisher": "OpenAI",
+        "source_type": "official_docs",
+        "url": "https://developers.openai.com/api/docs/guides/agent-evals",
+        "checked_at": "2026-07-26"
+      },
       {
         "title": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile",
         "publisher": "NIST",
@@ -60,7 +67,7 @@
       "문서가 UTF-8 Markdown으로 열립니다."
     ],
     "evidence_paths": [
-      "examples/valid/catalog/items/unit.foundation.evidence-verification/resources/guide/content.md"
+      "examples/valid/catalog/items/unit.example.grounded-output-evaluation/resources/guide/content.md"
     ],
     "note": "Phase 1 메타데이터 예제의 파일 존재와 읽기 가능 여부만 검증했습니다."
   },

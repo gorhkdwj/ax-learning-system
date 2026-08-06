@@ -29,26 +29,9 @@ class StudyValidationTest(unittest.TestCase):
             self.workspace_root / "examples" / "valid",
             self.fixture_root,
         )
-        promoted_reference_source = (
-            self.workspace_root
-            / "catalog"
-            / "items"
-            / "unit.foundation.evidence-verification"
-            / "resources"
-            / "content-provenance-reference"
-            / "resource.json"
-        )
-        promoted_reference_target = (
-            self.fixture_root
-            / "catalog"
-            / "items"
-            / "unit.foundation.evidence-verification"
-            / "resources"
-            / "content-provenance-reference"
-            / "resource.json"
-        )
-        promoted_reference_target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(promoted_reference_source, promoted_reference_target)
+        # 승격된 content-provenance Resource는 정규 Unit이 소유하므로 fixture로
+        # 복사하지 않습니다. 소유자가 examples/valid에만 있던 문제는 2026-08-06에
+        # 정규 등록으로 해소했습니다.
         self.signal_root = Path(self.temporary_directory.name) / "signals"
         shutil.copytree(
             self.workspace_root / "research" / "signals",
@@ -193,7 +176,7 @@ class StudyValidationTest(unittest.TestCase):
                     takeaway["verification"]["status"] = "human_confirmed"
             data["outcome_coverage"] = [
                 {
-                    "outcome_id": "outcome.ai.grounded-output-evaluation.apply",
+                    "outcome_id": "outcome.example.grounded-output-evaluation.apply",
                     "coverage": "contradicts",
                     "mapped_at": "2026-08-02",
                 }
@@ -211,7 +194,7 @@ class StudyValidationTest(unittest.TestCase):
             lambda data: data.update(
                 outcome_coverage=[
                     {
-                        "outcome_id": "outcome.ai.grounded-output-evaluation.apply",
+                        "outcome_id": "outcome.example.grounded-output-evaluation.apply",
                         "coverage": "contradicts",
                         "basis": "아티클의 평가 기록 형식이 Unit 기준과 상충합니다.",
                         "mapped_at": "2026-08-02",
