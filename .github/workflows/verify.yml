@@ -1,0 +1,47 @@
+# 공개 저장소의 검증을 push와 pull request에서 강제합니다.
+#
+# tools/verify.ps1과 같은 네 단계를 같은 순서로 실행합니다. 스크립트를 직접
+# 호출하지 않는 이유는 그 스크립트가 Windows의 Python 별칭 문제를 해결하기 위한
+# PowerShell 전용 인터프리터 탐지를 포함하고 있어, 이미 Python이 확정된 Linux
+# 러너에서는 불필요한 우회이기 때문입니다. 단계와 실패 조건은 동일합니다.
+#
+# Vault는 이 저장소에 없으므로 원천 manifest 검사는 skipped로 통과합니다.
+# 공개 저장소가 Vault 없이도 작동해야 한다는 계약을 CI가 함께 확인하는 셈입니다.
+
+name: verify
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements-dev.txt
+
+      - name: Public repository boundary
+        run: python tools/check_public_boundary.py
+
+      - name: Catalog validation
+        run: python tools/validate_catalog.py
+
+      - name: Private source manifests (vault absent, expects skipped)
+        run: python tools/validate_private_sources.py
+
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v

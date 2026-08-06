@@ -62,6 +62,8 @@ manifest는 복원됩니다. 원문 PDF·아티클, 임베딩과 검색 인덱�
 
 이 명령은 공개 저장소 경계, 카탈로그, 선택적 Vault 원천 manifest와 단위 테스트를
 순서대로 검사합니다. Vault가 없으면 원천 manifest 검사는 정상적으로 건너뜁니다.
+같은 네 단계를 `.github/workflows/verify.yml`이 push와 pull request에서 자동으로
+실행합니다.
 상위 통합 작업공간에서는 다음과 같이 실행할 수 있습니다.
 
 ```powershell

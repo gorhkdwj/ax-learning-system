@@ -7,7 +7,11 @@ import unittest
 from pathlib import Path
 from typing import Any, Callable
 
-from tools.validate_catalog import CatalogValidator, build_parser
+from tools.validate_catalog import (
+    METADATA_FILENAMES,
+    CatalogValidator,
+    build_parser,
+)
 
 
 class CatalogValidatorTest(unittest.TestCase):
@@ -185,25 +189,51 @@ class CatalogValidatorTest(unittest.TestCase):
         self.assertIn("catalog", args.roots)
         self.assertIn("sets", args.roots)
 
+    # 종류별 기대값만 비교합니다. counts 전체를 정확 비교하면 새 메타데이터
+    # 종류를 추가할 때마다 이 테스트가 반드시 깨지므로, 종류가 늘어도 기존
+    # 단언이 살아 있도록 항목별로 확인합니다.
+    EXPECTED_FIXTURE_COUNTS = {
+        "unit": 2,
+        "resource": 5,
+        "set": 1,
+        "study": 1,
+        "signal": 3,
+        "candidate": 1,
+        "handoff": 1,
+        "taxonomy": 1,
+    }
+
     def test_valid_examples_pass(self) -> None:
         report = self.validate()
 
         self.assertTrue(report.is_valid)
         self.assertEqual(report.error_count, 0)
         self.assertEqual(report.warning_count, 0)
+        for kind, expected in self.EXPECTED_FIXTURE_COUNTS.items():
+            with self.subTest(kind=kind):
+                self.assertEqual(report.counts[kind], expected)
+
+    def test_every_metadata_kind_is_counted(self) -> None:
+        """새 종류를 추가하면 집계 키도 함께 추가되었는지 확인합니다."""
+        report = self.validate()
+
         self.assertEqual(
-            report.counts,
-            {
-                "unit": 2,
-                "resource": 5,
-                "set": 1,
-                "study": 1,
-                "signal": 3,
-                "candidate": 1,
-                "handoff": 1,
-                "taxonomy": 1,
-            },
+            set(report.counts),
+            set(METADATA_FILENAMES.values()),
         )
+        self.assertEqual(set(report.example_counts), set(report.counts))
+
+    def test_real_counts_exclude_example_fixtures(self) -> None:
+        """SUMMARY_REAL이 예제를 제외한 실제 카탈로그만 세는지 확인합니다."""
+        report = self.validate()
+        real = report.real_counts()
+
+        for kind, value in report.counts.items():
+            with self.subTest(kind=kind):
+                self.assertEqual(
+                    real[kind], value - report.example_counts[kind]
+                )
+                self.assertGreaterEqual(real[kind], 0)
 
     def test_candidate_unknown_taxonomy_node_is_rejected(self) -> None:
         self.mutate_candidate(

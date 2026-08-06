@@ -44,6 +44,10 @@ METADATA_FILENAMES = {
     "taxonomy.json": "taxonomy",
 }
 
+# `examples/valid`는 검증기 자체를 확인하는 가상 표본이며 기본 검증 범위에
+# 포함됩니다. 실제 카탈로그 규모와 구분해 보고하기 위한 접두 경로입니다.
+EXAMPLES_PREFIX = ("examples", "valid")
+
 LEVEL_ORDER = {
     "D0": 0,
     "D1": 1,
@@ -98,23 +102,29 @@ class Record:
         return (self.id, self.version)
 
 
+def _empty_counts() -> dict[str, int]:
+    return {kind: 0 for kind in METADATA_FILENAMES.values()}
+
+
 @dataclass
 class ValidationReport:
-    """검증 결과와 처리한 파일 수를 보관합니다."""
+    """검증 결과와 처리한 파일 수를 보관합니다.
+
+    `counts`는 검사한 모든 파일이고 `example_counts`는 그중 `examples/valid`의
+    가상 표본입니다. 표본은 검증기 자체를 확인하려고 기본 검증 범위에 넣은
+    것이므로 실제 카탈로그 규모와 구분해서 보고합니다.
+    """
 
     issues: list[Issue] = field(default_factory=list)
-    counts: dict[str, int] = field(
-        default_factory=lambda: {
-            "unit": 0,
-            "resource": 0,
-            "set": 0,
-            "study": 0,
-            "signal": 0,
-            "candidate": 0,
-            "handoff": 0,
-            "taxonomy": 0,
+    counts: dict[str, int] = field(default_factory=_empty_counts)
+    example_counts: dict[str, int] = field(default_factory=_empty_counts)
+
+    def real_counts(self) -> dict[str, int]:
+        """예제를 제외한 실제 카탈로그 집계입니다."""
+        return {
+            kind: value - self.example_counts.get(kind, 0)
+            for kind, value in self.counts.items()
         }
-    )
 
     @property
     def error_count(self) -> int:
@@ -272,8 +282,18 @@ class CatalogValidator:
 
             records.append(Record(kind=kind, path=path, data=data))
             report.counts[kind] += 1
+            if self._is_example(path):
+                report.example_counts[kind] += 1
 
         return records
+
+    def _is_example(self, path: Path) -> bool:
+        """가상 표본 디렉터리 안의 파일인지 판별합니다."""
+        try:
+            relative = path.resolve().relative_to(self.workspace_root)
+        except ValueError:
+            return False
+        return relative.parts[: len(EXAMPLES_PREFIX)] == EXAMPLES_PREFIX
 
     def _build_indexes(
         self,
@@ -3340,19 +3360,30 @@ def main(argv: list[str] | None = None) -> int:
     ):
         print(issue.render(workspace_root))
 
-    summary = (
-        f"SUMMARY|units={report.counts['unit']}|"
-        f"resources={report.counts['resource']}|"
-        f"sets={report.counts['set']}|"
-        f"studies={report.counts['study']}|"
-        f"signals={report.counts['signal']}|"
-        f"candidates={report.counts['candidate']}|"
-        f"handoffs={report.counts['handoff']}|"
-        f"taxonomies={report.counts['taxonomy']}|"
-        f"errors={report.error_count}|warnings={report.warning_count}"
+    def _format(prefix: str, counts: dict[str, int], tail: str = "") -> str:
+        return (
+            f"{prefix}|units={counts['unit']}|"
+            f"resources={counts['resource']}|"
+            f"sets={counts['set']}|"
+            f"studies={counts['study']}|"
+            f"signals={counts['signal']}|"
+            f"candidates={counts['candidate']}|"
+            f"handoffs={counts['handoff']}|"
+            f"taxonomies={counts['taxonomy']}"
+            f"{tail}"
+        )
+
+    summary = _format(
+        "SUMMARY",
+        report.counts,
+        f"|errors={report.error_count}|warnings={report.warning_count}",
     )
+    # SUMMARY는 검사한 전체이며 `examples/valid`의 가상 표본을 포함합니다.
+    # 실제 카탈로그 규모는 SUMMARY_REAL로 따로 보고합니다.
+    summary_real = _format("SUMMARY_REAL", report.real_counts())
     if not args.quiet or report.issues:
         print(summary)
+        print(summary_real)
 
     return 0 if report.is_valid else 1
 

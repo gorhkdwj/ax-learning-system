@@ -110,7 +110,13 @@ python -m unittest discover -s tests -v
 ```text
 SEVERITY|CODE|relative/path.json|message
 SUMMARY|units=N|resources=N|sets=N|studies=N|signals=N|candidates=N|handoffs=N|taxonomies=N|errors=N|warnings=N
+SUMMARY_REAL|units=N|resources=N|sets=N|studies=N|signals=N|candidates=N|handoffs=N|taxonomies=N
 ```
+
+`SUMMARY`는 검사한 전체이며 `examples/valid`의 가상 표본을 포함합니다. 표본은
+검증기 자체를 확인하려고 기본 검증 범위에 두었기 때문입니다. `SUMMARY_REAL`은
+표본을 제외한 실제 카탈로그 규모입니다. 카탈로그 규모를 보고하거나 인용할 때에는
+`SUMMARY_REAL`을 사용하고, `SUMMARY`는 검증 범위 전체의 처리량으로 읽습니다.
 
 오류가 하나라도 있으면 종료코드 `1`, 스키마 자체를 불러오지 못하면 `2`,
 오류가 없으면 `0`을 반환합니다. 경고는 검토 대상이지만 단독으로 실패시키지
