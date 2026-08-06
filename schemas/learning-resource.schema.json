@@ -63,6 +63,9 @@
         },
         {
           "$ref": "#/$defs/setOwner"
+        },
+        {
+          "$ref": "#/$defs/studyOwner"
         }
       ]
     },
@@ -309,6 +312,28 @@
     "date": {
       "type": "string",
       "format": "date"
+    },
+    "studyOwner": {
+      "description": "자료 한 편을 그 자체로 학습하기 위한 교재의 소유자입니다. Study는 Unit을 거치지 않고 독립 학습 세션이 될 수 있으므로 자기 자료를 가질 수 있습니다.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "id",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "const": "study"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^study\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+        },
+        "version": {
+          "$ref": "#/$defs/semver"
+        }
+      }
     },
     "unitOwner": {
       "type": "object",

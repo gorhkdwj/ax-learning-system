@@ -203,6 +203,83 @@
     "taxonomy_gap": {
       "type": "string"
     },
+    "outcomes": {
+      "description": "이 자료 자체를 학습했을 때 무엇을 할 수 있게 되는지를 정의합니다. Unit의 학습성과와 독립적이며, 대응하는 Unit이 없어도 Study는 그 자체로 학습 세션이 됩니다. Unit이 있을 때의 교차연결은 outcome_coverage로 별도 기록합니다.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "statement",
+          "target_level"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^outcome\\.study\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 1
+          },
+          "target_level": {
+            "description": "자료 한 편으로 도달 가능한 범위는 대개 D0에서 D1입니다. D2 이상은 새로운 입력에서의 독립 수행 증거가 필요하므로 자료 학습만으로 주장하지 않습니다.",
+            "enum": [
+              "D0",
+              "D1",
+              "D2"
+            ]
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      },
+      "default": []
+    },
+    "resource_refs": {
+      "description": "이 Study가 소유하는 학습자료입니다. Unit을 거치지 않고 자료 자체를 학습하기 위한 교재를 둘 수 있습니다.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "resource"
+        ],
+        "properties": {
+          "resource": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "version"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^resource\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+              },
+              "version": {
+                "$ref": "#/$defs/semver"
+              }
+            }
+          },
+          "role": {
+            "enum": [
+              "core",
+              "lab",
+              "reference",
+              "assessment"
+            ]
+          },
+          "required": {
+            "type": "boolean"
+          }
+        }
+      },
+      "default": []
+    },
     "takeaways": {
       "type": "array",
       "minItems": 1,

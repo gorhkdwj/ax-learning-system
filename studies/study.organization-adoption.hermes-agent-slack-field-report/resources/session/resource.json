@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.study.hermes-agent-slack-field-report.session",
+  "version": "1.0.0",
+  "title": "소규모 조직의 공용 에이전트 운영 한 달 학습 세션",
+  "description": "발표자가 제시한 다섯 단계인 데이터 수집, 정리, 도구 연동, 다듬기, 자가학습을 따라가며 이 자료가 말하는 것과 말하지 않는 것을 가르는 오프라인 HTML 세션입니다. 자가학습 모듈의 해설은 접힌 상태로 제공되어 답을 먼저 적은 뒤 대조하도록 구성했습니다.",
+  "resource_type": "interactive_html",
+  "owner": {
+    "kind": "study",
+    "id": "study.organization-adoption.hermes-agent-slack-field-report",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "local",
+    "path": "studies/study.organization-adoption.hermes-agent-slack-field-report/resources/session/index.html"
+  },
+  "learning_outcome_ids": [
+    "outcome.study.hermes-agent-slack-field-report.pipeline",
+    "outcome.study.hermes-agent-slack-field-report.compression",
+    "outcome.study.hermes-agent-slack-field-report.exclusion",
+    "outcome.study.hermes-agent-slack-field-report.ramp-up",
+    "outcome.study.hermes-agent-slack-field-report.claim-appraisal"
+  ],
+  "estimated_minutes": 50,
+  "language": "ko",
+  "tags": [
+    "context-hub",
+    "knowledge-compression",
+    "agent-adoption",
+    "offline-first"
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "modern-browser"
+    ],
+    "network_required": false
+  },
+  "provenance": {
+    "origin": "adapted",
+    "sources": [
+      {
+        "title": "gbrain",
+        "publisher": "Garry Tan",
+        "source_type": "official_source",
+        "url": "https://github.com/garrytan/gbrain",
+        "checked_at": "2026-08-05"
+      },
+      {
+        "title": "gstack",
+        "publisher": "Garry Tan",
+        "source_type": "official_source",
+        "url": "https://github.com/garrytan/gstack",
+        "checked_at": "2026-08-05"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "verified",
+    "standard": "WCAG 2.2 AA",
+    "features": [
+      "keyboard",
+      "focus_visible",
+      "semantic_structure",
+      "text_alternative",
+      "reduced_motion",
+      "print_alternative"
+    ],
+    "checked_at": "2026-08-06",
+    "note": "네이티브 details 요소로 접힘을 구현하여 키보드와 화면 낭독기에서 동일하게 동작합니다. JavaScript 없이도 모든 설명을 읽을 수 있으며 인쇄 스타일을 제공합니다."
+  },
+  "verification": {
+    "status": "partial",
+    "checked_at": "2026-08-06",
+    "commands": [
+      "python tools/build_domain_model_course.py --source studies/study.organization-adoption.hermes-agent-slack-field-report/resources/session/course-content.json --output studies/study.organization-adoption.hermes-agent-slack-field-report/resources/session/index.html --check"
+    ],
+    "expected_outputs": [
+      "생성된 HTML이 구조화된 공개 콘텐츠 정본과 정확히 일치합니다.",
+      "5개 모듈 50분 구성과 자가학습 모듈 해설의 접힘 상태가 확인됩니다."
+    ],
+    "evidence_paths": [
+      "studies/study.organization-adoption.hermes-agent-slack-field-report/resources/session/course-content.json",
+      "studies/study.organization-adoption.hermes-agent-slack-field-report/resources/session/index.html"
+    ],
+    "note": "원천은 단일 조직의 미측정 경험담이므로 이 세션은 자료가 말하는 것을 정확히 전달하고 그 한계를 표시하는 데 목적을 둡니다. 효과 주장은 검증하지 않았으며 학습효과도 아직 확인하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-08-06",
+    "review_due_at": "2026-11-06",
+    "note": "Unit을 거치지 않고 자료 자체를 학습하는 첫 Study 소유 자료입니다. 원천 영상이 내려가면 재확인이 불가능하므로 트랜스크립트는 Vault에 보관합니다."
+  }
+}

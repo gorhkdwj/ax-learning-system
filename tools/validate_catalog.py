@@ -560,7 +560,7 @@ class CatalogValidator:
         owner = record.data.get("owner")
         if isinstance(owner, dict):
             owner_kind = owner.get("kind")
-            if owner_kind in {"unit", "set"}:
+            if owner_kind in {"unit", "set", "study"}:
                 owner_record = self._resolve(
                     owner_kind,
                     owner,
@@ -597,6 +597,23 @@ class CatalogValidator:
                         for outcome in self._list(
                             owner_record.data.get("learning", {}), "outcomes"
                         ):
+                            outcome_id = outcome.get("id")
+                            if isinstance(outcome_id, str):
+                                outcome_counts[outcome_id] = 1
+                    elif owner_kind == "study":
+                        # Study는 Unit을 거치지 않고 자기 자료를 소유할 수 있습니다.
+                        # 학습성과도 Unit이 아니라 Study 자신의 outcomes에서 옵니다.
+                        owner_references.update(
+                            key
+                            for key in (
+                                self._reference_key(link.get("resource"))
+                                for link in self._list(
+                                    owner_record.data, "resource_refs"
+                                )
+                            )
+                            if key is not None
+                        )
+                        for outcome in self._list(owner_record.data, "outcomes"):
                             outcome_id = outcome.get("id")
                             if isinstance(outcome_id, str):
                                 outcome_counts[outcome_id] = 1
@@ -994,12 +1011,54 @@ class CatalogValidator:
     ) -> None:
         """Study의 원천, 미디어 조건, 상태 승격 조건과 카탈로그 참조를 검증합니다.
 
-        Study는 이수 대상이 아니므로 소유관계·역참조 검증에 참여하지 않으며,
-        Unit 참조는 의도적으로 정확한 버전 대신 ID 존재만 확인합니다.
+        Study는 자료 한 편을 그 자체로 학습하는 세션이므로 자기 outcomes와
+        자기 자료를 가질 수 있습니다. Unit 참조는 의도적으로 정확한 버전 대신
+        ID 존재만 확인합니다.
         """
 
         data = record.data
         media_source_kinds = {"video", "podcast"}
+
+        # 자체 학습성과의 ID는 Study 안에서 유일해야 합니다.
+        seen_outcomes: set[str] = set()
+        for outcome in self._list(data, "outcomes"):
+            outcome_id = outcome.get("id")
+            if not isinstance(outcome_id, str):
+                continue
+            if outcome_id in seen_outcomes:
+                report.issues.append(
+                    Issue(
+                        ERROR,
+                        "STUDY_DUPLICATE_OUTCOME",
+                        record.path,
+                        f"{outcome_id}가 중복되었습니다.",
+                    )
+                )
+            seen_outcomes.add(outcome_id)
+
+        # 자기 자료를 선언했다면 그 Resource가 실재하고 소유자가 이 Study여야
+        # 합니다. 소유자 일치는 Resource 쪽 검증이 함께 확인합니다.
+        for link in self._list(data, "resource_refs"):
+            self._resolve(
+                "resource",
+                link.get("resource"),
+                record,
+                "STUDY_RESOURCE",
+                indexes,
+                report,
+            )
+
+        # 자료를 선언했는데 학습성과가 없으면 그 교재가 무엇을 가르치는지
+        # 판정할 근거가 없습니다.
+        if self._list(data, "resource_refs") and not seen_outcomes:
+            report.issues.append(
+                Issue(
+                    ERROR,
+                    "STUDY_RESOURCE_WITHOUT_OUTCOME",
+                    record.path,
+                    "자기 자료를 가진 Study에는 outcomes가 필요합니다.",
+                )
+            )
 
         source = data.get("source")
         source_kind = source.get("kind") if isinstance(source, dict) else None

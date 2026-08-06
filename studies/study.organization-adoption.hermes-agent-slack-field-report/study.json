@@ -84,6 +84,45 @@
     "human-ai-operating-model-decision-rights",
     "agent-state-memory-handoff"
   ],
+  "outcomes": [
+    {
+      "id": "outcome.study.hermes-agent-slack-field-report.pipeline",
+      "statement": "소규모 조직이 공용 에이전트를 도입할 때 거치는 다섯 단계인 데이터 수집, 정리, 도구 연동, 하네스 다듬기, 자가학습을 순서와 함께 설명하고 각 단계가 앞 단계에 의존하는 이유를 말합니다.",
+      "target_level": "D0",
+      "note": "발표자가 영상에서 직접 제시한 구성입니다."
+    },
+    {
+      "id": "outcome.study.hermes-agent-slack-field-report.compression",
+      "statement": "원천 기록을 그대로 읽히지 않고 압축 문서를 매일 갱신해 읽히는 방식을 설명하고, 그 근거로 제시된 토큰 효율과 거버넌스를 구분합니다.",
+      "target_level": "D0"
+    },
+    {
+      "id": "outcome.study.hermes-agent-slack-field-report.exclusion",
+      "statement": "무엇을 넣지 않을지가 압축의 일부임을 설명하고, 고객사 정보 제외처럼 적재 이전 단계에서 결정되는 경계를 예로 듭니다.",
+      "target_level": "D0"
+    },
+    {
+      "id": "outcome.study.hermes-agent-slack-field-report.ramp-up",
+      "statement": "맥락이 쌓이기 전의 낮은 산출물 품질을 도구 성능 문제와 구분하고, 도입 직후 결과를 실패 판정 근거로 쓰지 않는 이유를 설명합니다.",
+      "target_level": "D0"
+    },
+    {
+      "id": "outcome.study.hermes-agent-slack-field-report.claim-appraisal",
+      "statement": "이 자료의 주장 중 단일 조직의 미측정 경험담과 공식 출처로 확인 가능한 사실을 구분하고, 제휴 링크가 걸린 권고를 별도로 다룹니다.",
+      "target_level": "D1",
+      "note": "자료를 읽는 태도 자체를 다루므로 D1로 둡니다. 새 자료에 같은 판정을 적용해야 합니다."
+    }
+  ],
+  "resource_refs": [
+    {
+      "resource": {
+        "id": "resource.study.hermes-agent-slack-field-report.session",
+        "version": "1.0.0"
+      },
+      "role": "core",
+      "required": true
+    }
+  ],
   "takeaways": [
     {
       "claim": "발표자가 인용한 GStack과 GBrain은 Y Combinator CEO Garry Tan이 공개한 별개의 오픈소스입니다. GBrain은 Markdown 문서를 자동으로 연결해 지식그래프를 만드는 에이전트 메모리 계층입니다.",
@@ -156,6 +195,13 @@
   "applicability_note": "Slack을 중심 채널로 삼아 조직 데이터를 적재하고 에이전트가 질의하게 하는 구조가 현재 Phase 3의 Drive 지식구조·검색·Slack 인터페이스 계획과 같은 문제 영역입니다. 다만 이 영상은 단일 조직의 미측정 경험담이므로 설계 착안점으로만 쓰고 효과 근거로 인용하지 않습니다.",
   "outcome_coverage": [
     {
+      "outcome_id": "outcome.ai.system-context-design.d0",
+      "coverage": "partial",
+      "basis": "transcript",
+      "mapped_at": "2026-08-06",
+      "note": "이 자료의 주된 내용입니다. 발표자가 직접 밝힌 구성이 데이터 수집, 정리, 도구 세팅, 다듬기, 자가학습이며 그중 정리 단계가 컨텍스트 압축에 해당합니다. 원천 기록을 그대로 읽히지 않고 매일 갱신하는 압축 SOP 문서를 읽히는 방식과 그 근거로 든 토큰 효율, Karpathy LLM Wiki 착안이 여기 대응합니다. 다만 신뢰 경계와 격리는 다루지 않고 예산 초과나 오염 시험도 없습니다."
+    },
+    {
       "outcome_id": "outcome.organization-adoption.ax-operating-model-decision-rights.d0",
       "coverage": "partial",
       "basis": "transcript",
@@ -172,9 +218,14 @@
   ],
   "related_unit_refs": [
     {
+      "id": "unit.ai.system-context-design",
+      "observed_at_version": "1.0.0",
+      "note": "이 자료의 주된 주제입니다. 조직 데이터를 한 곳에 모으고 압축 문서로 정리해 에이전트가 읽게 하는 전 과정이 컨텍스트 선택·압축에 해당합니다."
+    },
+    {
       "id": "unit.organization-adoption.ax-operating-model-decision-rights",
       "observed_at_version": "1.0.0",
-      "note": "사람과 에이전트의 업무 분담, 승인 지점, 자동 결정에서 제외할 영역을 다루는 부분과 겹칩니다."
+      "note": "사람과 에이전트의 업무 분담, 승인 지점, 자동 결정에서 제외할 영역을 다룹니다. 다만 마무리 소감에 짧게 나오는 곁가지이며 이 자료의 주된 내용이 아닙니다."
     },
     {
       "id": "unit.ai.agent-state-memory-handoff-design",
