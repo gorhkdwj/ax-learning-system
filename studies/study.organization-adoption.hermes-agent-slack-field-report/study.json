@@ -154,7 +154,22 @@
   ],
   "applicability": "high",
   "applicability_note": "Slack을 중심 채널로 삼아 조직 데이터를 적재하고 에이전트가 질의하게 하는 구조가 현재 Phase 3의 Drive 지식구조·검색·Slack 인터페이스 계획과 같은 문제 영역입니다. 다만 이 영상은 단일 조직의 미측정 경험담이므로 설계 착안점으로만 쓰고 효과 근거로 인용하지 않습니다.",
-  "outcome_coverage": [],
+  "outcome_coverage": [
+    {
+      "outcome_id": "outcome.organization-adoption.ax-operating-model-decision-rights.d0",
+      "coverage": "partial",
+      "basis": "transcript",
+      "mapped_at": "2026-08-06",
+      "note": "의사결정권과 실행 권한의 분리(견적·세금계산서는 발행 가능하나 사람 검수 필수), 되돌릴 수 없는 지점 앞의 승인 관문(이메일 일괄 발송 전 승인), 인계 실패(맥락 부족으로 초기 업무 제안이 무용), 최종책임 집중(데이터 거버넌스 담당자 지정 필요 주장)에 실제 사례가 있습니다. 반면 escalation 경로 설계 사례가 없고 역할과 책임의 분리도 명시적으로 다루지 않아 그 부분은 별도 학습이 필요합니다."
+    },
+    {
+      "outcome_id": "outcome.ai.agent-state-memory-handoff-design.d0",
+      "coverage": "partial",
+      "basis": "transcript",
+      "mapped_at": "2026-08-06",
+      "note": "원천 기록과 매일 갱신하는 압축 SOP 문서를 분리해 영속 메모리와 대화 컨텍스트의 역할 차이를 보여줍니다. 다만 상태·소유권·artifact를 명시한 인계 envelope 설계는 다루지 않으며 만료·정정·삭제 계약도 없습니다."
+    }
+  ],
   "related_unit_refs": [
     {
       "id": "unit.organization-adoption.ax-operating-model-decision-rights",
@@ -180,8 +195,8 @@
   ],
   "lifecycle": {
     "owner": "AX learning workspace",
-    "last_reviewed_at": "2026-08-05",
-    "review_due_at": "2026-11-05",
-    "note": "효과 주장은 비교 기준선이 없어 미검증으로 유지합니다. Phase 3에서 Slack 인터페이스 설계를 착수할 때 다시 검토합니다."
+    "last_reviewed_at": "2026-08-06",
+    "review_due_at": "2026-11-06",
+    "note": "효과 주장은 비교 기준선이 없어 미검증으로 유지합니다. 2026-08-06에 ax-operating-model-decision-rights와 agent-state-memory-handoff-design의 D0 학습성과에 대응시켰습니다. 두 건 모두 partial이며 escalation 설계와 인계 envelope는 이 자료로 학습할 수 없습니다."
   }
 }
