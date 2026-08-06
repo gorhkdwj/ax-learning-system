@@ -68,6 +68,14 @@
   "resource_refs": [
     {
       "resource": {
+        "id": "resource.organization-adoption.ax-operating-model-decision-rights.d0-course",
+        "version": "1.0.0"
+      },
+      "role": "core",
+      "required": true
+    },
+    {
+      "resource": {
         "id": "resource.organization-adoption.ax-operating-model-decision-rights.reference",
         "version": "1.0.0"
       },

@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0.0",
+  "id": "resource.organization-adoption.ax-operating-model-decision-rights.d0-course",
+  "version": "1.0.0",
+  "title": "사람과 AI의 역할·결정권·책임 구분 D0 교재",
+  "description": "역할, 책임, 의사결정권, 승인, 인계, 에스컬레이션, 최종책임 일곱 개념의 경계를 실제 운영 사례로 확인하는 오프라인 HTML 교재입니다. 사례 판정 모듈의 해설은 접힌 상태로 제공되어 답을 먼저 적은 뒤 대조하도록 구성했습니다.",
+  "resource_type": "interactive_html",
+  "owner": {
+    "kind": "unit",
+    "id": "unit.organization-adoption.ax-operating-model-decision-rights",
+    "version": "1.0.0"
+  },
+  "location": {
+    "kind": "local",
+    "path": "catalog/items/unit.organization-adoption.ax-operating-model-decision-rights/resources/course/index.html"
+  },
+  "learning_outcome_ids": [
+    "outcome.organization-adoption.ax-operating-model-decision-rights.d0"
+  ],
+  "estimated_minutes": 60,
+  "language": "ko",
+  "tags": [
+    "decision-rights",
+    "accountability",
+    "interactive-course",
+    "offline-first"
+  ],
+  "requirements": {
+    "platforms": [
+      "cross-platform",
+      "modern-browser"
+    ],
+    "network_required": false
+  },
+  "provenance": {
+    "origin": "original",
+    "sources": [
+      {
+        "title": "Artificial Intelligence Risk Management Framework (AI RMF 1.0)",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "official_spec",
+        "url": "https://doi.org/10.6028/NIST.AI.100-1",
+        "source_version": "NIST AI 100-1",
+        "checked_at": "2026-08-06"
+      },
+      {
+        "title": "NIST AI RMF Playbook: Govern",
+        "publisher": "National Institute of Standards and Technology",
+        "source_type": "official_docs",
+        "url": "https://airc.nist.gov/airmf-resources/playbook/govern/",
+        "checked_at": "2026-08-06"
+      },
+      {
+        "title": "Artificial Intelligence: An Accountability Framework for Federal Agencies and Other Entities",
+        "publisher": "U.S. Government Accountability Office",
+        "source_type": "official_docs",
+        "url": "https://www.gao.gov/products/gao-21-519sp",
+        "source_version": "GAO-21-519SP",
+        "checked_at": "2026-08-06"
+      }
+    ]
+  },
+  "accessibility": {
+    "status": "verified",
+    "standard": "WCAG 2.2 AA",
+    "features": [
+      "keyboard",
+      "focus_visible",
+      "semantic_structure",
+      "text_alternative",
+      "reduced_motion",
+      "print_alternative"
+    ],
+    "checked_at": "2026-08-06",
+    "note": "네이티브 details 요소로 접힘을 구현하여 키보드와 화면 낭독기에서 동일하게 동작합니다. JavaScript 없이도 모든 설명과 사례를 읽을 수 있으며 인쇄 스타일을 제공합니다."
+  },
+  "verification": {
+    "status": "verified",
+    "checked_at": "2026-08-06",
+    "commands": [
+      "python tools/build_domain_model_course.py --source catalog/items/unit.organization-adoption.ax-operating-model-decision-rights/resources/course/course-content.json --output catalog/items/unit.organization-adoption.ax-operating-model-decision-rights/resources/course/index.html --check"
+    ],
+    "expected_outputs": [
+      "생성된 HTML이 구조화된 공개 콘텐츠 정본과 정확히 일치합니다.",
+      "5개 모듈 60분 구성과 사례 판정 해설의 접힘 상태가 확인됩니다."
+    ],
+    "evidence_paths": [
+      "catalog/items/unit.organization-adoption.ax-operating-model-decision-rights/resources/course/course-content.json",
+      "catalog/items/unit.organization-adoption.ax-operating-model-decision-rights/resources/course/index.html"
+    ],
+    "note": "HTML은 직접 수정하지 않고 구조화 콘텐츠를 고친 뒤 재생성합니다. 개념 정의는 공식 프레임워크에 정렬했으나 학습효과는 아직 검증하지 않았습니다."
+  },
+  "lifecycle": {
+    "status": "cataloged",
+    "owner": "AX learning workspace",
+    "last_reviewed_at": "2026-08-06",
+    "review_due_at": "2026-11-06",
+    "note": "study.organization-adoption.hermes-agent-slack-field-report@1.0.0의 사례를 개념 예시로 사용합니다. 해당 자료는 단일 조직의 미측정 경험담이므로 효과 근거가 아니라 개념 설명의 예시로만 인용했습니다."
+  }
+}
