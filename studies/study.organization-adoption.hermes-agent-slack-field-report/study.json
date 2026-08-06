@@ -197,6 +197,6 @@
     "owner": "AX learning workspace",
     "last_reviewed_at": "2026-08-06",
     "review_due_at": "2026-11-06",
-    "note": "효과 주장은 비교 기준선이 없어 미검증으로 유지합니다. 2026-08-06에 ax-operating-model-decision-rights와 agent-state-memory-handoff-design의 D0 학습성과에 대응시켰습니다. 두 건 모두 partial이며 escalation 설계와 인계 envelope는 이 자료로 학습할 수 없습니다."
+    "note": "효과 주장은 비교 기준선이 없어 미검증으로 유지합니다. 2026-08-06에 ax-operating-model-decision-rights와 agent-state-memory-handoff-design의 D0 학습성과에 대응시켰습니다. 두 건 모두 partial이며 escalation 설계와 인계 envelope는 이 자료로 학습할 수 없습니다. outcome_coverage는 자료가 무엇을 다루는지에 대한 판정이며 학습자가 그 학습성과를 달성했다는 뜻이 아닙니다. 이 시점까지 학습자의 수행 증거는 없습니다."
   }
 }
